@@ -1,0 +1,135 @@
+Notes
+-----
+
+Série de trois patchs pour garcon ?
+
+
+Tumbler n'est pas la dernière version disponible dans le dépôt de Robby
+Workman. 
+
+Vérifier si 'vendorinfo' défini dans 'libxfce4ui' s'affiche correctement.
+
+
+Compilation de Tumbler. On peut ajouter des fonctionnalités :
+
+  Plugins:
+
+    * GdkPixbuf thumbnailer plugin:                     yes
+    * Cover thumbnailer plugin:                         yes
+    * FreeType font thumbnailer plugin:                 yes
+    * JPEG thumbnailer plugin with EXIF support:        yes
+    * Video thumbnailer plugin using ffmpegthumbnailer: no
+    * Video thumbnailer plugin using GStreamer:         no
+    * ODF thumbnailer plugin using libgsf:              yes
+    * PDF/PS thumbnailer plugin using poppler:          yes
+    * RAW thumbnailer plugin using libopenraw:          no
+    * Freedesktop.org cache plugin:                     yes
+
+
+Que faire du paquet xfwm4-themes, absent de Xfce 4.12 ?
+
+Paquet obsolète : libxfcegui4.
+
+Configuration de gtk-xfce-engine :
+
+  Build Configuration:
+
+  * Gtk 2 Engine: yes
+  * Gtk 3 Engine: 
+
+
+TODO
+----
+
+  * Asunder
+
+  * Recompiler Audacious
+
+  * Audacity
+
+  * Catfish
+
+  * Conky
+
+  * Galculator
+
+  * Inkscape
+
+  * Leafpad
+
+  * Recompiler MPlayer
+
+  * GNOME-Mplayer
+
+  * Openshot
+
+  * Scribus
+
+  * Transmission
+
+  * Xarchiver
+
+  * Xfce Notes Plugin
+
+  * Xfce Xkb Plugin
+
+  * Thunar Archive Plugin
+
+  * Profil d'utilisateur Xfce
+
+  * Traductions de Firefox
+
+  * Traductions de Thunderbird
+
+  * P7zip
+
+  * Recode
+
+  * Unrar
+
+  * Brasero
+
+  * Evince
+
+  * GDM
+
+  * Totem-PL-Parser
+
+  * Plugin Flash
+
+  * FFmpeg
+
+  * Gstreamer Plugins
+
+  * Gstreamer-1 Plugins
+
+  * MPlayer-codecs
+
+  * Gtkcdlabel
+
+  * HPLIP récent
+
+  * Freerdp
+
+  * Remmina
+
+  * Amule
+
+  * Dropbox
+
+  * Easytag
+
+  * Filezilla
+
+  * Spotify
+
+  * VirtualBox
+
+  * Wine
+
+  * WinFF
+
+
+
+Une fois que la page du projet est faite sur le site de Microlinux, mentionner
+cette page dans le fichier README.txt.
