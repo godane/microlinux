@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+xfce4-mixer: xfce4-mixer (Sound mixer applet for Xfce)
+xfce4-mixer:
+xfce4-mixer: The xfce4-mixer package contains a volume control application based 
+xfce4-mixer: on GStreamer written to conceptually fit into the Xfce desktop 
+xfce4-mixer: environment.  It also contains a plugin for the Xfce panel which is 
+xfce4-mixer: especially designed for use with the mouse wheel.
+xfce4-mixer:
+xfce4-mixer:
+xfce4-mixer:
+xfce4-mixer:
+xfce4-mixer: Package created by Niki Kovacs <info@microlinux.fr>
