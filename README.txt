@@ -34,10 +34,6 @@ different sets of repositories:
 Complete sources and build scripts are included. Binary packages are provided
 for 32-bit and 64-bit architectures. 
 
-Check out the MLED project page for detailed information and installation
-instructions:
-
-  * http://www.microlinux.fr/mled.php
 
 Have fun,
 
