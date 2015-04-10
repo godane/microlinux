@@ -38,4 +38,5 @@ libreoffice-helppack-de-4.4.2-i586-1_microlinux.txz: Added.
 orage-4.10.0-i486-1_microlinux.txz: Upgraded.
 libunique-1.1.6-i486-1_microlinux.txz: Added.
 xfce4-mixer-4.10.0-i486-1_microlinux.txz: Upgraded.
+thunar-volman-0.8.1-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
