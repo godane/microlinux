@@ -46,4 +46,5 @@ xfce4-clipman-plugin-1.2.6-i486-1_microlinux.txz: Upgraded.
 xfce4-screenshooter-1.8.2-i486-1_microlinux.txz: Upgraded.
 xfce4-taskmanager-1.1.0-i486-1_microlinux.txz: Upgraded.
 xfce4-weather-plugin-0.8.5-i486-1_microlinux.txz: Upgraded.
+xfce4-whiskermenu-plugin-1.5.0-i486-1_microlinux.txz: Added.
 +--------------------------+
