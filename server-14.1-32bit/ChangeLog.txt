@@ -1,3 +1,4 @@
 Fri Apr 10 04:41:40 CEST 2015
 user-settings-console-14.1-noarch-1_microlinux.txz: Added.
+sbopkg-0.37.0-noarch-1_microlinux.txz: Added.
 +--------------------------+
