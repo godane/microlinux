@@ -28,4 +28,5 @@ aero-1.0-noarch-1_microlinux.txz: Added.
 luna-wallpapers-0.2-noarch-1_microlinux.txz: Added.
 microlinux-wallpapers-1.0-noarch-1_microlinux.txz: Added.
 gtk-engines-2.20.2-i486-1_microlinux.txz: Added.
+clearlooks-phenix-theme-4.0-noarch-1_microlinux.txz: Added.
 +--------------------------+
