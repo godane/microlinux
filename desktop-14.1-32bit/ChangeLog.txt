@@ -35,4 +35,5 @@ libreoffice-langpack-fr-4.4.2-i586-1_microlinux.txz: Added.
 libreoffice-langpack-de-4.4.2-i586-1_microlinux.txz: Added.
 libreoffice-helppack-fr-4.4.2-i586-1_microlinux.txz: Added.
 libreoffice-helppack-de-4.4.2-i586-1_microlinux.txz: Added.
+orage-4.10.0-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
