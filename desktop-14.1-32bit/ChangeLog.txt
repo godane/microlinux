@@ -26,4 +26,5 @@ google-droid-fonts-20100409-noarch-1_microlinux.txz: Added.
 webcore-fonts-3.0-noarch-1_microlinux.txz: Added.
 aero-1.0-noarch-1_microlinux.txz: Added.
 luna-wallpapers-0.2-noarch-1_microlinux.txz: Added.
+microlinux-wallpapers-1.0-noarch-1_microlinux.txz: Added.
 +--------------------------+
