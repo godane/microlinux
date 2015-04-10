@@ -18,4 +18,5 @@ xfce4-session-4.12.1-i486-1_microlinux.txz: Upgraded.
 xfdesktop-4.12.1-i486-1_microlinux.txz: Upgraded.
 xfwm4-4.12.2-i486-1_microlinux.txz: Upgraded.
 xfce4-appfinder-4.12.0-i486-1_microlinux.txz: Upgraded.
+gtk-xfce-engine-3.2.0-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
