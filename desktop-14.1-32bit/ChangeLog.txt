@@ -31,4 +31,6 @@ gtk-engines-2.20.2-i486-1_microlinux.txz: Added.
 clearlooks-phenix-theme-4.0-noarch-1_microlinux.txz: Added.
 jdk-8u40-i586-1_microlinux.txz: Added.
 libreoffice-4.4.2-i586-1_microlinux.txz: Added.
+libreoffice-langpack-fr-4.4.2-i586-1_microlinux.txz: Added.
+libreoffice-langpack-de-4.4.2-i586-1_microlinux.txz: Added.
 +--------------------------+
