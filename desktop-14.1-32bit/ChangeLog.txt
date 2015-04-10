@@ -22,4 +22,5 @@ gtk-xfce-engine-3.2.0-i486-1_microlinux.txz: Upgraded.
 xfce4-terminal-0.6.3-i486-1_microlinux.txz: Upgraded.
 elementary-xfce-20141217-noarch-1_microlinux.txz: Added.
 eurostile-fonts-1.0-noarch-1_microlinux.txz: Added.
+google-droid-fonts-20100409-noarch-1_microlinux.txz: Added.
 +--------------------------+
