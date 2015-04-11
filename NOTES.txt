@@ -9,6 +9,7 @@ Workman.
 
 Vérifier si 'vendorinfo' défini dans 'libxfce4ui' s'affiche correctement.
 
+Peaufiner la configuration du menu Whisker.
 
 Compilation de Tumbler. On peut ajouter des fonctionnalités :
 

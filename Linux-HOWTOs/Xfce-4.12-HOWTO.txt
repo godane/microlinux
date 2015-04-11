@@ -1,10 +1,10 @@
 ===============
-Xfce 4.10 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+Xfce 4.12 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ===============
 
 Dernière révision : 11 avril 2015
 
-Ce HOWTO décrit la configuration du bureau Xfce 4.10 sous Slackware Linux.
+Ce HOWTO décrit la configuration du bureau Xfce 4.12 sous Slackware Linux.
 
 
   * Configuration initiale de Xfce
@@ -41,7 +41,7 @@ Arrière-plan : opensuse-1600x1200.jpg
 
 Nombre d'espaces de travail : 2
 
-Gestionnaire de fenêtres : Axe Rounded
+Gestionnaire de fenêtres : Default
 
 Peaufinage des fenêtres > Compositeur :
 
@@ -65,14 +65,11 @@ Peaufinage des fenêtres > Compositeur :
 
   Opacité des fenêtres contextuelles : laisser tel quel
 
-Éditeur de paramètres > xsettings > Gtk > IconSizes > Modifier :
+Remplacer le Menu d'applications classique par le Menu Whisker.
 
-  gtk-menu=16,16:gtk-button=20,20:panel-applications-menu=24,24:\
-    panel-directory-menu=24,24
+  Affichage : Icône et texte
 
-Menu d'applications > Démarrer > start-here-slackware (emplacements)
-
-  [*] Afficher la description de l'application dans une bulle d'aide
+  Icône : start-here-slackware (emplacements)
 
 Déplacer la zone de notifications à gauche du sélecteur de bureaux virtuels.
 
