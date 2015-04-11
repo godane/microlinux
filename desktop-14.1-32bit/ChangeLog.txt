@@ -1,5 +1,6 @@
 Sat Apr 11 08:34:47 CEST 2015
 gmtk-1.0.8-i486-1_microlinux.txz: Added.
+gnome-mplayer-1.0.8-i486-1_microlinux.txz: Added.
 +--------------------------+
 Fri Apr 10 05:36:48 CEST 2015
 user-settings-console-14.1-noarch-1_microlinux.txz: Added.
