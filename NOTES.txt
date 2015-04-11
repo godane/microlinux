@@ -14,6 +14,9 @@ Peaufiner la configuration du menu Whisker.
 Une fois que MLED est à peu près terminé, nettoyer tools/archive et supprimer
 les entrées de menu.
 
+Ajouter un bout de code à 'cleanmenu.sh' pour Thunar Bulk Rename, dont le
+chemin est différent pour les versions 32-bits et 64-bits.
+
 Compilation de Tumbler. On peut ajouter des fonctionnalités :
 
   Plugins:
