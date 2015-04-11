@@ -11,6 +11,9 @@ Vérifier si 'vendorinfo' défini dans 'libxfce4ui' s'affiche correctement.
 
 Peaufiner la configuration du menu Whisker.
 
+Une fois que MLED est à peu près terminé, nettoyer tools/archive et supprimer
+les entrées de menu.
+
 Compilation de Tumbler. On peut ajouter des fonctionnalités :
 
   Plugins:
