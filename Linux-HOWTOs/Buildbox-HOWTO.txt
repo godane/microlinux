@@ -75,11 +75,11 @@ Voilà à quoi cela ressemble :
   /dev/sda15      433706868   488392064    27342598+  83  Linux
 
 
-  * /dev/sda1 est la partition d’échange (swap) commune à tous les systèmes.
+  * /dev/sda1 est la partition d'échange (swap) commune à tous les systèmes.
 
   * /dev/sda2 (37960 MB) contient le système "principal" avec notamment la
     configuration du chargeur de démarrage LILO, le gestionnaire de fenêtres
-    minimal WindowMaker et Conky pour surveiller l’espace disque.
+    minimal WindowMaker et Conky pour surveiller l'espace disque.
 
   * /dev/sda3 et /dev/sda5 : MLES 14.0 (32-bit et 64-bit)
 
@@ -166,7 +166,7 @@ Lorsqu'on invoque LILO, on obtient ceci :
 Configuration de Conky
 ----------------------
 
-Sur le système principal, Conky sert principalement à surveiller l’espace
+Sur le système principal, Conky sert principalement à surveiller l'espace
 disque de tous les systèmes installés :
 
 --8<---------- ~/.conkyrc ----------------------------------------------------
@@ -220,7 +220,7 @@ Pense-bête pour la configuration de chaque système
 --------------------------------------------------
 
 
-  * Les systèmes n’ont pas de partition '/boot' séparée.
+  * Les systèmes n'ont pas de partition '/boot' séparée.
 
   * Désélectionner les groupes de paquets E, KDE, KDEI, XAP et XFCE.
 
@@ -231,7 +231,7 @@ Pense-bête pour la configuration de chaque système
 
   * Sur un système poste de travail, laisser les services configurés par défaut.
 
-  * Inclure les modules 'ext4' et 'radeon' dans l’initrd.
+  * Inclure les modules 'ext4' et 'radeon' dans l'initrd.
 
   * Au premier redémarrage, installer le paquet 'user-settings-console'.
 
