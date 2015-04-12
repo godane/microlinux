@@ -1,3 +1,6 @@
+Sun Apr 12 09:30:51 CEST 2015
+user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
++--------------------------+
 Sat Apr 11 08:34:47 CEST 2015
 gmtk-1.0.8-i486-1_microlinux.txz: Added.
 gnome-mplayer-1.0.8-i486-1_microlinux.txz: Added.

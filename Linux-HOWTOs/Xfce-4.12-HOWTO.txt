@@ -102,12 +102,11 @@ Thunar : augmenter d'un cran la taille des icônes
 Création du profil
 ------------------
 
-  # cp -Rv /home/template/.config /etc/skel/
-  # cd /etc/skel/.config
+  # mkdir /etc/skel/.config/xfce4
+  # cp -Rv /home/template/.config/xfce4/{panel,terminal,xfconf} \
+      /etc/skel/.config/xfce4/
 
-Garder le répertoire 'xfce4' et supprimer tout le reste.
-
-Supprimer .config/xfce4/xfce4-screenshooter
+La configuration de Whiskermenu se trouve dans 'xfce4/panel/'.
 
 Empaqueter la configuration :
 
