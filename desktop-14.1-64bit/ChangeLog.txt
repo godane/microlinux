@@ -2,6 +2,7 @@ Sun Apr 12 09:43:03 CEST 2015
 gmtk-1.0.8-x86_64-1_microlinux.txz: Added.
 gnome-mplayer-1.0.8-x86_64-1_microlinux.txz: Added.
 user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
+acpica-20150204-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Fri Apr 10 05:54:17 CEST 2015
 user-settings-console-14.1-noarch-1_microlinux.txz: Added.
