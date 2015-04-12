@@ -1,6 +1,7 @@
 Sun Apr 12 12:19:12 CEST 2015
 virtualbox-4.3.26-i486-1_microlinux.txz: Added.
 virtualbox-kernel-4.3.26_3.10.17_smp-i486-1_microlinux.txz: Added.
+virtualbox-extension-pack-4.3.26-i486-1_microlinux.txz: Added.
 +--------------------------+
 Fri Apr 10 06:23:40 CEST 2015
 cdlabelgen-4.3.0-noarch-1_microlinux.txz: Added.
