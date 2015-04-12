@@ -1,0 +1,263 @@
+==============
+Buildbox HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+==============
+
+Dernière révision : 12 avril 2015
+
+Ce HOWTO décrit la configuration d'une machine dédiée à la compilation de
+paquets Slackware.
+
+
+  * Introduction
+  * Matériel
+  * Schéma de partitionnement
+  * Configuration de LILO
+  * Configuration de Conky
+  * Pense-bête pour la configuration de chaque système
+  * Multiboot et connexion SSH
+
+
+Introduction
+------------
+
+Mon réseau local comporte désormais une machine dédiée à la compilation de
+paquets Slackware pour MLED (Microlinux Enterprise Desktop) et MLES (Microlinux
+Enterprise Server). J'ai eu quelques ennuis avec la compilation sous VirtualBox
+suite à un bug avec OpenGL, et j'ai décidé d'opter pour une solution quelque
+peu archaïque, mais robuste et pérenne. 
+
+
+Matériel
+--------
+
+Côté matériel, j'ai opté pour une station de travail HP Compaq reconditionnée,
+munie d'un simple disque serveur de 250 Go de chez HP.
+
+
+Schéma de partitionnement
+-------------------------
+
+La machine est un multiboot qui contiendra en tout et pour tout 13 (!) systèmes
+différents :
+
+  * 1 système principal pour le dépôt de paquets centralisé et la supervision
+
+  * 4 versions de MLES pour 2 architectures
+
+  * 2 versions de MLED pour 2 architectures
+
+Voilà à quoi cela ressemble :
+
+  # fdisk -l
+
+  Disque /dev/sda : 250.1 Go, 250059350016 octets
+  255 têtes, 63 secteurs/piste, 30401 cylindres, total 488397168 secteurs
+  Unités = secteur de 1 * 512 = 512 octets
+  Taille de secteur (logique / physique) : 512 octets / 512 octets
+  taille d'E/S (minimale / optimale) : 512 octets / 512 octets
+  Identifiant de disque : 0x0004e487
+
+  Périphérique Amorce  Début        Fin      Blocs     Id  Système
+  /dev/sda1              63     8000369     4000153+  82  swap
+  /dev/sda2         8000370    82140344    37069987+  83  Linux
+  /dev/sda3        82140345   105579179    11719417+  83  Linux
+  /dev/sda4       105579180   488392064   191406442+   5  Étendue
+  /dev/sda5       105579243   129018014    11719386   83  Linux
+  /dev/sda6       129018078   152456849    11719386   83  Linux
+  /dev/sda7       152456913   175895684    11719386   83  Linux
+  /dev/sda8       175895748   199334519    11719386   83  Linux
+  /dev/sda9       199334583   222773354    11719386   83  Linux
+  /dev/sda10      222773418   246212189    11719386   83  Linux
+  /dev/sda11      246212253   269651024    11719386   83  Linux
+  /dev/sda12      269651088   324336284    27342598+  83  Linux
+  /dev/sda13      324336348   379021544    27342598+  83  Linux
+  /dev/sda14      379021608   433706804    27342598+  83  Linux
+  /dev/sda15      433706868   488392064    27342598+  83  Linux
+
+
+  * /dev/sda1 est la partition d’échange (swap) commune à tous les systèmes.
+
+  * /dev/sda2 (37960 MB) contient le système "principal" avec notamment la
+    configuration du chargeur de démarrage LILO, le gestionnaire de fenêtres
+    minimal WindowMaker et Conky pour surveiller l’espace disque.
+
+  * /dev/sda3 et /dev/sda5 : MLES 14.0 (32-bit et 64-bit)
+
+  * /dev/sda6 et /dev/sda7 : MLES 14.1 (32-bit et 64-bit)
+
+  * /dev/sda8 à /dev/sda11 : place pour 2 futures versions de MLES
+
+  * /dev/sda12 et /dev/sda13 : MLED 14.1 (32-bit et 64-bit)
+
+  * /dev/sda14 et /dev/sda15 : place pour 1 future version de MLED
+
+
+Configuration de LILO
+---------------------
+
+Le système principal monte les partitions des autres systèmes au démarrage :
+
+--8<---------- /etc/fstab ----------------------------------------------------
+/dev/sda1     swap           swap      defaults       0   0
+/dev/sda2     /              ext4      defaults       1   1
+/dev/sda3     /mnt/sda3      ext4      defaults       0   0
+/dev/sda5     /mnt/sda5      ext4      defaults       0   0
+/dev/sda6     /mnt/sda6      ext4      defaults       0   0
+/dev/sda7     /mnt/sda7      ext4      defaults       0   0
+/dev/sda12    /mnt/sda12     ext4      defaults       0   0
+/dev/sda13    /mnt/sda13     ext4      defaults       0   0
+...
+--8<--------------------------------------------------------------------------
+
+Chacun des systèmes a une stance correspondante dans lilo.conf :
+
+--8<---------- /etc/lilo.conf ------------------------------------------------
+...
+image = /boot/vmlinuz-generic-3.10.17
+  initrd = /boot/initrd.gz
+  root = /dev/sda2
+  label = Slack64-14.1
+  read-only
+image = /mnt/sda3/boot/vmlinuz-generic-smp-3.2.45-smp
+  initrd = /mnt/sda3/boot/initrd.gz
+  root = /dev/sda3
+  label = MLES-14.0-32bit
+  read-only
+image = /mnt/sda5/boot/vmlinuz-generic-3.2.45
+  initrd = /mnt/sda5/boot/initrd.gz
+  root = /dev/sda5
+  label = MLES-14.0-64bit
+  read-only
+image = /mnt/sda6/boot/vmlinuz-generic-smp-3.10.17-smp
+  initrd = /mnt/sda6/boot/initrd.gz
+  root = /dev/sda6
+  label = MLES-14.1-32bit
+  read-only
+image = /mnt/sda7/boot/vmlinuz-generic-3.10.17
+  initrd = /mnt/sda7/boot/initrd.gz
+  root = /dev/sda7
+  label = MLES-14.1-64bit
+  read-only
+image = /mnt/sda12/boot/vmlinuz-generic-smp-3.10.17-smp
+  initrd = /mnt/sda12/boot/initrd.gz
+  root = /dev/sda12
+  label = MLED-14.1-32bit
+  read-only
+image = /mnt/sda13/boot/vmlinuz-generic-3.10.17
+  initrd = /mnt/sda13/boot/initrd.gz
+  root = /dev/sda13
+  label = MLED-14.1-64bit
+  read-only
+...
+--8<--------------------------------------------------------------------------
+
+Lorsqu'on invoque LILO, on obtient ceci :
+
+  # lilo
+  Added Slack64-14.1  +  *
+  Added MLES-14.0-32bit  +
+  Added MLES-14.0-64bit  +
+  Added MLES-14.1-32bit  +
+  Added MLES-14.1-64bit  +
+  Added MLED-14.1-32bit  +
+  Added MLED-14.1-64bit  +
+
+
+Configuration de Conky
+----------------------
+
+Sur le système principal, Conky sert principalement à surveiller l’espace
+disque de tous les systèmes installés :
+
+--8<---------- ~/.conkyrc ----------------------------------------------------
+# .conkyrc
+
+# Configuration de base
+background yes
+double_buffer yes
+alignment top_right
+default_color b0b0b0
+use_xft yes
+xftfont Bitstream Vera Sans Mono:size=12
+xftalpha 0.8
+gap_x 20
+gap_y 150
+update_interval 1.0
+
+# Variables
+TEXT
+Slackware 14.1 64-bit
+${color ddaa00}sda2  $color ${fs_bar /}
+
+MLES 14.0 32-bit
+${color ddaa00}sda3  $color ${fs_bar /mnt/sda3}
+
+MLES 14.0 64-bit
+${color ddaa00}sda5  $color ${fs_bar /mnt/sda5}
+
+MLES 14.1 32-bit
+${color ddaa00}sda6  $color ${fs_bar /mnt/sda6}
+
+MLES 14.1 64-bit 
+${color ddaa00}sda7  $color ${fs_bar /mnt/sda7}
+
+MLED 14.1 32-bit 
+${color ddaa00}sda12 $color ${fs_bar /mnt/sda12}
+
+MLED 14.1 64-bit 
+${color ddaa00}sda13 $color ${fs_bar /mnt/sda13}
+--8<--------------------------------------------------------------------------
+
+Lancer Conky automatiquement au démarrage de WindowMaker :
+
+--8<---------- ~/GNUstep/Library/WindowMaker/autostart -----------------------
+#!/bin/sh
+/usr/bin/conky
+--8<--------------------------------------------------------------------------
+
+
+Pense-bête pour la configuration de chaque système
+--------------------------------------------------
+
+
+  * Les systèmes n’ont pas de partition '/boot' séparée.
+
+  * Désélectionner les groupes de paquets E, KDE, KDEI, XAP et XFCE.
+
+  * Ne pas réinstaller LILO, qui se trouve déjà sur /dev/sda2 !
+
+  * Sur un système serveur, activer rc.syslog et rc.sshd et désactiver les
+    autres services.
+
+  * Sur un système poste de travail, laisser les services configurés par défaut.
+
+  * Inclure les modules 'ext4' et 'radeon' dans l’initrd.
+
+  * Au premier redémarrage, installer le paquet 'user-settings-console'.
+
+  * Configurer 'slackpkg' et effectuer la mise à jour initiale.
+
+  * Configurer la disposition du clavier en mode graphique.
+
+  * Créer un utilisateur.
+
+  * Installer WindowMaker et passer en init 4.
+
+  * Ajouter le nouveau système au moniteur disque de Conky.
+
+  * Élaguer le système de base.
+
+  * Sur MLED 64-bit, installer la couche Multilib.
+
+
+Multiboot et connexion SSH
+--------------------------
+
+Pour éviter les erreurs lors de la connexion à distance, il suffit de copier
+les clés SSH du système principal vers les autres systèmes installés :
+
+  # cp /etc/ssh/ssh_host_*key* /mnt/sdaX/etc/ssh/
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
