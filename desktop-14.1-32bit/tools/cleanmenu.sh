@@ -19,5 +19,11 @@ for MENUDIR in $MENUDIRS; do
 	done
 done
 
+if [ -r /usr/share/applications/Thunar-bulk-rename.desktop ]; then
+  if [ $(uname -m) == "x86_64" ]; then
+    sed -i "s/\/usr\/lib\/Thunar/\/usr\/lib64\/Thunar/g" /usr/share/applications/Thunar-bulk-rename.desktop
+  fi
+fi
+
 
 
