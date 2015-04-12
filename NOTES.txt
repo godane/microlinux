@@ -28,10 +28,6 @@ Compilation de Tumbler. On peut ajouter des fonctionnalités :
     * Freedesktop.org cache plugin:                     yes
 
 
-Que faire du paquet xfwm4-themes, absent de Xfce 4.12 ?
-
-Paquet obsolète : libxfcegui4.
-
 Configuration de gtk-xfce-engine :
 
   Build Configuration:
@@ -60,8 +56,6 @@ TODO
   * Leafpad
 
   * Recompiler MPlayer
-
-  * GNOME-Mplayer
 
   * Openshot
 
