@@ -92,6 +92,8 @@ Pour chacune des entrées qu'on vient d'ajouter :
 
   [ ] Désactiver les bulles d'aide
 
+Masquer automatiquement le tableau de bord : Intelligemment.
+
 Peaufiner Xfce Terminal.
 
 Thunar : augmenter d'un cran la taille des icônes
