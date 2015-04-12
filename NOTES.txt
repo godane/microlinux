@@ -7,15 +7,10 @@ Série de trois patchs pour garcon ?
 Tumbler n'est pas la dernière version disponible dans le dépôt de Robby
 Workman. 
 
-Vérifier si 'vendorinfo' défini dans 'libxfce4ui' s'affiche correctement.
-
-Peaufiner la configuration du menu Whisker.
 
 Une fois que MLED est à peu près terminé, nettoyer tools/archive et supprimer
 les entrées de menu.
 
-Ajouter un bout de code à 'cleanmenu.sh' pour Thunar Bulk Rename, dont le
-chemin est différent pour les versions 32-bits et 64-bits.
 
 Compilation de Tumbler. On peut ajouter des fonctionnalités :
 
@@ -81,8 +76,6 @@ TODO
   * Xfce Xkb Plugin
 
   * Thunar Archive Plugin
-
-  * Profil d'utilisateur Xfce
 
   * Traductions de Firefox
 
