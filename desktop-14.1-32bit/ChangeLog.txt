@@ -14,6 +14,7 @@ atkmm-2.22.7-i486-1_microlinux.txz: Added.
 mm-common-0.9.6-noarch-1_microlinux.txz: Added.
 gtkmm-2.24.4-i486-1_microlinux.txz: Added.
 goocanvas-0.15-i486-1_microlinux.txz: Added.
+pygoocanvas-0.14.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 09:30:51 CEST 2015
 user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
