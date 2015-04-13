@@ -29,6 +29,7 @@ faad2-2.7-i486-1_microlinux.txz: Added.
 a52dec-0.7.4-i486-1_microlinux.txz: Added.
 libmpeg2-0.5.1-i486-1_microlinux.txz: Added.
 libdv-1.0.0-i486-1_microlinux.txz: Added.
+mplayer-codecs32-20110131-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 09:30:51 CEST 2015
 user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
