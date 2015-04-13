@@ -51,7 +51,7 @@ TODO
 
   * Audacity
 
-  * Catfish
+  * Recoll et toutes les dépendances
 
   * Conky
 
