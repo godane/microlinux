@@ -35,6 +35,7 @@ flashplayer-plugin-11.2.202.451-i386-1_microlinux.txz: Added.
 libquicktime-1.2.4-i486-1_microlinux.txz: Added.
 id3lib-3.8.3-i486-1_microlinux.txz: Added.
 libcuefile-r475-i486-1_microlinux.txz: Added.
+orc-0.4.22-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 09:30:51 CEST 2015
 user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
