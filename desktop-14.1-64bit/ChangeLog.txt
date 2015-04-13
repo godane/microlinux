@@ -16,6 +16,36 @@ gtkmm-2.24.4-x86_64-1_microlinux.txz: Added.
 goocanvas-0.15-x86_64-1_microlinux.txz: Added.
 pygoocanvas-0.14.1-x86_64-1_microlinux.txz: Added.
 totem-pl-parser-3.4.5-x86_64-1_microlinux.txz: Added.
+lame-3.99.5-x86_64-1_microlinux.txz: Added.
+x264-20131101-x86_64-1_microlinux.txz: Added.
+libmp4v2-2.0.0-x86_64-1_microlinux.txz: Added.
+faac-1.28-x86_64-1_microlinux.txz: Added.
+frei0r-1.4-x86_64-1_microlinux.txz: Added.
+xvidcore-1.3.3-x86_64-1_microlinux.txz: Added.
+ffmpeg-2.1.5-x86_64_custom-1_microlinux.txz: Added.
+libcdaudio-0.99.12p2-x86_64-1_microlinux.txz: Added.
+libdvdnav-4.2.0-x86_64-1_microlinux.txz: Added.
+faad2-2.7-x86_64-1_microlinux.txz: Added.
+a52dec-0.7.4-x86_64-1_microlinux.txz: Added.
+libmpeg2-0.5.1-x86_64-1_microlinux.txz: Added.
+libdv-1.0.0-x86_64-1_microlinux.txz: Added.
+mplayer-codecs64-20061022-x86_64-1_microlinux.txz: Added.
+libdvdcss-1.2.13-x86_64-1_microlinux.txz: Added.
+flashplayer-plugin-11.2.202.451-x86_64-1_microlinux.txz: Added.
+libquicktime-1.2.4-x86_64-1_microlinux.txz: Added.
+id3lib-3.8.3-x86_64-1_microlinux.txz: Added.
+libcuefile-r475-x86_64-1_microlinux.txz: Added.
+orc-0.4.22-x86_64-1_microlinux.txz: Added.
+gst-plugins-bad-0.10.23-x86_64-1_microlinux.txz: Added.
+gst-plugins-ugly-0.10.19-x86_64-1_microlinux.txz: Added.
+gst-ffmpeg-0.10.13-x86_64-1_microlinux.txz: Added.
+gstreamer1-1.4.1-x86_64-1_microlinux.txz: Added.
+gst1-plugins-base-1.4.1-x86_64-1_microlinux.txz: Added.
+gst1-plugins-good-1.4.1-x86_64-1_microlinux.txz: Added.
+gst1-plugins-bad-1.4.1-x86_64-1_microlinux.txz: Added.
+gst1-libav-1.4.1-x86_64-1_microlinux.txz: Added.
+lua-5.1.5-x86_64-1_microlinux.txz: Added.
+mlt-0.9.0-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 09:43:03 CEST 2015
 gmtk-1.0.8-x86_64-1_microlinux.txz: Added.
