@@ -8,6 +8,7 @@ mozilla-firefox-langpack-31.5.0-i486-1_microlinux.txz: Added.
 mozilla-thunderbird-langpack-31.5.0-i486-1_microlinux.txz: Added.
 libsigc++-2.2.11-i486-1_microlinux.txz: Added.
 glibmm-2.36.2-i486-1_microlinux.txz: Added.
+cairomm-1.10.0-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 09:30:51 CEST 2015
 user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
