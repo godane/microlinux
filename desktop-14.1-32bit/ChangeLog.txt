@@ -3,6 +3,7 @@ p7zip-9.20.1-i486-1_microlinux.txz: Added.
 recode-3.7_beta2-i486-1_microlinux.txz: Added.
 unrar-5.0.14-i486-1_microlinux.txz: Added.
 libgnomecanvas-2.30.3-i486-1_microlinux.txz: Added.
+gdm-2.20.11-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 09:30:51 CEST 2015
 user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
