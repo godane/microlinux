@@ -37,6 +37,7 @@ id3lib-3.8.3-i486-1_microlinux.txz: Added.
 libcuefile-r475-i486-1_microlinux.txz: Added.
 orc-0.4.22-i486-1_microlinux.txz: Added.
 gst-plugins-bad-0.10.23-i486-1_microlinux.txz: Added.
+gst-plugins-ugly-0.10.19-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 09:30:51 CEST 2015
 user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
