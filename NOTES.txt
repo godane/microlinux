@@ -36,6 +36,12 @@ Configuration de gtk-xfce-engine :
   * Gtk 3 Engine: 
 
 
+Activer automatiquement les traductions pour Firefox et Thunderbird ?
+
+
+Empaqueter Adblock Plus ?
+
+
 TODO
 ----
 
