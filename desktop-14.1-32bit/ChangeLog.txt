@@ -19,6 +19,7 @@ totem-pl-parser-3.4.5-i486-1_microlinux.txz: Added.
 lame-3.99.5-i486-1_microlinux.txz: Added.
 x264-20131101-i486-1_microlinux.txz: Added.
 libmp4v2-2.0.0-i486-1_microlinux.txz: Added.
+faac-1.28-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 09:30:51 CEST 2015
 user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
