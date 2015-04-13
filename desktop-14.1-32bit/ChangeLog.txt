@@ -6,6 +6,7 @@ libgnomecanvas-2.30.3-i486-1_microlinux.txz: Added.
 gdm-2.20.11-i486-1_microlinux.txz: Added.
 mozilla-firefox-langpack-31.5.0-i486-1_microlinux.txz: Added.
 mozilla-thunderbird-langpack-31.5.0-i486-1_microlinux.txz: Added.
+libsigc++-2.2.11-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 09:30:51 CEST 2015
 user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
