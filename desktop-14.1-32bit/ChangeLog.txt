@@ -42,6 +42,7 @@ gst-ffmpeg-0.10.13-i486-1_microlinux.txz: Added.
 gstreamer1-1.4.1-i486-1_microlinux.txz: Added.
 gst1-plugins-base-1.4.1-i486-1_microlinux.txz: Added.
 gst1-plugins-good-1.4.1-i486-1_microlinux.txz: Added.
+gst1-plugins-bad-1.4.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 09:30:51 CEST 2015
 user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
