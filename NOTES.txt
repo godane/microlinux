@@ -53,8 +53,6 @@ TODO
 
   * Leafpad
 
-  * Openshot
-
   * Scribus
 
   * Transmission
