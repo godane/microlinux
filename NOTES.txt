@@ -53,10 +53,6 @@ TODO
 
   * Leafpad
 
-  * Scribus
-
-  * Transmission
-
   * Xarchiver
 
   * Xfce Notes Plugin
