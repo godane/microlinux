@@ -19,6 +19,7 @@ BeautifulSoup-3.2.1-i486-1_microlinux.txz: Added.
 gsl-1.16-i486-1_microlinux.txz: Added.
 lxml-3.4.0-i486-1_microlinux.txz: Added.
 inkscape-0.48.5-i486-1_microlinux.txz: Added.
+pyxdg-0.25-i486-1_microlinux.txz: Added.
 +--------------------------+
 Mon Apr 13 07:16:44 CEST 2015
 p7zip-9.20.1-i486-1_microlinux.txz: Added.
