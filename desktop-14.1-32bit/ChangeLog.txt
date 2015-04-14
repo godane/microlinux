@@ -5,6 +5,7 @@ asunder-2.5-i486-1_microlinux.txz: Added.
 audacious-3.4.2-i486-1_microlinux.txz: Upgraded.
 audacious-plugins-3.4.2-i486-1_microlinux.txz: Upgraded.
   Enhanced multimedia capabilities.
+libgnomecups-0.2.3-i486-1_microlinux.txz: Added.
 +--------------------------+
 Mon Apr 13 07:16:44 CEST 2015
 p7zip-9.20.1-i486-1_microlinux.txz: Added.
