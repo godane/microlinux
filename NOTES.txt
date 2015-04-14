@@ -45,8 +45,6 @@ Empaqueter Adblock Plus ?
 TODO
 ----
 
-  * Audacity
-
   * Recoll et toutes les dépendances
 
   * Conky
