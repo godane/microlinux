@@ -51,8 +51,6 @@ TODO
 
   * Galculator
 
-  * Inkscape
-
   * Leafpad
 
   * Openshot
