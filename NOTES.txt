@@ -69,33 +69,7 @@ TODO
 
   * Thunar Archive Plugin
 
-  * Traductions de Firefox
-
-  * Traductions de Thunderbird
-
-  * P7zip
-
-  * Recode
-
-  * Unrar
-
-  * Brasero
-
   * Evince
-
-  * GDM
-
-  * Totem-PL-Parser
-
-  * Plugin Flash
-
-  * FFmpeg
-
-  * Gstreamer Plugins
-
-  * Gstreamer-1 Plugins
-
-  * MPlayer-codecs
 
   * Gtkcdlabel
 
@@ -118,7 +92,6 @@ TODO
   * Wine
 
   * WinFF
-
 
 
 Une fois que la page du projet est faite sur le site de Microlinux, mentionner

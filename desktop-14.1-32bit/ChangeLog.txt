@@ -12,6 +12,7 @@ wxPython-2.8.12.1-i486-1_microlinux.txz: Added.
 audacity-2.0.6-i486-1_microlinux.txz: Added.
 libburn-1.3.8-i486-1_microlinux.txz: Added.
 libisofs-1.3.8-i486-3_microlinux.txz: Added.
+brasero-3.11.4-i486-1_microlinux.txz: Added.
 +--------------------------+
 Mon Apr 13 07:16:44 CEST 2015
 p7zip-9.20.1-i486-1_microlinux.txz: Added.
