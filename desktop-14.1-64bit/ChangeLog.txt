@@ -1,3 +1,29 @@
+Tue Apr 14 15:47:28 CEST 2015
+MPlayer-1.1.1-x86_64-1_microlinux.txz: Rebuilt.
+  Enhanced multimedia capabilities.
+asunder-2.5-x86_64-1_microlinux.txz: Added.
+audacious-3.4.2-x86_64-1_microlinux.txz: Upgraded.
+audacious-plugins-3.4.2-x86_64-1_microlinux.txz: Upgraded.
+  Enhanced multimedia capabilities.
+libgnomecups-0.2.3-x86_64-1_microlinux.txz: Added.
+libgnomeprint-2.18.8-x86_64-1_microlinux.txz: Added.
+libgnomeprintui-2.18.6-x86_64-1_microlinux.txz: Added.
+wxPython-2.8.12.1-x86_64-1_microlinux.txz: Added.
+audacity-2.0.6-x86_64-1_microlinux.txz: Added.
+libburn-1.3.8-x86_64-1_microlinux.txz: Added.
+libisofs-1.3.8-x86_64-3_microlinux.txz: Added.
+brasero-3.11.4-x86_64-1_microlinux.txz: Added.
+evince-3.12.2-x86_64-1_microlinux.txz: Added.
+numpy-1.9.1-x86_64-1_microlinux.txz: Added.
+BeautifulSoup-3.2.1-x86_64-1_microlinux.txz: Added.
+gsl-1.16-x86_64-1_microlinux.txz: Added.
+lxml-3.4.0-x86_64-1_microlinux.txz: Added.
+inkscape-0.48.5-x86_64-1_microlinux.txz: Added.
+pyxdg-0.25-x86_64-1_microlinux.txz: Added.
+openshot-1.4.3-x86_64-2_microlinux.txz: Added.
+transmission-2.84-x86_64-1_microlinux.txz: Added.
+scribus-1.4.4-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Mon Apr 13 09:42:49 CEST 2015
 p7zip-9.20.1-x86_64-1_microlinux.txz: Added.
 recode-3.7_beta2-x86_64-1_microlinux.txz: Added.
