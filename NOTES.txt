@@ -45,8 +45,6 @@ Empaqueter Adblock Plus ?
 TODO
 ----
 
-  * Recompiler Audacious
-
   * Audacity
 
   * Recoll et toutes les dépendances

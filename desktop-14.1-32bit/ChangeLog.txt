@@ -1,7 +1,10 @@
 Tue Apr 14 09:13:35 CEST 2015
 MPlayer-1.1.1-i486-1_microlinux.txz: Rebuilt.
+  Enhanced multimedia capabilities.
 asunder-2.5-i486-1_microlinux.txz: Added.
 audacious-3.4.2-i486-1_microlinux.txz: Upgraded.
+audacious-plugins-3.4.2-i486-1_microlinux.txz: Upgraded.
+  Enhanced multimedia capabilities.
 +--------------------------+
 Mon Apr 13 07:16:44 CEST 2015
 p7zip-9.20.1-i486-1_microlinux.txz: Added.
@@ -54,6 +57,7 @@ mlt-0.9.0-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 09:30:51 CEST 2015
 user-settings-xfce-4.12-noarch-1_microlinux.txz: Added.
+  Check out Linux-HOWTOs/Xfce-4.12-HOWTO.txt for details.
 acpica-20150204-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sat Apr 11 08:34:47 CEST 2015
