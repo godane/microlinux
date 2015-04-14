@@ -69,8 +69,6 @@ TODO
 
   * Thunar Archive Plugin
 
-  * Evince
-
   * Gtkcdlabel
 
   * HPLIP récent
