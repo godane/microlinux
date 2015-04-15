@@ -1,6 +1,16 @@
 Notes
 -----
 
+La compilation de xfce4-notes-plugin se termine sur l'erreur suivante :
+
+  CCLD   xfce4-notes-settings CCLD   xfce4-notes
+  /usr/lib/gcc/i486-slackware-linux/4.8.2/../../../../i486-slackware-linux/bin/ld:
+  warning: libxfce4util.so.6, needed by /usr/lib/libxfcegui4.so, not found
+  (try using -rpath or -rpath-link) /usr/lib/libxfcegui4.so: undefined
+  reference to `xfce_setenv' collect2: error: ld returned 1 exit status
+  make[3]: *** [xfce4-notes-settings] Erreur 1
+
+
 Série de trois patchs pour garcon ?
 
 
