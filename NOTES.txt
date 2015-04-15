@@ -18,10 +18,6 @@ Tumbler n'est pas la dernière version disponible dans le dépôt de Robby
 Workman. 
 
 
-Une fois que MLED est à peu près terminé, nettoyer tools/archive et supprimer
-les entrées de menu.
-
-
 Compilation de Tumbler. On peut ajouter des fonctionnalités :
 
   Plugins:
@@ -57,19 +53,7 @@ TODO
 
   * Recoll et toutes les dépendances
 
-  * Conky
-
-  * Galculator
-
-  * Leafpad
-
-  * Xarchiver
-
   * Xfce Notes Plugin
-
-  * Xfce Xkb Plugin
-
-  * Thunar Archive Plugin
 
   * Gtkcdlabel
 
