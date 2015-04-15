@@ -93,8 +93,42 @@ Applications
   * WinFF
 
 
-Documentation
--------------
+English documentation
+---------------------
+
+  * 32-bit Installation Guide
+  * 64-bit Installation Guide
+  * Migration Guide
+  * FAQ
+  * Release Notes
+
+
+French documentation
+--------------------
+
+  * 32-bit Installation Guide
+  * 64-bit Installation Guide
+  * Migration Guide
+  * FAQ
+  * Release Notes
+
+
+English website
+---------------
+
+  * http://www.microlinux.fr/mled.php
+  * http://www.microlinux.fr/why_slackware.php
+  * http://www.microlinux.fr/mled_donate.php
+  * Side pane 
 
 Once the MLED project page on the website is ready, add it to the README.txt.
+
+
+French website
+--------------
+
+  * http://www.microlinux.fr/mledfr.php
+  * http://www.microlinux.fr/pourquoi_slackware.php
+  * http://www.microlinux.fr/mledfr_donate.php
+  * Side pane 
 
