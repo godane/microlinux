@@ -1,0 +1,4 @@
+Wed Apr 15 11:27:30 CEST 2015
+libxfcegui4-4.10.0-x86_64-3_microlinux.txz: Rebuilt.
+xfce4-notes-plugin-1.7.7-x86_64-1_microlinux.txz: Added.
++--------------------------+
