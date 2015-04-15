@@ -1,26 +1,39 @@
-Notes
------
+======================
+Notes on MLED and MLES
+======================
 
-La compilation de xfce4-notes-plugin se termine sur l'erreur suivante :
+The following document contains notes about MLED and MLES:
 
-  CCLD   xfce4-notes-settings CCLD   xfce4-notes
-  /usr/lib/gcc/i486-slackware-linux/4.8.2/../../../../i486-slackware-linux/bin/ld:
-  warning: libxfce4util.so.6, needed by /usr/lib/libxfcegui4.so, not found
-  (try using -rpath or -rpath-link) /usr/lib/libxfcegui4.so: undefined
-  reference to `xfce_setenv' collect2: error: ld returned 1 exit status
-  make[3]: *** [xfce4-notes-settings] Erreur 1
-
-
-Série de trois patchs pour garcon ?
+  * Build problems
+  * Bugs
+  * Features to include in the future
+  * Applications to try out
+  * Documentation
+  * etc.
 
 
-Tumbler n'est pas la dernière version disponible dans le dépôt de Robby
-Workman. 
+Build problems
+--------------
+
+  * The xfce4-notes-plugin won't build against Xfce 4.12. Here's the
+    corresponding error :
+
+    CCLD   xfce4-notes-settings 
+    CCLD   xfce4-notes
+    /usr/lib/gcc/i486-slackware-linux/4.8.2/../../../../i486-slackware-linux/bin/ld:
+    warning: libxfce4util.so.6, needed by /usr/lib/libxfcegui4.so, not found
+    (try using -rpath or -rpath-link) /usr/lib/libxfcegui4.so: undefined
+    reference to `xfce_setenv' collect2: error: ld returned 1 exit status
+    make[3]: *** [xfce4-notes-settings] Erreur 1
 
 
-Compilation de Tumbler. On peut ajouter des fonctionnalités :
+  * What about Robby Workman's patches for garcon? 
 
-  Plugins:
+
+  * Tumbler needs to be rebuilt against Gstreamer1. Here's what we have so
+    far:
+
+    Plugins:
 
     * GdkPixbuf thumbnailer plugin:                     yes
     * Cover thumbnailer plugin:                         yes
@@ -34,24 +47,26 @@ Compilation de Tumbler. On peut ajouter des fonctionnalités :
     * Freedesktop.org cache plugin:                     yes
 
 
-Configuration de gtk-xfce-engine :
+  * gtk-xfce-engine doesn't seem to enable GTK3 in its default configuration:
 
-  Build Configuration:
+    Build Configuration:
 
-  * Gtk 2 Engine: yes
-  * Gtk 3 Engine: 
-
-
-Activer automatiquement les traductions pour Firefox et Thunderbird ?
+    * Gtk 2 Engine: yes
+    * Gtk 3 Engine: 
 
 
-Empaqueter Adblock Plus ?
+Features
+--------
+
+  * Activate Firefox and Thunderbird localizations automatically
+
+  * Better desktop search engine
 
 
-TODO
-----
+Applications
+------------
 
-  * Recoll et toutes les dépendances
+  * System-wide Adblock Plus or Adblock Edge
 
   * Xfce Notes Plugin
 
@@ -78,5 +93,8 @@ TODO
   * WinFF
 
 
-Une fois que la page du projet est faite sur le site de Microlinux, mentionner
-cette page dans le fichier README.txt.
+Documentation
+-------------
+
+Once the MLED project page on the website is ready, add it to the README.txt.
+
