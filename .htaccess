@@ -58,9 +58,9 @@ AddDefaultCharset utf-8
   AddIcon       /microlinux/repository-layout/server.png server-14.1-32bit
   AddIcon       /microlinux/repository-layout/server.png server-14.1-64bit
   AddIcon       /microlinux/repository-layout/server.png server-14.1-source
-  AddIcon       /microlinux/repository-layout/media-floppy.png testing-14.1-32bit
-  AddIcon       /microlinux/repository-layout/media-floppy.png testing-14.1-64bit
-  AddIcon       /microlinux/repository-layout/media-floppy.png testing-14.1-source
+  AddIcon       /microlinux/repository-layout/emblem-system.png testing-14.1-32bit
+  AddIcon       /microlinux/repository-layout/emblem-system.png testing-14.1-64bit
+  AddIcon       /microlinux/repository-layout/emblem-system.png testing-14.1-source
   AddIconByType /microlinux/repository-layout/image-x-generic.png image/*
 
   # DESCRIPTIONS
