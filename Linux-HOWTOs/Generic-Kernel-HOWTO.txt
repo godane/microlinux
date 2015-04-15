@@ -11,7 +11,7 @@ Ce HOWTO décrit la procédure de remplacement du kernel "huge" par le kernel
   * Identifier les modules nécessaires
   * Construire l'initrd
   * Démarrer sur le kernel générique avec l'initrd 
-  * Le cas spécifique des cartes graphiques Intel
+  * Carte vidéo et KMS
   * RTFM
 
 
