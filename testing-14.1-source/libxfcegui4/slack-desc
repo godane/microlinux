@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+libxfcegui4: libxfcegui4 (old Xfce widget library)
+libxfcegui4:
+libxfcegui4: This is a widget library for Xfce.  It has been replaced by the use
+libxfcegui4: of the libxfce4ui library, but older programs might still need it.
+libxfcegui4:
+libxfcegui4:
+libxfcegui4:
+libxfcegui4:
+libxfcegui4:
+libxfcegui4:
+libxfcegui4: Package created by Niki Kovacs <info@microlinux.fr>
