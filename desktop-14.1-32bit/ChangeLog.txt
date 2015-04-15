@@ -11,6 +11,7 @@ imlib2-1.4.6-i486-1_microlinux.txz: Added.
 scons-2.3.4-i486-1_microlinux.txz: Added.
 tolua++-1.0.93-i486-1_microlinux.txz: Added.
 conky-1.9.0-i486-1_microlinux.txz: Added.
+xfce4-xkb-plugin-0.5.6-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Apr 14 09:13:35 CEST 2015
 MPlayer-1.1.1-i486-1_microlinux.txz: Rebuilt.
