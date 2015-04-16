@@ -76,8 +76,6 @@ Applications
 
   * Amule
 
-  * Easytag
-
   * Spotify
 
   * Wine
