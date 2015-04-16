@@ -1,6 +1,7 @@
 Thu Apr 16 10:07:38 CEST 2015
 dropbox-2.10.41-i486-1_microlinux.txz: Added.
 filezilla-3.8.1-i486-1_microlinux.txz: Added.
+freerdp-20131115_ea18d2b-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 12:19:12 CEST 2015
 virtualbox-4.3.26-i486-1_microlinux.txz: Added.
