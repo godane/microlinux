@@ -72,8 +72,6 @@ Applications
 
   * HPLIP récent
 
-  * Amule
-
   * Spotify
 
   * Wine
