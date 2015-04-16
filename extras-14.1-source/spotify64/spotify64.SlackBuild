@@ -44,7 +44,8 @@ set -e
 
 DOWNLOAD="http://repository-origin.spotify.com/pool/non-free/s/$SRCNAM/$SRCNAM-client_${VERSION}-1_amd64.deb"
 
-wget -c $DOWNLOAD
+# Broken download link
+# wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

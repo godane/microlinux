@@ -1,3 +1,7 @@
+Thu Apr 16 12:42:50 CEST 2015
+hplip-3.15.4-x86_64-1_microlinux.txz: Upgraded.
+  Support for last-generation HP printers.
++--------------------------+
 Wed Apr 15 11:27:30 CEST 2015
 libxfcegui4-4.10.0-x86_64-3_microlinux.txz: Rebuilt.
 xfce4-notes-plugin-1.7.7-x86_64-1_microlinux.txz: Added.
