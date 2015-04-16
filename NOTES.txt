@@ -80,11 +80,7 @@ Applications
 
   * Amule
 
-  * Dropbox
-
   * Easytag
-
-  * Filezilla
 
   * Spotify
 
