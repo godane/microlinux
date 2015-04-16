@@ -2,7 +2,7 @@
 MLED HOWTO (c) Niki Kovacs <info@microlinux.fr>
 ==========
 
-Last revision: January 7th 2015
+Last revision: April 16th 2015
 
 The following HOWTO provides a step-by step installation guide for the
 Microlinux Enterprise Desktop 14.1 32-bit edition.

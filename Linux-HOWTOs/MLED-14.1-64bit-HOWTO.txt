@@ -2,7 +2,7 @@
 MLED 14.1 64bit HOWTO (c) Niki Kovacs <info@microlinux.fr>
 =====================
 
-Dernière révision : 10 janvier 2015
+Dernière révision : 15 avril 2015
 
 Ce HOWTO décrit l'installation d'un poste de travail MLED 14.1 64bit.
 

@@ -96,8 +96,6 @@ Applications
 English documentation
 ---------------------
 
-  * 32-bit Installation Guide
-  * 64-bit Installation Guide
   * Migration Guide
   * FAQ
   * Release Notes
@@ -106,8 +104,6 @@ English documentation
 French documentation
 --------------------
 
-  * 32-bit Installation Guide
-  * 64-bit Installation Guide
   * Migration Guide
   * FAQ
   * Release Notes
