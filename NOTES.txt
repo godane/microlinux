@@ -70,8 +70,6 @@ Applications
 
   * Xfce Notes Plugin
 
-  * Gtkcdlabel
-
   * HPLIP récent
 
   * Amule
