@@ -7,6 +7,11 @@ easytag-2.1.10-i486-1_microlinux.txz: Added.
 gtkcdlabel-1.15-noarch-1_microlinux.txz: Added.
 aMule-2.3.1-i486-1_microlinux.txz: Added.
 spotify32-0.9.4.183.g644e24e.428-i386-1_microlinux.txz: Added.
+winff-1.5.3-i486-1_microlinux.txz: Added.
+	WinFF doesn't have any particular runtime dependencies except ffmpeg, but
+	it's written in Free Pascal, so you'll need a Free Pascal Compiler on your
+	machine. Make sure to install packages fpc, fpc-source and lazarus before
+	launching the build. They're all available on SlackBuilds.org.
 +--------------------------+
 Sun Apr 12 12:19:12 CEST 2015
 virtualbox-4.3.26-i486-1_microlinux.txz: Added.
