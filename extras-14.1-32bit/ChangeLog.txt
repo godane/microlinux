@@ -12,6 +12,8 @@ winff-1.5.3-i486-1_microlinux.txz: Added.
 	it's written in Free Pascal, so you'll need a Free Pascal Compiler on your
 	machine. Make sure to install packages fpc, fpc-source and lazarus before
 	launching the build. They're all available on SlackBuilds.org.
+wine-1.6.2-i486-1_microlinux.txz: Added.
+  Build dependency fontforge (available on SlackBuilds.org) is not included.
 +--------------------------+
 Sun Apr 12 12:19:12 CEST 2015
 virtualbox-4.3.26-i486-1_microlinux.txz: Added.
