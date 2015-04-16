@@ -80,9 +80,9 @@ AddDefaultCharset utf-8
   AddDescription "Microlinux Enterprise Server 14.1 32-bit" server-14.1-32bit
   AddDescription "Microlinux Enterprise Server 14.1 64-bit" server-14.1-64bit
   AddDescription "Microlinux Enterprise Server 14.1 source" server-14.1-source
-  AddDescription "Microlinux Development 14.1 32-bit" testing-14.1-32bit
-  AddDescription "Microlinux Development 14.1 64-bit" testing-14.1-64bit
-  AddDescription "Microlinux Development 14.1 source" testing-14.1-source
+  AddDescription "Experimental Software 14.1 32-bit" testing-14.1-32bit
+  AddDescription "Experimental Software 14.1 64-bit" testing-14.1-64bit
+  AddDescription "Experimental Software 14.1 source" testing-14.1-source
   AddDescription "Plain text file" .txt README
   AddDescription "Slackware build script" .SlackBuild
   AddDescription "Checksum file" .txz.md5
