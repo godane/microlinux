@@ -68,10 +68,6 @@ Applications
 
   * System-wide Adblock Plus or Adblock Edge
 
-  * Xfce Notes Plugin
-
-  * HPLIP récent
-
   * Wine
 
   * WinFF
