@@ -72,8 +72,6 @@ Applications
 
   * HPLIP récent
 
-  * Spotify
-
   * Wine
 
   * WinFF

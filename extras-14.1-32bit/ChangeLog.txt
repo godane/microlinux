@@ -6,6 +6,7 @@ remmina-20131008_26b814a-i486-1_microlinux.txz: Added.
 easytag-2.1.10-i486-1_microlinux.txz: Added.
 gtkcdlabel-1.15-noarch-1_microlinux.txz: Added.
 aMule-2.3.1-i486-1_microlinux.txz: Added.
+spotify32-0.9.4.183.g644e24e.428-i386-1_microlinux.txz: Added.
 +--------------------------+
 Sun Apr 12 12:19:12 CEST 2015
 virtualbox-4.3.26-i486-1_microlinux.txz: Added.
