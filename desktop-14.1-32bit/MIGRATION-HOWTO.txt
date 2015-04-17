@@ -1,0 +1,153 @@
+===============
+MIGRATION HOWTO (c) Niki Kovacs <info@microlinux.fr>
+===============
+
+Last revision: April 17th 2015
+
+The following HOWTO describes how to turn an existing Slackware configuration
+(or a first-generation MLED) into a last-generation Xfce-based MLED system
+without reinstalling everything from scratch. 
+
+
+Switch to init 3:
+
+  # init 3 
+
+Login as root.
+
+Edit '/etc/slackpkg/mirrors' and choose a Slackware mirror according to your
+geographical location, for example:
+
+--8<---------- /etc/slackpkg/mirrors -----------------------------------------
+...
+# GERMANY (DE)
+ftp://ftp.fu-berlin.de/unix/linux/slackware/slackware-14.1/
+...
+--8<--------------------------------------------------------------------------
+
+Make sure you choose only one single mirror for Slackware stable. If you're
+using MLED in France, configure the ftp.fu-berlin.de or the mirror.switch.ch
+mirror. The admins at OVH can't seem to get their act together.
+
+If you're already using 'slackpkg+', edit '/etc/slackpkg/slackpkgplus.conf' and
+comment out all third-party repositories *except* the multilib repository on a
+64-bit system.
+
+Update GPG keys:
+
+  # slackpkg update gpg 
+
+Update information about available packages:
+
+  # slackpkg update 
+
+List all third-party packages that are going to be removed, but don't confirm
+their removal yet:
+
+  # slackpkg clean-system
+
+You may want to keep the following packages if you're using them. They will be
+replaced by more recent versions later on, but removing them would cause some
+minor trouble :
+
+  1. user-settings-console (if you're running an old MLED system)
+  2. slackpkg+ 
+
+Import the Microlinux helper scripts:
+
+  # cd
+  # git clone https://github.com/kikinovak/microlinux
+
+Now's the time to install and/or configure 'slackpkg+' to point to the new
+MLED repositories. To avoid the hassle, Microlinux provides a custom
+'slackpkg+' package that comes preconfigured for the Microlinux repositories.
+
+On the command line, use the 'links' browser to navigate through the
+repositories:
+
+  # cd
+  # links http://www.microlinux.fr/microlinux/ 
+
+Navigate to the 'desktop-14.1-$ARCH/slackware/' subdirectory. Grab the
+'slackpkg+' package from the repository (use the [D] key in the Links browser
+to download it) and install it:
+
+  # upgradepkg --reinstall --install-new slackpkg+-1.3.2-noarch-1_microlinux.txz  
+
+  /!\ $ARCH is the architecture of your CPU (either 32-bit or 64-bit).
+
+Make sure you don't keep the existing configuration file. If you were already
+using 'slackpkg+', you might need to update your configuration manually:
+
+  # cd /etc/slackpkg
+  # mv slackpkgplus.conf.new slackpkgplus.conf
+
+Update information about available packages again:
+
+  # slackpkg update 
+
+Trim the base Slackware installation by running the 'trim.sh' script. This will
+remove all unneeded packages and install everything that's needed for a
+functional Xfce desktop:
+
+  # cd desktop-14.1-$ARCH/tools 
+  # ./trim.sh 
+
+Upgrade the base packages:
+
+  # slackpkg upgrade-all
+
+If you're upgrading an existing MLED installation, reinstall Xfce, Audacious
+and MPlayer:
+
+  # slackpkg reinstall xfce
+  # slackpkg reinstall audacious 
+  # slackpkg reinstall MPlayer
+
+Install the full collection of MLED packages:
+
+  # slackpkg install microlinux-desktop
+
+Install the custom menu entries by running the 'cleanmenu.sh' script in the
+same directory:
+
+  # ./cleanmenu.sh 
+
+Since your user is already created, his default profile will have to be copied
+over manually from '/etc/skel'. 
+
+First, delete your existing '~/.config' directory:
+
+  $ rm -rf ~/.config
+
+Switch to root and copy '/etc/skel/.config' to your user's home directory:
+
+  # cp -Rv /etc/skel/.config /home/your_user/
+
+Now set permissions on your user's '.config' directory:
+
+  # chown -R your_user:users /home/your_user/.config
+  # find /home/your_user/.config -type d | xargs chmod 0755
+  # find /home/your_user/.config -type f | xargs chmod 0644
+
+Define Xfce as your default desktop environment, switch back to init 4 and
+login to Xfce:
+
+  # xwmconfig --> choose Xfce
+  # init 4 
+
+  /!\ The above command deserves a little explanation. It uses a quirk in
+  'xwmconfig'. Defining Xfce as default environment for root does not mean
+  that you're supposed to login as root. It just has the secondary effect of
+  setting it as default desktop for all your users. This measure is redundant,
+  since the files in '/etc/skel' already contain an '.xinitrc' file that's
+  predefined for Xfce. 
+
+
+Enjoy your shiny new Microlinux Enterprise Desktop!
+
+-- Niki Kovacs, Fri Apr 17 07:01:24 CEST 2015
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
