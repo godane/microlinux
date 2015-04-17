@@ -1,3 +1,7 @@
+Fri Apr 17 15:47:34 CEST 2015
+	MLED 14.1 is officially released. Check out RELEASE-NOTES.txt for more
+	information.
++--------------------------+
 Wed Apr 15 05:48:40 CEST 2015
 xarchiver-0.5.4-x86_64-1_microlinux.txz: Added.
 thunar-archive-plugin-0.3.1-x86_64-1_microlinux.txz: Added.
