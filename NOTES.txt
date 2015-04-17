@@ -15,17 +15,6 @@ The following document contains notes about MLED and MLES:
 Build problems
 --------------
 
-  * The xfce4-notes-plugin won't build against Xfce 4.12. Here's the
-    corresponding error :
-
-    CCLD   xfce4-notes-settings 
-    CCLD   xfce4-notes
-    /usr/lib/gcc/i486-slackware-linux/4.8.2/../../../../i486-slackware-linux/bin/ld:
-    warning: libxfce4util.so.6, needed by /usr/lib/libxfcegui4.so, not found
-    (try using -rpath or -rpath-link) /usr/lib/libxfcegui4.so: undefined
-    reference to `xfce_setenv' collect2: error: ld returned 1 exit status
-    make[3]: *** [xfce4-notes-settings] Erreur 1
-
 
   * What about Robby Workman's patches for garcon? 
 
@@ -69,38 +58,9 @@ Applications
   * System-wide Adblock Plus or Adblock Edge
 
 
-English documentation
----------------------
+Documentation
+-------------
 
-  * Migration Guide
-  * FAQ
-  * Release Notes
+  * Once the MLED project page on the website is ready, add it to the README.txt.
 
-
-French documentation
---------------------
-
-  * Migration Guide
-  * FAQ
-  * Release Notes
-
-
-English website
----------------
-
-  * http://www.microlinux.fr/mled.php
-  * http://www.microlinux.fr/why_slackware.php
-  * http://www.microlinux.fr/mled_donate.php
-  * Side pane 
-
-Once the MLED project page on the website is ready, add it to the README.txt.
-
-
-French website
---------------
-
-  * http://www.microlinux.fr/mledfr.php
-  * http://www.microlinux.fr/pourquoi_slackware.php
-  * http://www.microlinux.fr/mledfr_donate.php
-  * Side pane 
 
