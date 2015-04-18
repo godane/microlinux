@@ -15,27 +15,6 @@ The following document contains notes about MLED and MLES:
 Build problems
 --------------
 
-
-  * What about Robby Workman's patches for garcon? 
-
-
-  * Tumbler needs to be rebuilt against Gstreamer1. Here's what we have so
-    far:
-
-    Plugins:
-
-    * GdkPixbuf thumbnailer plugin:                     yes
-    * Cover thumbnailer plugin:                         yes
-    * FreeType font thumbnailer plugin:                 yes
-    * JPEG thumbnailer plugin with EXIF support:        yes
-    * Video thumbnailer plugin using ffmpegthumbnailer: no
-    * Video thumbnailer plugin using GStreamer:         no
-    * ODF thumbnailer plugin using libgsf:              yes
-    * PDF/PS thumbnailer plugin using poppler:          yes
-    * RAW thumbnailer plugin using libopenraw:          no
-    * Freedesktop.org cache plugin:                     yes
-
-
   * gtk-xfce-engine doesn't seem to enable GTK3 in its default configuration:
 
     Build Configuration:

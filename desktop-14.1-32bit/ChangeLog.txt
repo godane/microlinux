@@ -1,3 +1,9 @@
+Sat Apr 18 06:46:28 CEST 2015
+ffmpegthumbnailer-2.0.9-i486-1_microlinux.txz: Added.
+libopenraw-0.0.9-i486-1_microlinux.txz: Added.
+tumbler-0.1.31-i486-2_microlinux.txz: Rebuilt.
+  All available thumbnail plugins are now enabled.
++--------------------------+
 Fri Apr 17 15:47:34 CEST 2015
 	MLED 14.1 is officially released. Check out RELEASE-NOTES.txt for more
 	information.
