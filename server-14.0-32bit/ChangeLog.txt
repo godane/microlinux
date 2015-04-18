@@ -21,6 +21,7 @@ twolame-0.3.13-i486-1_microlinux.txz: Added.
 faac-1.28-i486-1_microlinux.txz: Added.
 ffmpeg-0.11.1-i486-1_microlinux.txz: Added.
 musepack-tools-r475-i486-1_microlinux.txz: Added.
+libshout-2.3.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Thu Apr  9 18:44:16 CEST 2015
 user-settings-console-14.0-noarch-1_microlinux.txz: Added.
