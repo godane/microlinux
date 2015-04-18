@@ -18,6 +18,7 @@ libmp4v2-2.0.0-i486-1_microlinux.txz: Added.
 libreplaygain-r475-i486-1_microlinux.txz: Added.
 speex-1.2rc1-i486-1_microlinux.txz: Added.
 twolame-0.3.13-i486-1_microlinux.txz: Added.
+faac-1.28-i486-1_microlinux.txz: Added.
 +--------------------------+
 Thu Apr  9 18:44:16 CEST 2015
 user-settings-console-14.0-noarch-1_microlinux.txz: Added.
