@@ -3,6 +3,7 @@ recode-3.7_beta2-i486-1_microlinux.txz: Added.
 unrar-5.0.14-i486-1_microlinux.txz: Added.
 p7zip-9.20.1-i486-1_microlinux.txz: Added.
 pwgen-2.06-i486-1_microlinux.txz: Added.
+perl-IO-Multiplex-1.13-i486-1_microlinux.txz: Added.
 +--------------------------+
 Thu Apr  9 18:44:16 CEST 2015
 user-settings-console-14.0-noarch-1_microlinux.txz: Added.
