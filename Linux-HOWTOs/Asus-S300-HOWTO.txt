@@ -2,7 +2,7 @@
 Asus S300 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ===============
 
-Dernière révision : 29 décembre 2014
+Dernière révision : 19 avril 2015
 
 Ce HOWTO décrit de façon succincte les particularités de l'installation de
 Slackware Linux 14.1 64-bit sur un ordinateur portable Asus S300.
