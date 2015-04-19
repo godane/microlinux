@@ -15,6 +15,7 @@ lame-3.99.5-i486-1_microlinux.txz: Added.
 libcuefile-r475-i486-1_microlinux.txz: Added.
 libmms-0.6.2-i486-1_microlinux.txz: Added.
 libmp4v2-2.0.0-i486-1_microlinux.txz: Added.
+libreplaygain-r475-i486-1_microlinux.txz: Added.
 +--------------------------+
 Fri Apr 10 04:41:40 CEST 2015
 user-settings-console-14.1-noarch-1_microlinux.txz: Added.
