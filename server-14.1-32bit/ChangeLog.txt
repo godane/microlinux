@@ -27,6 +27,7 @@ libsigc++-2.2.11-i486-1_microlinux.txz: Added.
 libtorrent-0.13.0-i486-1_microlinux.txz: Added.
 pysetuptools-2.1-i486-1_microlinux.txz: Added.
 psutil-1.2.1-i486-1_microlinux.txz: Added.
+glances-1.7.6-i486-1_microlinux.txz: Added.
 +--------------------------+
 Fri Apr 10 04:41:40 CEST 2015
 user-settings-console-14.1-noarch-1_microlinux.txz: Added.
