@@ -9,6 +9,7 @@ perl-digest-hmac-1.03-i486-1_microlinux.txz: Added.
 perl-net-ip-1.26-i486-1_microlinux.txz: Added.
 perl-net-dns-0.72-i486-1_microlinux.txz: Added.
 perl-Net-Server-2.007-i486-1_microlinux.txz: Added.
+perl-BerkeleyDB-0.53-i486-1_microlinux.txz: Added.
 +--------------------------+
 Fri Apr 10 04:41:40 CEST 2015
 user-settings-console-14.1-noarch-1_microlinux.txz: Added.
