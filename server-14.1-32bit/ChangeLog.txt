@@ -25,6 +25,7 @@ libshout-2.3.1-i486-1_microlinux.txz: Added.
 libmpdclient-2.9-i486-1_microlinux.txz: Added.
 libsigc++-2.2.11-i486-1_microlinux.txz: Added.
 libtorrent-0.13.0-i486-1_microlinux.txz: Added.
+pysetuptools-2.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Fri Apr 10 04:41:40 CEST 2015
 user-settings-console-14.1-noarch-1_microlinux.txz: Added.
