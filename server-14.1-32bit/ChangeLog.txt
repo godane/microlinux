@@ -20,6 +20,7 @@ speex-1.2rc1-i486-1_microlinux.txz: Added.
 twolame-0.3.13-i486-1_microlinux.txz: Added.
 faac-1.28-i486-1_microlinux.txz: Added.
 ffmpeg-2.1-i686_custom-1_microlinux.txz: Added.
+musepack-tools-r475-i486-1_microlinux.txz: Added.
 +--------------------------+
 Fri Apr 10 04:41:40 CEST 2015
 user-settings-console-14.1-noarch-1_microlinux.txz: Added.
