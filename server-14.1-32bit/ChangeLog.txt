@@ -4,6 +4,7 @@ unrar-5.0.13-i486-1_microlinux.txz: Added.
 p7zip-9.20.1-i486-1_microlinux.txz: Added.
 pwgen-2.06-i486-1_microlinux.txz: Added.
 perl-IO-Multiplex-1.13-i486-1_microlinux.txz: Added.
+perl-digest-sha1-2.13-i486-1_microlinux.txz: Added.
 +--------------------------+
 Fri Apr 10 04:41:40 CEST 2015
 user-settings-console-14.1-noarch-1_microlinux.txz: Added.
