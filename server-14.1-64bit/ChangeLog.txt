@@ -1,3 +1,34 @@
+Sun Apr 19 08:03:46 CEST 2015
+recode-3.6-x86_64-1_microlinux.txz: Added.
+unrar-5.0.13-x86_64-1_microlinux.txz: Added.
+p7zip-9.20.1-x86_64-1_microlinux.txz: Added.
+pwgen-2.06-x86_64-1_microlinux.txz: Added.
+perl-IO-Multiplex-1.13-x86_64-1_microlinux.txz: Added.
+perl-digest-sha1-2.13-x86_64-1_microlinux.txz: Added.
+perl-digest-hmac-1.03-x86_64-1_microlinux.txz: Added.
+perl-net-ip-1.26-x86_64-1_microlinux.txz: Added.
+perl-net-dns-0.72-x86_64-1_microlinux.txz: Added.
+perl-Net-Server-2.007-x86_64-1_microlinux.txz: Added.
+perl-BerkeleyDB-0.53-x86_64-1_microlinux.txz: Added.
+faad2-2.7-x86_64-1_microlinux.txz: Added.
+lame-3.99.5-x86_64-1_microlinux.txz: Added.
+libcuefile-r475-x86_64-1_microlinux.txz: Added.
+libmms-0.6.2-x86_64-1_microlinux.txz: Added.
+libmp4v2-2.0.0-x86_64-1_microlinux.txz: Added.
+libreplaygain-r475-x86_64-1_microlinux.txz: Added.
+speex-1.2rc1-x86_64-1_microlinux.txz: Added.
+twolame-0.3.13-x86_64-1_microlinux.txz: Added.
+faac-1.28-x86_64-1_microlinux.txz: Added.
+ffmpeg-2.1-x86_64_custom-1_microlinux.txz: Added.
+musepack-tools-r475-x86_64-1_microlinux.txz: Added.
+libshout-2.3.1-x86_64-1_microlinux.txz: Added.
+libmpdclient-2.9-x86_64-1_microlinux.txz: Added.
+libsigc++-2.2.11-x86_64-1_microlinux.txz: Added.
+libtorrent-0.13.0-x86_64-1_microlinux.txz: Added.
+pysetuptools-2.1-x86_64-1_microlinux.txz: Added.
+psutil-1.2.1-x86_64-1_microlinux.txz: Added.
+glances-1.7.6-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Fri Apr 10 05:01:04 CEST 2015
 user-settings-console-14.1-noarch-1_microlinux.txz: Added.
 sbopkg-0.37.0-noarch-1_microlinux.txz: Added.
