@@ -1,3 +1,6 @@
+Mon Apr 20 20:42:55 CEST 2015
+aisleriot-3.6.2-i486-1_microlinux.txz: Added.
++--------------------------+
 Thu Apr 16 11:01:23 CEST 2015
 hplip-3.15.4-i486-1_microlinux.txz: Upgraded.
   Support for last-generation HP printers.

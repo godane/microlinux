@@ -2,14 +2,7 @@
 Notes on MLED and MLES
 ======================
 
-The following document contains notes about MLED and MLES:
-
-  * Build problems
-  * Bugs
-  * Features to include in the future
-  * Applications to try out
-  * Documentation
-  * etc.
+The following document contains notes about MLED and MLES.
 
 
 Build problems
@@ -35,11 +28,4 @@ Applications
 ------------
 
   * System-wide Adblock Plus or Adblock Edge
-
-
-Documentation
--------------
-
-  * Once the MLED project page on the website is ready, add it to the README.txt.
-
 
