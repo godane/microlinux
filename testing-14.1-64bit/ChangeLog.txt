@@ -1,3 +1,6 @@
+Mon Apr 20 20:54:27 CEST 2015
+aisleriot-3.6.2-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Thu Apr 16 12:42:50 CEST 2015
 hplip-3.15.4-x86_64-1_microlinux.txz: Upgraded.
   Support for last-generation HP printers.
