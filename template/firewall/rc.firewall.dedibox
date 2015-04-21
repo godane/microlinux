@@ -1,0 +1,142 @@
+#!/bin/sh
+#
+# /etc/rc.d/rc.firewall
+
+# Commandes
+IPT=$(which iptables)
+MOD=$(which modprobe)
+
+# Internet
+IFACE_INET=eth0
+
+function start {
+  
+  # Politique par défaut
+  $IPT -P INPUT DROP
+  $IPT -P FORWARD DROP
+  $IPT -P OUTPUT ACCEPT
+
+  # Faire confiance à nous-mêmes ;o)
+  $IPT -A INPUT -i lo -j ACCEPT
+
+  # Ping
+  $IPT -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+  $IPT -A INPUT -p icmp --icmp-type time-exceeded -j ACCEPT
+  $IPT -A INPUT -p icmp --icmp-type destination-unreachable -j ACCEPT
+
+  # Connexions établies
+  $IPT -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+  # FTP 
+  # $MOD ip_conntrack_ftp
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 21 -j ACCEPT
+
+  # SSH illimité
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 22 -j ACCEPT
+
+  # SSH limité
+  $IPT -A INPUT -p tcp -i $IFACE_INET --dport 22 -m state --state NEW \
+   -m recent --set --name SSH
+  $IPT -A INPUT -p tcp -i $IFACE_INET --dport 22 -m state --state NEW \
+   -m recent --update --seconds 60 --hitcount 2 --rttl --name SSH -j DROP
+  $IPT -A INPUT -p tcp -i $IFACE_INET --dport 22 -j ACCEPT
+
+  # SMTP 
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 25 -j ACCEPT
+
+  # DNS
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 53 -j ACCEPT
+  # $IPT -A INPUT -p udp -i $IFACE_INET --dport 53 -j ACCEPT
+
+  # HTTP 
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 80 -j ACCEPT
+
+  # POP
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 110 -j ACCEPT
+
+  # IMAP
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 143 -j ACCEPT
+
+  # HTTPS
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 443 -j ACCEPT
+
+  # SMTP (Thunderbird)
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 587 -j ACCEPT
+
+  # IMAPS
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 993 -j ACCEPT
+
+  # POPS
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 995 -j ACCEPT
+
+  # Icecast 
+  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 8000 -j ACCEPT
+
+  # Enregistrer les connexions refusées
+  $IPT -A INPUT -j LOG --log-prefix "+++ IPv4 packet rejected +++"
+  $IPT -A INPUT -j REJECT
+  
+}
+
+function stop {
+
+  # Politique ACCEPT par défaut
+  $IPT -t filter -P INPUT ACCEPT
+  $IPT -t filter -P FORWARD ACCEPT
+  $IPT -t filter -P OUTPUT ACCEPT
+  $IPT -t nat -P PREROUTING ACCEPT
+  $IPT -t nat -P INPUT ACCEPT
+  $IPT -t nat -P OUTPUT ACCEPT
+  $IPT -t nat -P POSTROUTING ACCEPT
+  $IPT -t mangle -P PREROUTING ACCEPT
+  $IPT -t mangle -P INPUT ACCEPT
+  $IPT -t mangle -P FORWARD ACCEPT
+  $IPT -t mangle -P OUTPUT ACCEPT
+  $IPT -t mangle -P POSTROUTING ACCEPT
+
+  # Remettre les compteurs à zéro
+  $IPT -t filter -Z
+  $IPT -t nat -Z
+  $IPT -t mangle -Z
+  
+  # Supprimer toutes les règles actives et les chaînes personnalisées
+  $IPT -t filter -F
+  $IPT -t filter -X
+  $IPT -t nat -F
+  $IPT -t nat -X
+  $IPT -t mangle -F
+  $IPT -t mangle -X
+
+}
+
+# rc.firewall { start | restart | stop | status }
+case $1 in 
+  start)
+    echo ":: Starting firewall."
+    stop
+    start
+    ;;
+  stop)
+    echo ":: Stopping firewall."
+    stop
+    ;;
+  restart)
+    echo ":: Stopping firewall."
+    stop
+    echo ":: Starting firewall."
+    start
+    ;;
+  status)
+    echo
+    echo "=== Filter table ==="
+    echo 
+    $IPT -L -v -n
+    echo
+    echo "==== NAT table ====="
+    echo 
+    $IPT -t nat -L -v -n
+    echo
+  ;;
+  *)
+  echo "Usage: $0 {start|stop|restart|status}"
+esac
