@@ -237,7 +237,7 @@ Créer le fichier de configuration pour la grappe RAID :
 Préparer l'initrd :
 
   # cd /etc
-  # cp mkinitrc.conf.sample mkinitrd.conf
+  # cp mkinitrd.conf.sample mkinitrd.conf
 
 Détecter les modules nécessaires au démarrage :
 
@@ -273,6 +273,10 @@ de disques. Exemple sur un serveur IBM XServer 225 :
 MODULE_LIST="ext4:mptbase:mptscsih:mptspi"
 ...
 --8<--------------------------------------------------------------------------
+
+Générer l'initrd :
+
+  # mkinitrd -F
 
 Éditer '/etc/lilo.conf' :
 
