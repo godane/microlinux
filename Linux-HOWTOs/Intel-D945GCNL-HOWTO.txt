@@ -1,0 +1,142 @@
+====================
+Intel D945GCNL HOWTO (c) Nicolas Kovacs, <info@microlinux.fr>
+====================
+
+Dernière révision : 22 avril 2015
+
+Ce HOWTO décrit l'installation de Slackware Linux sur une machine équipée d'une
+carte mère Intel D945GCNL. Merci à l'utilisateur 55020 sur LinuxQuestions.org
+pour m'avoir aidé à trouver la solution.
+
+
+Introduction
+------------
+
+Il y a quelques jours, une cliente m'a amené une station de travail
+reconditionnée et sans OS pour que je lui installe Linux dessus. J'ai passé un
+après-midi entier à tenter plusieurs scénarios d'installation, qui ont tous
+échoué. Les rares réussites partielles ont été accompagnées d'une série de bugs
+apparemment aléatoires. J'ai tenté une mise à jour du BIOS, mais les problèmes
+ont persisté.
+
+
+Carte mère
+----------
+
+Dans un premier temps, identifions la carte mère de la machine :
+
+  # dmidecode -t 2
+  SMBIOS 2.4 present.
+
+  Handle 0x0005, DMI type 2, 20 bytes
+  Base Board Information
+    Manufacturer: Intel Corporation
+    Product Name: D945GCNL     --> modèle de la carte 
+    Version: AAD97184-107
+    Serial Number: BTNL8400018Z
+    Asset Tag: Base Board Asset Tag
+    Features:
+      Board is a hosting board
+      Board is replaceable
+    Location In Chassis: Base Board Chassis Location
+    Chassis Handle: 0x0006
+    Type: Unknown
+    Contained Object Handles: 0
+
+
+Particularités de la carte
+--------------------------
+
+La carte mère Intel D945GCNL est connue pour son fonctionnement quelque peu
+particulier :
+
+  1. Malgré la présence d'un BIOS traditionnel, les disques doivent
+  impérativement être partitionnés en mode GPT.
+
+  2. Le fanion d'amorçage 'pmbr_boot' doit être activé. 
+
+
+Partitionnement GPT
+-------------------
+
+On peut utiliser 'gdisk' pour partitionner le ou les disques. Voilà ce que ça
+peut donner sur une station de travail munie de deux disques prévus pour une
+configuration en RAID 1 :
+
+  # gdisk -l /dev/sda         
+  GPT fdisk (gdisk) version 0.8.7
+  ...
+  Found valid GPT with protective MBR; using GPT.
+  Disk /dev/sda: 1465149168 sectors, 698.6 GiB
+  Logical sector size: 512 bytes
+  ...
+  Number  Start (sector)    End (sector)  Size       Code  Name
+     1            2048          206847   100.0 MiB   FD00  Linux RAID
+     2          206848         4401151   2.0 GiB     FD00  Linux RAID
+     3         4401152      1465149134   696.5 GiB   FD00  Linux RAID
+
+  # gdisk -l /dev/sdb 
+  GPT fdisk (gdisk) version 0.8.7
+  ...
+  Found valid GPT with protective MBR; using GPT.
+  Disk /dev/sdb: 1465149168 sectors, 698.6 GiB
+  Logical sector size: 512 bytes
+  ...
+  Number  Start (sector)    End (sector)  Size       Code  Name
+     1            2048          206847   100.0 MiB   FD00  Linux RAID
+     2          206848         4401151   2.0 GiB     FD00  Linux RAID
+     3         4401152      1465149134   696.5 GiB   FD00  Linux RAID
+
+
+Le fanion pmbr_boot
+-------------------
+
+L'utilitaire 'gdisk' ne gère pas l'activation du fanion 'pmbr_boot'. Pour ce
+faire, il faudra recourir à 'parted'. Attention, il s'agit bien de l'outil en
+ligne de commande, et non pas de son cousin graphique 'gparted'. 
+
+Démarrer Parted :
+
+  # parted /dev/sda                                                       
+  GNU Parted 3.1
+  Using /dev/sda
+  Welcome to GNU Parted! Type 'help' to view a list of commands.
+
+Activer le fanion 'pmbr_boot' :
+
+  (parted) disk_set pmbr_boot on                                            
+
+Afficher l'état du disque :
+
+  (parted) print                                                            
+  Model: ATA ST3750640SV (scsi)
+  Disk /dev/sda: 750GB
+  Sector size (logical/physical): 512B/512B
+  Partition Table: gpt
+  Disk Flags: pmbr_boot                  --> vérifier 
+
+  Number  Start   End     Size    File system     Name        Flags
+   1      1049kB  106MB   105MB   ext2            Linux RAID  raid
+   2      106MB   2253MB  2147MB  linux-swap(v1)  Linux RAID  raid
+   3      2253MB  750GB   748GB   ext4            Linux RAID  raid
+
+Quitter Parted :
+
+  (parted) quit                                                             
+  Information: You may need to update /etc/fstab.
+
+
+Conclusion
+----------
+
+À partir de là, on peut installer Slackware Linux normalement. Le chargeur de
+démarrage LILO fonctionnera très bien avec cette configuration. Attention, ne
+pas oublier de répéter l'opération sur tous les disques que l'on utilise.
+
+On peut se demander pourquoi 'gdisk' ne gère pas le fanion 'pmbr_boot'. Cela
+tient probablement au fait que les BIOS aussi stupides que celui-ci sont plutôt
+rares, et que la tendance va vers l'UEFI.
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
