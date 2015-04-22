@@ -1,0 +1,192 @@
+================
+BIOS Flash HOWTO (c) Nicolas Kovacs, <info@microlinux.fr>
+================
+
+Dernière révision : 22 avril 2015
+
+Ce HOWTO décrit le flashage du BIOS d'une machine dépourvue de système
+d'exploitation.
+
+
+  * Introduction
+  * Identifier la carte mère
+  * Récupérer la mise à jour du BIOS
+  * Installer Unetbootin
+  * Formater la clé USB
+  * Installer FreeDOS
+  * Installer l'utilitaire de flashage
+  * Lancer FreeDOS
+  * Afficher des infos sur le BIOS
+  * Flasher le BIOS
+
+
+Introduction
+------------
+
+Dans ce rares cas, l'installation d'un système d'exploitation nécessite de
+passer par une mise à jour du BIOS pour corriger un bug. La plupart des
+constructeurs proposent certes des utilitaires divers et variés pour effectuer
+cette opération, mais ceux-ci sont disponibles uniquement pour Microsoft
+Windows. 
+
+En bidouillant un peu, j'ai réussi à confectionner une clé USB FreeDOS, un
+système d'exploitation libre et gratuit compatible avec DOS. Elle nous
+permettra d'effectuer une mise à jour du BIOS sans passer par l'installation
+d'une version de Windows.
+
+  /!\ La mise à jour du BIOS d'une machine fait partie des interventions à
+  risque. Si la procédure se passe mal, et notamment en cas d'interruption lors
+  du flashage, le matériel est bon pour être relégué à la casse. Il faut donc
+  impérativement brancher la machine à un onduleur.
+
+
+Identifier la carte mère
+------------------------
+
+Pas la peine de dévisser le boîtier pour identifier la carte mère. Plusieurs
+solutions s'offrent à nous. La plus simple consiste à démarrer sur un disque
+d'installation de Slackware. Une fois qu'on dispose d'un shell, invoquer la
+commande suivante :
+
+  # dmidecode -t 2
+  ...
+  Modèle : Intel D945GCNL
+  ...
+
+
+Récupérer la mise à jour du BIOS
+--------------------------------
+
+Aller sur le site du constructeur de la carte mère, par exemple :
+
+  * https://downloadcenter.intel.com/fr
+
+Saisir le modèle de carte mère dans le champ de recherche. La page des
+résultats affiche "Mise à jour du BIOS" entre autres choses. On se retrouve
+avec plusieurs fichiers, du genre :
+
+  * NL0036.BIO
+  * NL94510J.86A.0036.BI.ZIP
+  * NL94510J.86A.0036.EB.EXE
+
+Télécharger et décompresser l'archive ZIP. Elle contient trois fichiers :
+
+  * IFLASH2.EXE
+  * NL0036.BIO
+  * NL0036.ITK
+  
+
+Installer Unetbootin
+--------------------
+
+Unetbootin ("Universal Netboot Installer") est un programme très simple, qui
+permet entre autres choses de créer des clés USB bootables. La plupart des
+distributions proposent cet utilitaire dans leurs dépôts. Les utilisateurs de
+Slackware trouveront un SlackBuild sur le site SlackBuilds.org. Il faudra
+également installer la dépendance p7zip. 
+
+
+Formater la clé USB
+-------------------
+
+Garder un oeil sur les messages du système en insérant la clé USB :
+
+  # tail -f /var/log/messages
+
+Une fois qu'on a identifié la clé, commencer par supprimer la table de
+partitions, par exemple :
+
+  # dd if=/dev/zero of=/dev/sdb bs=512 count=64
+
+Créer une partition FAT16 (type '0E') avec 'fdisk' ou 'cfdisk'.
+
+Formater la clé :
+
+  # mkdosfs -v /dev/sdb1
+
+
+Installer FreeDOS
+-----------------
+
+Dans un premier temps, monter la clé USB, par exemple :
+
+  # mount -v /dev/sdb1 /mnt/hd
+
+Unetbootin doit être lancé en tant que root. Pour éviter les ennuis avec les
+droits insuffisants, la solution consiste à le lancer depuis un terminal
+graphique en tant que root. Il faudra s'y prendre comme ceci :
+
+  $ xhost +
+  $ su -
+  # unetbootin
+
+Dans le menu principal de Unetbootin, sélectionner la distribution :
+
+  * FreeDOS 1.0
+
+Unetbootin se charge alors de télécharger et installer FreeDOS. La taille de
+cet OS est d'environ 1.4 Mo.
+
+
+Installer l'utilitaire de flashage
+----------------------------------
+
+La clé est encore montée. Il suffit à présent de copier les trois fichiers
+téléchargés plus haut à la racine de la clé :
+
+  # cp IFLASH2.EXE NL0036.BIO NL0036.ITK /mnt/hd/
+
+Démonter la clé :
+
+  # umount /mnt/hd
+
+
+Lancer FreeDOS
+--------------
+
+Démarrer sur la clé et choisir l'unique option de démarrage 'Default'.
+
+On se retrouve alors face à un deuxième menu comportant plusieurs options pour
+démarrer FreeDOS. 
+
+  > FreeDOS Safe Mode (don't load any drivers)
+
+FreeDOS démarre et affiche une invite :
+
+  A:\>
+
+Nous voulons accéder au disque C:.
+
+  A:\> C:
+  C:\>
+
+Vérifier si tout est bien en place :
+
+  C:\> DIR
+
+
+Afficher des infos sur le BIOS
+------------------------------
+
+L'utilitaire 'IFLASH2.EXE' comporte plusieurs options. Pour en savoir un peu
+plus, il suffit de l'invoquer sans arguments. 
+
+L'option '/s' permet de savoir si la précédente mise à jour du BIOS s'est
+déroulée normalement.
+
+L'option '/i' nous renseigne sur la version actuelle du BIOS.
+
+
+Flasher le BIOS
+---------------
+
+Démarrer la mise à jour du BIOS comme ceci :
+
+  C:\> IFLASH2.EXE /pf NL0036.BIO /rb
+
+La procédure de flashage peut durer une ou plusieurs minutes et comporte un
+redémarrage de la machine. 
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
