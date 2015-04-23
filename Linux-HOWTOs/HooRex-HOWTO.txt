@@ -1,0 +1,129 @@
+============
+HooRex HOWTO (c) Nicolas Kovacs, <info@microlinux.fr>
+============
+
+Dernière révision : 23 avril 2015
+
+Ce HOWTO décrit la gestion du calculateur de dépendances HooRex.
+
+
+Introduction
+------------
+
+La distribution Slackware Linux ne comporte aucun outil de résolution
+automatique des dépendances. HooRex est un outil en ligne de commande développé
+par Chris Willing, et qui permet de calculer facilement les dépendances des
+paquets proposés par le portail SlackBuilds.org.
+
+
+Installation
+------------
+
+HooRex est fourni par les dépôts MLED et MLES, pour les versions à partir de
+Slackware 14.0. Il dépend de PyXDG.
+
+  # slackpkg install hoorex pyxdg
+
+Le code source est disponible ici :
+
+  * https://github.com/cwilling/hoorex
+
+
+Prise en main
+-------------
+
+Au premier lancement, HooRex affiche le message suivant :
+
+  # hoorex
+  CRITICAL: SBO_PATH is not set. Please set it using the -s (--slackbuilds) 
+  option e.g. hoorex -s /home/thomas/slackbuilds
+
+Dans ce cas, il faut démarrer 'sbopkg' et lancer une synchronisation initiale.
+L'arborescence des SlackBuilds téléchargés se situe dans '/var/lib/sbopkg'.
+C'est ce qu'on va indiquer à HooRex.
+
+  # hoorex -s /var/lib/sbopkg/
+
+Une petite remarque s'imposte. On peut très bien invoquer 'hoorex' en tant
+qu'utilisateur normal.  Si nous le faisons en tant que root, c'est que nous
+construisons les paquets en tant que root, et c'est précisément là où nous
+avons besoin du calcul des dépendances.
+
+
+Utilisation
+-----------
+
+Admettons que je veuille savoir quels sont les paquets qui nécessitent
+l'installation de 'lame', je fais ceci :
+
+  # hoorex lame
+  lame Pd-extended ffmpeg kdenlive soundconverter mythtv qdvdauthor 
+  avidemux 
+
+Les résultats peuvent être affichés en colonne :
+
+  # hoorex -1 lame
+  lame
+  Pd-extended
+  ffmpeg
+  kdenlive
+  soundconverter
+  mythtv
+  qdvdauthor
+  avidemux
+
+L'affichage long permet d'en savoir plus sur les catégories de chacun des
+paquets :
+
+  # hoorex -l -1 lame
+  SBo/14.0/libraries/lame
+  SBo/14.0/audio/Pd-extended
+  SBo/14.0/multimedia/ffmpeg
+  SBo/14.0/multimedia/kdenlive
+  SBo/14.0/audio/soundconverter
+  SBo/14.0/multimedia/mythtv
+  SBo/14.0/multimedia/qdvdauthor
+  SBo/14.0/multimedia/avidemux
+
+L'option '-m' (multilevel) affiche les dépendances en cascade :
+
+  # hoorex -m lame
+  lame Pd-extended ffmpeg digikam kino winff ffmpegthumbnailer sinthgunt
+  dvd-slideshow avidemux imagination imageshack-uploader backlite qdvdauthor
+  picard wxsvg k9copy transcode miro xvst minidlna freerdp ripit recorditnow
+  guvcview ffmpeg2theora tovid dvdstyler devede dvdrip rosa-media-player vlc
+  kradio sopcast-player mythtv mlt mythplugins soundconverter LiVES get_iplayer
+  openshot cinelerra flowblade kmediafactory remmina bombono-dvd xjadeo
+  oggconvert kdenlive 
+
+Inversement, l'option '-r' (reverse) permet d'en savoir plus sur les paquets
+requis pour la construction de tel ou tel paquet :
+
+  # hoorex -r -1 dvdrip  
+  lame
+  x264
+  perl-libintl
+  perl-extutils-depends
+  ffmpeg
+  transcode
+  perl-event
+  perl-extutils-pkgconfig
+  perl-glib
+  perl-cairo
+  perl-pango
+  perl-gtk2
+  dvdrip
+
+Enfin, l'option '-i' permet de limiter l'affichage aux paquets effectivement
+installés :
+
+  # hoorex -i lame
+  lame ffmpeg 
+
+Le manuel en ligne de HooRex est assez complet :
+
+  # man hoorex
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
