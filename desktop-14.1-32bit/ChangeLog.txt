@@ -1,5 +1,6 @@
 Thu Apr 23 07:37:19 CEST 2015
 hoorex-0.5.5-i486-1_microlinux.txz: Added.
+  Thanks to Chris Willing.
 +--------------------------+
 Sat Apr 18 06:46:28 CEST 2015
 ffmpegthumbnailer-2.0.9-i486-1_microlinux.txz: Added.

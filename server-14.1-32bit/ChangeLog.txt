@@ -1,6 +1,7 @@
 Thu Apr 23 07:29:42 CEST 2015
 pyxdg-0.25-i486-1_microlinux.txz: Added.
 hoorex-0.5.5-i486-1_microlinux.txz: Added.
+  Thanks to Chris Willing.
 +--------------------------+
 Sun Apr 19 05:33:42 CEST 2015
 recode-3.6-i486-1_microlinux.txz: Added.
