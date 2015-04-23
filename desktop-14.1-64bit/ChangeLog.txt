@@ -3,6 +3,7 @@ hoorex-0.5.5-x86_64-1_microlinux.txz: Added.
   Thanks to Chris Willing
 mozilla-firefox-langpack-31.6.0-x86_64-1_microlinux.txz: Upgraded.
 mozilla-thunderbird-langpack-31.6.0-x86_64-1_microlinux.txz: Upgraded.
+xfce4-notes-plugin-1.8.0-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Sat Apr 18 07:12:46 CEST 2015
 ffmpegthumbnailer-2.0.9-x86_64-1_microlinux.txz: Added.

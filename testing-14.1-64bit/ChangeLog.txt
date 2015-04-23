@@ -1,3 +1,14 @@
+Thu Apr 23 10:47:58 CEST 2015
+libxfcegui4-4.10.0-x86_64-3_microlinux.txz: Removed
+  We kept this around to build xfce4-notes-plugin, but the latest version
+	doesn't need it anymore.
+xfce4-notes-plugin-1.7.7-x86_64-1_microlinux.txz: Removed
+	The latest version doesn't need a patched libxfcegui4, so we're moving it to
+	the main [desktop] repository.
+hoorex-0.5.4-x86_64-1_microlinux.txz: Removed
+  The latest upgrade works perfectly, so we're moving it to the main [server]
+	and [desktop] repositories.
++--------------------------+
 Tue Apr 21 09:22:56 CEST 2015
 hoorex-0.5.4-x86_64-1_microlinux.txz: Added.
 +--------------------------+
