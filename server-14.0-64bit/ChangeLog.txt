@@ -1,3 +1,7 @@
+Thu Apr 23 07:26:11 CEST 2015
+pyxdg-0.25-x86_64-1_microlinux.txz: Added.
+hoorex-0.5.5-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Sat Apr 18 15:51:42 CEST 2015
 recode-3.7_beta2-x86_64-1_microlinux.txz: Added.
 unrar-5.0.14-x86_64-1_microlinux.txz: Added.
