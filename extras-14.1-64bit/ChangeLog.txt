@@ -1,3 +1,6 @@
+Thu Apr 23 18:22:54 CEST 2015
+gcompris-15.02-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Mon Apr 20 17:08:59 CEST 2015
 lbreakout2-2.6.3-x86_64-1_microlinux.txz: Added.
 +--------------------------+
