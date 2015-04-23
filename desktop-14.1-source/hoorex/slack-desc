@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+hoorex: hoorex (dependency calculator)
+hoorex:
+hoorex: HooRex is a dependency calculator for the SlackBuilds.org repository.
+hoorex: It finds out which packages require a particular package, e. g. which
+hoorex: packages name the package of interest in the REQUIRED field of their
+hoorex: .info file.
+hoorex: 
+hoorex:
+hoorex: 
+hoorex: 
+hoorex: Package created by Niki Kovacs <info@microlinux.fr>
