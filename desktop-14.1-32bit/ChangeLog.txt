@@ -1,8 +1,9 @@
 Fri Apr 24 09:19:51 CEST 2015
 numlockx-1.2-i486-1_microlinux.txz: Added.
-  Upon request by gegechris99 from LQ. Thanks to phenixia2003 for the hint.
-	NumLockX works out of the box, since GDM is already patched to use it. I had
-	planned to include it earlier, but simply forgot to follow up. 
+  Upon request by gegechris99 from LQ. 
+gdm-2.20.11-i486-2_microlinux.txz: Rebuilt.
+  Patched to activate NumLock automatically on startup if NumLockX is
+	installed. Thanks to phenixia2003 on LQ.
 +--------------------------+
 Thu Apr 23 07:37:19 CEST 2015
 hoorex-0.5.5-i486-1_microlinux.txz: Added.

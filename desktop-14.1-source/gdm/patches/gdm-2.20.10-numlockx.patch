@@ -5,7 +5,7 @@ diff -Naur gdm-2.20.10-old/config/Init.in gdm-2.20.10/config/Init.in
    fi
  fi
  
-+if [ -x /etc/rc.d/rc.numlock ] && [ -x /usr/bin/numlockx ]; then
++if [ -x /usr/bin/numlockx ]; then
 +	/usr/bin/numlockx on
 +fi
 +
