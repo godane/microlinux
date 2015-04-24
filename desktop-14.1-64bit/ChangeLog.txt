@@ -1,3 +1,10 @@
+Fri Apr 24 09:47:51 CEST 2015
+numlockx-1.2-x86_64-1_microlinux.txz: Added.
+  Upon request by gegechris99 from LQ. 
+gdm-2.20.11-x86_64-2_microlinux.txz: Rebuilt.
+  Patched to activate NumLock automatically on startup if NumLockX is
+	installed. Thanks to phenixia2003 on LQ.
++--------------------------+
 Thu Apr 23 07:40:42 CEST 2015
 hoorex-0.5.5-x86_64-1_microlinux.txz: Added.
   Thanks to Chris Willing
