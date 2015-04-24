@@ -13,7 +13,7 @@ function start {
   
   # Politique par défaut
   $IPT -P INPUT DROP
-  $IPT -P FORWARD ACCEPT
+  $IPT -P FORWARD DROP
   $IPT -P OUTPUT ACCEPT
 
   # Faire confiance à nous-mêmes ;o)
@@ -27,56 +27,8 @@ function start {
   # Connexions établies
   $IPT -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
-  # FTP local
-  # $MOD ip_conntrack_ftp
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 21 -j ACCEPT
-
   # SSH local
   $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 22 -j ACCEPT
-
-  # DNS 
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 53 -j ACCEPT
-  # $IPT -A INPUT -p udp -i $IFACE_LAN --dport 53 -j ACCEPT
-
-  # DHCP
-  # $IPT -A INPUT -p udp -i $IFACE_LAN --dport 67:68 -j ACCEPT
-
-  # HTTP 
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 80 -j ACCEPT
-
-  # HTTPS 
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 443 -j ACCEPT
-
-  # NTP 
-  # $IPT -A INPUT -p udp -i $IFACE_LAN --dport 123 -j ACCEPT
-
-  # Samba 
-  # $IPT -A INPUT -p udp -i $IFACE_LAN --dport 137:138 -j ACCEPT
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 139 -j ACCEPT
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 445 -j ACCEPT
-
-  # CUPS
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 631 -j ACCEPT
-  # $IPT -A INPUT -p udp -i $IFACE_LAN --dport 631 -j ACCEPT
-
-  # NFS
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 111 -j ACCEPT
-  # $IPT -A INPUT -p udp -i $IFACE_LAN --dport 111 -j ACCEPT
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 2049 -j ACCEPT
-  # $IPT -A INPUT -p udp -i $IFACE_LAN --dport 2049 -j ACCEPT
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 32765:32769 -j ACCEPT
-  # $IPT -A INPUT -p udp -i $IFACE_LAN --dport 32765:32769 -j ACCEPT
-
-  # NIS
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 834 -j ACCEPT
-  # $IPT -A INPUT -p udp -i $IFACE_LAN --dport 834 -j ACCEPT
-
-  # Squid 
-  #$IPT -A INPUT -p tcp -i $IFACE_LAN --dport 3128 -j ACCEPT
-  #$IPT -A INPUT -p udp -i $IFACE_LAN --dport 3128 -j ACCEPT
-
-  # Icecast
-  # $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 8000 -j ACCEPT
 
   # Enregistrer les connexions refusées
   $IPT -A INPUT -j LOG --log-prefix "+++ IPv4 packet rejected +++"

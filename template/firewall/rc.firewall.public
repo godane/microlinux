@@ -27,50 +27,8 @@ function start {
   # Connexions établies
   $IPT -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
-  # FTP 
-  # $MOD ip_conntrack_ftp
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 21 -j ACCEPT
-
-  # SSH illimité
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 22 -j ACCEPT
-
-  # SSH limité
-  $IPT -A INPUT -p tcp -i $IFACE_INET --dport 22 -m state --state NEW \
-   -m recent --set --name SSH
-  $IPT -A INPUT -p tcp -i $IFACE_INET --dport 22 -m state --state NEW \
-   -m recent --update --seconds 60 --hitcount 2 --rttl --name SSH -j DROP
+  # SSH 
   $IPT -A INPUT -p tcp -i $IFACE_INET --dport 22 -j ACCEPT
-
-  # SMTP 
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 25 -j ACCEPT
-
-  # DNS
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 53 -j ACCEPT
-  # $IPT -A INPUT -p udp -i $IFACE_INET --dport 53 -j ACCEPT
-
-  # HTTP 
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 80 -j ACCEPT
-
-  # POP
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 110 -j ACCEPT
-
-  # IMAP
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 143 -j ACCEPT
-
-  # HTTPS
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 443 -j ACCEPT
-
-  # SMTP (Thunderbird)
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 587 -j ACCEPT
-
-  # IMAPS
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 993 -j ACCEPT
-
-  # POPS
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 995 -j ACCEPT
-
-  # Icecast 
-  # $IPT -A INPUT -p tcp -i $IFACE_INET --dport 8000 -j ACCEPT
 
   # Enregistrer les connexions refusées
   $IPT -A INPUT -j LOG --log-prefix "+++ IPv4 packet rejected +++"
