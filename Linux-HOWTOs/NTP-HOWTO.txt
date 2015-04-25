@@ -40,7 +40,7 @@ le temps exact. À partir de là, on a plusieurs possibilités d'utiliser NTP.
   > Le démon 'ntpd' peut à son tour être configuré comme serveur de temps pour
     les machines locales.
 
-Dans la pratique quotidienne, on utilisera 'ntpdate' pour l'ajustement initiale
+Dans la pratique quotidienne, on utilisera 'ntpdate' pour l'ajustement initial
 de l'heure locale, et 'ntpd' pour la synchronisation régulière.
 
 
