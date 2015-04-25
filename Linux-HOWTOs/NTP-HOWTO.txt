@@ -2,7 +2,7 @@
 NTP HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =========
 
-Dernière révision : 17 janvier 2013
+Dernière révision : 25 avril 2015
 
 Ce HOWTO décrit la mise en place d'un serveur d'horloge atomique sous Slackware
 et la synchronisation des postes clients avec celui-ci.
