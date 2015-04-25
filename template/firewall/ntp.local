@@ -1,0 +1,2 @@
+# NTP 
+$IPT -A INPUT -p udp -i $IFACE_LAN --dport 123 -j ACCEPT
