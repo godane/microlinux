@@ -1,0 +1,2 @@
+# HTTP 
+$IPT -A INPUT -p tcp -i $IFACE_INET --dport 80 -j ACCEPT
