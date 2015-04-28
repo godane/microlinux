@@ -1,0 +1,2 @@
+# HTTPS 
+$IPT -A INPUT -p tcp -i $IFACE_INET --dport 443 -j ACCEPT
