@@ -51,15 +51,11 @@ On va donc commencer par aérer tout cela :
 Éditer '/etc/squid/squid.conf' ou bien adapter la configuration suivante :
 
 --8<---------- /etc/squid/squid.conf -----------------------------------------
-# /etc/squid/squid.conf
-
 # Nom d'hôte du serveur Squid
 visible_hostname nestor.microlinux.lan
 
 # Définitions
-acl manager proto cache_object
-acl localhost src 127.0.0.1/32 
-acl localnet src 192.168.2.0/24 
+acl localnet src 192.168.2.0/24	# Réseau local
 acl SSL_ports port 443
 acl Safe_ports port 80		# http
 acl Safe_ports port 21		# ftp
@@ -74,48 +70,35 @@ acl Safe_ports port 777		# multiling http
 acl CONNECT method CONNECT
 
 # Règles d'accès
-http_access allow manager localhost
-http_access deny manager
 http_access deny !Safe_ports
 http_access deny CONNECT !SSL_ports
+http_access allow localhost manager
+http_access deny manager
 http_access allow localnet
 http_access allow localhost
 http_access deny all
-icp_access allow localnet
-icp_access deny all
-htcp_access allow localnet
-htcp_access deny all
 
 # Port du proxy
-http_port 3128 
+http_port 3128
 
 # Taille du cache dans la RAM
 cache_mem 1024 MB
 
 # Emplacement et taille du cache sur le disque
-# cache_dir ufs /var/cache/squid/ 4096 16 256
+# cache_dir ufs /var/cache/squid 256 16 256
+# cache_dir ufs /var/cache/squid 4096 16 256
 
-# Logs
-access_log /var/log/squid/access.log squid
-cache_store_log /var/log/squid/store.log
-cache_log /var/log/squid/cache.log
-logfile_rotate 24
+# Fichier PID
+pid_filename /var/run/squid/squid.pid
+
+# Vidage système
+coredump_dir /var/log/squid/cache/squid
 
 # Durée de vie des fichiers sans date d'expiration
 refresh_pattern ^ftp:		1440	20%	10080
 refresh_pattern ^gopher:	1440	0%	1440
 refresh_pattern -i (/cgi-bin/|\?) 0	0%	0
 refresh_pattern .		0	20%	4320
-
-# Utilisateur système
-cache_effective_user nobody
-cache_effective_group nobody
-
-# Fichier PID
-pid_filename /var/run/squid/squid.pid
-
-# Vidage système
-coredump_dir /var/log/squid/cache
 --8<--------------------------------------------------------------------------
 
   > Squid peut être utilisé par toutes les machines du réseau local. La
@@ -130,10 +113,6 @@ coredump_dir /var/log/squid/cache
     serveur. La directive 'cache_mem' permet de définir la taille du cache. Si
     l'on ne souhaite pas utiliser le disque dur pour le cache, il faut
     s'assurer de n'utiliser aucune directive 'cache_dir'.
-
-  > La directive 'logfile_rotate 24' prédéfinit la rotation des fichiers logs.
-    Si l'on effectue une rotation mensuelle (cf. un peu plus bas), on garde
-    les logs pendant deux ans.
 
 
 Utilisation
@@ -238,41 +217,13 @@ $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 3128 -j ACCEPT
 $IPT -A INPUT -p udp -i $IFACE_LAN --dport 3128 -j ACCEPT
 
 # Squid transparent
-$IPT -A PREROUTING -t nat -i $IFACE_LAN -p tcp ! -d 192.168.2.1 \
+$IPT -A PREROUTING -t nat -i $IFACE_LAN -p tcp ! -d $SERVER_IP \
   --dport 80 -j REDIRECT --to-port 3128
 ...
 --8<--------------------------------------------------------------------------
 
 Là aussi, afficher les logs pour voir si le proxy transparent est
 effectivement utilisé par les postes clients.
-
-
-Rotation des logs
------------------
-
-À partir du moment où Squid est configuré en proxy transparent, le fichier
-'/var/log/squid/access.log' enregistre l'ensemble des requêtes HTTP du réseau,
-ce qui peut résulter en un fichier assez volumineux, et qui peut même prendre
-des proportions inquiétantes. On va donc mettre en place un cronjob pour une
-rotation hebdomadaire des logs.
-
-Éditer un fichier '/etc/cron.monthly/squid-logrotate' comme ceci :
-
---8<---------- /etc/cron.weekly/squid-logrotate ------------------------------
-#!/bin/sh
-/usr/sbin/squid -k rotate
---8<--------------------------------------------------------------------------
-
-Rendre ce fichier exécutable :
-
-  # chmod +x /etc/cron.weekly/squid-logrotate
-
-Éventuellement, modifier l'heure d'exécution des cronjobs mensuels :
-
-  # crontab -e
-  ...
-  # Run monthly cron jobs at 11:50 on the first day of the month:
-  50 11 1 * * /usr/bin/run-parts /etc/cron.monthly 1> /dev/null
 
 
 ------------------------------------------------------------------------------
