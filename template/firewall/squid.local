@@ -1,0 +1,3 @@
+# Squid 
+$IPT -A INPUT -p tcp -i $IFACE_LAN --dport 3128 -j ACCEPT
+$IPT -A INPUT -p udp -i $IFACE_LAN --dport 3128 -j ACCEPT

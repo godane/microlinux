@@ -1,0 +1,3 @@
+# Squid transparent
+$IPT -A PREROUTING -t nat -i $IFACE_LAN -p tcp ! -d $SERVER_IP \
+  --dport 80 -j REDIRECT --to-port 3128

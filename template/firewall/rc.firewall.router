@@ -14,6 +14,9 @@ IFACE_INET=eth0
 IFACE_LAN=eth1
 IFACE_LAN_IP=192.168.2.0/24
 
+# Serveur
+SERVER_IP=192.168.2.1
+
 # Relais des paquets (yes/no)
 MASQ=yes
 
