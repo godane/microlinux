@@ -1,4 +1,4 @@
-# Dnsmasq
-$IPT -A INPUT -p tcp -i $IFACE_LAN --dport 53 -j ACCEPT
-$IPT -A INPUT -p udp -i $IFACE_LAN --dport 53 -j ACCEPT
-$IPT -A INPUT -p udp -i $IFACE_LAN --dport 67:68 -j ACCEPT
+  # Dnsmasq
+  $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 53 -j ACCEPT
+  $IPT -A INPUT -p udp -i $IFACE_LAN --dport 53 -j ACCEPT
+  $IPT -A INPUT -p udp -i $IFACE_LAN --dport 67:68 -j ACCEPT

@@ -1,2 +1,2 @@
-# HTTPS
-$IPT -A INPUT -p tcp -i $IFACE_LAN --dport 443 -j ACCEPT
+  # HTTPS
+  $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 443 -j ACCEPT
