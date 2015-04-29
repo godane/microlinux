@@ -1,3 +1,6 @@
+Wed Apr 29 06:52:29 CEST 2015
+squid-3.4.12-i486-1_microlinux.txz: Added.
++--------------------------+
 Thu Apr 23 07:29:42 CEST 2015
 pyxdg-0.25-i486-1_microlinux.txz: Added.
 hoorex-0.5.5-i486-1_microlinux.txz: Added.
