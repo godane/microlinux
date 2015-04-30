@@ -1,3 +1,6 @@
+Thu Apr 30 06:56:44 CEST 2015
+squidGuard-1.4-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Wed Apr 29 07:33:53 CEST 2015
 squid-3.4.12-x86_64-1_microlinux.txz: Added.
 +--------------------------+
