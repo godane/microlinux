@@ -1,3 +1,7 @@
+Fri May  1 10:42:23 CEST 2015
+gtkmm3-3.8.1-x86_64-1_microlinux.txz: Added.
+gnote-0.8.4-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Thu Apr 23 10:47:58 CEST 2015
 libxfcegui4-4.10.0-x86_64-3_microlinux.txz: Removed
   We kept this around to build xfce4-notes-plugin, but the latest version
