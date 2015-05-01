@@ -1,3 +1,7 @@
+Fri May  1 09:54:50 CEST 2015
+gtkmm3-3.8.1-i486-1_microlinux.txz: Added.
+gnote-0.8.4-i486-1_microlinux.txz: Added.
++--------------------------+
 Thu Apr 23 10:47:58 CEST 2015
 libxfcegui4-4.10.0-i486-3_microlinux.txz: Removed.
   We kept this around to build xfce4-notes-plugin, but the latest version
