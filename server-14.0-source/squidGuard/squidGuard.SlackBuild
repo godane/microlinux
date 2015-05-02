@@ -25,7 +25,7 @@
 
 PRGNAM=squidGuard
 VERSION=${VERSION:-1.4}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j3}
@@ -85,6 +85,8 @@ find -L . \
 # MAX_BUF value (4096).
 patch -p1 < $CWD/squidGuard.patch
 
+# Needed for Squid 3.4.x
+patch -p1 < $CWD/rewrite.patch
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
