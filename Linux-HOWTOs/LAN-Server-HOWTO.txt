@@ -13,10 +13,11 @@ Ce HOWTO décrit l'installation d'un serveur de réseau local Slackware 14.1.
   * Lancer l'installation
   * Construire l'initrd et configurer LILO 
   * Premier redémarrage 
+  * Télécharger les scripts Microlinux
+  * Configurer slackpkg
+  * Élaguer et installer les paquets MLES
   * Peaufiner la configuration du réseau 
-  * Activer le relais des paquets 
-  * Sécuriser le serveur 
-  * Installer les services
+  * Pare-feu
 
 
 HP Proliant Microserver
@@ -230,6 +231,18 @@ Sortir de l'installateur ('EXIT') et effectuer quelques retouches finales :
 Construire l'initrd et configurer LILO
 --------------------------------------
 
+Attendre la synchronisation complète de la grappe :
+
+  # watch cat /proc/mdstat
+
+L'astuce suivante permet d'accélérer la synchronisation des disques de façon
+significative :
+
+  # echo 50000 > /proc/sys/dev/raid/speed_limit_min
+
+Aller boire un ou plusieurs cafés, jouer avec le chat, faire un tour dans la
+garrigue, etc.
+
 Créer le fichier de configuration pour la grappe RAID :
 
   # mdadm -E -s > /etc/mdadm.conf
@@ -307,19 +320,7 @@ image = /boot/vmlinuz-generic-3.10.17
 On peut tranquillement ignorer le message d'erreur qui dit que "/dev/sdb n'est
 pas sur le premier disque" :o)
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! ATTENDRE LA SYNCHRONISATION COMPLÈTE DE LA GRAPPE !!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-  # watch cat /proc/mdstat
-
-Dans certains cas, l'astuce suivante permet d'accélérer la synchronisation de
-la grappe RAID de façon significative :
-
-  # echo 50000 > /proc/sys/dev/raid/speed_limit_min
-
-Aller boire un ou plusieurs cafés, jouer avec le chat, faire un tour dans la
-garrigue, etc.
+Quitter l'environnement chrooté et redémarrer :
 
   # exit
   # reboot
