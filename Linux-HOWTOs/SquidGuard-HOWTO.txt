@@ -443,9 +443,10 @@ par exemple :
 Automatiser les opérations
 --------------------------
 
-Je fournis un script '/usr/local/sbin/blacklist.sh' qui automatise la plupart
-des tâches répétitives. Le script fait partie du paquet 'squidGuard' et se
-charge de :
+Je fournis un script 'blacklist.sh' dans le répertoire 'template/squidguard/',
+qui automatise la plupart des tâches répétitives. Copier ce script dans un
+endroit approprié, par exemple '/usr/local/sbin/', et le rendre exécutable. Il
+se charge de :
 
   1. récupérer les listes noires et blanches
 
