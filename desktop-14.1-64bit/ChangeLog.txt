@@ -1,3 +1,9 @@
+Tue May  5 07:29:49 CEST 2015
+gtkmm3-3.8.1-x86_64-2_microlinux.txz: Added.
+gnote-0.8.4-x86_64-2_microlinux.txz: Added.
+xfce4-notes-plugin-1.8.0-x86_64-1_microlinux.txz: Removed.
+  Replaced by Gnote, which is the better note-taking application.
++--------------------------+
 Fri Apr 24 09:47:51 CEST 2015
 numlockx-1.2-x86_64-1_microlinux.txz: Added.
   Upon request by gegechris99 from LQ. 

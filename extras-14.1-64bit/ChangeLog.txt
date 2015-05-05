@@ -1,3 +1,6 @@
+Tue May  5 07:16:59 CEST 2015
+aisleriot-3.6.2-x86_64-2_microlinux.txz: Added.
++--------------------------+
 Thu Apr 23 18:22:54 CEST 2015
 gcompris-15.02-x86_64-1_microlinux.txz: Added.
 +--------------------------+
