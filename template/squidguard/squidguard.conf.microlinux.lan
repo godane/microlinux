@@ -1,0 +1,218 @@
+# /etc/squidguard/squidguard.conf
+dbhome /var/lib/squidguard/dest
+logdir /var/log/squidguard
+
+src unfiltered {
+  ip 192.168.2.2-192.168.2.9
+}
+
+src microlinux {
+  ip 192.168.2.10-192.168.2.247
+  ip 192.168.2.252-192.168.2.254
+}
+
+src voisins {
+  ip 192.168.2.248-192.168.2.251
+}
+
+# Des sites adultes allant de l'érotique à la pornographie dure
+destination adult {
+  domainlist adult/domains
+  urllist adult/urls
+  log adult
+}
+
+# Quelques sites racistes, antisémites et incitant à la haine
+destination agressif {
+  domainlist agressif/domains
+  urllist agressif/urls
+  log agressif
+}
+
+# Sites de pari en ligne certifiés par l'ARJEL
+# (1) Autorité de Régulation des Jeux en Ligne
+destination arjel {
+  domainlist arjel/domains
+  log arjel
+}
+
+# Sites pour désinfecter et mettre à jour les ordinateurs
+destination cleaning {
+  domainlist cleaning/domains
+  urllist cleaning/urls
+  log cleaning
+}
+
+# Drogues
+destination drogue {
+  domainlist drogue/domains
+  urllist drogue/urls
+  log drogue
+}
+
+# Sites qui hébergent des contenus : musique, films, images, ...
+destination filehosting {
+  domainlist filehosting/domains
+  urllist filehosting/urls
+  log filehosting
+}
+
+# Sites de jeux en ligne, casino, etc.
+destination gambling {
+  domainlist gambling/domains
+  urllist gambling/urls
+  log gambling
+}
+
+# Sites de piratage et d'agressions informatiques
+destination hacking {
+  domainlist hacking/domains
+  urllist hacking/urls
+  log hacking
+}
+
+# Tout ce qui injecte des malwares
+destination malware {
+  domainlist malware/domains
+  urllist malware/urls
+  log malware
+}
+
+# Sites de marketing douteux
+destination marketingware {
+  domainlist marketingware/domains
+  urllist marketingware/urls
+  log marketingware
+}
+
+# Sites qui contiennent des parties "adultes"
+destination mixed_adult {
+  domainlist mixed_adult/domains
+  urllist mixed_adult/urls
+  log mixed_adult
+}
+
+# Sites pour les mobiles : sonneries, ...
+destination mobile-phone {
+  domainlist mobile-phone/domains
+  urllist mobile-phone/urls
+  log mobile-phone
+}
+
+# Sites de phishing, de pièges bancaires ou autres
+destination phishing {
+  domainlist phishing/domains
+  urllist phishing/urls
+  log phishing
+}
+
+# Publicité
+destination publicite {
+  domainlist publicite/domains
+  urllist publicite/urls
+  log publicite
+}
+
+# Sites qui permettent la prise de contrôle à distance
+destination remote-control {
+  domainlist remote-control/domains
+  urllist remote-control/urls
+  log remote-control
+}
+
+# Sectes
+destination sect {
+  domainlist sect/domains
+  urllist sect/urls
+  log sect
+}
+
+# Sites de vente et d'achat en ligne
+destination shopping {
+  domainlist shopping/domains
+  urllist shopping/urls
+  log shopping
+}
+
+# Sites qui expliquent comment tricher aux examens
+destination tricheur {
+  domainlist tricheur/domains
+  urllist tricheur/urls
+  log tricheur
+}
+
+# Sites de logiciels piratés
+destination warez {
+  domainlist warez/domains
+  urllist warez/urls
+  log warez
+}
+
+# Sites qui permettent de contourner les filtres (1)
+destination redirector {
+  domainlist redirector/domains
+  urllist redirector/urls
+  log redirector
+}
+ 
+# Sites qui permettent de contourner les filtres (2)
+destination strict_redirector {
+  domainlist strict_redirector/domains
+  urllist strict_redirector/urls
+  log strict_redirector
+}
+ 
+# Sites qui permettent de contourner les filtres (3)
+destination strong_redirector {
+  domainlist strong_redirector/domains
+  urllist strong_redirector/urls
+  log strong_redirector
+}
+
+acl {
+  unfiltered {
+    pass all
+    }
+  microlinux {
+    pass !adult
+    pass !agressif
+    pass cleaning
+    pass !drogue
+    pass !hacking
+    pass !malware
+    pass !marketingware
+    pass !phishing
+    pass !publicite
+    pass shopping
+    redirect http://squidguard.nestor/avertissement.html
+  }
+  voisins {
+    pass !adult
+    pass !agressif
+    pass !arjel
+    pass !cleaning
+    pass !drogue
+    pass !filehosting
+    pass !gambling
+    pass !hacking
+    pass !malware
+    pass !marketingware
+    pass !mixed_adult
+    pass !mobile-phone
+    pass !phishing
+    pass !publicite
+    pass !remote-control
+    pass !sect
+    pass shopping
+    pass !tricheur
+    pass !warez
+    pass !redirector
+    pass !strict_redirector
+    pass !strong_redirector
+    redirect http://squidguard.nestor/avertissement.html
+  }
+  default {
+    pass none
+    redirect http://squidguard.nestor/avertissement.html
+  }
+}
