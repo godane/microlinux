@@ -5,7 +5,6 @@ garcon:ADD
 gtk-xfce-engine:ADD
 libxfce4ui:ADD
 libxfce4util:ADD
-libxfcegui4:ADD
 orage:ADD
 thunar-volman:ADD
 tumbler:ADD
@@ -27,4 +26,7 @@ xfce4-weather-plugin:ADD
 xfconf:ADD
 xfdesktop:ADD
 xfwm4:ADD
-xfwm4-themes:ADD
+
+# Skip
+libxfcegui4:SKP
+xfwm4-themes:SKP
