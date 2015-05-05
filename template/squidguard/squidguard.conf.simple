@@ -1,0 +1,41 @@
+# /etc/squidguard/squidguard.conf
+dbhome /var/lib/squidguard/dest
+logdir /var/log/squidguard
+
+src microlinux {
+  ip 192.168.2.0/24
+}
+
+# Des sites adultes allant de l'érotique à la pornographie dure
+destination adult {
+  domainlist adult/domains
+  urllist adult/urls
+  log adult
+}
+
+# Quelques sites racistes, antisémites et incitant à la haine
+destination agressif {
+  domainlist agressif/domains
+  urllist agressif/urls
+  log agressif
+}
+
+# Drogues
+destination drogue {
+  domainlist drogue/domains
+  urllist drogue/urls
+  log drogue
+}
+
+acl {
+  microlinux {
+    pass !adult
+    pass !agressif
+    pass !drogue
+    redirect http://squidguard.amandine/avertissement.html
+  }
+  default {
+    pass none
+    redirect http://squidguard.amandine/avertissement.html
+  }
+}
