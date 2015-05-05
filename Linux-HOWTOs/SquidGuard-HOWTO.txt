@@ -2,7 +2,7 @@
 SquidGuard HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ================
 
-Dernière révision : 30 avril 2015
+Dernière révision : 5 mai 2015
 
 Ce HOWTO décrit la mise en place du redirecteur SquidGuard pour un serveur
 proxy Squid sous Slackware.
