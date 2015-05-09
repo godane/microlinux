@@ -1,3 +1,12 @@
+Sat May  9 08:43:15 CEST 2015
+libreoffice-4.4.3-i586-1_microlinux.txz: Upgraded.
+libreoffice-langpack-fr-4.4.3-i586-1_microlinux.txz: Upgraded.
+libreoffice-langpack-de-4.4.3-i586-1_microlinux.txz: Upgraded.
+libreoffice-helppack-fr-4.4.3-i586-1_microlinux.txz: Upgraded.
+libreoffice-helppack-de-4.4.3-i586-1_microlinux.txz: Upgraded.
+flashplayer-plugin-11.2.202.457-i386-1_microlinux.txz: Upgraded.
+jdk-8u45-i586-1_microlinux.txz: Upgraded.
++--------------------------+
 Tue May  5 07:01:34 CEST 2015
 gtkmm3-3.8.1-i486-2_microlinux.txz: Added.
 gnote-0.8.4-i486-2_microlinux.txz: Added.
