@@ -1,0 +1,4 @@
+
+  # DNS
+  $IPT -A INPUT -p tcp -i $IFACE_INET --dport 53 -j ACCEPT
+  $IPT -A INPUT -p udp -i $IFACE_INET --dport 53 -j ACCEPT
