@@ -3,6 +3,7 @@ compiz-bcop-0.8.8-i486-1_microlinux.txz: Added.
 pysetuptools-15.0-i486-1_microlinux.txz: Added.
 six-1.8.0-i486-1_microlinux.txz: Added.
 python-dateutil-2.4.1-i486-1_microlinux.txz: Added.
+python-gflags-2.0-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue May  5 06:45:24 CEST 2015
 gtkmm3-3.8.1-i486-1_microlinux.txz: Removed.

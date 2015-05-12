@@ -1,0 +1,12 @@
+             |-----handy-ruler------------------------------------------------------|
+python-gflags: python-gflags (Google's Python argument parsing library)
+python-gflags:
+python-gflags: This project is the python equivalent of gflags, a commandline
+python-gflags: flag implementation for C++ originally written by Google. It is
+python-gflags: intended to be used in situations where a project wants to mimic the
+python-gflags: command-line flag handling of a C++ app that uses gflags, or for a
+python-gflags: Python app that, via swig or some other means, is linked with a C++
+python-gflags: app that uses gflags.
+python-gflags:
+python-gflags:
+python-gflags: Package created by Niki Kovacs <info@microlinux.fr>
