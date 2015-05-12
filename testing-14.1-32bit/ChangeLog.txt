@@ -8,6 +8,7 @@ pytz-2014.10-i486-1_microlinux.txz: Added.
 protobuf-2.6.1-i486-1_microlinux.txz: Added.
 libcompizconfig-0.8.8-i486-1_microlinux.txz: Added.
 compizconfig-python-0.8.4-i486-1_microlinux.txz: Added.
+ccsm-0.8.4-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue May  5 06:45:24 CEST 2015
 gtkmm3-3.8.1-i486-1_microlinux.txz: Removed.
