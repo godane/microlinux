@@ -13,6 +13,7 @@ compiz-plugins-main-0.8.8-i486-1_microlinux.txz: Added.
 compiz-plugins-extra-0.8.8-i486-2_microlinux.txz: Added.
 emerald-0.8.8-i486-3_microlinux.txz: Added.
 emerald-themes-0.6.0-i486-1_microlinux.txz: Added.
+fusion-icon-20080213-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue May  5 06:45:24 CEST 2015
 gtkmm3-3.8.1-i486-1_microlinux.txz: Removed.
