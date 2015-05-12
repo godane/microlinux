@@ -6,6 +6,14 @@ python-dateutil-2.4.1-x86_64-1_microlinux.txz: Added.
 python-gflags-2.0-x86_64-1_microlinux.txz: Added.
 pytz-2014.10-x86_64-1_microlinux.txz: Added.
 protobuf-2.6.1-x86_64-1_microlinux.txz: Added.
+libcompizconfig-0.8.8-x86_64-1_microlinux.txz: Added.
+compizconfig-python-0.8.4-x86_64-1_microlinux.txz: Added.
+ccsm-0.8.4-x86_64-1_microlinux.txz: Added.
+compiz-plugins-main-0.8.8-x86_64-1_microlinux.txz: Added.
+compiz-plugins-extra-0.8.8-x86_64-2_microlinux.txz: Added.
+emerald-0.8.8-x86_64-3_microlinux.txz: Added.
+emerald-themes-0.6.0-x86_64-1_microlinux.txz: Added.
+fusion-icon-20080213-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Tue May  5 06:45:24 CEST 2015
 gtkmm3-3.8.1-x86_64-1_microlinux.txz: Removed.
