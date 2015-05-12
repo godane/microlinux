@@ -11,6 +11,7 @@ compizconfig-python-0.8.4-i486-1_microlinux.txz: Added.
 ccsm-0.8.4-i486-1_microlinux.txz: Added.
 compiz-plugins-main-0.8.8-i486-1_microlinux.txz: Added.
 compiz-plugins-extra-0.8.8-i486-2_microlinux.txz: Added.
+emerald-0.8.8-i486-3_microlinux.txz: Added.
 +--------------------------+
 Tue May  5 06:45:24 CEST 2015
 gtkmm3-3.8.1-i486-1_microlinux.txz: Removed.
