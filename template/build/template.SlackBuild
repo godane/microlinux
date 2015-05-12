@@ -63,7 +63,7 @@ fi
 
 set -e 
 
-DOWNLOAD="http://archive.xfce.org/src/xfce/$PRGNAM/4.12/$PRGNAM-$VERSION.tar.bz2"
+DOWNLOAD="http://releases.compiz.org/$VERSION/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
