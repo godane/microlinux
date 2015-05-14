@@ -1,3 +1,6 @@
+Thu May 14 17:21:07 CEST 2015
+squidanalyzer-5.4-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Mon May 11 08:10:29 CEST 2015
 postfix-2.11.5-x86_64-1_microlinux.txz: Added.
 +--------------------------+
