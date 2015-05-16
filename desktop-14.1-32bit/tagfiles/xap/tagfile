@@ -3,7 +3,6 @@ MPlayer:ADD
 audacious:ADD
 audacious-plugins:ADD
 fluxbox:ADD
-geeqie:ADD
 gftp:ADD
 gimp:ADD
 gucharmap:ADD
@@ -24,6 +23,7 @@ blueman:SKP
 ddd:SKP
 electricsheep:SKP
 fvwm:SKP
+geeqie:SKP
 gkrellm:SKP
 gnuchess:SKP
 gnuplot:SKP
