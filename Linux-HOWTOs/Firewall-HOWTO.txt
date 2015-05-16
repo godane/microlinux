@@ -18,7 +18,7 @@ Le terme de "pare-feu" (ou "firewall") peut désigner plusieurs choses :
   * Une application installée sur la machine et censée améliorer la sécurité.
 
 En ce qui nous concerne, il s'agira très précisément d'un filtre de paquets
-pour la sécurisation du traffic TCP/IP. Ce filtre devra analyser tous les
+pour la sécurisation du trafic TCP/IP. Ce filtre devra analyser tous les
 paquets réseau qui entrent dans la machine et qui la quittent. Une série de
 tests décidera si les paquets ont le droit de passer ou s'ils doivent être
 bloqués.
