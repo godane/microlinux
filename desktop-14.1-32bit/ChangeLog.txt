@@ -1,5 +1,9 @@
 Sat May 16 12:21:59 CEST 2015
 mozilla-firefox-langpack-31.7.0-i486-1_microlinux.txz: Upgraded.
+gthumb-3.2.9.1-i486-1_microlinux.txz: Added.
+user-settings-xfce-4.12-noarch-2_microlinux.txz: Rebuilt.
+  gThumb is supposed to replace Geeqie as the default image viewer, so Xfce's
+	default configuration has been modified accordingly.
 +--------------------------+
 Sat May  9 08:43:15 CEST 2015
 libreoffice-4.4.3-i586-1_microlinux.txz: Upgraded.
