@@ -1,3 +1,26 @@
+Sun May 17 10:13:14 CEST 2015
+compiz-bcop-0.8.8-x86_64-1_microlinux.txz: Removed.
+pysetuptools-15.0-x86_64-1_microlinux.txz: Removed.
+six-1.8.0-x86_64-1_microlinux.txz: Removed.
+python-dateutil-2.4.1-x86_64-1_microlinux.txz: Removed.
+python-gflags-2.0-x86_64-1_microlinux.txz: Removed.
+pytz-2014.10-x86_64-1_microlinux.txz: Removed.
+protobuf-2.6.1-x86_64-1_microlinux.txz: Removed.
+libcompizconfig-0.8.8-x86_64-1_microlinux.txz: Removed.
+compizconfig-python-0.8.4-x86_64-1_microlinux.txz: Removed.
+ccsm-0.8.4-x86_64-1_microlinux.txz: Removed.
+compiz-plugins-main-0.8.8-x86_64-1_microlinux.txz: Removed.
+compiz-plugins-extra-0.8.8-x86_64-2_microlinux.txz: Removed.
+emerald-0.8.8-x86_64-3_microlinux.txz: Removed.
+emerald-themes-0.6.0-x86_64-1_microlinux.txz: Removed.
+fusion-icon-20080213-x86_64-1_microlinux.txz: Removed.
+  Compiz still suffers from occasional glitches, and we only want rock-solid
+	components on our systems. 
+hplip-3.15.4-x86_64-1_microlinux.txz: Removed.
+  This version doesn't play well with Slackware 14.1.
+hplip-3.14.10-x86_64-1_microlinux.txz: Added.
+  We still want support for some more recent HP printers.
++--------------------------+
 Tue May 12 07:16:23 CEST 2015
 compiz-bcop-0.8.8-x86_64-1_microlinux.txz: Added.
 pysetuptools-15.0-x86_64-1_microlinux.txz: Added.
