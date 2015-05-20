@@ -2,7 +2,7 @@
 Postfix HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =============
 
-Dernière révision : 19 mai 2015
+Dernière révision : 20 mai 2015
 
 Ce HOWTO décrit la mise en place d'un serveur mail avec Postfix sous Slackware
 Linux.
@@ -10,27 +10,14 @@ Linux.
 
   * Le MTA Postfix
   * Prérequis
-  * Installation de Postfix
-  * Configuration initiale de Postfix
+  * Installation
+  * Configuration initiale
   * Gérer les mails en ligne de commande avec Mutt
   * Créer les comptes Linux pour la messagerie
   * Les alias
   * Définir les destinataires autorisés
   * Faire correspondre les comptes Linux aux adresses de messagerie
   * Domaines virtuels avec des utilisateurs distincts
-
-
-  * Le serveur IMAP Dovecot
-  * Prérequis
-  * Installation de Dovecot
-  * Générer le certificat
-  * Configuration initiale de Dovecot
-  * Ajouter l'authentification SMTP à Postfix
-  * Utiliser le port 587 pour l'envoi
-  * Filtre anti-spam avec Postgrey
-  * Webmail avec SquirrelMail
-  * Supprimer Dovecot
-  * Supprimer Postfix
 
 
 Le MTA Postfix
@@ -76,8 +63,8 @@ lesquels on souhaite gérer le courrier, comme ceci :
   75.137.191.88.in-addr.arpa domain name pointer sd-25854.dedibox.fr.
 
 
-Installation de Postfix
------------------------
+Installation
+------------
 
 Postfix ne fait pas partie d'une installation standard de Slackware. On va
 donc le compiler à partir des sources, en utilisant le script de
@@ -105,8 +92,8 @@ paquet résultant.
   post-installation.
 
 
-Configuration initiale de Postfix
----------------------------------
+Configuration initiale
+----------------------
 
 Le fichier de configuration principal de Postfix, c'est '/etc/postfix/main.cf'.
 Supprimer les commentaires du fichier pour ne garder que les directives :
@@ -306,8 +293,8 @@ Lancer Mutt :
 
   $ mutt
 
-La fenêtre principale de Mutt affiche la boite de réception. Les nouveaux mails
-sont marqués par un 'N'. Une barre d'état en haut de l'écran affiche les
+La fenêtre principale de Mutt affiche la boite de réception. Les nouveaux
+mails sont marqués par un 'N'. Une barre d'état en haut de l'écran affiche les
 principaux raccourcis. En règle générale, Mutt fonctionne avec les mêmes
 raccourcis que Vim. 
 
