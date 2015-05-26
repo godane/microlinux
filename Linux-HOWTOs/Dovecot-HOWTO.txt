@@ -15,10 +15,8 @@ Slackware Linux.
   * Configuration initiale de Dovecot
   * Ajouter l'authentification SMTP à Postfix
   * Utiliser le port 587 pour l'envoi
-  * Filtre anti-spam avec Postgrey
-  * Webmail avec SquirrelMail
+  * Paramétrer Mozilla Thunderbird
   * Supprimer Dovecot
-  * Supprimer Postfix
 
 
 Le serveur IMAP Dovecot
@@ -159,14 +157,183 @@ Se connecter à distance :
 
   $ mutt -f imaps://kikinovak@sd-25854.dedibox.fr
 
-Avec Thunderbird :
 
-  Adresse électronique : kikinovak@sd-25854.dedibox.fr
-  Nom du serveur       : sd-25854.dedibox.fr
-  Port                 : 993
-  Nom d'utilisateur    : kikinovak
-  Sécurité connexion   : SSL/TLS
-  Authentification     : Mot de passe normal
+Ajouter l'authentification SMTP à Postfix
+-----------------------------------------
+
+Postfix supporte certes le protocole SASL ("Simple Authentication and Security
+Layer"), mais ne peut pas gérer l'authentification par lui-même. En revanche,
+Dovecot peut le faire pour lui. 
+
+Dans un premier temps, on va ajouter la stance suivante à
+'/etc/dovecot/dovecot.conf', qui concerne l'authentification par le biais du
+fichier socket '/var/spool/postfix/private/auth' :
+
+--8<---------- /etc/dovecot/dovecot.conf -------------------------------------
+...
+service auth {
+  unix_listener auth-userdb {
+    mode = 0600
+    user = postfix
+    group = postfix
+  }
+  unix_listener /var/spool/postfix/private/auth {
+    mode = 0666
+  }
+  user = $default_internal_user
+}
+--8<--------------------------------------------------------------------------
+
+Ensuite, il faut ajouter le mécanisme d'authentification 'login' comme ceci :
+
+--8<---------- /etc/dovecot/dovecot.conf -------------------------------------
+...
+auth_mechanisms = plain login
+...
+--8<--------------------------------------------------------------------------
+
+  > Ce mécanisme supplémentaire est nécessaire pour que l'authentification
+    fonctionne avec Outlook Express.
+
+Au total, notre fichier '/etc/dovecot/dovecot.conf' ressemble donc à ceci :
+
+--8<---------- /etc/dovecot/dovecot.conf -------------------------------------
+protocols = imap 
+listen = *
+ssl_cert = </etc/ssl/certs/dovecot.pem
+ssl_key = </etc/ssl/private/dovecot.pem
+mail_location = maildir:~/Maildir
+auth_mechanisms = plain login
+passdb {
+  driver = shadow
+  args   =
+}
+passdb {
+  driver = passwd
+  args   =
+}
+userdb {
+  driver = passwd
+  args   =
+}
+service auth {
+  unix_listener auth-userdb {
+    mode = 0600
+    user = postfix
+    group = postfix
+  }
+  unix_listener /var/spool/postfix/private/auth {
+    mode = 0666
+  }
+  user = $default_internal_user
+}
+--8<--------------------------------------------------------------------------
+
+Ensuite, il faut ajouter quelques lignes à la fin du fichier de configuration
+de Postfix :
+
+--8<---------- /etc/postfix/main.cf ------------------------------------------
+smtpd_tls_cert_file             = /etc/ssl/certs/dovecot.pem
+smtpd_tls_key_file              = /etc/ssl/private/dovecot.pem
+smtpd_tls_security_level        = may
+smtpd_sasl_auth_enable          = yes
+broken_sasl_auth_clients        = yes
+smtpd_sasl_tls_security_options = $smtp_sasl_security_options
+smtpd_sasl_type                 = dovecot
+smtpd_sasl_path                 = /var/spool/postfix/private/auth
+smtpd_recipient_restrictions    = permit_mynetworks,
+                                  permit_sasl_authenticated,
+                                  reject_unauth_destination
+--8<--------------------------------------------------------------------------
+
+Et pour finir, prendre en compte la nouvelle configuration :
+
+  # /etc/rc.d/rc.dovecot restart
+  # /etc/rc.d/rc.postfix reload
+
+
+Utiliser le port 587 pour l'envoi
+---------------------------------
+
+Certains FAI bloquent l'accès au port 25. Dans ce cas, il faut configurer
+Postfix pour passer par le port 587 pour l'envoi de messages.
+
+Éditer '/etc/postfix/master.cf' et décommenter la ligne suivante :
+
+--8<---------- /etc/postfix/master.cf ----------------------------------------
+smtp       inet  n    -    n    -    -    smtpd
+#smtp      inet  n    -    n    -    1    postscreen
+#smtpd     pass  -    -    n    -    -    smtpd
+#dnsblog   unix  -    -    n    -    0    dnsblog
+#tlsproxy  unix  -    -    n    -    0    tlsproxy
+submission inet  n    -    n    -    -    smtpd  --> décommenter
+--8<--------------------------------------------------------------------------
+
+Relancer Postfix :
+
+  # /etc/rc.d/rc.postfix restart
+
+
+Paramétrer Mozilla Thunderbird
+------------------------------
+
+Gestion des comptes > Ajouter un compte de messagerie
+
+Renseigner le nom et le prénom, l'adresse mail et le mot de passe, puis
+cliquer sur 'Continuer'. Dans la fenêtre subséquente, cliquer sur
+'Configuration manuelle'.
+
+Exemple de configuration :
+
+  Serveur entrant            : IMAP
+  Nom du serveur             : mail.unixbox.fr
+  Port                       : 993
+  Nom d'utilisateur          : nkovacs
+  Sécurité connexion         : SSL/TLS
+  Authentification           : Mot de passe normal
+  Serveur sortant            : mail.unixbox.fr
+  Port                       : 587
+  Sécurité de la connexion   : STARTTLS
+  Méthode d'authentification : Mot de passe normal
+  Nom d'utilisateur          : nkovacs
+
+  /!\ Une fois qu'on a saisi l'ensemble des paramètres, il faut cliquer
+  directement sur 'Terminé'. Les tests de connexion échoueront, étant donné
+  que nous utilisons un certificat auto-signé.
+
+  /!\ Il faudra songer à confirmer l'exception de sécurité à deux reprises :
+  une fois pour la réception, une autre fois pour l'envoi. Gare aux messages
+  d'erreur qui s'affichent derrière la fenêtre de rédaction principale. 
+
+
+Supprimer Dovecot
+-----------------
+
+Arrêter le service :
+
+  # /etc/rc.d/rc.dovecot stop
+
+Supprimer le paquet :
+
+  # removepkg dovecot
+
+Supprimer les fichiers de configuration :
+
+  # rm -rf /etc/dovecot/
+
+Supprimer les certificats :
+
+  # find /etc/ssl/ -name '*dovecot*'
+  /etc/ssl/private/dovecot.pem
+  /etc/ssl/certs/dovecot.pem
+  # find /etc/ssl/ -name '*dovecot*' | xargs rm -f
+
+Supprimer les utilisateurs et les groupes système correspondants :
+
+  # userdel dovecot
+  # userdel dovenull
+  # groupdel dovecot
+  # groupdel dovenull
 
 
 ------------------------------------------------------------------------------

@@ -18,6 +18,8 @@ Linux.
   * Définir les destinataires autorisés
   * Faire correspondre les comptes Linux aux adresses de messagerie
   * Domaines virtuels avec des utilisateurs distincts
+  * Régler les problèmes de permissions
+  * Supprimer Postfix
 
 
 Le MTA Postfix
@@ -533,6 +535,42 @@ virtual_alias_maps    = hash:/etc/postfix/virtual
 
 Il ne reste qu'à recharger Postfix pour prendre en compte la nouvelle
 configuration.
+
+
+Régler les problèmes de permissions
+-----------------------------------
+
+Après une mise à jour, il se peut que l'on ait des problèmes de permissions.
+Voici ce qu'il faut faire :
+
+  # /etc/rc.d/rc.postfix stop
+  # killall -9 postdrop
+  # cd /var/spool/postfix
+  # chown -R root:postdrop public maildrop
+  # postfix set-permissions
+  # postfix check
+  # /etc/rc.d/rc.postfix start
+
+
+Supprimer Postfix
+-----------------
+
+Arrêter le service :
+
+  # /etc/rc.d/rc.postfix stop
+
+Supprimer le paquet :
+
+  # removepkg postfix 
+
+Supprimer les fichiers de configuration :
+
+  # rm -rf /etc/postfix/ 
+
+Supprimer les utilisateurs et les groupes système correspondants :
+
+  # userdel postfix --> supprime également le groupe 'postfix'
+  # groupdel postdrop
 
 
 ------------------------------------------------------------------------------
