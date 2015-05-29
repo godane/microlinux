@@ -8,6 +8,24 @@ Ce document décrit de façon succincte l'installation, la configuration et
 l'utilisation de VirtualBox sous Slackware.
 
 
+  * Introduction
+  * Installation
+  * Système invité Slackware
+  * Dossier partagé
+
+
+Introduction
+------------
+
+VirtualBox ("machine virtuelle") est un logiciel de virtualisation de systèmes
+d'exploitation. En utilisant les ressources matérielles de l'ordinateur
+(système hôte), VirtualBox permet la création d'un ou de plusieurs ordinateurs
+virtuels dans lesquels s'installent d'autres systèmes d'exploitation (systèmes
+invités). Les systèmes invités fonctionnent en même temps que le système hôte,
+mais seul ce dernier a accès directement au véritable matériel de
+l'ordinateur.
+
+
 Installation
 ------------
 
