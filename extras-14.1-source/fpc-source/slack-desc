@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+fpc-source: fpc-source (Free Pascal sources)
+fpc-source:
+fpc-source: This is a repackaging of the Free Pascal compiler's source code,
+fpc-source: needed by Lazarus.
+fpc-source:
+fpc-source: 
+fpc-source:
+fpc-source:
+fpc-source:
+fpc-source:
+fpc-source: Package created by Niki Kovacs <info@microlinux.fr>
