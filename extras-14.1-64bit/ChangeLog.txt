@@ -1,3 +1,8 @@
+Sat May 30 11:01:24 CEST 2015
+fpc-2.6.4-x86_64-1_microlinux.txz: Added.
+fpc-source-2.6.4-noarch-1_microlinux.txz: Added.
+lazarus-1.2.6-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Tue May 19 18:55:10 CEST 2015
 virtualbox-4.3.28-x86_64-1_microlinux.txz: Upgraded.
 virtualbox-kernel-4.3.28_3.10.17-x86_64-1_microlinux.txz: Upgraded.

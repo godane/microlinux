@@ -59,7 +59,7 @@ set -e
 DOWNLOAD="http://downloads.sourceforge.net/freepascal/$PRGNAM-$VERSION.$ARCH-linux.tar \
 http://downloads.sourceforge.net/freepascal/fpcbuild-$VERSION.tar.gz"
 
-#wget -c $DOWNLOAD
+wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
