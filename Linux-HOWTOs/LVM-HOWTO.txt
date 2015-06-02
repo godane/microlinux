@@ -4,6 +4,16 @@ LVM HOWTO (c) Nicolas Kovacs, <info@microlinux.fr>
 
 Dernière révision : 2 juin 2015
 
+Ce HOWTO décrit l'utilisation de LVM sur un système Slackware Linux.
+
+
+  * Introduction
+  * Concepts de base
+  * Exemple simple avec LVM
+  * Détruire des LV, des VG et des PV
+  * LVM et la partition /boot
+  * Exemple avec un VG utilisant plusieurs PV
+
 
 Introduction
 ------------
@@ -279,6 +289,11 @@ Supprimer les deux LV :
   # lvremove /dev/vg0/root
     Logical volume "root" successfully removed
 
+Si l'on souhaite supprimer l'ensemble des LV d'un VG, on peut fournir le nom
+du VG en argument :
+
+  # lvremove vg0
+
 Afficher les infos sur les VG avec 'vgs', 'vgscan' et 'vgdisplay -v'.
 
 Supprimer le VG :
@@ -294,26 +309,83 @@ Supprimer le PV :
     Labels on physical volume "/dev/sda1" successfully wiped.
 
 
+LVM et la partition /boot
+-------------------------
+
+LVM sait gérer l'ensemble des FS système sous forme de LV, à l'exception de
+'/boot'. L'exemple ci-dessus a pu fonctionner en raison de son extrême
+simplicité. Dès que nous mettons en place plusieurs PV, l'installation du
+chargeur de démarrage ne pourra plus s'effectuer correctement et retournera
+une erreur.
+
+Pour éviter ce genre de problème, la meilleure solution consiste à définir une
+partition '/boot' classique, et de gérer le reste du système (/, /home, swap,
+etc.) avec des LV. L'installation par défaut des systèmes RHEL/CentOS utilise
+cette stratégie.
+
+Concrètement, on définira une partition '/boot' de 100 Mo' et une partition de
+type LVM occupant le reste du disque :
+
+  # fdisk -l /dev/sda
+
+  Disk /dev/sda: 80.0 GB, 80000000000 bytes
+  ...
+
+     Device Boot      Start         End      Blocks   Id  System
+  /dev/sda1   *          63      192779       96358+  83  Linux
+  /dev/sda2          192780   156249999    78028610   8e  Linux LVM
+
+À partir de là, le PV sera créé sur '/dev/sda2', le VG 'vg0' sera défini sur
+ce PV, et les deux LV '/dev/vg0/swap' et '/dev/vg0/root' seront créés à
+l'intérieur de 'vg0'. 
+
+Dans l'installateur, la partition principale se situera toujours sur
+'/dev/vg0/root' et sera formatée en ext4. En contrepartie, la partition
+'/boot' se trouvera sur '/dev/sda1' et sera formatée en ext2. 
+
+En dehors de cela, il n'y a pas de changements notables à signaler. La
+construction de l'initrd et la configuration de LILO s'effectuent de manière
+identique au premier cas de figure.
+
+
 Exemple avec un VG utilisant plusieurs PV
 -----------------------------------------
 
 Dans le deuxième exemple, le système sera toujours installé sur deux Logical
 Volumes (LV) '/dev/vg0/swap' et '/dev/vg0/root' contenus dans un Volume Group
-(VG) 'vg0'. À la différence du premier exemple, ce VG s'étendra sur une série
-de quatre Physical Volumes (PV).
+(VG) 'vg0'. On prendra soin de gérer la partition '/boot' à part, dans une
+partition de type 'Linux', comme nous venons de le voir. À la différence du
+premier exemple, ce VG s'étendra sur une série de quatre Physical Volumes
+(PV).
 
-# fdisk -l
+Partitionner le disque dur comme ceci :
 
-# pvcreate /dev/sda1
-# pvcreate /dev/sda2
-# pvcreate /dev/sda3
-# pvcreate /dev/sda4
+  # fdisk -l /dev/sda
 
-# pvs
-# pvscan
+  Disk /dev/sda: 80.0 GB, 80000000000 bytes
+  ...
 
-# vgcreate vg0 /dev/sda1 /dev/sda2 /dev/sda3 /dev/sda4
-# vgdisplay -v | less
+     Device Boot      Start         End      Blocks   Id  System
+  /dev/sda1   *          63      192779       96358+  83  Linux
+  /dev/sda2          192780    39262859    19535040   8e  Linux LVM
+  /dev/sda3        39262860    78332939    19535040   8e  Linux LVM
+  /dev/sda4        78332940   156249999    38958530    5  Extended
+  /dev/sda5        78333003   117403019    19535008+  8e  Linux LVM
+  /dev/sda6       117403083   156249999    19423458+  8e  Linux LVM
+
+Définir les quatre PV :
+
+  # pvcreate /dev/sda2
+  # pvcreate /dev/sda3
+  # pvcreate /dev/sda5
+  # pvcreate /dev/sda6
+
+Créer le VG :
+
+  # vgcreate vg0 /dev/sda2 /dev/sda3 /dev/sda5 /dev/sda6
+
+À partir de là, la création des LV '/dev/vg0/swap' et '/dev/vg0/root' sera
+identique à la procédure décrite ci-dessus.
 
 
 ------------------------------------------------------------------------------
