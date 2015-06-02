@@ -1,0 +1,320 @@
+=========
+LVM HOWTO (c) Nicolas Kovacs, <info@microlinux.fr>
+=========
+
+Dernière révision : 1er juin 2015
+
+
+Introduction
+------------
+
+Un système de fichiers (FS) est installé normalement dans une partition d'un
+disque dur. Il ne peut donc pas dépasser la taille de ce disque, et il est
+difficile de l'étendre. 
+
+LVM ("Logical Volume Manager") ajoute une couche d'abstraction entre le
+système de fichiers et les partitions du ou des disques et permet une approche
+plus souple. Un FS n'est pas créé dans une partition, mais dans un volume
+logique.  Ce dernier peut s'étendre sur plusieurs disques et peut être agrandi
+par la suite.
+
+
+Concepts de base
+----------------
+
+LVM ajoute trois niveaux entre le disque dur et le système de fichiers :
+Physical Volumes (PV), Volume Groups (VG) et Logical Volumes (LV).
+
+  * Physical Volume (PV) - En règle générale, un PV est une partition du
+    disque dur gérée par LVM. Il peut s'agir d'un disque dur entier et même
+    d'un assemblage RAID. La partition, le disque dur ou l'assemblage RAID
+    doit être défini en tant que PV pour que les commandes LVM puissent
+    fonctionner.
+
+  * Volume Group (VG) - Un ou plusieurs PV peuvent être assemblés en un
+    groupe, ce qui permet par exemple de réunir les partitions de plusieurs
+    disques durs. Un VG constitue donc un ensemble de PV, d'un point de vue
+    physique. 
+
+  * Logical Volume (LV) - Un Logical Volume (LV) est une partie d'un Volume
+    Group (VG). Pour l'utilisateur, le LV fonctionne comme une partition
+    virtuelle. C'est là où il installera le système de fichiers. Ce dernier ne
+    sera plus créé dans une partition comme '/dev/sda7', mais dans un LV comme
+    par exemple '/dev/vg0/root' ou '/dev/vg0/home'.
+
+
+Exemple simple avec LVM
+-----------------------
+
+On partira du cas de figure le plus simple. Le disque dur '/dev/sda' contient
+une seule partition '/dev/sda1' de type LVM (8E). Un Physical Volume (PV) est
+créé dans cette partition. Le Volume Group (VG) 'vg0' y sera créé. À
+l'intérieur de ce Volume Group, il y aura deux Logical Volumes (LV). Le LV
+'/dev/vg0/swap' contiendra la partition swap, le LV '/dev/vg0/root' contiendra
+la partition principale. 
+
+Partitionner le disque avec 'cfdisk' et créer une seule partition de type 8E.
+
+  # fdisk -l /dev/sda
+
+  Disk /dev/sda: 80.0 GB, 80000000000 bytes
+  ...
+
+     Device Boot      Start         End      Blocks   Id  System
+  /dev/sda1              63   156249999    78124968+  8e  Linux LVM
+
+
+Vérifier s'il y a des PV :
+
+  # pvs
+
+Créer un PV :
+
+  # pvcreate /dev/sda1
+    Physical volume "/dev/sda1" successfully created
+
+Afficher les infos sur le ou les PV :
+
+  # pvs
+  PV         VG   Fmt  Attr PSize  PFree
+  /dev/sda1  vg0  lvm2 a--  74.50g    0 
+
+Vérifier s'il y a des VG :
+
+  # vgs
+    No volume groups found
+
+Créer un VG :
+
+  # vgcreate vg0 /dev/sda1
+    Volume group "vg0" successfully created
+
+Afficher les infos sur le ou les VG :
+
+  # vgs
+  VG   #PV #LV #SN Attr   VSize  VFree
+  vg0    1   2   0 wz--n- 74.50g    0 
+
+  # vgdisplay
+  --- Volume group ---
+  VG Name               vg0
+  System ID             
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  3
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                2
+  Open LV               2
+  Max PV                0
+  Cur PV                1
+  Act PV                1
+  VG Size               74.50 GiB
+  PE Size               4.00 MiB
+  Total PE              19073
+  Alloc PE / Size       19073 / 74.50 GiB
+  Free  PE / Size       0 / 0   
+  VG UUID               qETnda-ZdxW-bbVg-lua5-PXa7-AWGd-1DSVtU
+
+Vérifier s'il y a des LV :
+
+  # lvs
+
+Créer un premier LV pour la partition d'échange :
+
+  # lvcreate -L 2G -n swap vg0
+    Logical volume "swap" created
+
+Créer un deuxième LV pour la partition principale :
+
+  # lvcreate -l 100%FREE -n root vg0
+
+Afficher les infos sur les LV :
+
+  # lvs
+  LV   VG   Attr       LSize  Pool Origin Data%  Move Log Cpy%Sync Convert
+  root vg0  -wi-ao---- 72.50g                                             
+  swap vg0  -wi-ao----  2.00g            
+
+  # lvscan
+  ACTIVE            '/dev/vg0/swap' [2.00 GiB] inherit
+  ACTIVE            '/dev/vg0/root' [72.50 GiB] inherit
+
+Afficher un récapitulatif complet :
+
+  # vgdisplay -v | less
+
+  --- Volume group ---
+  VG Name               vg0
+  System ID             
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  3
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                2
+  Open LV               2
+  Max PV                0
+  Cur PV                1
+  Act PV                1
+  VG Size               74.50 GiB
+  PE Size               4.00 MiB
+  Total PE              19073
+  Alloc PE / Size       19073 / 74.50 GiB
+  Free  PE / Size       0 / 0   
+  VG UUID               qETnda-ZdxW-bbVg-lua5-PXa7-AWGd-1DSVtU
+   
+  --- Logical volume ---
+  LV Path                /dev/vg0/swap
+  LV Name                swap
+  VG Name                vg0
+  LV UUID                0HLM9g-584n-VyXt-B2dj-S5V8-rAAc-ehkgI6
+  LV Write Access        read/write
+  LV Creation host, time slackware, 2015-05-31 09:39:45 +0200
+  LV Status              available
+  # open                 2
+  LV Size                2.00 GiB
+  Current LE             512
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     256
+  Block device           253:0
+   
+  --- Logical volume ---
+  LV Path                /dev/vg0/root
+  LV Name                root
+  VG Name                vg0
+  LV UUID                Aoy2hg-IqBU-wnwi-bi2R-qNov-p4I2-yV3PBM
+  LV Write Access        read/write
+  LV Creation host, time slackware, 2015-05-31 09:41:33 +0200
+  LV Status              available
+  # open                 1
+  LV Size                72.50 GiB
+  Current LE             18561
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     256
+  Block device           253:1
+   
+  --- Physical volumes ---
+  PV Name               /dev/sda1     
+  PV UUID               OjNHvu-By0g-WDDV-Orab-LpsC-0ixo-8ZjlDV
+  PV Status             allocatable
+  Total PE / Free PE    19073 / 0
+
+  /!\ La commande 'vgdisplay -v' fait partie des commandes les plus
+  importantes. Elle affiche les différents VG, et pour chacun leurs LV et PV.
+  Elle indique la place restante libre par VG (Free PE) et la taille de chacun
+  des LV et PV.
+
+La partition d'échange doit être formatée pour que l'installateur Slackware
+puisse la reconnaître en tant que telle :
+
+  # mkswap /dev/vg0/swap
+
+Lancer l'installateur :
+
+  # setup
+
+Définir '/dev/vg0/swap' comme partition d'échange et '/dev/vg0/root' comme
+partition principale. À partir de là, on pourra installer Slackware
+normalement.
+
+Quitter l'installateur, puis chrooter dans l'environnement fraîchement
+installé :
+
+  # chroot /mnt
+
+Configurer l'initrd :
+
+--8<---------- /etc/mkinitrd.conf --------------------------------------------
+SOURCE_TREE="/boot/initrd-tree"
+CLEAR_TREE="1"
+OUTPUT_IMAGE="/boot/initrd.gz"
+KERNEL_VERSION="$(uname -r)"
+KEYMAP="fr_CH-latin1"
+MODULE_LIST="ext4"
+ROOTDEV="/dev/vg0/root"
+ROOTFS="ext4"
+RESUMEDEV="/dev/vg0/swap"
+RAID="0"
+LVM="1"
+UDEV="1"
+MODCONF="0"
+WAIT="1"
+--8<--------------------------------------------------------------------------
+
+Construire l'initrd :
+
+  # mkinitrd -F
+
+Configurer LILO :
+
+--8<---------- /etc/lilo.conf ------------------------------------------------
+append="nomodeset quiet ipv6.disable=1 vt.default_utf8=1"
+boot = /dev/sda
+compact 
+lba32
+...
+image = /boot/vmlinuz-generic-3.10.17
+  initrd = /boot/initrd.gz
+  root = /dev/vg0/root
+  label = Linux
+  read-only
+--8<--------------------------------------------------------------------------
+
+Prendre en compte la configuration :
+
+  # lilo
+
+Quitter l'environnement chrooté et redémarrer :
+
+  # exit
+  # reboot
+
+
+Détruire des LV, des VG et des PV
+---------------------------------
+
+Démarrer sur le CD d'installation et ouvrir une console.
+
+Afficher les infos sur les LV avec 'lvs', 'lvscan' et 'vgdisplay -v'.
+
+Supprimer les deux LV de l'exemple précédent :
+
+  # lvremove /dev/vg0/swap
+    Logical volume "swap" successfully removed
+
+  # lvremove /dev/vg0/root
+    Logical volume "root" successfully removed
+
+Afficher les infos sur les VG avec 'vgs', 'vgscan' et 'vgdisplay -v'.
+
+Supprimer le VG de l'exemple précédent :
+
+  # vgremove vg0
+    Volume group "vg0" successfully removed
+
+Enfin, afficher les infos sur les PV avec 'pvs' et 'pvscan'.
+
+Supprimer le PV de l'exemple précédent :
+
+  # pvremove /dev/sda1
+    Labels on physical volume "/dev/sda1" successfully wiped.
+
+
+Exemple avec un VG utilisant plusieurs PV
+-----------------------------------------
+
+Dans le deuxième exemple, le système sera toujours installé sur deux Logical
+Volumes (LV) '/dev/vg0/swap' et '/dev/vg0/root' contenus dans un Volume Group
+(VG) 'vg0'. À la différence du premier exemple, ce VG s'étendra sur une série
+de quatre Physical Volumes (PV).
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
