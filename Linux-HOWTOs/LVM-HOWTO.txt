@@ -2,7 +2,7 @@
 LVM HOWTO (c) Nicolas Kovacs, <info@microlinux.fr>
 =========
 
-Dernière révision : 1er juin 2015
+Dernière révision : 2 juin 2015
 
 
 Introduction
@@ -77,7 +77,7 @@ Afficher les infos sur le ou les PV :
 
   # pvs
   PV         VG   Fmt  Attr PSize  PFree
-  /dev/sda1  vg0  lvm2 a--  74.50g    0 
+  /dev/sda1       lvm2 a--  74.51g 74.51g 
 
 Vérifier s'il y a des VG :
 
@@ -93,29 +93,10 @@ Afficher les infos sur le ou les VG :
 
   # vgs
   VG   #PV #LV #SN Attr   VSize  VFree
-  vg0    1   2   0 wz--n- 74.50g    0 
+  vg0    1   0   0 wz--n- 74.50g 74.50g
 
-  # vgdisplay
-  --- Volume group ---
-  VG Name               vg0
-  System ID             
-  Format                lvm2
-  Metadata Areas        1
-  Metadata Sequence No  3
-  VG Access             read/write
-  VG Status             resizable
-  MAX LV                0
-  Cur LV                2
-  Open LV               2
-  Max PV                0
-  Cur PV                1
-  Act PV                1
-  VG Size               74.50 GiB
-  PE Size               4.00 MiB
-  Total PE              19073
-  Alloc PE / Size       19073 / 74.50 GiB
-  Free  PE / Size       0 / 0   
-  VG UUID               qETnda-ZdxW-bbVg-lua5-PXa7-AWGd-1DSVtU
+  # vgdisplay -v
+  ...
 
 Vérifier s'il y a des LV :
 
@@ -155,7 +136,7 @@ Afficher un récapitulatif complet :
   VG Status             resizable
   MAX LV                0
   Cur LV                2
-  Open LV               2
+  Open LV               0
   Max PV                0
   Cur PV                1
   Act PV                1
@@ -174,7 +155,7 @@ Afficher un récapitulatif complet :
   LV Write Access        read/write
   LV Creation host, time slackware, 2015-05-31 09:39:45 +0200
   LV Status              available
-  # open                 2
+  # open                 0
   LV Size                2.00 GiB
   Current LE             512
   Segments               1
@@ -191,7 +172,7 @@ Afficher un récapitulatif complet :
   LV Write Access        read/write
   LV Creation host, time slackware, 2015-05-31 09:41:33 +0200
   LV Status              available
-  # open                 1
+  # open                 0
   LV Size                72.50 GiB
   Current LE             18561
   Segments               1
@@ -224,8 +205,10 @@ Définir '/dev/vg0/swap' comme partition d'échange et '/dev/vg0/root' comme
 partition principale. À partir de là, on pourra installer Slackware
 normalement.
 
-Quitter l'installateur, puis chrooter dans l'environnement fraîchement
-installé :
+Dans sa configuration par défaut, le kernel HUGE ne supporte pas LVM. Nous
+devons donc construire un initrd avec le support LVM et configurer LILO pour
+démarrer sur le kernel GENERIC. Quitter l'installateur ('EXIT'), puis chrooter
+dans l'environnement fraîchement installé :
 
   # chroot /mnt
 
@@ -276,15 +259,19 @@ Quitter l'environnement chrooté et redémarrer :
   # exit
   # reboot
 
+Nous disposons désormais d'un système qui utilise LVM. 
+
 
 Détruire des LV, des VG et des PV
 ---------------------------------
+
+Nous allons supprimer les LV, le VG et le PV de l'exemple précédent.
 
 Démarrer sur le CD d'installation et ouvrir une console.
 
 Afficher les infos sur les LV avec 'lvs', 'lvscan' et 'vgdisplay -v'.
 
-Supprimer les deux LV de l'exemple précédent :
+Supprimer les deux LV :
 
   # lvremove /dev/vg0/swap
     Logical volume "swap" successfully removed
@@ -294,14 +281,14 @@ Supprimer les deux LV de l'exemple précédent :
 
 Afficher les infos sur les VG avec 'vgs', 'vgscan' et 'vgdisplay -v'.
 
-Supprimer le VG de l'exemple précédent :
+Supprimer le VG :
 
   # vgremove vg0
     Volume group "vg0" successfully removed
 
 Enfin, afficher les infos sur les PV avec 'pvs' et 'pvscan'.
 
-Supprimer le PV de l'exemple précédent :
+Supprimer le PV :
 
   # pvremove /dev/sda1
     Labels on physical volume "/dev/sda1" successfully wiped.
