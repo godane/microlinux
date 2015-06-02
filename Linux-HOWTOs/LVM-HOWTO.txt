@@ -302,6 +302,19 @@ Volumes (LV) '/dev/vg0/swap' et '/dev/vg0/root' contenus dans un Volume Group
 (VG) 'vg0'. À la différence du premier exemple, ce VG s'étendra sur une série
 de quatre Physical Volumes (PV).
 
+# fdisk -l
+
+# pvcreate /dev/sda1
+# pvcreate /dev/sda2
+# pvcreate /dev/sda3
+# pvcreate /dev/sda4
+
+# pvs
+# pvscan
+
+# vgcreate vg0 /dev/sda1 /dev/sda2 /dev/sda3 /dev/sda4
+# vgdisplay -v | less
+
 
 ------------------------------------------------------------------------------
 # vim: syntax=txt
