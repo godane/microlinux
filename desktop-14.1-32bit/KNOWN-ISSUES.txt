@@ -1,0 +1,6 @@
+The following is a list of issues with MLED:
+
+Wed Jun  3 07:49:05 CEST 2015
+Gtkam translations don't show. Translations in the po/ source directory seem
+to be fairly complete, but the application still displays everything in
+english.
