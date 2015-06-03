@@ -2,6 +2,7 @@
 glibc:ADD
 glibc-i18n:ADD
 libmpc:ADD
+libpcap:ADD
 libtermcap:ADD
 mpfr:ADD
 ncurses:ADD
@@ -145,7 +146,6 @@ libnotify:SKP
 libogg:SKP
 liboggz:SKP
 liboil:SKP
-libpcap:SKP
 libplist:SKP
 libpng:SKP
 libproxy:SKP
