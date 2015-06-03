@@ -46,7 +46,6 @@ slocate:ADD
 sysklogd:ADD
 syslinux:ADD
 sysvinit:ADD
-sysvinit-functions:ADD
 sysvinit-scripts:ADD
 tar:ADD
 udev:ADD
@@ -99,6 +98,7 @@ sdparm:SKP
 smartmontools:SKP
 splitvt:SKP
 sysfsutils:SKP
+sysvinit-functions:SKP
 tcsh:SKP
 time:SKP
 tree:SKP
