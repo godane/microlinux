@@ -1,2 +1,3 @@
-linux-faqs:ADD
-linux-howtos:ADD
+# Skip
+linux-faqs:SKP
+linux-howtos:SKP

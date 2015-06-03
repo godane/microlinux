@@ -1,4 +1,5 @@
-tetex:ADD
-tetex-doc:REC
-transfig:OPT
-xfig:OPT
+# Skip
+tetex:SKP
+tetex-doc:SKP
+transfig:SKP
+xfig:SKP
