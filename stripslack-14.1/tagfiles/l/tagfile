@@ -1,4 +1,6 @@
 # Add
+glibc:ADD
+glibc-i18n:ADD
 libmpc:ADD
 libtermcap:ADD
 mpfr:ADD
@@ -61,8 +63,6 @@ glade3:SKP
 glib:SKP
 glib-networking:SKP
 glib2:SKP
-glibc:SKP
-glibc-i18n:SKP
 glibc-profile:SKP
 gmime:SKP
 gmm:SKP

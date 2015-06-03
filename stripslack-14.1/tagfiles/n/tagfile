@@ -1,4 +1,7 @@
 # Add
+ca-certificates:ADD
+curl:ADD
+cyrus-sasl:ADD
 dhcpcd:ADD
 gnupg:ADD
 gnutls:ADD
@@ -26,12 +29,9 @@ bluez-hcidump:SKP
 bootp:SKP
 bridge-utils:SKP
 bsd-finger:SKP
-ca-certificates:SKP
 cifs-utils:SKP
 conntrack-tools:SKP
 crda:SKP
-curl:SKP
-cyrus-sasl:SKP
 dhcp:SKP
 dirmngr:SKP
 dnsmasq:SKP

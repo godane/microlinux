@@ -34,6 +34,7 @@ less:ADD
 lilo:ADD
 logrotate:ADD
 lvm2:ADD
+mdadm:ADD
 mkinitrd:ADD
 openssl-solibs:ADD
 pkgtools:ADD
@@ -82,7 +83,6 @@ lha:SKP
 libcgroup:SKP
 lrzip:SKP
 mcelog:SKP
-mdadm:SKP
 minicom:SKP
 mt-st:SKP
 mtx:SKP

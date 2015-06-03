@@ -2,9 +2,12 @@
 binutils:ADD
 bison:ADD
 dev86:ADD
-flex:SKP
+flex:ADD
 gcc:ADD
+git:ADD
 make:ADD
+perl:ADD
+python:ADD
 strace:ADD
 
 # Skip
@@ -25,7 +28,6 @@ gcc-java:SKP
 gcc-objc:SKP
 gdb:SKP
 gettext-tools:SKP
-git:SKP
 gperf:SKP
 guile:SKP
 help2man:SKP
@@ -40,10 +42,8 @@ nasm:SKP
 open-cobol:SKP
 oprofile:SKP
 p2c:SKP
-perl:SKP
 pkg-config:SKP
 pmake:SKP
-python:SKP
 rcs:SKP
 ruby:SKP
 slacktrack:SKP
