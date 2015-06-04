@@ -26,7 +26,7 @@
 
 PRGNAM=gtkam
 VERSION=${VERSION:-0.2.0}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j3}
@@ -62,7 +62,7 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/gphoto/$PRGNAM-$VERSION.tar.bz2"
 
-wget -c $DOWNLOAD
+#wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
@@ -76,6 +76,12 @@ find -L . \
   -o -perm 511 \) -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+
+# Complete French translation taken from http://translationproject.org/PO-files/fr/ 
+# Thanks to George Vlahavas and Didier Spaier for the hint.
+cp -f $CWD/gtkam-0.2.0.fr.po po/fr.po
+# Generated with: msgfmt -o gtkam-0.2.0.fr.gmo gtkam-0.2.0.fr.po
+cp -f $CWD/gtkam-0.2.0.fr.gmo po/fr.gmo
 
 # https://aur.archlinux.org/packages/gtkam/
 patch -p1 < $CWD/gtkam1.patch
