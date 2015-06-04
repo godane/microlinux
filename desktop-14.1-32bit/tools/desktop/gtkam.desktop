@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=PTP cameras
+Name[de]=PTP-Kameras
+Name[fr]=Appareils photo PTP
+Comment=Gtkam
+Encoding=UTF-8
+Exec=gtkam
+Icon=gtkam-camera
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Photography;Graphics;RasterGraphics;Viewer;
+StartupNotify=true
+X-GNOME-DocPath=gtkam/gtkam.xml
