@@ -1,3 +1,6 @@
+Fri Jun  5 08:56:24 CEST 2015
+muParser-2.2.3-i486-1_microlinux.txz: Added.
++--------------------------+
 Thu Jun  4 11:08:42 CEST 2015
 gtkam-0.2.0-i486-2_microlinux.txz: Rebuilt.
   Added complete French translation. Thanks to George Vlahavas and Didier
