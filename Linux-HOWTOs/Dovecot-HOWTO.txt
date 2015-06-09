@@ -332,8 +332,6 @@ Supprimer les utilisateurs et les groupes système correspondants :
 
   # userdel dovecot
   # userdel dovenull
-  # groupdel dovecot
-  # groupdel dovenull
 
 
 ------------------------------------------------------------------------------
