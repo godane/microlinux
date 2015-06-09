@@ -573,7 +573,7 @@ Supprimer le script de démarrage :
 
 Supprimer les utilisateurs et les groupes système correspondants :
 
-  # userdel postfix --> supprime également le groupe 'postfix'
+  # userdel -r postfix --> supprime également le groupe 'postfix'
   # groupdel postdrop
 
 

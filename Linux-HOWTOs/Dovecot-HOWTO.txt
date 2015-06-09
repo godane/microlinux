@@ -334,8 +334,8 @@ Supprimer les certificats :
 
 Supprimer les utilisateurs et les groupes système correspondants :
 
-  # userdel dovecot  --> supprime également le groupe 'dovecot'
-  # userdel dovenull --> supprime également le groupe 'dovenull'
+  # userdel -r dovecot  --> supprime également le groupe 'dovecot'
+  # userdel -r dovenull --> supprime également le groupe 'dovenull'
 
 
 
