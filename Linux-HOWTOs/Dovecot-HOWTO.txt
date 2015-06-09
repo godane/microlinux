@@ -321,6 +321,10 @@ Supprimer les fichiers de configuration :
 
   # rm -rf /etc/dovecot/
 
+Supprimer le script de démarrage :
+
+  # rm -f /etc/rc.d/rc.dovecot
+
 Supprimer les certificats :
 
   # find /etc/ssl/ -name '*dovecot*'

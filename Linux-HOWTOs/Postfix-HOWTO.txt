@@ -567,6 +567,10 @@ Supprimer les fichiers de configuration :
 
   # rm -rf /etc/postfix/ 
 
+Supprimer le script de démarrage :
+
+  # rm -f /etc/rc.d/rc.postfix
+
 Supprimer les utilisateurs et les groupes système correspondants :
 
   # userdel postfix --> supprime également le groupe 'postfix'
