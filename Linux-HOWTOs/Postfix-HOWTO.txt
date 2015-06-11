@@ -20,6 +20,7 @@ Linux.
   * Domaines virtuels avec des utilisateurs distincts
   * Régler les problèmes de permissions
   * Supprimer Postfix
+  * Documentation
 
 
 Le MTA Postfix
@@ -575,6 +576,12 @@ Supprimer les utilisateurs et les groupes système correspondants :
 
   # userdel -r postfix --> supprime également le groupe 'postfix'
   # groupdel postdrop
+
+
+Documentation
+-------------
+
+  * Linux 2014, Michael Kofler, pp. 1231 - 1256
 
 
 ------------------------------------------------------------------------------
