@@ -2,7 +2,7 @@
 Postfix HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =============
 
-Dernière révision : 20 mai 2015
+Dernière révision : 12 juin 2015
 
 Ce HOWTO décrit la mise en place d'un serveur mail avec Postfix sous Slackware
 Linux.
@@ -98,15 +98,26 @@ paquet résultant.
 Configuration initiale
 ----------------------
 
-Le fichier de configuration principal de Postfix, c'est '/etc/postfix/main.cf'.
-Supprimer les commentaires du fichier pour ne garder que les directives :
+Les fichiers de configuration utilisés par Postfix se situent dans
+'/etc/postfix'. 
+
+  * Le fichier 'master.cf' gère la configuration du démon 'master' de Postfix.
+    Dans la plupart des configurations de base, on n'aura pas à intervenir sur
+    ce fichier.
+
+  * Le fichier 'main.cf' contient les paramètres de contrôle des démons de
+    Postfix. C'est celui que l'on modifiera le plus souvent.
+
+Le fichier 'main.cf' fourni par défaut fait plus de 650 lignes, la plupart
+étant des commentaires. On peut commencer par aérer ce fichier pour ne garder
+que les directives :
 
   # cd /etc/postfix
   # mv main.cf main.cf.orig
   # grep -h -v '^[[:space:]]*\#' main.cf.orig | \
       grep -v '^[[:space:]]*$' > main.cf
 
-On obtient ceci :
+On obtient quelque chose comme ceci :
 
 --8<---------- /etc/postfix/main.cf ------------------------------------------
 queue_directory = /var/spool/postfix
@@ -130,20 +141,66 @@ readme_directory = /usr/doc/postfix-2.9.4/README_FILES
 inet_protocols = ipv4
 --8<--------------------------------------------------------------------------
 
-Ajouter quelques directives de base :
+Si un paramètre n'est pas présent dans 'main.cf', Postfix utilisera sa valeur
+par défaut. Pour la plupart, ces valeurs sont définies "en dur" dans le code
+source de Postfix, tandis que certaines sont initialisées à la compilation et
+quelques-unes au moment du lancement du programme. 
+
+Le programme 'postconf' est très utile pour examiner les valeurs courantes et
+par défaut du fichier 'main.cf'. Pour afficher la valeurs de certains
+paramètres de configuration, il suffit de les fournir en argument. Exemple :
+
+  # postconf inet_protocols
+  inet_protocols = ipv4
+
+L'option '-d' affichera la valeur par défaut des paramètres demandés :
+
+  # postconf -d inet_protocols
+  inet_protocols = all
+
+Nous allons supprimer la plupart des paramètres redondants ou autrement
+inutiles, pour commencer avec quelques directives de base :
 
 --8<---------- /etc/postfix/main.cf ------------------------------------------
-...
-myhostname     = sd-25854.dedibox.fr
-myorigin       = $myhostname
-mydomain       = dedibox.fr
-mydestination  = sd-25854.dedibox.fr, localhost.localdomain, localhost
-mynetworks     = 127.0.0.0/8
-relayhost      =
-home_mailbox   = Maildir/
-alias_maps     = hash:/etc/postfix/aliases 
-alias_database = hash:/etc/postfix/aliases 
+# /etc/postfix/main.cf
+
+# Désactiver l'IPv6
+inet_protocols = ipv4
+
+# Identification 
+smtpd_banner = $myhostname ESMTP $mail_name (Slackware Linux)
+
+# Nom d'hôte pleinement qualifié du serveur
+myhostname = sd-41893.dedibox.fr
+
+# Domaine du serveur
+mydomain = dedibox.fr
+
+# Domaine pour qualifier les adresses sans partie domaine
+myorigin = $myhostname
+
+# Domaines locaux
+mydestination = sd-41893.dedibox.fr, localhost.localdomain, localhost
+
+# Envoi de mails sans authentification
+mynetworks = 127.0.0.0/8
+
+# Relais
+relayhost =
+
+# Format de stockage
+home_mailbox = Maildir/
+
+# Tables de correspondance
+alias_maps = hash:/etc/postfix/aliases
+alias_database = hash:/etc/postfix/aliases
 --8<--------------------------------------------------------------------------
+
+  > Si l'IPv6 est désactivé au niveau du système, il faudra également le faire
+    ici grâce à la directive 'inet_protocols'.
+
+  > 'smtpd_banner' définit la chaîne de caractères avec laquelle Postfix
+    s'identifie auprès d'un autre MTA.
 
   > 'myhostname' est censé contenir le nom d'hôte pleinement qualifié du
     serveur, c'est-à-dire le résultat de la commande 'hostname --fqdn'.
@@ -175,44 +232,26 @@ alias_database = hash:/etc/postfix/aliases
   > Le format de stockage par défaut de Postfix, c'est mbox. On préférera le
     format Maildir, bien plus adapté pour une configuration IMAP.
 
-Aérer le fichier contenant les alias :
+  > 'alias_maps' définit l'emplacement de la table de correspondance, et
+    'alias_database' la base de données correspondante. Certaines informations
+    ne peuvent pas être facilement représentées dans 'main.cf'. Les tables de
+    correspondance permettent de les stocker dans des fichiers externes.
+    Postfix n'utilise pas directement les fichiers texte, ce serait trop lent.
+    Au lieu de cela, les tables de correspondance de type "hash" (ou "tables
+    de hachage) servent pour construire des fichiers indexés, grâce à la
+    bibliothèque Berkeley DB. Le programme 'postmap' est utilisé pour
+    construire les fichiers indexés. Pour mettre à jour les alias, on
+    utilisera la commande 'newaliases'.
 
-  # mv aliases aliases.orig
-  # grep -h -v '^[[:space:]]*\#' aliases.orig | \ 
-      grep -v '^[[:space:]]*$' > aliases
-
-Voilà ce qu'on obtient :
+Éditer la table de correspondance comme ceci :
 
 --8<---------- /etc/postfix/aliases ------------------------------------------
-MAILER-DAEMON:  postmaster
 postmaster: root
-bin:    root
-daemon:   root
-named:    root
-nobody:   root
-uucp:   root
-www:    root
-ftp-bugs: root
-postfix:  root
-manager:  root
-dumper:   root
-operator: root
-abuse:    postmaster
-decode:   root
+root      : kikinovak
+kikinovak : kikinovak
 --8<--------------------------------------------------------------------------
 
-Créer un utilisateur normal sur le serveur, si ce n'est déjà fait :
-
-  # adduser kikinovak
-
-Ajouter cet utilisateur dans '/etc/postfix/aliases', comme ceci :
-
---8<---------- /etc/postfix/aliases ------------------------------------------
-...
-kikinovak: kikinovak
---8<--------------------------------------------------------------------------
-
-Prendre en compte cet ajout :
+Construire le fichier indexé :
 
   # newaliases 
 
@@ -221,7 +260,8 @@ Activer et démarrer Postfix :
   # chmod +x /etc/rc.rc.postfix
   # /etc/rc.d/rc.postfix start
 
-Envoyer un mail vers un compte Webmail externe :
+Basculer vers un compte utilisateur normal et envoyer un mail vers un compte
+Webmail externe :
 
   # su - kikinovak
   $ mail kikinovak@free.fr
@@ -581,7 +621,8 @@ Supprimer les utilisateurs et les groupes système correspondants :
 Documentation
 -------------
 
-  * Linux 2014, Michael Kofler, pp. 1231 - 1256
+  * Linux 2014, M. Kofler, pp. 1231 - 1256
+  * Monter son serveur de mails sous Linux, M. Bäck, pp. 25 - 36
 
 
 ------------------------------------------------------------------------------
