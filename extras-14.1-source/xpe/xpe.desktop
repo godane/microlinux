@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Povray Editor
+Name[de]=Povray-Editor
+Name[fr]=Éditeur Povray
+Comment=XPE
+Version=1.0
+Type=Application
+Name=xpe
+Categories=Graphics;
+Exec=/usr/bin/xpe
+Icon=xpe
+Terminal=false
+StartupNotify=true
