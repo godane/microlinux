@@ -27,7 +27,7 @@ AddDefaultCharset utf-8
   ReadmeName /microlinux/repository-layout/footer.html
 
   # IGNORE THESE FILES  
-  IndexIgnore repository-layout .gitignore .directory
+  IndexIgnore Development.odt repository-layout .gitignore .directory
 
   # ICONS
   DefaultIcon   /microlinux/repository-layout/text-x-generic.png
