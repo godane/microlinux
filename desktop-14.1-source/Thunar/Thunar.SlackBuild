@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=Thunar      
-VERSION=${VERSION:-1.6.6}  
+VERSION=${VERSION:-1.6.10}  
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}   
 
@@ -78,9 +78,9 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-patch -p1 < $CWD/0001-Fallback-to-non-cached-version-of-source-file-bug-91.patch
-patch -p1 < $CWD/0002-Fix-startup-id-handling-for-launch-requests-over-D-B.patch
-patch -p1 < $CWD/0001-Rework-usage-of-binary-file-size-properties-bug-1145.patch
+#patch -p1 < $CWD/0001-Fallback-to-non-cached-version-of-source-file-bug-91.patch
+#patch -p1 < $CWD/0002-Fix-startup-id-handling-for-launch-requests-over-D-B.patch
+#patch -p1 < $CWD/0001-Rework-usage-of-binary-file-size-properties-bug-1145.patch
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
