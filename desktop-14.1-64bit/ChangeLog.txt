@@ -1,3 +1,9 @@
+Sat Jun 27 17:13:32 CEST 2015
+exo-0.10.6-x86_64-1_microlinux.txz: Upgraded.
+Thunar-1.6.10-x86_64-1_microlinux.txz: Upgraded.
+xfdesktop-4.12.2-x86_64-1_microlinux.txz: Upgraded.
+xfwm4-4.12.3-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Fri Jun  5 09:57:44 CEST 2015
 muParser-2.2.3-x86_64-1_microlinux.txz: Added.
 +--------------------------+
