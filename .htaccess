@@ -70,7 +70,6 @@ AddDefaultCharset utf-8
   AddDescription "Microlinux tutorial" -HOWTO.txt
   AddDescription "Frequently Asked Questions" FAQ.txt
   AddDescription "Release Notes" RELEASE-NOTES.txt
-  AddDescription "Helper scripts" tools
   AddDescription "Template configuration files" template
   AddDescription "Microlinux Enterprise Desktop 14.1 32-bit" desktop-14.1-32bit
   AddDescription "Microlinux Enterprise Desktop 14.1 64-bit" desktop-14.1-64bit
