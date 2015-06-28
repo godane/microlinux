@@ -1,3 +1,7 @@
+Sun Jun 28 15:09:29 CEST 2015
+jdk-8u45-i586-2_microlinux.txz: Rebuilt.
+  Activated the browser plugin.
++--------------------------+
 Sat Jun 27 16:44:28 CEST 2015
 exo-0.10.6-i486-1_microlinux.txz: Upgraded.
 Thunar-1.6.10-i486-1_microlinux.txz: Upgraded.
