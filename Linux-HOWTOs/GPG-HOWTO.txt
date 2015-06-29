@@ -1,0 +1,725 @@
+=========
+GPG HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=========
+
+Dernière révision : 29 juin 2015
+
+Ce HOWTO décrit l'utilisation de GPG (GNU Privacy Guard) sous Linux. 
+
+
+  * Alice, Bob et Mallory
+  * La cryptographie symétrique
+  * Exemple de chiffrement symétrique
+  * La cryptographie asymétrique
+  * Générer une paire de clés
+  * Générer un certificat de révocation
+  * Exporter une clé publique
+  * Importer une clé publique
+  * Signer une clé publique
+  * Chiffrer un message
+  * Déchiffrer un message
+  * Signer un message
+  * Vérifier l'authenticité d'un message
+  * Détecter une manipulation
+  * Chiffrer et signer un message
+  * Décrypter un message en vérifiant son authenticité
+  * Passons aux choses sérieuses
+  * Publier sa clé
+
+
+Alice, Bob et Mallory
+---------------------
+
+Les personnages Alice et Bob sont des figures classiques en cryptologie. Ces
+noms sont utilisés au lieu de "personne A" et "personne B". Alice et Bob
+cherchent dans la plupart des cas à communiquer de manière sécurisée.
+
+Leur adversaire, c'est Mallory. Il écoute leurs messages, les modifie,
+substitue les siens, etc.
+
+On commencera par créer deux utilisateurs Alice et Bob :
+
+  $ finger alice
+  Login: alice                Name: Alice Carroll
+  Directory: /home/alice      Shell: /bin/bash
+
+  $ finger bob
+  Login: bob                  Name: Bob Whiterabbit
+  Directory: /home/bob        Shell: /bin/bash
+
+
+La cryptographie symétrique
+---------------------------
+
+Le principe d'utilisation d'une méthode de chiffrement symétrique est très
+simple. Un message en clair est chiffré à l'aide d'une clé secrète avant
+d'être transmis au correspondant. Le message chiffré peut être intercepté par
+un tiers sans danger, il reste incompréhensible. Toute la sécurité repose sur
+le maintien secret de la clé. 
+
+Un algorithme symétrique n'utilise qu'une seule clé, qui ne doit être connue
+que des correspondants. Elle sert aussi bien au chiffrement qu'au
+déchiffrement.
+
+
+Exemple de chiffrement symétrique
+---------------------------------
+
+Alice veut envoyer un poème à Bob, mais elle ne veut pas que son message soit
+lu par d'autres. Voici le message en clair :
+
+  $ cat message.txt 
+
+                LE VOYAGE (extrait)
+
+  Ceux-là dont les désirs ont la forme des nues,
+  Et qui rêvent, ainsi qu'un conscrit le canon,
+  De vastes voluptés, changeantes, inconnues,
+  Et dont l'esprit humain n'a jamais su le nom !
+
+    -- Charles Baudelaire
+
+Elle décide de chiffrer le message :
+
+  $ gpg --symmetric message.txt 
+  Entrez la phrase secrète : ********
+  Répétez la phrase secrète : ********
+
+Un nouveau fichier est créé :
+
+  $ ls
+  message.txt  message.txt.gpg
+
+Apparemment, ce fichier ne contient qu'une bouillie binaire :
+
+  $ cat message.txt.gpg
+  ...
+
+  /!\ Il se peut que l'invite de commande soit défigurée par l'affichage du
+  contenu de 'message.txt.gpg'. Dans ce cas, il suffit de réappuyer sur la
+  touche [Entrée].
+
+Alice envoie le fichier à Bob, en le plaçant dans '/tmp' par exemple :
+
+  $ mv -v message.txt.gpg /tmp/
+  « message.txt.gpg » -> « /tmp/message.txt.gpg » 
+
+À ce stade, nous devons nous connecter en tant que Bob :
+
+  $ su - bob
+
+Bob récupère le message :
+
+  $ cp -v /tmp/message.txt.gpg .
+  « /tmp/message.txt.gpg » -> « ./message.txt.gpg »
+
+Pour décrypter le message, il doit disposer de la clé secrète :
+
+  $ gpg --decrypt message.txt.gpg 
+  gpg: données chiffrées avec CAST5
+  Entrez la phrase secrète : ********
+  gpg: chiffré avec 1 phrase secrète
+
+                LE VOYAGE (extrait)
+
+  Ceux-là dont les désirs ont la forme des nues,
+  Et qui rêvent, ainsi qu'un conscrit le canon,
+  De vastes voluptés, changeantes, inconnues,
+  Et dont l'esprit humain n'a jamais su le nom !
+
+    -- Charles Baudelaire
+
+  gpg: Attention : l'intégrité du message n'était pas protégée
+
+Le message s'affiche en clair, accompagné d'un avertissement quant à
+l'intégrité du message. Cela tient au fait que l'algorithme de chiffrement
+utilisé par défaut (CAST5) est trop faible et n'offre pas une protection
+suffisante. Retentons l'expérience en utilisant un algorithme de chiffrement
+plus puissant (AES256) :
+
+  $ exit
+  $ gpg --symmetric --cipher-algo aes256 message.txt 
+
+Alice transmet le nouveau fichier encrypté à Bob, celui-ci le récupère et le
+décrypte en fournissant la clé secrète. Cette fois-ci, l'avertissement ne
+s'affiche plus. 
+
+Par défaut, le message est encodé dans un format binaire, ce qui peut poser
+des problèmes lorsqu'on souhaite l'envoyer par mail ou le publier sur une page
+Web. L'option '--armor' provoque la génération des sorties dans un format
+"ASCII-armored" (blindage ASCII) :
+
+  $ gpg --armor --symmetric --cipher-algo aes256 message.txt 
+
+Cette fois-ci, le cryptage produit un fichier 'message.txt.asc', que nous
+pouvons afficher sans défigurer notre console :
+
+  $ cat message.txt.asc 
+  -----BEGIN PGP MESSAGE-----
+  Version: GnuPG v1
+
+  jA0ECQMCAMXQ03A9Bmpg0sA6AWCGGsr2oRPRD475U3voJv7+22Uw8EllNBOuZJpg
+  sW58rPTW1fLQQAbJjLSdF3kV+gL+NGjZagka1GRx0x33Tpekbt0P1tCdldB7kyep
+  GhNBpMqR6iELJQr31iduE4Byfbw9uR5ADANEWz1bTzJJ8FMV+BN/gWUf0nzy0K1a
+  MyO8U2mO4j6mPMuGJefGP0kXOjcCfrT3QW6ItmgsXDKMV+3a8i5hFiAI7oY9snth
+  /CM7XjM0Z/Kn8CChc6u1j9xEDKa8EctjJkqy7dIUOAWvBP+z/sMPgviNXT1S2MvF
+  zJxg9krMg2xnD+j+NjrgdLiY3QN5RwXHBtIWXg==
+  =RCUt
+  -----END PGP MESSAGE-----
+
+Pour le décryptage, Bob suivra la même procédure :
+
+  $ gpg --decrypt message.txt.asc
+
+Au lieu d'afficher le résultat du déchiffrage à l'écran, il peut reconstruire
+le fichier initial 'message.txt' comme ceci :
+
+  $ gpg --decrypt --output message.txt message.txt.asc 
+  gpg: données chiffrées avec AES256
+  gpg: chiffré avec 1 phrase secrète
+
+  $ cat message.txt
+
+                LE VOYAGE (extrait)
+
+  Ceux-là dont les désirs ont la forme des nues,
+  Et qui rêvent, ainsi qu'un conscrit le canon,
+  De vastes voluptés, changeantes, inconnues,
+  Et dont l'esprit humain n'a jamais su le nom !
+
+    -- Charles Baudelaire
+
+
+La cryptographie asymétrique
+----------------------------
+
+Même si les algorithmes de chiffrement symétriques peuvent assurer la
+confidentialité des échanges, la principale difficulté de leur utilisation
+réside dans le fait que les deux participants doivent partager secrètement une
+même clé. 
+
+Un algorithme asymétrique utilise deux clés, une clé publique et une clé
+privée. Ces deux clés sont générées ensemble, et elles dépendent
+mathématiquement l'une de l'autre. La clé publique peut être publiée sans
+risque, alors que la clé privée doit être conservée jalousement secrète par
+son propriétaire. 
+
+
+Générer une paire de clés
+-------------------------
+
+Alice génère une paire de clés publique et privée en utilisant la commande
+suivante :
+
+  $ gpg --gen-key
+
+Accepter le choix par défaut :
+
+  Sélectionnez le type de clef désiré :
+     (1) RSA et RSA (par défaut)
+     (2) DSA et Elgamal
+     (3) DSA (signature seule)
+     (4) RSA (signature seule)
+  Quel est votre choix ? [1]
+
+De même pour la taille de la clé :
+
+  Les clefs RSA peuvent faire une taille comprise entre 1024 et 4096 bits.
+  Quelle taille de clef désirez-vous ? (2048) [Entrée]
+
+La clé sera valable pour une période de un an :
+
+  Veuillez indiquer le temps pendant lequel cette clef devrait être valable.
+           0 = la clef n'expire pas
+        <n>  = la clef expire dans n jours
+        <n>w = la clef expire dans n semaines
+        <n>m = la clef expire dans n mois
+        <n>y = la clef expire dans n ans
+  Pendant combien de temps la clef est-elle valable ? (0) [1y]
+  La clef expire le lun. 20 juin 2016 08:44:55 CEST
+  Est-ce correct ? (o/N) [o]
+
+Alice saisit son nom, son adresse mail et le nom de son entreprise, ou alors
+la fonction qu'elle y occupe :
+
+  Nom réel : Alice Carroll
+  Adresse électronique : alice@microlinux.fr
+  Commentaire : Microlinux
+  Vous avez sélectionné cette identité :
+      « Alice Carroll (Microlinux) <alice@microlinux.fr> »
+
+La phrase secrète doit être suffisamment compliquée :
+
+  Une phrase secrète est nécessaire pour protéger votre clef secrète.
+  Entrez la phrase secrète : ********
+  Répétez la phrase secrète : ********
+
+GPG a besoin d'octets aléatoires pour créer la clé. Une astuce consiste ici à
+ouvrir une deuxième console pour invoquer la commande 'ls -R /', dont la
+sortie est susceptible de créer suffisamment d'entropie :
+
+  De nombreux octets aléatoires doivent être générés. Vous devriez faire
+  autre chose (taper au clavier, déplacer la souris, utiliser les disques)
+  pendant la génération de nombres premiers ; cela donne au générateur de
+  nombres aléatoires une meilleure chance d'obtenir suffisamment d'entropie.
+
+  Il n'y a pas suffisamment d'octets aléatoires disponibles. Veuillez faire
+  autre chose pour que le système d'exploitation puisse rassembler plus
+  d'entropie (283 octets supplémentaires sont nécessaires).
+
+Enfin, la paire de clés est créée comme ceci :
+
+  ..+++++
+  ..........+++++
+  gpg: /home/alice/.gnupg/trustdb.gpg : base de confiance créée
+  gpg: clef D6F39F02 marquée de confiance ultime.
+  les clefs publique et secrète ont été créées et signées.
+
+  gpg: vérification de la base de confiance
+  gpg: 3 marginale(s) nécessaire(s), 1 complète(s) nécessaire(s),
+       modèle de confiance PGP
+  gpg: profondeur : 0  valables :   1  signées :   0
+       confiance : 0 i., 0 n.d., 0 j., 0 m., 0 t., 1 u.
+  gpg: la prochaine vérification de la base de confiance aura lieu le 2016-06-20
+  pub   2048R/D6F39F02 2015-06-21 [expire : 2016-06-20]
+   Empreinte de la clef = 7D48 8D91 CC29 A757 D029  EEAF 7A0C 3E32 D6F3 9F02
+  uid                  Alice Carroll (Microlinux) <alice@microlinux.fr>
+  sub   2048R/FBD79C47 2015-06-21 [expire : 2016-06-20]
+
+Le répertoire utilisateur contient une série de nouveaux fichiers :
+
+  $ tree .gnupg/
+  .gnupg/
+  |-- gpg.conf
+  |-- pubring.gpg
+  |-- pubring.gpg~
+  |-- random_seed
+  |-- secring.gpg
+  `-- trustdb.gpg
+
+À présent, créer une paire de clés pour Bob.
+
+
+Générer un certificat de révocation
+-----------------------------------
+
+  $ gpg --armor --gen-revoke --output alice@microlinux.fr.revoke.asc \
+    alice@microlinux.fr
+
+Ajouter une cause (aucune) et un commentaire au certificat :
+
+  Choisissez la cause de la révocation :
+    0 = Aucune raison indiquée
+    1 = La clef a été compromise
+    2 = La clef a été remplacée
+    3 = La clef n'est plus utilisée
+    Q = Annuler
+  (Vous devriez sûrement sélectionner 1 ici)
+  Quelle est votre décision ? [0]
+  Entrez une description facultative, en terminant par une ligne vide :
+  > Certificat de révocation créé en même temps que la clé.
+
+Saisir la phrase secrète :
+
+  Une phrase secrète est nécessaire pour déverrouiller la clef secrète de
+  l'utilisateur : « Alice Carroll (Microlinux) <alice@microlinux.fr> »
+  clef RSA de 2048 bits, identifiant D6F39F02, créée le 2015-06-21
+
+  Certificat de révocation créé.
+
+  Veuillez le déplacer sur un support que vous pouvez cacher ; toute personne
+  accédant à ce certificat peut l'utiliser pour rendre votre clef inutilisable.
+  Imprimer ce certificat et le stocker ailleurs est une bonne idée, au cas où le
+  support devienne illisible. Attention quand même : le système d'impression
+  utilisé pourrait stocker ces données et les rendre accessibles à d'autres.
+
+Voici à quoi ressemble le certificat de révocation :
+
+  $ cat alice\@microlinux.fr.revoke.asc 
+
+  -----BEGIN PGP PUBLIC KEY BLOCK-----
+  Version: GnuPG v1
+  Comment: A revocation certificate should follow
+
+  iQFbBCABAgBFBQJVhmPtPh0AQ2VydGlmaWNhdCBkZSByw6l2b2NhdGlvbiBjcsOp
+  w6kgZW4gbcOqbWUgdGVtcHMgcXVlIGxhIGNsw6kuAAoJEHoMPjLW858CF+wIAJ/5
+  BIBkcK55ikgKOZQ17KT2wDtVd/gtw3cHVfZ5hnTmG8bNJtBA5zPaA2JYtUYD7XdY
+  L0NBDzZht/s6UFcyeJKwzn1K9UZoK7s2pM0Qspbk5epbWAp41674rako9Dm87NCU
+  HFKPK9gwJrDIBipKzOKLvUWp9Gh2UtKvcydJD8NZv/L0ZgDQEMfouh8uho6+5daj
+  EOU5nGHEHAJNqs44TJ9scZPZjjfJqubiFig/6alObRY3ft0QqpL8KbfZNIpe7dnH
+  WDK926ickNBsIj5wY9mp7DQxwP8fHKUnnKR1F4IE+5pEsSALADWTAT270oO6Xas1
+  4MISAPLhghlm45Q1APo=
+  =ITMx
+  -----END PGP PUBLIC KEY BLOCK-----
+
+Bob devra également créer un certificat de révocation, que l'on nommera
+'bob@microlinux.fr.revoke.asc'.
+
+
+Exporter une clé publique
+-------------------------
+
+Alice exporte sa clé publique :
+
+  $ gpg --armor --export --output alice@microlinux.fr.pubkey.asc \
+    alice@microlinux.fr
+
+Elle copie la clé en un endroit où Bob pourra la récupérer :
+
+  $ cp alice\@microlinux.fr.pubkey.asc /tmp/
+
+Bob devra exporter sa clé de manière analogue et copier le fichier résultant
+'bob@microlinux.fr.pubkey.asc' dans '/tmp'.
+
+
+Importer une clé publique
+-------------------------
+
+Pour l'instant, Alice ne dispose d'aucune clé sauf la sienne propre :
+
+  $ gpg --list-keys
+  /home/alice/.gnupg/pubring.gpg
+  ------------------------------
+  pub   2048R/D6F39F02 2015-06-21 [expire : 2016-06-20]
+  uid                  Alice Carroll (Microlinux) <alice@microlinux.fr>
+  sub   2048R/FBD79C47 2015-06-21 [expire : 2016-06-20]
+
+Elle importe la clé publique de Bob :
+
+  $ cp -v /tmp/bob\@microlinux.fr.pubkey.asc .
+  « /tmp/bob@microlinux.fr.pubkey.asc » -> « ./bob@microlinux.fr.pubkey.asc »
+
+  $ gpg --import bob\@microlinux.fr.pubkey.asc 
+  gpg: clef 7F1C6D33 : clef publique « Bob Whiterabbit (Microlinux) 
+  gpg: <bob@microlinux.fr> » importée
+  gpg:       Quantité totale traitée : 1
+  gpg:                     importées : 1  (RSA: 1)
+
+  $ gpg --list-keys
+  /home/alice/.gnupg/pubring.gpg
+  ------------------------------
+  pub   2048R/D6F39F02 2015-06-21 [expire : 2016-06-20]
+  uid                  Alice Carroll (Microlinux) <alice@microlinux.fr>
+  sub   2048R/FBD79C47 2015-06-21 [expire : 2016-06-20]
+
+  pub   2048R/7F1C6D33 2015-06-21 [expire : 2016-06-20]
+  uid                  Bob Whiterabbit (Microlinux) <bob@microlinux.fr>
+  sub   2048R/4FC7E2A2 2015-06-21 [expire : 2016-06-20]
+
+Bob procédera de même avec la clé publique d'Alice.
+
+
+Signer une clé publique
+-----------------------
+
+Alice fait confiance à Bob et décide de signer sa clé :
+
+  $ gpg --sign-key bob@microlinux.fr
+  ...
+       Bob Whiterabbit (Microlinux) <bob@microlinux.fr>
+
+  Cette clef va expirer le 2016-06-20.
+  Voulez-vous vraiment signer cette clef avec votre
+  clef « Alice Carroll (Microlinux) <alice@microlinux.fr> » (D6F39F02)
+
+  Voulez-vous vraiment signer ? (o/N) o
+
+  Une phrase secrète est nécessaire pour déverrouiller la clef secrète de
+  l'utilisateur : « Alice Carroll (Microlinux) <alice@microlinux.fr> »
+  clef RSA de 2048 bits, identifiant D6F39F02, créée le 2015-06-21
+
+Bob pourra faire de même avec la clé d'Alice.
+
+
+Chiffrer un message
+-------------------
+
+Alice envoie un message chiffré à Bob. Elle utilise la clé publique de Bob
+pour le chiffrer.
+
+  $ gpg --armor --encrypt --recipient bob@microlinux.fr  message.txt 
+  $ mv -v message.txt.asc /tmp/
+  « message.txt.asc » -> « /tmp/message.txt.asc »
+
+
+Déchiffrer un message
+---------------------
+
+Bob récupère le message d'Alice :
+
+  $ cp -v /tmp/message.txt.asc .
+  « /tmp/message.txt.asc » -> « ./message.txt.asc »
+
+Il le déchiffre avec sa clé privée :
+
+  $ gpg --decrypt --output message.txt message.txt.asc 
+  $ cat message.txt
+
+                  LE VOYAGE (extrait)
+
+    Ceux-là dont les désirs ont la forme des nues,
+    Et qui rêvent, ainsi qu'un conscrit le canon,
+    De vastes voluptés, changeantes, inconnues,
+    Et dont l'esprit humain n'a jamais su le nom !
+
+      -- Charles Baudelaire
+
+Notons que Mallory peut très bien intercepter ce message. Tout ce qu'il verra,
+c'est quelque chose qui ressemble à ceci :
+
+  $ cat /tmp/message.txt.asc 
+  -----BEGIN PGP MESSAGE-----
+  Version: GnuPG v1
+
+  hQEMA3ugixlPx+KiAQgAjitg/GlQb7DMAGI+XpbHTmwheNVdl0kyUnwu3dsz3z18
+  dMXYJQaSDBp2J0AwicXL4DXl631EFPheezyJ/Jes5dNtm8PygL++HvuYhtzqjtke
+  XS62nVgAwxf3q8KQZkD+fmR3sD6dJNV6BpVVTFSrML5OY9rZ4MA/novAhy/Q8xrt
+  p152wO3pu68XPM5W4Lu+6PWX8MJg8G9983Pg+G/LiiChHIT9ep/A+cYxHw37GCWm
+  xPsLCyMBjyQrY+/8kFxvRBy/76uSjzRx63XlMxoO3ZH8Cvo1F2JOygj9VNDs1Vbt
+  EvnBXGSu653IokbQ3CJatDf1MFqqGxz/sQHs9+J+vdLAQwFeFHLW8/iMH4aBvnuz
+  m2BP+JFEXdYHeJS6snyxq0sDb8n0+Ti1H8HJ7aqBJpmGoA5Bi1nGYXjdNuBjdTyl
+  WMw/Qz1OM44iskIeeFQqHZ5aHKhkHtrbglUGK/cL5m1HWqpINOsKk6hzps7CHBcg
+  yv9BFobJut/Tfs+ajBKMJibDQFWytq0MTRnCQp8ArI/HwvkoZZV2j7MjdgiTBgq4
+  vs0bkcKR1OFVzZU3kpxoWJs85IPE/TwtcexPxW/k7vZm8fP4WgiSOOnzmbaItkFT
+  dKEyb4obuj4aTwXl9YrKWFeeT0C2/JZhslrsvaWI1f30aU0A7FQ9mU30bMHDCEC/
+  /tBV1Us=
+  =s1Dw
+  -----END PGP MESSAGE-----
+
+
+Signer un message
+-----------------
+
+Alice veut envoyer un message à Bob. Ce message n'est pas crypté, et tout le
+monde peut le lire. La signature assure l'authenticité du message.
+
+Alice signe le message en utilisant sa clé privée :
+
+$ gpg --armor --clearsign message.txt
+
+Le fichier message.txt.asc contient le texte en clair, ainsi que la signature :
+
+  $ cat message.txt.asc 
+  -----BEGIN PGP SIGNED MESSAGE-----
+  Hash: SHA1
+
+
+                  LE VOYAGE (extrait)
+
+    Ceux-là dont les désirs ont la forme des nues,
+    Et qui rêvent, ainsi qu'un conscrit le canon,
+    De vastes voluptés, changeantes, inconnues,
+    Et dont l'esprit humain n'a jamais su le nom !
+
+      -- Charles Baudelaire
+
+
+  -----BEGIN PGP SIGNATURE-----
+  Version: GnuPG v1
+
+  iQEcBAEBAgAGBQJViPfVAAoJEHoMPjLW858CpjMIAKw0CW3zNLkIW2jWOUyJFjvU
+  bTr+t2N4GvVhkenvWkqx9EZ1x2uiMC9hdx1VTyoVwv9prd/dVYkESynCaW8Jm0Ou
+  LTn+ML5p3oH1JH+mzpIrXhxmpvj61HfLw9V04N7LXas3D5TDtTMpkv/4acHIO1iZ
+  CrvJLdy9tw/7oBB30aUVBF563gEy3ZLcq4tm0yy7FCEtuxwqyx7kYp0YoiBkJ6Qc
+  sJXs11OxMqqS/SLd1F7EchUmzThzCY1T36KcqlA8S1tIfNzrr1I3SpaY368iYpYp
+  h1YL5EvrVHWpFi03ihw46EWrX5dgaAjeD1pffxGm4Xz5gO+JFPRRUS9KokSxnsw=
+  =iVaX
+  -----END PGP SIGNATURE-----
+
+Elle envoie le message signé à Bob :
+
+  $ mv -v message.txt.asc /tmp/
+  « message.txt.asc » -> « /tmp/message.txt.asc »
+
+
+Vérifier l'authenticité d'un message
+------------------------------------
+
+Bob récupère le message d'Alice :
+
+  $ cp -v /tmp/message.txt.asc .
+  « /tmp/message.txt.asc » -> « ./message.txt.asc »
+
+Il vérifie que le message vient d'elle :
+
+  $ gpg --verify message.txt.asc 
+  gpg: Signature faite le mar. 23 juin 2015 08:08:21 CEST avec la clef RSA 
+  gpg: d'identifiant D6F39F02
+  gpg: Bonne signature de « Alice Carroll (Microlinux) <alice@microlinux.fr> »
+
+
+Détacher la signature
+---------------------
+
+Au lieu de sertir la signature dans le texte du message, Alice peut
+authentifier son message dans un fichier à part :
+
+  $ gpg --armor --detach-sign --output signature.asc message.txt
+
+Elle envoie le message ainsi que la signature à Bob :
+
+  $ cp -v message.txt signature.asc /tmp/
+  « message.txt » -> « /tmp/message.txt »
+  « signature.asc » -> « /tmp/signature.asc »
+
+Bob récupère ces deux fichiers :
+
+  $ cp -v /tmp/{message.txt,signature.asc} .
+  « /tmp/message.txt » -> « ./message.txt »
+  « /tmp/signature.asc » -> « ./signature.asc »
+
+Il vérifie l'authenticité du message :
+
+  $ gpg --verify signature.asc message.txt 
+  gpg: Signature faite le mar. 23 juin 2015 08:26:07 CEST avec la clef RSA 
+  gpg: d'identifiant D6F39F02
+  gpg: Bonne signature de « Alice Carroll (Microlinux) <alice@microlinux.fr> »
+
+
+Détecter une intrusion
+----------------------
+
+Admettons que Mallory intercepte le message et décide de le modifier, en
+ajoutant une ligne par exemple :
+
+  $ cat message.txt 
+
+                  LE VOYAGE (extrait)
+
+    Ceux-là dont les désirs ont la forme des nues,
+    Et qui rêvent, ainsi qu'un conscrit le canon,
+    De vastes voluptés, changeantes, inconnues,
+    Et dont l'esprit humain n'a jamais su le nom !
+    Et d'ailleurs Bob est un gros con !     --> Mallory ajoute cette ligne
+
+      -- Charles Baudelaire
+
+Bob récupère le message et vérifie son authenticité :
+
+  $ gpg --verify signature.asc message.txt 
+  gpg: Signature faite le mar. 23 juin 2015 08:26:07 CEST avec la clef RSA 
+  gpg: d'identifiant D6F39F02
+  gpg: MAUVAISE signature de « Alice Carroll (Microlinux) <alice@microlinux.fr> »
+
+Là, il sait que ce n'est pas le message envoyé par Alice.
+
+
+Chiffrer et signer un message
+-----------------------------
+
+Alice veut envoyer un message chiffré à Bob. Elle veut garantir l'authenticité
+de ce message en le signant. Elle va donc chiffrer le message avec la clé
+publique de Bob, pour ensuite le signer avec sa propre clé privée.
+
+  $ gpg --armor --encrypt --recipient bob@microlinux.fr --sign message.txt 
+  $ mv -v message.txt.asc /tmp/
+  « message.txt.asc » -> « /tmp/message.txt.asc »
+
+
+Décrypter un message en vérifiant son authenticité
+--------------------------------------------------
+
+Bob récupère le message crypté et signé d'Alice :
+
+  $ cp -v /tmp/message.txt.asc .
+  « /tmp/message.txt.asc » -> « ./message.txt.asc »
+
+Il décrypte le message avec sa propre clé privée. La clé publique d'Alice lui
+permet en même temps de vérifier l'authenticité du message :
+
+  $ gpg message.txt.asc 
+  ...
+  gpg: Signature faite le mar. 23 juin 2015 09:28:56 CEST avec la clef RSA 
+  gpg: d'identifiant D6F39F02
+  gpg: Bonne signature de « Alice Carroll (Microlinux) <alice@microlinux.fr> »
+
+L'opération a généré un fichier 'message.txt' dans le répertoire courant :
+
+  $ cat message.txt
+
+                  LE VOYAGE (extrait)
+
+    Ceux-là dont les désirs ont la forme des nues,
+    Et qui rêvent, ainsi qu'un conscrit le canon,
+    De vastes voluptés, changeantes, inconnues,
+    Et dont l'esprit humain n'a jamais su le nom !
+
+      -- Charles Baudelaire
+
+
+Passons aux choses sérieuses
+----------------------------
+
+Nous nous sommes suffisamment entrâinés avec des comptes "bidon". À présent,
+nous allons générer une paire de clés pour nous-mêmes :
+
+  $ gpg --gen-key
+
+Exporter la clé :
+
+  $ gpg --armor --export --output info@microlinux.fr.pubkey.asc \
+    info@microlinux.fr
+
+Générer un certificat de révocation :
+
+  $ gpg --armor --gen-revoke --output info@microlinux.fr.revoke.asc \
+    info@microlinux.fr
+
+Exporter la clé privée :
+
+  $ gpg --armor --export-secret-key --output info@microlinux.fr.secret.asc \
+    info@microlinux.fr
+
+Sauvegarder ces trois fichiers en les gravant sur un CD-Rom, par exemple :
+
+  * info@microlinux.fr.pubkey.asc  
+  * info@microlinux.fr.secret.asc
+  * info@microlinux.fr.revoke.asc
+
+Une fois qu'on a sauvegardé ces fichiers, on peut les supprimer de sa machine.
+
+
+Publier sa clé
+--------------
+
+J'affiche ma clé publique :
+
+  $ gpg --list-keys
+  /home/kikinovak/.gnupg/pubring.gpg
+  ----------------------------------
+  pub   2048R/58CF72D9 2015-06-29 [expire : 2016-06-28]
+  uid                  Nicolas Kovacs (Microlinux) <info@microlinux.fr>
+  sub   2048R/1171A685 2015-06-29 [expire : 2016-06-28]
+
+Sur mon système (Slackware64 14.1), le serveur de clés keys.gnupg.net est
+préconfiguré :
+
+--8<---------- ~/.gnupg/gpg.conf ---------------------------------------------
+keyserver hkp://keys.gnupg.net
+--8<--------------------------------------------------------------------------
+
+  > 'hkp' signifie "Horowitz Keyserver Protocol". C'est ce protocole que l'on
+    utilise pour échanger des clés sur un réseau public.
+
+J'envoie ma clé sur ce serveur de clés :
+
+  $ gpg --send-keys 58CF72D9
+  gpg: envoi de la clef 58CF72D9 au serveur hkp keys.gnupg.net
+
+Je peux définir un serveur de clés différent :
+
+  $ gpg --keyserver pgp.mit.edu --send-keys 58CF72D9
+  gpg: envoi de la clef 58CF72D9 au serveur hkp pgp.mit.edu
+
+
+Documentation
+-------------
+
+  * PGP & GPG - Email for the Practical Paranoid, Michael Lucas - 
+    chapitres 1, 2, 4, 5, 7, 8 et 11
+  * http://fr.wikipedia.org/wiki/Cryptographie_asymétrique
+  * https://www.gnupg.org/documentation/howtos.html
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
