@@ -7,6 +7,7 @@ Dernière révision : 1er juillet 2015
 Ce HOWTO décrit l'utilisation de GPG (GNU Privacy Guard) sous Linux. 
 
 
+  * Introduction
   * Alice, Bob et Mallory
   * La cryptographie symétrique
   * Exemple de chiffrement symétrique
@@ -27,6 +28,38 @@ Ce HOWTO décrit l'utilisation de GPG (GNU Privacy Guard) sous Linux.
   * Publier sa clé
   * Rechercher et importer une clé publique
   * Utiliser GPG avec Thunderbird
+
+
+Introduction
+------------
+
+Depuis les révélations d'Edward Snowden sur les pratiques de la NSA, tout le
+monde sait que l'intégralité de nos communications électroniques est
+interceptée, filtrée et stockée par l'Agence Nationale de la Sécurité des
+États-Unis. Curieusement, cet état des choses ne semble choquer qu'une
+minorité de citoyens, à en juger par les réactions diverses et variées de gens
+qui pensent "ne rien avoir à cacher". Il n'est donc pas étonnant qu'en France,
+des lois calamiteuses comme la dernière en date sur le renseignement puissent
+être votées sans trop de résistance.
+
+Heureusement pour nous, il existe une série d'outils pour compliquer la tâche
+aux espions des agences de renseignement diverses et variées, voire même la
+leur rendre impossible. GPG (GNU Privacy Guard) est un de ces outils. Il
+permet - entre autres choses - de crypter et d'authentifier votre courrier
+électronique. Si l'on en croit Edward Snowden, la NSA et les autres services
+de renseignement ne sont pas encore en mesure de décrypter une communication
+chiffrée par le biais de GPG. Ce n'est donc pas seulement un excellent outil
+pour les terroristes et la mafia, mais également pour tous ceux qui
+considèrent qu'ils ont droit à une vie privée, comme c'est dit dans l'article
+12 de la Déclaration Universelle des Droits de l'Homme :
+
+    Nul ne sera l'objet d'immixtions arbitraires dans sa vie privée, sa
+    famille, son domicile ou sa correspondance, ni d'atteintes à son honneur
+    et à sa réputation.
+
+Voici donc un tutoriel raisonnablement complet sur GPG. Il s'adresse avant
+tout aux administrateurs Linux, mais également aux utilisateurs qui n'ont pas
+peur de plonger les mains dans le cambouis de la ligne de commande.
 
 
 Alice, Bob et Mallory
