@@ -2,7 +2,7 @@
 GPG HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =========
 
-Dernière révision : 29 juin 2015
+Dernière révision : 1er juillet 2015
 
 Ce HOWTO décrit l'utilisation de GPG (GNU Privacy Guard) sous Linux. 
 
@@ -25,6 +25,8 @@ Ce HOWTO décrit l'utilisation de GPG (GNU Privacy Guard) sous Linux.
   * Décrypter un message en vérifiant son authenticité
   * Passons aux choses sérieuses
   * Publier sa clé
+  * Rechercher et importer une clé publique
+  * Utiliser GPG avec Thunderbird
 
 
 Alice, Bob et Mallory
@@ -303,6 +305,10 @@ Le répertoire utilisateur contient une série de nouveaux fichiers :
 Générer un certificat de révocation
 -----------------------------------
 
+Le certificat de révocation sert à invalider une clé. Il doit être utilisé si
+jamais vous pensez que quelqu'un a mis la main sur votre clé privée et votre
+mot de passe, ou si vous l'avez perdue.
+
   $ gpg --armor --gen-revoke --output alice@microlinux.fr.revoke.asc \
     alice@microlinux.fr
 
@@ -495,7 +501,7 @@ monde peut le lire. La signature assure l'authenticité du message.
 
 Alice signe le message en utilisant sa clé privée :
 
-$ gpg --armor --clearsign message.txt
+  $ gpg --armor --clearsign message.txt
 
 Le fichier message.txt.asc contient le texte en clair, ainsi que la signature :
 
@@ -650,7 +656,7 @@ L'opération a généré un fichier 'message.txt' dans le répertoire courant :
 Passons aux choses sérieuses
 ----------------------------
 
-Nous nous sommes suffisamment entrâinés avec des comptes "bidon". À présent,
+Nous nous sommes suffisamment entraînés avec des comptes "bidon". À présent,
 nous allons générer une paire de clés pour nous-mêmes :
 
   $ gpg --gen-key
@@ -712,12 +718,65 @@ Je peux définir un serveur de clés différent :
   gpg: envoi de la clef 58CF72D9 au serveur hkp pgp.mit.edu
 
 
+Rechercher et importer une clé publique
+---------------------------------------
+
+Rechercher une clé publique sur le serveur de clés configuré par défaut :
+
+  $ gpg --search-keys libellug.org
+  gpg: recherche de « libellug.org » sur le serveur hkp keys.gnupg.net
+  (1) Helene Cassard <helene@libellug.org>
+    Helene Cassard <helene.cassard@lbi-pro.com>
+    Helene Cassard <helene.cassard@libellug.org>
+      1024 bit DSA key A03E4007, créé : 2004-05-05
+  (2) Jp Cassard <jp@libellug.org>
+    Jp Cassard <jp.cassard@gmail.com>
+    JP CASSARD <jp.cassard@wanadoo.fr>
+    Jp Cassard <jp.cassard@libellug.org>
+    Jp Cassard <jean-philippe.cassard@libellug.org>
+      1024 bit DSA key A8F3822C, créé : 2003-01-15
+  (3) Christian Gay <christian@nerim.net>
+    Christian Gay <christian@libellug.org>
+      1024 bit DSA key 661D2FCF, créé : 2002-08-22
+
+Importer une de ces clés en spécifiant son empreinte :
+
+  $ gpg --recv-keys 661D2FCF
+  gpg: demande de la clef 661D2FCF sur le serveur hkp keys.gnupg.net
+  gpg: clef 661D2FCF : clef publique « Christian Gay <christian@libellug.org> » 
+  gpg: importée
+  gpg: 3 marginale(s) nécessaire(s), 1 complète(s) nécessaire(s),
+       modèle de confiance PGP
+  gpg: profondeur : 0  valables :   1  signées :   0
+       confiance : 0 i., 0 n.d., 0 j., 0 m., 0 t., 1 u.
+  gpg: la prochaine vérification de la base de confiance aura lieu le 2016-06-28
+  gpg:       Quantité totale traitée : 1
+  gpg:                     importées : 1
+
+
+Utiliser GPG avec Thunderbird
+-----------------------------
+
+Le client mail Thunderbird est capable d'effectuer toutes les opérations de
+chiffrement et d'authentification en deux clics. Il suffit d'installer le
+module Enigmail.
+
+Une fois qu'on a redémarré Thunderbird, la barre d'outils de la fenêtre de
+rédaction affiche trois nouveaux boutons Enigmail :
+
+  * Chiffrage (ON/OFF)
+  * Signature (ON/OFF)
+  * Attacher ma clé publique (ON/OFF)
+
+
 Documentation
 -------------
 
   * PGP & GPG - Email for the Practical Paranoid, Michael Lucas - 
     chapitres 1, 2, 4, 5, 7, 8 et 11
+
   * http://fr.wikipedia.org/wiki/Cryptographie_asymétrique
+
   * https://www.gnupg.org/documentation/howtos.html
 
 
