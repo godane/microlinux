@@ -1,5 +1,7 @@
 Thu Jul  2 16:01:36 CEST 2015
 flashplayer-plugin-11.2.202.468-i386-1_microlinux.txz: Upgraded.
+asunder-2.7-i486-1_microlinux.txz: Upgraded.
+elementary-xfce-0.5-noarch-1_microlinux.txz: Upgraded.
 +--------------------------+
 Sun Jun 28 15:09:29 CEST 2015
 jdk-8u45-i586-2_microlinux.txz: Rebuilt.
