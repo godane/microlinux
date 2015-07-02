@@ -34,6 +34,7 @@ AddDefaultCharset utf-8
   AddIcon       /microlinux/repository-layout/folder.png ^^DIRECTORY^^
   AddIcon       /microlinux/repository-layout/go-up.png ..
   AddIcon       /microlinux/repository-layout/text-x-script.png .sh
+  AddIcon       /microlinux/repository-layout/pdf.png .pdf
   AddIcon       /microlinux/repository-layout/internet-news-reader.png ChangeLog.txt
   AddIcon       /microlinux/repository-layout/internet-news-reader.png RELEASE-NOTES.txt
   AddIcon       /microlinux/repository-layout/application-rss+xml.png .rss
@@ -46,7 +47,6 @@ AddDefaultCharset utf-8
   AddIcon       /microlinux/repository-layout/manual.png recipes
   AddIcon       /microlinux/repository-layout/accessories-text-editor.png -HOWTO.txt
   AddIcon       /microlinux/repository-layout/help-browser.png FAQ.txt
-  AddIcon       /microlinux/repository-layout/preferences-system.png tools
   AddIcon       /microlinux/repository-layout/edit-copy.png template
   AddIcon       /microlinux/repository-layout/xfce.png desktop-14.1-32bit
   AddIcon       /microlinux/repository-layout/xfce.png desktop-14.1-64bit
