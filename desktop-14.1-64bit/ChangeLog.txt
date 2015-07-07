@@ -1,3 +1,10 @@
+Tue Jul  7 13:58:12 CEST 2015
+libreoffice-4.4.4-x86_64-1_microlinux.txz: Upgraded.
+libreoffice-langpack-fr-4.4.4-x86_64-1_microlinux.txz: Upgraded.
+libreoffice-langpack-de-4.4.4-x86_64-1_microlinux.txz: Upgraded.
+libreoffice-helppack-fr-4.4.4-x86_64-1_microlinux.txz: Upgraded.
+libreoffice-helppack-de-4.4.4-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Jul  2 16:52:24 CEST 2015
 flashplayer-plugin-11.2.202.468-x86_64-1_microlinux.txz: Upgraded.
 asunder-2.7-x86_64-1_microlinux.txz: Upgraded.
