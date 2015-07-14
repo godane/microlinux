@@ -1,3 +1,8 @@
+Tue Jul 14 10:00:22 CEST 2015
+mozilla-firefox-langpack-31.8.0-x86_64-1_microlinux.txz: Upgraded.
+mozilla-thunderbird-langpack-38.1.0-x86_64-1_microlinux.txz: Upgraded.
+flashplayer-plugin-11.2.202.481-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Tue Jul  7 13:58:12 CEST 2015
 libreoffice-4.4.4-x86_64-1_microlinux.txz: Upgraded.
 libreoffice-langpack-fr-4.4.4-x86_64-1_microlinux.txz: Upgraded.
