@@ -1,5 +1,6 @@
 Tue Jul 14 09:16:31 CEST 2015
 mozilla-firefox-langpack-31.8.0-i486-1_microlinux.txz: Upgraded.
+mozilla-thunderbird-langpack-38.1.0-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Tue Jul  7 13:38:37 CEST 2015
 libreoffice-4.4.4-i586-1_microlinux.txz: Upgraded.
