@@ -1,5 +1,6 @@
 Sat Jul 18 10:12:09 CEST 2015
-flashplayer-plugin-11.2.202.491-i386-1_microlinux.txz: Upgraded.:wq
+flashplayer-plugin-11.2.202.491-i386-1_microlinux.txz: Upgraded.
+jdk-8u51-i586-1_microlinux.txz: Upgraded.
 +--------------------------+
 Tue Jul 14 09:16:31 CEST 2015
 mozilla-firefox-langpack-31.8.0-i486-1_microlinux.txz: Upgraded.
