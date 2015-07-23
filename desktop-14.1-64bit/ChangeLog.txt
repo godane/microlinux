@@ -1,3 +1,13 @@
+Thu Jul 23 09:04:05 CEST 2015
+clearlooks-phenix-theme-6.0.3-noarch-1_microlinux.txz: Upgraded.
+imlib2-1.4.7-x86_64-1_microlinux.txz: Upgraded.
+libburn-1.4.0-x86_64-1_microlinux.txz: Upgraded.
+libisofs-1.4.0-x86_64-3_microlinux.txz: Upgraded.
+lxml-3.4.4-x86_64-1_microlinux.txz: Upgraded.
+mm-common-0.9.7-noarch-1_microlinux.txz: Upgraded.
+muParser-2.2.4-x86_64-1_microlinux.txz: Upgraded.
+orage-4.12.1-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Sat Jul 18 10:43:00 CEST 2015
 flashplayer-plugin-11.2.202.491-x86_64-1_microlinux.txz: Upgraded.
 jdk-8u51-x86_64-1_microlinux.txz: Upgraded.
