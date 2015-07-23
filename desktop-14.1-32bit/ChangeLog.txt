@@ -1,3 +1,8 @@
+Thu Jul 23 18:17:04 CEST 2015
+clearlooks-phenix-theme-4.0-noarch-1_microlinux.txz: Downgraded.
+  Latest version looks incredibly ugly. Until we sort out if this is a bug or a
+	feature, let's revert to the last working version.
++--------------------------+
 Thu Jul 23 07:32:25 CEST 2015
 clearlooks-phenix-theme-6.0.3-noarch-1_microlinux.txz: Upgraded.
 imlib2-1.4.7-i486-1_microlinux.txz: Upgraded.
