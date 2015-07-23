@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=orage      
-VERSION=${VERSION:-4.10.0}  
+VERSION=${VERSION:-4.12.1}  
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}   
 
@@ -61,7 +61,7 @@ fi
 
 set -e 
 
-DOWNLOAD="http://archive.xfce.org/src/apps/$PRGNAM/4.10/$PRGNAM-$VERSION.tar.bz2"
+DOWNLOAD="http://archive.xfce.org/src/apps/$PRGNAM/4.12/$PRGNAM-$VERSION.tar.bz2"
 
 wget -c $DOWNLOAD
 

@@ -6,6 +6,7 @@ libisofs-1.4.0-i486-3_microlinux.txz: Upgraded.
 lxml-3.4.4-i486-1_microlinux.txz: Upgraded.
 mm-common-0.9.7-noarch-1_microlinux.txz: Upgraded.
 muParser-2.2.4-i486-1_microlinux.txz: Upgraded.
+orage-4.12.1-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Sat Jul 18 10:12:09 CEST 2015
 flashplayer-plugin-11.2.202.491-i386-1_microlinux.txz: Upgraded.
