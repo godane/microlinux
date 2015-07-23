@@ -25,11 +25,11 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=libisofs
-VERSION=${VERSION:-1.3.8}
+VERSION=${VERSION:-1.4.0}
 BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j5}
+NUMJOBS=${NUMJOBS:--j3}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
