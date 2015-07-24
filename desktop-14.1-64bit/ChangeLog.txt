@@ -1,3 +1,11 @@
+Fri Jul 24 09:59:06 CEST 2015
+orc-0.4.24-x86_64-1_microlinux.txz: Upgraded.
+perl-extutils-depends-0.404-x86_64-1_microlinux.txz: Upgraded.
+perl-glib-1.307-x86_64-1_microlinux.txz: Upgraded.
+scons-2.3.5-x86_64-1_microlinux.txz: Upgraded.
+x264-20150223-x86_64-1_microlinux.txz: Upgraded.
+xfce4-xkb-plugin-0.7.1-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Jul 23 18:17:04 CEST 2015
 clearlooks-phenix-theme-4.0-noarch-1_microlinux.txz: Downgraded.
   Latest version looks incredibly ugly. Until we sort out if this is a bug or a
