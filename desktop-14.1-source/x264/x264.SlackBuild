@@ -27,7 +27,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=x264
-VERSION=20131101
+VERSION=20150223
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -62,7 +62,7 @@ fi
 
 set -e
 
-DOWNLOAD="http://mirror.yandex.ru/mirrors/ftp.videolan.org/$PRGNAM/snapshots/$PRGNAM-snapshot-$VERSION-2245-stable.tar.bz2"
+DOWNLOAD="http://www.liwjatan.at/files/src/$PRGNAM/$PRGNAM-snapshot-$VERSION-2245-stable.tar.xz"
 
 wget -c $DOWNLOAD
 
@@ -70,7 +70,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-snapshot-$VERSION-2245-stable
-tar xvf $CWD/$PRGNAM-snapshot-$VERSION-2245-stable.tar.bz2
+tar xvf $CWD/$PRGNAM-snapshot-$VERSION-2245-stable.tar.xz
 cd $PRGNAM-snapshot-$VERSION-2245-stable
 chown -R root:root .
 chmod -R u+w,go+r-w,a-s .
@@ -80,7 +80,6 @@ CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --enable-visualize \
   --enable-shared \
   --enable-pic \
   --enable-strip
