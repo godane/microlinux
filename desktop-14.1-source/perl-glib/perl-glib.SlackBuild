@@ -28,7 +28,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=perl-glib
-VERSION=${VERSION:-1.306}
+VERSION=${VERSION:-1.307}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 

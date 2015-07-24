@@ -1,6 +1,7 @@
 Fri Jul 24 08:38:41 CEST 2015
 orc-0.4.24-i486-1_microlinux.txz: Upgraded.
 perl-extutils-depends-0.404-i486-1_microlinux.txz: Upgraded.
+perl-glib-1.307-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Thu Jul 23 18:17:04 CEST 2015
 clearlooks-phenix-theme-4.0-noarch-1_microlinux.txz: Downgraded.
