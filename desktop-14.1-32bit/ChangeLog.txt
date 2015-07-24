@@ -1,3 +1,6 @@
+Fri Jul 24 08:38:41 CEST 2015
+orc-0.4.24-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Jul 23 18:17:04 CEST 2015
 clearlooks-phenix-theme-4.0-noarch-1_microlinux.txz: Downgraded.
   Latest version looks incredibly ugly. Until we sort out if this is a bug or a
