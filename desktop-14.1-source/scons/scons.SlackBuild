@@ -7,7 +7,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=scons
-VERSION=${VERSION:-2.3.4}
+VERSION=${VERSION:-2.3.5}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
