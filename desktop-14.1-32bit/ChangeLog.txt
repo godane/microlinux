@@ -1,3 +1,7 @@
+Sun Jul 26 11:51:51 CEST 2015
+MPlayer-1.1.1-i486-2_microlinux.txz: Rebuilt.
+  Rebuilt against new x264.
++--------------------------+
 Fri Jul 24 08:38:41 CEST 2015
 orc-0.4.24-i486-1_microlinux.txz: Upgraded.
 perl-extutils-depends-0.404-i486-1_microlinux.txz: Upgraded.
