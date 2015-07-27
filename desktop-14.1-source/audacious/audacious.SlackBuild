@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=audacious			
-VERSION=${VERSION:-3.4.2}	 
+VERSION=${VERSION:-3.6.2}	 
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}		
 
@@ -86,7 +86,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --sysconfdir=/etc \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --enable-thunar \
 	--program-prefix= \
 	--program-suffix= \
   --build=$ARCH-slackware-linux \
