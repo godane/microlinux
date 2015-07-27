@@ -1,3 +1,15 @@
+Mon Jul 27 17:15:19 CEST 2015
+ffmpeg-2.6.3-x86_64_custom-1_microlinux.txz: Upgraded.
+mlt-0.9.6-x86_64-1_microlinux.txz: Upgraded.
+audacity-2.1.0-x86_64-1_microlinux.txz: Upgraded.
+gstreamer1-1.4.5-x86_64-1_microlinux.txz: Upgraded.
+gst1-plugins-base-1.4.5-x86_64-1_microlinux.txz: Upgraded.
+gst1-plugins-good-1.4.5-x86_64-1_microlinux.txz: Upgraded.
+gst1-plugins-bad-1.4.5-x86_64-1_microlinux.txz: Upgraded.
+gst1-libav-1.4.5-x86_64-1_microlinux.txz: Upgraded.
+audacious-3.6.2-x86_64-1_microlinux.txz: Upgraded.
+audacious-plugins-3.6.2-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Sun Jul 26 11:51:51 CEST 2015
 MPlayer-1.1.1-x86_64-2_microlinux.txz: Rebuilt.
   Rebuilt against new x264.
