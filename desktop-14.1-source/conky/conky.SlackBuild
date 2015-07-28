@@ -8,7 +8,7 @@
 
 PRGNAM=conky
 VERSION=1.9.0
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j3}
@@ -47,7 +47,7 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.bz2"
 
-wget -c $DOWNLOAD
+#wget -c $DOWNLOAD
 
 if [ "${LUA:-yes}" = "yes" ]; then
   lua_params="--enable-lua --enable-lua-cairo --enable-imlib2 --enable-lua-imlib2"
@@ -79,7 +79,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-static=no \
   --enable-ibm \
   --enable-hddtemp \
-  --enable-audacious \
+  --enable-audacious=no \
   --enable-xft \
   --enable-weather-metar \
   --enable-weather-xoap \

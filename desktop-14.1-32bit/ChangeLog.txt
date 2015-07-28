@@ -2,6 +2,9 @@ Tue Jul 28 09:53:42 CEST 2015
 luna-wallpapers-0.2-noarch-2_microlinux.txz: Rebuilt.
   Added working wallpaper preview for Xfce 4.10, Xfce 4.12, KDE and MATE.
 	Thanks to Antonio Hernàndez Blas.
+conky-1.9.0-i486-2_microlinux.txz: Rebuilt.
+	Dropped Audacious support, since Audacious >= 3.5 doesn't contain 'audclient'
+	anymore. 
 +--------------------------+
 Mon Jul 27 14:16:19 CEST 2015
 ffmpeg-2.6.3-i686_custom-1_microlinux.txz: Upgraded.
