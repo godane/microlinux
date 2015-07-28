@@ -8,6 +8,7 @@ conky-1.9.0-i486-2_microlinux.txz: Rebuilt.
 brasero-3.12.1-i486-1_microlinux.txz: Upgraded.
 ffmpegthumbnailer-2.0.10-i486-1_microlinux.txz: Upgraded.
 inkscape-0.91-i486-1_microlinux.txz: Upgraded.
+scribus-1.4.5-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Mon Jul 27 14:16:19 CEST 2015
 ffmpeg-2.6.3-i686_custom-1_microlinux.txz: Upgraded.
