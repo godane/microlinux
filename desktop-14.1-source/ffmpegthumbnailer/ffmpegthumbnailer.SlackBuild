@@ -26,7 +26,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=ffmpegthumbnailer
-VERSION=${VERSION:-2.0.9}
+VERSION=${VERSION:-2.0.10}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -61,7 +61,7 @@ fi
 
 set -e
 
-DOWNLOAD="http://www.liwjatan.at/files/src/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="https://github.com/dirkvdb/$PRGNAM/releases/download/$VERSION/$PRGNAM-$VERSION.tar.bz2"
 
 wget -c $DOWNLOAD
 
@@ -69,7 +69,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+tar xvjf $CWD/$PRGNAM-$VERSION.tar.bz2
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
@@ -78,21 +78,27 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
-./configure \
-  --prefix=/usr \
-  --libdir=/usr/lib$LIBDIRSUFFIX \
-  --sysconfdir=/etc \
-  --localstatedir=/var \
-  --mandir=/usr/man \
-  --enable-static=no \
-  --enable-gio \
-  --enable-thumbnailer \
-  --build=$ARCH-slackware-linux
+# Fix installing into correct libdir
+sed -i "s|\${CMAKE_INSTALL_PREFIX}/lib|\${CMAKE_INSTALL_PREFIX}/lib\${LIB_SUFFIX}|g" \
+  CMakeLists.txt
 
-make $NUMJOBS
-make install-strip DESTDIR=$PKG
+mkdir build
+cd build
+  cmake \
+    -DCMAKE_CXX_FLAGS="${SLKCFLAGS}" \
+    -DCMAKE_C_FLAGS="${SLKCFLAGS}" \
+    -DCMAKE_INSTALL_PREFIX="/usr" \
+    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
+    -DENABLE_GIO="yes" \
+    -DENABLE_THUMBNAILER="yes" \
+    ..
+
+  make $NUMJOBS VERBOSE=1
+  make install DESTDIR=$PKG
+cd ..
+
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 find $PKG/usr/man -type f -exec gzip -9 {} \;
 for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
