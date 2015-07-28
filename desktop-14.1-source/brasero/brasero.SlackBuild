@@ -7,7 +7,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=brasero
-VERSION=${VERSION:-3.11.4}
+VERSION=${VERSION:-3.12.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -48,7 +48,7 @@ fi
 
 set -e 
 
-DOWNLOAD="http://ftp.gnome.org/pub/gnome/sources/$PRGNAM/3.11/$PRGNAM-$VERSION.tar.xz"
+DOWNLOAD="http://ftp.gnome.org/pub/gnome/sources/$PRGNAM/3.12/$PRGNAM-$VERSION.tar.xz"
 
 wget -c $DOWNLOAD
 
