@@ -25,7 +25,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=inkscape
-VERSION=0.48.5
+VERSION=0.91
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -62,7 +62,7 @@ fi
 
 set -e
 
-DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="https://inkscape.global.ssl.fastly.net/media/resources/file/$PRGNAM-$VERSION.tar.bz2"
 
 wget -c $DOWNLOAD
 
@@ -70,7 +70,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvzf $CWD/$PRGNAM-$VERSION.tar.gz
+tar xvjf $CWD/$PRGNAM-$VERSION.tar.bz2
 cd $PRGNAM-$VERSION
 chown -R root:root .
 chmod -R u+w,go+r-w,a-s .
