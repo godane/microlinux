@@ -1,3 +1,7 @@
+Wed Jul 29 10:45:58 CEST 2015
+freerdp-20131115_ea18d2b-i486-2_microlinux.txz: Rebuilt.
+  Rebuilt against new ffmpeg.
++--------------------------+
 Sat Jun 13 09:58:24 CEST 2015
 xpe-0.9.5b-i486-1_microlinux.txz: Added.
 +--------------------------+
