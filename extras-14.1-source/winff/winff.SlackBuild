@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=winff
-VERSION=${VERSION:-1.5.3}
+VERSION=${VERSION:-20150729}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -58,9 +58,7 @@ fi
 
 set -e # Exit on most errors
 
-URL="sourceforge.net/projects/winpenpack/files/X-WinFF/program_sources"
-
-DOWNLOAD="http://$URL/$PRGNAM-$VERSION-source.tar.gz"
+DOWNLOAD="http://www.microlinux.fr/download/$PRGNAM-$VERSION-source.tar.gz"
 
 wget -c $DOWNLOAD
 
