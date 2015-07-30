@@ -1,3 +1,7 @@
+Thu Jul 30 08:51:42 CEST 2015
+freerdp-1.2.0_beta1_android9-x86_64-1_microlinux.txz: Upgraded.
+remmina-1.2.0_rcgit.1-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Wed Jul 29 10:45:58 CEST 2015
 freerdp-20131115_ea18d2b-x86_64-2_microlinux.txz: Rebuilt.
   Rebuilt against new ffmpeg.
