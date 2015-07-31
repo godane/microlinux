@@ -1,6 +1,9 @@
 Fri Jul 31 08:16:11 CEST 2015
 hoorex-0.5.5-i486-1_microlinux.txz: Removed.
 	While hoorex is a nifty tool, it's really only useful if you're a packager.
+unrar-5.2.6-i486-1_microlinux.txz: Upgraded.
+slackpkg+-1.3.2-noarch-2_microlinux.txz: Rebuilt.
+  Fixed package description.
 +--------------------------+
 Tue Jul 28 09:53:42 CEST 2015
 luna-wallpapers-0.2-noarch-2_microlinux.txz: Rebuilt.

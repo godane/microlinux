@@ -7,6 +7,6 @@ slackpkg+: Slackpkg+ is a plugin for slackpkg.
 slackpkg+:   It adds support for third-party repositories.
 slackpkg+:   You can install, upgrade and search from multiple repositories.
 slackpkg+:
-slackpkg+: This version comes preconfigured for Slick Linux Desktop 14.1.
+slackpkg+: This version comes preconfigured for MLED 14.1.
 slackpkg+:
 slackpkg+: Package created by Niki Kovacs <info@microlinux.fr>
