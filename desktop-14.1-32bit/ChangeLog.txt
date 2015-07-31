@@ -1,3 +1,7 @@
+Fri Jul 31 08:16:11 CEST 2015
+hoorex-0.5.5-i486-1_microlinux.txz: Removed.
+	While hoorex is a nifty tool, it's really only useful if you're a packager.
++--------------------------+
 Tue Jul 28 09:53:42 CEST 2015
 luna-wallpapers-0.2-noarch-2_microlinux.txz: Rebuilt.
   Added working wallpaper preview for Xfce 4.10, Xfce 4.12, KDE and MATE.
