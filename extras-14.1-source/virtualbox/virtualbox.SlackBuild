@@ -27,7 +27,7 @@
 
 PRGNAM=virtualbox
 SRCNAM=VirtualBox
-VERSION=${VERSION:-4.3.28}
+VERSION=${VERSION:-4.3.30}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
