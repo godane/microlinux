@@ -1,3 +1,6 @@
+Sun Aug  2 07:57:28 CEST 2015
+dropbox-3.8.5-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Fri Jul 31 09:29:17 CEST 2015
 virtualbox-4.3.30-i486-1_microlinux.txz: Upgraded.
 virtualbox-kernel-4.3.30_3.10.17_smp-i486-1_microlinux.txz: Upgraded.

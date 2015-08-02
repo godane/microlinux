@@ -26,7 +26,7 @@
 PRGNAM=dropbox
 PACKNAM=dropbox-lnx
 
-VERSION=${VERSION:-2.10.41}
+VERSION=${VERSION:-3.8.5}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
