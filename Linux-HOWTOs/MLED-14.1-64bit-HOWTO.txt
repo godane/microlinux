@@ -15,6 +15,7 @@ Ce HOWTO décrit l'installation d'un poste de travail MLED 14.1 64bit.
   * Télécharger les scripts Microlinux
   * Configurer slackpkg
   * Élaguer et mettre à jour
+  * Remarque sur les paquets non inclus
   * Paquets Multilib
   * Installer les paquets MLED
   * Vérifier les variables d'environnement
@@ -227,6 +228,25 @@ Deux remarques importantes concernant cette mise à jour initiale :
 
   2. Tous vos paquets 'gcc-*' et 'glibc-*' seront remplacés par des versions
   Multilib. Là aussi, ne vous tracassez pas, c'est normal.
+
+
+Remarque sur les paquets non inclus
+-----------------------------------
+
+MLED ne repose pas sur la sélection complète de paquets Slackware. Voici tout
+ce qui n'est PAS installé :
+
+  1. Tout ce qui est relatif à KDE, puisque MLED est basé sur Xfce.
+
+  2. Le pilote xf86-video-nouveau, les drivers NVidia étant recommandés.
+
+  3. Une panoplie de polices exotique, qui engorgent le sélecteur de polices.
+
+  4. Quelques petites applications X11 comme Blueman, Gnuchess, etc. 
+
+Bien évidemment, si cette sélection ne vous convient pas, vous pouvez toujours
+installer ces paquets (driver Nouveau, polices exotiques, Blueman, etc.) avec
+un simple 'slackpkg install <paquet>'.
 
 
 Paquets Multilib

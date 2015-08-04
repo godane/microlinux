@@ -2,7 +2,7 @@
 MLED 14.1 32bit HOWTO (c) Niki Kovacs <info@microlinux.fr>
 =====================
 
-Dernière révision : 15 avril 2015
+Dernière révision : 4 août 2015
 
 Ce HOWTO décrit l'installation d'un poste de travail MLED 14.1 32bit.
 
@@ -15,6 +15,7 @@ Ce HOWTO décrit l'installation d'un poste de travail MLED 14.1 32bit.
   * Télécharger les scripts Microlinux
   * Configurer slackpkg
   * Élaguer et mettre à jour
+  * Remarque sur les paquets non inclus
   * Installer les paquets MLED
   * Vérifier les variables d'environnement
   * Nettoyer le menu des applications
@@ -221,6 +222,25 @@ Certains paquets Slackware comme le bureau Xfce, Audacious ou MPlayer sont "mis
 à jour", c'est-à-dire remplacés par un paquet MLED. Ne vous inquiétez pas,
 c'est tout à fait normal. MLED remplace Xfce 4.10 par la version 4.12, et les
 lecteurs audio et vidéo ont été recompilés pour offrir plus de fonctionnalités.
+
+
+Remarque sur les paquets non inclus
+-----------------------------------
+
+MLED ne repose pas sur la sélection complète de paquets Slackware. Voici tout
+ce qui n'est PAS installé :
+
+  1. Tout ce qui est relatif à KDE, puisque MLED est basé sur Xfce.
+
+  2. Le pilote xf86-video-nouveau, les drivers NVidia étant recommandés.
+
+  3. Une panoplie de polices exotique, qui engorgent le sélecteur de polices.
+
+  4. Quelques petites applications X11 comme Blueman, Gnuchess, etc. 
+
+Bien évidemment, si cette sélection ne vous convient pas, vous pouvez toujours
+installer ces paquets (driver Nouveau, polices exotiques, Blueman, etc.) avec
+un simple 'slackpkg install <paquet>'.
 
 
 Installer les paquets MLED

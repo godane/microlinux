@@ -16,6 +16,7 @@ Microlinux Enterprise Desktop 14.1 32-bit edition.
   * Download the Microlinux scripts
   * Configure slackpkg
   * Trim the base installation
+  * A word on what's left out
   * Upgrade the base installation
   * Install the MLED package collection
   * Set locales
@@ -204,6 +205,25 @@ Two packages are provided by the official 'extra/' repository. Install them
 manually:
 
   # slackpkg install mplayerplug-in recordmydesktop 
+
+
+A word on what's left out
+-------------------------
+
+MLED doesn't rely on a full Slackware installation. Here's what's NOT
+installed :
+
+  1. Everything related to KDE, since MLED is based on Xfce.
+
+  2. The xf86-video-nouveau driver, since the proprietary drivers work better.
+
+  3. Various exotic fonts, which clutter LibreOffice's font preview.
+
+  4. Some small X11 applications like Blueman, Gnuchess, etc.
+
+Of course, you're free to override this selection by manually installing any
+package (Nouveau driver, exotic font, Blueman, etc.) that's been left out with
+a simple 'slackpkg install <package>'.
 
 
 Upgrade the base installation
