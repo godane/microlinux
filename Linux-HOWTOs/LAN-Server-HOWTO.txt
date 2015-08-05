@@ -378,7 +378,7 @@ paquets tiers. Microlinux vous évite la corvée en fournissant des paquets
 
 Là encore, utilisez le navigateur Links pour accéder aux dépôts distants :
 
-  # links http://www.microlinux.fr/slackware
+  # links http://www.microlinux.fr/microlinux/
 
   > systèmes 32-bits : server-14.1-32bit/slackware/
 
