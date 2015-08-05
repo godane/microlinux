@@ -479,9 +479,9 @@ Prendre en compte les modifications :
 Pare-feu
 --------
 
-Le répertoire 'template/' contient un pare-feu prêt à l'emploi :
+Le répertoire 'template/firewall/' contient un pare-feu prêt à l'emploi :
 
-  # cd template/
+  # cd template/firewall/
   # cp rc.firewall.router /etc/rc.d/rc.firewall
 
 Adapter la configuration du script, puis :
