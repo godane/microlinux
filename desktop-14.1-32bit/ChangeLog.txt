@@ -1,3 +1,6 @@
+Sat Aug  8 05:58:43 CEST 2015
+mozilla-firefox-langpack-38.1.1-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Sat Aug  1 08:28:21 CEST 2015
 libreoffice-4.4.5-i586-1_microlinux.txz: Upgraded.
 libreoffice-langpack-fr-4.4.5-i586-1_microlinux.txz: Upgraded.
