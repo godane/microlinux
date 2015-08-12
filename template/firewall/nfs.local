@@ -1,0 +1,8 @@
+  # NFS
+  $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 111 -j ACCEPT
+  $IPT -A INPUT -p udp -i $IFACE_LAN --dport 111 -j ACCEPT
+  $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 2049 -j ACCEPT
+  $IPT -A INPUT -p udp -i $IFACE_LAN --dport 2049 -j ACCEPT
+  $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 32765:32769 -j ACCEPT
+  $IPT -A INPUT -p udp -i $IFACE_LAN --dport 32765:32769 -j ACCEPT
+

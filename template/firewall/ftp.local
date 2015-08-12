@@ -1,0 +1,4 @@
+  # FTP 
+  $MOD ip_conntrack_ftp
+  $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 21 -j ACCEPT
+

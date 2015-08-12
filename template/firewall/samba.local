@@ -1,0 +1,4 @@
+  # Samba 
+  $IPT -A INPUT -p udp -i $IFACE_LAN --dport 137:138 -j ACCEPT
+  $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 139 -j ACCEPT
+  $IPT -A INPUT -p tcp -i $IFACE_LAN --dport 445 -j ACCEPT
