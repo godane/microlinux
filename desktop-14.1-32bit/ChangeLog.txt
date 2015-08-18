@@ -1,5 +1,6 @@
 Tue Aug 18 05:26:33 CEST 2015
 mozilla-firefox-langpack-38.2.0-i486-1_microlinux.txz: Upgraded.
+mozilla-thunderbird-langpack-38.2.0-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Sat Aug  8 05:58:43 CEST 2015
 mozilla-firefox-langpack-38.1.1-i486-1_microlinux.txz: Upgraded.
