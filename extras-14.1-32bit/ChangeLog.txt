@@ -1,3 +1,6 @@
+Fri Aug 21 11:07:07 CEST 2015
+simple-scan-2.32.0.2-i486-1_microlinux.txz: Added.
++--------------------------+
 Sun Aug  2 07:57:28 CEST 2015
 dropbox-3.8.5-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
