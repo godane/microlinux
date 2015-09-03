@@ -1,3 +1,8 @@
+Thu Sep  3 11:21:24 CEST 2015
+luna-wallpapers-0.2-noarch-3_microlinux.txz: Rebuilt.
+  Added a set of additional wallpapers from a different source. Thanks to
+	Antonio Hernàndez Blas.
++--------------------------+
 Tue Sep  1 05:28:15 CEST 2015
 mozilla-firefox-langpack-38.2.1-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
