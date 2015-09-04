@@ -18,6 +18,7 @@ Ce HOWTO décrit l'installation d'un serveur de réseau local Slackware 14.1.
   * Élaguer et installer les paquets MLES
   * Peaufiner la configuration du réseau 
   * Pare-feu
+  * Migration
 
 
 HP Proliant Microserver
@@ -498,6 +499,49 @@ Deux remarques :
   2. Le script 'rc.firewall.router' gère également le relais des paquets. On
   n'utilisera donc pas le script '/etc/rc.d/rc.ip_forward' proposé par
   Slackware.
+
+
+Migration
+---------
+
+Cette section décrit la procédure pour migrer un serveur faisant office de
+passerelle/pare-feu d'un réseau vers un autre.
+
+Désactiver les services suivants dans '/etc/rc.d/' :
+
+  * rc.dnsmasq
+  * rc.firewall
+  * rc.httpd
+  * rc.ntpd
+  * rc.squid 
+
+Supprimer la configuration de la carte réseau 'eth1' et configurer la carte
+'eth0' en DHCP.
+
+--8<---------- /etc/rc.d/rc.inet1.conf ---------------------------------------
+# Config information for eth0:
+IPADDR[0]=""
+NETMASK[0]=""
+USE_DHCP[0]="yes"
+DHCP_HOSTNAME[0]=""
+
+# Config information for eth1:
+IPADDR[1]=""
+NETMASK[1]=""
+USE_DHCP[1]=""
+DHCP_HOSTNAME[1]=""
+
+...
+
+# Default gateway IP address:
+GATEWAY=""
+--8<--------------------------------------------------------------------------
+
+Redémarrer et vérifier la connexion Internet :
+
+  # ping -c 4 www.google.fr
+
+
 
 
 ------------------------------------------------------------------------------
