@@ -1,3 +1,6 @@
+Sat Sep  5 08:39:12 CEST 2015
+libxml++-2.36.0-i486-1_microlinux.txz: Added.
++--------------------------+
 Thu Sep  3 11:21:24 CEST 2015
 luna-wallpapers-0.2-noarch-3_microlinux.txz: Rebuilt.
 	Added a set of additional Elementary wallpapers from a different source.
