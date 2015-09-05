@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Personal Finance
+Name[de]=Buchhaltung
+Name[fr]=Comptabilité personnelle
+Comment=HomeBank
+Exec=homebank %f
+Terminal=false
+StartupNotify=true
+Type=Application
+Icon=homebank
+Categories=GNOME;GTK;Office;Finance;
+MimeType=application/x-homebank;
