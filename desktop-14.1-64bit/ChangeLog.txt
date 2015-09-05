@@ -1,3 +1,8 @@
+Sat Sep  5 09:02:37 CEST 2015
+libxml++-2.36.0-x86_64-1_microlinux.txz: Added.
+libofx-0.9.9-x86_64-1_microlinux.txz: Added.
+  Needed by HomeBank in the extra/ repository.
++--------------------------+
 Thu Sep  3 11:21:24 CEST 2015
 luna-wallpapers-0.2-noarch-3_microlinux.txz: Rebuilt.
 	Added a set of additional Elementary wallpapers from a different source.
