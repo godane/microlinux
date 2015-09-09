@@ -8,6 +8,7 @@ podofo-0.9.3-i486-1_microlinux.txz: Added.
 dnspython-1.12.0-i486-1_microlinux.txz: Added.
 six-1.9.0-i486-1_microlinux.txz: Added.
 python-dateutil-2.4.1-i486-1_microlinux.txz: Added.
+psutil-3.1.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sat Sep  5 08:39:12 CEST 2015
 libxml++-2.36.0-i486-1_microlinux.txz: Added.
