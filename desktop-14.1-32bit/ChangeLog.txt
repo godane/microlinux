@@ -1,4 +1,5 @@
 Wed Sep  9 09:26:10 CEST 2015
+pysetuptools-18.2-i486-1_microlinux.txz: Added.
 apsw-3.7.17_r1-i486-1_microlinux.txz: Added.
 cssselect-0.9.1-i486-1_microlinux.txz: Added.
 mechanize-0.2.5-i486-1_microlinux.txz: Added.
