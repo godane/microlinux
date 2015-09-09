@@ -5,6 +5,7 @@ mechanize-0.2.5-i486-1_microlinux.txz: Added.
 cssutils-1.0-i486-1_microlinux.txz: Added.
 netifaces-0.10.4-i486-1_microlinux.txz: Added.
 podofo-0.9.3-i486-1_microlinux.txz: Added.
+dnspython-1.12.0-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sat Sep  5 08:39:12 CEST 2015
 libxml++-2.36.0-i486-1_microlinux.txz: Added.
