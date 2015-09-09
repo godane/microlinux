@@ -2,6 +2,7 @@ Wed Sep  9 09:26:10 CEST 2015
 apsw-3.7.17_r1-i486-1_microlinux.txz: Added.
 cssselect-0.9.1-i486-1_microlinux.txz: Added.
 mechanize-0.2.5-i486-1_microlinux.txz: Added.
+cssutils-1.0-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sat Sep  5 08:39:12 CEST 2015
 libxml++-2.36.0-i486-1_microlinux.txz: Added.
