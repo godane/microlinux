@@ -63,7 +63,7 @@ fi
 
 set -e 
 
-DOWNLOAD="http://releases.compiz.org/$VERSION/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="http://pypi.python.org/packages/source/c/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
