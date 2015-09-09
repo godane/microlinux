@@ -63,7 +63,7 @@ fi
 
 set -e 
 
-DOWNLOAD="http://pypi.python.org/packages/source/m/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
