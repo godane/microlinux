@@ -1,3 +1,17 @@
+Wed Sep  9 11:28:00 CEST 2015
+pysetuptools-18.2-x86_64-1_microlinux.txz: Added.
+apsw-3.7.17_r1-x86_64-1_microlinux.txz: Added.
+cssselect-0.9.1-x86_64-1_microlinux.txz: Added.
+mechanize-0.2.5-x86_64-1_microlinux.txz: Added.
+cssutils-1.0-x86_64-1_microlinux.txz: Added.
+netifaces-0.10.4-x86_64-1_microlinux.txz: Added.
+podofo-0.9.3-x86_64-1_microlinux.txz: Added.
+dnspython-1.12.0-x86_64-1_microlinux.txz: Added.
+six-1.9.0-x86_64-1_microlinux.txz: Added.
+python-dateutil-2.4.1-x86_64-1_microlinux.txz: Added.
+psutil-3.1.1-x86_64-1_microlinux.txz: Added.
+calibre-1.48.0-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Sat Sep  5 09:02:37 CEST 2015
 libxml++-2.36.0-x86_64-1_microlinux.txz: Added.
 libofx-0.9.9-x86_64-1_microlinux.txz: Added.
