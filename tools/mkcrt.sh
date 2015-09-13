@@ -5,8 +5,9 @@
 # Script to generate a self-signed certificate for multiple domains like
 # example.com, www.example.com, mail.example.com, ftp.example.com, etc.
 #
-# Usage: copy this script to an appropriate place on the system
-# (/root/scripts/, /etc/ssl/scripts/, etc.), edit it to your needs and run it.
+# Usage: copy this script to an appropriate place on the system like
+# /root/scripts/ or /etc/ssl/scripts/. Eventually, rename it to something like
+# mkcrt.$DOMAIN.sh. Edit it to your needs and run it as root.
 #
 # Niki Kovacs <info@microlinux.fr>
 
