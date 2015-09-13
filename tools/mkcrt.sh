@@ -1,20 +1,27 @@
 #!/bin/sh
-
-# Script to generate a multi-domain self-signed certificate
-# 
+#
+# mkcrt.sh
+#
+# Script to generate a self-signed certificate for multiple domains like
+# example.com, www.example.com, mail.example.com, ftp.example.com, etc.
+#
+# Usage: copy this script to an appropriate place on the system
+# (/root/scripts/, /etc/ssl/scripts/, etc.), edit it to your needs and run it.
+#
 # Niki Kovacs <info@microlinux.fr>
+
+DOMAIN="slackbox.fr"
 
 SSLDIR="/etc/ssl"
 CRTDIR="$SSLDIR/mycerts"
 KEYDIR="$SSLDIR/private"
-DOMAIN="slackbox.fr"
 CNFFILE="$CRTDIR/$DOMAIN.cnf"
 KEYFILE="$KEYDIR/$DOMAIN.key"
 CSRFILE="$CRTDIR/$DOMAIN.csr"
 CRTFILE="$CRTDIR/$DOMAIN.crt"
 
 # Testing
-rm -f $CNFFILE $KEYFILE $CSRFILE $CRTFILE
+# rm -f $CNFFILE $KEYFILE $CSRFILE $CRTFILE
 
 for DIRECTORY in $CRTDIR $KEYDIR; do
   if [ ! -d $DIRECTORY ]; then
@@ -36,13 +43,27 @@ done
 
 cat > $CNFFILE << EOF
 [req]
-distinguished_name  = req_distinguished_name
-string_mask         = nombstr
-req_extensions      = v3_req
+distinguished_name          = req_distinguished_name
+string_mask                 = nombstr
+req_extensions              = v3_req
 
 [req_distinguished_name]
-commonName          = Common Name
-commonName_default  = $DOMAIN
+organizationName            = Organization Name (company)
+emailAddress                = Email Address
+emailAddress_max            = 40
+localityName                = Locality Name
+stateOrProvineName          = State or Province Name
+countryName                 = Country Name (2 letter code)
+countryName_min             = 2
+countryName_max             = 2
+commonName                  = Common Name
+commonName_max              = 64
+organizationName_default    = Microlinux
+emailAddress_default        = info@microlinux.fr
+localityName_default        = Montpezat
+stateOrProvinceName_default = Gard
+countryName_default         = FR
+commonName_default          = $DOMAIN
 
 [ v3_req ]
 # Extensions to add to a certificate request
@@ -53,6 +74,8 @@ subjectAltName = @alt_names
 [alt_names]
 DNS.1 = $DOMAIN
 DNS.2 = www.$DOMAIN
+DNS.3 = mail.$DOMAIN
+DNS.4 = ftp.$DOMAIN
 EOF
 
 # Generate private key
@@ -71,6 +94,7 @@ openssl req \
 # Self-sign and generate Certificate
 openssl x509 \
   -req \
+  -sha256 \
   -days 3650 \
   -in $CSRFILE \
   -signkey $KEYFILE \
