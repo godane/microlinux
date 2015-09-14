@@ -1,3 +1,15 @@
+Mon Sep 14 09:42:26 CEST 2015
+SQLAlchemy-1.0.8-x86_64-1_microlinux.txz: Added.
+simplejson-3.5.3-x86_64-1_microlinux.txz: Added.
+pytz-2014.10-x86_64-1_microlinux.txz: Added.
+backports-ssl-match-hostname-3.4.0.2-x86_64-1_microlinux.txz: Added.
+tornado-4.1-x86_64-1_microlinux.txz: Added.
+pyparsing-2.0.3-x86_64-1_microlinux.txz: Added.
+matplotlib-1.4.2-x86_64-1_microlinux.txz: Added.
+portaudio-V19-x86_64-2_microlinux.txz: Added.
+PyAudio-0.2.4-x86_64-1_microlinux.txz: Added.
+  Dependencies for the Anki application in extra/.
++--------------------------+
 Wed Sep  9 11:28:00 CEST 2015
 pysetuptools-18.2-x86_64-1_microlinux.txz: Added.
 apsw-3.7.17_r1-x86_64-1_microlinux.txz: Added.
