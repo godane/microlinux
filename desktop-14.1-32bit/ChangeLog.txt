@@ -7,6 +7,8 @@ tornado-4.1-i486-1_microlinux.txz: Added.
 pyparsing-2.0.3-i486-1_microlinux.txz: Added.
 matplotlib-1.4.2-i486-1_microlinux.txz: Added.
 portaudio-V19-i486-2_microlinux.txz: Added.
+PyAudio-0.2.4-i486-1_microlinux.txz: Added.
+  Dependencies for the Anki application in extra/.
 +--------------------------+
 Wed Sep  9 09:26:10 CEST 2015
 pysetuptools-18.2-i486-1_microlinux.txz: Added.
