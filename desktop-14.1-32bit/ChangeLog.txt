@@ -5,6 +5,7 @@ pytz-2014.10-i486-1_microlinux.txz: Added.
 backports-ssl-match-hostname-3.4.0.2-i486-1_microlinux.txz: Added.
 tornado-4.1-i486-1_microlinux.txz: Added.
 pyparsing-2.0.3-i486-1_microlinux.txz: Added.
+matplotlib-1.4.2-i486-1_microlinux.txz: Added.
 +--------------------------+
 Wed Sep  9 09:26:10 CEST 2015
 pysetuptools-18.2-i486-1_microlinux.txz: Added.
