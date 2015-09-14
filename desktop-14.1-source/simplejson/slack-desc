@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+simplejson: simplejson (extensible JSON encoder and decoder for Python)
+simplejson:
+simplejson: Simplejson is a simple, fast, complete, correct and extensible JSON
+simplejson: <http://json.org> encoder and decoder for Python 2.5+ and Python 3.3+.
+simplejson: It is pure Python code with no dependencies, but includes an optional
+simplejson: C extension for a serious speed boost.
+simplejson:
+simplejson: 
+simplejson:
+simplejson:
+simplejson: Package created by Niki Kovacs <info@microlinux.fr>
