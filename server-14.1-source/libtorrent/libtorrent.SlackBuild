@@ -13,7 +13,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=libtorrent
-VERSION=0.13.0
+VERSION=0.13.4
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -47,8 +47,7 @@ else
 fi
 
 set -e
-
-DOWNLOAD="http://libtorrent.rakshasa.no/downloads/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="http://pkgs.fedoraproject.org/repo/pkgs/$PRGNAM/$PRGNAM-$VERSION.tar.gz/e82f380a9d4b55b379e0e73339c73895/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
