@@ -1,5 +1,7 @@
 Sun Sep 20 17:10:52 CEST 2015
-libtorrent-0.13.4-i486-1_microlinux.txz: Upgraded.
+cppunit-1.13.2-i486-1_microlinux.txz: Added.
+libtorrent-0.13.6-i486-1_microlinux.txz: Upgraded.
+rtorrent-0.9.6-i486-1_microlinux.txz: Added.
 +--------------------------+
 Thu May 21 08:07:16 CEST 2015
 dovecot-2.2.18-i486-1_microlinux.txz: Added.

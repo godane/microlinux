@@ -1,19 +1,19 @@
 #!/bin/sh
 
-# Slackware build script for libtorrent
-# Written by Tom Fitzhenry <tom@fitzhenry.name> 2007/08/22
-
-# Updated by Andrew Brouwers, abrouwers@gmail.com
-# Updated to 0.12.6 by Brian Kysela <brian.kysela@gmail.com> 2010-02-17
-# Updated to 0.12.7 by Brian Kysela 2010-10-27
-# Updated to 0.12.8 by Brian Kysela 2011-05-09
-# Updated to 0.12.9 by Brian Kysela 2011-06-27
-# Updated to 0.13.0 by Brian Kysela 2011-12-12
+# Slackware build script for rtorrent
+# Written by Brian Kysela <brian.kysela@gmail.com> 2009-11-04
+# Updated to 0.8.6 by Brian Kysela 2010-02-16
+# Updated to include rtorrent.rc 2010-04-20
+# Updated to 0.8.7 by Brian Kysela 2010-10-27
+# Patched for new ncurses in 13.37 by rworkman
+# Updated to 0.8.8 by Brian Kysela 2011-05-09
+# Updated to 0.8.9 by Brian Kysela 2011-06-22
+# Updated to 0.9.0 by Brian Kysela 2011-12-12
 #
 # Modified by Niki Kovacs <info@microlinux.fr>
 
-PRGNAM=libtorrent
-VERSION=${VERSION:-0.13.6}
+PRGNAM=rtorrent
+VERSION=${VERSION:-0.9.6}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -48,7 +48,7 @@ fi
 
 set -e
 
-#DOWNLOAD="http://pkgs.fedoraproject.org/repo/pkgs/$PRGNAM/$PRGNAM-$VERSION.tar.gz/e82f380a9d4b55b379e0e73339c73895/$PRGNAM-$VERSION.tar.gz"
+#DOWNLOAD="http://pkgs.fedoraproject.org/repo/pkgs/$PRGNAM/$PRGNAM-$VERSION.tar.gz/fd9490a2ac67d0fa2a567c6267845876/$PRGNAM-$VERSION.tar.gz"
 DOWNLOAD="https://github.com/rakshasa/$PRGNAM/archive/$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
@@ -68,6 +68,7 @@ find -L . \
 
 ./autogen.sh
 
+LDFLAGS="-lpthread" \
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
@@ -75,19 +76,24 @@ CXXFLAGS="$SLKCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --sysconfdir=/etc \
   --localstatedir=/var \
-  --with-posix-fallocate \
+  --mandir=/usr/man \
   --build=$ARCH-slackware-linux
 
 make $NUMJOBS
 make install DESTDIR=$PKG
 
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS COPYING INSTALL NEWS README $PKG/usr/doc/$PRGNAM-$VERSION
-find $PKG/usr/doc/$PRGNAM-$VERSION -type f -exec chmod 644 {} \;
-cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM-SlackBuild
+# Taken out as developer removed "out-of-date man page". If you want it back
+# in you will need to edit doc/Makefile.am in the source and uncomment
+# 'man_MANS = rtorrent.1' as well as the line below.
+#gzip -9 $PKG/usr/man/man?/*.?
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS COPYING INSTALL README doc/rtorrent.rc $PKG/usr/doc/$PRGNAM-$VERSION
+find $PKG/usr/doc/$PRGNAM-$VERSION -type f -exec chmod 644 {} \;
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM-SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
