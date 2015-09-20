@@ -1,3 +1,8 @@
+Sun Sep 20 21:00:16 CEST 2015
+cppunit-1.13.2-x86_64-1_microlinux.txz: Added. 
+libtorrent-0.13.6-x86_64-1_microlinux.txz: Upgraded.
+rtorrent-0.9.6-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu May 21 09:06:06 CEST 2015
 dovecot-2.2.18-x86_64-1_microlinux.txz: Added.
 +--------------------------+
