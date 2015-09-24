@@ -10,10 +10,10 @@
 # mkcrt.$DOMAIN.sh. Edit it to your needs and run it as root.
 #
 # /!\ The script creates a 'certs' system group. Certificates and keyfiles are
-# owned by root:certs. Make sure you add the relevant system users (apache,
-# prosody, etc.) to the 'certs' group, so they can access the files. Example:
+# owned by root:certs. Make sure you add the relevant system users 
+# to the 'certs' group, so they can access the files. Example:
 #
-# # usermod -a -G certs apache
+# # usermod -a -G certs prosody
 #
 # Niki Kovacs <info@microlinux.fr>
 
