@@ -9,6 +9,12 @@
 # /root/scripts/ or /etc/ssl/scripts/. Eventually, rename it to something like
 # mkcrt.$DOMAIN.sh. Edit it to your needs and run it as root.
 #
+# /!\ The script creates a 'certs' system group. Certificates and keyfiles are
+# owned by root:certs. Make sure you add the relevant system users (apache,
+# prosody, etc.) to the 'certs' group, so they can access the files. Example:
+#
+# # usermod -a -G certs apache
+#
 # Niki Kovacs <info@microlinux.fr>
 
 DOMAIN="slackbox.fr"
@@ -23,6 +29,15 @@ CRTFILE="$CRTDIR/$DOMAIN.crt"
 
 # Testing
 # rm -f $CNFFILE $KEYFILE $CSRFILE $CRTFILE
+
+# Create certs group 
+if ! grep -q "^certs:" /etc/group ; then
+  groupadd -g 240 certs
+  echo 
+  echo ":: Added certs group."
+  echo 
+  sleep 3
+fi
 
 for DIRECTORY in $CRTDIR $KEYDIR; do
   if [ ! -d $DIRECTORY ]; then
@@ -103,7 +118,9 @@ openssl x509 \
   -extensions v3_req \
   -extfile $CNFFILE
 
-chmod 0600 $KEYFILE
+# Set permissions
+chown root:certs $KEYFILE $CRTFILE
+chmod 0640 $KEYFILE $CRTFILE
 
 # Create a symlink in /etc/ssl/certs
 pushd $SSLDIR/certs
