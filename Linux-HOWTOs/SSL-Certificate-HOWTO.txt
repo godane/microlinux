@@ -1,0 +1,421 @@
+=====================
+SSL Certificate HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=====================
+
+Dernière révision : 25 septembre 2015
+
+
+  * Introduction
+  * Créer un certificat auto-signé simple
+  * Utiliser et tester le certificat
+  * Certificats et permissions
+  * Créer un certificat auto-signé multi-domaines
+  * Automatiser la génération d'un certificat auto-signé
+  * Créer un certificat gratuit et valide avec StartSSL
+
+
+Introduction
+------------
+
+Un certificat électronique peut être vu comme une carte d'identité numérique. Il est
+utilisé principalement :
+
+  * pour identifier et authentifier une personne physique ou morale ;
+  
+  * pour chiffrer des échanges.
+
+Il est signé par un tiers de confiance qui atteste du lien entre l'identité
+physique et l'entité numérique. Le standard le plus utilisé pour la création
+des certificats numériques est le X.509.
+
+
+Créer un certificat auto-signé simple
+-------------------------------------
+
+Sur un système Linux, le répertoire '/etc/ssl/certs' contient les certificats
+du système. Les clés privées sont censées être rangées dans le répertoire
+'/etc/ssl/private'. Il s'agit là d'une convention, et non d'une obligation.
+Étant donné que '/etc/ssl/certs' contient déjà une multitude de certificats,
+nous allons créer un répertoire '/etc/ssl/mycerts', dans lequel nous allons
+ranger nos propres certificats :
+
+  # mkdir /etc/ssl/mycerts
+
+La génération d'un certificat auto-signé et de la clé privée correspondante
+peut s'effectuer en une seule commande, comme ceci :
+
+  # openssl req -new -x509 -days 3650 -nodes -newkey rsa:4096 -sha256 \
+      -out /etc/ssl/mycerts/slackbox.fr.crt \
+      -keyout /etc/ssl/private/slackbox.fr.key
+
+La commande est interactive et vous somme de répondre à une série de
+questions. Attention, le champ "Common Name" doit correspondre EXACTEMENT à
+l'URL du site sécurisé :
+
+  -----
+  Country Name (2 letter code) [AU]:FR
+  State or Province Name (full name) [Some-State]:Gard
+  Locality Name (eg, city) []:Montpezat
+  Organization Name (eg, company) [Internet Widgits Pty Ltd]:Microlinux
+  Organizational Unit Name (eg, section) []:.
+  Common Name (e.g. server FQDN or YOUR name) []:slackbox.fr
+  Email Address []:postmaster@slackbox.fr
+
+Voici une vue en détail des options utilisées :
+
+  > 'req' initie une demande de signature de certificat (CSR ou "Certificate
+    Signing Request") ; 
+
+  > '-new' génère une nouvelle demande de certificat, qui demande à
+    l'utilisateur de saisir un certain nombre de valeurs pour les champs ;
+
+  > '-x509' produit un certificat X.509 auto-signé au lieu d'une demande de
+    signature de certificat (CSR) ;
+
+  > '-days n' spécifie la durée de validité du certificat (n jours) ;
+
+  > '-newkey rsa:4096' crée une nouvelle clé privée ;
+
+  > 'sha256' spécifie l'algorithme pour la signature ;
+
+  > '-nodes' indique que la clé privée ne doit pas être encryptée ;
+
+  > '-out fichier.crt' spécifie le fichier dans lequel sera écrit le
+    certificat ;
+
+  > '-keyout fichier.key' définit l'emplacement de la clé.
+
+Sécuriser la clé privée :
+
+  # chmod 0600 /etc/ssl/private/slackbox.fr.key
+
+Créer un lien symbolique vers /etc/ssl/certs :
+
+  # cd /etc/ssl/certs
+  # ln -s ../mycerts/slackbox.fr.crt .
+
+
+Utiliser et tester le certificat
+--------------------------------
+
+Pour commencer, on peut mettre en place un hébergement sécurisé avec le
+serveur Web Apache. La procédure est décrite dans un HOWTO à part :
+
+  * Apache-SSL-HOWTO
+
+L'hébergement sécurisé peut être testé avec l'outil de reporting SSL Labs :
+
+  * https://www.ssllabs.com/ssltest/
+
+Pour notre premier certificat auto-signé, on obtient le résultat suivant :
+
+  Server Key and Certificate #1
+  -----------------------------
+
+  Common names              slackbox.fr
+  Alternative names         -
+  Prefix handling           Not valid for "www.slackbox.fr"   CONFUSING
+  Valid from                Wed, 23 Sep 2015 05:42:37 UTC
+  Valid until               Sat, 20 Sep 2025 05:42:37 UTC 
+  Key                       RSA 4096 bits (e 65537)
+  Weak key (Debian)         No
+  Issuer                    slackbox.fr   Self-signed 
+  Signature algorithm       SHA256withRSA
+  Extended Validation       No
+  Certificate Transparency  No
+  Revocation information    None
+  Trusted                   No   NOT TRUSTED (Why?)
+
+La partie "NOT TRUSTED" peut se comprendre, étant donné qu'il s'agit d'un
+certificat auto-signé. Quant à "Prefix handling - CONFUSING", cela tient au
+fait qu'il faudrait un certificat valable pour les deux hébergements, un pour
+"slackbox.fr" et un autre pour "www.slackbox.fr". C'est ce que nous allons
+entreprendre.
+
+
+Certificats et permissions
+--------------------------
+
+Si l'on souhaite utiliser plusieurs applications sécurisées pour un même
+domaine (Web, courrier, messagerie XMPP), on se retrouve confronté à un
+problème de permissions. Concrètement, si le serveur Web ainsi que le serveur
+de messagerie Prosody doivent accéder en lecture au certificat et à la clé
+privée, on a deux solutions.
+
+  1. Soit on génère un couple certificat/clé privée pour chaque application,
+  et on attribue les fichiers <domaine>.key et <domaine>.crt à l'utilisateur
+  de l'applications (apache:apache, prosody:prosody, etc.) ;
+
+  2. Soit on crée un groupe système 'certs', on ajoute les utilisateurs
+  système respectifs à ce groupe et on règle les permissions des fichiers en
+  fonction, c'est-à-dire root:certs. En théorie, cette deuxième solution rend
+  le serveur un tantinet plus vulnérable, mais on va quand-même l'utiliser en
+  pratique, étant donné qu'elle nous évite de sauter à travers des cerceaux en
+  feu en créant un certificat à part pour chaque application sécurisée.
+
+Concrètement :
+
+  # useradd -g 240 certs
+  # chown root:certs /etc/ssl/mycerts/*.crt
+  # chmod 0640 /etc/ssl/mycerts/*.crt
+  # chown root:certs /etc/ssl/private/*.key
+  # chmod 0640 /etc/ssl/private/*.key
+
+Si l'on souhaite qu'une application accède au certificat et à la clé privée,
+il suffit qu'on ajoute l'utilisateur correspondant au groupe système 'certs'.
+Exemple pour la messagerie XMPP Prosody :
+
+  # usermod -a -G certs prosody
+
+
+Créer un certificat auto-signé multi-domaines
+---------------------------------------------
+
+Un certificat multi-domaines sera valable pour plusieurs domaines. Pour notre
+domaine "slackbox.fr", on aura ceci par exemple :
+
+  * slackbox.fr
+  * www.slackbox.fr
+  * mail.slackbox.fr
+  * ftp.slackbox.fr
+  * etc.
+
+La génération d'un tel certificat est un tout petit peu plus compliquée. Pour
+commencer, créer et éditer le fichier de configuration suivant :
+
+--8<---------- /etc/ssl/mycerts/slackbox.fr.cnf ------------------------------
+[req]
+distinguished_name          = req_distinguished_name
+string_mask                 = nombstr
+req_extensions              = v3_req
+
+[req_distinguished_name]
+organizationName            = Organization Name (company)
+emailAddress                = Email Address
+emailAddress_max            = 40
+localityName                = Locality Name
+stateOrProvineName          = State or Province Name
+countryName                 = Country Name (2 letter code)
+countryName_min             = 2
+countryName_max             = 2
+commonName                  = Common Name
+commonName_max              = 64
+organizationName_default    = Microlinux
+emailAddress_default        = info@microlinux.fr
+localityName_default        = Montpezat
+stateOrProvinceName_default = Gard
+countryName_default         = FR
+commonName_default          = slackbox.fr
+
+[ v3_req ]
+# Extensions to add to a certificate request
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = slackbox.fr
+DNS.2 = www.slackbox.fr
+DNS.3 = mail.slackbox.fr
+DNS.4 = ftp.slackbox.fr
+--8<--------------------------------------------------------------------------
+
+Générer la clé privée :
+
+  # openssl genrsa -out /etc/ssl/private/slackbox.fr.key 4096
+
+Sécuriser cette clé :
+
+  # chmod 0600 /etc/ssl/private/slackbox.fr.key
+
+Générer une demande de signature de certificat (CSR) :
+
+  # openssl req -new -sha256 \
+      -out /etc/ssl/mycerts/slackbox.fr.csr \
+      -key /etc/ssl/private/slackbox.fr.key \
+      -config /etc/ssl/mycerts/slackbox.fr.cnf
+
+Si l'on a correctement édité le fichier de configuration, il suffira de
+confirmer les valeurs par défaut dans le dialogue qui s'ensuit.
+
+  -----
+  Organization Name (company) [Microlinux]:
+  Email Address [info@microlinux.fr]:
+  Locality Name [Montpezat]:
+  Country Name (2 letter code) [FR]:
+  Common Name [slackbox.fr]:
+
+Signer et générer le certificat :
+
+  # openssl x509 -req -sha256 -days 3650 \
+      -in /etc/ssl/mycerts/slackbox.fr.csr \
+      -signkey /etc/ssl/mycerts/slackbox.fr.key \
+      -out /etc/ssl/mycerts/slackbox.fr.crt \
+      -extensions v3_req \
+      -extfile /etc/ssl/mycerts/slackbox.fr.cnf
+
+Pour finir, c'est une bonne idée de créer un lien symbolique dans
+'/etc/ssl/certs' :
+
+  # cd /etc/ssl/certs
+  # ln -s ../mycerts/slackbox.fr.crt .
+
+Si l'on teste ce nouveau certificat avec l'outil de reporting de SSL Labs, on
+obtient le résultat suivant :
+
+  Server Key and Certificate #1
+  -----------------------------
+
+  Common names              slackbox.fr
+  Alternative names         slackbox.fr www.slackbox.fr mail.slackbox.fr 
+                            ftp.slackbox.fr
+  Prefix handling           Both (with and without WWW)
+  ...
+
+
+Automatiser la génération d'un certificat auto-signé
+----------------------------------------------------
+
+Comme nous venons de le voir, la génération d'un certificat auto-signé valable
+pour plusieurs domaines est une procédure passablement fastidieuse. Pour nous
+éviter d'avoir à éditer un fichier de configuration à rallonge et saisir des
+commandes avec des options à n'en plus finir, nous allons tout simplement
+scripter la procédure. 
+
+Un exemple de script se trouve dans mon dépôt Github, à l'adresse suivante :
+
+  # git clone https://github.com/kikinovak/microlinux
+
+Le script 'mkcrt.sh' se trouve dans le répertoire 'microlinux/tools'. 
+
+Pour l'utiliser, la meilleure solution consiste à le copier en un endroit
+approprié, comme par exemple '/etc/ssl/mycerts', en le renommant en fonction
+du domaine pour lequel on établit le certificat. 
+
+
+Créer un certificat gratuit et valide avec StartSSL
+---------------------------------------------------
+
+La société StartCom fournit des certificats gratuits pour un domaine et un
+unique sous-domaine. Son avantage par rapports à des prestataires similaires
+comme CACert, c'est qu'il est valide au niveau des navigateurs Web du marché
+(Firefox, Google Chrome, Safari) et qu'il évite donc à l'utilisateur de devoir
+ajouter une exception pour les sites qui l'utilisent.
+
+L'inconvénient de StartSSL, c'est que la procédure de création du certificat
+est passablement complexe.
+
+Aller sur le site de StartSSL :
+
+  * https://www.startssl.com
+
+Les traductions françaises du site sont parfois un peu fantaisistes. Nous
+allons donc basculer vers l'anglais, en cliquant sur le petit drapeau
+américain en haut de la page.
+
+Ouvrir le panneau de contrôle : 'Control Panel > Sign-up'
+
+Mettre les informations réelles. Ces informations doivent être liées à un
+invididu et non à une organisation.
+
+Le site renvoie par e-mail un code d'authentification, qu'il faut coller dans
+le champ approprié dans le navigateur.
+
+Une fois que le compte est validé par l'équipe de StartSSL, on reçoit un
+e-mail donnant un accès valable pour une journée pour créer le certificat
+client. Ce certificat sera installé automatiquement sur la machine afin de
+vous identifier sur le site de StartSSL.
+
+En cliquant sur le lien de l'e-mail, on doit d'abord créer la clé, puis on
+installe le certificat dans le navigateur. 
+
+Pour sauvegarder ce certificat dans Firefox, ouvrir 'Édition > Préférences >
+Avancé > Certificats > Afficher les certificats > Vos certificats : Afficher
+le certificat' et le sauvegarder, en le nommant 'StartSSL'.  Choisir un mot de
+passe pour la sauvegarde du certificat. Le fichier sera enregistré sous le nom
+'StartSSL.p12'.
+
+Retourner sur le site et s'authentifier en cliquant sur le bouton de connexion
+en haut à droite. 
+
+  /!\ Il se peut que cette tentative de connexion échoue et retourne une
+  erreur 'ssl_error_unknown_ca_alert'. Dans ce cas, la solution consiste à
+  repérer et supprimer tous les certificats StartCom marqués "Sécurité
+  personnelle" du navigateur. 
+
+Ouvrir l'onglet 'Validations Wizard' et choisir 'Type: Domain Name
+Validation'.
+
+Saisir le nom de domaine, par exemple 'http://slackbox.fr'.
+
+Ensuite, saisir l'adresse mail qui servira à vérifier le propriétaire du nom
+de domaine, par exemple 'postmaster@slackbox.fr'. StartCom envoie un code de
+vérification à cette adresse, qu'il faudra saisir dans le champ approprié. 
+
+Ouvrir l'onglet 'Certificates Wizard' et choisir 'Certificate Target: Web
+Server SSL/TLS Certificate'. 
+
+Choisir un mot de passe et générer une clé privée. Copier/coller le contenu du
+formulaire qui s'affiche dans un fichier texte que l'on nommera
+'slackbox.fr.key'.  Ensuite, décrypter cette clé privée en utilisant la
+commande suivante :
+
+  $ openssl rsa -in slackbox.fr.key -out slackbox.fr.key
+
+Là, il faudra saisir le mot de passe que l'on vient de choisir. 
+
+Choisir le domaine pour le certificat, par exemple : slackbox.fr.
+
+Choisir un sous-domaine, par exemple : http://www.slackbox.fr.
+
+Le mail qui confirme la création du certificat sera envoyé à l'adresse
+postmaster@slackbox.fr. Bien évidemment, il faudra disposer d'un serveur mail
+fonctionnel pour le domaine. 
+
+Sur le site de StartCom, ouvrir la 'Tool Box' et choisir 'Retrieve
+Certificate'. Copier/coller le contenu du champ dans un fichier
+'slackbox.fr.crt'.
+
+Sur le serveur, créer un répertoire '/etc/ssl/startssl' et ranger les deux
+fichiers 'slackbox.fr.{key,crt}' dans ce répertoire. Il nous faudra également
+récupérer deux autres certificats sur le site de StartSSL, l'intermediate et
+le root CA, nécessaires sur le serveur :
+
+  # cd /etc/ssl/startssl
+  # wget \
+  https://www.startssl.com/certs/class1/sha2/pem/sub.class1.server.sha2.ca.pem
+  # https://www.startssl.com/certs/ca.pem
+
+Voici les fichiers que l'on doit avoir au total :
+
+  # cd /etc/ssl/startssl/
+  # ls -l
+  total 16
+  -rw-r----- 1 root certs 2760 mai    7  2008 ca.pem
+  -rw-r----- 1 root certs 2228 sept. 25 09:11 slackbox.fr.crt
+  -rw-r----- 1 root certs 1675 sept. 25 09:11 slackbox.fr.key
+  -rw-r----- 1 root certs 2090 févr.  4  2015 sub.class1.server.sha2.ca.pem
+
+Dans la configuration de l'hôte virtuel sécurisé, voici comment sont définis
+les fichiers de certificats :
+
+--8<---------- /etc/httpd/extra/httpd-ssl.conf -------------------------------
+...
+<VirtualHost 195.154.65.130:443>
+DocumentRoot "/srv/httpd/vhosts/slackbox-secure/htdocs"
+...
+SLCertificateFile "/etc/ssl/startssl/slackbox.fr.crt"
+SSLCertificateKeyFile "/etc/ssl/startssl/slackbox.fr.key"
+SSLCertificateChainFile "/etc/ssl/startssl/sub.class1.server.sha2.ca.pem"
+SSLCACertificateFile "/etc/ssl/startssl/ca.pem"
+...
+</VirtualHost>
+...
+--8<--------------------------------------------------------------------------
+
+Il ne reste plus qu'à redémarrer Apache et vérifier la sécurité du site avec
+l'outil de reporting.
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
