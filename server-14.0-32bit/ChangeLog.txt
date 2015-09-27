@@ -1,3 +1,10 @@
+Sun Sep 27 13:07:41 CEST 2015
+lua-5.1.5-i486-1_microlinux.txz: Added.
+lua-filesystem-1.6.2-i486-1_microlinux.txz: Added.
+luaexpat-1.3.0-i486-1_microlinux.txz: Added.
+luasocket-20130909_6d5e40c-i486-1_microlinux.txz: Added.
+luasec-20140421_903efaf-i486-1_SBo.txz: Added.
++--------------------------+
 Sat Sep 26 09:19:38 CEST 2015
 postgrey-1.34-i486-1_microlinux.txz: Added.
 icecast-2.4.2-i486-1_microlinux.txz: Added.
