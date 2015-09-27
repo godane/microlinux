@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+luaexpat: LuaExpat (XML Expat parsing for the Lua programming language)
+luaexpat:
+luaexpat: LuaExpat is a SAX XML parser based on the Expat library. LuaExpat is
+luaexpat: free software and uses the same license as Lua 5.1.
+luaexpat:
+luaexpat:
+luaexpat:
+luaexpat:
+luaexpat:
+luaexpat:
+luaexpat: Package created by Niki Kovacs <info@microlinux.fr> 
