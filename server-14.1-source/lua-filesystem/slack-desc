@@ -1,0 +1,12 @@
+              |-----handy-ruler------------------------------------------------------|
+lua-filesystem: lua-filesystem (lua filesystem library)
+lua-filesystem:
+lua-filesystem: LuaFileSystem is a Lua library developed to complement the set
+lua-filesystem: of functions related to filesystems offered by the standard
+lua-filesystem: Lua distribution.
+lua-filesystem: 
+lua-filesystem: LuaFileSystem offers a portable way to access the underlying
+lua-filesystem: directory structure and file attributes.
+lua-filesystem:
+lua-filesystem:
+lua-filesystem: Package created by Niki Kovacs <info@microlinux.fr>
