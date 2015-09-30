@@ -1,0 +1,299 @@
+=============
+Prosody HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=============
+
+Dernière révision : 30 septembre 2015
+
+Ce HOWTO décrit la mise en place d'un serveur de messagerie instantanée XMPP
+avec Prosody sous Slackware Linux.
+
+
+  * Introduction
+  * Prérequis
+  * Installation
+  * Prosody et les certificats
+  * Premiers essais
+  * Activer un domaine
+  * Gérer les utilisateurs
+  * Configurer Pidgin
+  * Pidgin et les certificats
+
+
+Introduction
+------------
+
+XMPP est un protocole de communication utilisé notamment pour la messagerie
+instantanée. Outre le fait d'être libre, il repose sur une architecture
+décentralisée. 
+
+Il existe un réseau utilisant le protocole XMPP : Jabber. Il est possible de
+s'inscrire sur un des nombreux serveurs publics du Web pour pouvoir
+communiquer sur Jabber. Si vous possédez un compte Google, sachez que vous
+possédez un compte Jabber associé. De cette manière, vous utilisez XMPP comme
+sur du Minitel. 
+
+La meilleure solution consiste évidemment à monter nous-mêmes notre serveur de
+messagerie XMPP, avec un chiffrement SSL entre les clients et le serveur.
+Comme ça, on est sûrs que nos données nous appartiennent. 
+
+
+Prérequis
+---------
+
+Dans le pare-feu, ouvrir les ports suivants :
+
+  * Ports entrants : 5223 et 5269 en TCP
+
+  * Port sortant   : 5269 en TCP
+
+
+Installation
+------------
+
+Sur un système Slackware 14.1, Prosody nécessite l'installation d'une série de
+dépendances :
+
+  * lua
+  * lua-filesystem
+  * luaexpat
+  * luasocket
+  * luasec
+
+  /!\ Il vaut mieux prendre le paquet fourni par MLES. Toutes les dépendances
+  sont fournies par le dépôt, l'application est plus récente, et contrairement
+  au paquet construit avec le script fourni par SlackBuilds.org, il comprend
+  un script de démarrage 'rc.prosody' bien pratique :
+
+  * http://www.microlinux.fr/microlinux/
+
+
+Prosody et les certificats
+--------------------------
+
+La gestion des certificats fait l'object d'un HOWTO à part :
+
+  * SSL-Certificate-HOWTO
+
+Dans l'exemple qui suit, on va partir du principe qu'on dispose déjà d'un
+certificat valide pour un domaine :
+
+  # ls -l /etc/ssl/startssl/slackbox.fr.*
+  -rw-r----- 1 root certs 4850 sept. 29 14:22 /etc/ssl/startssl/slackbox.fr.crt
+  -rw-r----- 1 root certs 1675 sept. 25 09:11 /etc/ssl/startssl/slackbox.fr.key
+
+Le serveur Prosody tourne en tant qu'utilisateur 'prosody' et groupe
+'prosody'. L'utilisateur 'prosody' doit avoir accès au certificat en lecture.
+On va donc l'ajouter au groupe 'certs' :
+
+  # usermod -a -G certs prosody
+
+
+Premiers essais
+---------------
+
+Notre approche pour faire tourner Prosody sera résolument empirique. Dans un
+premier temps, on va tenter de démarrer le serveur, ce qui nous renverra une
+série de messages d'erreur. On va tenir compte de ces messages d'erreur ainsi
+que des fichiers logs de Prosody pour peaufiner la configuration petit à
+petit. 
+
+Une première tentative avec la configuration par défaut donne ceci :
+
+  # /etc/rc.d/rc.prosody start
+  There is no 'pidfile' option in the configuration file, see
+  http://prosody.im/doc/prosodyctl#pidfile for help
+
+Pour remédier à cela, nous créons le fichier PID à la main, en lui attribuant
+tout de suite les permissions qui vont bien :
+
+  # touch /var/run/prosody.pid
+  # chown prosody:prosody /var/run/prosody.pid
+
+Le fichier de configuration de Prosody, c'est '/etc/prosody/prosody.cfg.lua'.
+Éditons ce fichier pour indiquer l'emplacement du fichier PID nouvellement
+créé :
+
+--8<---------- /etc/prosody/prosody.cfg.lua ----------------------------------
+...
+admins = { }
+
+-- Fichier PID
+pidfile = "/var/run/prosody.pid"
+...
+--8<--------------------------------------------------------------------------
+
+Retentons un coup :
+
+  # /etc/rc.d/rc.prosody start
+  The mod_posix module is not enabled in the Prosody config file, see
+  http://prosody.im/doc/prosodyctl for more info
+
+Décommentons le module correspondant dans le fichier de configuration :
+
+--8<---------- /etc/prosody/prosody.cfg.lua ----------------------------------
+...
+  -- Other specific functionality
+      "posix"; -- POSIX functionality, ...
+...
+--8<--------------------------------------------------------------------------
+
+La troisième fois sera-t-elle la bonne ?
+
+  # /etc/rc.d/rc.prosody start
+  Started
+
+Prosody ne nous renvoie aucun message d'erreur dans la console. Jetons un oeil
+dans les logs :
+
+  # cat /var/lib/prosody/prosody.err 
+  Sep 19 16:26:46 portmanager error Failed to open server port 5269 on ::,
+  Address family not supported by protocol
+  Sep 19 16:26:46 portmanager error Failed to open server port 5222 on ::,
+  Address family not supported by protocol
+
+Ces erreurs sont dûes au fait que sur notre serveur, nous avons désactivé
+l'IPv6. La syntaxe suivante nous permet d'activer uniquement l'IPv4 :
+
+--8<---------- /etc/prosody/prosody.cfg.lua ----------------------------------
+...
+  -- Activer l'IPv4 et désactiver l'IPv6
+  interfaces = { "*" }
+...
+--8<--------------------------------------------------------------------------
+
+Arrêtons le serveur :
+
+  # /etc/rc.d/rc.prosody stop
+
+Effaçons le contenu des logs d'erreur :
+
+  # echo > /var/lib/prosody/prosody.err
+
+Redémarrons et jetons un oeil dans les logs :
+
+  # /etc/rc.d/rc.prosody restart
+  # cat /var/lib/prosody/prosody.err 
+
+Cette fois-ci, le serveur Prosody a démarré sans contretemps.
+
+Dans les options générales, il nous reste une seule directive à indiquer :
+
+--8<---------- /etc/prosody/prosody.cfg.lua ----------------------------------
+...
+-- Connexion SSL
+legacy_ssl_ports = { "5223" }
+...
+--8<--------------------------------------------------------------------------
+
+Cette option nécessite un redémarrage du serveur :
+
+  # /etc/rc.d/rc.prosody restart
+
+
+Activer un domaine
+------------------
+
+Chaque domaine (slackbox.fr, unixbox.fr, etc.) que l'on souhaite gérer avec
+Prosody doit disposer d'une stance correspondante dans le fichier de
+configuration. Il suffit de spécifier le nom du domaine en question, de passer
+la valeur de 'enabled' de 'false' à 'true', et d'indiquer le chemin vers le
+certificat et la clé privée correspondant au domaine. 
+
+--8<---------- /etc/prosody/prosody.cfg.lua ----------------------------------
+...
+VirtualHost "localhost"
+
+VirtualHost "slackbox.fr"
+  enabled = true 
+
+  ssl = {
+    key = "/etc/ssl/startssl/slackbox.fr.key";
+    certificate = "/etc/ssl/startssl/slackbox.fr.crt";
+  }
+...
+--8<--------------------------------------------------------------------------
+
+
+Gérer les utilisateurs
+----------------------
+
+La commande 'prosodyctl' gère la création et la suppression des utilisateurs.
+
+Ajouter un utilisateur :
+
+  # prosodyctl adduser jmortreux@slackbox.fr
+  Enter new password: 
+  Retype new password: 
+
+Supprimer cet utilisateur :
+
+  # prosodyctl deluser jmortreux@slackbox.fr
+
+Afficher la liste des utilisateurs :
+
+  # ls -1 /var/lib/prosody/<domaine>/accounts/
+  adebuf.dat  
+  fbanester.dat  
+  fteyssier.dat  
+  jmortreux.dat  
+  kikinovak.dat
+
+Modifier le mot de passe d'un utilisateur :
+
+  # prosodyctl passwd jmortreux@slackbox.fr
+
+
+Configurer Pidgin
+-----------------
+
+Nous allons utiliser le client de messagerie instantanée Pidgin. Lancer
+l'assistant de création d'un compte et renseigner les champs en suivant
+l'exemple ci-dessous :
+
+Protocole                             : XMPP
+Utilisateur                           : kikinovak
+Domaine                               : slackbox.fr
+Ressource                             : (vide) 
+Mot de passe                          : *********
+Mémoriser le mot de passe             : [X]
+Alias local                           : Moi
+Sécurité de la connexion              : Utiliser le SSL ancien style
+Autoriser l'authentification en clair : [ ]
+Port de connexion                     : 5223
+Serveur de connexion                  : slackbox.fr
+Proxy pour le transfert de fichiers   : proxy.eu.jabber.org
+
+
+Pidgin et les certificats
+-------------------------
+
+Les versions récentes de Pidgin posent parfois des problèmes avec les
+certificats SSL, notamment les certificats auto-signés. Voici une astuce qui
+permet d'installer le certificat à la main :
+
+  $ cd .purple/certificates/x509/tls_peers/
+  $ openssl s_client -connect slackbox.fr:5223
+  
+Vérifier si le certificat est bien affiché, c'est-à-dire si l'on a bien ceci
+dans le terminal :
+
+  Server certificate
+  -----BEGIN CERTIFICATE-----
+  MIIEEzCCAvugAwIBAgIJAPziH7bf9BUoMA0GCSqGSIb3DQEBBQUAMG0xCzAJBgNV
+  BAYTAkdCMRMwEQYDVQQKDApQcm9zb2R5IElNMSswKQYDVQQLDCJodHRwOi8vcHJv
+  ...
+  CMlro/VgbhPVoCgDqqyqpJofzbn25NMzS3CYp41ohyfSbB+ipbqIKQcNfm52Dos1
+  Yh5RTSAGh1VwEx4DfMod5aDozx+dS1oCk/6hjRLLubaipHRPk10N
+  -----END CERTIFICATE-----
+
+Les lignes entre 'BEGIN CERTIFICATE' et 'END CERTIFICATE' doivent être copiées
+dans un fichier qui porte le nom du domaine auquel on souhaite se connecter :
+
+  $ openssl s_client -connect slackbox.fr:5223 | tee slackbox.fr
+
+Il ne reste plus qu'à ouvrir le fichier résultant 'slackbox.fr' dans un
+éditeur de texte et à couper les parties superflues.
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
