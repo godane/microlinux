@@ -1,13 +1,13 @@
 # Create prosody group 
 if ! grep -q "^prosody:" /etc/group ; then
-  groupadd -g $PROSODY_GID prosody
+  groupadd -g 274 prosody
   echo ":: Added prosody group."
   sleep 3
 fi
 
 # Create prosody user 
 if ! grep -q "^prosody:" /etc/passwd ; then
-  useradd -u $PROSODY_UID -d /dev/null -s /bin/false -g $PROSODY_GID prosody
+  useradd -u 274 -d /dev/null -s /bin/false -g 274 prosody
   echo ":: Added prosody user."
   sleep 3
 fi
