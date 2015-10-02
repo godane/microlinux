@@ -1,3 +1,6 @@
+Fri Oct  2 08:24:49 CEST 2015
+mozilla-thunderbird-langpack-38.3.0-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Wed Sep 23 10:05:47 CEST 2015
 mozilla-firefox-langpack-38.3.0-x86_64-1_microlinux.txz: Upgraded.
 flashplayer-plugin-11.2.202.521-x86_64-1_microlinux.txz: Upgraded.
