@@ -2,7 +2,7 @@
 Dedibox HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =============
 
-Dernière révision : 8 mai 2015 
+Dernière révision : 7 octobre 2015 
 
 Ce HOWTO décrit l'installation et la configuration de Slackware Linux 14.1
 64-bits sur un serveur dédié Dedibox SC de chez Online. Slackware ne figure
