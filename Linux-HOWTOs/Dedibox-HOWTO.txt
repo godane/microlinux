@@ -279,7 +279,7 @@ Enfin, récupérer et installer les groupes restants T, TCL, X et Y :
   ncftp > cd mirror/slackware/slackware64-14.1/slackware64/
   ncftp > get -R t tcl x y
   ncftp > bye
-  # installpkg --root /mnt l/*.t?z
+  # installpkg --root /mnt */*.t?z
   # rm -rf t/ tcl/ x/ y/
 
 
