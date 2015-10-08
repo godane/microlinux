@@ -474,6 +474,7 @@ Revenez dans les dépôts distants avec Links :
 Téléchargez et installez le paquet 'slackpkg+'. Ensuite :
 
   # slackpkg update gpg
+  # slackpkg update
   # slackpkg install microlinux-server
 
 Basculer vers le noyau GENERIC. Pour la construction de l'initrd, voir le
