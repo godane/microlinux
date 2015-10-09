@@ -1,6 +1,7 @@
 Fri Oct  9 16:06:28 CEST 2015
 xapian-core-1.2.21-i486-1_microlinux.txz: Added.
 antiword-0.37-i486-1_microlinux.txz: Added.
+unrtf-0.21.7-i486-1_microlinux.txz: Added.
 +--------------------------+
 Mon Oct  5 08:12:05 CEST 2015
 libmtp-1.1.10-i486-1_microlinux.txz: Upgraded.
