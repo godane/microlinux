@@ -1,3 +1,10 @@
+Fri Oct  9 17:07:41 CEST 2015
+xapian-core-1.2.21-x86_64-1_microlinux.txz: Added.
+antiword-0.37-x86_64-1_microlinux.txz: Added.
+unrtf-0.21.7-x86_64-1_microlinux.txz: Added.
+exiftool-10.00-x86_64-1_microlinux.txz: Added.
+recoll-1.21.2-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Mon Oct  5 08:20:55 CEST 2015
 libmtp-1.1.10-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
