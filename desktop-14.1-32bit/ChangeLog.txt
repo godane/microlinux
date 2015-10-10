@@ -1,3 +1,6 @@
+Sat Oct 10 09:48:38 CEST 2015
+x264-20150223-i486-2_microlinux.txz: Rebuilt.
++--------------------------+
 Fri Oct  2 08:21:24 CEST 2015
 mozilla-thunderbird-langpack-38.3.0-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
