@@ -1,3 +1,7 @@
+Sat Oct 10 10:33:03 CEST 2015
+x264-20150223-x86_64-2_microlinux.txz: Rebuilt.
+ffmpeg-2.6.3-x86_64-2_microlinux.txz: Rebuilt.
++--------------------------+
 Fri Oct  2 08:24:49 CEST 2015
 mozilla-thunderbird-langpack-38.3.0-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
