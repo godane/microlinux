@@ -7,6 +7,7 @@ Dernière révision : 11 octobre 2015
 
   * Définition du shell
   * Commandes externes et internes
+  * Affichage à l'écran
 
 
 Définition du shell
@@ -105,6 +106,58 @@ l'emplacement de la commande, en absolu ou en relatif :
   $ cd /usr/bin/
   $ ./pwd 
   /usr/bin
+
+
+Affichage à l'écran
+-------------------
+
+La commande interne 'echo' permet de réaliser des affichages à l'écran.
+
+  $ echo Yatahongaga !
+  Yatahongaga !
+
+Certains caractères ont une signification spéciale lorsqu'ils sont placés
+entre simples ou doubles quotes (apostrophes ou guillemets). Ce sont des
+caractères d'échappement. 
+
+  /!\ La commande 'echo' du shell Bash doit être utilisée avec l'option '-e'
+  pour que l'interprétation des caractères d'échappement ait lieu. Pour plus
+  de détails, voir 'man echo'.
+
+Le caractère "\n" sert à provoquer un saut de ligne :
+
+  $ echo -e "Première ligne\nDeuxième ligne\nTroisième ligne"
+  Première ligne
+  Deuxième ligne
+  Troisième ligne
+
+On peut également utiliser des apostrophes au lieu des guillemets :
+
+  $ echo -e 'Première ligne\nDeuxième ligne\nTroisième ligne'
+  Première ligne
+  Deuxième ligne
+  Troisième ligne
+
+Le caractère "\c" sert à éliminer le saut de ligne naturel de la commande
+'echo'. Il doit se situer impérativement en dernière position de l'argument de
+'echo', juste avant le guillemet fermant. L'option '-e' est indispensable pour
+l'interprétation du caractère d'échappement "\c".
+
+  $ echo "Première ligne" ; echo "Deuxième ligne"
+  Première ligne
+  Deuxième ligne
+  $ echo -e "Première ligne\c" ; echo -e "Deuxième ligne\c"
+  Première ligneDeuxième ligne $ 
+
+Alternativement, l'option '-n' peut remplacer le caractère "\c" :
+
+  $ echo -n "Première ligne" ; echo -n "Deuxième ligne"
+  Première ligneDeuxième ligne $ 
+
+Le caractère "\t" permet d'afficher une tabulation :
+
+  $ echo -e "|\tTab 1\tTab 2\tTab 3\tTab 4\t|"
+  | Tab 1 Tab 2 Tab 3 Tab 4 |
 
 
 ------------------------------------------------------------------------------
