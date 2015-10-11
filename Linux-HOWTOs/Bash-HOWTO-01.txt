@@ -1,0 +1,111 @@
+============
+Bash HOWTO 1 (c) Nicolas Kovacs <info@microlinux.fr>
+============
+
+Dernière révision : 11 octobre 2015
+
+
+  * Définition du shell
+  * Commandes externes et internes
+
+
+Définition du shell
+-------------------
+
+Le shell est un programme ayant pour fonction d'assurer l'interface entre
+l'utilisateur et le système Linux. C'est un interpréteur de commandes.
+
+Plusieurs shells sont disponibles sur les plates-formes Linux.
+
+
+Commandes externes et internes
+------------------------------
+
+Une commande Linux appartient à l'une des deux catégories suivantes :
+
+  * commandes externes
+  * commandes internes
+
+Une commande externe est un fichier localisé dans l'arborescence. Par exemple,
+lorsqu'un utilisateur lance la commande 'ls', le shell demande au noyau Linux
+de charger en mémoire le fichier '/bin/ls'. 
+
+Sont considérées comme commandes externes les fichiers possédant l'un des
+formats suivants :
+
+  * fichiers au format binaire exécutable
+  * fichiers au format texte représentant un script de commandes
+
+La commande 'file' donne une indication sur le type de données contenues dans
+un fichier. L'argument de la commande 'file' est un nom de fichier exprimé en
+relatif ou en absolu. Voici deux exemples.
+
+La commande 'ls' est un fichier au format binaire exécutable :
+
+  $ file /bin/ls
+  /bin/ls: ELF 64-bit LSB  executable, x86-64, version 1 (SYSV), dynamically
+  linked (uses shared libs), stripped
+
+La commande 'gettext.sh' est un script shell :
+
+  $ file /usr/bin/gettext.sh
+  /usr/bin/gettext.sh: POSIX shell script, ASCII text executable
+
+Une commande interne est intégrée au processus shell. Elle ne correspond donc
+en aucun cas à un fichier sur le disque. 
+
+La commande 'type' indique si une commande possède une implémentation interne.
+Elle prend en argument le nom d'une commande. Si cette dernière n'est pas
+interne, elle est recherchée dans les répertoires cités dans PATH. Voici deux
+exemples.
+
+La commande 'cd' est une commande interne :
+
+  $ type cd
+  cd est une primitive du shell
+
+La commande 'ls' est une commande externe :
+
+  $ type -a ls
+  ls est un alias vers « ls --color=auto »
+  ls est /usr/bin/ls
+  ls est /bin/ls
+
+  /!\ Ici on invoque l'option '-a' pour afficher les infos sur l'ensemble des
+  exécutables nommés 'ls'. Pour plus d'infos, voir 'man bash'.
+
+Certaines commandes ont une implémentation interne et une implémentation
+externe. Dans ce cas, la commande interne est lancée en priorité. L'exécution
+d'une commande interne est plus rapide que l'exécution d'une commande externe.
+
+La commande 'pwd' est une commande interne au shell :
+
+  $ type pwd
+  pwd est une primitive du shell
+
+Elle possède également une implémentation externe :
+
+  $ type -a pwd
+  pwd est une primitive du shell
+  pwd est /usr/bin/pwd
+  pwd est /bin/pwd
+  $ ls -l /usr/bin/pwd
+  lrwxrwxrwx 1 root root 13 avril 26 08:07 /usr/bin/pwd -> ../../bin/pwd
+
+C'est la commande interne qui est exécutée en priorité :
+
+  $ pwd
+  /home/kikinovak
+
+Pour forcer l'exécution de la commande externe, il faut indiquer explicitement
+l'emplacement de la commande, en absolu ou en relatif :
+
+  $ /usr/bin/pwd 
+  /home/kikinovak
+  $ cd /usr/bin/
+  $ ./pwd 
+  /usr/bin
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
