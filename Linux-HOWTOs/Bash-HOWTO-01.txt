@@ -8,6 +8,9 @@ Dernière révision : 11 octobre 2015
   * Définition du shell
   * Commandes externes et internes
   * Affichage à l'écran
+  * La commande interne 'cd'
+  * Substitution de noms de fichiers
+  * Expressions complexes
 
 
 Définition du shell
@@ -158,6 +161,225 @@ Le caractère "\t" permet d'afficher une tabulation :
 
   $ echo -e "|\tTab 1\tTab 2\tTab 3\tTab 4\t|"
   | Tab 1 Tab 2 Tab 3 Tab 4 |
+
+
+La commande interne 'cd'
+------------------------
+
+La commande 'cd' sans argument permet à l'utilisateur de revenir dans son
+répertoire d'accueil :
+
+  $ cd 
+  $ pwd
+  /home/kikinovak
+
+Même chose en utilisant le caractère '~', qui représente le répertoire
+d'accueil de l'utilisateur courant :
+
+  $ cd ~
+  $ pwd
+  /home/kikinovak
+
+Se déplacer dans le répertoire d'accueil de l'utilisateur 'ftp' :
+
+  $ cd ~ftp
+  $ pwd
+  /home/ftp
+
+Revenir dans le répertoire précédent :
+
+  $ cd -
+
+
+Substitution de noms de fichiers
+--------------------------------
+
+De nombreuses commandes prennent des noms de fichiers en argument. Ces
+derniers peuvent être cités littéralement ou être spécifiés de manière plus
+générique. 
+
+Le caractère "*" représente une suite de caractères quelconques. Voici
+quelques exemples.
+
+  $ ls
+  f12  f1.i  FICa  fic.c  fic.s  monscript.pl  MONSCRIPT.pl  ours.c
+
+  /!\ Pour créer tous ces fichiers, on pourra utiliser la commande 'touch'.
+
+Afficher tous les noms de fichier se terminant par ".c" :
+
+  $ ls *.c
+  fic.c  ours.c
+
+Afficher tous les noms de fichier commençant par la lettre "f" :
+
+  $ ls f*
+  f12  f1.i  fic.c  fic.s
+
+Le caractère "?" représente un caractère quelconque. Voici quelques exemples.
+
+Afficher tous les noms de fichier ayant une extension composée d'un seul
+caractère :
+
+  $ ls *.?
+  f1.i  fic.c  fic.s  ours.c
+
+Afficher tous les noms de fichier composés de quatre caractères :
+
+  $ ls ????
+  f1.i  FICa
+
+Les crochets "[ ]" permettent de spécifier la liste des caractères que l'on
+attend à une position bien précise dans le nom du fichier. Il est également
+possible d'utiliser les notions d'intervalle et de négation. 
+
+  /!\ Les exemples cités ci-dessous peuvent produire des résultats surprenants
+  en fonction de certaines variables d'environnement. Dans le doute, on fera
+  ceci :
+    
+    $ LANG=C
+    $ LC_COLLATE=C
+
+  Pour chacun des exemples, une alternative est donnée qui fonctionne
+  parfaitement pour des variables d'environnement LANG et LC_COLLATE
+  différentes, par exemple 'fr_FR.utf8'.
+
+Fichiers dont le nom commence par "f" ou "o" et se termine par le caractère
+"." suivi d'une minuscule :
+
+  $ ls [fo]*.[a-z]
+  f1.i  fic.c  fic.s  ours.c
+
+Alternativement :
+
+  $ ls [fo]*.[[:lower:]]
+  f1.i  fic.c  fic.s  ours.c
+
+Fichiers dont le nom comporte en deuxième caractère une majuscule ou un
+chiffre ou la lettre "i". Les deux premiers caractères seront suivis d'une
+chaîne quelconque :
+
+  $ ls ?[A-Z0-9i]*
+  FICa  MONSCRIPT.pl  f1.i  f12  fic.c  fic.s
+
+Alternativement :
+
+  $ ls ?[[:upper:]0-9i]*
+  f12  f1.i  FICa  fic.c  fic.s  MONSCRIPT.pl
+
+Il est également possible d'exprimer la négation de tous les caractères
+spécifiés à l'intérieur d'une paire de crochets. Ceci se fait en plaçant un
+"!" en première position à l'intérieur de celle-ci.
+
+Noms de fichier ne commençant pas par une minuscule :
+
+  $ ls [!a-z]*
+  FICa  MONSCRIPT.pl
+
+Alternativement :
+
+  $ ls [![:lower:]]*
+  FICa  MONSCRIPT.pl
+
+Noms de fichier ne commençant pas par une majuscule :
+
+  $ ls [!A-Z]*
+  f1.i  f12  fic.c  fic.s  monscript.pl  ours.c
+
+Alternativement :
+
+  $ ls [![:upper:]]*
+  f12  f1.i  fic.c  fic.s  monscript.pl  ours.c
+
+Supprimer tous les fichiers dont le nom se termine par ".c" ou par ".s" :
+
+  $ rm -i *.c *.s
+  rm : supprimer fichier « fic.c » ? o
+  rm : supprimer fichier « ours.c » ? o
+  rm : supprimer fichier « fic.s » ? o
+
+
+Expressions complexes
+---------------------
+
+Pour utiliser les expressions complexes en Bash, il faut préalablement activer
+l'option 'extglob' avec la commande suivante :
+
+  $ shopt -s extglob
+
+Voici le contenu du répertoire qui sera utilisé dans les exemples suivants :
+
+  $ ls
+  fic               fic866866.log  fic866.log  fic868.log  readme.txt
+  fic866866866.log  fic866868.log  fic867.log  fic.log     typescript
+
+L'expression "?(expression)" sera présente 0 ou 1 fois.
+
+Fichiers dont le nom commence par "fic" suivi de 0 ou 1 occurrence de "866",
+suivi de ".log" :
+
+  $ ls fic?(866).log
+  fic866.log  fic.log
+
+L'expression "*(expression)" sera présente entre 0 et n fois. 
+
+Fichiers dont le nom commence par "fic", suivi de 0 à n occurrence(s) de
+"866", suivi de ".log" :
+
+  $ ls fic*(866).log
+  fic866866866.log  fic866866.log  fic866.log  fic.log
+
+L'expression "+(expression)" sera présente entre 1 et n fois.
+
+Fichiers dont le nom commence par "fic", suivi d'au moins une occurrence de
+"866", suivi de ".log" :
+
+  $ ls fic+(866).log
+  fic866866866.log  fic866866.log  fic866.log
+
+L'expression "@(expression)" sera présente exactement 1 fois.
+
+Fichiers dont le nom commence par "fic", suivi exactement d'une occurrence de
+"866", suivi de ".log" :
+
+  $ ls fic@(866).log
+  fic866.log
+
+L'expression "!(expression)" ne sera pas présente.
+
+Fichiers dont le nom commence par "fic", suivi d'une expression qui n'est pas
+la chaîne "866", suivi de ".log" :
+
+  $ ls fic!(866).log
+  fic866866866.log  fic866866.log  fic866868.log  fic867.log  fic868.log
+  fic.log
+
+Fichiers dont le nom ne commence pas par "fic" :
+
+  $ ls !(fic*)
+  readme.txt  typescript
+
+Une barre verticale "|" à l'intérieur d'une expression complexe prend le sens
+de "ou bien". 
+
+Fichiers dont le nom commence par "fic", suivi de "866" ou "867", suivi de
+".log" :
+
+  $ ls fic@(866|867).log
+  fic866.log  fic867.log
+
+Fichiers dont le nom commence par "fic", suivi de 1 à n occurrence(s) de "866"
+ou "868", suivi de ".log" :
+
+  $ ls fic+(866|868).log
+  fic866866866.log  fic866866.log  fic866868.log  fic866.log  fic868.log
+
+
+
+
+
+
+
 
 
 ------------------------------------------------------------------------------
