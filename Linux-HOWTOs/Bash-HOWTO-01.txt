@@ -2,7 +2,7 @@
 Bash HOWTO 1 (c) Nicolas Kovacs <info@microlinux.fr>
 ============
 
-Dernière révision : 11 octobre 2015
+Dernière révision : 13 octobre 2015
 
 
   * Définition du shell
@@ -551,8 +551,92 @@ est toujours vide.
 
   $ find / -name passwd 1> resultat 2> /dev/null
 
+La redirection de l'entrée standard concerne les commandes qui utilisent le
+descripteur 0, autrement dit celles qui déclenchent une saisie au clavier.
 
+  $ commande 0< fichier_message
 
+Ou bien :
+
+  $ commande < fichier_message
+
+Dans l'exemple qui suit, on va envoyer un mail à l'utilisateur 'glagaffe'. 
+
+  $ mail glagaffe
+  Subject: RDV
+  Rendez-vous au resto à 13h.
+  Nico
+  .
+  EOT
+
+  /!\ Pour mettre l'exemple ci-dessus en pratique, il faut que l'utilisateur
+  'glagaffe' existe et que le serveur mail soit configuré pour la machine
+  locale. Sur un système Slackware, on pourra faire ceci :
+
+    # adduser glagaffe
+    # chmod +x /etc/rc.d/rc.sendmail
+    # /etc/rc.d/rc.sendmail start
+
+  Et pour lire le mail :
+
+    $ su - glagaffe
+    $ mutt
+
+La commande 'mail' lit l'entrée standard jusqu'à la saisie d'un point "." sur
+une ligne. Les données saisies seront envoyées dans la boîte aux lettres de
+l'utilisateur 'glagaffe'. 
+
+Si l'on souhaite faire lire à la commande 'mail' non plus le clavier mais le
+contenu d'un fichier, il suffit de connecter le descripteur 0 sur le fichier
+désiré :
+
+  $ cat message 
+  RDV au resto à 13h.
+  Nico
+  $ mail -s "RDV" glagaffe < message 
+
+Pour envoyer la sortie standard et la sortie d'erreur standard dans le même
+fichier, il faut employer une syntaxe particulière :
+
+  $ commande 1> fichier 2>&1
+
+Ou bien :
+
+  $ commande 2> fichier 1>&2
+
+Reprenons l'exemple de tout à l'heure :
+
+  $ find / -name passwd > resultat 2>&1
+  $ cat resultat 
+  find: "/home/glagaffe": Permission non accordée
+  /usr/bin/passwd
+  find: "/var/db/sudo": Permission non accordée
+  find: "/var/cache/ldconfig": Permission non accordée
+  find: "/var/spool/cron": Permission non accordée
+  ...
+
+La double redirection en lecture est principalement utilisée dans les scripts
+shell. Elle permet de connecter l'entrée standard d'une commande sur une
+portion du script.
+
+  $ commande <<ETIQUETTE
+  données
+  données
+  données
+  ETIQUETTE
+
+Le symbole placé à la suite des caractères "<<" est une déclaration
+d'étiquette. Elle sera utilisée pour marquer la fin des données à lire. Les
+lignes insérées entre les deux mots "ETIQUETTE" seront envoyées sur l'entrée
+standard de la commande. Exemple :
+
+  $ mail -s "RDV" glagaffe <<FIN
+  > Rendez-vous à 13h au resto.
+  > Nico.
+  > FIN
+
+  /!\ Les étiquettes doivent être immédiatement suivies d'un retour à la
+  ligne.
 
 
 ------------------------------------------------------------------------------
