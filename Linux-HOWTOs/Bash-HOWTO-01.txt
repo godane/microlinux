@@ -11,6 +11,8 @@ Dernière révision : 11 octobre 2015
   * La commande interne 'cd'
   * Substitution de noms de fichiers
   * Expressions complexes
+  * Séparateur de commandes
+  * Redirections
 
 
 Définition du shell
@@ -373,6 +375,184 @@ ou "868", suivi de ".log" :
 
   $ ls fic+(866|868).log
   fic866866866.log  fic866866.log  fic866868.log  fic866.log  fic868.log
+
+
+Séparateur de commandes
+-----------------------
+
+Le caractère spécial ";" du shell permet d'écrire plusieurs commandes sur une
+même ligne. Les commandes sont exécutées séquentiellement. 
+
+  $ mkdir -v test ; cd test ; pwd
+  mkdir: création du répertoire « test »
+  /home/kikinovak/test
+
+
+Redirections
+------------
+
+Les redirections sont couramment utilisées dans les commandes Unix. Elles
+permettent :
+
+  * de récupérer le résultat d'une ou plusieurs commandes dans un fichier ;
+  * de faire lire un fichier à une commande.
+
+Les processus Unix ont, par défaut, leur fichier terminal ouvert trois fois,
+sous trois descripteurs de fichiers différents : 0, 1 et 2.
+
+  0. Entrée standard du processus. Les processus qui attendent des
+  informations de la part de l'utilisateur déclenchent une requête de lecture
+  sur le descripteur 0. Si ce dernier est associé au terminal, cela se
+  matérialise pour l'utilisateur par une demande de saisie au clavier.
+
+  1. Sortie standard du processus. Par convention, un processus qui souhaite
+  envoyer un message résultat à l'utilisateur doit le faire transiter via le
+  descripteur 1. Si ce dernier est associé au terminal, ce qui est le cas par
+  défaut, cela se matérialise pour l'utilisateur par un affichage à l'écran.
+
+  2. Sortie d'erreur standard du processus. Par convention, un processus qui souhaite
+  envoyer un message d'erreur à l'utilisateur doit le faire transiter via le
+  descripteur 2. Si ce dernier est associé au terminal, ce qui est le cas par
+  défaut, cela se matérialise pour l'utilisateur par un affichage à l'écran.
+
+La redirection des sorties en écriture permet d'envoyer les affichages liés à
+un descripteur particulier non plus sur le terminal, mais dans un fichier.
+
+Syntaxe pour la simple redirection :
+
+  $ commande 1> fichier
+
+Alternativement :
+
+  $ commande > fichier
+
+Exemple :
+
+  $ touch fichier{1,2,3}
+  $ ls
+  fichier1  fichier2  fichier3
+  $ ls > liste
+  $ cat liste 
+  fichier1
+  fichier2
+  fichier3
+  liste
+
+Si le fichier n'existe pas, il est créé. S'il existe déjà, il est écrasé.
+
+La double redirection permet de concaténer les messages résultant d'une
+commande au contenu d'un fichier déjà existant :
+
+  $ commande 1>> fichier
+
+Ou bien :
+
+  $ commande >> fichier
+
+Si le fichier n'existe pas, il est créé. S'il existe déjà, il est ouvert en
+mode ajout.
+
+Dans l'exemple suivant, on va ajouter la date à la fin du fichier 'liste' créé
+précédemment :
+
+  $ date
+  mar. oct. 13 08:51:28 CEST 2015
+  $ date >> liste 
+  $ cat liste 
+  fichier1
+  fichier2
+  fichier3
+  liste
+  mar. oct. 13 08:51:32 CEST 2015
+
+La redirection de la sortie d'erreur standard permet de récupérer les messages
+d'erreur dans un fichier. Les résultats restent à l'écran.
+
+  $ commande 2> fichier
+
+Exemple :
+
+  $ find / -name passwd 2> erreur
+  /usr/bin/passwd
+  /boot/initrd-tree/bin/passwd
+  /boot/initrd-tree/etc/passwd
+  /etc/passwd
+  $ cat erreur 
+  find: "/var/db/sudo": Permission non accordée
+  find: "/var/cache/ldconfig": Permission non accordée
+  find: "/var/spool/cron": Permission non accordée
+  ...
+
+Là encore, la double redirection de la sortie d'erreur standard permet de
+concaténer les messages d'erreur d'une commande au contenu d'un fichier
+existant.
+
+  $ commande 2>> fichier
+
+Dans l'exemple suivant, on va concaténer les messages d'erreur de la commande
+invalide 'ls -z' à la fin du fichier 'erreur' :
+
+  $ ls -z
+  ls : option invalide -- 'z'
+  Saisissez « ls --help » pour plus d'informations.
+  $ ls -z 2>> erreur 
+  $ cat erreur
+  find: "/var/db/sudo": Permission non accordée
+  find: "/var/cache/ldconfig": Permission non accordée
+  ...
+  find: "/etc/openvpn/keys": Permission non accordée
+  find: "/etc/openvpn/certs": Permission non accordée
+  ls : option invalide -- 'z'
+  Saisissez « ls --help » pour plus d'informations.
+
+Il est possible de rediriger plusieurs descripteurs sur une même ligne de
+commande.
+
+  $ commande 1> fichier_a 2> fichier_b
+
+Ou encore :
+
+  $ commande 2> fichier_b 1> fichier_a
+
+Exemple :
+
+  $ find / -name passwd 1> resultat 2> erreur
+  $ cat resultat 
+  /usr/bin/passwd
+  /boot/initrd-tree/bin/passwd
+  /boot/initrd-tree/etc/passwd
+  /etc/passwd
+  $ head -n 3 erreur 
+  find: "/var/db/sudo": Permission non accordée
+  find: "/var/cache/ldconfig": Permission non accordée
+  find: "/var/spool/cron": Permission non accordée
+
+L'option 'noclobber' du shell permet de se protéger d'un écrasement
+involontaire de fichier. Elle est désactivée par défaut.
+
+  $ set -o noclobber
+  $ date > resultat 
+  bash: resultat : impossible d'écraser le fichier existant
+
+Pour forcer l'écrasement il faudra utiliser le symbole de redirection ">|" :
+
+  $ date >| resultat 
+  $ cat resultat 
+  mar. oct. 13 09:16:30 CEST 2015
+
+Et voici comment on réactive l'écrasement des fichiers :
+
+  $ set +o noclobber
+
+Toutes les plates-formes Unix possèdent un fichier spécial nommé '/dev/null'
+qui permet de faire disparaître les affichages. Ce fichier est géré comme un
+périphérique et n'a pas de notion de contenu. On peut donc considérer qu'il
+est toujours vide. 
+
+  $ find / -name passwd 1> resultat 2> /dev/null
+
+
+
 
 
 ------------------------------------------------------------------------------
