@@ -1,8 +1,8 @@
-============
-Bash HOWTO 1 (c) Nicolas Kovacs <info@microlinux.fr>
-============
+=================
+Bash Basics HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=================
 
-Dernière révision : 13 octobre 2015
+Dernière révision : 14 octobre 2015
 
 
   * Définition du shell
@@ -786,6 +786,30 @@ fichier 'liste.txt' existant :
   readme.txt
   typescript
   mer. oct. 14 10:43:16 CEST 2015
+
+La commande suivante affiche un message d'erreur et une ligne de résultat :
+
+  $ ls -l t* Z*
+  ls: impossible d'accéder à Z*: Aucun fichier ou dossier de ce type
+  -rw-r--r-- 1 kikinovak users 0 oct.  12 09:28 typescript
+
+Seule la sortie standard passe dans le tube :
+
+  $ ls -l t* Z* | tee liste.txt 
+  ls: impossible d'accéder à Z*: Aucun fichier ou dossier de ce type
+  -rw-r--r-- 1 kikinovak users 0 oct.  12 09:28 typescript
+  $ cat liste.txt 
+  -rw-r--r-- 1 kikinovak users 0 oct.  12 09:28 typescript
+
+Voici ce qu'il faut faire pour envoyer la sortie standard et la sortie
+d'erreur standard dans le tube :
+
+  $ ls -l t* Z* 2>&1 | tee liste.txt 
+  ls: impossible d'accéder à Z*: Aucun fichier ou dossier de ce type
+  -rw-r--r-- 1 kikinovak users 0 oct.  12 09:28 typescript
+  $ cat liste.txt 
+  ls: impossible d'accéder à Z*: Aucun fichier ou dossier de ce type
+  -rw-r--r-- 1 kikinovak users 0 oct.  12 09:28 typescript
 
 
 ------------------------------------------------------------------------------
