@@ -13,6 +13,7 @@ Dernière révision : 13 octobre 2015
   * Expressions complexes
   * Séparateur de commandes
   * Redirections
+  * Tubes de communication
 
 
 Définition du shell
@@ -637,6 +638,154 @@ standard de la commande. Exemple :
 
   /!\ Les étiquettes doivent être immédiatement suivies d'un retour à la
   ligne.
+
+
+Tubes de communication
+----------------------
+
+Un tube ("pipe" en anglais) permet de faire communiquer deux processus. Le
+tube est représenté par une barre verticale "|" située entre deux commandes
+Unix. Le résultat de la commande de gauche va partir dans le tube, tandis que
+la commande de droite va en extraire les données afin de les traiter. 
+
+Dans l'exemple qui suit, on va envoyer par mail la liste des utilisateurs
+connectés à la machine :
+
+  $ who | mail -s "Utilisateurs connectés" glagaffe
+
+La sortie d'erreur standard de la commande de gauche ne part pas dans le tube. 
+
+Pour que l'utilisation d'un tube ait un sens, il faut que la commande placée à
+gauche du tube envoie des données sur sa sortie standard et que la commande
+placée à droite lise son entrée standard.
+
+Un certain nombre de commandes Unix n'ont aucun intérêt à être placées
+derrière un tube, car elles n'exploitent pas leur entrée standard : ls, who,
+find, chmod, cp, mv, rm, ln, mkdir, rmdir, date, kill, type, echo, etc.
+
+Les commandes qui lisent leur entrée standard sont facilement identifiables,
+étant donné qu'elles demandent une saisie au clavier :
+
+  $ mail glagaffe
+  Subject: ...
+  ...
+
+Sous Unix, un certain nombre de commandes sont regroupées sous le nom de
+filtres : grep, cat, sort, cut, wc, lp, sed, awk, etc. Ces commandes peuvent
+fonctionner de deux manières.
+
+Si la commande reçoit au moins un nom de fichier en argument, elle traite
+le(s) fichier(s) et ne déclenche pas de lecture de l'entrée standard :
+
+  $ wc -l /etc/passwd
+  26 /etc/passwd
+
+La commande ne reçoit aucun nom de fichier en argument. Dans ce cas, la
+commande traite les données qui arrivent sur son entrée standard. Dans
+l'exemple qui suit la commande 'wc' ("word count") compte le nombre de lignes
+qui arrivent sur son entrée standard et affiche le résultat sur la sortie
+standard. Pour terminer la saisie, appuyer sur [Ctrl]+[D] :
+
+  $ wc -l
+  Première ligne
+  Deuxième ligne
+  Troisième ligne
+  3
+
+Il est donc possible de placer cette commande derrière un tube : 
+
+  $ who | wc -l
+  4
+
+Comment savoir si une commande lit son entrée standard ? Pour répondre à cette
+question, considérons deux exemples.
+
+Voici une commande qui traite un fichier. Elle ne déclenche pas de lecture de
+l'entrée standard :
+
+  $ cut -d':' -f1,3 /etc/passwd
+  root:0
+  bin:1
+  daemon:2
+  ...
+
+La même commande sans le nom de fichier attend une saisie au clavier :
+
+  $ cut -d':' -f1,3
+  1:2:3:4
+  1:3
+  10:20:30:40
+  10:30
+  100:200:300:400
+  100:300
+
+Cette commande peut donc être placée derrière un tube :
+
+  $ echo "1:2:3:4" | cut -d':' -f1,3
+  1:3
+
+La majorité des commandes ne se soucient pas de savoir si elles sont placées
+derrière une tube ou non. Pour une commande donnée, l'action sera toujours la
+même. Dans l'exemple qui suit, 'wc -l' lit son entrée standard dans les deux
+cas :
+
+  $ wc -l
+  $ who | wc -l
+
+Quelques commandes font exception à la règle. Elles testent si leur entrée
+standard est connectée sur la sortie d'un tube ou sur un terminal. Dans
+l'exemple qui suit, la commande 'more' reçoit un nom de fichier en argument et
+pagine son contenu à l'écran. Elle ne lit pas son entrée standard :
+
+  $ more /etc/passwd
+  root:x:0:0::/root:/bin/bash
+  bin:x:1:1:bin:/bin:/bin/false
+  daemon:x:2:2:daemon:/sbin:/bin/false
+  ...
+
+Sans le nom de fichier, la commande affiche un message d'erreur :
+
+  $ more
+  Utilisation : more [options] fichier ...
+
+Le nom du fichier peut être omis lorsque 'more' est placée à droite d'un tube.
+Dans ce cas, la commande lit son entrée standard et pagine les lignes qu'elle
+y extrait :
+
+  $ cat /etc/passwd | more
+  root:x:0:0::/root:/bin/bash
+  bin:x:1:1:bin:/bin:/bin/false
+  daemon:x:2:2:daemon:/sbin:/bin/false
+  ...
+
+Il est possible d'enchaîner plusieurs tubes sur une ligne de commande. Dans
+l'exemple qui suit, on affiche le nombre de connexions d'un utilisateur :
+
+  $ who | grep kikinovak | wc -l
+  4
+
+On peut également dupliquer les sorties grâce à la commande 'tee'. Elle permet
+de visualiser un résultat à l'écran tout en la conservant dans un fichier :
+
+  $ ls | tee liste.txt
+  fichier.log
+  readme.txt
+  typescript
+  $ cat liste.txt 
+  fichier.log
+  readme.txt
+  typescript
+
+Le résultat de la commande 'date' est affiché à l'écran et concaténé au
+fichier 'liste.txt' existant :
+
+  $ date | tee -a liste.txt 
+  mer. oct. 14 10:43:16 CEST 2015
+  $ cat liste.txt 
+  fichier.log
+  readme.txt
+  typescript
+  mer. oct. 14 10:43:16 CEST 2015
 
 
 ------------------------------------------------------------------------------
