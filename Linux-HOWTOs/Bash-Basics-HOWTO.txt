@@ -917,5 +917,29 @@ L'utilisation des accolades se justifiera dans le cas d'une recherche de
 performances. 
 
 
+Processus en arrière-plan
+-------------------------
+
+Les notions d'arrière-plan et d'avant-plan sont gérées par le shell. 
+
+Par défaut, les commandes sont lancées en avant-plan. Dans ce mode, le shell
+parent s'endort en attendant la fin de la commande. Il reprend la main
+uniquement lorsque la commande est terminée. 
+
+Le caractère "&" est un caractère spécial du shell qui permet de lancer la
+commande en arrière-plan. Le shell lance la commande et réaffiche
+immédiatement son prompt en attente d'une nouvelle commande. Comme le shell et
+la commande s'exécutent en parallèle et qu'ils sont tous deux liés au même
+terminal, il est conseillé de rediriger les sorties de la commande. 
+
+Dans l'exemple qui suit, le shell affiche le PID de la commande (12421) ainsi
+que son index ([1]) dans la liste des tâches en arrière-plan lancées à partir
+de ce shell :
+
+  $ find / -size +2000 1>/tmp/resultat.txt 2>/dev/null &
+  [1] 12421
+  $ 
+
+
 ------------------------------------------------------------------------------
 # vim: syntax=txt
