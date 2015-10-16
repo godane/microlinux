@@ -2,7 +2,7 @@
 Bash Basics HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =================
 
-Dernière révision : 14 octobre 2015
+Dernière révision : 16 octobre 2015
 
 
   * Définition du shell
@@ -14,6 +14,7 @@ Dernière révision : 14 octobre 2015
   * Séparateur de commandes
   * Redirections
   * Tubes de communication
+  * Regroupement de commandes
 
 
 Définition du shell
@@ -810,6 +811,110 @@ d'erreur standard dans le tube :
   $ cat liste.txt 
   ls: impossible d'accéder à Z*: Aucun fichier ou dossier de ce type
   -rw-r--r-- 1 kikinovak users 0 oct.  12 09:28 typescript
+
+
+Regroupement de commandes
+-------------------------
+
+Le regroupement de commandes peut être utilisé pour :
+
+  * rediriger la sortie d'écran de plusieurs commandes vers un même fichier ou
+    vers un tube ;
+
+  * faire exécuter plusieurs commandes dans le même environnement.
+
+Dans l'exemple qui suit, seule la sortie standard de la deuxième commande est
+redirigée dans le fichier 'resultat.txt' :
+
+  $ date ; ls > resultat.txt
+  ven. oct. 16 11:35:10 CEST 2015
+  $ cat resultat.txt 
+  fichier.log
+  readme.txt
+  resultat.txt
+  typescript
+
+Les parenthèses ( ) et les accolades { } permettent de regrouper les
+commandes. 
+
+Avec les parenthèses ( ), un shell enfant est systématiquement créé, et c'est
+ce dernier qui traite la ligne de commande :
+
+  $ (commande1 ; commande2 ; commande3)
+
+Ici, l'utilisateur se sert des parenthèses ( ) pour rediriger la sortie de
+deux commandes :
+
+  $ (date ; ls) > resultat.txt 
+  $ cat resultat.txt 
+  ven. oct. 16 11:38:55 CEST 2015
+  fichier.log
+  readme.txt
+  resultat.txt
+  typescript
+
+Dans l'exemple suivant, les commandes regroupées 'pwd' et 'ls' ont pour
+répertoire courant '/tmp' :
+
+  $ pwd
+  /home/kikinovak
+  $ (cd /tmp ; pwd ; ls) > liste.txt
+  $ cat liste.txt 
+  /tmp
+  7FE2ZX.tmp
+  8AY85X.tmp
+  8UBXZX.tmp
+  A6S6ZX.tmp
+  ...
+
+Lorsque l'exécution des trois commandes regroupées est terminée, le shell de
+premier niveau reprend la main, et son répertoire courant est toujours
+'/home/kikinovak' :
+
+  $ pwd
+  /home/kikinovak
+
+Les deux commandes suivantes produisent le même résultat, mais la version avec
+les accolades { } est plus rapide :
+
+$ (date ; ls) > resultat.txt 
+$ { date ; ls ; } > resultat.txt 
+
+Au niveau de la syntaxe, les accolades ouvrante { et fermante } doivent être
+respectivement suivies et précédées par un espace. La dernière commande doit
+être suivie d'un point-virgule ";" :
+
+  $ { commande1 ; commande2 ; commande3 ; }
+
+À la différence des commandes regroupées entre parenthèses ( ), les commandes
+regroupées entre accolades { } sont traitées par le shell courant.
+
+Reprenons l'exemple précédent en remplaçant les parenthèses ( ) par des
+accolades { }. L'environnement du shell de premier niveau va être modifié, ce
+qui peut être gênant :
+
+  $ pwd
+  /home/kikinovak
+  $ { cd /tmp ; pwd ; ls ; } > ~/liste.txt 
+  $ cat ~/liste.txt 
+  /tmp
+  7FE2ZX.tmp
+  8AY85X.tmp
+  8UBXZX.tmp
+  A6S6ZX.tmp
+  ...
+  $ pwd
+  /tmp
+
+En conclusion, les parenthèses sont plus utilisées que les accolades pour deux
+raisons :
+
+  * leur syntaxe est plus simple à utiliser ;
+  * quel que soit le jeu de commandes, on est toujours sûr de retrouver
+    l'environnement de travail initial.
+
+L'utilisation des accolades se justifiera dans le cas d'une recherche de
+performances. 
 
 
 ------------------------------------------------------------------------------
