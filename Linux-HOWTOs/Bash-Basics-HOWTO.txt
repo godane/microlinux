@@ -415,10 +415,11 @@ sous trois descripteurs de fichiers différents : 0, 1 et 2.
   descripteur 1. Si ce dernier est associé au terminal, ce qui est le cas par
   défaut, cela se matérialise pour l'utilisateur par un affichage à l'écran.
 
-  2. Sortie d'erreur standard du processus. Par convention, un processus qui souhaite
-  envoyer un message d'erreur à l'utilisateur doit le faire transiter via le
-  descripteur 2. Si ce dernier est associé au terminal, ce qui est le cas par
-  défaut, cela se matérialise pour l'utilisateur par un affichage à l'écran.
+  2. Sortie d'erreur standard du processus. Par convention, un processus qui
+  souhaite envoyer un message d'erreur à l'utilisateur doit le faire transiter
+  via le descripteur 2. Si ce dernier est associé au terminal, ce qui est le
+  cas par défaut, cela se matérialise pour l'utilisateur par un affichage à
+  l'écran.
 
 La redirection des sorties en écriture permet d'envoyer les affichages liés à
 un descripteur particulier non plus sur le terminal, mais dans un fichier.
