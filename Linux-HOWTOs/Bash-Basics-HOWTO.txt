@@ -2,7 +2,7 @@
 Bash Basics HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =================
 
-Dernière révision : 16 octobre 2015
+Dernière révision : 17 octobre 2015
 
 
   * Définition du shell
@@ -15,6 +15,9 @@ Dernière révision : 16 octobre 2015
   * Redirections
   * Tubes de communication
   * Regroupement de commandes
+  * Processus en arrière-plan
+  * Exercices
+  * Corrigés
 
 
 Définition du shell
@@ -939,6 +942,242 @@ de ce shell :
   $ find / -size +2000 1>/tmp/resultat.txt 2>/dev/null &
   [1] 12421
   $ 
+
+
+Exercices
+---------
+
+1. Les commandes 'umask' et 'chown' sont-elles des commandes internes ?
+
+2. Soit la liste de fichiers suivante :
+
+  $ ls
+  bd.class.php  essai  header.inc.php  index.php  install.txt  mail.class.php
+  readme.txt
+
+  a. Afficher les noms de fichiers se terminant par ".php".
+
+  b. Afficher les noms de fichiers ayant la lettre "e" en deuxième position.
+
+  c. Afficher les noms de fichiers dont la première lettre est comprise entre
+     "a" et "e".
+
+  d. Afficher les noms de fichiers qui ne commencent pas par une voyelle.
+
+  e. Afficher les noms de fichiers qui ne se terminent pas par ".php".
+
+  f. Afficher les noms de fichiers qui ne se terminent ni par ".txt" ni par
+     ".php".
+
+  /!\ Les questions (e) et (f) nécessitent l'utilisation d'expressions
+      complexes.
+
+3. Comment écrire les deux commandes suivantes sur la même ligne ?
+
+  $ cd /tmp
+  $ ls -l
+
+4. Lister tous les processus du système et rediriger le résultat dans un
+fichier.
+
+5. Soit la commande 'who -A', qui génère un message d'erreur :
+
+  $ who -A
+  who : option invalide -- 'A'
+  Saisissez « who --help » pour plus d'informations.
+
+  a. Relancer cette commande et rediriger les erreurs dans un fichier.
+
+  b. Relancer cette commande et faire disparaître les erreurs, sans les
+     rediriger dans un fichier disque.
+
+6. Exécuter les commandes suivantes :
+
+  $ touch fichier_existe
+  $ chmod 600 fichier_existe fichier_existepas
+  chmod: impossible d'accéder à « fichier_existepas »: Aucun fichier ou 
+  dossier de ce type
+
+  a. Rediriger les résultats de la commande 'chmod' dans un fichier, les
+     erreurs dans un autre.
+
+  b. Rediriger les résultats et les erreurs de la commande dans un même
+     fichier.
+
+7. Lancer les commandes 'date', 'who' et 'ls' et récupérer le résultat de ces
+trois commandes dans un fichier (une seule ligne de commande).
+
+8. Lancer les commandes 'date' et 'who -A' et stocker l'affichage de ces deux
+commandes dans un fichier 'resultat.txt' (une seule ligne de commande). Notez
+que la commande 'who -A' génère un message d'erreur.
+
+9. Afficher la liste des processus, en paginant l'affichage.
+
+10. En combinant les commandes 'ps' et 'grep', afficher la liste des processus
+'httpd' qui tournent sur le système.
+
+11. En combinant les commandes 'tail' et 'head', afficher la sixième ligne du
+fichier '/etc/passwd'.
+
+12. Créer les fichiers suivants :
+
+  $ ls
+  f1  f2  fic  fic1.txt  FIC.c  Fic.doc  fIc.PDF
+
+  Compter le nombre de fichiers dont le nom contient le mot "fic". La
+  recherche doit être insensible à la casse.
+
+
+Corrigés
+--------
+
+1. Les commandes 'umask' et 'chown' sont-elles des commandes internes ?
+
+  La commande interne 'type' permet de savoir si une commande possède une
+  implémentation interne.
+
+  'umask' est une commande interne :
+
+    $ type umask
+    umask est une primitive du shell
+
+  'chmod' est une commande externe :
+
+    $ type -a chmod
+    chmod est /usr/bin/chmod
+    chmod est /bin/chmod
+
+2. Soit la liste de fichiers suivante :
+
+  $ ls
+  bd.class.php  essai  header.inc.php  index.php  install.txt  mail.class.php
+  readme.txt
+
+  a. Afficher les noms de fichiers se terminant par ".php".
+
+    $ ls *.php
+    bd.class.php  header.inc.php  index.php  mail.class.php
+
+  b. Afficher les noms de fichiers ayant la lettre "e" en deuxième position.
+
+    $ ls ?e*
+    header.inc.php  readme.txt
+
+  c. Afficher les noms de fichiers dont la première lettre est comprise entre
+     "a" et "e".
+
+    $ ls [a-e]*
+    bd.class.php  essai
+
+  d. Afficher les noms de fichiers qui ne commencent pas par une voyelle.
+
+    $ ls [!aeiouy]*
+    bd.class.php  header.inc.php  mail.class.php  readme.txt
+
+  e. Afficher les noms de fichiers qui ne se terminent pas par ".php".
+
+    Il faut activer la reconnaissance des expressions complexes :
+
+    $ shopt -s extglob
+
+    Puis :
+
+    $ ls !(*.php)
+    essai  install.txt  readme.txt
+
+  f. Afficher les noms de fichiers qui ne se terminent ni par ".txt" ni par
+     ".php".
+
+    $ ls !(*.php|*.txt)
+    essai
+
+3. Comment écrire les deux commandes suivantes sur la même ligne ?
+
+  $ cd /tmp
+  $ ls -l
+
+  Comme ceci :
+
+  $ cd /tmp ; ls -l
+
+4. Lister tous les processus du système et rediriger le résultat dans un
+fichier.
+
+  $ ps -ef > processus.txt
+
+5. Soit la commande 'who -A', qui génère un message d'erreur :
+
+  $ who -A
+  who : option invalide -- 'A'
+  Saisissez « who --help » pour plus d'informations.
+
+  a. Relancer cette commande et rediriger les erreurs dans un fichier.
+
+    $ who -A 2> erreur.txt
+
+  b. Relancer cette commande et faire disparaître les erreurs, sans les
+     rediriger dans un fichier disque.
+
+    $ who -A 2> /dev/null
+
+6. Exécuter les commandes suivantes :
+
+  $ touch fichier_existe
+  $ chmod 600 fichier_existe fichier_existepas
+  chmod: impossible d'accéder à « fichier_existepas »: Aucun fichier ou 
+  dossier de ce type
+
+  a. Rediriger les résultats de la commande 'chmod' dans un fichier, les
+     erreurs dans un autre.
+
+     $ chmod 600 fichier_existe fichier_existepas 1> resultat.txt \
+         2> erreur.txt
+
+  b. Rediriger les résultats et les erreurs de la commande dans un même
+     fichier.
+
+     $ chmod 600 fichier_existe fichier_existepas 1> resultat.txt 2>&1
+
+7. Lancer les commandes 'date', 'who' et 'ls' et récupérer le résultat de ces
+trois commandes dans un fichier (une seule ligne de commande).
+
+  $ ( date ; who ; ls ) > resultat.txt 
+
+8. Lancer les commandes 'date' et 'who -A' et stocker l'affichage de ces deux
+commandes dans un fichier 'resultat.txt' (une seule ligne de commande). Notez
+que la commande 'who -A' génère un message d'erreur.
+
+  $ ( date ; who -A ) > resultat.txt 2>&1
+
+9. Afficher la liste des processus, en paginant l'affichage.
+
+  $ ps -ef | more
+
+  Ou bien :
+
+  $ ps -ef | less
+
+10. En combinant les commandes 'ps' et 'grep', afficher la liste des processus
+'httpd' qui tournent sur le système.
+
+  $ ps -ef | grep httpd
+
+11. En combinant les commandes 'tail' et 'head', afficher la sixième ligne du
+fichier '/etc/passwd'.
+
+  $ head -n 6 /etc/passwd | tail -n 1
+  sync:x:5:0:sync:/sbin:/bin/sync
+
+12. Créer les fichiers suivants :
+
+  $ ls
+  f1  f2  fic  fic1.txt  FIC.c  Fic.doc  fIc.PDF
+
+  Compter le nombre de fichiers dont le nom contient le mot "fic". La
+  recherche doit être insensible à la casse.
+
+  $ ls | grep -i fic | wc -l
+  5
 
 
 ------------------------------------------------------------------------------
