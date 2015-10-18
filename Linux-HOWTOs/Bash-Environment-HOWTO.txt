@@ -1,0 +1,316 @@
+======================
+Bash Environment HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+======================
+
+Dernière révision : 18 octobre 2015
+
+Ce HOWTO permet aux utilisateurs du shell Bash de paramétrer leur
+environnement de travail.
+
+  
+  * Variables d'environnement
+  * Principales variables
+
+
+Variables d'environnement
+-------------------------
+
+Un certain nombre de variables sont définies dans l'environnement du shell.
+Elles contiennent des informations nécessaires au fonctionnement de
+l'interpréteur et/ou des commandes lancées à partir de celui-ci.
+
+La commande 'set' donne la liste des variables définies dans le shell courant.
+
+  $ set
+  BASH=/usr/bin/bash
+  EDITOR=vim
+  HOME=/home/kikinovak
+  LOGNAME=kikinovak
+  OSTYPE=linux-gnu
+  PS1='$ '
+  PS2='> '
+  TERM=xterm
+  ...
+
+Le caractère spécial "$" du shell permet d'accéder au contenu d'une variable.
+
+  $ echo $HOME
+  /home/kikinovak
+
+Le shell permet d'initialiser ou de modifier des variables.
+
+  $ variable=valeur
+  $ echo $variable
+  valeur
+
+Si la valeur contient des caractères spéciaux du shell ("$", ">", espace), il
+faut empêcher le shell d'interpréter ceux-ci en entourant la valeur avec des
+simples quotes ' '. Utiliser des simples quotes est l'une des trois manières
+de masquer des caractères en shell, comme nous le verrons un peu plus loin.
+
+Dans l'exemple qui suit, nous devons masquer le symbole ">" (redirection)
+ainsi que l'espace (séparateur de mots sur la ligne de commande) :
+
+  $ variable='mot1 mot2 =>'
+  $ echo $variable
+  mot1 mot2 =>
+
+  /!\ Il ne faut pas mettre d'espace autour du signe "=". Le shell ne
+  comprendrait pas qu'il s'agit d'une affectation.
+
+
+Principales variables
+---------------------
+
+Les variables présentées ci-dessous possèdent une valeur au niveau du shell de
+connexion. D'autres variables peuvent être définies ultérieurement.
+
+La variable HOME contient la valeur du répertoire d'accueil de l'utilisateur.
+Elle ne doit pas être modifiée.
+
+  $ echo $HOME
+  /home/kikinovak
+
+La variable PATH contient une liste de répertoires qui sont explorés par le
+shell lorsqu'il doit lancer une commande externe.
+
+  $ echo $PATH
+  /usr/local/bin:/usr/bin:/bin...
+
+  /!\ En aucun cas, une commande n'est recherchée dans le répertoire courant
+  si celui-ci ne figure pas dans le PATH.
+
+La commande 'date' est trouvée :
+
+  $ date
+  dim. oct. 18 09:36:57 CEST 2015
+
+En effet, elle se situe dans les répertoires '/usr/bin' et '/bin' qui figurent
+tous les deux dans la variable PATH :
+
+  $ find / -name date 2> /dev/null
+  /usr/bin/date
+  /bin/date
+  $ ls -l /usr/bin/date 
+  lrwxrwxrwx 1 root root 14 avril 26 08:07 /usr/bin/date -> ../../bin/date
+
+La commande 'ifconfig' n'est pas trouvée :
+
+  $ ifconfig
+  bash: ifconfig : commande introuvable
+
+Elle est située dans le répertoire '/sbin' qui n'est pas cité dans la variable
+PATH de l'utilisateur :
+
+  $ find / -name ifconfig 2> /dev/null
+  /sbin/ifconfig
+
+Le répertoire courant n'est pas exploré s'il n'est pas cité dans le PATH :
+
+  $ cd /sbin/
+  $ ifconfig
+  bash: ifconfig : commande introuvable
+
+Modifier le contenu de la variable PATH :
+
+  $ PATH=$PATH:/sbin
+  $ echo $PATH
+  /usr/local/bin:/usr/bin:/bin:/sbin
+
+À présent, la commande 'ifconfig' est trouvée :
+
+  $ ifconfig
+  eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+          inet 192.168.2.2  netmask 255.255.255.0  broadcast 192.168.2.255
+          ether 00:1f:d0:ae:ec:fe  txqueuelen 1000  (Ethernet)
+          RX packets 6613  bytes 6444418 (6.1 MiB)
+          RX errors 0  dropped 2  overruns 0  frame 0
+          TX packets 5474  bytes 1212369 (1.1 MiB)
+          TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+  ...
+
+Pour qu'une commande soit recherchée dans le répertoire courant, il faut
+ajouter en fin de variable PATH la chaîne ":." ou simplement le caractère ":".
+
+  $ PATH="$PATH:"
+  $ cd /usr/bin/
+  $ ifconfig
+  bash: ifconfig : commande introuvable
+  $ cd /sbin/
+  $ ifconfig
+  eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+          inet 192.168.2.2  netmask 255.255.255.0  broadcast 192.168.2.255
+          ether 00:1f:d0:ae:ec:fe  txqueuelen 1000  (Ethernet)
+          RX packets 6641  bytes 6449061 (6.1 MiB)
+          RX errors 0  dropped 2  overruns 0  frame 0
+          TX packets 5509  bytes 1218682 (1.1 MiB)
+          TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+  ...
+
+La variable PWD contient la valeur du répertoire courant. Elle est mise à jour
+par le shell dès que l'utilisateur change de répertoire.
+
+  $ echo $PWD
+  /home/kikinovak
+  $ cd /sbin/
+  $ echo $PWD
+  /sbin
+
+La variable PS1 contient la chaîne de caractères représentant le prompt
+principal.
+
+  [kikinovak@alphamule:~] $ echo $PS1
+  [\u@\h:\W] $
+  [kikinovak@alphamule:~] $ PS1='Entrez une commande => '
+  Entrez une commande => date
+  dim. oct. 18 10:52:29 CEST 2015
+  Entrez une commande => 
+
+Il existe en des séquences d'échappement possédant une signification
+particulière qu'il est pratique d'utiliser pour initialiser PS1. En voici
+quelques-unes :
+
+  +------------------------+----------------------------------------+
+  | Séquence d'échappement |                 Valeur                 |
+  +------------------------+----------------------------------------+
+  | \u                     | Nom de l'utilisateur                   |
+  | \h                     | Nom de la machine                      |
+  | \w                     | Répertoire courant                     |
+  | \W                     | Partie terminale du répertoire courant |
+  +------------------------+----------------------------------------+
+
+La variable PS2 contient la chaîne de caractères représentant le prompt
+secondaire, qui apparaît lorsque les éléments de syntaxe sont incomplets.
+
+  $ echo $PS2
+  >
+  $ echo 'Affichage du caractère *
+  > je
+  > dois 
+  > fermer ma quote'
+  Affichage du caractère *
+  je
+  dois 
+  fermer ma quote
+
+Dans l'exemple qui suit, le shell attend la suite du message tant qu'il ne
+rencontre pas l'étiquette "%" :
+
+  $ mail glagaffe <<%
+  > Salut Gaston,
+  > Comment vas-tu ?
+  > %
+  $ 
+
+La variable TMOUT contient un délai exprimé en secondes. Si aucune interaction
+avec le clavier n'a eu lieu pendant ce délai, le shell se termine. Lorsque la
+valeur est 0, le timeout est désactivé.
+
+  $ echo $TMOUT
+  ...
+  $ TMOUT=10
+
+La variable TERM contient le type de terminal de l'utilisateur. Les valeurs
+les plus courantes sont 'ansi', 'vt100', 'vt220', 'dtterm' et 'xterm'. Ces
+valeurs renvoient à un fichier de paramétrage du système, la base de données
+'terminfo'.
+
+  $ echo $TERM
+  xterm
+  $ find / -name xterm 2> /dev/null
+  /usr/share/terminfo/x/xterm
+  ...
+
+La variable LOGNAME contient le nom de l'utilisateur connecté.
+
+  $ echo $LOGNAME
+  kikinovak
+
+Les variables d'environnement ne sont pas toutes utilisées par les mêmes
+processus. On peut distinguer trois catégories de variables.
+
+  1. celles qui sont utilisées uniquement par le shell : PS1, PS2
+
+  2. celles qui sont utilisées par de nombreuses commandes et éventuellement
+     par le shell : PATH, TERM
+
+  3. celles qui sont utilisées par une commande bien précise : EXINIT pour vim
+
+Par défaut, une variable n'est pas transmise aux processus descendants. Pour
+qu'elle le soit, il faut demander au shell de l'exporter. 
+
+La commande interne 'env' affiche les variables exportées du shell courant.
+
+  $ env
+  HOME=/home/kikinovak
+  EDITOR=vim
+  LOGNAME=kikinovak
+  TERM=xterm
+  ...
+
+Dans l'exemple qui suit, les variables PS1 et PS2 ont été redéfinies dans le
+shell courant :
+
+  $ set
+  BASH=/usr/bin/bash
+  EDITOR=vim
+  HOME=/home/kikinovak
+  LOGNAME=kikinovak
+  OSTYPE=linux-gnu
+  PS1='commande> '
+  PS2='suite> '
+  TERM=xterm
+  ...
+
+PS1 et PS2 ne sont pas exportées, elles n'apparaissent donc pas dans le
+résultat de la commande 'env'. Elles reprendront donc leur valeur par défaut
+('[\u@\h:\W] $' et '> ') dans les sous-shells :
+
+  $ env
+  HOME=/home/kikinovak
+  EDITOR=vim
+  LOGNAME=kikinovak
+  TERM=xterm
+  ...
+
+Les variables utilisées par des processus autres que le shell doivent
+obligatoirement être exportées pour être transmises. 
+
+Exporter une variable déjà défini :
+
+  $ export MAVARIABLE
+
+Définir et exporter une variable :
+
+  $ MAVARIABLE=valeur
+  $ export MAVARIABLE
+
+Ou, plus simplement :
+
+  $ export MAVARIABLE=valeur
+
+Dans l'exemple qui suit, on va utiliser la variable EXINIT. Celle-ci est
+consultée par la commande 'vim' et contient la liste des options à positionner
+dans l'éditeur. L'option "set number" active l'affichage des numéros de ligne. 
+
+  $ EXINIT='set number'
+  $ vim .screenrc 
+
+Visiblement, ça ne fonctionne pas. En effet, la variable EXINIT est
+initialisée mais non exportée. Elle ne sera donc pas transmise aux processus
+descendants du shell, en l'occurrence l'éditeur Vim. Autrement dit, sans
+exportation, la définition de la variable EXINIT est inutile.
+
+Retentons le coup en exportant la variable :
+
+  $ EXINIT='set number'
+  $ export EXINIT
+  $ vim .screenrc 
+
+Cette fois-ci, la variable exportée est bien transmise au processus
+descendant.
+
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
