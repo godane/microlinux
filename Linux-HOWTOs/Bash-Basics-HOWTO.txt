@@ -4,6 +4,9 @@ Bash Basics HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 
 Dernière révision : 17 octobre 2015
 
+Ce HOWTO présente et explique de manière détaillée les fonctionnalités de base
+du shell Bash.
+
 
   * Définition du shell
   * Commandes externes et internes
