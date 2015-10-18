@@ -10,6 +10,7 @@ environnement de travail.
   
   * Variables d'environnement
   * Principales variables
+  * Les options du shell
 
 
 Variables d'environnement
@@ -310,6 +311,39 @@ Retentons le coup en exportant la variable :
 Cette fois-ci, la variable exportée est bien transmise au processus
 descendant.
 
+
+Les options du shell
+--------------------
+
+Le shell propose des options permettant de paramétrer un certain nombre de
+fonctionnalités.
+
+La commande 'set' avec l'option '-o' affiche la liste des options du shell en
+indiquant si elles sont actuellement activées ou non.
+
+  $ set -o
+  allexport       off
+  braceexpand     on
+  emacs           on
+  errexit         off
+  errtrace        off
+  ...
+
+Les options '-o' et '+o' de la commande interne 'set' permettent
+respectivement d'activer et de désactiver une option du shell. 
+
+Voici un exemple :
+
+  $ set -o | grep noclobber
+  noclobber       off
+  $ set -o noclobber
+  $ set -o | grep noclobber
+  noclobber       on
+  $ set +o noclobber
+  $ set -o | grep noclobber
+  noclobber       off
+
+  /!\ Effectivement, ce n'est pas très intuitif.
 
 
 ------------------------------------------------------------------------------
