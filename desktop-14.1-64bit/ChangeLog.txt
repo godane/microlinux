@@ -1,3 +1,8 @@
+Sun Oct 18 16:00:54 CEST 2015
+mozilla-thunderbird-langpack-38.3.0-x86_64-2_microlinux.txz: Rebuilt.
+  Previous version packaged the wrong localization tarball, which resulted in
+	missing translations for the Lightning calendar.
++--------------------------+
 Sat Oct 10 10:33:03 CEST 2015
 x264-20150223-x86_64-2_microlinux.txz: Rebuilt.
 ffmpeg-2.6.3-x86_64-2_microlinux.txz: Rebuilt.
