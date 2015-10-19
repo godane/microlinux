@@ -2,7 +2,7 @@
 Bash Environment HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ======================
 
-Dernière révision : 18 octobre 2015
+Dernière révision : 19 octobre 2015
 
 Ce HOWTO permet aux utilisateurs du shell Bash de paramétrer leur
 environnement de travail.
@@ -344,6 +344,318 @@ Voici un exemple :
   noclobber       off
 
   /!\ Effectivement, ce n'est pas très intuitif.
+
+Si l'option 'ignoreeof' est activée, il devient impossible de quitter le shell
+en appuyant sur [Ctrl]+[D]. L'option est désactivée par défaut.
+
+  $ set -o | grep ignoreeof
+  ignoreeof       off
+  $ set -o ignoreeof
+  $ ^D
+  Utilisez « exit » pour quitter le shell.
+
+Lorsqu'une redirection est faite vers un fichier déjà existant, celui-ci est
+écrasé sans sommation (sous réserve des permissions). Pour être averti de
+l'existence du fichier, il faut activer l'option 'noclobber'. À partir de là,
+on pourra forcer l'écrasement en utilisant la redirection ">|". 
+
+    $ set -o | grep noclobber
+    noclobber       off
+    $ echo Bonjour > fichier.txt
+    $ cat fichier.txt 
+    Bonjour
+    $ echo Au revoir > fichier.txt 
+    $ cat fichier.txt 
+    Au revoir
+    $ set -o noclobber
+    $ set -o | grep noclobber
+    noclobber       on
+    $ echo Merci > fichier.txt 
+    bash: fichier.txt : impossible d'écraser le fichier existant
+    $ echo Merci >| fichier.txt 
+    $ cat fichier.txt 
+    Merci
+
+L'option 'emacs' permet de paramétrer le rappel des commandes. Elle est
+activée par défaut.
+
+  $ set -o | grep emacs
+  emacs           on
+
+Enfin, l'option 'xtrace' est utilisée en programmation shell pour déboguer les
+scripts. Elle est désactivée par défaut.
+
+  $ set -o | grep xtrace
+  xtrace          off
+
+
+Les alias
+---------
+
+Le shell propose une commande interne 'alias' qui permet de créer des
+raccourcis sur des commandes. Selon les distributions, un certain nombre
+d'alias existent par défaut.
+
+Dans l'exemple qui suit, nous allons créer trois alias 'l', 'c' et 'rm' qui
+seront respectivement les équivalents de 'ls -l', 'clear' et 'rm -i'.
+
+  $ alias l='ls -l'
+  $ l
+  total 0
+  -rw-r--r-- 1 kikinovak users 0 oct.  17 09:21 f1
+  -rw-r--r-- 1 kikinovak users 0 oct.  17 09:21 f2
+  -rw-r--r-- 1 kikinovak users 0 oct.  17 09:21 fic
+  -rw-r--r-- 1 kikinovak users 0 oct.  17 09:21 fic1.txt
+  -rw-r--r-- 1 kikinovak users 0 oct.  17 09:21 FIC.c
+  -rw-r--r-- 1 kikinovak users 0 oct.  17 09:21 Fic.doc
+  -rw-r--r-- 1 kikinovak users 0 oct.  17 09:21 fIc.PDF
+  $ alias c='clear'
+  $ alias rm='rm -i'
+  $ rm fic1.txt 
+  rm : supprimer fichier vide « fic1.txt » ? n
+
+Visualiser tous les alias :
+
+  $ alias
+  alias ..='cd ..'
+  alias ...='cd ../..'
+  alias cp='cp -i'
+  alias ll='ls -al'
+  alias ls='ls --color=auto'
+  alias mv='mv -i'
+  alias rm='rm -i'
+  alias uman='GROFF_ENCODING=utf8 man'
+  alias vi='vim'
+
+Visualiser un alias en particulier :
+
+  $ alias ls
+  alias ls='ls --color=auto'
+
+Supprimer un alias :
+
+  $ unalias ll
+  $ ll
+  bash: ll : commande introuvable
+
+
+Historique de commandes
+-----------------------
+
+Le shell Bash stocke les commandes lancées dans un fichier texte localisé dans
+le répertoire d'accueil de l'utilisateur : '~/.bash_history'. 
+
+Pour rappeler les commandes stockées dans ce fichier, le shell propose deux
+options : 'emacs' et 'vi'. Ces deux options sont mutuellement exclusives.
+L'activation de l'une désactive l'autre. En Bash, l'option 'emacs' est activée
+par défaut.
+
+  $ set -o | grep 'emacs\|vi '
+  emacs           on
+  vi              off
+
+Il est recommandé d'utiliser le mode 'emacs' par défaut, étant donné que les
+flèches du clavier peuvent être utilisées pour parcourir l'historique.
+
+
+Les fichiers d'environnement
+----------------------------
+
+Les fichiers d'environnement servent à stocker de manière permanente les
+définitions liées au paramétrage de l'environnement utilisateur. Ils
+contiennent des commandes Unix et sont toujours interprétés par un shell. Ce
+sont des scripts shell d'environnement.
+
+Certains scripts d'environnement sont exécutés uniquement par le shell de
+connexion. Il est donc important de savoir faire la distinction entre un shell
+de connexion et un shell ordinaire.
+
+En environnement texte, le shell de connexion est lancé immédiatement après
+l'identification de l'utilisateur par son nom de login et son mot de passe. Ce
+processus est l'ancêtre commun de toutes les commandes qui seront lancées
+pendant la session. Tout shell lancé ultérieurement n'aura pas le statut de
+shell de connexion.
+
+En environnement graphique, le shell de connexion est lancé entre la bannière
+de connexion et l'affichage du bureau. Ce n'est donc pas un shell interactif.
+Le bureau et toute application lancée ultérieurement à partir des icônes sont
+des processus descendant du shell de connexion. Dans la majorité des cas, un
+terminal ouvert à partir de l'environnement graphique n'est pas associé à un
+shell de connexion. 
+
+Le shell de connexion lit un script shell système qui se nomme '/etc/profile'.
+Ce fichier est géré par l'administrateur du système et contient des paramètres
+communs à tous les utilisateurs.
+
+Il recherche ensuite dans le répertoire d'accueil de l'utilisateur un des
+trois fichiers d'environnement suivants :
+
+  * $HOME/.bash_profile $HOME/.bash_login $HOME/.profile
+
+Ce qu'il faut mettre dans le fichier '$HOME/.bash_profile' :
+
+  * la définition suivie de l'exportation éventuelle d'une ou plusieurs
+    variables : celles-ci seront transmises à tous les processus lancés à
+    partir du shell de connexion. Les variables définies mais non exportées
+    resteront locales à ce dernier.
+
+  * la redéfinition de paramètres système tels que 'umask', caractéristiques
+    du terminal, qui resteront valables pendant toute la durée de la session.
+
+Ce qu'il ne faut pas mettre dans le fichier '$HOME/.bash_profile' :
+
+  * les options du shell ;
+
+  * les alias.
+
+Le fichier '$HOME/.bash_profile' est lu uniquement au moment de la connexion,
+et ce par le shell de connexion lui-même. Si l'utilisateur apporte une
+modification à ce fichier, ce dernier doit être relu par le shell. Pour cela,
+il existe deux méthodes.
+
+  * Se déconnecter et se reconnecter, ce qui a pour effet de relancer un shell
+    de connexion.
+
+  * Demander au shell courant (qui n'est pas forcément le shell de connexion)
+    de relire le script d'environnement. Pour cela, il faut utiliser la
+    commande interne '.'.
+
+Les définitions de variables et paramètres utilisateur doivent être faites
+dans le fichier '$HOME/.bash_profile'. Les options et alias seront stockées
+dans un autre script que l'utilisateur nommera '$HOME/.bashrc'.
+
+  * Le Bash de connexion lit automatiquement le fichier '$HOME/.bash_profile',
+    mais pas le fichier '$HOME/.bashrc'.
+
+  * Un bash ordinaire (non connexion) et interactif lit automatiquement le
+    fichier '$HOME/.bashrc'.
+
+
+Exercices
+---------
+
+1. Afficher la liste de toutes les variables d'environnement.
+
+2. Afficher la liste des variables d'environnement exportées.
+
+3. Afficher la valeur des variables d'environnement PATH et HOME.
+
+4. Créer un répertoire '~/bin'. Dans ce répertoire, éditer le script suivant :
+
+     $ pwd
+     /home/kikinovak/bin
+     $ cat affichedate
+     #!/bin/bash
+     echo Voici la date : $(date)
+     $ chmod +x affichedate
+
+   Revenir dans le répertoire d'accueil. Modifier la variable PATH de telle
+   sorte que cette commande fonctionne.
+
+5. Rendre ce paramétrage permanent.
+
+6. Afficher les alias du shell courant.
+
+7. Créer un alias 'p' qui va correspondre à la commande 'ps -ef | more'.
+
+8. Tester l'alias.
+
+9. Détruire l'alias.
+
+10. Rendre cet alias permanent.
+
+11. En définissant un alias, l'utilisateur a malencontreusement appuyé sur la
+touche [Entrée] sans avoir eu le temps de fermer l'apostrophe. À quoi
+correspond le caractère ">" et comment se sortir de cette situation ?
+
+  $ alias l
+  alias l='ls -l
+  >
+
+
+Corrigés
+--------
+
+1. Afficher la liste de toutes les variables d'environnement.
+
+     $ set
+
+2. Afficher la liste des variables d'environnement exportées.
+ 
+     $ env
+
+3. Afficher la valeur des variables d'environnement PATH et HOME.
+
+     $ echo $PATH
+     $ echo $HOME
+
+4. Créer un répertoire '~/bin'. Dans ce répertoire, éditer le script suivant :
+
+     $ pwd
+     /home/kikinovak/bin
+     $ cat affichedate
+     #!/bin/bash
+     echo Voici la date : $(date)
+     $ chmod +x affichedate
+
+   Revenir dans le répertoire d'accueil. Modifier la variable PATH de telle
+   sorte que cette commande fonctionne.
+
+     $ PATH=$PATH:$HOME/bin
+     $ affichedate
+     Voici la date : lun. oct. 19 10:42:45 CEST 2015
+
+5. Rendre ce paramétrage permanent.
+
+   Éditer $HOME/.bash_profile comme ceci :
+
+     PATH=$PATH:$HOME/bin
+     export PATH
+   
+   Faire relire le fichier au shell courant :
+
+     $ . $HOME/.bash_profile
+
+6. Afficher les alias du shell courant.
+
+     $ alias
+
+7. Créer un alias 'p' qui va correspondre à la commande 'ps -ef | more'.
+ 
+     $ alias p='ps -ef | more'
+
+8. Tester l'alias.
+
+     $ p
+
+9. Détruire l'alias.
+ 
+     $ unalias p
+
+10. Rendre cet alias permanent.
+
+    Éditer '$HOME/.bashrc' comme ceci :
+
+      alias p='ps -ef | grep more'
+
+    Ensuite :
+
+      $ . $HOME/.bashrc
+
+11. En définissant un alias, l'utilisateur a malencontreusement appuyé sur la
+touche [Entrée] sans avoir eu le temps de fermer l'apostrophe. À quoi
+correspond le caractère ">" et comment se sortir de cette situation ?
+
+    $ alias l
+    alias l='ls -l
+    >
+
+  Il s'agit du prompt PS2 du shell qui s'affiche lorsque l'interpréteur
+  détecte une erreur de syntaxe shell. Ce prompt permet de poursuivre
+  l'écriture de la commande. 
+
+  Pour abandonner la commande, il suffit d'appuyer sur [Ctrl]+[C].
+  
 
 
 ------------------------------------------------------------------------------
