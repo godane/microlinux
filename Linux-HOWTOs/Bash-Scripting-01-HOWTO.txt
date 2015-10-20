@@ -311,5 +311,102 @@ En pratique, il est fréquent d'encadrer les arguments de la commande 'echo'
 avec des guillemets.
 
 
+Écriture et lancement d'un script shell
+---------------------------------------
+
+Un script shell est un fichier texte contenant des commandes Unix internes ou
+externes ainsi que des mots clés du shell.
+
+Il n'y a pas de convention imposée pour le nom d'un script shell. Il peut
+avoir une extension, mais ce n'est pas obligatoire. Néanmoins, il est assez
+fréquent de choisir l'extension ".sh". 
+
+Voici un exemple de script :
+
+  $ nl premier.sh 
+       1  pwd
+       2  cd /tmp
+       3  pwd
+       4  ls
+       
+Exécution du script :
+
+  $ sh premier.sh 
+  /home/kikinovak
+  /tmp
+  blueman-applet-1000
+
+Dans la majorité des cas, les scripts doivent être exécutés par
+l'intermédiaire d'un shell enfant. Ceci a pour avantage de ne pas modifier
+l'environnement du shell courant. Pour lancer un script shell, il existe trois
+méthodes qui produiront un résultat équivalent.
+
+Première méthode :
+
+  $ sh premier.sh
+
+C'est la méthode utilisée précédemment. On appelle la commande 'ksh' en lui
+demandant d'interpréter le script 'premier.sh'. Dans ce cas, la permission de
+lecture est suffisante sur le fichier 'premier.sh' :
+
+  $ ls -l premier.sh 
+  -rw-r--r-- 1 kikinovak users 20 Oct 20 16:26 premier.sh
+
+Deuxième méthode :
+
+  $ sh < premier.sh
+
+Le shell est un programme qui lit sur son entrée standard. Il est donc
+possible de connecter celle-ci sur le fichier 'premier.sh'. Là encore, la
+permission de lecture est suffisante. Cette syntaxe est peu utilisée. 
+
+Troisième méthode :
+
+  $ chmod u+x premier.sh 
+  $ ls -l premier.sh 
+  -rwxr--r-- 1 kikinovak users 20 Oct 20 16:26 premier.sh
+  $ ./premier.sh 
+
+C'est la méthode la plus utilisée. Dans ce cas, le script est considéré comme
+la commande, et donc - comme pour toute commande externe - il est nécessaire
+de posséder les droits d'exécution sur le fichier. Par défaut, le script sera
+interprété par un shell enfant identique au shell courant.
+
+Sur la première ligne de l'interpréteur, la directive "#!" permet d'imposer
+l'interpréteur du script. Le chemin de celui-ci devra être exprimé en absolu.
+
+Reprenons notre exemple en spécifiant l'interpréteur Bash :
+
+  $ nl premier.sh
+       1  #! /bin/bash
+       2  pwd
+       3  cd /tmp
+       4  pwd
+       5  ls
+
+  /!\ Les caractères "#" et "!" sont écrits respectivement en colonne 1 et 2.
+  L'espace entre le "!" et le chemin absolu de l'interpréteur est facultatif. 
+
+Un commentaire commence par le caractère "#" et se termine à la fin de la
+ligne. Les lignes blances ainsi que les indentations (espaces, tabulations)
+sont ignorées.
+
+  /!\ Une exception à cette règle : si la première ligne du fichier commence
+  par "#!", le shell s'attend à trouver le nom de l'interpréteur du script
+  juste derrière.
+
+Ajoutons des commentaires à notre script :
+
+  $ nl premier.sh
+       1  #! /bin/bash
+       2  #
+       3  # Voici mon premier script
+       4  # comportant des commentaires.
+       5  pwd      # Afficher le répertoire courant
+       6  cd /tmp  # Changement de répertoire
+       7  pwd      # 
+       8  ls       # Liste des fichiers du répertoire courant
+
+
 ------------------------------------------------------------------------------
 # vim: syntax=txt
