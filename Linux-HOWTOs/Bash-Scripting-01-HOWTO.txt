@@ -12,6 +12,7 @@ programmation shell.
   * La substitution de variables
   * La substitution de commandes
   * Les caractères de protection
+  * Écriture et lancement d'un script shell
 
 
 Les variables utilisateur
