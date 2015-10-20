@@ -1,0 +1,276 @@
+=======================
+Bash Scripting 01 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=======================
+
+Dernière révision : 20 octobre 2015
+
+Ce HOWTO présente les fonctionnalités qui composent les bases de la
+programmation shell.
+
+
+  * Les variables utilisateur
+  * Substitution de variables
+  * Substitution de commandes
+
+
+Les variables utilisateur
+-------------------------
+
+Le shell permet de définir ou redéfinir des variables qui conditionnent
+l'environnement de travail de l'utilisateur. Il est également possible de
+définir d'autres variables, dites variables utilisateur, qui vont permettre de
+stocker des informations qui seront nécessaires à l'exécution d'un script.
+
+Voici les règles à utiliser pour attribuer un nom à une variable :
+
+  * le premier caractère fait partie de l'ensemble [a-zA-Z_] ;
+
+  * les caractères suivants sont pris dans l'ensemble [a-zA-Z0-9_].
+
+Une variable est définie dès qu'elle est initialisée. Le contenu d'une
+variable est considéré par le shell comme une suite de caractères. 
+
+  $ var1=mot1
+  $ echo $var1
+  mot1
+
+  /!\ Il ne faut pas mettre d'espace autour du symbole d'affectation "=".
+
+Si l'on affecte une valeur contenant au moins un espace, il faut protéger ce
+dernier, étant donné que c'est un caractère spécial du shell (séparateur de
+mots sur la ligne de commande) :
+
+  $ var2='mot1 mot2 mot3'
+  $ echo $var2
+  mot1 mot2 mot3
+
+Une variable qui n'a jamais été initialisée est vide.
+
+  $ echo $var3
+
+La commande interne 'unset' permet de retirer la définition d'une variable.
+
+  $ var=12
+  $ echo $var
+  12
+  $ set | grep var
+  var=12
+  $ unset var
+  $ echo $var
+
+  $ set | grep var
+
+Il faut faire attention en concaténant le contenu d'une variable et d'une
+chaîne de caractères à ce que le shell interprète correctement le nom de la
+variable. Dans l'exemple ci-dessous, le caractère souligné "_" fait partie du
+nom de la première variable :
+
+  $ fic=resu
+  $ datejour=20151020
+  $ newfic=$fic_$datejour
+  $ echo $newfic
+  20151020
+
+Pour le shell, la première variable se nomme "fic_", puisque le caractère
+souligné "_" est autorisé à l'intérieur du nom d'une variable. Celle-ci est
+donc substituée par sa valeur (donc vide), puis concaténée avec le contenu de
+la variable "datejour". 
+
+Pour faire comprendre au shell quels sont les caractères qui font partie du
+nom de la variable, il faut entourer le nom de cette dernière avec des
+accolades { } :
+
+  $ fic=resu
+  $ datejour=20151020
+  $ newfic=${fic}_$datejour
+  $ echo $newfic
+  resu_20151020
+
+La commande interne 'typeset' permet de déclarer explicitement une variable
+comme étant un nombre entier. Cette déclaration est facultative, mais elle
+permet d'avoir un contrôle sur la valeur stockée et rend les calculs plus
+rapides. 
+
+  $ typeset -i nb=1
+  $ echo $nb
+  1
+
+
+Substitution de variables
+-------------------------
+
+Le shell offre la possibilité d'attribuer une valeur par défaut aux variables
+non initialisées ou, au contraire, initialisées.
+
+Expression ${variable:-valeur} :
+
+  - Si la variable n'est pas vide, l'expression est substituée par
+    "$variable".
+  
+  - Si la variable est vide, l'expression est substituée par "valeur".
+
+  $ fic=/tmp/kikinovak.log
+  $ echo "Le fichier traité sera : ${fic:-/tmp/default.log}."
+  Le fichier traité sera : /tmp/kikinovak.log.
+  $ unset fic
+  $ echo "Le fichier traité sera : ${fic:-/tmp/default.log}."
+  Le fichier traité sera : /tmp/default.log.
+  $ echo $fic
+
+Expression ${variable:=valeur} :
+
+  - Si la variable n'est pas vide, l'expression est substituée par
+    "$variable".
+  
+  - Si la variable est vide, "variable" est affectée avec "valeur", et
+    l'expression est substituée par "valeur".
+
+  $ fic=/tmp/kikinovak.log
+  $ echo "Le fichier traité sera : ${fic:=/tmp/default.log}."
+  Le fichier traité sera : /tmp/kikinovak.log.
+  $ unset fic
+  $ echo "Le fichier traité sera : ${fic:=/tmp/default.log}."
+  Le fichier traité sera : /tmp/default.log.
+  $ echo $fic
+  /tmp/default.log
+
+Expression ${variable:+valeur} :
+
+  - Si la variable n'est pas vide, l'expression est substituée par
+    "valeur".
+  
+  - Si la variable est vide, l'expression est substituée par "$variable", donc
+    vide.
+
+  $ a=1
+  $ echo "Expression : ${a:+99}"
+  Expression : 99
+  $ unset a
+  $ echo "Expression : ${a:+99}"
+  Expression : 
+
+Expression ${variable:?message} :
+
+  - Si la variable n'est pas vide, l'expression est substituée par
+    "$variable".
+  
+  - Si la variable est vide, le shell affiche le nom de la variable suivi de
+    la chaîne de caractères "message".
+
+  $ echo $var
+
+  $ echo ${var:?"non définie"}
+  -bash: var: non définie
+
+Message par défaut :
+
+  $ echo ${var:?}
+  -bash: var: parameter null or not set
+
+Définition de la variable :
+
+  $ var=définie
+  $ echo ${var:?"non définie"}
+  définie
+
+
+Substitution de commandes
+-------------------------
+
+Les caractères de substitution permettent de remplacer une commande par
+l'affichage résultant de son exécution. Ce mécanisme est utilisé pour insérer
+dans une ligne de commande Unix le résultat d'une autre commande. 
+
+Dans l'exemple qui suit, les commandes 'logname' et 'uname' sont remplacées
+par leur résultat avec l'exécution de la commande 'echo'.
+
+  $ echo Vous êtes l\'utilisateur `logname` sur la machine `uname -n`.
+  Vous êtes l'utilisateur kikinovak sur la machine alphamule.microlinux.lan.
+
+On préférera la syntaxe alternative :
+
+  $ echo Vous êtes l\'utilisateur $(logname) sur la machine $(uname -n).
+  Vous êtes l'utilisateur kikinovak sur la machine alphamule.microlinux.lan.
+
+Dans l'exemple qui suit, on initialise une variable "monuid" avec l'UID de
+l'utilisateur "kikinovak".
+
+  $ grep kikinovak /etc/passwd
+  kikinovak:x:1000:100:Niki Kovacs,,,:/home/kikinovak:/bin/bash
+  $ grep kikinovak /etc/passwd | cut -d: -f3
+  1000
+  $ monuid=$(grep kikinovak /etc/passwd | cut -d: -f3)
+  $ echo $monuid
+  1000
+
+
+Caractères de protection
+------------------------
+
+Les caractères de protection servent à faire perdre la signification des
+caractères spéciaux du shell. Il existe trois jeux de caractères ayant chacun
+leur fonctionnalité propre. 
+
+Les simples quotes (ou apostrophes) retirent la signification de tous les
+caractères spéciaux du shell. Les quotes doivent être en nombre pair sur une
+ligne de commande.
+
+  /!\ Les simples quotes ne se protègent pas elles-mêmes.
+
+La variable $HOME est substituée par sa valeur :
+
+  $ echo $HOME
+  /home/kikinovak
+
+Le caractère "$" perd sa signification spéciale :
+
+  $ echo '$HOME'
+  $HOME
+
+Le caractère "*" est substitué par les noms de fichier du répertoire :
+
+  $ echo *
+  f1 f2 fic fic1.txt FIC.c Fic.doc fIc.PDF
+
+Le caractère "*" perd sa signification spéciale :
+
+  $ echo '*'
+  *
+
+Le shell s'attend à trouver un nom de fichier derrière une redirection :
+
+  $ echo >
+  bash: Erreur de syntaxe près du symbole inattendu « newline »
+
+Le caractère ">" perd sa signification spéciale :
+
+  $ echo '>'
+  >
+
+Le shell exécute la commande 'logname' et la remplace par son résultat :
+
+  $ echo Bonjour $(logname)
+  Bonjour kikinovak
+
+La séquence de caractères "$( )" perd sa signification spéciale :
+
+  $ echo 'Bonjour $(logname)'
+  Bonjour $(logname)
+
+Protection de plusieurs caractères spéciaux :
+
+  $ echo '* ? > < >> << | $HOME $(logname) &'
+  * ? > < >> << | $HOME $(logname) &
+
+La quote ne se protège pas elle-même. Pour le shell, la commande n'est pas
+terminée. Il affichera le prompt secondaire (PS2) tant que les quotes seront
+en nombre impair :
+
+  $ echo 'La quote n'est pas protégée.'
+  > 
+
+
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
