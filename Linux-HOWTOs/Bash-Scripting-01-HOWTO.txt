@@ -9,8 +9,9 @@ programmation shell.
 
 
   * Les variables utilisateur
-  * Substitution de variables
-  * Substitution de commandes
+  * La substitution de variables
+  * La substitution de commandes
+  * Les caractères de protection
 
 
 Les variables utilisateur
@@ -96,8 +97,8 @@ rapides.
   1
 
 
-Substitution de variables
--------------------------
+La substitution de variables
+----------------------------
 
 Le shell offre la possibilité d'attribuer une valeur par défaut aux variables
 non initialisées ou, au contraire, initialisées.
@@ -174,8 +175,8 @@ Définition de la variable :
   définie
 
 
-Substitution de commandes
--------------------------
+La substitution de commandes
+----------------------------
 
 Les caractères de substitution permettent de remplacer une commande par
 l'affichage résultant de son exécution. Ce mécanisme est utilisé pour insérer
@@ -204,16 +205,20 @@ l'utilisateur "kikinovak".
   1000
 
 
-Caractères de protection
-------------------------
+Les caractères de protection
+----------------------------
 
 Les caractères de protection servent à faire perdre la signification des
 caractères spéciaux du shell. Il existe trois jeux de caractères ayant chacun
-leur fonctionnalité propre. 
+leur fonctionnalité propre :
+
+  * les simples quotes ' '
+  * l'antislash \
+  * les guillemets " "
 
 Les simples quotes (ou apostrophes) retirent la signification de tous les
 caractères spéciaux du shell. Les quotes doivent être en nombre pair sur une
-ligne de commande.
+ligne de commande. Quelques exemples ci-dessous.
 
   /!\ Les simples quotes ne se protègent pas elles-mêmes.
 
@@ -269,7 +274,41 @@ en nombre impair :
   $ echo 'La quote n'est pas protégée.'
   > 
 
+Le caractère antislash "\" retire la signification spéciale du caractère qui
+le suit. Là encore, quelques exemples.
 
+Les caractères "*" et "$" deviennent des caractères ordinaires :
+
+  $ echo Voici une \* et une variable \$HOME.
+  Voici une * et une variable $HOME.
+
+L'antislash se protège de lui-même :
+
+  $ echo \\
+  \
+
+L'antislah retire la signification spéciale de la quote :
+
+  $ echo L\'antislash protège la quote.
+  L'antislash protège la quote.
+
+Le premier antislash protège le deuxième, le troisième protège le "$" :
+
+  $ echo \\\$HOME
+  \$HOME
+
+Enfin, les guillemets " " retirent la signification de tous les caractères
+spéciaux du shell sauf "$", "` `" et "$( )", "\" et lui-même. 
+
+  $ echo "> et | sont protégés par les guillemets, la valeur de $HOME est \
+  substituée, la commande $(logname) est exécutée, l'antislash protège le \
+  caractère suivant, ce qui permet d'afficher un \"."
+  > et | sont protégés par les guillemets, la valeur de /home/kikinovak est
+  substituée, la commande kikinovak est exécutée, l'antislash protège le
+  caractère suivant, ce qui permet d'afficher un ".
+
+En pratique, il est fréquent d'encadrer les arguments de la commande 'echo'
+avec des guillemets.
 
 
 ------------------------------------------------------------------------------
