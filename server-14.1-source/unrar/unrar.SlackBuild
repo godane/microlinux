@@ -26,7 +26,7 @@
 
 PRGNAM=unrar
 SRCNAM=unrarsrc
-VERSION=${VERSION:-5.0.13}
+VERSION=${VERSION:-5.2.6}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -61,7 +61,7 @@ fi
 
 set -e
 
-DOWNLOAD="http://www.rarlab.com/rar/$SRCNAM-$VERSION.tar.gz"
+DOWNLOAD="ftp://ftp.rarlab.com/rar/$SRCNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
