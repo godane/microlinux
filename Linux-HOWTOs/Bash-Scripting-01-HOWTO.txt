@@ -2,7 +2,7 @@
 Bash Scripting 01 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =======================
 
-Dernière révision : 20 octobre 2015
+Dernière révision : 21 octobre 2015
 
 Ce HOWTO présente les fonctionnalités qui composent les bases de la
 programmation shell.
@@ -13,6 +13,8 @@ programmation shell.
   * La substitution de commandes
   * Les caractères de protection
   * Écriture et lancement d'un script shell
+  * Variables réservées du shell
+  * Lecture au clavier
 
 
 Les variables utilisateur
@@ -407,6 +409,356 @@ Ajoutons des commentaires à notre script :
        6  cd /tmp  # Changement de répertoire
        7  pwd      # 
        8  ls       # Liste des fichiers du répertoire courant
+
+
+Variables réservées du shell
+----------------------------
+
+Dans un script, un certain nombre de variables réservées sont accessibles en
+lecture. Ces variables sont initialisées par le shell et véhiculent des
+informations de nature diverse. 
+
+Les scripts shell sont capables de récupérer les arguments passés sur la ligne
+de commande à l'aide de variables spéciales nommés "paramètres positionnels". 
+
+  - $# représente le nombre d'arguments reçus par le script ;
+
+  - $0 représente le nom du script ;
+
+  - $1 représente la valeur du premier argument, $2 la valeur du deuxième, et
+    ainsi de suite jusqu'à $9 ;
+
+  - $* et $@ représentent la liste de tous les arguments.
+
+Voici un exemple de script qui affiche la valeur de chaque paramètre
+positionnel.
+
+  $ nl monscript.sh
+       1  #!/bin/bash
+       2  echo "Ce script a reçu $# arguments."
+       3  echo "Le nom du script est       : $0"
+       4  echo "Mon premier argument est   : $1"
+       5  echo "Mon deuxième argument est  : $2"
+       6  echo "Mon troisième argument est : $3"
+       7  echo "Voici la liste de tous mes arguments : $*"
+
+Appel de 'monscript.sh' avec six arguments :
+
+  $ ./monscript.sh f1 f2 f3 f4 /tmp/fic.txt 123
+  Ce script a reçu 6 arguments.
+  Le nom du script est       : ./monscript.sh
+  Mon premier argument est   : f1
+  Mon deuxième argument est  : f2
+  Mon troisième argument est : f3
+  Voici la liste de tous mes arguments : f1 f2 f3 f4 /tmp/fic.txt 123
+
+Appel de 'monscript.sh' avec trois arguments :
+
+  $ ./monscript.sh 12 + 24
+  Ce script a reçu 3 arguments.
+  Le nom du script est       : ./monscript.sh
+  Mon premier argument est   : 12
+  Mon deuxième argument est  : +
+  Mon troisième argument est : 24
+  Voici la liste de tous mes arguments : 12 + 24
+
+  /!\ Les arguments de la ligne de commande doivent être séparés les uns des
+  autres par au moins un espace ou une tabulation.
+
+La commande 'shift' permet de décaler la liste des arguments d'une ou de
+plusieurs positions vers la gauche.
+
+Dans l'exemple ci-dessous, le script 'decal.sh' est censé recevoir en premier
+argument le nom d'un répertoire puis, à partir du deuxième argument, un nombre
+quelconque de noms de fichiers. Dans le contexte de ce programme, le premier
+argument ne subira pas le même traitement que les suivants. Le nom du
+répertoire est sauvegardé dans une variable, puis la commande 'shift' fait
+sortir le nom du répertoire. Ceci permet de récupérer dans la variable $*
+uniquement la liste des fichiers, qui pourra être traitée ultérieurement dans
+une boucle. 
+
+  $ nl decal.sh
+       1  #!/bin/bash
+       2  # 
+       3  # Affichage des variables avant décalage
+       4  echo "### Avant shift ###"
+       5  echo "1er  argument : $1"
+       6  echo "2ème argument : $2"
+       7  echo "3ème argument : $3"
+       8  echo "4ème argument : $4"
+       9  echo "Tous les arguments : $*"
+      10  echo -e "Nombre d'arguments : $#\n"
+      11  # Sauvegarde du premier argument dans la variable rep
+      12  rep=$1
+      13  # Décalage d'un cran à gauche
+      14  shift
+      15  # Affichage des variables après décalage
+      16  echo "### Après shift ###"
+      17  echo "1er  argument : $1"
+      18  echo "2ème argument : $2"
+      19  echo "3ème argument : $3"
+      20  echo "4ème argument : $4"
+      21  echo "Tous les arguments : $*"
+      22  echo -e "Nombre d'arguments : $#\n"
+      23  # Changement de répertoire
+      24  cd $rep
+      25  # Traitement de chaque fichier contenu dans $*
+      26  for fic in $*
+      27  do
+      28    echo "Sauvegarde de $fic..."
+      29  done
+
+Lancement du script :
+
+  $ chmod u+x decal.sh
+  $ ./decal.sh /tmp f1 f2 f3 f4 f5 f6
+  ### Avant shift ###
+  1er  argument : /tmp
+  2ème argument : f1
+  3ème argument : f2
+  4ème argument : f3
+  Tous les arguments : /tmp f1 f2 f3 f4 f5 f6
+  Nombre d'arguments : 7
+
+  ### Après shift ###
+  1er  argument : f1
+  2ème argument : f2
+  3ème argument : f3
+  4ème argument : f4
+  Tous les arguments : f1 f2 f3 f4 f5 f6
+  Nombre d'arguments : 6
+
+  Sauvegarde de f1...
+  Sauvegarde de f2...
+  Sauvegarde de f3...
+  Sauvegarde de f4...
+  Sauvegarde de f5...
+
+Toutes les commandes Unix retournent un code d'erreur. Ce dernier est un
+entier compris entre 0 et 255. Du point de vue du shell, 0 représente la
+valeur "vrai" (succès de la commande), toute valeur supérieure à 0 représente
+la valeur "faux" (échec de la commande). Le code d'erreur de la dernière
+commande exécutée est contenu dans la variable spéciale $?.
+
+Dans l'exemple qui suit, la commande 'grep' retourne "vrai" lorsque la chaîne
+recherchée est trouvée, et "faux" dans le cas contraire.
+
+  $ grep kikinovak /etc/passwd
+  kikinovak:x:1000:100:Niki Kovacs,,,:/home/kikinovak:/bin/bash
+  $ echo $?
+  0
+  $ grep zorglub /etc/passwd
+  $ echo $?
+  1
+
+À l'intérieur d'un script shell, le test du code de retour d'une commande
+permet d'orienter le flux d'exécution. 
+
+Un script shell est une commande, il doit donc lui aussi retourner un code. La
+commande 'exit' permet de terminer un script tout en renvoyant un code
+d'erreur :
+
+  ...
+  exit 0 # Terminaison du script avec renvoi du code 0 (succès)
+  
+Ou bien :
+
+  ...
+  exit 1 # Terminaison du script avec renvoi du code 1 (échec)
+
+La variable spéciale $$ représente le PID du shell qui interprète le script.
+Cette variable garde une valeur constante pendant toute la durée d'exécution
+du script.
+
+Dans l'exemple qui suit, le script 'trouve.sh' crée un fichier résultat qui
+porte un nom différent à chaque fois que le script est lancé. Le script prend
+deux arguments : un nom de répertoire et un nom de fichier. 
+
+  $ nl trouve.sh 
+       1  #!/bin/bash
+       2  ficresu=/tmp/atrouve.$$
+       3  find "$1" -name "$2" 2> /dev/null 1> $ficresu
+       4  echo "Contenu du fichier $ficresu : "
+       5  more $ficresu
+
+Premier exemple d'exécution du script :
+
+  $ chmod u+x trouve.sh 
+  $ ./trouve.sh / passwd
+  Contenu du fichier /tmp/atrouve.821 : 
+  /boot/initrd-tree/bin/passwd
+  /boot/initrd-tree/etc/passwd
+  /usr/bin/passwd
+  /etc/passwd
+
+Deuxième exemple d'exécution du script :
+
+  $ ./trouve.sh /bin/ g*
+  Contenu du fichier /tmp/atrouve.825 : 
+  /bin/gzexe
+  /bin/gzip
+  /bin/getopt
+  /bin/ginstall
+  /bin/gawk-4.1.0
+  /bin/gunzip
+  /bin/gawk
+  /bin/grep
+  /bin/groups
+
+Chaque nouvelle exécution du script génère donc un fichier résultat portant un
+nom unique :
+
+  $ ls -l /tmp/atrouve*
+  -rw-r--r-- 1 kikinovak users  86 oct.  21 09:30 /tmp/atrouve.821
+  -rw-r--r-- 1 kikinovak users 107 oct.  21 09:30 /tmp/atrouve.825
+
+Il est tout à fait possible de lancer une commande en arrière-plan à partir
+d'un script. Le PID de cette commande est alors stocké dans la variable
+spéciale $!.
+
+  $ nl arriereplan.sh 
+       1  #!/bin/bash
+       2  find / -name "$1" 1> /tmp/res 2> /dev/null &
+       3  date
+       4  echo "*********************************"
+       5  echo "Résultat de la commande ps :"
+       6  ps
+       7  echo "*********************************"
+       8  echo "PID de find : $!"
+       9  exit 0
+
+Et voilà ce que donne le lancement d'une commande en arrière-plan à partir d'un
+script shell :
+
+  $ ./arriereplan.sh passwd
+  mer. oct. 21 09:40:12 CEST 2015
+  *********************************
+  Résultat de la commande ps :
+    PID TTY          TIME CMD
+    771 pts/0    00:00:00 bash
+    838 pts/0    00:00:00 arriereplan.sh
+    839 pts/0    00:00:00 find
+    841 pts/0    00:00:00 ps
+  *********************************
+  PID de find : 839
+
+
+Lecture au clavier
+------------------
+
+La commande 'read' lit son entrée standard et affecte les mots saisis dans la
+ou les variable(s) dont le nom est passé en argument. La liste des caractères
+séparateurs de mots utilisés par 'read' est stockée dans la variable
+d'environnement IFS, qui contient par défaut les caractères espace, tabulation
+(\t) et saut de ligne (\n). 
+
+Le mot saisi est stocké dans la variable "var1" :
+
+  $ read var1
+  Bonjour
+  $ echo $var1
+  Bonjour
+
+Tous les mots saisis sont stockés dans la variable "var1" :
+
+  $ read var1
+  Bonjour tout le monde !
+  $ echo $var1
+  Bonjour tout le monde !
+
+Le premier mot est stocké dans "var1", le deuxième dans "var2" :
+
+  $ read var1 var2
+  Au revoir
+  $ echo $var1
+  Au
+  $ echo $var2
+  revoir
+
+Le premier mot est stocké dans "var1" et tout le reste dans "var2" :
+
+  $ read var1 var2
+  Au revoir tout le monde !
+  $ echo $var1
+  Au
+  $ echo $var2
+  revoir tout le monde !
+
+Le mot est stocké dans "var1", et "var2" est vide :
+
+  $ read var1 var2
+  Merci
+  $ echo $var1
+  Merci
+  $ echo $var2
+
+La commande 'read' renvoie un code "vrai" (0) si elle ne reçoit pas
+l'information "fin de fichier" ([Ctrl]+[D]).
+
+  $ read var
+  Voici ma saisie
+  $ echo $?
+  0
+  $ echo $var
+  Voici ma saisie
+
+Si l'utilisateur tape immédiatement sur la touche [Entrée], il a saisi la
+chaîne vide. La variable est vide mais le code est "vrai" (0) :
+
+  $ read var
+  [Entrée]
+  $ echo $?
+  0
+  $ echo $var
+
+Si l'utilisateur appuie sur la combinaison de touches [Ctrl]+[D], il envoie
+l'information "fin de fichier" à la commande. La variable est vide et le code
+est "faux" (1) :
+
+  $ read var
+  [Ctrl]+[D]
+  $ echo $?
+  1
+  $ echo $var
+
+La variable IFS contient par défaut les caractères espace, tabulation (\t) et
+saut de ligne (\n). La commande 'od' ("octal dump") permet de voir la valeur
+de chaque octet contenu dans IFS. Le caractère "\c" permet de ne pas récupérer
+dans le tube le saut de ligne de la commande 'echo' :
+
+  $ echo "$IFS\c" | od -c
+  0000000      \t  \n   \   c  \n
+  0000006
+
+Le contenu de la variable IFS peut être modifié. Dans l'exemple qui suit, on
+va commencer par sauvegarder la valeur actuelle de IFS pour une restauration
+ultériere :
+
+  $ OLDIFS="$IFS"
+
+Modification de IFS :
+
+  $ IFS=":"
+
+Le caractère "espace" redevient un caractère normal, tandis que le caractère
+":" devient le séparateur de mots :
+
+  $ read var1 var2 var3
+  mot1:mot2 mot3:mot4
+  $ echo $var1
+  mot1
+  $ echo $var2
+  mot2 mot3
+  $ echo $var3
+  mot4
+
+Restauration de la valeur initiale de IFS :
+
+  $ IFS="$OLDIFS"
+
+  /!\ Les expressions "$IFS" et "$OLDIFS" doivent obligatoirement être placées
+  entre guillemets " " pour que les caractères internes ne soient pas
+  interprétés par le shell.
 
 
 ------------------------------------------------------------------------------
