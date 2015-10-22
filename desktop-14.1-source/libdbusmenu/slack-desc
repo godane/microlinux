@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+libdbusmenu: libdbusmenu (library for passing menus over DBus)
+libdbusmenu:
+libdbusmenu: libdbusmenu passes a menu structure across DBus so that a program can 
+libdbusmenu: create a menu simply without worrying about how it is displayed on 
+libdbusmenu: the other side of the bus.
+libdbusmenu:
+libdbusmenu: 
+libdbusmenu:
+libdbusmenu:
+libdbusmenu:
+libdbusmenu: Package created by Niki Kovacs <info@microlinux.fr>
