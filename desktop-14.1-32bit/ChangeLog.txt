@@ -5,6 +5,7 @@ libwnck3-3.4.9-i486-1_microlinux.txz: Added.
 libgtop-2.28.5-i486-1_microlinux.txz: Added.
 json-glib-0.14.2-i486-1_microlinux.txz: Added.
 libdbusmenu-12.10.2-i486-1_microlinux.txz: Added.
+bamf-0.5.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sat Oct 10 09:48:38 CEST 2015
 x264-20150223-i486-2_microlinux.txz: Rebuilt.
