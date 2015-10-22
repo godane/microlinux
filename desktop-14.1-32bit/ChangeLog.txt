@@ -2,6 +2,7 @@ Thu Oct 22 14:58:21 CEST 2015
 vala-0.28.0-i486-1_microlinux.txz: Added.
 libgee-0.16.1-i486-1_microlinux.txz: Added.
 libwnck3-3.4.9-i486-1_microlinux.txz: Added.
+libgtop-2.28.5-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sat Oct 10 09:48:38 CEST 2015
 x264-20150223-i486-2_microlinux.txz: Rebuilt.
