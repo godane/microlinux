@@ -9,6 +9,7 @@ la programmation shell.
 
 
   * Exécution de tests
+  * Les opérateurs du shell
 
 
 Exécution de tests
@@ -255,6 +256,201 @@ Avec trois arguments :
 
   $ ./testarg.sh fichier1 fichier2 fichier3
   Usage: ./testarg.sh arg1 arg2
+
+La commande '[[ ]]' est une version enrichie de la commande 'test'. Les
+opérateurs présentés ci-dessus sont toujours valables, à l'exception de '-a'
+et '-o'. Entre autres choses, la commande permet de travailler avec les
+expressions complexes.
+
+Le script ci-dessous teste si la valeur saisie est un nombre :
+
+  $ nl test_nombre.sh
+       1  #!/bin/bash
+       2  #
+       3  # Script pour tester si la valeur saisie est un nombre
+       4  #
+       5  echo -e "Entrez un nombre : \c"
+       6  read nombre
+         
+       7  # Activer les expressions complexes
+       8  shopt -s extglob
+         
+       9  # On teste si le nombre est composé d'une suite de chiffres éventuellement
+      10  # précédée d'un signe + ou -
+         
+      11  if [[ $nombre = ?([+-])+([0-9]) ]]; then
+      12    echo "$nombre est un nombre."
+      13    exit 0
+      14  fi
+         
+      15  echo "$nombre n'est pas un nombre."
+      16  exit 1
+
+Exécution du script :
+
+  $ ./test_nombre.sh 
+  Entrez un nombre : 456
+  456 est un nombre.
+  $ ./test_nombre.sh 
+  Entrez un nombre : +456
+  +456 est un nombre.
+  $ ./test_nombre.sh 
+  Entrez un nombre : -456
+  -456 est un nombre.
+  $ ./test_nombre.sh 
+  Entrez un nombre : 78*
+  78* n'est pas un nombre.
+  $ ./test_nombre.sh 
+  Entrez un nombre : az78
+
+
+Les opérateurs du shell
+-----------------------
+
+Ces opérateurs permettent d'exécuter une commande - ou de ne pas l'exécuter -
+en fonction du code retour d'une autre commande. 
+
+  +-----------+----------------+
+  | Opérateur |  Signification |
+  +-----------+----------------+
+  |    &&     |  ET logique    |
+  |    ||     |  OU logique    |
+  +-----------+----------------+
+
+Dans l'exemple ci-dessous, la deuxième commande est exécutée uniquement si la
+première renvoie un code 0 (vrai). L'expression globale est vraie si les deux
+commandes renvoient 0 (vrai) :
+
+  $ commande1 && commande2
+
+Le répertoire '/tmp/svg' n'existe pas, la commande 'cd' n'est donc pas
+exécutée :
+
+  $ ls -d /tmp/svg
+  ls: impossible d'accéder à /tmp/svg: Aucun fichier ou dossier de ce type
+  $ pwd
+  /home/kikinovak
+  $ [[ -d /tmp/svg ]] && cd /tmp/svg
+  $ echo $?
+  1
+  $ pwd
+  /home/kikinovak
+
+Le répertoire '/tmp/svg' existe, la commande 'cd' est donc exécutée :
+
+  $ mkdir -v /tmp/svg
+  mkdir: création du répertoire « /tmp/svg »
+  $ pwd
+  /home/kikinovak
+  $ [[ -d /tmp/svg ]] && cd /tmp/svg
+  $ pwd
+  /tmp/svg
+
+Cette action peut également être implémentée avec la structure de contrôle
+'if' :
+
+  $ ls -d /tmp/svg/
+  /tmp/svg/
+  $ if [[ -d /tmp/svg ]]; then
+  > cd /tmp/svg
+  > fi
+  $ pwd
+  /tmp/svg
+
+Dans l'exemple ci-dessous, la deuxième commande est exécutée uniquement si la
+première renvoie un code 1 (faux). L'expression globale est vraie si au moins
+l'une des deux commandes renvoie 0 (vrai) :
+
+  $ commande1 || commande2
+
+Le répertoire '/tmp/svg' n'existe pas, la commande 'echo' est donc exécutée :
+
+  $ ls -d /tmp/svg
+  ls: impossible d'accéder à /tmp/svg: Aucun fichier ou dossier de ce type
+  $ [[ -d /tmp/svg ]] || echo "Le répertoire /tmp/svg n'existe pas."
+  Le répertoire /tmp/svg n'existe pas.
+
+Le répertoire '/tmp/svg' existe, la commande 'echo' n'est donc pas exécutée :
+
+  $ mkdir -v /tmp/svg
+  mkdir: création du répertoire « /tmp/svg »
+  $ [[ -d /tmp/svg ]] || echo "Le répertoire /tmp/svg n'existe pas."
+
+Cette action peut également être implémentée avec la structure de contrôle
+'if' :
+
+  $ ls -d /tmp/svg
+  ls: impossible d'accéder à /tmp/svg: Aucun fichier ou dossier de ce type
+  $ if [[ ! -d /tmp/svg ]]
+  > then
+  > echo "Le répertoire /tmp/svg n'existe pas."
+  > fi
+  Le répertoire /tmp/svg n'existe pas.
+
+
+Arithmétique
+------------
+
+Le shell permet nativement de réaliser des calculs avec les nombres entiers,
+grâce à la commande 'expr'. Certains opérateurs sont fabriqués avec des
+caractères ayant une signification spéciale pour le shell. Ils doivent être
+précédés d'un antislash "\" pour éviter d'être interprétés. 
+
+  $ expr nombre1 <opérateur> nombre2
+
+Quelques exemples :
+
+  $ expr 4 + 7
+  11
+  $ expr 4 - 7
+  -3
+  $ expr 7 \* 8
+  56
+  $ expr 10 / 2
+  5
+
+Rien ne nous empêche d'utiliser des variables :
+
+  $ x=5
+  $ expr $x + 6
+  11
+
+On peut même récupérer le résultat de la commande dans une variable :
+
+  $ resultat=$(expr $x + 6)
+  $ echo $resultat
+  11
+
+Regroupement d'expressions :
+
+  $ y=2
+  $ resultat=$(expr $y \* 3 + 1)
+  $ echo $resultat
+  7
+  $ resultat=$(expr $y \* \( 3 + 1 \))
+  $ echo $resultat
+  8
+
+Le script suivant compare deux nombres. L'affichage de la commande 'expr'
+n'est pas exploité, la sortie standard est donc redirigée vers '/dev/null'.
+
+  $ nl plusgrandque.sh
+       1  #!/bin/bash
+       2  #
+       3  # Test du nombre d'arguments
+       4  if [[ $# -ne 2 ]]; then
+       5    echo "Mauvais nombre d'arguments..."
+       6    echo "Usage : $0 nombre1 nombre2"
+       7    exit 1
+       8  fi
+         
+       9  # Comparer nombre1 et nombre2 avec expr
+      10  if expr $1 \> $2 > /dev/null; then
+      11    echo "$1 est plus grand que $2."
+      12  fi
+
+  $ ./plusgrandque.sh 45 23
+  45 est plus grand que 23.
 
 
 ------------------------------------------------------------------------------
