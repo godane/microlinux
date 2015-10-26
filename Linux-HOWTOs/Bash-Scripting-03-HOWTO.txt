@@ -1,0 +1,131 @@
+=======================
+Bash Scripting 03 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=======================
+
+Dernière révision : 26 octobre 2015
+
+Voici la troisième partie du HOWTO qui présente les fonctionnalités de base de
+la programmation shell.
+
+
+  * La structure de contrôle 'if'
+
+
+La structure de contrôle 'if'
+-----------------------------
+
+La structure de contrôle 'if' permet de réaliser des tests. La commande
+derrière le mot 'if' est exécutée. En fonction du code renvoyé par celle-ci,
+le shell oriente le flux d'exécution dans la partie 'then' si la commande a
+renvoyé 0 (vrai), dans la partie 'else' si la commande a renvoyé 1 (faux). Si
+la commande renvoie 1 (faux) et qu'il n'y a pas de partie 'else', le flux
+d'exécution se poursuit à la première commande située sous le 'fi'. 
+
+Première syntaxe :
+
+  if commande1
+  then
+    commande2
+    commande3
+    ...
+  else
+    commande4
+    ...
+  fi
+
+Le mot clé 'then' peut être placé sur la première ligne à condition d'utiliser
+un point-virgule ";" pour le séparer de la commande :
+
+  if commande1; then
+    commande2
+    commande3
+    ...
+  else
+    commande4
+    ...
+  fi
+
+La partie 'else' est factultative :
+
+  if commande1; then
+    commande2
+    commande3
+    ...
+  fi
+
+Il est possible d'utiliser le mot clé 'elif' qui signifie "sinon si" :
+
+  if commande1; then
+    commande2
+  elif commande3; then
+    commande4
+  elif commande5; then
+    commande6
+  fi
+
+Le script 'exist_user.sh' reçoit en argument un nom d'utilisateur. Le script
+affiche à l'écran si l'utilisateur est défini ou non sur le système.
+
+$ nl exist_user.sh
+     1  #!/bin/bash
+     2  if [ $# -ne 1 ]; then
+     3    echo "Mauvais nombre d'arguments."
+     4    echo "Usage : $0 nom_user"
+     5    exit 1
+     6  fi
+     7  if grep -q "^$1:" /etc/passwd; then
+     8    echo "L'utilisateur $1 est défini sur le système."
+     9  else
+    10    echo "L'utilisateur $1 n'est pas défini sur le système."
+    11  fi
+
+Exécution du script :
+
+  $ ./exist_user.sh ftp
+  L'utilisateur ftp est défini sur le système.
+  $ ./exist_user.sh kikinovak
+  L'utilisateur kikinovak est défini sur le système.
+  $ ./exist_user.sh jktartempion
+  L'utilisateur jktartempion n'est pas défini sur le système.
+
+Le script 'codepos.sh' demande à l'utilisateur de saisir un code postal et
+teste si ce dernier est valide.
+
+  $ nl codepos.sh
+       1  #!/bin/bash
+       2  #
+       3  # Script pour tester la validité d'un code postal
+       4  echo -e "Entrez un code postal : \c"
+       5  read cp
+       6  if [[ $cp = 75[0-9][0-9][0-9] ]]; then
+       7    echo "$cp est un code postal parisien."
+       8  elif [[ $cp = @(7[78]|9[1-5])[0-9][0-9][0-9] ]]; then
+       9    echo "$cp est un code postal de la région parisienne."
+      10  elif [[ $cp = @([0-9][0-9][0-9][0-9][0-9]) ]]; then
+      11    echo "$cp est un code postal de province (Métropole)."
+      12  else
+      13    echo "$cp n'est pas un code postal de France Métropolitaine."
+      14  fi
+      15  exit 0
+
+Exécution :
+
+  $ ./codepos.sh
+  Entrez un code postal : 75020
+  75020 est un code postal parisien.
+  $ ./codepos.sh
+  Entrez un code postal : 95851
+  95851 est un code postal de la région parisienne.
+  $ ./codepos.sh
+  Entrez un code postal : 89000
+  89000 est un code postal de province (Métropole).
+  $ ./codepos.sh
+  Entrez un code postal : 789659
+  789659 n'est pas un code postal de France Métropolitaine.
+  $ ./codepos.sh
+  Entrez un code postal : asdf45
+  asdf45 n'est pas un code postal de France Métropolitaine.
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
