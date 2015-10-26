@@ -2,7 +2,7 @@
 Bash Scripting 02 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =======================
 
-Dernière révision : 22 octobre 2015
+Dernière révision : 26 octobre 2015
 
 Voici la deuxième partie du HOWTO qui présente les fonctionnalités de base de
 la programmation shell.
