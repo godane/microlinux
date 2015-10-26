@@ -1,0 +1,42 @@
+================
+Disk Check HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+================
+
+Dernière révision : 26 octobre 2015
+
+Ce HOWTO permet de vérifier la santé matérielle d'un disque dur.
+
+
+De temps en temps, il arrive qu'un client m'amène une machine équipée de
+Microsoft Windows, et qui ne démarre plus. À première vue, pas moyen de savoir
+si le système a été victime d'un virus ou d'un simple dégât matériel, comme
+par exemple un disque dur qui lache après un choc physique. 
+
+La première chose à faire dans ce cas, c'est de tester le disque dur de la
+machine pour son intégrité mécanique. Dans la floppée d'outils de diagnostic,
+j'ai choisi l'outil 'badblocks'. 
+
+Le LiveCD Slax (https://www.slax.org) contient l'utilitaire 'badblocks'.
+Démarrer sur ce LiveCD, ouvrir une console et lancer la vérification :
+
+  # badblocks -v -s /dev/sda
+
+  > L'option '-v' active le mode "bavard".
+
+  > L'option '-s' affiche une estimation du pourcentage effectué.
+
+Pour être sûr, on peut effectuer plusieurs passes grâce à l'option '-p'. Dans
+l'exemple ci-dessous, on effectue trois passes :
+
+  # badblocks -v -s -p 3 /dev/sda
+
+Enfin, l'option '-w' permet d'effectuer des tests en écriture :
+
+  # badblocks -v -w -s -p 3 /dev/sda
+
+  /!\ Attention, cette option est destructive, il ne faut donc surtout pas
+  l'utiliser sur un système en production !!!
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
