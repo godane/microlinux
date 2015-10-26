@@ -17,26 +17,42 @@ machine pour son intégrité mécanique. Dans la floppée d'outils de diagnostic
 j'ai choisi l'outil 'badblocks'. 
 
 Le LiveCD Slax (https://www.slax.org) contient l'utilitaire 'badblocks'.
-Démarrer sur ce LiveCD, ouvrir une console et lancer la vérification :
+Démarrer sur ce LiveCD en mode console et lancer la vérification :
 
   # badblocks -v -s /dev/sda
+  Checking blocks 0 to 78124999
+  Checking for bad blocks (read-only test): done                                                 
+  Pass completed, 0 bad blocks found. (0/0/0 errors)
 
   > L'option '-v' active le mode "bavard".
 
   > L'option '-s' affiche une estimation du pourcentage effectué.
 
 Pour être sûr, on peut effectuer plusieurs passes grâce à l'option '-p'. Dans
-l'exemple ci-dessous, on effectue trois passes :
+l'exemple ci-dessous, on effectue deux passes :
 
-  # badblocks -v -s -p 3 /dev/sda
+  # badblocks -v -s -p 2 /dev/sda
+  Checking blocks 0 to 78124999
+  Checking for bad blocks (read-only test): done                                                 
+  Pass completed, 0 bad blocks found. (0/0/0 errors)
+  Checking blocks 0 to 78124999
+  Checking for bad blocks (read-only test): done                                                 
+  Pass completed, 0 bad blocks found. (0/0/0 errors)
 
-Enfin, l'option '-w' permet d'effectuer des tests en écriture :
+Enfin, l'option '-w' permet d'effectuer des tests en écriture. Attention,
+cette option est destructive, il ne faut donc surtout pas l'utiliser sur un
+système en production !
 
-  # badblocks -v -w -s -p 3 /dev/sda
-
-  /!\ Attention, cette option est destructive, il ne faut donc surtout pas
-  l'utiliser sur un système en production !!!
-
+  # badblocks -v -w -s -p 2 /dev/sda
+  Checking for bad blocks in read-write mode
+  From block 0 to 78124999
+  Testing with pattern 0xaa: done                                                 
+  Reading and comparing: done                                                 
+  Testing with pattern 0x55: done                                                 
+  Reading and comparing: done                                                 
+  Testing with pattern 0xff: done                                                 
+  Reading and comparing: done   
+  ...
 
 ------------------------------------------------------------------------------
 # vim: syntax=txt
