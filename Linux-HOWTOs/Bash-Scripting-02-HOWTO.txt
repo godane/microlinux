@@ -10,6 +10,8 @@ la programmation shell.
 
   * Exécution de tests
   * Les opérateurs du shell
+  * Arithmétique
+  * Mise au point d'un script
 
 
 Exécution de tests
@@ -451,6 +453,206 @@ n'est pas exploité, la sortie standard est donc redirigée vers '/dev/null'.
 
   $ ./plusgrandque.sh 45 23
   45 est plus grand que 23.
+
+La commande '(( ))' présente des avantages sur la commande 'expr' :
+
+  - Elle dispose de nombreux opérateurs ;
+
+  - Les arguments n'ont pas besoin d'être séparés par des espaces ;
+
+  - Les variables n'ont pas besoin d'être préfixées par "$" ;
+
+  - Les caractères spéciaux du shell n'ont pas besoin d'être protégés ;
+
+  - Les affectations se font dans la commande ;
+
+  - Son exécution est plus rapide.
+
+Voici une liste non exhaustive des opérateurs de la commande '(( ))'.
+
+  +------------+---------------------+
+  | Opérateur  |    Signification    |
+  +------------+---------------------+
+  | nb1 + nb2  | Addition            |
+  | nb1 - nb2  | Soustraction        |
+  | nb1 * nb2  | Multiplication      |
+  | nb1 / nb2  | Division            |
+  | nb1 % nb2  | Modulo              |
+  | nb1 ++     | Incrémente nb1 de 1 |
+  | nb1 --     | Décrémente nb1 de 1 |
+  | nb1 > nb2  | Vrai si nb1 > nb2   |
+  | nb1 < nb2  | Vrai si nb1 < nb2   |
+  | nb1 == nb2 | Vrai si nb1 = nb2   |
+  | nb1 != nb2 | Vrai si nb1 != nb2  |
+  +------------+---------------------+
+
+Dans l'exemple ci-dessous, on ajoute 10 à la variable "x" :
+
+  $ x=10
+  $ (( x = $x + 10 ))
+  $ echo $x
+  20
+
+Les espaces ne sont pas obligatoires :
+
+  $ ((x=$x+10))
+  $ echo $x
+  30
+
+Le symbole "$" peut être omis :
+
+  $ ((x=x+10))
+  $ echo $x
+  40
+
+Encore une autre écriture :
+
+  $ ((x+=10))
+  $ echo $x
+  50
+
+Le script 'egal.sh' indique si deux nombres sont égaux.
+
+  $ nl egal.sh 
+       1  #!/bin/bash
+       2  #
+       3  # Un script qui indique si deux nombres sont égaux
+       4  #
+       5  # Comparer $1 et $2 avec (( ))
+       6  if (( $1 == $2 )); then
+       7    echo "$1 et $2 sont égaux."
+       8  else
+       9    echo "$1 et $2 sont différents."
+      10  fi
+
+Exécution du script :
+
+  $ ./egal.sh 46 6
+  46 et 6 sont différents.
+  $ ./egal.sh 6 6
+  6 et 6 sont égaux.
+
+La commande 'let "expression"' est égale à '((expression))'.
+
+  $ x=10
+  $ let "x = x + 10"
+  $ echo $x
+  20
+
+La commande 'bc' ("basic calculator") permet d'effectuer des calculs sur les
+flottants.
+
+  $ ht=153
+  $ tva=0.196
+  $ echo "$ht * $tva"
+  153 * 0.196
+  $ echo "$ht * $tva" | bc
+  29.988
+
+Il est également possible d'utiliser la commande 'awk' pour les calculs sur
+les flottants :
+
+  $ echo "$ht $tva" | awk '{print $1 * $2}'
+  29.988
+
+La même chose avec un formatage :
+
+  $ echo "$ht $tva" | awk '{printf("%.2f\n", $1 * $2)}'
+  29.99
+
+Les caractères spéciaux $(( )) du shell permettent de substituer une
+expression arithmétique par son résultat. 
+
+  $ x=2
+  $ echo "Après incrémentation, x vaut : $(( x = x + 1))"
+  Après incrémentation, x vaut : 3
+
+
+Mise au point d'un script
+-------------------------
+
+L'option '-x' permet de visualiser les commandes telles qu'elles sont
+exécutées, c'est-à-dire après traitement des caractères spéciaux du shell. 
+
+Activer l'option :
+
+  set -x
+
+Ou bien :
+
+  set -o xtrace
+
+Désactiver l'option :
+
+  set +x
+
+Ou bien :
+
+  set +o xtrace
+
+Alternativement, on peut invoquer le shell interpréteur avec l'option '-x' :
+
+  $ sh -x monscript.sh
+
+Voici le script 'affiche.sh', dans lequel une erreur a été introduite. Le
+développeur du script a écrit "fic" au lieu de "$fic" :
+
+$ nl affiche.sh
+     1  #!/bin/bash
+     2  echo -e "Nom du fichier à visualiser : \c"
+     3  read fic
+     4  if [ -f fic ]; then
+     5    cat $fic
+     6  else
+     7    echo "Fichier inexistant."
+     8  fi
+
+Exécution du script sans mise au point. Il semble surprenant voire inquiétant
+que le fichier '/etc/passwd' ne soit pas trouvé :
+
+  $ ./affiche.sh 
+  Nom du fichier à visualiser : /etc/passwd
+  Fichier inexistant.
+
+Exécution du script en activant l'option '-x'. Les lignes affichées pour la
+mise au point du script sont précédées d'un signe "+". On constate que la
+variable "fic" n'est pas substituée par sa valeur :
+
+  $ sh -x ./affiche.sh
+  + echo -e 'Nom du fichier à visualiser : \c'
+  Nom du fichier à visualiser : + read fic
+  /etc/passwd
+  + '[' -f fic ']'
+  + echo 'Fichier inexistant.'
+  Fichier inexistant.
+
+L'activation de l'option peut également se faire à l'intérieur du script. On en
+profite pour corriger l'erreur :
+
+  $ nl affiche.sh
+       1  #!/bin/bash
+       2  set -x
+       3  echo -e "Nom du fichier à visualiser : \c"
+       4  read fic
+       5  if [ -f $fic ]; then
+       6    cat $fic
+       7  else
+       8    echo "Fichier inexistant."
+       9  fi
+
+Cette fois-ci, la variable est bien substituée par sa valeur :
+
+  $ ./affiche.sh
+  + echo -e 'Nom du fichier à visualiser : \c'
+  Nom du fichier à visualiser : + read fic
+  /etc/passwd
+  + '[' -f /etc/passwd ']'
+  + cat /etc/passwd
+  root:x:0:0::/root:/bin/bash
+  bin:x:1:1:bin:/bin:/bin/false
+  daemon:x:2:2:daemon:/sbin:/bin/false
+  adm:x:3:4:adm:/var/log:/bin/false
+  ...
 
 
 ------------------------------------------------------------------------------
