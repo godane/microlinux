@@ -9,6 +9,7 @@ la programmation shell.
 
 
   * La structure de contrôle 'if'
+  * La structure de contrôle 'case'
 
 
 La structure de contrôle 'if'
@@ -125,6 +126,185 @@ Exécution :
   $ ./codepos.sh
   Entrez un code postal : asdf45
   asdf45 n'est pas un code postal de France Métropolitaine.
+
+
+La structure de contrôle 'case'
+-------------------------------
+
+La structure de contrôle 'case' permet de comparer une variable à différentes
+valeurs ou modèles. Lorsque le test s'y prête, elle remplace avantageusement
+le 'if-elif', car elle est beaucoup plus lisible.
+
+Syntaxe :
+
+  case $variable in
+    modele1) commande
+      ...
+      ;;
+    modele2) commande
+      ...
+      ;;
+    modele3 | modele4 | modele5) commande
+      ...
+      ;;
+  esac
+
+Le shell compare la valeur de la variable à chacun des modèles cités,
+l'évaluation étant faite de haut en bas. Lorsque la valeur correspond à l'un
+des modèles, les commandes relatives à ce dernier sont exécutées. Les
+caractères ";;" représentent la fin du traitement et permettent de sortir du
+'case'. Dans ce cas, la prochaine commande exécutée est celle située
+en-dessous de 'esac'. Les modèles sont des chaînes de caractères pouvant
+inclure des caractères spéciaux. Le caractère "|" permet d'exprimer
+l'alternative entre plusieurs modèles.
+
+Le script 'menu.sh' affiche un menu, saisit le choix de l'utilisateur et teste
+la validité de ce choix à l'aide d'une structure 'case'. En ligne 18, le
+caractère "*" signifie "toute autre chaîne de caractères".
+
+  $ nl menu.sh 
+       1  #!/bin/bash
+       2  echo "- 1 - Sauvegarde "
+       3  echo "- 2 - Restauration "
+       4  echo "- 3 - Fin "
+       5  echo -e "Votre choix : \c"
+       6  read reponse
+       7  case "$reponse" in
+       8    1) echo "Vous avez choisi la sauvegarde."
+       9             # Lancement de la sauvegarde.
+      10       ;;
+      11    2) echo "Vous avez choisi la restauration."
+      12       # Lancement de la restauration.
+      13       ;;
+      14    3) echo "Fin du traitement."
+      15       echo "À bientôt..."
+      16       exit 0
+      17       ;;
+      18    *) echo "Saisie incorrecte."
+      19       echo "Bye..."
+      20       exit 1
+      21       ;;
+      22  esac
+
+Exécution du script :
+
+  $ ./menu.sh 
+  - 1 - Sauvegarde 
+  - 2 - Restauration 
+  - 3 - Fin 
+  Votre choix : 1
+  Vous avez choisi la sauvegarde.
+  $ ./menu.sh 
+  - 1 - Sauvegarde 
+  - 2 - Restauration 
+  - 3 - Fin 
+  Votre choix : 2
+  Vous avez choisi la restauration.
+  $ ./menu.sh 
+  - 1 - Sauvegarde 
+  - 2 - Restauration 
+  - 3 - Fin 
+  Votre choix : 3
+  Fin du traitement.
+  À bientôt...
+  $ ./menu.sh 
+  - 1 - Sauvegarde 
+  - 2 - Restauration 
+  - 3 - Fin 
+  Votre choix : 4
+  Saisie incorrecte.
+  Bye...
+
+Le script 'codepos.sh' demande la saisie d'un code postal et teste la validité
+de ce dernier :
+
+$ nl codepos.sh
+     1  #!/bin/bash
+     2  #
+     3  # Script pour tester la validité d'un code postal
+     4  echo -e "Entrez un code postal : \c"
+     5  read cp
+     6  case "$cp" in
+     7    75[0-9][0-9][0-9] ) 
+     8      echo "$cp est un code postal parisien."
+     9      ;;
+    10    7[78][0-9][0-9][0-9] | 9[1-5][0-9][0-9][0-9] )
+    11      echo "$cp est un code postal de la région parisienne."
+    12      ;;
+    13    [0-9][0-9][0-9][0-9][0-9] )
+    14      echo "$cp est un code postal de province (Métropole)."
+    15      ;;
+    16    * )
+    17      echo "$cp n'est pas un code postal de France Métropolitaine."
+    18      ;;
+    19  esac
+    20  exit 0
+
+Exécution :
+
+  $ ./codepos.sh
+  Entrez un code postal : 75020
+  75020 est un code postal parisien.
+  $ ./codepos.sh
+  Entrez un code postal : 78900
+  78900 est un code postal de la région parisienne.
+  $ ./codepos.sh
+  Entrez un code postal : 30730
+  30730 est un code postal de province (Métropole).
+  $ ./codepos.sh
+  Entrez un code postal : 123456
+  123456 n'est pas un code postal de France Métropolitaine.
+  $ ./codepos.sh
+  Entrez un code postal : asdf
+  asdf n'est pas un code postal de France Métropolitaine.
+
+Le script 'testnombre.sh' demande la saisie d'un nombre et teste la validité de
+ce dernier. Notez que le script utilise des expressions complexes.
+
+$ nl testnombre.sh
+     1  #!/bin/bash
+     2  shopt -s extglob
+     3  echo -e "Saisir un nombre : \c"
+     4  read nombre
+     5  case "$nombre" in 
+     6    ?(+)+([0-9]) )
+     7      echo "$nombre est un nombre entier positif."
+     8      ;;
+     9    -+([0-9]) )
+    10      echo "$nombre est un nombre entier négatif."
+    11      ;;
+    12    ?(+)+([0-9]).+([0-9]) )
+    13      echo "$nombre est un nombre flottant positif."
+    14      ;;
+    15    -+([0-9]).+([0-9]) )
+    16      echo "$nombre est un nombre flottant négatif."
+    17      ;;
+    18    * )
+    19      echo "$nombre n'est pas un nombre."
+    20      exit 1
+    21      ;;
+    22  esac
+
+Exécution :
+
+  $ ./testnombre.sh 
+  Saisir un nombre : 34
+  34 est un nombre entier positif.
+  $ ./testnombre.sh 
+  Saisir un nombre : +89
+  +89 est un nombre entier positif.
+  $ ./testnombre.sh
+  Saisir un nombre : -15
+  -15 est un nombre entier négatif.
+  $ ./testnombre.sh
+  Saisir un nombre : 3.2
+  3.2 est un nombre flottant positif.
+  $ ./testnombre.sh
+  Saisir un nombre : 58.17
+  58.17 est un nombre flottant positif.
+  $ ./testnombre.sh
+  Saisir un nombre : -4.231
+  -4.231 est un nombre flottant négatif.
 
 
 ------------------------------------------------------------------------------
