@@ -2,7 +2,7 @@
 Buildbox HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ==============
 
-Dernière révision : 12 avril 2015
+Dernière révision : 29 octobre 2015
 
 Ce HOWTO décrit la configuration d'une machine dédiée à la compilation de
 paquets Slackware.
@@ -85,11 +85,13 @@ Voilà à quoi cela ressemble :
 
   * /dev/sda6 et /dev/sda7 : MLES 14.1 (32-bit et 64-bit)
 
-  * /dev/sda8 à /dev/sda11 : place pour 2 futures versions de MLES
+  # /dev/sda8 et /dev/sda9 : MLES 14.2 (32-bit et 64-bit)
+
+  * /dev/sda10 et /dev/sda11 : place pour une future version de MLES
 
   * /dev/sda12 et /dev/sda13 : MLED 14.1 (32-bit et 64-bit)
 
-  * /dev/sda14 et /dev/sda15 : place pour 1 future version de MLED
+  * /dev/sda14 et /dev/sda15 : MLED 14.2 (32-bit et 64-bit)
 
 
 Configuration de LILO
@@ -104,8 +106,12 @@ Le système principal monte les partitions des autres systèmes au démarrage :
 /dev/sda5     /mnt/sda5      ext4      defaults       0   0
 /dev/sda6     /mnt/sda6      ext4      defaults       0   0
 /dev/sda7     /mnt/sda7      ext4      defaults       0   0
+/dev/sda8     /mnt/sda8      ext4      defaults       0   0
+/dev/sda9     /mnt/sda9      ext4      defaults       0   0
 /dev/sda12    /mnt/sda12     ext4      defaults       0   0
 /dev/sda13    /mnt/sda13     ext4      defaults       0   0
+/dev/sda14    /mnt/sda14     ext4      defaults       0   0
+/dev/sda15    /mnt/sda15     ext4      defaults       0   0
 ...
 --8<--------------------------------------------------------------------------
 
@@ -138,6 +144,16 @@ image = /mnt/sda7/boot/vmlinuz-generic-3.10.17
   root = /dev/sda7
   label = MLES-14.1-64bit
   read-only
+image = /mnt/sda8/boot/vmlinuz-generic-smp-4.1.6-smp
+  initrd = /mnt/sda8/boot/initrd.gz
+  root = /dev/sda8
+  label = MLES-14.2-32bit
+  read-only
+image = /mnt/sda9/boot/vmlinuz-generic-4.1.6
+  initrd = /mnt/sda9/boot/initrd.gz
+  root = /dev/sda9
+  label = MLES-14.2-64bit
+  read-only
 image = /mnt/sda12/boot/vmlinuz-generic-smp-3.10.17-smp
   initrd = /mnt/sda12/boot/initrd.gz
   root = /dev/sda12
@@ -147,6 +163,16 @@ image = /mnt/sda13/boot/vmlinuz-generic-3.10.17
   initrd = /mnt/sda13/boot/initrd.gz
   root = /dev/sda13
   label = MLED-14.1-64bit
+  read-only
+image = /mnt/sda14/boot/vmlinuz-generic-smp-4.1.6-smp
+  initrd = /mnt/sda14/boot/initrd.gz
+  root = /dev/sda14
+  label = MLED-14.2-32bit
+  read-only
+image = /mnt/sda15/boot/vmlinuz-generic-4.1.6
+  initrd = /mnt/sda15/boot/initrd.gz
+  root = /dev/sda15
+  label = MLED-14.2-64bit
   read-only
 ...
 --8<--------------------------------------------------------------------------
@@ -159,8 +185,12 @@ Lorsqu'on invoque LILO, on obtient ceci :
   Added MLES-14.0-64bit  +
   Added MLES-14.1-32bit  +
   Added MLES-14.1-64bit  +
+  Added MLES-14.2-32bit  +
+  Added MLES-14.2-64bit  +
   Added MLED-14.1-32bit  +
   Added MLED-14.1-64bit  +
+  Added MLED-14.2-32bit  +
+  Added MLED-14.2-64bit  +
 
 
 Configuration de Conky
@@ -201,11 +231,23 @@ ${color ddaa00}sda6  $color ${fs_bar /mnt/sda6}
 MLES 14.1 64-bit 
 ${color ddaa00}sda7  $color ${fs_bar /mnt/sda7}
 
+MLES 14.2 32-bit
+${color ddaa00}sda8  $color ${fs_bar /mnt/sda8}
+
+MLES 14.2 64-bit 
+${color ddaa00}sda9  $color ${fs_bar /mnt/sda9}
+
 MLED 14.1 32-bit 
 ${color ddaa00}sda12 $color ${fs_bar /mnt/sda12}
 
 MLED 14.1 64-bit 
 ${color ddaa00}sda13 $color ${fs_bar /mnt/sda13}
+
+MLED 14.2 32-bit 
+${color ddaa00}sda14 $color ${fs_bar /mnt/sda14}
+
+MLED 14.2 64-bit 
+${color ddaa00}sda15 $color ${fs_bar /mnt/sda15}
 --8<--------------------------------------------------------------------------
 
 Lancer Conky automatiquement au démarrage de WindowMaker :
