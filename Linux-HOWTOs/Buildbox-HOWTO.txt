@@ -283,7 +283,9 @@ Pense-bête pour la configuration de chaque système
 
   * Créer un utilisateur.
 
-  * Installer WindowMaker et passer en init 4.
+  * Monter /dev/sda2 sur /mnt/sda2.
+
+  * Installer WindowMaker ou Xfce et passer en init 4.
 
   * Ajouter le nouveau système au moniteur disque de Conky.
 
