@@ -85,7 +85,7 @@ Voilà à quoi cela ressemble :
 
   * /dev/sda6 et /dev/sda7 : MLES 14.1 (32-bit et 64-bit)
 
-  # /dev/sda8 et /dev/sda9 : MLES 14.2 (32-bit et 64-bit)
+  * /dev/sda8 et /dev/sda9 : MLES 14.2 (32-bit et 64-bit)
 
   * /dev/sda10 et /dev/sda11 : place pour une future version de MLES
 
