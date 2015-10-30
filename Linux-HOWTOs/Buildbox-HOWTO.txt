@@ -269,7 +269,8 @@ Pense-bête pour la configuration de chaque système
   * Ne pas réinstaller LILO, qui se trouve déjà sur /dev/sda2 !
 
   * Sur un système serveur, activer rc.syslog et rc.sshd et désactiver les
-    autres services.
+    autres services. Note : si l'on utilise un GUI avec WindowMaker, il vaut
+    mieux laisser les autres services activés.
 
   * Sur un système poste de travail, laisser les services configurés par défaut.
 
