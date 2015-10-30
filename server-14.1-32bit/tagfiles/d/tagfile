@@ -22,7 +22,6 @@ gcc-objc:ADD
 gdb:ADD
 gettext-tools:ADD
 git:ADD
-gnu-cobol:ADD
 gperf:ADD
 guile:ADD
 help2man:ADD
@@ -35,16 +34,15 @@ m4:ADD
 make:ADD
 mercurial:ADD
 nasm:ADD
+open-cobol:ADD
 oprofile:ADD
 p2c:ADD
 perl:ADD
 pkg-config:ADD
 pmake:ADD
 python:ADD
-python-setuptools:ADD
 rcs:ADD
 ruby:ADD
-scons:ADD
 slacktrack:ADD
 strace:ADD
 subversion:ADD
