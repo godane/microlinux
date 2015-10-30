@@ -65,6 +65,7 @@ libnetfilter_queue:ADD
 libnfnetlink:ADD
 libnftnl:ADD
 libqmi:ADD
+libssh2:ADD
 links:ADD
 lynx:ADD
 mailx:ADD

@@ -55,6 +55,7 @@ libgpg-error:ADD
 libksba:ADD
 libmbim:ADD
 libmnl:ADD
+libndp:ADD
 libnetfilter_acct:ADD
 libnetfilter_conntrack:ADD
 libnetfilter_cthelper:ADD
@@ -62,7 +63,9 @@ libnetfilter_cttimeout:ADD
 libnetfilter_log:ADD
 libnetfilter_queue:ADD
 libnfnetlink:ADD
+libnftnl:ADD
 libqmi:ADD
+libssh2:ADD
 links:ADD
 lynx:ADD
 mailx:ADD
@@ -94,6 +97,7 @@ netwrite:ADD
 newspost:ADD
 nfacct:ADD
 nfs-utils:ADD
+nftables:ADD
 nmap:ADD
 nn:ADD
 ntp:ADD

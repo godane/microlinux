@@ -44,6 +44,7 @@ python:ADD
 python-setuptools:ADD
 rcs:ADD
 ruby:ADD
+scons:ADD
 slacktrack:ADD
 strace:ADD
 subversion:ADD

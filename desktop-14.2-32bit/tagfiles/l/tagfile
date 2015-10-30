@@ -1,5 +1,5 @@
 # Add
-ConsoleKit:ADD
+ConsoleKit2:ADD
 GConf:ADD
 LibRaw:ADD
 M2Crypto:ADD
@@ -71,6 +71,7 @@ gnu-efi:ADD
 gobject-introspection:ADD
 grantlee:ADD
 gsettings-desktop-schemas:ADD
+gsl:ADD
 gst-plugins-base:ADD
 gst-plugins-base0:ADD
 gst-plugins-good:ADD
@@ -173,6 +174,7 @@ libunistring:ADD
 libusb:ADD
 libusb-compat:ADD
 libusbmuxd:ADD
+libvisio:ADD
 libvisual:ADD
 libvisual-plugins:ADD
 libvncserver:ADD
@@ -182,6 +184,7 @@ libwmf:ADD
 libwmf-docs:ADD
 libwnck:ADD
 libwpd:ADD
+libwpg:ADD
 libxklavier:ADD
 libxml2:ADD
 libxslt:ADD
@@ -218,6 +221,7 @@ pycairo:ADD
 pycups:ADD
 pycurl:ADD
 pygobject:ADD
+pygobject3:ADD
 pygtk:ADD
 pyrex:ADD
 python-pillow:ADD
@@ -236,6 +240,7 @@ readline:ADD
 redland:ADD
 sdl:ADD
 seamonkey-solibs:ADD
+serf:ADD
 sg3_utils:ADD
 shared-desktop-ontologies:ADD
 shared-mime-info:ADD
