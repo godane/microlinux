@@ -6,7 +6,7 @@ else
   echo
   echo ":: Les profils par défaut ne sont pas installés."
   echo
-  exit 0
+  exit 1
 fi
 
 echo
@@ -19,4 +19,4 @@ for UTILISATEUR in $(ls /home); do
 done
 
 echo
-exit 1
+exit 0
