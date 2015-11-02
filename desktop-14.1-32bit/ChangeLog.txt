@@ -1,3 +1,10 @@
+Mon Nov  2 17:28:05 CET 2015
+xapian-core-1.2.21-i486-1_microlinux.txz: Added.
+antiword-0.37-i486-1_microlinux.txz: Added.
+unrtf-0.21.7-i486-1_microlinux.txz: Added.
+exiftool-10.00-i486-1_microlinux.txz: Added.
+recoll-1.21.2-i486-1_microlinux.txz: Added.
++--------------------------+
 Fri Oct 23 13:35:21 CEST 2015
 flashplayer-plugin-11.2.202.540-i386-1_microlinux.txz: Upgraded.
 +--------------------------+

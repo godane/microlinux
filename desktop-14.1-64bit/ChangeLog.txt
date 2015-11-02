@@ -1,3 +1,12 @@
+Mon Nov  2 17:30:12 CET 2015
+xapian-core-1.2.21-x86_64-1_microlinux.txz: Added.
+antiword-0.37-x86_64-1_microlinux.txz: Added.
+unrtf-0.21.7-x86_64-1_microlinux.txz: Added.
+exiftool-10.00-x86_64-1_microlinux.txz: Added.
+recoll-1.21.2-x86_64-1_microlinux.txz: Added.
+catfish-0.3.2-noarch-1_microlinux.txz: Removed.
+  Desktop search is now handled by Recoll.
++--------------------------+
 Fri Oct 23 13:40:42 CEST 2015
 flashplayer-plugin-11.2.202.540-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
