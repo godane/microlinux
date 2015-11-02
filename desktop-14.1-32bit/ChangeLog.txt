@@ -4,6 +4,8 @@ antiword-0.37-i486-1_microlinux.txz: Added.
 unrtf-0.21.7-i486-1_microlinux.txz: Added.
 exiftool-10.00-i486-1_microlinux.txz: Added.
 recoll-1.21.2-i486-1_microlinux.txz: Added.
+catfish-0.3.2-noarch-1_microlinux.txz: Removed.
+  Desktop search is now handled by Recoll.
 +--------------------------+
 Fri Oct 23 13:35:21 CEST 2015
 flashplayer-plugin-11.2.202.540-i386-1_microlinux.txz: Upgraded.
