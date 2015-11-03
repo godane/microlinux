@@ -8,6 +8,7 @@ webcore-fonts-3.0-noarch-1_microlinux.txz: Added.
 eurostile-fonts-1.0-noarch-1_microlinux.txz: Added.
 aero-1.0-noarch-1_microlinux.txz: Added.
 gtk-engines-2.20.2-i486-1_microlinux.txz: Added.
+clearlooks-phenix-theme-4.0-noarch-1_microlinux.txz: Added.
 +--------------------------+
 Thu Oct 29 10:30:12 CET 2015
 user-settings-console-14.2-noarch-1_microlinux.txz: Added.
