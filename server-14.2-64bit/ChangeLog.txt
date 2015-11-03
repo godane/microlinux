@@ -1,3 +1,6 @@
+Tue Nov  3 12:05:54 CET 2015
+slackpkg+-1.5.0-noarch-1_microlinux.txz: Added.
++--------------------------+
 Thu Oct 29 10:30:12 CET 2015
 user-settings-console-14.2-noarch-1_microlinux.txz: Added.
 +--------------------------+
