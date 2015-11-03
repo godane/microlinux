@@ -73,8 +73,8 @@ REPOPLUS=( multilib microlinux-desktop microlinux-extras )
 
 # Define mirrors (uncomment one or more mirror; remember to add it to REPOPLUS)
 MIRRORPLUS['multilib']=http://taper.alienbase.nl/mirrors/people/alien/multilib/14.2/
-MIRRORPLUS['microlinux-desktop']=http://www.microlinux.fr/microlinux/desktop-14.2-32bit/
-MIRRORPLUS['microlinux-extras']=http://www.microlinux.fr/microlinux/extras-14.2-32bit/
+MIRRORPLUS['microlinux-desktop']=http://www.microlinux.fr/microlinux/desktop-14.2-64bit/
+MIRRORPLUS['microlinux-extras']=http://www.microlinux.fr/microlinux/extras-14.2-64bit/
 
 #
 # Supported Repositories (see /usr/doc/slackpkg+-* for details and notes):
