@@ -4,6 +4,7 @@ slackpkg+-1.5.0-noarch-1_microlinux.txz: Added.
 google-droid-fonts-20100409-noarch-1_microlinux.txz: Added.
   Later versions of this package are missing "Droid Sans" which we're using as
 	default font for Xfce, so let's stick with this older version.
+webcore-fonts-3.0-noarch-1_microlinux.txz: Added.
 +--------------------------+
 Thu Oct 29 10:30:12 CET 2015
 user-settings-console-14.2-noarch-1_microlinux.txz: Added.
