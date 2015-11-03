@@ -2,7 +2,7 @@
 Bash Scripting 03 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =======================
 
-Dernière révision : 26 octobre 2015
+Dernière révision : 3 novembre 2015
 
 Voici la troisième partie du HOWTO qui présente les fonctionnalités de base de
 la programmation shell.
@@ -10,6 +10,7 @@ la programmation shell.
 
   * La structure de contrôle 'if'
   * La structure de contrôle 'case'
+  * La boucle 'for'
 
 
 La structure de contrôle 'if'
@@ -305,6 +306,131 @@ Exécution :
   $ ./testnombre.sh
   Saisir un nombre : -4.231
   -4.231 est un nombre flottant négatif.
+
+
+La boucle 'for'
+---------------
+
+La structure de contrôle 'for' permet de traiter une liste de valeurs
+représentée par "val1", "val2", "val3"... "valn". À chaque tour de boucle, la
+variable "var" est initialisée avec l'une des valeurs de la liste. Les valeurs
+sont traitées dans l'ordre de leur énumération. La liste des valeurs peut être
+citée directement ou générée par substitution de caractères spéciaux du shell.
+
+Liste de valeurs citée directement :
+
+  for var in val1 val2 val3 ... valn ; do
+    commande
+    ...
+  done
+
+Liste de valeurs générée par substitution de variable :
+
+  for var in $variable ; do
+    commande
+    ...
+  done
+
+Liste de valeurs générée par substitution de commande :
+
+  for var in $(commande) ; do
+    commande
+    ...
+  done
+
+Liste de valeurs générée par substitution de caractères :
+
+  for var in *.c ; do
+    commande
+    ...
+  done
+
+La liste par défaut correspond aux arguments de la ligne de commande :
+
+  for var ; do
+    commande
+    ...
+  done
+
+Cette dernière boucle équivaut à :
+
+  for var in $* ; do
+    commande
+    ...
+  done
+
+La liste de valeurs du script 'rebours.sh' est citée directement :
+
+  $ nl rebours.sh 
+       1  #!/bin/bash
+       2  #
+       3  # Compte à rebours
+       4  for rebours in 4 3 2 1 "Feu !" ; do
+       5    sleep 1
+       6    echo "$rebours"
+       7  done
+       8  exit 0
+
+Exécution :
+
+  $ ./rebours.sh 
+  4
+  3
+  2
+  1
+  Feu !
+
+Le script 'testfichier.sh' prend une liste de noms de fichiers en argument et
+donne une indication à l'utilisateur sur le type du fichier. La liste de
+valeurs est générée par substitution de la variable "$*". 
+
+  $ nl testfichier.sh
+       1  #!/bin/bash
+       2  #
+       3  echo -e "Liste des arguments reçus : \n$*\n"
+       4  for fichier in $* ; do   # équivalent à "for fichier"
+       5    if [ -f $fichier ] ; then
+       6      echo "$fichier est un fichier ordinaire."
+       7    elif [ -d $fichier ] ; then 
+       8      echo "$fichier est un répertoire."
+       9    elif [ -e $fichier ] ; then
+      10      echo "$fichier n'est ni un fichier ni un répertoire."
+      11    else
+      12      echo "$fichier n'existe pas."
+      13    fi
+      14  done
+      15  exit 0
+
+Exécution :
+
+  $ ./testfichier.sh /etc /etc/passwd /dev/console /backup
+  Liste des arguments reçus : 
+  /etc /etc/passwd /dev/console /backup
+
+  /etc est un répertoire.
+  /etc/passwd est un fichier ordinaire.
+  /dev/console n'est ni un fichier ni un répertoire.
+  /backup n'existe pas.
+
+Le script 'traituser.sh' traite tous les utilisateurs définis dans le fichier
+'/etc/passwd' dont le nom commence par "compta". La liste des valeurs est
+générée à partir d'une substitution de commande.
+
+  $ nl traituser.sh
+       1  #!/bin/bash
+       2  #
+       3  for user in $(cut -d":" -f1 /etc/passwd | grep "^compta") ; do
+       4    echo "Traitement de l'utilisateur : $user"
+       5  done
+       6  exit 0
+
+Exécution :
+
+  $ ./traituser.sh 
+  Traitement de l'utilisateur : compta01
+  Traitement de l'utilisateur : compta02
+  Traitement de l'utilisateur : compta03
+  Traitement de l'utilisateur : compta04
 
 
 ------------------------------------------------------------------------------
