@@ -2,6 +2,7 @@ Wed Nov  4 10:08:52 CET 2015
 vala-0.28.1-i486-1_microlinux.txz: Added.
 libgee-0.16.1-i486-1_microlinux.txz: Added.
 libwnck3-3.4.9-i486-1_microlinux.txz: Added.
+libgtop-2.28.5-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Nov  3 10:49:45 CET 2015
 elementary-xfce-0.7-noarch-1_microlinux.txz: Added.
