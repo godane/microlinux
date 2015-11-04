@@ -1,3 +1,14 @@
+Wed Nov  4 10:49:05 CET 2015
+vala-0.28.1-x86_64-1_microlinux.txz: Added.
+libgee-0.16.1-x86_64-1_microlinux.txz: Added.
+libwnck3-3.4.9-x86_64-1_microlinux.txz: Added.
+libgtop-2.28.5-x86_64-1_microlinux.txz: Added.
+json-glib-0.14.2-x86_64-1_microlinux.txz: Added.
+libdbusmenu-12.10.2-x86_64-1_microlinux.txz: Added.
+bamf-0.5.1-x86_64-1_microlinux.txz: Added.
+gnome-common-3.14.0-noarch-1_microlinux.txz: Added.
+plank-0.10.1-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Tue Nov  3 11:32:07 CET 2015
 elementary-xfce-0.7-noarch-1_microlinux.txz: Added.
 slackpkg+-1.5.0-noarch-1_microlinux.txz: Added.
