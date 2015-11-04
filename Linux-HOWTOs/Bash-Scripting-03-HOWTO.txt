@@ -11,6 +11,7 @@ la programmation shell.
   * La structure de contrôle 'if'
   * La structure de contrôle 'case'
   * La boucle 'for'
+  * La boucle 'while'
 
 
 La structure de contrôle 'if'
@@ -431,6 +432,150 @@ Exécution :
   Traitement de l'utilisateur : compta02
   Traitement de l'utilisateur : compta03
   Traitement de l'utilisateur : compta04
+
+
+La boucle 'while'
+-----------------
+
+La structure de contrôle 'while' permet de boucler tant qu'une commande
+retourne le code 0 (vrai). À chaque tour de boucle, la commande spécifiée
+derrière le mot 'while' est exécutée. Lorsque celle-ci renvoie un code "vrai",
+le shell exécute les commandes situées entre le 'do' et le 'done'. puis
+remonte au 'while' pour exécuter de nouveau la commande. Si cette dernière
+renvoie "faux", le shell sort du 'while' et exécute la commande située
+immédiatement derrière le 'done'.
+
+  while commande1 ; do
+    commande2
+  done
+
+Le script 'somme.sh' affiche à l'écran la somme des nombres saisis.
+
+  $ nl somme.sh 
+       1  #!/bin/bash
+       2  shopt -s extglob
+       3  somme=0
+       4  echo "Saisir un nombre par ligne, [Ctrl]+[D] pour afficher la somme :"
+       5    while read nombre ; do
+       6    if [[ "$nombre" != ?([+-])+([0-9]) ]] ; then
+       7      echo "La valeur saisie n'est pas un nombre."
+       8      continue
+       9    fi
+      10    ((somme+=nombre))
+      11  done
+      12  echo "Somme : $somme"
+      13  exit 0
+
+  /!\ La commande interne 'continue' permet de remonter immédiatement au
+  'while'. Elle est détaillée un peu plus loin.
+
+Exécution :
+
+  $ ./somme.sh 
+  Saisir un nombre par ligne, [Ctrl]+[D] pour afficher la somme :
+  1
+  3
+  a
+  La valeur saisie n'est pas un nombre.
+  4
+  Somme : 8
+
+Le shell propose la commande interne ':' dont l'intérêt réside dans le fait
+qu'elle renvoie toujours 0 (vrai). Placée derrière un 'while', elle permet de
+fabriquer une boucle infinie.
+
+  $ type :
+  : est une primitive du shell
+  $ echo $?
+  0
+
+Le shell Bash propose également la commande interne 'true' équivalente à la
+commande ':', dont le mérite est d'avoir un nom plus explicite. Les
+plates-formes Unix proposent également la commande '/usr/bin/true' ou
+'/bin/true'. 
+
+  $ type -a true
+  true est une primitive du shell
+  true est /usr/bin/true
+  true est /bin/true
+  $ ls -l /usr/bin/true
+  lrwxrwxrwx 1 root root 14 oct.  18 13:15 /usr/bin/true -> ../../bin/true
+
+Syntaxe d'une boucle infinie :
+
+  while true ; do
+    ...
+  done
+
+Le script 'menuboucle.sh' reprend le programme 'menu.sh' un peu plus haut.
+L'affichage et le traitement du menu sont inclus dans une boucle infinie, ce
+qui permet de réafficher le menu après chaque traitement (sauf le cas de
+sortie). Pour que l'utilisateur ait le temps de visualiser les affichages
+écran, le script utilise la commande 'read x', qui provoque une pause écran en
+attendant que l'utilisateur appuie sur la touche [Entrée]. Le contenu de la
+variable "x" ne sera pas exploité.
+
+  $ nl menuboucle.sh
+       1  #!/bin/bash
+       2  while true ; do
+       3    echo
+       4    echo "----------------"
+       5    echo "- 1 - Sauvegarde"
+       6    echo "- 2 - Restauration"
+       7    echo "- 3 - Fin"
+       8    echo -e "Votre choix : \c"
+       9    read reponse
+      10    case "$reponse" in 
+      11      1) echo -e "Vous avez choisi la sauvegarde. <Validez>\c"
+      12         # Lancement de la sauvegarde.
+      13         read x
+      14         ;;
+      15      2) echo -e "Vous avez choisi la restauration. <Validez>\c"
+      16         # Lancement de la restauration.
+      17         read x
+      18         ;;
+      19      3) echo "Fin du traitement."
+      20         echo "À bientôt..."
+      21         exit 0
+      22         ;;
+      23      *) echo -e "Saisie incorrecte. <Validez>\c"
+      24         read x
+      25         ;;
+      26    esac
+      27  done
+
+Exécution :
+
+  $ ./menuboucle.sh
+
+  ----------------
+  - 1 - Sauvegarde
+  - 2 - Restauration
+  - 3 - Fin
+  Votre choix : 1
+  Vous avez choisi la sauvegarde. <Validez>
+
+  ----------------
+  - 1 - Sauvegarde
+  - 2 - Restauration
+  - 3 - Fin
+  Votre choix : 2
+  Vous avez choisi la restauration. <Validez>
+
+  ----------------
+  - 1 - Sauvegarde
+  - 2 - Restauration
+  - 3 - Fin
+  Votre choix : 4
+  Saisie incorrecte. <Validez>
+
+  ----------------
+  - 1 - Sauvegarde
+  - 2 - Restauration
+  - 3 - Fin
+  Votre choix : 3
+  Fin du traitement.
+  À bientôt...
 
 
 ------------------------------------------------------------------------------
