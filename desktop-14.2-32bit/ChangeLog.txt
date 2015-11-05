@@ -1,3 +1,6 @@
+Thu Nov  5 11:05:43 CET 2015
+clearlooks-phenix-theme-6.0.3-noarch-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Nov  5 07:48:43 CET 2015
 gtk-engines-2.20.2-i586-2_microlinux.txz: Rebuilt.
 xfce4-whiskermenu-plugin-1.5.1-i586-2_microlinux.txz: Rebuilt.
