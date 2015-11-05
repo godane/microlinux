@@ -1,3 +1,8 @@
+Thu Nov  5 11:47:47 CET 2015
+clearlooks-phenix-theme-6.0.3-noarch-1_microlinux.txz: Upgraded.
+luna-wallpapers-0.2-noarch-1_microlinux.txz: Added.
+apple-fonts-1.0-noarch-1_microlinux.txz: Added.
++--------------------------+
 Wed Nov  4 10:49:05 CET 2015
 vala-0.28.1-x86_64-1_microlinux.txz: Added.
 libgee-0.16.1-x86_64-1_microlinux.txz: Added.
