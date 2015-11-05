@@ -5,6 +5,7 @@ vala-0.28.1-i586-2_microlinux.txz: Rebuilt.
 libgee-0.16.1-i586-2_microlinux.txz: Rebuilt.
 libwnck3-3.4.9-i586-2_microlinux.txz: Rebuilt.
 libgtop-2.28.5-i586-2_microlinux.txz: Rebuilt.
+json-glib-0.14.2-i586-2_microlinux.txz: Rebuilt.
 +--------------------------+
 Wed Nov  4 10:08:52 CET 2015
 vala-0.28.1-i486-1_microlinux.txz: Added.
