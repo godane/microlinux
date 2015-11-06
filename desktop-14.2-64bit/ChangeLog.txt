@@ -1,5 +1,10 @@
 Fri Nov  6 10:27:01 CET 2015
 jdk-8u65-x86_64-1_microlinux.txz: Added.
+libreoffice-5.0.3-x86_64-1_microlinux.txz: Added.
+libreoffice-langpack-fr-5.0.3-x86_64-1_microlinux.txz: Added.
+libreoffice-langpack-de-5.0.3-x86_64-1_microlinux.txz: Added.
+libreoffice-helppack-fr-5.0.3-x86_64-1_microlinux.txz: Added.
+libreoffice-helppack-de-5.0.3-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Thu Nov  5 11:47:47 CET 2015
 clearlooks-phenix-theme-6.0.3-noarch-1_microlinux.txz: Upgraded.
