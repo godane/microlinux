@@ -1,3 +1,6 @@
+Fri Nov  6 09:52:36 CET 2015
+jdk-8u65-i586-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Nov  5 09:35:05 CET 2015
 elementary-xfce-0.7-noarch-1_microlinux.txz: Upgraded.
 xfce4-whiskermenu-plugin-1.5.1-i486-1_microlinux.txz: Upgraded.
