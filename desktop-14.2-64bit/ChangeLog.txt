@@ -1,3 +1,6 @@
+Fri Nov  6 10:27:01 CET 2015
+jdk-8u65-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Thu Nov  5 11:47:47 CET 2015
 clearlooks-phenix-theme-6.0.3-noarch-1_microlinux.txz: Upgraded.
 luna-wallpapers-0.2-noarch-1_microlinux.txz: Added.
