@@ -1,6 +1,8 @@
 Fri Nov  6 10:16:38 CET 2015
 jdk-8u65-i586-1_microlinux.txz: Added.
 libreoffice-5.0.3-i586-1_microlinux.txz: Added.
+libreoffice-langpack-fr-5.0.3-i586-1_microlinux.txz: Added.
+libreoffice-langpack-de-5.0.3-i586-1_microlinux.txz: Added.
 +--------------------------+
 Thu Nov  5 11:05:43 CET 2015
 clearlooks-phenix-theme-6.0.3-noarch-1_microlinux.txz: Upgraded.
