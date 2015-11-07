@@ -3,6 +3,7 @@ gthumb-3.2.9.1-i586-1_microlinux.txz: Added.
 gmtk-1.0.8-i586-1_microlinux.txz: Added.
 gnome-mplayer-1.0.8-i586-1_microlinux.txz: Added.
 libgnomecanvas-2.30.3-i586-1_microlinux.txz: Added.
+gdm-2.20.11-i586-2_microlinux.txz: Added.
 +--------------------------+
 Fri Nov  6 10:16:38 CET 2015
 jdk-8u65-i586-1_microlinux.txz: Added.
