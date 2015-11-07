@@ -1,3 +1,11 @@
+Sat Nov  7 12:14:37 CET 2015
+gthumb-3.2.9.1-x86_64-1_microlinux.txz: Added.
+gmtk-1.0.8-x86_64-1_microlinux.txz: Added.
+gnome-mplayer-1.0.8-x86_64-1_microlinux.txz: Added.
+libgnomecanvas-2.30.3-x86_64-1_microlinux.txz: Added.
+gdm-2.20.11-x86_64-2_microlinux.txz: Added.
+microlinux-wallpapers-1.0-noarch-1_microlinux.txz: Added.
++--------------------------+
 Fri Nov  6 10:27:01 CET 2015
 jdk-8u65-x86_64-1_microlinux.txz: Added.
 libreoffice-5.0.3-x86_64-1_microlinux.txz: Added.
