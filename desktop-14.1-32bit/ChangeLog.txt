@@ -4,6 +4,7 @@ libreoffice-langpack-fr-4.4.6-i586-1_microlinux.txz: Upgraded.
 libreoffice-langpack-de-4.4.6-i586-1_microlinux.txz: Upgraded.
 libreoffice-helppack-fr-4.4.6-i586-1_microlinux.txz: Upgraded.
 libreoffice-helppack-de-4.4.6-i586-1_microlinux.txz: Upgraded.
+mozilla-firefox-langpack-38.4.0-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Fri Nov  6 09:52:36 CET 2015
 jdk-8u65-i586-1_microlinux.txz: Upgraded.
