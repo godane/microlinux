@@ -1,5 +1,4 @@
 Sun Nov  8 18:21:13 CET 2015
-a52dec-0.7.4-i586-1_microlinux.txz: Added.
 +--------------------------+
 Sat Nov  7 10:50:49 CET 2015
 gthumb-3.2.9.1-i586-1_microlinux.txz: Added.
