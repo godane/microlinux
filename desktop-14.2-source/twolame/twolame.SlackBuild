@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Slackware build script for faad2
+# Slackware build script for twolame
 
-# Copyright 2007  Niklas "Nille" Åkerström
+# Copyright 2007-2011 Heinz Wiesinger, Amsterdam, The Netherlands
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,8 +24,8 @@
 #
 # Modified by Niki Kovacs <info@microlinux.fr>
 
-PRGNAM=faad2
-VERSION=${VERSION:-2.7}
+PRGNAM=twolame
+VERSION=0.3.13
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -60,7 +60,7 @@ fi
 
 set -e
 
-DOWNLOAD="http://downloads.sourceforge.net/faac/$PRGNAM-$VERSION.tar.bz2"
+DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
@@ -68,41 +68,39 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2
+tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM-$VERSION
 chown -R root:root .
-chmod -R a-s,u+rw,go+r-w .
+find -L . \
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+ -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --sysconfdir=/etc \
+  --localstatedir=/var \
   --mandir=/usr/man \
-  --enable-shared=yes \
-  --enable-static=no \
+  --disable-static \
   --build=$ARCH-slackware-linux
 
-# This option is supposed to enable support for decoding Digital Radio
-# Mondiale, but actually breaks the base functionality. -HW
-# --with-drm
+make $NUMJOBS
+make install DESTDIR=$PKG
 
-make $NUMJOBS 
-make install-strip DESTDIR=$PKG || exit 1
+find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-# Compress man pages
-mv $PKG/usr/man/manm $PKG/usr/man/man1
-rename .man .1 $PKG/usr/man/man1/*.man
-( cd $PKG/usr/man
-  find . -type f -exec gzip -9 {} \;
-  for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-)
+find $PKG/usr/man -type f -exec gzip -9 {} \;
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README* TODO docs/* \
-  $PKG/usr/doc/$PRGNAM-$VERSION
+mv $PKG/usr/share/doc/twolame/* $PKG/usr/doc/$PRGNAM-$VERSION/
+cp -a AUTHORS ChangeLog COPYING README* TODO $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
-find $PKG/usr/doc -type f -exec chmod 0644 {} \;
+rm -rf $PKG/usr/share
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
