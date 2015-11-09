@@ -1,3 +1,15 @@
+Mon Nov  9 09:14:47 CET 2015
+libass-0.12.1-x86_64-1_microlinux.txz: Added.
+libavc1394-0.5.4-x86_64-1_microlinux.txz: Added.
+libdca-0.0.5-x86_64-1_microlinux.txz: Added.
+libdvbpsi-1.1.1-x86_64-1_microlinux.txz: Added.
+libdvdcss-1.2.13-x86_64-1_microlinux.txz: Added.
+libkate-0.4.1-x86_64-1_microlinux.txz: Added.
+libminizip-1.2.8-x86_64-1_microlinux.txz: Added.
+libmpeg2-0.5.1-x86_64-1_microlinux.txz: Added.
+libshout-2.3.1-x86_64-1_microlinux.txz: Added.
+libupnp-1.6.17-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Sun Nov  8 19:15:51 CET 2015
 faad2-2.7-x86_64-1_microlinux.txz: Added.
 speex-1.2rc2-x86_64-1_microlinux.txz: Added.
