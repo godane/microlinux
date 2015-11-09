@@ -2,6 +2,7 @@ Mon Nov  9 07:49:34 CET 2015
 libass-0.12.1-i586-1_microlinux.txz: Added.
 libavc1394-0.5.4-i586-1_microlinux.txz: Added.
 libdca-0.0.5-i586-1_microlinux.txz: Added.
+libdvbpsi-1.1.1-i586-1_microlinux.txz: Added.
 +--------------------------+
 Sun Nov  8 18:21:13 CET 2015
 faad2-2.7-i586-1_microlinux.txz: Added.
