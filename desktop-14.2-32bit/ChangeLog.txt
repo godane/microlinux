@@ -8,6 +8,7 @@ libkate-0.4.1-i586-1_microlinux.txz: Added.
 libminizip-1.2.8-i586-1_microlinux.txz: Added.
 libmpeg2-0.5.1-i586-1_microlinux.txz: Added.
 libshout-2.3.1-i586-1_microlinux.txz: Added.
+libupnp-1.6.17-i586-1_microlinux.txz: Added.
 +--------------------------+
 Sun Nov  8 18:21:13 CET 2015
 faad2-2.7-i586-1_microlinux.txz: Added.
