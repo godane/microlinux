@@ -10,6 +10,7 @@ libreplaygain-r475-i586-1_microlinux.txz: Added.
 musepack-tools-r475-i586-1_microlinux.txz: Added.
 opus-1.1-i586-1_microlinux.txz: Added.
 lame-3.99.5-i586-1_microlinux.txz: Added.
+x264-20150223-i586-1_microlinux.txz: Added.
 +--------------------------+
 Mon Nov  9 07:49:34 CET 2015
 libass-0.12.1-i586-1_microlinux.txz: Added.
