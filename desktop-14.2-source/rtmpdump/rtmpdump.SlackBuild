@@ -66,8 +66,6 @@ DOWNLOAD="http://ponce.cc/slackware/sources/repo/$PRGNAM-$VERSION.tar.xz"
 
 wget -c $DOWNLOAD
 
-set -e
-
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
