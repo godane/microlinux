@@ -2,6 +2,7 @@ Tue Nov 10 08:01:23 CET 2015
 dirac-1.0.2-i586-1_microlinux.txz: Added.
 rtmpdump-20150115_a107cef-i586-1_microlinux.txz: Added.
 schroedinger-1.0.11-i586-1_microlinux.txz: Added.
+vcdimager-0.7.24-i586-1_microlinux.txz: Added.
 +--------------------------+
 Mon Nov  9 07:49:34 CET 2015
 libass-0.12.1-i586-1_microlinux.txz: Added.
