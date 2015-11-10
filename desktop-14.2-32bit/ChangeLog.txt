@@ -4,6 +4,7 @@ libbluray-0.9.0-i586-1_microlinux.txz: Added.
 libdc1394-2.2.2-i586-1_microlinux.txz: Added.
 frei0r-1.4-i586-1_microlinux.txz: Added.
 xvidcore-1.3.3-i586-1_microlinux.txz: Added.
+libiec61883-1.2.0-i586-1_microlinux.txz: Added.
 +--------------------------+
 Tue Nov 10 08:01:23 CET 2015
 dirac-1.0.2-i586-1_microlinux.txz: Added.
