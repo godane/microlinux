@@ -7,6 +7,7 @@ libmp4v2-2.0.0-i586-1_microlinux.txz: Added.
 faac-1.28-i586-1_microlinux.txz: Added.
 libcuefile-r475-i586-1_microlinux.txz: Added.
 libreplaygain-r475-i586-1_microlinux.txz: Added.
+musepack-tools-r475-i586-1_microlinux.txz: Added.
 +--------------------------+
 Mon Nov  9 07:49:34 CET 2015
 libass-0.12.1-i586-1_microlinux.txz: Added.
