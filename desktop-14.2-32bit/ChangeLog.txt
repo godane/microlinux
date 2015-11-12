@@ -1,6 +1,7 @@
 Thu Nov 12 08:10:27 CET 2015
 libmodplug-0.8.8.5-i586-1_microlinux.txz: Added.
 ladspa_sdk-1.13-i586-1_microlinux.txz: Added.
+libquvi-scripts-0.4.21-i586-1_microlinux.txz: Added.
 +--------------------------+
 Tue Nov 10 15:45:05 CET 2015
 celt-0.11.3-i586-1_microlinux.txz: Added.
