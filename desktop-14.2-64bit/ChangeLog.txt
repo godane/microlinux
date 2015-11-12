@@ -1,3 +1,11 @@
+Thu Nov 12 19:58:17 CET 2015
+OpenAL-1.16.0-x86_64-1_microlinux.txz: Added.
+ffmpeg-2.6.4-x86_64-1_microlinux.txz: Added.
+opencv-3.0.0-x86_64-2_microlinux.txz: Rebuilt.
+frei0r-1.4-x86_64-2_microlinux.txz: Rebuilt.
+	Some circular dependencies here: FFmpeg depends on OpenCV and Frei0r, OpenCV
+	has been rebuilt against FFmpeg, and Frei0r against OpenCV.
++--------------------------+
 Thu Nov 12 11:23:20 CET 2015
 libmodplug-0.8.8.5-x86_64-1_microlinux.txz: Added.
 ladspa_sdk-1.13-x86_64-1_microlinux.txz: Added.
