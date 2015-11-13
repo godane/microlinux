@@ -1,0 +1,12 @@
+             |-----handy-ruler------------------------------------------------------|
+libjpeg-turbo: libjpeg-turbo (accelerated libjpeg)
+libjpeg-turbo:
+libjpeg-turbo: libjpeg-turbo is a version of libjpeg which uses MMX, SSE, and SSE2
+libjpeg-turbo: SIMD instructions to accelerate baseline JPEG compression and
+libjpeg-turbo: decompression by about 2-4x on x86 and x86-64 platforms. It is based
+libjpeg-turbo: on libjpeg/SIMD but has numerous enhancements.
+libjpeg-turbo: See README-turbo.txt in /usr/doc/libjpeg-turbo* for usage hints.
+libjpeg-turbo:
+libjpeg-turbo: 
+libjpeg-turbo:
+libjpeg-turbo: Package created by Niki Kovacs <info@microlinux.fr>
