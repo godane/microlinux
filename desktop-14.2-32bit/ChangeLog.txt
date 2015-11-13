@@ -7,6 +7,7 @@ libjpeg-turbo-1.4.2-i586-1_microlinux.txz: Added.
 vsxu-0.4.2-i586-1_microlinux.txz: Added.
 libtar-1.2.20-i586-1_microlinux.txz: Added.
 libva-1.6.1-i586-1_microlinux.txz: Added.
+freerdp-1.2.0_beta1_android9-i586-1_microlinux.txz: Added.
 +--------------------------+
 Thu Nov 12 18:53:14 CET 2015
 OpenAL-1.16.0-i586-1_microlinux.txz: Added.
