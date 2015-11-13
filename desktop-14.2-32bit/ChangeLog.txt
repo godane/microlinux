@@ -1,3 +1,8 @@
+Fri Nov 13 19:10:14 CET 2015
+libva-1.6.1-i586-1_microlinux.txz: Removed.
+libjpeg-turbo-1.4.2-i586-1_microlinux.txz: Removed.
+	These two libraries have already been added to Slackware 14.2. 
++--------------------------+
 Fri Nov 13 08:04:48 CET 2015
 chromaprint-1.2-i586-1_microlinux.txz: Added.
 ftgl-2.1.3_rc5-i586-1_microlinux.txz: Added.
