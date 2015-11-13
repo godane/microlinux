@@ -1,6 +1,7 @@
 Fri Nov 13 08:04:48 CET 2015
 chromaprint-1.2-i586-1_microlinux.txz: Added.
 ftgl-2.1.3_rc5-i586-1_microlinux.txz: Added.
+projectM-2.1.0-i586-1_microlinux.txz: Added.
 +--------------------------+
 Thu Nov 12 18:53:14 CET 2015
 OpenAL-1.16.0-i586-1_microlinux.txz: Added.
