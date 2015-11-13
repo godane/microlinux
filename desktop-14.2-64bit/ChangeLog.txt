@@ -1,3 +1,18 @@
+Fri Nov 13 11:52:44 CET 2015
+chromaprint-1.2-x86_64-1_microlinux.txz: Added.
+ftgl-2.1.3_rc5-x86_64-1_microlinux.txz: Added.
+projectM-2.1.0-x86_64-1_microlinux.txz: Added.
+glfw-2.7.8-x86_64-1_microlinux.txz: Added.
+libjpeg-turbo-1.4.2-x86_64-1_microlinux.txz: Added.
+vsxu-0.4.2-x86_64-1_microlinux.txz: Added.
+libtar-1.2.20-x86_64-1_microlinux.txz: Added.
+libva-1.6.1-x86_64-1_microlinux.txz: Added.
+freerdp-1.2.0_beta1_android9-x86_64-1_microlinux.txz: Added.
+libebml-1.3.1-x86_64-1_microlinux.txz: Added.
+libmatroska-1.4.2-x86_64-1_microlinux.txz: Added.
+live555-2015.10.29-x86_64-1_microlinux.txz: Added.
+vlc-2.1.6-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Thu Nov 12 19:58:17 CET 2015
 OpenAL-1.16.0-x86_64-1_microlinux.txz: Added.
 ffmpeg-2.6.4-x86_64-1_microlinux.txz: Added.
