@@ -51,9 +51,9 @@ Peaufinage des fenêtres > Compositeur :
 
   [*] Afficher l'ombre sous les fenêtres normales
 
-  [*] Afficher l'ombre sous les fenêtres contextuelles
+  [ ] Afficher l'ombre sous les fenêtres contextuelles
 
-  [*] Afficher l'ombre sous les fenêtres du dock
+  [ ] Afficher l'ombre sous les fenêtres du dock
 
   Opacité des décorations des fenêtres : laisser tel quel
 
@@ -71,28 +71,67 @@ Remplacer le Menu d'applications classique par le Menu Whisker.
 
   Icône : start-here-slackware (emplacements)
 
+Ajouter des favoris pour les applications de base :
+
+  * Thunar
+  * Mozilla Firefox
+  * Mozilla Thunderbird
+  * Pidgin
+  * LibreOffice Writer
+  * LibreOffice Calc
+  * LibreOffice Impress
+  * gThumb
+  * Audacious
+  * MPlayer
+
+  [*] Changer de catégories au survol
+
+  [ ] Changer d'utilisateur
+
+  [ ] Modifier les applications
+
+  [ ] Modifier le profil
+
+Supprimer les actions de recherche du menu Whisker.
+
 Déplacer la zone de notifications à gauche du sélecteur de bureaux virtuels.
 
 Ajouter l'applet de mixage entre la zone de notifications et le sélecteur de
 bureaux virtuels.
 
-Tableau de bord > Panneau 2 : supprimer tous les lanceurs prédéfinis.
+Ajouter l'applet du gestionnaire d'alimentation entre l'applet de mixage et le
+sélecteur de bureaux virtuels.
+
+Tableau de bord > Tableau de bord 2 : supprimer 
+
+Démarrer le lanceur d'applications Plank et ouvrir les Préférences.
+
+  Thème : Transparent
+
+  Taille d'icône : 38
+
+  Zoom sur icône : activé - 120 %
+
+  Afficher l'icône du dock : désactivé
 
 Ajouter des lanceurs pour les applications de base :
 
   * Thunar
   * Mozilla Firefox
   * Mozilla Thunderbird
-  * LibreOffice
-  * Geeqie
+  * LibreOffice 
+  * gThumb
   * Audacious
-  * GNOME MPlayer
+  * MPlayer
 
-Pour chacune des entrées qu'on vient d'ajouter :
+Dans les Paramètres Xfce > Sessions et démarrage, définir le lancement
+automatique de Plank à l'ouverture d'une session.
 
-  [ ] Désactiver les bulles d'aide
+  Nom         : Plank
 
-Masquer automatiquement le tableau de bord : Intelligemment.
+  Description : Lanceur d'applications
+
+  Commande    : /usr/bin/plank
 
 Peaufiner Xfce Terminal.
 
@@ -105,12 +144,13 @@ Création du profil
   # mkdir /etc/skel/.config/xfce4
   # cp -Rv /home/template/.config/xfce4/{panel,terminal,xfconf} \
       /etc/skel/.config/xfce4/
+  # cp -Rv /home/template/.config/{plank,autostart} /etc/skel/.config/ 
 
 La configuration de Whiskermenu se trouve dans 'xfce4/panel/'.
 
 Empaqueter la configuration :
 
-  # cd ..
+  # cd /etc/skel
   # tar cvjf config.tar.bz2 .config/
 
 
