@@ -1,3 +1,6 @@
+Sat Nov 14 14:17:50 CET 2015
+wxPython-2.8.12.1-i586-1_microlinux.txz: Added.
++--------------------------+
 Sat Nov 14 10:05:43 CET 2015
 libmms-0.6.4-i586-1_microlinux.txz: Added.
 audacious-plugins-3.6.2-i586-1_microlinux.txz: Rebuilt.
