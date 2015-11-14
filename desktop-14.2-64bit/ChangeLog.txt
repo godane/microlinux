@@ -1,3 +1,9 @@
+Sat Nov 14 12:30:22 CET 2015
+libmms-0.6.4-x86_64-1_microlinux.txz: Added.
+audacious-plugins-3.6.2-x86_64-1_microlinux.txz: Rebuilt.
+MPlayer-20150721-x86_64-1_microlinux.txz: Rebuilt.
+  These two packages come with enhanced multimedia capabilities.
++--------------------------+
 Sat Nov 14 07:12:06 CET 2015
 user-settings-xfce-14.2-noarch-1_microlinux.txz: Added.
 +--------------------------+
