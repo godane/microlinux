@@ -1,3 +1,6 @@
+Sat Nov 14 07:12:06 CET 2015
+user-settings-xfce-14.2-noarch-1_microlinux.txz: Added.
++--------------------------+
 Fri Nov 13 19:15:15 CET 2015
 libva-1.6.1-x86_64-1_microlinux.txz: Removed.
 libjpeg-turbo-1.4.2-x86_64-1_microlinux.txz: Removed.
