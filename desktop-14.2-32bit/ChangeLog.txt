@@ -5,6 +5,7 @@ goocanvas-0.15-i586-1_microlinux.txz: Added.
 pygoocanvas-0.14.1-i586-1_microlinux.txz: Added.
 pyxdg-0.25-i586-1_microlinux.txz: Added.
 libdv-1.0.0-i586-1_microlinux.txz: Added.
+libquicktime-1.2.4-i586-1_microlinux.txz: Added.
 +--------------------------+
 Sat Nov 14 10:05:43 CET 2015
 libmms-0.6.4-i586-1_microlinux.txz: Added.
