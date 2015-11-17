@@ -1,3 +1,10 @@
+Tue Nov 17 18:05:33 CET 2015
+ffmpeg-2.6.4-x86_64-2_microlinux.txz: Rebuilt.
+opencv-3.0.0-x86_64-3_microlinux.txz: Rebuilt.
+freerdp-1.2.0_beta1_android9-x86_64-2_microlinux.txz: Rebuilt.
+MPlayer-20150721-x86_64-2_microlinux.txz: Rebuilt.
+  Recompiled against new libvpx.
++--------------------------+
 Sat Nov 14 16:10:44 CET 2015
 wxPython-2.8.12.1-x86_64-1_microlinux.txz: Added.
 audacity-2.1.0-x86_64-1_microlinux.txz: Added.
