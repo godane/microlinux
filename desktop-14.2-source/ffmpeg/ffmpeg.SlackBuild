@@ -29,7 +29,7 @@
 
 PRGNAM=ffmpeg
 VERSION=${VERSION:-2.6.4}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j3}
@@ -143,6 +143,9 @@ find -L . \
 # Fix linking with flite
 sed -i "s| -lflite\"| -lflite -lm -lasound\"|" \
   ./configure
+
+# Some variables are removed from newer libvpx releases
+patch -p1 < $CWD/ffmpeg-libvpxenc-remove-some-unused-ctrl-id-mappings.patch
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
