@@ -702,6 +702,17 @@ libqmi:
 libqmi:
 libqmi:
 libqmi:
+libssh2: libssh2 (SSH2 library)
+libssh2:
+libssh2: libssh2 is a library implementing the SSH2 protocol, available under
+libssh2: the revised BSD license.
+libssh2:
+libssh2: Homepage:  http://www.libssh2.org/
+libssh2:
+libssh2:
+libssh2:
+libssh2:
+libssh2:
 links: links (WWW browser for the console)
 links:
 links: Links is a console mode WWW browser, supporting colors, correct table
@@ -1545,7 +1556,7 @@ vsftpd: Obviously this is not a guarantee, but a reflection that the entire
 vsftpd: codebase was written with security in mind, and carefully designed to
 vsftpd: be resilient to attack (as well as extremely fast and scalable).
 vsftpd:
-vsftpd: The vsftpd homepage is http://vsftpd.beasts.org/
+vsftpd: The vsftpd homepage is https://security.appspot.com/vsftpd.html
 vsftpd:
 vsftpd: The Very Secure FTP Daemon was written by Chris Evans.
 vsftpd:

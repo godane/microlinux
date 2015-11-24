@@ -273,6 +273,17 @@ calligra-l10n-sv:
 calligra-l10n-sv:
 calligra-l10n-sv:
 calligra-l10n-sv:
+calligra-l10n-tr: calligra-l10n-tr
+calligra-l10n-tr:
+calligra-l10n-tr: Turkish language support for Calligra.
+calligra-l10n-tr:
+calligra-l10n-tr:
+calligra-l10n-tr:
+calligra-l10n-tr:
+calligra-l10n-tr:
+calligra-l10n-tr:
+calligra-l10n-tr:
+calligra-l10n-tr:
 calligra-l10n-uk: calligra-l10n-uk
 calligra-l10n-uk:
 calligra-l10n-uk: Ukrainian language support for Calligra.
