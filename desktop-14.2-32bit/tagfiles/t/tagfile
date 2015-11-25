@@ -1,4 +1,5 @@
+# Add
 tetex:ADD
-tetex-doc:REC
-transfig:OPT
-xfig:OPT
+tetex-doc:ADD
+transfig:ADD
+xfig:ADD
