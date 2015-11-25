@@ -26,7 +26,7 @@
 
 PRGNAM=libdvbpsi
 VERSION=${VERSION:-1.1.1}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j3}
@@ -77,7 +77,7 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-CFLAGS="$SLKCFLAGS" \
+CFLAGS="$SLKCFLAGS -Wno-error=bool-compare" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \

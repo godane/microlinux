@@ -26,7 +26,7 @@
 
 PRGNAM=libupnp
 VERSION=${VERSION:-1.6.17}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j3}
