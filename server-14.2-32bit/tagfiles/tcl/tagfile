@@ -1,6 +1,7 @@
-expect:OPT
-hfsutils:OPT
+# Add
+expect:ADD
+hfsutils:ADD
 tcl:ADD
-tclx:REC
-tix:OPT
-tk:REC
+tclx:ADD
+tix:ADD
+tk:ADD
