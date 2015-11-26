@@ -1,5 +1,6 @@
 Thu Nov 26 10:33:31 CET 2015
 frei0r-1.4-i586-4_microlinux.txz: Rebuilt.
+opencv-3.0.0-i586-5_microlinux.txz: Rebuilt.
 +--------------------------+
 Wed Nov 25 08:05:57 CET 2015
 	Our build server didn't survive Slackware's recent transition from udev to
