@@ -1,3 +1,7 @@
+Thu Nov 26 14:46:07 CET 2015
+plank-0.10.1-x86_64-1_microlinux.txz: Removed.
+  Moved to the main repository.
++--------------------------+
 Thu Oct 22 16:50:28 CEST 2015
 plank-0.10.1-x86_64-1_microlinux.txz: Added.
 +--------------------------+
