@@ -1,3 +1,9 @@
+Thu Nov 26 12:42:24 CET 2015
+frei0r-1.4-x86_64-4_microlinux.txz: Rebuilt.
+opencv-3.0.0-x86_64-5_microlinux.txz: Rebuilt.
+ffmpeg-2.6.4-x86_64-4_microlinux.txz: Rebuilt.
+  Second pass to resolve some circular dependencies.
++--------------------------+
 Wed Nov 25 19:02:43 CET 2015
 	Our build server didn't survive Slackware's recent transition from udev to
 	eudev, so here we go again. ;o)
