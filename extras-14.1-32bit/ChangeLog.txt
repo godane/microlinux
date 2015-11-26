@@ -1,3 +1,7 @@
+Thu Nov 26 14:18:45 CET 2015
+plank-0.10.1-i486-1_microlinux.txz: Removed.
+  Moved to the main repository.
++--------------------------+
 Thu Oct 22 16:34:44 CEST 2015
 plank-0.10.1-i486-1_microlinux.txz: Added.
 +--------------------------+

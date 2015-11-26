@@ -13,7 +13,7 @@
 
 PRGNAM=gdm
 VERSION=${VERSION:-2.20.11}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j3}

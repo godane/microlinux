@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+libquvi: libquvi (media-parsing library)
+libquvi:
+libquvi: The quvi project parses media stream URLs for Internet applications
+libquvi: that would otherwise have to use adobe flash multimedia platform to
+libquvi: access the media streams. quvi project works around the adobe flash,
+libquvi: rather than enables it.
+libquvi:
+libquvi: 
+libquvi:
+libquvi:
+libquvi: Package created by Niki Kovacs <info@microlinux.fr>

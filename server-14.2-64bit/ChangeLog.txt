@@ -1,3 +1,9 @@
+Wed Nov 25 07:18:59 CET 2015
+	Our build server didn't survive Slackware's recent transition from udev to
+	eudev, so here we go again. ;o)
+user-settings-console-14.2-noarch-2_microlinux.txz: Rebuilt.
+slackpkg+-1.5.0-noarch-2_microlinux.txz: Rebuilt.
++--------------------------+
 Tue Nov  3 12:05:54 CET 2015
 slackpkg+-1.5.0-noarch-1_microlinux.txz: Added.
 +--------------------------+

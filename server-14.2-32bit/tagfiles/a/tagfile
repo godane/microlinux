@@ -26,6 +26,7 @@ eject:ADD
 elilo:ADD
 elvis:ADD
 etc:ADD
+eudev:ADD
 file:ADD
 findutils:ADD
 floppy:ADD
@@ -41,6 +42,7 @@ grep:ADD
 grub:ADD
 gzip:ADD
 hdparm:ADD
+hwdata:ADD
 infozip:ADD
 inotify-tools:ADD
 isapnptools:ADD
@@ -57,6 +59,7 @@ kmod:ADD
 less:ADD
 lha:ADD
 libcgroup:ADD
+libgudev:ADD
 lilo:ADD
 logrotate:ADD
 lrzip:ADD
@@ -96,7 +99,6 @@ tar:ADD
 tcsh:ADD
 time:ADD
 tree:ADD
-udev:ADD
 udisks:ADD
 udisks2:ADD
 unarj:ADD

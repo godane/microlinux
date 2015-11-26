@@ -66,6 +66,7 @@ slackpkg:ADD
 soma:ADD
 sox:ADD
 sqlite:ADD
+squashfs-tools:ADD
 sudo:ADD
 sysstat:ADD
 terminus-font:ADD

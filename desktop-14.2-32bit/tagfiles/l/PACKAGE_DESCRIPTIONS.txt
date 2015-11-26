@@ -231,17 +231,17 @@ clucene:
 clucene:
 clucene:
 clucene:
-ConsoleKit: ConsoleKit (user, login, and seat tracking framework)
-ConsoleKit:
-ConsoleKit: ConsoleKit is a framework for defining and tracking users, login
-ConsoleKit: sessions, and seats.
-ConsoleKit:
-ConsoleKit:
-ConsoleKit:
-ConsoleKit:
-ConsoleKit:
-ConsoleKit: Homepage: http://freedesktop.org/wiki/Software/ConsoleKit
-ConsoleKit:
+ConsoleKit2: ConsoleKit2 (user, login, and seat tracking framework)
+ConsoleKit2:
+ConsoleKit2: ConsoleKit2 is a framework for defining and tracking users, login
+ConsoleKit2: sessions, and seats.
+ConsoleKit2:
+ConsoleKit2: Homepage: https://github.com/ConsoleKit2/ConsoleKit2
+ConsoleKit2:
+ConsoleKit2:
+ConsoleKit2:
+ConsoleKit2:
+ConsoleKit2:
 db42: db42 (Berkeley database library version 4.2.x)
 db42:
 db42: The Berkeley Database (Berkeley DB) library provides embedded database
@@ -343,7 +343,7 @@ djvulibre: Homepage:  http://djvu.sourceforge.net
 djvulibre:
 ebook-tools: ebook-tools (access and convert various ebook file formats)
 ebook-tools:
-ebook-tools: Tools for accessing and converting various ebook file formats. 
+ebook-tools: Tools for accessing and converting various ebook file formats.
 ebook-tools:
 ebook-tools: Home page: http://sourceforge.net/projects/ebook-tools/
 ebook-tools:
@@ -748,6 +748,17 @@ gsettings-desktop-schemas:
 gsettings-desktop-schemas:
 gsettings-desktop-schemas:
 gsettings-desktop-schemas:
+gsl: GSL (a numerical library for C and C++ programmers)
+gsl:
+gsl: The GNU Scientific Library (GSL) is a collection of routines for
+gsl: numerical computing. The routines are written from scratch by the
+gsl: GSL team in ANSI C, and present a modern API for C programmers,
+gsl: while allowing wrappers to be written for very high-level
+gsl: languages.
+gsl:
+gsl: Homepage: http://www.gnu.org/software/gsl/
+gsl:
+gsl:
 gst-plugins-base0: gst-plugins-base (base set of GStreamer plugins, v0)
 gst-plugins-base0:
 gst-plugins-base0: GStreamer Base Plug-ins is a well-groomed and well-maintained 
@@ -1856,7 +1867,7 @@ libusb: This is libusb, a library which allows userspace application access
 libusb: to USB devices.  It is used to connect to USB devices like scanners
 libusb: and printers.
 libusb:
-libusb: http://libusb.org
+libusb: http://libusb.info
 libusb:
 libusb:
 libusb:
@@ -1867,7 +1878,7 @@ libusb-compat: A compatibility layer allowing applications written for libusb-0.
 libusb-compat: work with libusb-1.0.  libusb-compat-0.1 attempts to retain as much
 libusb-compat: ABI and API compatibility with libusb-0.1 as possible.
 libusb-compat:
-libusb-compat: Homepage:  http://libusb.org
+libusb-compat: Homepage:  http://libusb.info
 libusb-compat:
 libusb-compat:
 libusb-compat:
@@ -1883,6 +1894,17 @@ libusbmuxd:
 libusbmuxd:
 libusbmuxd:
 libusbmuxd:
+libvisio: libvisio (Visio document format library)
+libvisio:
+libvisio: Libvisio is a library that parses the file format of Microsoft Visio
+libvisio: documents of all versions.
+libvisio:
+libvisio: Homepage: https://wiki.documentfoundation.org/DLP/Libraries/libvisio
+libvisio:
+libvisio:
+libvisio:
+libvisio:
+libvisio:
 libvisual: libvisual (audio visualization library)
 libvisual:
 libvisual: Libvisual is an audio visualization library that acts as a middle
@@ -1982,6 +2004,17 @@ libwpd:
 libwpd:
 libwpd:
 libwpd:
+libwpg: libwpg (WPG-image reading/converting library)
+libwpg:
+libwpg: libwpg is a library for reading and converting WPG images
+libwpg:
+libwpg: Homepage: http://libwpg.sourceforge.net/
+libwpg:
+libwpg:
+libwpg:
+libwpg:
+libwpg:
+libwpg:
 libxklavier: libxklavier (XKB Library)
 libxklavier:
 libxklavier: libxklavier is a utility library to make XKB stuff easier.
@@ -2389,6 +2422,17 @@ pygobject:
 pygobject:
 pygobject:
 pygobject:
+pygobject3: pygobject3 (GObject bindings for Python)
+pygobject3:
+pygobject3: This archive contains bindings for the GObject, to be used in Python.
+pygobject3: It is a fairly complete set of bindings, it's already rather useful,
+pygobject3: and is usable to write moderately complex programs.
+pygobject3:
+pygobject3: Homepage:  https://live.gnome.org/PyGObject
+pygobject3:
+pygobject3:
+pygobject3:
+pygobject3:
 pygtk: pygtk (GTK+ bindings for Python)
 pygtk:
 pygtk: PyGTK provides a convenient wrapper for the GTK+ library for use in
@@ -2431,7 +2475,7 @@ python-pillow: image processing capabilities.
 python-pillow:
 python-pillow: PIL is used by the scanning component of HPLIP.
 python-pillow:
-python-pillow: PIL homepage:  http://www.pythonware.com/products/python-pillow/
+python-pillow: PIL homepage:  https://python-pillow.github.io/
 python-pillow:
 qca: qca (Qt Cryptographic Architecture)
 qca:
@@ -2609,6 +2653,17 @@ seamonkey-solibs:
 seamonkey-solibs: This package is runtime only.  The include files and other files for
 seamonkey-solibs: development can be found in the seamonkey package.
 seamonkey-solibs:
+serf: serf (high-performance asynchronous HTTP client library)
+serf:
+serf: The serf library is a high performance C-based HTTP client library
+serf: built upon the Apache Portable Runtime (APR) library. Key features:
+serf: * multiplexed, asynchronous connections,
+serf: * SSL/TLS support, full HTTP pipelining,
+serf: * multiple authentication modes (Basic, Digest, Kerberos/NTLM),
+serf: * zero-copy support for increased throughput.
+serf:
+serf: Homepage:  http://serf.apache.org/
+serf:
 sg3_utils: sg3_utils (utilities and test programs for the linux sg driver)
 sg3_utils:
 sg3_utils: This package contains low level utilities for devices that use a SCSI

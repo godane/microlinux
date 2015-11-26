@@ -1618,7 +1618,7 @@ scim-hangul:
 scim-input-pad: scim-input-pad (on-screen input pad for scim)
 scim-input-pad:
 scim-input-pad: This is scim-input-pad, which provides an on-screen input pad
-scim-input-pad: to enter symbols and chinese characters.
+scim-input-pad: to enter symbols and Chinese characters.
 scim-input-pad:
 scim-input-pad:
 scim-input-pad:
@@ -2253,17 +2253,6 @@ xf86-input-acecad: http://www.x.org
 xf86-input-acecad:
 xf86-input-acecad:
 xf86-input-acecad:
-xf86-input-aiptek: xf86-input-aiptek (Aiptek USB Digital Tablet Input Driver for Linux)
-xf86-input-aiptek:
-xf86-input-aiptek: xf86-input-aiptek is part of X11.
-xf86-input-aiptek:
-xf86-input-aiptek: For more information about the X.Org Foundation (the providers of the
-xf86-input-aiptek: X.Org implementation of the X Window System), see their website:
-xf86-input-aiptek:
-xf86-input-aiptek: http://www.x.org
-xf86-input-aiptek:
-xf86-input-aiptek:
-xf86-input-aiptek:
 xf86-input-evdev: xf86-input-evdev (Generic Linux input driver for the Xorg X server)
 xf86-input-evdev:
 xf86-input-evdev: xf86-input-evdev is part of X11.

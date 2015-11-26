@@ -1,0 +1,12 @@
+         |-----handy-ruler------------------------------------------------------|
+libdvbpsi: libdvbpsi (Library for MPEG TS and DVB PSI Tables)
+libdvbpsi:
+libdvbpsi: libdvbpsi is a simple library designed for decoding and generation
+libdvbpsi: of MPEG TS and DVB PSI tables.
+libdvbpsi:
+libdvbpsi: 
+libdvbpsi:
+libdvbpsi:
+libdvbpsi:
+libdvbpsi:
+libdvbpsi: Package created by Niki Kovacs <info@microlinux.fr>

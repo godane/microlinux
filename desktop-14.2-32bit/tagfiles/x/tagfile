@@ -192,7 +192,6 @@ xev:ADD
 xextproto:ADD
 xeyes:ADD
 xf86-input-acecad:ADD
-xf86-input-aiptek:ADD
 xf86-input-evdev:ADD
 xf86-input-joystick:ADD
 xf86-input-keyboard:ADD
