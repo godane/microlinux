@@ -8,6 +8,7 @@ user-settings-xfce-14.1-noarch-1_microlinux.txz: Upgraded.
 	for detailed information on how to migrate your existing users' profiles.
 	Besides, all user-settings-* packages will now adopt the same versioning
 	scheme, corresponding to the Slackware base system under the hood.
+flashplayer-plugin-11.2.202.548-i386-1_microlinux.txz: Upgraded.
 +--------------------------+
 Sat Nov  7 12:35:24 CET 2015
 libreoffice-4.4.6-i586-1_microlinux.txz: Upgraded.
