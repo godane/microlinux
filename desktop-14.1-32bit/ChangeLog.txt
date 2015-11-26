@@ -1,5 +1,13 @@
 Thu Nov 26 14:20:21 CET 2015
 plank-0.10.1-i486-1_microlinux.txz: Added.
+user-settings-xfce-14.1-noarch-1_microlinux.txz: Upgraded.
+	Xfce's default user profile has been modified to use Plank as the default
+	application launcher, as a replacement for the Xfce panel at the bottom on
+	the screen. We've been using Plank every day for more than a month, and it's
+	a functional and rock-solid dock. Check out http://www.microlinux.eu/news.php
+	for detailed information on how to migrate your existing users' profiles.
+	Besides, all user-settings-* packages will now adopt the same versioning
+	scheme, corresponding to the Slackware base system under the hood.
 +--------------------------+
 Sat Nov  7 12:35:24 CET 2015
 libreoffice-4.4.6-i586-1_microlinux.txz: Upgraded.
