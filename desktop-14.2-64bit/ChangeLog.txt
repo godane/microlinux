@@ -1,4 +1,15 @@
-
+Sat Nov 28 22:14:53 CET 2015
+mm-common-0.9.7-noarch-1_microlinux.txz: Added.
+libsigc++-2.2.11-x86_64-1_microlinux.txz: Added.
+glibmm-2.36.2-x86_64-1_microlinux.txz: Added.
+cairomm-1.10.0-x86_64-1_microlinux.txz: Added.
+pangomm-2.34.0-x86_64-1_microlinux.txz: Added.
+atkmm-2.22.7-x86_64-1_microlinux.txz: Added.
+gtkmm-2.24.4-x86_64-1_microlinux.txz: Added.
+BeautifulSoup-3.2.1-x86_64-1_microlinux.txz: Added.
+lxml-3.5.0-x86_64-1_microlinux.txz: Added.
+inkscape-0.91-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Sat Nov 28 07:23:35 CET 2015
 transmission-2.84-x86_64-1_microlinux.txz: Added.
 p7zip-9.20.1-x86_64-1_microlinux.txz: Added.
