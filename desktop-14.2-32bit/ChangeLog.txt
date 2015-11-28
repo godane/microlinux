@@ -3,6 +3,7 @@ Sat Nov 28 20:43:34 CET 2015
 mm-common-0.9.7-noarch-1_microlinux.txz: Added.
 libsigc++-2.2.11-i586-1_microlinux.txz: Added.
 glibmm-2.36.2-i586-1_microlinux.txz: Added.
+cairomm-1.10.0-i586-1_microlinux.txz: Added.
 +--------------------------+
 Sat Nov 28 06:54:24 CET 2015
 transmission-2.84-i586-1_microlinux.txz: Added.
