@@ -1,5 +1,6 @@
 Sat Nov 28 06:54:24 CET 2015
 transmission-2.84-i586-1_microlinux.txz: Added.
+p7zip-9.20.1-i586-1_microlinux.txz: Added.
 +--------------------------+
 Thu Nov 26 10:33:31 CET 2015
 frei0r-1.4-i586-4_microlinux.txz: Rebuilt.
