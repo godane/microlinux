@@ -26,7 +26,7 @@
 PRGNAM=dropbox
 PACKNAM=dropbox-lnx
 
-VERSION=${VERSION:-3.8.5}
+VERSION=${VERSION:-3.10.7}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -51,7 +51,7 @@ OUTPUT=${OUTPUT:-/tmp}
 
 set -e
 
-DOWNLOAD="https://dl.dropboxusercontent.com/u/17/$PACKNAM.$PKGARCH-$VERSION.tar.gz"
+DOWNLOAD="https://d1ilhw0800yew8.cloudfront.net/client/$PACKNAM.$PKGARCH-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 

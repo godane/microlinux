@@ -1,3 +1,6 @@
+Sat Nov 28 07:37:42 CET 2015
+dropbox-3.10.7-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Nov 26 14:18:45 CET 2015
 plank-0.10.1-i486-1_microlinux.txz: Removed.
   Moved to the main repository.
