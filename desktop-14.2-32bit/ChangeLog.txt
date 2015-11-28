@@ -9,6 +9,7 @@ atkmm-2.22.7-i586-1_microlinux.txz: Added.
 gtkmm-2.24.4-i586-1_microlinux.txz: Added.
 BeautifulSoup-3.2.1-i586-1_microlinux.txz: Added.
 lxml-3.5.0-i586-1_microlinux.txz: Added.
+inkscape-0.91-i586-1_microlinux.txz: Added.
 +--------------------------+
 Sat Nov 28 06:54:24 CET 2015
 transmission-2.84-i586-1_microlinux.txz: Added.
