@@ -37,7 +37,7 @@ for 32-bit and 64-bit architectures.
 Check out the MLED project page for detailed information and installation
 instructions:
 
-  * http://www.microlinux.fr/mled.php
+  * http://www.microlinux.eu
 
 
 Have fun,
