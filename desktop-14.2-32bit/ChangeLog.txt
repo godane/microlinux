@@ -1,3 +1,7 @@
+Sun Nov 29 15:52:03 CET 2015
+microlinux-wallpapers-1.0-noarch-3_microlinux.txz: Rebuilt.
+  Added some wallpapers. Thanks to Rémy Garrigue and to Petar Petrov.
++--------------------------+
 Sun Nov 29 11:29:30 CET 2015
 gst-plugins-bad0-0.10.23-i586-1_microlinux.txz: Added.
 gst-plugins-ugly0-0.10.19-i586-1_microlinux.txz: Added.
