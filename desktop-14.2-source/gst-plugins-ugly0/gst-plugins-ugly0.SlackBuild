@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Slackware build script for gst-plugins-bad0
+# Slackware build script for gst-plugins-ugly0
 
 # Copyright 2007-2011  Michiel van Wessem, Manchester, United Kingdom
 # All rights reserved.
@@ -26,9 +26,9 @@
 #
 # Modified by Niki Kovacs <info@microlinux.fr>
 
-PRGNAM=gst-plugins-bad0
-SRCNAM=gst-plugins-bad
-VERSION=${VERSION:-0.10.23}
+PRGNAM=gst-plugins-ugly0
+SRCNAM=gst-plugins-ugly
+VERSION=${VERSION:-0.10.19}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -71,20 +71,23 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM-$VERSION
-tar -xvf $CWD/$SRCNAM-$VERSION.tar.bz2
+tar xvjf $CWD/$SRCNAM-$VERSION.tar.bz2
 cd $SRCNAM-$VERSION
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
   -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-    -exec chmod 644 {} \;
+    -exec chmod 644 {} \;   
 
-# Fix libmodplug include directory.
-patch -p1 < $CWD/libmodplug-include.patch
+# BLFS
+patch -p1 < $CWD/gst-plugins-ugly-0.10.19-libcdio_fixes-1.patch
 
-# Fix build against libvpx.
-patch -p1 < $CWD/drop-vpx-compat-defines.patch
+# Fix support for newer opencore-amr versions
+sed -i "s|interf_dec.h|opencore-amrnb/interf_dec.h|" ext/amrnb/amrnbdec.h
+sed -i "s|interf_enc.h|opencore-amrnb/interf_enc.h|" ext/amrnb/amrnbenc.h
+sed -i "s|dec_if.h|opencore-amrwb/dec_if.h|" ext/amrwbdec/amrwbdec.h
+sed -i "s|if_rom.h|opencore-amrwb/if_rom.h|" ext/amrwbdec/amrwbdec.h
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -94,19 +97,16 @@ CXXFLAGS="$SLKCFLAGS" \
   --sysconfdir=/etc \
   --localstatedir=/var \
   --mandir=/usr/man \
-  --docdir=/usr/doc/${PRGNAM-$VERSION} \
-  --disable-static \
-  --disable-opus \
-  --build=$ARCH-slackware-linux
+  --disable-static
 
 make $NUMJOBS 
-make install DESTDIR=$PKG || exit 1
+make install-strip DESTDIR=$PKG || exit 1
 
-find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
-      | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/plugins
-cp -a AUTHORS COPYING* INSTALL NEWS README RELEASE REQUIREMENTS \
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS COPYING INSTALL NEWS README RELEASE  REQUIREMENTS \
       docs/plugins/html docs/plugins/$SRCNAM-*  $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
