@@ -1,3 +1,11 @@
+Sun Nov 29 13:24:14 CET 2015
+gst-plugins-bad0-0.10.23-x86_64-1_microlinux.txz: Added.
+gst-plugins-ugly0-0.10.19-x86_64-1_microlinux.txz: Added.
+gst-ffmpeg0-0.10.13-x86_64-1_microlinux.txz: Added.
+gst-plugins-bad-1.6.1-x86_64-1_microlinux.txz: Added.
+gst-plugins-ugly-1.6.1-x86_64-1_microlinux.txz: Added.
+gst-libav-1.6.1-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Sat Nov 28 22:14:53 CET 2015
 mm-common-0.9.7-noarch-1_microlinux.txz: Added.
 libsigc++-2.2.11-x86_64-1_microlinux.txz: Added.
