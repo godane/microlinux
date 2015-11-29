@@ -1,3 +1,7 @@
+Sun Nov 29 15:10:48 CET 2015
+microlinux-wallpapers-1.0-noarch-2_microlinux.txz: Rebuilt.
+  Added some wallpapers. Thanks to Rémy Garrigue and to Petar Petrov.
++--------------------------+
 Thu Nov 26 14:47:22 CET 2015
 plank-0.10.1-x86_64-1_microlinux.txz: Added.
 user-settings-xfce-14.1-noarch-1_microlinux.txz: Upgraded.
