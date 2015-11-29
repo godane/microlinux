@@ -4,6 +4,7 @@ gst-plugins-ugly0-0.10.19-i586-1_microlinux.txz: Added.
 gst-ffmpeg0-0.10.13-i586-1_microlinux.txz: Added.
 gst-plugins-bad-1.6.1-i586-1_microlinux.txz: Added.
 gst-plugins-ugly-1.6.1-i586-1_microlinux.txz: Added.
+gst-libav-1.6.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sat Nov 28 20:43:34 CET 2015
 mm-common-0.9.7-noarch-1_microlinux.txz: Added.

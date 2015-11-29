@@ -1,0 +1,12 @@
+         |-----handy-ruler------------------------------------------------------|
+gst-libav: gst-libav (A GStreamer1 libav plugin)
+gst-libav:
+gst-libav: This module contains a GStreamer plugin for libav as well as an
+gst-libav: internal copy of the libav source code.
+gst-libav:
+gst-libav: 
+gst-libav:
+gst-libav:
+gst-libav:
+gst-libav:
+gst-libav: Package created by Niki Kovacs <info@microlinux.fr>
