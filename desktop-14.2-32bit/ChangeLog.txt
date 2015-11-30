@@ -1,3 +1,6 @@
+Mon Nov 30 08:59:47 CET 2015
+libburn-1.4.2-i586-1_microlinux.txz: Added.
++--------------------------+
 Sun Nov 29 15:52:03 CET 2015
 microlinux-wallpapers-1.0-noarch-3_microlinux.txz: Rebuilt.
   Added some wallpapers. Thanks to Rémy Garrigue and Petar Petrov.
