@@ -1,5 +1,5 @@
 Mon Nov 30 08:16:27 CET 2015
-xfce4-systemload-plugin-1.1.2-i486-1_microlinux.txz: Added.
+xfce4-systemload-plugin-1.1.2-i486-1_microlinux.txz: Upgraded.
   Following a request from user NK from Russia. 
 +--------------------------+
 Sun Nov 29 15:05:59 CET 2015
