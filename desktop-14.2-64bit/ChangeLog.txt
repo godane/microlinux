@@ -1,3 +1,11 @@
+Mon Nov 30 10:04:14 CET 2015
+libburn-1.4.2-x86_64-1_microlinux.txz: Added.
+libisofs-1.4.2-x86_64-3_microlinux.txz: Added.
+totem-pl-parser-3.4.5-x86_64-1_microlinux.txz: Added.
+brasero-3.12.1-x86_64-1_microlinux.txz: Added.
+libopenraw-0.0.9-x86_64-1_microlinux.txz: Added.
+gthumb-3.2.9.1-x86_64-2_microlinux.txz: Rebuilt.
++--------------------------+
 Sun Nov 29 15:57:46 CET 2015
 microlinux-wallpapers-1.0-noarch-3_microlinux.txz: Rebuilt.
   Added some wallpapers. Thanks to Rémy Garrigue and Petar Petrov.
