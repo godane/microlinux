@@ -1,3 +1,7 @@
+Mon Nov 30 08:22:06 CET 2015
+xfce4-systemload-plugin-1.1.2-x86_64-1_microlinux.txz: Upgraded.
+  Following a request from user NK from Russia. 
++--------------------------+
 Sun Nov 29 15:10:48 CET 2015
 microlinux-wallpapers-1.0-noarch-2_microlinux.txz: Rebuilt.
   Added some wallpapers. Thanks to Rémy Garrigue and Petar Petrov.
