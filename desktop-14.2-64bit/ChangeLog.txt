@@ -1,3 +1,7 @@
+Tue Dec  1 10:55:18 CET 2015
+podofo-0.9.3-x86_64-1_microlinux.txz: Added.
+scribus-1.4.5-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Mon Nov 30 10:04:14 CET 2015
 libburn-1.4.2-x86_64-1_microlinux.txz: Added.
 libisofs-1.4.2-x86_64-3_microlinux.txz: Added.
