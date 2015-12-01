@@ -50,7 +50,6 @@ MLED 14.1 makes use of the following base Slackware components:
   * NetworkManager
   * GIMP image manipulation software
   * ImageMagick software collection
-  * Geeqie image viewer
   * XSane scanner software
 
 
@@ -84,7 +83,7 @@ MLED provides the following desktop applications:
   * MPlayer (rebuilt with full multimedia capabilities)
   * GNOME MPlayer frontend
   * Audacity audio editor
-  * Catfish file search utility
+  * Recoll file search utility
   * Conky system monitor
   * Inkscape vector graphics application
   * Leafpad text editor
@@ -131,15 +130,9 @@ More extra software may be added post-release.
 More information
 ----------------
 
-Check out the detailed information at the root of each package repository:
-
-  * MLED-HOWTO.txt (Installation Guide)
-  * FAQ.txt (Frequently Asked Questions)
-  * MIGRATION-HOWTO.txt (Migration Guide)
-
 Learn more about the project here:
 
-  * http://www.microlinux.fr/mled.php
+  * http://www.microlinux.eu
 
 
 Enjoy!
