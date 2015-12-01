@@ -1,3 +1,14 @@
+Tue Dec  1 12:03:56 CET 2015
+speex-1.2rc2-x86_64-1_microlinux.txz: Added.
+twolame-0.3.13-x86_64-1_microlinux.txz: Added.
+gsm-1.0.13-x86_64-1_microlinux.txz: Added.
+libass-0.12.1-x86_64-1_microlinux.txz: Added.
+libavc1394-0.5.4-x86_64-1_microlinux.txz: Added.
+libdca-0.0.5-x86_64-1_microlinux.txz: Added.
+libdvbpsi-1.1.1-x86_64-1_microlinux.txz: Added.
+libkate-0.4.1-x86_64-1_microlinux.txz: Added.
+libminizip-1.2.8-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Mon Nov 30 08:22:06 CET 2015
 xfce4-systemload-plugin-1.1.2-x86_64-1_microlinux.txz: Upgraded.
   Following a request from user NK from Russia. 
