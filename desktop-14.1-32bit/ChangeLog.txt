@@ -6,6 +6,7 @@ libass-0.12.1-i486-1_microlinux.txz: Added.
 libavc1394-0.5.4-i486-1_microlinux.txz: Added.
 libdca-0.0.5-i486-1_microlinux.txz: Added.
 libdvbpsi-1.1.1-i486-1_microlinux.txz: Added.
+libkate-0.4.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Mon Nov 30 08:16:27 CET 2015
 xfce4-systemload-plugin-1.1.2-i486-1_microlinux.txz: Upgraded.
