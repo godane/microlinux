@@ -1,0 +1,4 @@
+# /etc/rc.d/rc.local_shutdown
+
+# Clear /tmp directory
+/usr/bin/find /tmp -mindepth 1 -maxdepth 1 -print0 | xargs -0r /bin/rm -fr 
