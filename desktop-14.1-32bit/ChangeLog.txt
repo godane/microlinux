@@ -12,6 +12,8 @@ opus-1.1-i486-1_microlinux.txz: Added.
 chromaprint-1.2-i486-1_microlinux.txz: Added.
 libmodplug-0.8.8.5-i486-1_microlinux.txz: Added.
 x265-1.7-i486-1_microlinux.txz: Added.
+libdc1394-2.2.2-i486-1_microlinux.txz: Added.
+ftgl-2.1.3_rc5-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Dec  1 11:19:02 CET 2015
 speex-1.2rc2-i486-1_microlinux.txz: Added.
