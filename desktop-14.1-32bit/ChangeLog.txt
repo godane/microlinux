@@ -15,6 +15,7 @@ x265-1.7-i486-1_microlinux.txz: Added.
 libdc1394-2.2.2-i486-1_microlinux.txz: Added.
 ftgl-2.1.3_rc5-i486-1_microlinux.txz: Added.
 projectM-2.1.0-i486-1_microlinux.txz: Added.
+zvbi-0.2.35-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Dec  1 11:19:02 CET 2015
 speex-1.2rc2-i486-1_microlinux.txz: Added.
