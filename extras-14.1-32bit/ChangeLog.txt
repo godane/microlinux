@@ -1,6 +1,7 @@
 Tue Dec  8 14:38:04 CET 2015
 freerdp-1.2.0_beta1_android9-i486-1_microlinux.txz: Removed.
   Moved to the main repository.
+vlc-2.1.6-i486-1_microlinux.txz: Added.
 +--------------------------+
 Sat Nov 28 07:37:42 CET 2015
 dropbox-3.10.7-i486-1_microlinux.txz: Upgraded.
