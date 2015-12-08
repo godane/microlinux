@@ -1,3 +1,9 @@
+Tue Dec  8 11:18:42 CET 2015
+user-settings-console-14.2-noarch-3_microlinux.txz: Rebuilt.
+	No more *.new configuration overkill for .bashrc, vimrc, rc.font and lang.sh.
+  Some minor modifications to Bash's default configuration.
+	Added some nice XTerm defaults.
++--------------------------+
 Tue Dec  1 10:55:18 CET 2015
 podofo-0.9.3-x86_64-1_microlinux.txz: Added.
 scribus-1.4.5-x86_64-1_microlinux.txz: Added.
