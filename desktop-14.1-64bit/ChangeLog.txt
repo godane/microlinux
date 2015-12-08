@@ -1,3 +1,12 @@
+Tue Dec  8 16:04:27 CET 2015
+libtar-1.2.20-x86_64-1_microlinux.txz: Added.
+libva-1.6.1-x86_64-1_microlinux.txz: Added.
+freerdp-1.2.0_beta1_android9-x86_64-1_microlinux.txz: Added
+  Moved over from the extras/ repository.
+libebml-1.3.1-x86_64-1_microlinux.txz: Added.
+libmatroska-1.4.2-x86_64-1_microlinux.txz: Added.
+live555-2015.10.29-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Tue Dec  8 11:35:34 CET 2015
 user-settings-console-14.1-noarch-2_microlinux.txz: Rebuilt.
   Some minor modifications to Bash's default configuration.

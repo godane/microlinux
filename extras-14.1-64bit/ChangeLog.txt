@@ -1,3 +1,8 @@
+Tue Dec  8 16:06:46 CET 2015
+freerdp-1.2.0_beta1_android9-x86_64-1_microlinux.txz: Removed.
+  Moved to the main repository.
+vlc-2.1.6-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Sat Nov 28 07:45:22 CET 2015
 dropbox-3.10.7-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
