@@ -1,3 +1,8 @@
+Tue Dec  8 11:35:34 CET 2015
+user-settings-console-14.1-noarch-2_microlinux.txz: Rebuilt.
+  Some minor modifications to Bash's default configuration.
+	Added some nice XTerm defaults.
++--------------------------+
 Wed Dec  2 08:27:38 CET 2015
 libshout-2.3.1-i486-1_microlinux.txz: Added.
 libssh2-1.4.3-i486-1_microlinux.txz: Added.
