@@ -1,3 +1,8 @@
+Tue Dec  8 11:00:05 CET 2015
+user-settings-console-14.1-noarch-2_microlinux.txz: Rebuilt.
+  Some minor modifications to Bash's default configuration.
+	Added some nice XTerm defaults.
++--------------------------+
 Wed Oct 21 12:18:29 CEST 2015
 unrar-5.2.6-i486-1_microlinux.txz: Upgraded.
 slackpkg+-1.3.2-noarch-2_microlinux.txz: Rebuilt.
