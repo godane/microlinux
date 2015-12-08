@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+libebml: libebml (a C++ library for parsing EBML files)
+libebml:
+libebml: libebml is a C++ libary to parse EBML files. EBML (Extensible Binary
+libebml: Meta-Language library) is a simple XML like binary language for
+libebml: describing data in structured style.
+libebml:
+libebml: 
+libebml:
+libebml:
+libebml:
+libebml: Package created by Niki Kovacs <info@microlinux.fr>
