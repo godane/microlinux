@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+lxdm: LXDM (GUI login manager for LXDE)
+lxdm:
+lxdm: LXDM is a lightweight drop-in replacement for GDM or KDM.
+lxdm:
+lxdm: This package has been heavily modified to integrate nicely into the
+lxdm: Microlinux Enterprise Desktop.
+lxdm:
+lxdm:
+lxdm:
+lxdm:
+lxdm: Package created by Niki Kovacs <info@microlinux.fr>
