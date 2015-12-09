@@ -1,0 +1,109 @@
+=============
+SSH Key HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=============
+
+Dernière révision : 9 décembre 2015
+
+Ce HOWTO décrit la mise en place d'une connexion SSH sans mot de passe, à
+l'aide d'une paire de clés. 
+
+
+  * Introduction
+  * Générer la paire de clés
+  * Transférer la clé publique
+  * Contrôler les clés installées
+  * Se connecter sans mot de passe
+  
+
+Introduction
+------------
+
+Si l'on se connecte quotidiennement à une machine distante, la connexion SSH
+sans mot de passe évite d'avoir à saisir le mot de passe à chaque fois.
+
+Dans l'exemple ci-dessous, l'utilisateur kikinovak souhaite se connecter
+depuis la machine buildbox.microlinux.lan à la machine nestor.microlinux.lan
+sans avoir à saisir son mot de passe à chaque connexion.
+
+
+Générer la paire de clés
+------------------------
+
+Sur la machine buildbox.microlinux.lan, créer une clé d'identification SSH.
+Accepter l'emplacement par défaut pour la sauvegarde de la clé en appuyant sur
+[Entrée]. De même, laisser la zone du mot de passe vide en appuyant deux fois
+de suite sur [Entrée] :
+
+  [kikinovak@buildbox:~] $ ssh-keygen -t rsa
+  Generating public/private rsa key pair.
+  Enter file in which to save the key (/home/kikinovak/.ssh/id_rsa): 
+  Enter passphrase (empty for no passphrase): 
+  Enter same passphrase again: 
+  Your identification has been saved in /home/kikinovak/.ssh/id_rsa.
+  Your public key has been saved in /home/kikinovak/.ssh/id_rsa.pub.
+
+On vient de créer une clé privée '~/.ssh/id_rsa' et une clé publique
+'~/.ssh/id_rsa.pub' :
+
+  [kikinovak@buildbox:~] $ tree -a .ssh/
+  .ssh/
+  |-- id_rsa
+  |-- id_rsa.pub
+  `-- known_hosts
+
+
+Transférer la clé publique
+--------------------------
+
+Maintenant, il faut transférer la clé publique (et non PAS la clé privée) sur
+la machine distante, en l'occurrence nestor.microlinux.lan :
+
+  [kikinovak@buildbox:~] $ ssh-copy-id -i ~/.ssh/id_rsa.pub kikinovak@nestor
+  The authenticity of host 'nestor (192.168.2.1)' can't be established.
+  ECDSA key fingerprint is 08:16:b0:b0:81:c3:73:96:99:ea:8c:b6:e7:38:b7:d3.
+  Are you sure you want to continue connecting (yes/no)? yes
+  /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), 
+  to filter out any that are already installed
+  /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you 
+  are prompted now it is to install the new keys
+  kikinovak@nestor's password: 
+
+  Number of key(s) added: 1
+
+  Now try logging into the machine, with:   "ssh 'kikinovak@nestor'"
+  and check to make sure that only the key(s) you wanted were added.
+
+
+Contrôler les clés installées
+-----------------------------
+
+À présent, on peut se connecter à la machine distante :
+
+  [kikinovak@buildbox:~] $ ssh kikinovak@nestor
+  Linux 3.10.17.
+
+Il ne reste plus qu'à contrôler le fichier '~/.ssh/authorized_keys pour
+vérifier qu'on n'a pas ajouté des clés supplémentaires indésirables :
+
+  [kikinovak@nestor:~] $ cat ~/.ssh/authorized_keys ssh-rsa
+  AAAAB3NzaC1yc2EAAAADAQABAAABAQC2QQSfCGvvt7T9Fx/iSUIe1c/7c6wfQ0sdpF/2O0Qa5
+  t6tmhvPWRgwjfxhB4XZLZnEduUAfEcxgjsZ/fw4kIYWKlcndnOdeiUxCz1ebSg1+4HkBQv2OP
+  KBMBLtWEjg1koKZEoX6hnB6Lg6qxoF9aye3bft7hMiY2v66MdsjLOHnom0g2s2l0opXhsAoQv
+  8Q4o6QBJOn3L4VgeEZbPYw8fs/IXmSscoCGkUmMlmUo0Mka/Gv96ccSAsSywANaKlD+PGliSW
+  2n0X2dRyWHhTMHc7J047xyCxa0c6A1NeoX6sn8oI3pECIJEoZ4ml1OQfj3VPGFCNoLL779obr
+  +WciQRf kikinovak@buildbox.microlinux.lan
+
+
+Se connecter sans mot de passe
+------------------------------
+
+Dorénavant, la connexion SSH ne requiert pas la saisie du mot de passe :
+
+  [kikinovak@buildbox:~] $ ssh nestor
+  Last login: Wed Dec  9 08:15:32 2015 from buildbox.microlinux.lan
+  Linux 3.10.17.
+  [kikinovak@nestor:~] $ 
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
