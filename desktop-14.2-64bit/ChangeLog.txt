@@ -1,3 +1,12 @@
+Wed Dec  9 19:11:33 CET 2015
+gdm-2.20.11-x86_64-3_microlinux.txz: Removed.
+libgnomecanvas-2.30.3-x86_64-2_microlinux.txz: Removed.
+lxdm-0.5.3-x86_64-1_microlinux.txz: Added.
+	GDM doesn't play well with the new ConsoleKit, and since more recent versions
+	depend on systemd, we've decided to move to LXDM. This version is heavily
+	modified for better visual and functional integration with MLED. 
+	Thanks to Matteo Bernardini for his precious help.
++--------------------------+
 Tue Dec  8 11:18:42 CET 2015
 user-settings-console-14.2-noarch-3_microlinux.txz: Rebuilt.
 	No more *.new configuration overkill for .bashrc, vimrc, rc.font and lang.sh.
