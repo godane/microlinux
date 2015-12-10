@@ -4,6 +4,7 @@ flashplayer-plugin-11.2.202.554-i386-1_microlinux.txz: Upgraded.
 x264-20150223-i486-3_microlinux.txz: Rebuilt.
 ladspa_sdk-1.13-i486-1_microlinux.txz: Added.
 libiec61883-1.2.0-i486-1_microlinux.txz: Added.
+celt-0.11.3-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Dec  8 14:24:55 CET 2015
 libtar-1.2.20-i486-1_microlinux.txz: Added.
