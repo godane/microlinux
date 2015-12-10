@@ -8,6 +8,7 @@ celt-0.11.3-i486-1_microlinux.txz: Added.
 libfdk-aac-0.1.4-i486-1_microlinux.txz: Added.
 libilbc-2.0.2-i486-1_microlinux.txz: Added.
 opencore-amr-0.1.3-i486-1_microlinux.txz: Added.
+libquvi-scripts-0.4.21-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Dec  8 14:24:55 CET 2015
 libtar-1.2.20-i486-1_microlinux.txz: Added.
