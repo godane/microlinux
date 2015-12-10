@@ -19,4 +19,5 @@ config etc/lxdm/PreReboot.new
 config etc/lxdm/PreShutdown.new
 config etc/lxdm/lxdm.conf.new
 config etc/lxdm/xinitrc.new
+config etc/rc.d/rc.4.new
 

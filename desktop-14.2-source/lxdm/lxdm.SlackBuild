@@ -27,7 +27,7 @@
 
 PRGNAM=lxdm
 VERSION=${VERSION:-0.5.3}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j9}
@@ -63,7 +63,7 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.xz"
 
-wget -c $DOWNLOAD
+#wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
@@ -117,8 +117,14 @@ make install DESTDIR=$PKG
 # Replace the Redhat-compatible stuff by something that Slackware can use
 cat $CWD/lxdm > $PKG/usr/sbin/lxdm
 
+# Enable user switching
+install -m 0755 -D $CWD/gdmflexiserver $PKG/usr/bin/gdmflexiserver
+
 # LXDM comes first in this modified rc.4 initialization file
-install -m 0755 -D $CWD/rc.4 $PKG/etc/rc.d/rc.4
+install -m 0755 -D $CWD/rc.4 $PKG/etc/rc.d/rc.4.new
+
+# Activate Numlock
+sed -i -e "s|^# numlock=0|numlock=1|" $PKG/etc/lxdm/lxdm.conf
 
 # Install and configure default wallpaper
 sed -i -e "s|^bg=.*|bg=/usr/share/lxdm/themes/Industrial/microlinux.jpg|" \
