@@ -1,3 +1,10 @@
+Thu Dec 10 09:16:16 CET 2015
+lxdm-0.5.3-x86_64-2_microlinux.txz: Rebuilt.
+  Don't clobber /etc/rc.d/rc.4, since removing the package would make the
+	system unusable.
+	Enabled user switching for Xfce.
+	Activate numlock on boot.
++--------------------------+
 Wed Dec  9 19:11:33 CET 2015
 gdm-2.20.11-x86_64-3_microlinux.txz: Removed.
 libgnomecanvas-2.30.3-x86_64-2_microlinux.txz: Removed.
