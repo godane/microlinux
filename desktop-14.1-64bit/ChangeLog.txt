@@ -1,3 +1,7 @@
+Thu Dec 10 19:03:43 CET 2015
+freerdp-1.2.0_beta1_android9-x86_64-2_microlinux.txz: Rebuilt.
+  Compiled against new ffmpeg. 
++--------------------------+
 Thu Dec 10 14:19:28 CET 2015
 mozilla-thunderbird-langpack-38.4.0-x86_64-1_microlinux.txz: Upgraded.
 flashplayer-plugin-11.2.202.554-x86_64-1_microlinux.txz: Upgraded.
