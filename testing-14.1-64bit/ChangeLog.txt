@@ -1,3 +1,7 @@
+Fri Dec 11 08:13:01 CET 2015
+lxdm-0.5.3-x86_64-1_microlinux.txz: Added.
+  Possible lightweight replacement for GDM.
++--------------------------+
 Mon Nov  2 17:17:45 CET 2015
 xapian-core-1.2.21-x86_64-1_microlinux.txz: Removed.
 antiword-0.37-x86_64-1_microlinux.txz: Removed.
