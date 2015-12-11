@@ -27,7 +27,7 @@
 
 PRGNAM=lxdm
 VERSION=${VERSION:-0.5.3}
-BUILD=${BUILD:-3}
+BUILD=${BUILD:-4}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j9}
@@ -134,9 +134,6 @@ install -m 0644 -D $CWD/microlinux.jpg \
 
 # Disable language selector in the bottom panel
 sed -i -e "s|lang=1|lang=0|" $PKG/etc/lxdm/lxdm.conf
-
-# Disable sessions selector in the bottom panel, since we're only using Xfce
-cat $CWD/greeter.ui > $PKG/usr/share/lxdm/themes/Industrial/greeter.ui
 
 # Set prompt color to white
 sed -i -e "s|000000|ffffff|" $PKG/usr/share/lxdm/themes/Industrial/gtkrc
