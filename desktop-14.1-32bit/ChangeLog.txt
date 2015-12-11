@@ -1,3 +1,10 @@
+Fri Dec 11 10:16:44 CET 2015
+libreoffice-4.4.7-i586-1_microlinux.txz: Upgraded.
+libreoffice-langpack-fr-4.4.7-i586-1_microlinux.txz: Upgraded.
+libreoffice-langpack-de-4.4.7-i586-1_microlinux.txz: Upgraded.
+libreoffice-helppack-fr-4.4.7-i586-1_microlinux.txz: Upgraded.
+libreoffice-helppack-de-4.4.7-i586-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Dec 10 18:33:07 CET 2015
 freerdp-1.2.0_beta1_android9-i486-2_microlinux.txz: Rebuilt.
   Compiled against new ffmpeg. 
