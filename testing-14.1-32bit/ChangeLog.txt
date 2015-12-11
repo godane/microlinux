@@ -1,3 +1,7 @@
+Fri Dec 11 08:06:08 CET 2015
+lxdm-0.5.3-i486-1_microlinux.txz: Added.
+  Possible lightweight replacement for GDM.
++--------------------------+
 Mon Nov  2 17:13:45 CET 2015
 xapian-core-1.2.21-i486-1_microlinux.txz: Removed.
 antiword-0.37-i486-1_microlinux.txz: Removed.
