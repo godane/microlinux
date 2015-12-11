@@ -1,3 +1,11 @@
+Fri Dec 11 11:03:58 CET 2015
+lxdm-0.5.3-x86_64-4_microlinux.txz: Rebuilt.
+	Restored the session selector. Removing this item turned out to be a bad
+	idea, since new users will have to explicitly define Xfce as their default
+	session at least once. Not to mention the fact that some users may sometimes
+	want to start an alternative Fluxbox or WindowMaker session. So let's not go
+	GNOME developer on them. :o)
++--------------------------+
 Fri Dec 11 08:01:40 CET 2015
 lxdm-0.5.3-x86_64-3_microlinux.txz: Rebuilt.
   Third time's the charm. Removed the useless session selector in the bottom
