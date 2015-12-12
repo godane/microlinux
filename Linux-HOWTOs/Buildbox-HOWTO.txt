@@ -2,7 +2,7 @@
 Buildbox HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ==============
 
-Dernière révision : 29 octobre 2015
+Dernière révision : 12 décembre 2015
 
 Ce HOWTO décrit la configuration d'une machine dédiée à la compilation de
 paquets Slackware.
@@ -20,78 +20,97 @@ paquets Slackware.
 Introduction
 ------------
 
-Mon réseau local comporte désormais une machine dédiée à la compilation de
-paquets Slackware pour MLED (Microlinux Enterprise Desktop) et MLES (Microlinux
-Enterprise Server). J'ai eu quelques ennuis avec la compilation sous VirtualBox
-suite à un bug avec OpenGL, et j'ai décidé d'opter pour une solution quelque
-peu archaïque, mais robuste et pérenne. 
+Mon réseau local comporte désormais une nouvelle machine dédiée à la
+compilation de paquets Slackware pour MLED (Microlinux Enterprise Desktop) et
+MLES (Microlinux Enterprise Server), gracieusement offerte par une entreprise
+française qui souhaite rester anonoyme. J'ai eu quelques ennuis avec la
+compilation sous VirtualBox suite à un bug avec OpenGL, et j'ai décidé d'opter
+pour une solution quelque peu archaïque, mais robuste et pérenne. 
 
 
 Matériel
 --------
 
-Côté matériel, j'ai opté pour une station de travail HP Compaq reconditionnée,
-munie d'un simple disque serveur de 250 Go de chez HP.
+Il s'agit d'une station de travail HP Elite 3100, munie d'un processeur Intel
+Core i7, de 4 Go de RAM et d'un simple disque dur 500 Go.
 
 
 Schéma de partitionnement
 -------------------------
 
-La machine est un multiboot qui contiendra en tout et pour tout 13 (!) systèmes
+La machine est un multiboot qui contiendra en tout et pour tout 17 (!) systèmes
 différents :
 
   * 1 système principal pour le dépôt de paquets centralisé et la supervision
 
   * 4 versions de MLES pour 2 architectures
 
-  * 2 versions de MLED pour 2 architectures
+  * 4 versions de MLED pour 2 architectures
 
-Voilà à quoi cela ressemble :
+Étant donné qu'avec un tel nombre de partitions, on arrive au-delà des limites
+du partitionnement avec 'fdisk', il faudra utiliser 'gdisk' et un schéma de
+partitionnement GPT. Voilà à quoi cela ressemble :
 
-  # fdisk -l
+  # gdisk -l /dev/sda
+  GPT fdisk (gdisk) version 0.8.7
 
-  Disque /dev/sda : 250.1 Go, 250059350016 octets
-  255 têtes, 63 secteurs/piste, 30401 cylindres, total 488397168 secteurs
-  Unités = secteur de 1 * 512 = 512 octets
-  Taille de secteur (logique / physique) : 512 octets / 512 octets
-  taille d'E/S (minimale / optimale) : 512 octets / 512 octets
-  Identifiant de disque : 0x0004e487
+  Partition table scan:
+    MBR: protective
+    BSD: not present
+    APM: not present
+    GPT: present
 
-  Périphérique Amorce  Début        Fin      Blocs     Id  Système
-  /dev/sda1              63     8000369     4000153+  82  swap
-  /dev/sda2         8000370    82140344    37069987+  83  Linux
-  /dev/sda3        82140345   105579179    11719417+  83  Linux
-  /dev/sda4       105579180   488392064   191406442+   5  Étendue
-  /dev/sda5       105579243   129018014    11719386   83  Linux
-  /dev/sda6       129018078   152456849    11719386   83  Linux
-  /dev/sda7       152456913   175895684    11719386   83  Linux
-  /dev/sda8       175895748   199334519    11719386   83  Linux
-  /dev/sda9       199334583   222773354    11719386   83  Linux
-  /dev/sda10      222773418   246212189    11719386   83  Linux
-  /dev/sda11      246212253   269651024    11719386   83  Linux
-  /dev/sda12      269651088   324336284    27342598+  83  Linux
-  /dev/sda13      324336348   379021544    27342598+  83  Linux
-  /dev/sda14      379021608   433706804    27342598+  83  Linux
-  /dev/sda15      433706868   488392064    27342598+  83  Linux
+  Found valid GPT with protective MBR; using GPT.
+  Disk /dev/sda: 976773168 sectors, 465.8 GiB
+  Logical sector size: 512 bytes
+  Disk identifier (GUID): 0B13CCA6-AC95-4EDB-A50C-CC2A10A625F4
+  Partition table holds up to 128 entries
+  First usable sector is 34, last usable sector is 976773134
+  Partitions will be aligned on 2048-sector boundaries
+  Total free space is 2014 sectors (1007.0 KiB)
+
+  Number  Start (sector)    End (sector)  Size       Code  Name
+     1            2048        12085247   5.8 GiB     8200  Linux swap
+     2        12085248       137914367   60.0 GiB    8300  Linux filesystem
+     3       137914368       169371647   15.0 GiB    8300  Linux filesystem
+     4       169371648       200828927   15.0 GiB    8300  Linux filesystem
+     5       200828928       232286207   15.0 GiB    8300  Linux filesystem
+     6       232286208       263743487   15.0 GiB    8300  Linux filesystem
+     7       263743488       295200767   15.0 GiB    8300  Linux filesystem
+     8       295200768       326658047   15.0 GiB    8300  Linux filesystem
+     9       326658048       358115327   15.0 GiB    8300  Linux filesystem
+    10       358115328       389572607   15.0 GiB    8300  Linux filesystem
+    11       389572608       462972927   35.0 GiB    8300  Linux filesystem
+    12       462972928       536373247   35.0 GiB    8300  Linux filesystem
+    13       536373248       609773567   35.0 GiB    8300  Linux filesystem
+    14       609773568       683173887   35.0 GiB    8300  Linux filesystem
+    15       683173888       756574207   35.0 GiB    8300  Linux filesystem
+    16       756574208       829974527   35.0 GiB    8300  Linux filesystem
+    17       829974528       903374847   35.0 GiB    8300  Linux filesystem
+    18       903374848       976773134   35.0 GiB    8300  Linux filesystem
 
 
   * /dev/sda1 est la partition d'échange (swap) commune à tous les systèmes.
 
-  * /dev/sda2 (37960 MB) contient le système "principal" avec notamment la
-    configuration du chargeur de démarrage LILO, le gestionnaire de fenêtres
-    minimal WindowMaker et Conky pour surveiller l'espace disque.
+  * /dev/sda2 contient le système "principal" avec notamment la configuration
+    du chargeur de démarrage LILO, le gestionnaire de fenêtres minimal
+    WindowMaker et Conky pour surveiller l'espace disque.
 
-  * /dev/sda3 et /dev/sda5 : MLES 14.0 (32-bit et 64-bit)
+  * /dev/sda3 et /dev/sda4 : MLES 14.0 (32-bit et 64-bit)
 
-  * /dev/sda6 et /dev/sda7 : MLES 14.1 (32-bit et 64-bit)
+  * /dev/sda5 et /dev/sda6 : MLES 14.1 (32-bit et 64-bit)
 
-  * /dev/sda8 et /dev/sda9 : MLES 14.2 (32-bit et 64-bit)
+  * /dev/sda7 et /dev/sda8 : MLES 14.2 (32-bit et 64-bit)
 
-  * /dev/sda10 et /dev/sda11 : place pour une future version de MLES
+  * /dev/sda9 et /dev/sda10 : place pour une future version de MLES
 
-  * /dev/sda12 et /dev/sda13 : MLED 14.1 (32-bit et 64-bit)
+  * /dev/sda11 et /dev/sda12 : MLED 14.1 (32-bit et 64-bit)
 
-  * /dev/sda14 et /dev/sda15 : MLED 14.2 (32-bit et 64-bit)
+  * /dev/sda13 et /dev/sda14 : MLED 14.2 (32-bit et 64-bit)
+
+  * /dev/sda15 et /dev/sda16 : place pour une future version de MLED 
+
+  * /dev/sda17 et /dev/sda18 : une autre future version de MLED 
 
 
 Configuration de LILO
@@ -100,18 +119,18 @@ Configuration de LILO
 Le système principal monte les partitions des autres systèmes au démarrage :
 
 --8<---------- /etc/fstab ----------------------------------------------------
-/dev/sda1     swap           swap      defaults       0   0
-/dev/sda2     /              ext4      defaults       1   1
-/dev/sda3     /mnt/sda3      ext4      defaults       0   0
-/dev/sda5     /mnt/sda5      ext4      defaults       0   0
-/dev/sda6     /mnt/sda6      ext4      defaults       0   0
-/dev/sda7     /mnt/sda7      ext4      defaults       0   0
-/dev/sda8     /mnt/sda8      ext4      defaults       0   0
-/dev/sda9     /mnt/sda9      ext4      defaults       0   0
-/dev/sda12    /mnt/sda12     ext4      defaults       0   0
-/dev/sda13    /mnt/sda13     ext4      defaults       0   0
-/dev/sda14    /mnt/sda14     ext4      defaults       0   0
-/dev/sda15    /mnt/sda15     ext4      defaults       0   0
+/dev/sda1        swap             swap        defaults         0   0
+/dev/sda2        /                ext4        defaults         1   1
+/dev/sda3        /mnt/sda3        ext4        defaults         0   0
+/dev/sda4        /mnt/sda4        ext4        defaults         0   0
+/dev/sda5        /mnt/sda5        ext4        defaults         0   0
+/dev/sda6        /mnt/sda6        ext4        defaults         0   0
+/dev/sda7        /mnt/sda7        ext4        defaults         0   0
+/dev/sda8        /mnt/sda8        ext4        defaults         0   0
+/dev/sda11       /mnt/sda11       ext4        defaults         0   0
+/dev/sda12       /mnt/sda12       ext4        defaults         0   0
+/dev/sda13       /mnt/sda13       ext4        defaults         0   0
+/dev/sda14       /mnt/sda14       ext4        defaults         0   0
 ...
 --8<--------------------------------------------------------------------------
 
@@ -129,49 +148,49 @@ image = /mnt/sda3/boot/vmlinuz-generic-smp-3.2.45-smp
   root = /dev/sda3
   label = MLES-14.0-32bit
   read-only
-image = /mnt/sda5/boot/vmlinuz-generic-3.2.45
-  initrd = /mnt/sda5/boot/initrd.gz
-  root = /dev/sda5
+image = /mnt/sda4/boot/vmlinuz-generic-3.2.45
+  initrd = /mnt/sda4/boot/initrd.gz
+  root = /dev/sda4
   label = MLES-14.0-64bit
   read-only
-image = /mnt/sda6/boot/vmlinuz-generic-smp-3.10.17-smp
-  initrd = /mnt/sda6/boot/initrd.gz
-  root = /dev/sda6
+image = /mnt/sda5/boot/vmlinuz-generic-smp-3.10.17-smp
+  initrd = /mnt/sda5/boot/initrd.gz
+  root = /dev/sda5
   label = MLES-14.1-32bit
   read-only
-image = /mnt/sda7/boot/vmlinuz-generic-3.10.17
-  initrd = /mnt/sda7/boot/initrd.gz
-  root = /dev/sda7
+image = /mnt/sda6/boot/vmlinuz-generic-3.10.17
+  initrd = /mnt/sda6/boot/initrd.gz
+  root = /dev/sda6
   label = MLES-14.1-64bit
   read-only
-image = /mnt/sda8/boot/vmlinuz-generic-smp-4.1.6-smp
-  initrd = /mnt/sda8/boot/initrd.gz
-  root = /dev/sda8
+image = /mnt/sda7/boot/vmlinuz-generic-smp-4.1.13-smp
+  initrd = /mnt/sda7/boot/initrd.gz
+  root = /dev/sda7
   label = MLES-14.2-32bit
   read-only
-image = /mnt/sda9/boot/vmlinuz-generic-4.1.6
-  initrd = /mnt/sda9/boot/initrd.gz
-  root = /dev/sda9
+image = /mnt/sda8/boot/vmlinuz-generic-4.1.13
+  initrd = /mnt/sda8/boot/initrd.gz
+  root = /dev/sda8
   label = MLES-14.2-64bit
   read-only
-image = /mnt/sda12/boot/vmlinuz-generic-smp-3.10.17-smp
-  initrd = /mnt/sda12/boot/initrd.gz
-  root = /dev/sda12
+image = /mnt/sda11/boot/vmlinuz-generic-smp-3.10.17-smp
+  initrd = /mnt/sda11/boot/initrd.gz
+  root = /dev/sda11
   label = MLED-14.1-32bit
   read-only
-image = /mnt/sda13/boot/vmlinuz-generic-3.10.17
-  initrd = /mnt/sda13/boot/initrd.gz
-  root = /dev/sda13
+image = /mnt/sda12/boot/vmlinuz-generic-3.10.17
+  initrd = /mnt/sda12/boot/initrd.gz
+  root = /dev/sda12
   label = MLED-14.1-64bit
   read-only
-image = /mnt/sda14/boot/vmlinuz-generic-smp-4.1.6-smp
-  initrd = /mnt/sda14/boot/initrd.gz
-  root = /dev/sda14
+image = /mnt/sda13/boot/vmlinuz-generic-smp-4.1.13-smp
+  initrd = /mnt/sda13/boot/initrd.gz
+  root = /dev/sda13
   label = MLED-14.2-32bit
   read-only
-image = /mnt/sda15/boot/vmlinuz-generic-4.1.6
-  initrd = /mnt/sda15/boot/initrd.gz
-  root = /dev/sda15
+image = /mnt/sda14/boot/vmlinuz-generic-4.1.13
+  initrd = /mnt/sda14/boot/initrd.gz
+  root = /dev/sda14
   label = MLED-14.2-64bit
   read-only
 ...
@@ -223,31 +242,31 @@ MLES 14.0 32-bit
 ${color ddaa00}sda3  $color ${fs_bar /mnt/sda3}
 
 MLES 14.0 64-bit
-${color ddaa00}sda5  $color ${fs_bar /mnt/sda5}
+${color ddaa00}sda5  $color ${fs_bar /mnt/sda4}
 
 MLES 14.1 32-bit
-${color ddaa00}sda6  $color ${fs_bar /mnt/sda6}
+${color ddaa00}sda6  $color ${fs_bar /mnt/sda5}
 
 MLES 14.1 64-bit 
-${color ddaa00}sda7  $color ${fs_bar /mnt/sda7}
+${color ddaa00}sda7  $color ${fs_bar /mnt/sda6}
 
 MLES 14.2 32-bit
-${color ddaa00}sda8  $color ${fs_bar /mnt/sda8}
+${color ddaa00}sda8  $color ${fs_bar /mnt/sda7}
 
 MLES 14.2 64-bit 
-${color ddaa00}sda9  $color ${fs_bar /mnt/sda9}
+${color ddaa00}sda9  $color ${fs_bar /mnt/sda8}
 
 MLED 14.1 32-bit 
-${color ddaa00}sda12 $color ${fs_bar /mnt/sda12}
+${color ddaa00}sda12 $color ${fs_bar /mnt/sda11}
 
 MLED 14.1 64-bit 
-${color ddaa00}sda13 $color ${fs_bar /mnt/sda13}
+${color ddaa00}sda13 $color ${fs_bar /mnt/sda12}
 
 MLED 14.2 32-bit 
-${color ddaa00}sda14 $color ${fs_bar /mnt/sda14}
+${color ddaa00}sda14 $color ${fs_bar /mnt/sda13}
 
 MLED 14.2 64-bit 
-${color ddaa00}sda15 $color ${fs_bar /mnt/sda15}
+${color ddaa00}sda15 $color ${fs_bar /mnt/sda14}
 --8<--------------------------------------------------------------------------
 
 Lancer Conky automatiquement au démarrage de WindowMaker :
@@ -268,13 +287,7 @@ Pense-bête pour la configuration de chaque système
 
   * Ne pas réinstaller LILO, qui se trouve déjà sur /dev/sda2 !
 
-  * Sur un système serveur, activer rc.syslog et rc.sshd et désactiver les
-    autres services. Note : si l'on utilise un GUI avec WindowMaker, il vaut
-    mieux laisser les autres services activés.
-
-  * Sur un système poste de travail, laisser les services configurés par défaut.
-
-  * Inclure les modules 'ext4' et 'radeon' dans l'initrd.
+  * Laisser les services configurés par défaut.
 
   * Au premier redémarrage, installer le paquet 'user-settings-console'.
 
