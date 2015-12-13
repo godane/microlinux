@@ -1,11 +1,13 @@
 # backup.sh
 
+# Local network
+DOMAIN="microlinux.lan"
+CLIENT[0]="bernadette"
+CLIENT[1]="raymonde"
+CLIENT[2]="leanore"
+
+# Current working directory
 CWD=$(pwd)
-EXCLUDES=$CWD/exclude-list.txt
-# Maximum file size in MB
-MAXSIZE=500
-# Number of snapshots, from 2 to anything
-SNAPSHOTS=5
 
 # Colors
 WHITE="\033[01;37m"
@@ -14,12 +16,20 @@ GREEN="\033[01;32m"
 RED="\033[01;31m"
 NC="\033[00m"
 
+# Delay in seconds before running each step. Set to 0 or 1.
 DELAY=1
+
+# Where we store all backups
 BACKUPDIR="/srv/backup"
-DOMAIN="microlinux.lan"
-CLIENT[0]="bernadette"
-CLIENT[1]="raymonde"
-CLIENT[2]="leanore"
+
+# Number of snapshots, at least 2
+SNAPSHOTS=5
+
+# Excludes files by size (in MB)
+MAXSIZE=500
+
+# Exclude files by type
+EXCLUDES=$CWD/exclude-list.txt
 
 # Make sure only root can run this.
 if [ $EUID -ne 0 ] ; then
@@ -80,7 +90,6 @@ for HOST in ${CLIENT[*]} ; do
     echo -e ":: Backing up host $GREEN$HOST.$DOMAIN$NC..."
     sleep $DELAY
     # Delete oldest snapshot if it exists
-    sleep $DELAY
     if [ -d $BACKUPDIR/$DOMAIN/$HOST/snapshot.$SNAPSHOTS ] ; then
       echo -e ":: Deleting oldest backup snapshot.$SNAPSHOTS..."
       sleep $DELAY
@@ -102,6 +111,7 @@ for HOST in ${CLIENT[*]} ; do
       sleep $DELAY
       cp -al $BACKUPDIR/$DOMAIN/$HOST/snapshot.0 $BACKUPDIR/$DOMAIN/$HOST/snapshot.1
     fi
+    # Synchronize remote host with local snapshot.0 directory
     rsync -a --delete --exclude-from $EXCLUDES --delete-excluded \
       --max-size=${MAXSIZE}mb -e ssh root@$HOST:{/home,/etc} \
       $BACKUPDIR/$DOMAIN/$HOST/snapshot.0
@@ -122,6 +132,7 @@ echo ":: Here's a summary of our local backups:"
 echo 
 sleep $DELAY
 
+# Display size of local backups
 printf " %-20s | %-20s\n " Host Size
 for HOST in ${CLIENT[*]} ; do
   LOCALDIR="$BACKUPDIR/$DOMAIN/$HOST"
