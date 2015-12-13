@@ -1,0 +1,42 @@
+# Exclude from backup
+
+# Firefox
+.mozilla
+
+# Git development
+.git
+
+# Slackware packages
+*.txz
+
+# Archives
+*.tar.gz
+*.tar.bz2
+*.tgz
+
+# ISO
+*.iso
+*.ISO
+
+# Audio
+*.ogg
+*.OGG
+*.mp3
+*.MP3
+*.flac
+*.FLAC
+*.wma
+*.WMA
+
+# Video
+*.avi
+*.AVI
+*.mp4
+*.MP4
+*.mkv
+*.MKV
+*.avi
+*.AVI
+*.wmv
+*.WMV
+
