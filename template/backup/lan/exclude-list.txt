@@ -14,9 +14,14 @@
 *.tar.bz2
 *.tgz
 
-# ISO
+# Wine
+*.exe
+*.EXE
+
+# Image files
 *.iso
 *.ISO
+*.vdi
 
 # Audio
 *.ogg
@@ -25,12 +30,16 @@
 *.MP3
 *.flac
 *.FLAC
+*.wav
+*.WAV
 *.wma
 *.WMA
 
 # Video
 *.avi
 *.AVI
+*.flv
+*.FLV
 *.mp4
 *.MP4
 *.mkv

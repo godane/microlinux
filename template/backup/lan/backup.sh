@@ -17,7 +17,7 @@ RED="\033[01;31m"
 NC="\033[00m"
 
 # Delay in seconds before running each step. Set to 0 or 1.
-DELAY=1
+DELAY=0
 
 # Where we store all backups
 BACKUPDIR="/srv/backup"
