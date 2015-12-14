@@ -1,24 +1,14 @@
-# Exclude from backup
+# Files and directories to exclude from backup
 
-# GVFS leads to I/O errors
-.gvfs
-
-# Configuration directories
-.config
-
-# Cache and Trash
+# Various Hidden directories
 .cache
-.local
-.recoll
-
-# WINE
-.wine
-
-# Firefox
-.mozilla
-
-# Git development
+.config
 .git
+.gvfs
+.local
+.mozilla
+.recoll
+.wine
 
 # Slackware packages
 *.txz
@@ -32,7 +22,7 @@
 *.zip
 *.ZIP
 
-# Wine
+# Wine executables
 *.exe
 *.EXE
 

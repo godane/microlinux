@@ -1,13 +1,10 @@
 # backup.sh
 
-# Local network
+# Network
 DOMAIN="microlinux.lan"
 CLIENT[0]="bernadette"
 CLIENT[1]="raymonde"
 CLIENT[2]="leanore"
-
-# Current working directory
-CWD=$(pwd)
 
 # Colors
 WHITE="\033[01;37m"
@@ -23,13 +20,15 @@ DELAY=0
 BACKUPDIR="/srv/backup"
 
 # Number of snapshots, at least 2
-SNAPSHOTS=5
+SNAPSHOTS=30
 
 # Excludes files by size (in MB)
 MAXSIZE=500
 
-# Exclude files by type
-EXCLUDES=$CWD/exclude-list.txt
+# Exclude files by type (needs full path)
+EXCLUDES=/root/scripts/exclude-list.txt
+
+echo
 
 # Make sure only root can run this.
 if [ $EUID -ne 0 ] ; then
