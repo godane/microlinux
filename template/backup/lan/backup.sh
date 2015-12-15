@@ -32,7 +32,9 @@ echo
 
 # Make sure only root can run this.
 if [ $EUID -ne 0 ] ; then
+  echo "::"
   echo ":: You must be root to run this script."
+  echo "::"
   exit 1
 fi
 
