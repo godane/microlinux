@@ -1,4 +1,44 @@
+#!/bin/bash
+#
 # backup.sh
+#
+# Written by Niki Kovacs <info@microlinux.fr>
+#
+# This script generates automatic rotating snapshot-style backups on
+# Linux-based systems. It's written for Slackware Linux, though it can easily
+# be adapted to any Unix-based system.
+#
+# For clarity's sake, let's define a couple of terms. The 'server' is the
+# machine running this script and hosting all your backup snapshots, whereas a
+# 'client' is a remote machine - on the LAN or on the Internet - whose data you
+# wish to backup.
+#
+# The script uses rsync over SSH, so make sure the server can connect to every
+# client using SSH key authentication. If you don't know how to do this, check
+# out http://www.microlinux.fr/microlinux/Linux-HOWTOs/SSH-Key-HOWTO.txt.
+#
+# Copy the script to a sensible place like /root/bin, edit the client
+# hostnames and set the script permissions to rwx------ (chmod 0700). You might
+# want to take a peek at the exclude list for ignored filetypes.
+# 
+# Databases on the clients are meant to be dumped in /root/sql. Check out
+# http://www.microlinux.fr/microlinux/template/backup/mysql for a MySQL
+# database dump script to be run on the clients, preferably right before this.
+#
+# You might want to define a daily cronjob like this:
+#
+# crontab -e
+#
+## Run backup every day at 13:00
+#00 13 * * * /root/bin/backup.sh 1> /dev/null
+# 
+# This work is inspired by Mike Rubel's great tutorial from the O'Reilly book
+# "Linux Server Hacks". The original tutorial is still online here:
+# http://www.mikerubel.org/computers/rsync_snapshots/. 
+#
+# Compared to Mike Rubel's method, the backup process is simplified, since our
+# script takes care of synchronizing the backup server with the remote clients
+# AND snapshot rotation in one go. 
 
 # Network
 DOMAIN="microlinux.lan"
@@ -112,10 +152,50 @@ for HOST in ${CLIENT[*]} ; do
       sleep $DELAY
       cp -al $BACKUPDIR/$DOMAIN/$HOST/snapshot.0 $BACKUPDIR/$DOMAIN/$HOST/snapshot.1
     fi
-    # Synchronize remote host with local snapshot.0 directory
+    # Backup /home
+    echo ":: Backing up user home directories..."
+    sleep $DELAY
     rsync -a --delete --exclude-from $EXCLUDES --delete-excluded \
-      --max-size=${MAXSIZE}mb -e ssh root@$HOST:{/home,/etc} \
+      --max-size=${MAXSIZE}mb -e ssh root@$HOST:/home \
       $BACKUPDIR/$DOMAIN/$HOST/snapshot.0
+    # Backup /etc
+    echo ":: Backing up configuration files..."
+    sleep $DELAY
+    rsync -a --delete --exclude-from $EXCLUDES --delete-excluded \
+      --max-size=${MAXSIZE}mb -e ssh root@$HOST:/etc \
+      $BACKUPDIR/$DOMAIN/$HOST/snapshot.0
+    # Backup /var/named if it exists
+    if ssh -o BatchMode=yes -o ConnectTimeout=5 root@$HOST [ -d /var/named ] ; then
+      echo ":: Backing up DNS zone files..."
+      sleep $DELAY
+      rsync -a --delete --exclude-from $EXCLUDES --delete-excluded \
+        --max-size=${MAXSIZE}mb -e ssh root@$HOST:/var/named \
+        $BACKUPDIR/$DOMAIN/$HOST/snapshot.0/var
+    fi
+    # Backup /var/www if it exists
+    if ssh -o BatchMode=yes -o ConnectTimeout=5 root@$HOST [ -d /var/www ] ; then
+      echo ":: Backing up web pages..."
+      sleep $DELAY
+      rsync -a --delete --exclude-from $EXCLUDES --delete-excluded \
+        --max-size=${MAXSIZE}mb -e ssh root@$HOST:/var/www \
+        $BACKUPDIR/$DOMAIN/$HOST/snapshot.0/var
+    fi
+    # Backup /root/sql if it exists
+    if ssh -o BatchMode=yes -o ConnectTimeout=5 root@$HOST [ -d /root/sql ] ; then
+      echo ":: Backing up MySQL databases..."
+      sleep $DELAY
+      rsync -a --delete --exclude-from $EXCLUDES --delete-excluded \
+        --max-size=${MAXSIZE}mb -e ssh root@$HOST:/root/sql \
+        $BACKUPDIR/$DOMAIN/$HOST/snapshot.0/root
+    fi
+    # Backup /root/bin if it exists
+    if ssh -o BatchMode=yes -o ConnectTimeout=5 root@$HOST [ -d /root/bin ] ; then
+      echo ":: Backing up client admin scripts..."
+      sleep $DELAY
+      rsync -a --delete --exclude-from $EXCLUDES --delete-excluded \
+        --max-size=${MAXSIZE}mb -e ssh root@$HOST:/root/bin \
+        $BACKUPDIR/$DOMAIN/$HOST/snapshot.0/root
+    fi
     # Update timestamp
     echo ":: Updating timestamp..."
     sleep $DELAY
