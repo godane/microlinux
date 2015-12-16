@@ -1,5 +1,6 @@
 Wed Dec 16 15:39:42 CET 2015
 pygobject3-3.10.2-i486-1_microlinux.txz: Added.
+libpeas-1.8.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Wed Dec 16 12:15:26 CET 2015
 mozilla-firefox-langpack-38.5.0-i486-1_microlinux.txz: Upgraded.
