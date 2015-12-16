@@ -3,6 +3,7 @@ pygobject3-3.10.2-i486-1_microlinux.txz: Added.
 libpeas-1.8.1-i486-1_microlinux.txz: Added.
 libwebp-0.4.3-i486-1_microlinux.txz: Added.
 geoclue-0.12.99-i486-1_microlinux.txz: Added.
+webkitgtk3-2.4.9-i486-1_microlinux.txz: Added.
 +--------------------------+
 Wed Dec 16 12:15:26 CET 2015
 mozilla-firefox-langpack-38.5.0-i486-1_microlinux.txz: Upgraded.

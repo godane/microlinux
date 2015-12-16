@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+webkitgtk3: WebKitGTK+ (GTK+ port of the WebKit)
+webkitgtk3:
+webkitgtk3: WebKit/GTK+ is the new GTK+ port of the WebKit, an open-source web
+webkitgtk3: content engine that powers numerous applications such as web
+webkitgtk3: browsers, email clients, feed readers, web and text editors, and a
+webkitgtk3: whole lot more.
+webkitgtk3:
+webkitgtk3: This builds the GTK3 interface.
+webkitgtk3:
+webkitgtk3: 
+webkitgtk3: Package created by Niki Kovacs <info@microlinux.fr>
