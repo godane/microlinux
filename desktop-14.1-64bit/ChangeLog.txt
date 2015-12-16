@@ -1,3 +1,8 @@
+Wed Dec 16 12:36:50 CET 2015
+mozilla-firefox-langpack-38.5.0-x86_64-1_microlinux.txz: Upgraded.
+libvdpau-1.1.1-x86_64-1_microlinux.txz: Added.
+MPlayer-20150721-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Fri Dec 11 10:42:45 CET 2015
 libreoffice-4.4.7-x86_64-1_microlinux.txz: Upgraded.
 libreoffice-langpack-fr-4.4.7-x86_64-1_microlinux.txz: Upgraded.
