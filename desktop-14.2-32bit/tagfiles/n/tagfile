@@ -66,6 +66,7 @@ libnfnetlink:ADD
 libnftnl:ADD
 libqmi:ADD
 libssh2:ADD
+libtirpc:ADD
 links:ADD
 lynx:ADD
 mailx:ADD
@@ -114,7 +115,6 @@ php:ADD
 pidentd:ADD
 pinentry:ADD
 popa3d:ADD
-portmap:ADD
 ppp:ADD
 procmail:ADD
 proftpd:ADD
@@ -123,6 +123,7 @@ pth:ADD
 rdist:ADD
 rfkill:ADD
 rp-pppoe:ADD
+rpcbind:ADD
 rsync:ADD
 samba:ADD
 sendmail:ADD
