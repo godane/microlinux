@@ -28,18 +28,17 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=MPlayer
-VERSION=${VERSION:-1.1.1}	 
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-20150721}	 
+FFMPEG=${FFMPEG:-2.7.2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}		
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
-# Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
     i?86) ARCH=i486 ;;
     arm*) ARCH=arm ;;
-    # Unless $ARCH is already set, use uname -m for all other archs:
        *) ARCH=$( uname -m ) ;;
   esac
 fi
@@ -65,7 +64,9 @@ fi
 
 set -e 
 
-DOWNLOAD="http://www.mplayerhq.hu/$PRGNAM/releases/$PRGNAM-$VERSION.tar.xz"
+# Switch to stable source once Slackware 14.2 is released
+DOWNLOAD="http://mirrors.slackware.com/slackware/slackware-current/source/xap/$PRGNAM/$PRGNAM-$VERSION.tar.xz \
+          http://mirrors.slackware.com/slackware/slackware-current/source/xap/$PRGNAM/ffmpeg-$FFMPEG.tar.xz"
 
 wget -c $DOWNLOAD
 
@@ -75,6 +76,18 @@ cd $TMP
 rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.xz 
 cd $PRGNAM-$VERSION 
+
+# Remove MPlayer's copy of libswscale, extract the ffmpeg source inside the
+# MPlayer directory and rename it
+rm -rf ffmpeg
+tar xvf $CWD/ffmpeg-$FFMPEG.tar.xz
+mv ffmpeg-$FFMPEG ffmpeg
+
+# Patch for recent libvpx
+cd ffmpeg
+patch -p1 < $CWD/ffmpeg-libvpxenc-remove-some-unused-ctrl-id-mappings.patch
+cd ..
+
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -87,6 +100,12 @@ find . \
 XPREF=$(pkg-config --variable=prefix x11) || true
 [ "$XPREF" == "" ] && XPREF='/usr/X11R6'
 
+# fix building against samba 4
+zcat $CWD/include-samba-4.0.patch.gz | patch -p1 --verbose 
+
+# fix building against openjpeg 2
+sed -i "s|lopenjpeg|lopenmj2|" ./configure
+
 # MPlayer wants to automatically determine compiler flags,
 # so we don't provide CFLAGS:
 ./configure \
@@ -95,6 +114,7 @@ XPREF=$(pkg-config --variable=prefix x11) || true
 	--confdir=/etc/mplayer \
 	--disable-gui \
 	--enable-menu \
+  --enable-vdpau \
   --disable-live \
 	--disable-arts \
 	--disable-bitmap-font \
@@ -118,7 +138,7 @@ for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; r
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  AUTHORS LICENSE README VERSION \
+  AUTHORS LICENSE README \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 

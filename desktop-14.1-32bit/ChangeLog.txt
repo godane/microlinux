@@ -1,6 +1,7 @@
 Wed Dec 16 12:15:26 CET 2015
 mozilla-firefox-langpack-38.5.0-i486-1_microlinux.txz: Upgraded.
 libvdpau-1.1.1-i486-1_microlinux.txz: Added.
+MPlayer-20150721-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Fri Dec 11 10:16:44 CET 2015
 libreoffice-4.4.7-i586-1_microlinux.txz: Upgraded.
