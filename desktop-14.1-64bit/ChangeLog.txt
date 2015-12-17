@@ -1,3 +1,11 @@
+Wed Dec 16 22:09:44 CET 2015
+pygobject3-3.10.2-x86_64-1_microlinux.txz: Added.
+libpeas-1.8.1-x86_64-1_microlinux.txz: Added.
+libwebp-0.4.3-x86_64-1_microlinux.txz: Added.
+geoclue-0.12.99-x86_64-1_microlinux.txz: Added.
+webkitgtk3-2.4.9-x86_64-1_microlinux.txz: Added.
+liferea-1.10.15-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Wed Dec 16 12:36:50 CET 2015
 mozilla-firefox-langpack-38.5.0-x86_64-1_microlinux.txz: Upgraded.
 libvdpau-1.1.1-x86_64-1_microlinux.txz: Added.
