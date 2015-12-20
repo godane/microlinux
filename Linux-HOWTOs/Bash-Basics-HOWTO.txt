@@ -2,13 +2,13 @@
 Bash Basics HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =================
 
-Dernière révision : 17 octobre 2015
+Dernière révision : 20 décembre 2015
 
 Ce HOWTO présente et explique de manière détaillée les fonctionnalités de base
 du shell Bash.
 
 
-  * Définition du shell
+  * Introduction
   * Commandes externes et internes
   * Affichage à l'écran
   * La commande interne 'cd'
@@ -23,6 +23,10 @@ du shell Bash.
   * Corrigés
 
 
+============
+Introduction
+============
+
 Définition du shell
 -------------------
 
@@ -32,13 +36,90 @@ l'utilisateur et le système Linux. C'est un interpréteur de commandes.
 Plusieurs shells sont disponibles sur les plates-formes Linux.
 
 
+Caractéristiques du shell
+-------------------------
+
+Les interpréteurs de commandes disponibles en environnement Unix et Linux ont
+en commun les fonctionnalités suivantes :
+
+  - Ils proposent un jeu de caractères spéciaux permettant de déclencher des
+    actions particulières.
+
+  - Ils possèdent des commandes internes et des mots clés parmi lesquels
+    certains sont utilisés pour faire de la programmation.
+
+  - Ils utilisent des fichiers d'initialisation permettant à un utilisateur de
+    paramétrer son environnement de travail.
+
+Chaque shell propose ses propres caractères spéciaux, commandes internes, mots
+clés et fichiers de paramétrage. Heureusement, les interpréteurs les plus
+utilisés actuellement dérivent tous du shell Bourne et ont, par conséquent, un
+certain nombre de fonctionnalités en commun.
+
+
+Historique du shell
+-------------------
+
+Le shell qui est considéré comme le plus ancien est le Bourne Shell (sh). Il a
+été écrit dans les années 1970 par Steve Bourne aux laboratoires AT & T. Outre
+sa capacité à lancer des commandes, il offre des fonctionnalités de
+programmation. Le Bourne Shell est un shell ancien qui est de moins en moins
+utilisé sur les plates-formes Unix.
+
+Durant la même période, Bill Joy invente le C-Shell (csh), incompatible avec
+le Bourne Shell, mais qui offre des fonctionnalités supplémentaires telles
+que l'historique des commandes, le contrôle des tâches ou la possibilité de
+créer des alias de commandes. Ces trois aspects seront repris plus tard dans
+le Korn Shell. Le C-Shell est peu utilisé dans le monde Unix. 
+
+En 1983, David Korn reprend le Bourne Shell et l'enrichit. Ce nouvel
+interpréteur prendra le nom de Korn Shell (ksh). Il sera de plus en plus
+employé et deviendra un standard de fait. Le ksh88 (version datant de 1988)
+est, avec le Bourne Again Shell, le shell le plus utilisé actuellement. Il a
+servi de base à la normalisation POSIX du shell.
+
+En 1993, une nouvelle version du Korn Shell voit le jour (ksh93). Celle-ci
+présente une compatibilité arrière avec le ksh88, à quelques exceptions près.
+Le ksh93 est disponible sur certaines versions Unix récentes : Solaris et AIX.
+
+La Free Software Foundation propose le Bourne Again Shell (bash). Il est
+conforme à la norme POSIX à laquelle il a ajouté quelques extensions. Ce shell
+est l'interpréteur fourni en standard sur les systèmes Linux. Il est également
+disponible en standard ou en téléchargement sur les systèmes Unix. 
+
+
+Scripts de démarrage
+--------------------
+
+Sur certaines plates-formes, les scripts de démarrage sont interprétés par un
+Bourne Shell. Si l'on souhaite modifier ces scripts ou créer de nouveaux
+scripts de démarrage, il faut dans ce cas se restreindre à la syntaxe Bourne
+Shell. De manière plus générale, il faut utiliser la syntaxe qui correspond au
+shell qui interprète les scripts de démarrage.
+
+
+Autres scripts
+--------------
+
+Dans les cas les plus fréquents - scripts de traitement exécutés en mode de
+fonctionnement Unix normal - le développeur choisira soit le shell Bash, soit
+le Korn Shell 88 ou 93, selon le shell disponible sur sa plate-forme. En ce
+qui nous concerne, nous nous concentrerons sur le shell Bash.
+
+
+==============================
 Commandes externes et internes
-------------------------------
+==============================
 
 Une commande Linux appartient à l'une des deux catégories suivantes :
 
-  * commandes externes
-  * commandes internes
+  - commandes externes
+
+  - commandes internes
+
+
+Les commandes externes
+----------------------
 
 Une commande externe est un fichier localisé dans l'arborescence. Par exemple,
 lorsqu'un utilisateur lance la commande 'ls', le shell demande au noyau Linux
@@ -47,8 +128,9 @@ de charger en mémoire le fichier '/bin/ls'.
 Sont considérées comme commandes externes les fichiers possédant l'un des
 formats suivants :
 
-  * fichiers au format binaire exécutable
-  * fichiers au format texte représentant un script de commandes
+  - fichiers au format binaire exécutable
+
+  - fichiers au format texte représentant un script de commandes
 
 La commande 'file' donne une indication sur le type de données contenues dans
 un fichier. L'argument de la commande 'file' est un nom de fichier exprimé en
@@ -64,6 +146,10 @@ La commande 'gettext.sh' est un script shell :
 
   $ file /usr/bin/gettext.sh
   /usr/bin/gettext.sh: POSIX shell script, ASCII text executable
+
+
+Les commandes internes
+----------------------
 
 Une commande interne est intégrée au processus shell. Elle ne correspond donc
 en aucun cas à un fichier sur le disque. 
@@ -87,6 +173,10 @@ La commande 'ls' est une commande externe :
 
   /!\ Ici on invoque l'option '-a' pour afficher les infos sur l'ensemble des
   exécutables nommés 'ls'. Pour plus d'infos, voir 'man bash'.
+
+
+Implémentation interne et externe
+---------------------------------
 
 Certaines commandes ont une implémentation interne et une implémentation
 externe. Dans ce cas, la commande interne est lancée en priorité. L'exécution
@@ -121,8 +211,12 @@ l'emplacement de la commande, en absolu ou en relatif :
   /usr/bin
 
 
+===================
 Affichage à l'écran
--------------------
+===================
+
+La commande 'echo'
+------------------
 
 La commande interne 'echo' permet de réaliser des affichages à l'écran.
 
@@ -137,7 +231,11 @@ caractères d'échappement.
   pour que l'interprétation des caractères d'échappement ait lieu. Pour plus
   de détails, voir 'man echo'.
 
-Le caractère "\n" sert à provoquer un saut de ligne :
+
+Le caractère '\n'
+-----------------
+
+Le caractère '\n' sert à provoquer un saut de ligne :
 
   $ echo -e "Première ligne\nDeuxième ligne\nTroisième ligne"
   Première ligne
@@ -151,10 +249,14 @@ On peut également utiliser des apostrophes au lieu des guillemets :
   Deuxième ligne
   Troisième ligne
 
-Le caractère "\c" sert à éliminer le saut de ligne naturel de la commande
+
+Le caractère '\c'
+-----------------
+
+Le caractère '\c' sert à éliminer le saut de ligne naturel de la commande
 'echo'. Il doit se situer impérativement en dernière position de l'argument de
 'echo', juste avant le guillemet fermant. L'option '-e' est indispensable pour
-l'interprétation du caractère d'échappement "\c".
+l'interprétation du caractère d'échappement '\c'.
 
   $ echo "Première ligne" ; echo "Deuxième ligne"
   Première ligne
@@ -162,19 +264,24 @@ l'interprétation du caractère d'échappement "\c".
   $ echo -e "Première ligne\c" ; echo -e "Deuxième ligne\c"
   Première ligneDeuxième ligne $ 
 
-Alternativement, l'option '-n' peut remplacer le caractère "\c" :
+Alternativement, l'option '-n' peut remplacer le caractère '\c' :
 
   $ echo -n "Première ligne" ; echo -n "Deuxième ligne"
   Première ligneDeuxième ligne $ 
 
-Le caractère "\t" permet d'afficher une tabulation :
+
+Le caractère '\t'
+-----------------
+
+Le caractère '\t' permet d'afficher une tabulation :
 
   $ echo -e "|\tTab 1\tTab 2\tTab 3\tTab 4\t|"
   | Tab 1 Tab 2 Tab 3 Tab 4 |
 
 
+========================
 La commande interne 'cd'
-------------------------
+========================
 
 La commande 'cd' sans argument permet à l'utilisateur de revenir dans son
 répertoire d'accueil :
@@ -201,14 +308,21 @@ Revenir dans le répertoire précédent :
   $ cd -
 
 
+================================
 Substitution de noms de fichiers
---------------------------------
+================================
 
 De nombreuses commandes prennent des noms de fichiers en argument. Ces
 derniers peuvent être cités littéralement ou être spécifiés de manière plus
-générique. 
+générique. Le shell propose un certain nombre de caractères spéciaux qui
+permettent de fabriquer des expressions utilisées comme modèles de noms de
+fichiers.
 
-Le caractère "*" représente une suite de caractères quelconques. Voici
+
+Le caractère '*'
+----------------
+
+Le caractère '*' représente une suite de caractères quelconques. Voici
 quelques exemples.
 
   $ ls
@@ -216,15 +330,19 @@ quelques exemples.
 
   /!\ Pour créer tous ces fichiers, on pourra utiliser la commande 'touch'.
 
-Afficher tous les noms de fichier se terminant par ".c" :
+Afficher tous les noms de fichier se terminant par '.c' :
 
   $ ls *.c
   fic.c  ours.c
 
-Afficher tous les noms de fichier commençant par la lettre "f" :
+Afficher tous les noms de fichier commençant par la lettre 'f' :
 
   $ ls f*
   f12  f1.i  fic.c  fic.s
+
+
+Le caractère '?'
+----------------
 
 Le caractère "?" représente un caractère quelconque. Voici quelques exemples.
 
@@ -239,7 +357,11 @@ Afficher tous les noms de fichier composés de quatre caractères :
   $ ls ????
   f1.i  FICa
 
-Les crochets "[ ]" permettent de spécifier la liste des caractères que l'on
+
+Les crochets '[ ]'
+--------------------
+
+Les crochets '[ ]' permettent de spécifier la liste des caractères que l'on
 attend à une position bien précise dans le nom du fichier. Il est également
 possible d'utiliser les notions d'intervalle et de négation. 
 
@@ -254,8 +376,8 @@ possible d'utiliser les notions d'intervalle et de négation.
   parfaitement pour des variables d'environnement LANG et LC_COLLATE
   différentes, par exemple 'fr_FR.utf8'.
 
-Fichiers dont le nom commence par "f" ou "o" et se termine par le caractère
-"." suivi d'une minuscule :
+Fichiers dont le nom commence par 'f' ou 'o' et se termine par le caractère
+'.' suivi d'une minuscule :
 
   $ ls [fo]*.[a-z]
   f1.i  fic.c  fic.s  ours.c
@@ -266,7 +388,7 @@ Alternativement :
   f1.i  fic.c  fic.s  ours.c
 
 Fichiers dont le nom comporte en deuxième caractère une majuscule ou un
-chiffre ou la lettre "i". Les deux premiers caractères seront suivis d'une
+chiffre ou la lettre 'i'. Les deux premiers caractères seront suivis d'une
 chaîne quelconque :
 
   $ ls ?[A-Z0-9i]*
@@ -279,7 +401,7 @@ Alternativement :
 
 Il est également possible d'exprimer la négation de tous les caractères
 spécifiés à l'intérieur d'une paire de crochets. Ceci se fait en plaçant un
-"!" en première position à l'intérieur de celle-ci.
+'!' en première position à l'intérieur de celle-ci.
 
 Noms de fichier ne commençant pas par une minuscule :
 
@@ -301,7 +423,7 @@ Alternativement :
   $ ls [![:upper:]]*
   f12  f1.i  fic.c  fic.s  monscript.pl  ours.c
 
-Supprimer tous les fichiers dont le nom se termine par ".c" ou par ".s" :
+Supprimer tous les fichiers dont le nom se termine par '.c' ou par '.s' :
 
   $ rm -i *.c *.s
   rm : supprimer fichier « fic.c » ? o
@@ -309,8 +431,9 @@ Supprimer tous les fichiers dont le nom se termine par ".c" ou par ".s" :
   rm : supprimer fichier « fic.s » ? o
 
 
+=====================
 Expressions complexes
----------------------
+=====================
 
 Pour utiliser les expressions complexes en Bash, il faut préalablement activer
 l'option 'extglob' avec la commande suivante :
@@ -323,70 +446,95 @@ Voici le contenu du répertoire qui sera utilisé dans les exemples suivants :
   fic               fic866866.log  fic866.log  fic868.log  readme.txt
   fic866866866.log  fic866868.log  fic867.log  fic.log     typescript
 
-L'expression "?(expression)" sera présente 0 ou 1 fois.
 
-Fichiers dont le nom commence par "fic" suivi de 0 ou 1 occurrence de "866",
-suivi de ".log" :
+?(expression)
+-------------
+
+L'expression '?(expression)' sera présente 0 ou 1 fois.
+
+Fichiers dont le nom commence par 'fic' suivi de 0 ou 1 occurrence de '866',
+suivi de '.log' :
 
   $ ls fic?(866).log
   fic866.log  fic.log
 
-L'expression "*(expression)" sera présente entre 0 et n fois. 
 
-Fichiers dont le nom commence par "fic", suivi de 0 à n occurrence(s) de
-"866", suivi de ".log" :
+*(expression)
+-------------
+
+L'expression '*(expression)' sera présente entre 0 et n fois. 
+
+Fichiers dont le nom commence par 'fic', suivi de 0 à n occurrence(s) de
+'866', suivi de '.log' :
 
   $ ls fic*(866).log
   fic866866866.log  fic866866.log  fic866.log  fic.log
 
-L'expression "+(expression)" sera présente entre 1 et n fois.
 
-Fichiers dont le nom commence par "fic", suivi d'au moins une occurrence de
-"866", suivi de ".log" :
++(expression)
+-------------
+
+L'expression '+(expression)' sera présente entre 1 et n fois.
+
+Fichiers dont le nom commence par 'fic', suivi d'au moins une occurrence de
+'866', suivi de '.log' :
 
   $ ls fic+(866).log
   fic866866866.log  fic866866.log  fic866.log
 
-L'expression "@(expression)" sera présente exactement 1 fois.
 
-Fichiers dont le nom commence par "fic", suivi exactement d'une occurrence de
-"866", suivi de ".log" :
+@(expression)
+-------------
+
+L'expression '@(expression)' sera présente exactement 1 fois.
+
+Fichiers dont le nom commence par 'fic', suivi exactement d'une occurrence de
+'866', suivi de '.log' :
 
   $ ls fic@(866).log
   fic866.log
 
-L'expression "!(expression)" ne sera pas présente.
 
-Fichiers dont le nom commence par "fic", suivi d'une expression qui n'est pas
-la chaîne "866", suivi de ".log" :
+!(expression)
+-------------
+
+L'expression '!(expression)' ne sera pas présente.
+
+Fichiers dont le nom commence par 'fic', suivi d'une expression qui n'est pas
+la chaîne '866', suivi de '.log' :
 
   $ ls fic!(866).log
   fic866866866.log  fic866866.log  fic866868.log  fic867.log  fic868.log
   fic.log
 
-Fichiers dont le nom ne commence pas par "fic" :
+Fichiers dont le nom ne commence pas par 'fic' :
 
   $ ls !(fic*)
   readme.txt  typescript
 
-Une barre verticale "|" à l'intérieur d'une expression complexe prend le sens
+
+Alternatives
+------------
+
+Une barre verticale '|' à l'intérieur d'une expression complexe prend le sens
 de "ou bien". 
 
-Fichiers dont le nom commence par "fic", suivi de "866" ou "867", suivi de
-".log" :
+Fichiers dont le nom commence par 'fic', suivi de '866' ou '867', suivi de
+'.log' :
 
   $ ls fic@(866|867).log
   fic866.log  fic867.log
 
-Fichiers dont le nom commence par "fic", suivi de 1 à n occurrence(s) de "866"
-ou "868", suivi de ".log" :
+Fichiers dont le nom commence par 'fic', suivi de 1 à n occurrence(s) de '866'
+ou '868', suivi de '.log' :
 
   $ ls fic+(866|868).log
   fic866866866.log  fic866866.log  fic866868.log  fic866.log  fic868.log
 
 
+=======================
 Séparateur de commandes
------------------------
+=======================
 
 Le caractère spécial ";" du shell permet d'écrire plusieurs commandes sur une
 même ligne. Les commandes sont exécutées séquentiellement. 
@@ -396,33 +544,57 @@ même ligne. Les commandes sont exécutées séquentiellement.
   /home/kikinovak/test
 
 
+============
 Redirections
-------------
+============
 
 Les redirections sont couramment utilisées dans les commandes Unix. Elles
 permettent :
 
-  * de récupérer le résultat d'une ou plusieurs commandes dans un fichier ;
-  * de faire lire un fichier à une commande.
+  - de récupérer le résultat d'une ou plusieurs commandes dans un fichier ;
+
+  - de faire lire un fichier à une commande.
+
+
+Entrée et sorties standard des processus
+----------------------------------------
 
 Les processus Unix ont, par défaut, leur fichier terminal ouvert trois fois,
 sous trois descripteurs de fichiers différents : 0, 1 et 2.
 
-  0. Entrée standard du processus. Les processus qui attendent des
-  informations de la part de l'utilisateur déclenchent une requête de lecture
-  sur le descripteur 0. Si ce dernier est associé au terminal, cela se
-  matérialise pour l'utilisateur par une demande de saisie au clavier.
 
-  1. Sortie standard du processus. Par convention, un processus qui souhaite
-  envoyer un message résultat à l'utilisateur doit le faire transiter via le
-  descripteur 1. Si ce dernier est associé au terminal, ce qui est le cas par
-  défaut, cela se matérialise pour l'utilisateur par un affichage à l'écran.
+Entrée standard
+---------------
 
-  2. Sortie d'erreur standard du processus. Par convention, un processus qui
-  souhaite envoyer un message d'erreur à l'utilisateur doit le faire transiter
-  via le descripteur 2. Si ce dernier est associé au terminal, ce qui est le
-  cas par défaut, cela se matérialise pour l'utilisateur par un affichage à
-  l'écran.
+Le descripteur de fichier 0 est également nommé "entrée standard du
+processus". Les processus qui attendent des informations de la part de
+l'utilisateur déclenchent une requête de lecture sur le descripteur 0. Si ce
+dernier est associé au terminal, cela se matérialise pour l'utilisateur par
+une demande de saisie au clavier.
+
+
+Sortie standard
+---------------
+
+Le descripteur de fichier 1 est également nommé "sortie standard du
+processus". Par convention, un processus qui souhaite envoyer un message
+résultat à l'utilisateur doit le faire transiter via le descripteur 1. Si ce
+dernier est associé au terminal, ce qui est le cas par défaut, cela se
+matérialise pour l'utilisateur par un affichage à l'écran.
+
+
+Sortie d'erreur standard
+------------------------
+
+Le descripteur de fichier 2 est également nommé "sortie d'erreur standard du
+processus". Par convention, un processus qui souhaite envoyer un message
+d'erreur à l'utilisateur doit le faire transiter via le descripteur 2. Si ce
+dernier est associé au terminal, ce qui est le cas par défaut, cela se
+matérialise pour l'utilisateur par un affichage à l'écran.
+
+
+Redirection des sorties en écriture
+-----------------------------------
 
 La redirection des sorties en écriture permet d'envoyer les affichages liés à
 un descripteur particulier non plus sur le terminal, mais dans un fichier.
@@ -560,6 +732,10 @@ est toujours vide.
 
   $ find / -name passwd 1> resultat 2> /dev/null
 
+
+Redirection de l'entrée standard
+--------------------------------
+
 La redirection de l'entrée standard concerne les commandes qui utilisent le
 descripteur 0, autrement dit celles qui déclenchent une saisie au clavier.
 
@@ -603,6 +779,10 @@ désiré :
   RDV au resto à 13h.
   Nico
   $ mail -s "RDV" glagaffe < message 
+
+
+Redirections avancées
+---------------------
 
 Pour envoyer la sortie standard et la sortie d'erreur standard dans le même
 fichier, il faut employer une syntaxe particulière :
@@ -648,11 +828,12 @@ standard de la commande. Exemple :
   ligne.
 
 
+======================
 Tubes de communication
-----------------------
+======================
 
 Un tube ("pipe" en anglais) permet de faire communiquer deux processus. Le
-tube est représenté par une barre verticale "|" située entre deux commandes
+tube est représenté par une barre verticale '|' située entre deux commandes
 Unix. Le résultat de la commande de gauche va partir dans le tube, tandis que
 la commande de droite va en extraire les données afin de les traiter. 
 
@@ -667,9 +848,17 @@ Pour que l'utilisation d'un tube ait un sens, il faut que la commande placée à
 gauche du tube envoie des données sur sa sortie standard et que la commande
 placée à droite lise son entrée standard.
 
+
+Commandes ne lisant pas leur entrée standard
+--------------------------------------------
+
 Un certain nombre de commandes Unix n'ont aucun intérêt à être placées
 derrière un tube, car elles n'exploitent pas leur entrée standard : ls, who,
 find, chmod, cp, mv, rm, ln, mkdir, rmdir, date, kill, type, echo, etc.
+
+
+Commandes lisant leur entrée standard
+-------------------------------------
 
 Les commandes qui lisent leur entrée standard sont facilement identifiables,
 étant donné qu'elles demandent une saisie au clavier :
@@ -766,11 +955,19 @@ y extrait :
   daemon:x:2:2:daemon:/sbin:/bin/false
   ...
 
+
+Enchaîner des tubes
+-------------------
+
 Il est possible d'enchaîner plusieurs tubes sur une ligne de commande. Dans
 l'exemple qui suit, on affiche le nombre de connexions d'un utilisateur :
 
   $ who | grep kikinovak | wc -l
   4
+
+
+Dupliquer les sorties
+---------------------
 
 On peut également dupliquer les sorties grâce à la commande 'tee'. Elle permet
 de visualiser un résultat à l'écran tout en la conservant dans un fichier :
@@ -794,6 +991,10 @@ fichier 'liste.txt' existant :
   readme.txt
   typescript
   mer. oct. 14 10:43:16 CEST 2015
+
+
+Envoyer la sortie standard et la sortie d'erreur standard dans le tube
+----------------------------------------------------------------------
 
 La commande suivante affiche un message d'erreur et une ligne de résultat :
 
@@ -820,15 +1021,16 @@ d'erreur standard dans le tube :
   -rw-r--r-- 1 kikinovak users 0 oct.  12 09:28 typescript
 
 
+=========================
 Regroupement de commandes
--------------------------
+=========================
 
 Le regroupement de commandes peut être utilisé pour :
 
-  * rediriger la sortie d'écran de plusieurs commandes vers un même fichier ou
+  - rediriger la sortie d'écran de plusieurs commandes vers un même fichier ou
     vers un tube ;
 
-  * faire exécuter plusieurs commandes dans le même environnement.
+  - faire exécuter plusieurs commandes dans le même environnement.
 
 Dans l'exemple qui suit, seule la sortie standard de la deuxième commande est
 redirigée dans le fichier 'resultat.txt' :
@@ -843,6 +1045,10 @@ redirigée dans le fichier 'resultat.txt' :
 
 Les parenthèses ( ) et les accolades { } permettent de regrouper les
 commandes. 
+
+
+Les parenthèses ( )
+-------------------
 
 Avec les parenthèses ( ), un shell enfant est systématiquement créé, et c'est
 ce dernier qui traite la ligne de commande :
@@ -881,6 +1087,10 @@ premier niveau reprend la main, et son répertoire courant est toujours
   $ pwd
   /home/kikinovak
 
+
+Les accolades { }
+-----------------
+
 Les deux commandes suivantes produisent le même résultat, mais la version avec
 les accolades { } est plus rapide :
 
@@ -889,7 +1099,7 @@ $ { date ; ls ; } > resultat.txt
 
 Au niveau de la syntaxe, les accolades ouvrante { et fermante } doivent être
 respectivement suivies et précédées par un espace. La dernière commande doit
-être suivie d'un point-virgule ";" :
+être suivie d'un point-virgule ';' :
 
   $ { commande1 ; commande2 ; commande3 ; }
 
@@ -913,10 +1123,14 @@ qui peut être gênant :
   $ pwd
   /tmp
 
-En conclusion, les parenthèses sont plus utilisées que les accolades pour deux
-raisons :
+
+Conclusion
+----------
+
+Les parenthèses sont plus utilisées que les accolades pour deux raisons :
 
   * leur syntaxe est plus simple à utiliser ;
+
   * quel que soit le jeu de commandes, on est toujours sûr de retrouver
     l'environnement de travail initial.
 
@@ -924,8 +1138,9 @@ L'utilisation des accolades se justifiera dans le cas d'une recherche de
 performances. 
 
 
+=========================
 Processus en arrière-plan
--------------------------
+=========================
 
 Les notions d'arrière-plan et d'avant-plan sont gérées par le shell. 
 
@@ -948,8 +1163,9 @@ de ce shell :
   $ 
 
 
+=========
 Exercices
----------
+=========
 
 1. Les commandes 'umask' et 'chown' sont-elles des commandes internes ?
 
@@ -1032,8 +1248,9 @@ fichier '/etc/passwd'.
   recherche doit être insensible à la casse.
 
 
+========
 Corrigés
---------
+========
 
 1. Les commandes 'umask' et 'chown' sont-elles des commandes internes ?
 
