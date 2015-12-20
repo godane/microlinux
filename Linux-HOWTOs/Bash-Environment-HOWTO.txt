@@ -11,14 +11,25 @@ environnement de travail.
   * Variables d'environnement
   * Principales variables
   * Les options du shell
+  * Les alias
+  * Historique de commandes
+  * Les fichiers d'environnement
+  * Exercices
+  * Corrigés
 
 
+=========================
 Variables d'environnement
--------------------------
+=========================
+
 
 Un certain nombre de variables sont définies dans l'environnement du shell.
 Elles contiennent des informations nécessaires au fonctionnement de
 l'interpréteur et/ou des commandes lancées à partir de celui-ci.
+
+
+Liste des variables
+-------------------
 
 La commande 'set' donne la liste des variables définies dans le shell courant.
 
@@ -33,10 +44,18 @@ La commande 'set' donne la liste des variables définies dans le shell courant.
   TERM=xterm
   ...
 
-Le caractère spécial "$" du shell permet d'accéder au contenu d'une variable.
+
+Afficher la valeur d'une variable
+---------------------------------
+
+Le caractère spécial '$' du shell permet d'accéder au contenu d'une variable.
 
   $ echo $HOME
   /home/kikinovak
+
+
+Modifier la valeur d'une variable
+---------------------------------
 
 Le shell permet d'initialiser ou de modifier des variables.
 
@@ -44,33 +63,43 @@ Le shell permet d'initialiser ou de modifier des variables.
   $ echo $variable
   valeur
 
-Si la valeur contient des caractères spéciaux du shell ("$", ">", espace), il
+Si la valeur contient des caractères spéciaux du shell ('$', '>', espace), il
 faut empêcher le shell d'interpréter ceux-ci en entourant la valeur avec des
 simples quotes ' '. Utiliser des simples quotes est l'une des trois manières
 de masquer des caractères en shell, comme nous le verrons un peu plus loin.
 
-Dans l'exemple qui suit, nous devons masquer le symbole ">" (redirection)
+Dans l'exemple qui suit, nous devons masquer le symbole '>' (redirection)
 ainsi que l'espace (séparateur de mots sur la ligne de commande) :
 
   $ variable='mot1 mot2 =>'
   $ echo $variable
   mot1 mot2 =>
 
-  /!\ Il ne faut pas mettre d'espace autour du signe "=". Le shell ne
+  /!\ Il ne faut pas mettre d'espace autour du signe '='. Le shell ne
   comprendrait pas qu'il s'agit d'une affectation.
 
 
+=====================
 Principales variables
----------------------
+=====================
+
 
 Les variables présentées ci-dessous possèdent une valeur au niveau du shell de
 connexion. D'autres variables peuvent être définies ultérieurement.
+
+
+La variable HOME
+----------------
 
 La variable HOME contient la valeur du répertoire d'accueil de l'utilisateur.
 Elle ne doit pas être modifiée.
 
   $ echo $HOME
   /home/kikinovak
+
+
+La variable PATH
+----------------
 
 La variable PATH contient une liste de répertoires qui sont explorés par le
 shell lorsqu'il doit lancer une commande externe.
@@ -130,8 +159,12 @@ Modifier le contenu de la variable PATH :
           TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
   ...
 
+
+Rechercher une commande dans le répertoire courant
+--------------------------------------------------
+
 Pour qu'une commande soit recherchée dans le répertoire courant, il faut
-ajouter en fin de variable PATH la chaîne ":." ou simplement le caractère ":".
+ajouter en fin de variable PATH la chaîne ':.' ou simplement le caractère ':'.
 
   $ PATH="$PATH:"
   $ cd /usr/bin/
@@ -148,6 +181,10 @@ ajouter en fin de variable PATH la chaîne ":." ou simplement le caractère ":".
           TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
   ...
 
+
+La variable PWD
+---------------
+
 La variable PWD contient la valeur du répertoire courant. Elle est mise à jour
 par le shell dès que l'utilisateur change de répertoire.
 
@@ -156,6 +193,9 @@ par le shell dès que l'utilisateur change de répertoire.
   $ cd /sbin/
   $ echo $PWD
   /sbin
+
+La variable PS1
+---------------
 
 La variable PS1 contient la chaîne de caractères représentant le prompt
 principal.
@@ -167,9 +207,8 @@ principal.
   dim. oct. 18 10:52:29 CEST 2015
   Entrez une commande => 
 
-Il existe en des séquences d'échappement possédant une signification
-particulière qu'il est pratique d'utiliser pour initialiser PS1. En voici
-quelques-unes :
+Il existe des séquences d'échappement possédant une signification particulière
+qu'il est pratique d'utiliser pour initialiser PS1. En voici quelques-unes :
 
   +------------------------+----------------------------------------+
   | Séquence d'échappement |                 Valeur                 |
@@ -179,6 +218,10 @@ quelques-unes :
   | \w                     | Répertoire courant                     |
   | \W                     | Partie terminale du répertoire courant |
   +------------------------+----------------------------------------+
+
+
+La variable PS2
+---------------
 
 La variable PS2 contient la chaîne de caractères représentant le prompt
 secondaire, qui apparaît lorsque les éléments de syntaxe sont incomplets.
@@ -195,13 +238,17 @@ secondaire, qui apparaît lorsque les éléments de syntaxe sont incomplets.
   fermer ma quote
 
 Dans l'exemple qui suit, le shell attend la suite du message tant qu'il ne
-rencontre pas l'étiquette "%" :
+rencontre pas l'étiquette '%' :
 
   $ mail glagaffe <<%
   > Salut Gaston,
   > Comment vas-tu ?
   > %
   $ 
+
+
+La variable TMOUT
+-----------------
 
 La variable TMOUT contient un délai exprimé en secondes. Si aucune interaction
 avec le clavier n'a eu lieu pendant ce délai, le shell se termine. Lorsque la
@@ -210,6 +257,10 @@ valeur est 0, le timeout est désactivé.
   $ echo $TMOUT
   ...
   $ TMOUT=10
+
+
+La variable TERM
+----------------
 
 La variable TERM contient le type de terminal de l'utilisateur. Les valeurs
 les plus courantes sont 'ansi', 'vt100', 'vt220', 'dtterm' et 'xterm'. Ces
@@ -222,10 +273,18 @@ valeurs renvoient à un fichier de paramétrage du système, la base de données
   /usr/share/terminfo/x/xterm
   ...
 
+
+La variable LOGNAME
+-------------------
+
 La variable LOGNAME contient le nom de l'utilisateur connecté.
 
   $ echo $LOGNAME
   kikinovak
+
+
+Processus et variables d'environnement
+--------------------------------------
 
 Les variables d'environnement ne sont pas toutes utilisées par les mêmes
 processus. On peut distinguer trois catégories de variables.
@@ -236,6 +295,10 @@ processus. On peut distinguer trois catégories de variables.
      par le shell : PATH, TERM
 
   3. celles qui sont utilisées par une commande bien précise : EXINIT pour vim
+
+
+Exportation des variables
+-------------------------
 
 Par défaut, une variable n'est pas transmise aux processus descendants. Pour
 qu'elle le soit, il faut demander au shell de l'exporter. 
@@ -292,7 +355,7 @@ Ou, plus simplement :
 
 Dans l'exemple qui suit, on va utiliser la variable EXINIT. Celle-ci est
 consultée par la commande 'vim' et contient la liste des options à positionner
-dans l'éditeur. L'option "set number" active l'affichage des numéros de ligne. 
+dans l'éditeur. L'option 'set number' active l'affichage des numéros de ligne. 
 
   $ EXINIT='set number'
   $ vim .screenrc 
@@ -312,11 +375,18 @@ Cette fois-ci, la variable exportée est bien transmise au processus
 descendant.
 
 
+====================
 Les options du shell
---------------------
+====================
+
+
 
 Le shell propose des options permettant de paramétrer un certain nombre de
 fonctionnalités.
+
+
+Visualiser la liste des options du shell
+----------------------------------------
 
 La commande 'set' avec l'option '-o' affiche la liste des options du shell en
 indiquant si elles sont actuellement activées ou non.
@@ -328,6 +398,10 @@ indiquant si elles sont actuellement activées ou non.
   errexit         off
   errtrace        off
   ...
+
+
+Activer et désactiver une option du shell
+-----------------------------------------
 
 Les options '-o' et '+o' de la commande interne 'set' permettent
 respectivement d'activer et de désactiver une option du shell. 
@@ -345,6 +419,10 @@ Voici un exemple :
 
   /!\ Effectivement, ce n'est pas très intuitif.
 
+
+L'option 'ignoreof'
+-------------------
+
 Si l'option 'ignoreeof' est activée, il devient impossible de quitter le shell
 en appuyant sur [Ctrl]+[D]. L'option est désactivée par défaut.
 
@@ -354,10 +432,14 @@ en appuyant sur [Ctrl]+[D]. L'option est désactivée par défaut.
   $ ^D
   Utilisez « exit » pour quitter le shell.
 
+
+L'option 'noclobber'
+--------------------
+
 Lorsqu'une redirection est faite vers un fichier déjà existant, celui-ci est
 écrasé sans sommation (sous réserve des permissions). Pour être averti de
 l'existence du fichier, il faut activer l'option 'noclobber'. À partir de là,
-on pourra forcer l'écrasement en utilisant la redirection ">|". 
+on pourra forcer l'écrasement en utilisant la redirection '>|'. 
 
     $ set -o | grep noclobber
     noclobber       off
@@ -376,11 +458,19 @@ on pourra forcer l'écrasement en utilisant la redirection ">|".
     $ cat fichier.txt 
     Merci
 
+
+L'option 'emacs'
+----------------
+
 L'option 'emacs' permet de paramétrer le rappel des commandes. Elle est
 activée par défaut.
 
   $ set -o | grep emacs
   emacs           on
+
+
+L'option 'xtrace'
+-----------------
 
 Enfin, l'option 'xtrace' est utilisée en programmation shell pour déboguer les
 scripts. Elle est désactivée par défaut.
@@ -389,12 +479,18 @@ scripts. Elle est désactivée par défaut.
   xtrace          off
 
 
+=========
 Les alias
----------
+=========
+
 
 Le shell propose une commande interne 'alias' qui permet de créer des
 raccourcis sur des commandes. Selon les distributions, un certain nombre
 d'alias existent par défaut.
+
+
+Définir un alias
+----------------
 
 Dans l'exemple qui suit, nous allons créer trois alias 'l', 'c' et 'rm' qui
 seront respectivement les équivalents de 'ls -l', 'clear' et 'rm -i'.
@@ -414,6 +510,10 @@ seront respectivement les équivalents de 'ls -l', 'clear' et 'rm -i'.
   $ rm fic1.txt 
   rm : supprimer fichier vide « fic1.txt » ? n
 
+
+Visualiser la liste des alias
+-----------------------------
+
 Visualiser tous les alias :
 
   $ alias
@@ -427,10 +527,18 @@ Visualiser tous les alias :
   alias uman='GROFF_ENCODING=utf8 man'
   alias vi='vim'
 
+
+Visualiser un alias
+-------------------
+
 Visualiser un alias en particulier :
 
   $ alias ls
   alias ls='ls --color=auto'
+
+
+Supprimer un alias
+------------------
 
 Supprimer un alias :
 
@@ -439,8 +547,10 @@ Supprimer un alias :
   bash: ll : commande introuvable
 
 
+=======================
 Historique de commandes
------------------------
+=======================
+
 
 Le shell Bash stocke les commandes lancées dans un fichier texte localisé dans
 le répertoire d'accueil de l'utilisateur : '~/.bash_history'. 
@@ -458,8 +568,10 @@ Il est recommandé d'utiliser le mode 'emacs' par défaut, étant donné que les
 flèches du clavier peuvent être utilisées pour parcourir l'historique.
 
 
+============================
 Les fichiers d'environnement
-----------------------------
+============================
+
 
 Les fichiers d'environnement servent à stocker de manière permanente les
 définitions liées au paramétrage de l'environnement utilisateur. Ils
@@ -490,33 +602,37 @@ communs à tous les utilisateurs.
 Il recherche ensuite dans le répertoire d'accueil de l'utilisateur un des
 trois fichiers d'environnement suivants :
 
-  * $HOME/.bash_profile $HOME/.bash_login $HOME/.profile
+  - $HOME/.bash_profile 
+
+  - $HOME/.bash_login 
+
+  - $HOME/.profile
 
 Ce qu'il faut mettre dans le fichier '$HOME/.bash_profile' :
 
-  * la définition suivie de l'exportation éventuelle d'une ou plusieurs
+  - la définition suivie de l'exportation éventuelle d'une ou plusieurs
     variables : celles-ci seront transmises à tous les processus lancés à
     partir du shell de connexion. Les variables définies mais non exportées
     resteront locales à ce dernier.
 
-  * la redéfinition de paramètres système tels que 'umask', caractéristiques
+  - la redéfinition de paramètres système tels que 'umask', caractéristiques
     du terminal, qui resteront valables pendant toute la durée de la session.
 
 Ce qu'il ne faut pas mettre dans le fichier '$HOME/.bash_profile' :
 
-  * les options du shell ;
+  - les options du shell ;
 
-  * les alias.
+  - les alias.
 
 Le fichier '$HOME/.bash_profile' est lu uniquement au moment de la connexion,
 et ce par le shell de connexion lui-même. Si l'utilisateur apporte une
 modification à ce fichier, ce dernier doit être relu par le shell. Pour cela,
 il existe deux méthodes.
 
-  * Se déconnecter et se reconnecter, ce qui a pour effet de relancer un shell
+  - Se déconnecter et se reconnecter, ce qui a pour effet de relancer un shell
     de connexion.
 
-  * Demander au shell courant (qui n'est pas forcément le shell de connexion)
+  - Demander au shell courant (qui n'est pas forcément le shell de connexion)
     de relire le script d'environnement. Pour cela, il faut utiliser la
     commande interne '.'.
 
@@ -524,15 +640,17 @@ Les définitions de variables et paramètres utilisateur doivent être faites
 dans le fichier '$HOME/.bash_profile'. Les options et alias seront stockées
 dans un autre script que l'utilisateur nommera '$HOME/.bashrc'.
 
-  * Le Bash de connexion lit automatiquement le fichier '$HOME/.bash_profile',
+  - Le Bash de connexion lit automatiquement le fichier '$HOME/.bash_profile',
     mais pas le fichier '$HOME/.bashrc'.
 
-  * Un bash ordinaire (non connexion) et interactif lit automatiquement le
+  - Un bash ordinaire (non connexion) et interactif lit automatiquement le
     fichier '$HOME/.bashrc'.
 
 
+=========
 Exercices
----------
+=========
+
 
 1. Afficher la liste de toutes les variables d'environnement.
 
@@ -573,8 +691,10 @@ correspond le caractère ">" et comment se sortir de cette situation ?
   >
 
 
+========
 Corrigés
---------
+========
+
 
 1. Afficher la liste de toutes les variables d'environnement.
 
@@ -655,7 +775,6 @@ correspond le caractère ">" et comment se sortir de cette situation ?
   l'écriture de la commande. 
 
   Pour abandonner la commande, il suffit d'appuyer sur [Ctrl]+[C].
-  
 
 
 ------------------------------------------------------------------------------

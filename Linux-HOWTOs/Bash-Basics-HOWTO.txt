@@ -27,6 +27,7 @@ du shell Bash.
 Introduction
 ============
 
+
 Définition du shell
 -------------------
 
@@ -110,6 +111,7 @@ qui nous concerne, nous nous concentrerons sur le shell Bash.
 ==============================
 Commandes externes et internes
 ==============================
+
 
 Une commande Linux appartient à l'une des deux catégories suivantes :
 
@@ -215,6 +217,7 @@ l'emplacement de la commande, en absolu ou en relatif :
 Affichage à l'écran
 ===================
 
+
 La commande 'echo'
 ------------------
 
@@ -283,6 +286,7 @@ Le caractère '\t' permet d'afficher une tabulation :
 La commande interne 'cd'
 ========================
 
+
 La commande 'cd' sans argument permet à l'utilisateur de revenir dans son
 répertoire d'accueil :
 
@@ -311,6 +315,7 @@ Revenir dans le répertoire précédent :
 ================================
 Substitution de noms de fichiers
 ================================
+
 
 De nombreuses commandes prennent des noms de fichiers en argument. Ces
 derniers peuvent être cités littéralement ou être spécifiés de manière plus
@@ -435,6 +440,7 @@ Supprimer tous les fichiers dont le nom se termine par '.c' ou par '.s' :
 Expressions complexes
 =====================
 
+
 Pour utiliser les expressions complexes en Bash, il faut préalablement activer
 l'option 'extglob' avec la commande suivante :
 
@@ -536,6 +542,7 @@ ou '868', suivi de '.log' :
 Séparateur de commandes
 =======================
 
+
 Le caractère spécial ";" du shell permet d'écrire plusieurs commandes sur une
 même ligne. Les commandes sont exécutées séquentiellement. 
 
@@ -547,6 +554,7 @@ même ligne. Les commandes sont exécutées séquentiellement.
 ============
 Redirections
 ============
+
 
 Les redirections sont couramment utilisées dans les commandes Unix. Elles
 permettent :
@@ -832,6 +840,7 @@ standard de la commande. Exemple :
 Tubes de communication
 ======================
 
+
 Un tube ("pipe" en anglais) permet de faire communiquer deux processus. Le
 tube est représenté par une barre verticale '|' située entre deux commandes
 Unix. Le résultat de la commande de gauche va partir dans le tube, tandis que
@@ -1025,6 +1034,7 @@ d'erreur standard dans le tube :
 Regroupement de commandes
 =========================
 
+
 Le regroupement de commandes peut être utilisé pour :
 
   - rediriger la sortie d'écran de plusieurs commandes vers un même fichier ou
@@ -1142,6 +1152,7 @@ performances.
 Processus en arrière-plan
 =========================
 
+
 Les notions d'arrière-plan et d'avant-plan sont gérées par le shell. 
 
 Par défaut, les commandes sont lancées en avant-plan. Dans ce mode, le shell
@@ -1166,6 +1177,7 @@ de ce shell :
 =========
 Exercices
 =========
+
 
 1. Les commandes 'umask' et 'chown' sont-elles des commandes internes ?
 
@@ -1251,6 +1263,7 @@ fichier '/etc/passwd'.
 ========
 Corrigés
 ========
+
 
 1. Les commandes 'umask' et 'chown' sont-elles des commandes internes ?
 
