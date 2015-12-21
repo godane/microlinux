@@ -5,6 +5,8 @@ libreoffice-langpack-de-5.0.4-i586-1_microlinux.txz: Upgraded.
 libreoffice-helppack-fr-5.0.4-i586-1_microlinux.txz: Upgraded.
 libreoffice-helppack-de-5.0.4-i586-1_microlinux.txz: Upgraded.
 asunder-2.8-i586-1_microlinux.txz: Added.
+mplayer-codecs32-20110131-i586-1_microlinux.txz: Added.
+evince-3.18.2-i586-1_microlinux.txz: Added.
 +--------------------------+
 Fri Dec 11 10:58:16 CET 2015
 lxdm-0.5.3-i586-4_microlinux.txz: Rebuilt.
