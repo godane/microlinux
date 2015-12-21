@@ -24,11 +24,11 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=asunder
-VERSION=${VERSION:-2.7}	 
+VERSION=${VERSION:-2.8}	 
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}		
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
 # Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then

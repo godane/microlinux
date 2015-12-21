@@ -1,6 +1,7 @@
 Mon Dec 21 12:22:47 CET 2015
 gthumb-3.2.9.1-i486-2_microlinux.txz: Rebuilt.
   Compiled against libwebp.
+asunder-2.8-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Wed Dec 16 22:04:39 CET 2015
 pygobject3-3.10.2-i486-1_microlinux.txz: Added.
