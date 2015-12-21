@@ -2,7 +2,7 @@
 Bash Environment HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ======================
 
-Dernière révision : 19 octobre 2015
+Dernière révision : 20 décembre 2015
 
 Ce HOWTO permet aux utilisateurs du shell Bash de paramétrer leur
 environnement de travail.

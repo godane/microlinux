@@ -2,7 +2,7 @@
 Bash Scripting 01 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =======================
 
-Dernière révision : 21 octobre 2015
+Dernière révision : 21 décembre 2015
 
 Ce HOWTO présente les fonctionnalités qui composent les bases de la
 programmation shell.
@@ -14,22 +14,33 @@ programmation shell.
   * Les caractères de protection
   * Écriture et lancement d'un script shell
   * Variables réservées du shell
-  * Lecture au clavier
+  * La commande 'read'
+  * Documentation
 
 
+=========================
 Les variables utilisateur
--------------------------
+=========================
+
 
 Le shell permet de définir ou redéfinir des variables qui conditionnent
 l'environnement de travail de l'utilisateur. Il est également possible de
 définir d'autres variables, dites variables utilisateur, qui vont permettre de
-stocker des informations qui seront nécessaires à l'exécution d'un script.
+stocker des informations nécessaires à l'exécution d'un script.
+
+
+Nommer une variable
+-------------------
 
 Voici les règles à utiliser pour attribuer un nom à une variable :
 
-  * le premier caractère fait partie de l'ensemble [a-zA-Z_] ;
+  - le premier caractère fait partie de l'ensemble [a-zA-Z_] ;
 
-  * les caractères suivants sont pris dans l'ensemble [a-zA-Z0-9_].
+  - les caractères suivants sont pris dans l'ensemble [a-zA-Z0-9_].
+
+
+Définir une variable
+--------------------
 
 Une variable est définie dès qu'elle est initialisée. Le contenu d'une
 variable est considéré par le shell comme une suite de caractères. 
@@ -38,7 +49,7 @@ variable est considéré par le shell comme une suite de caractères.
   $ echo $var1
   mot1
 
-  /!\ Il ne faut pas mettre d'espace autour du symbole d'affectation "=".
+  /!\ Il ne faut pas mettre d'espace autour du symbole d'affectation '='.
 
 Si l'on affecte une valeur contenant au moins un espace, il faut protéger ce
 dernier, étant donné que c'est un caractère spécial du shell (séparateur de
@@ -66,7 +77,7 @@ La commande interne 'unset' permet de retirer la définition d'une variable.
 
 Il faut faire attention en concaténant le contenu d'une variable et d'une
 chaîne de caractères à ce que le shell interprète correctement le nom de la
-variable. Dans l'exemple ci-dessous, le caractère souligné "_" fait partie du
+variable. Dans l'exemple ci-dessous, le caractère souligné '_' fait partie du
 nom de la première variable :
 
   $ fic=resu
@@ -75,10 +86,10 @@ nom de la première variable :
   $ echo $newfic
   20151020
 
-Pour le shell, la première variable se nomme "fic_", puisque le caractère
-souligné "_" est autorisé à l'intérieur du nom d'une variable. Celle-ci est
+Pour le shell, la première variable se nomme 'fic_' puisque le caractère
+souligné '_' est autorisé à l'intérieur du nom d'une variable. Celle-ci est
 donc substituée par sa valeur (donc vide), puis concaténée avec le contenu de
-la variable "datejour". 
+la variable 'datejour' 
 
 Pour faire comprendre au shell quels sont les caractères qui font partie du
 nom de la variable, il faut entourer le nom de cette dernière avec des
@@ -100,18 +111,22 @@ rapides.
   1
 
 
+============================
 La substitution de variables
-----------------------------
+============================
+
 
 Le shell offre la possibilité d'attribuer une valeur par défaut aux variables
 non initialisées ou, au contraire, initialisées.
 
-Expression ${variable:-valeur} :
+
+Expression ${variable:-valeur}
+------------------------------
 
   - Si la variable n'est pas vide, l'expression est substituée par
-    "$variable".
+    'variable'
   
-  - Si la variable est vide, l'expression est substituée par "valeur".
+  - Si la variable est vide, l'expression est substituée par 'valeur'
 
   $ fic=/tmp/kikinovak.log
   $ echo "Le fichier traité sera : ${fic:-/tmp/default.log}."
@@ -121,13 +136,15 @@ Expression ${variable:-valeur} :
   Le fichier traité sera : /tmp/default.log.
   $ echo $fic
 
-Expression ${variable:=valeur} :
+
+Expression ${variable:=valeur}
+------------------------------
 
   - Si la variable n'est pas vide, l'expression est substituée par
-    "$variable".
+    '$variable'.
   
-  - Si la variable est vide, "variable" est affectée avec "valeur", et
-    l'expression est substituée par "valeur".
+  - Si la variable est vide, 'variable' est affectée avec 'valeur' et
+    l'expression est substituée par 'valeur'
 
   $ fic=/tmp/kikinovak.log
   $ echo "Le fichier traité sera : ${fic:=/tmp/default.log}."
@@ -138,12 +155,14 @@ Expression ${variable:=valeur} :
   $ echo $fic
   /tmp/default.log
 
-Expression ${variable:+valeur} :
+
+Expression ${variable:+valeur}
+------------------------------
 
   - Si la variable n'est pas vide, l'expression est substituée par
-    "valeur".
+    'valeur'
   
-  - Si la variable est vide, l'expression est substituée par "$variable", donc
+  - Si la variable est vide, l'expression est substituée par '$variable', donc
     vide.
 
   $ a=1
@@ -153,13 +172,15 @@ Expression ${variable:+valeur} :
   $ echo "Expression : ${a:+99}"
   Expression : 
 
-Expression ${variable:?message} :
+
+Expression ${variable:?message}
+-------------------------------
 
   - Si la variable n'est pas vide, l'expression est substituée par
-    "$variable".
+    '$variable'.
   
   - Si la variable est vide, le shell affiche le nom de la variable suivi de
-    la chaîne de caractères "message".
+    la chaîne de caractères 'message'
 
   $ echo $var
 
@@ -178,8 +199,10 @@ Définition de la variable :
   définie
 
 
+============================
 La substitution de commandes
-----------------------------
+============================
+
 
 Les caractères de substitution permettent de remplacer une commande par
 l'affichage résultant de son exécution. Ce mécanisme est utilisé pour insérer
@@ -196,8 +219,8 @@ On préférera la syntaxe alternative :
   $ echo Vous êtes l\'utilisateur $(logname) sur la machine $(uname -n).
   Vous êtes l'utilisateur kikinovak sur la machine alphamule.microlinux.lan.
 
-Dans l'exemple qui suit, on initialise une variable "monuid" avec l'UID de
-l'utilisateur "kikinovak".
+Dans l'exemple qui suit, on initialise une variable 'monuid' avec l'UID de
+l'utilisateur 'kikinovak'
 
   $ grep kikinovak /etc/passwd
   kikinovak:x:1000:100:Niki Kovacs,,,:/home/kikinovak:/bin/bash
@@ -208,16 +231,24 @@ l'utilisateur "kikinovak".
   1000
 
 
+============================
 Les caractères de protection
-----------------------------
+============================
+
 
 Les caractères de protection servent à faire perdre la signification des
 caractères spéciaux du shell. Il existe trois jeux de caractères ayant chacun
 leur fonctionnalité propre :
 
-  * les simples quotes ' '
-  * l'antislash \
-  * les guillemets " "
+  - les simples quotes ' '
+
+  - l'antislash \
+
+  - les guillemets " "
+
+
+Les simples quotes ' '
+----------------------
 
 Les simples quotes (ou apostrophes) retirent la signification de tous les
 caractères spéciaux du shell. Les quotes doivent être en nombre pair sur une
@@ -230,17 +261,17 @@ La variable $HOME est substituée par sa valeur :
   $ echo $HOME
   /home/kikinovak
 
-Le caractère "$" perd sa signification spéciale :
+Le caractère '$' perd sa signification spéciale :
 
   $ echo '$HOME'
   $HOME
 
-Le caractère "*" est substitué par les noms de fichier du répertoire :
+Le caractère '*' est substitué par les noms de fichier du répertoire :
 
   $ echo *
   f1 f2 fic fic1.txt FIC.c Fic.doc fIc.PDF
 
-Le caractère "*" perd sa signification spéciale :
+Le caractère '*' perd sa signification spéciale :
 
   $ echo '*'
   *
@@ -250,7 +281,7 @@ Le shell s'attend à trouver un nom de fichier derrière une redirection :
   $ echo >
   bash: Erreur de syntaxe près du symbole inattendu « newline »
 
-Le caractère ">" perd sa signification spéciale :
+Le caractère '>' perd sa signification spéciale :
 
   $ echo '>'
   >
@@ -260,7 +291,7 @@ Le shell exécute la commande 'logname' et la remplace par son résultat :
   $ echo Bonjour $(logname)
   Bonjour kikinovak
 
-La séquence de caractères "$( )" perd sa signification spéciale :
+La séquence de caractères '$( )' perd sa signification spéciale :
 
   $ echo 'Bonjour $(logname)'
   Bonjour $(logname)
@@ -277,10 +308,14 @@ en nombre impair :
   $ echo 'La quote n'est pas protégée.'
   > 
 
-Le caractère antislash "\" retire la signification spéciale du caractère qui
+
+Le caractère antislash '\'
+--------------------------
+
+Le caractère antislash '\' retire la signification spéciale du caractère qui
 le suit. Là encore, quelques exemples.
 
-Les caractères "*" et "$" deviennent des caractères ordinaires :
+Les caractères '*' et '$' deviennent des caractères ordinaires :
 
   $ echo Voici une \* et une variable \$HOME.
   Voici une * et une variable $HOME.
@@ -290,18 +325,22 @@ L'antislash se protège de lui-même :
   $ echo \\
   \
 
-L'antislah retire la signification spéciale de la quote :
+L'antislash retire la signification spéciale de la quote :
 
   $ echo L\'antislash protège la quote.
   L'antislash protège la quote.
 
-Le premier antislash protège le deuxième, le troisième protège le "$" :
+Le premier antislash protège le deuxième, le troisième protège le '$' :
 
   $ echo \\\$HOME
   \$HOME
 
-Enfin, les guillemets " " retirent la signification de tous les caractères
-spéciaux du shell sauf "$", "` `" et "$( )", "\" et lui-même. 
+
+Les guillemets " "
+------------------
+
+Les guillemets " " retirent la signification de tous les caractères spéciaux
+du shell sauf '$', '` `' et '$( )', '\' et lui-même. 
 
   $ echo "> et | sont protégés par les guillemets, la valeur de $HOME est \
   substituée, la commande $(logname) est exécutée, l'antislash protège le \
@@ -314,15 +353,20 @@ En pratique, il est fréquent d'encadrer les arguments de la commande 'echo'
 avec des guillemets.
 
 
+=======================================
 Écriture et lancement d'un script shell
----------------------------------------
+=======================================
+
+
+Définition
+----------
 
 Un script shell est un fichier texte contenant des commandes Unix internes ou
 externes ainsi que des mots clés du shell.
 
 Il n'y a pas de convention imposée pour le nom d'un script shell. Il peut
 avoir une extension, mais ce n'est pas obligatoire. Néanmoins, il est assez
-fréquent de choisir l'extension ".sh". 
+fréquent de choisir l'extension '.sh'. 
 
 Voici un exemple de script :
 
@@ -339,6 +383,10 @@ Exécution du script :
   /tmp
   blueman-applet-1000
 
+
+Exécution d'un script par un shell enfant
+-----------------------------------------
+
 Dans la majorité des cas, les scripts doivent être exécutés par
 l'intermédiaire d'un shell enfant. Ceci a pour avantage de ne pas modifier
 l'environnement du shell courant. Pour lancer un script shell, il existe trois
@@ -348,7 +396,7 @@ Première méthode :
 
   $ sh premier.sh
 
-C'est la méthode utilisée précédemment. On appelle la commande 'ksh' en lui
+C'est la méthode utilisée précédemment. On appelle la commande 'sh' en lui
 demandant d'interpréter le script 'premier.sh'. Dans ce cas, la permission de
 lecture est suffisante sur le fichier 'premier.sh' :
 
@@ -375,7 +423,7 @@ la commande, et donc - comme pour toute commande externe - il est nécessaire
 de posséder les droits d'exécution sur le fichier. Par défaut, le script sera
 interprété par un shell enfant identique au shell courant.
 
-Sur la première ligne de l'interpréteur, la directive "#!" permet d'imposer
+Sur la première ligne de l'interpréteur, la directive '#!' permet d'imposer
 l'interpréteur du script. Le chemin de celui-ci devra être exprimé en absolu.
 
 Reprenons notre exemple en spécifiant l'interpréteur Bash :
@@ -387,15 +435,19 @@ Reprenons notre exemple en spécifiant l'interpréteur Bash :
        4  pwd
        5  ls
 
-  /!\ Les caractères "#" et "!" sont écrits respectivement en colonne 1 et 2.
-  L'espace entre le "!" et le chemin absolu de l'interpréteur est facultatif. 
+  /!\ Les caractères '#' et '!' sont écrits respectivement en colonne 1 et 2.
+  L'espace entre le '!' et le chemin absolu de l'interpréteur est facultatif. 
 
-Un commentaire commence par le caractère "#" et se termine à la fin de la
+
+Commentaires
+------------
+
+Un commentaire commence par le caractère '#' et se termine à la fin de la
 ligne. Les lignes blances ainsi que les indentations (espaces, tabulations)
 sont ignorées.
 
   /!\ Une exception à cette règle : si la première ligne du fichier commence
-  par "#!", le shell s'attend à trouver le nom de l'interpréteur du script
+  par '#!', le shell s'attend à trouver le nom de l'interpréteur du script
   juste derrière.
 
 Ajoutons des commentaires à notre script :
@@ -411,15 +463,21 @@ Ajoutons des commentaires à notre script :
        8  ls       # Liste des fichiers du répertoire courant
 
 
+============================
 Variables réservées du shell
-----------------------------
+============================
+
 
 Dans un script, un certain nombre de variables réservées sont accessibles en
 lecture. Ces variables sont initialisées par le shell et véhiculent des
 informations de nature diverse. 
 
+
+Les paramètres positionnels
+---------------------------
+
 Les scripts shell sont capables de récupérer les arguments passés sur la ligne
-de commande à l'aide de variables spéciales nommés "paramètres positionnels". 
+de commande à l'aide de variables spéciales nommés 'paramètres positionnels' 
 
   - $# représente le nombre d'arguments reçus par le script ;
 
@@ -464,6 +522,10 @@ Appel de 'monscript.sh' avec trois arguments :
 
   /!\ Les arguments de la ligne de commande doivent être séparés les uns des
   autres par au moins un espace ou une tabulation.
+
+
+La commande 'shift'
+-------------------
 
 La commande 'shift' permet de décaler la liste des arguments d'une ou de
 plusieurs positions vers la gauche.
@@ -534,14 +596,18 @@ Lancement du script :
   Sauvegarde de f4...
   Sauvegarde de f5...
 
+
+Code de retour d'une commande
+-----------------------------
+
 Toutes les commandes Unix retournent un code d'erreur. Ce dernier est un
 entier compris entre 0 et 255. Du point de vue du shell, 0 représente la
-valeur "vrai" (succès de la commande), toute valeur supérieure à 0 représente
-la valeur "faux" (échec de la commande). Le code d'erreur de la dernière
+valeur 'vrai' (succès de la commande), toute valeur supérieure à 0 représente
+la valeur 'faux' (échec de la commande). Le code d'erreur de la dernière
 commande exécutée est contenu dans la variable spéciale $?.
 
-Dans l'exemple qui suit, la commande 'grep' retourne "vrai" lorsque la chaîne
-recherchée est trouvée, et "faux" dans le cas contraire.
+Dans l'exemple qui suit, la commande 'grep' retourne 'vrai' lorsque la chaîne
+recherchée est trouvée, et 'faux' dans le cas contraire.
 
   $ grep kikinovak /etc/passwd
   kikinovak:x:1000:100:Niki Kovacs,,,:/home/kikinovak:/bin/bash
@@ -565,6 +631,10 @@ Ou bien :
 
   ...
   exit 1 # Terminaison du script avec renvoi du code 1 (échec)
+
+
+Autres variables spéciales
+--------------------------
 
 La variable spéciale $$ représente le PID du shell qui interprète le script.
 Cette variable garde une valeur constante pendant toute la durée d'exécution
@@ -643,6 +713,11 @@ script shell :
   PID de find : 839
 
 
+==================
+La commande 'read'
+==================
+
+
 Lecture au clavier
 ------------------
 
@@ -652,21 +727,21 @@ séparateurs de mots utilisés par 'read' est stockée dans la variable
 d'environnement IFS, qui contient par défaut les caractères espace, tabulation
 (\t) et saut de ligne (\n). 
 
-Le mot saisi est stocké dans la variable "var1" :
+Le mot saisi est stocké dans la variable 'var1' :
 
   $ read var1
   Bonjour
   $ echo $var1
   Bonjour
 
-Tous les mots saisis sont stockés dans la variable "var1" :
+Tous les mots saisis sont stockés dans la variable 'var1' :
 
   $ read var1
   Bonjour tout le monde !
   $ echo $var1
   Bonjour tout le monde !
 
-Le premier mot est stocké dans "var1", le deuxième dans "var2" :
+Le premier mot est stocké dans 'var1' le deuxième dans 'var2' :
 
   $ read var1 var2
   Au revoir
@@ -675,7 +750,7 @@ Le premier mot est stocké dans "var1", le deuxième dans "var2" :
   $ echo $var2
   revoir
 
-Le premier mot est stocké dans "var1" et tout le reste dans "var2" :
+Le premier mot est stocké dans 'var1' et tout le reste dans 'var2' :
 
   $ read var1 var2
   Au revoir tout le monde !
@@ -684,7 +759,7 @@ Le premier mot est stocké dans "var1" et tout le reste dans "var2" :
   $ echo $var2
   revoir tout le monde !
 
-Le mot est stocké dans "var1", et "var2" est vide :
+Le mot est stocké dans 'var1' et 'var2' est vide :
 
   $ read var1 var2
   Merci
@@ -692,8 +767,12 @@ Le mot est stocké dans "var1", et "var2" est vide :
   Merci
   $ echo $var2
 
-La commande 'read' renvoie un code "vrai" (0) si elle ne reçoit pas
-l'information "fin de fichier" ([Ctrl]+[D]).
+
+Code de retour
+--------------
+
+La commande 'read' renvoie un code 'vrai' (0) si elle ne reçoit pas
+l'information 'fin de fichier' ([Ctrl]+[D]).
 
   $ read var
   Voici ma saisie
@@ -703,7 +782,7 @@ l'information "fin de fichier" ([Ctrl]+[D]).
   Voici ma saisie
 
 Si l'utilisateur tape immédiatement sur la touche [Entrée], il a saisi la
-chaîne vide. La variable est vide mais le code est "vrai" (0) :
+chaîne vide. La variable est vide mais le code est 'vrai' (0) :
 
   $ read var
   [Entrée]
@@ -712,8 +791,8 @@ chaîne vide. La variable est vide mais le code est "vrai" (0) :
   $ echo $var
 
 Si l'utilisateur appuie sur la combinaison de touches [Ctrl]+[D], il envoie
-l'information "fin de fichier" à la commande. La variable est vide et le code
-est "faux" (1) :
+l'information 'fin de fichier' à la commande. La variable est vide et le code
+est 'faux' (1) :
 
   $ read var
   [Ctrl]+[D]
@@ -721,9 +800,13 @@ est "faux" (1) :
   1
   $ echo $var
 
-La variable IFS contient par défaut les caractères espace, tabulation (\t) et
-saut de ligne (\n). La commande 'od' ("octal dump") permet de voir la valeur
-de chaque octet contenu dans IFS. Le caractère "\c" permet de ne pas récupérer
+
+La variable IFS
+---------------
+
+Cette variable contient par défaut les caractères espace, tabulation (\t) et
+saut de ligne (\n). La commande 'od' ('octal dump' permet de voir la valeur
+de chaque octet contenu dans IFS. Le caractère '\c' permet de ne pas récupérer
 dans le tube le saut de ligne de la commande 'echo' :
 
   $ echo "$IFS\c" | od -c
@@ -740,8 +823,8 @@ Modification de IFS :
 
   $ IFS=":"
 
-Le caractère "espace" redevient un caractère normal, tandis que le caractère
-":" devient le séparateur de mots :
+Le caractère 'espace' redevient un caractère normal, tandis que le caractère
+':' devient le séparateur de mots :
 
   $ read var1 var2 var3
   mot1:mot2 mot3:mot4
@@ -756,9 +839,16 @@ Restauration de la valeur initiale de IFS :
 
   $ IFS="$OLDIFS"
 
-  /!\ Les expressions "$IFS" et "$OLDIFS" doivent obligatoirement être placées
+  /!\ Les expressions '$IFS' et '$OLDIFS' doivent obligatoirement être placées
   entre guillemets " " pour que les caractères internes ne soient pas
   interprétés par le shell.
+
+
+=============
+Documentation
+=============
+
+  - Programmation shell sous Unix/Linux, Deffaix-Rémy, pp. 121 - 157
 
 
 ------------------------------------------------------------------------------
