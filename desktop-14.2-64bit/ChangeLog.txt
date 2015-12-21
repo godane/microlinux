@@ -1,3 +1,13 @@
+Mon Dec 21 11:56:06 CET 2015
+libreoffice-5.0.4-x86_64-1_microlinux.txz: Upgraded.
+libreoffice-helppack-de-5.0.4-x86_64-1_microlinux.txz: Upgraded.
+libreoffice-helppack-fr-5.0.4-x86_64-1_microlinux.txz: Upgraded.
+libreoffice-langpack-de-5.0.4-x86_64-1_microlinux.txz: Upgraded.
+libreoffice-langpack-fr-5.0.4-x86_64-1_microlinux.txz: Upgraded.
+asunder-2.8-x86_64-1_microlinux.txz: Added.
+mplayer-codecs64-20061022-x86_64-1_microlinux.txz: Added.
+evince-3.18.2-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Fri Dec 11 11:03:58 CET 2015
 lxdm-0.5.3-x86_64-4_microlinux.txz: Rebuilt.
 	Restored the session selector. Removing this item turned out to be a bad
