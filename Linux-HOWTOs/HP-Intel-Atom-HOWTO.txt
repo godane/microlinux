@@ -1,0 +1,197 @@
+===================
+HP Intel Atom HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+===================
+
+Dernière révision : 22 décembre 2015
+
+Ce HOWTO décrit l'installation de Slackware Linux -current sur un ordinateur
+portable HP Intel Atom.
+
+
+  * Introduction
+  * Configuration du BIOS
+  * Démarrage
+  * Partitionnement
+  * Chargeur de démarrage
+
+
+Introduction
+------------
+
+La dernière génération de portables HP munis d'un chipset Intel Atom n'est pas
+gérée par Slackware64 14.1, notamment la carte graphique. En revanche,
+Slackware -current s'installe très bien. J'ai donc confectionné un DVD
+d'installation de Slackware64 -current à partir de mon miroir local.
+
+
+Configuration du BIOS
+---------------------
+
+Au démarrage, appuyer sur [Esc] puis sur [F10] pour accéder au BIOS.
+
+System Configuration > Boot Options
+
+Legacy Support  : <Disabled>
+
+Secure Boot     : <Disabled>
+
+Platform Key    : Not enrolled
+
+Clear All Secure Boot Keys
+
+UEFI Boot Order : OS Boot Manager  
+
+Appuyer sur [F10] pour enregistrer les modifications et redémarrer.
+
+
+Démarrage
+---------
+
+Appuyer sur [Esc] puis sur [F9] pour afficher les options de démarrage.
+
+Démarrer sur 'Internal CD/DVD ROM Drive (UEFI)'.
+
+Welcome to GRUB > Slackware 14.2 huge.s kernel
+
+
+Partitionnement
+---------------
+
+Supprimer le foutoir innommable façon Microsoft :
+
+  # gdisk /dev/sda
+
+Touche [x] --> extra functionality (experts only)
+
+Touche [z] --> zap (destroy) GTP data structures and exit
+
+Ensuite, repartitionner avec 'gdisk' : 
+
+  * une partition EFI de 100 Mo (type EF00)
+  * une partition /boot de 100 Mo (type 8300)
+  * une partition swap de 8 Go (type 8200)
+  * une partition principale de 457 Go (type 8300)
+
+Voilà à quoi ça ressemble :
+
+  # gdisk -l /dev/sda
+  GPT fdisk (gdisk) version 1.0.0
+  ...
+  Number  Start (sector)    End (sector)  Size       Code  Name
+     1            2048          206847   100.0 MiB   EF00  EFI System
+     2          206848          411647   100.0 MiB   8300  Linux filesystem
+     3          411648        17188863   8.0 GiB     8200  Linux swap
+     4        17188864      1953525134   923.3 GiB   8300  Linux filesystem
+
+
+Chargeur de démarrage
+---------------------
+
+LILO gère mal le partitionnement GPT, et ELILO n'est pas très fonctionnel. On
+passera donc sur l'installation de ces deux chargeurs de démarrage, et on
+installera GRUB à la main. 
+
+Quitter l'installateur et chrooter dans le système nouvellement installé :
+
+  # chroot /mnt
+
+Configurer l'initrd :
+
+--8<---------- /etc/mkinitrd.conf --------------------------------------------
+SOURCE_TREE="/boot/initrd-tree"
+CLEAR_TREE="1"
+OUTPUT_IMAGE="/boot/initrd.gz"
+KERNEL_VERSION="$(uname -r)"
+KEYMAP="fr_CH-latin1"
+MODULE_LIST="ext4:i915"
+ROOTDEV="/dev/sda4"
+ROOTFS="ext4"
+RESUMEDEV="/dev/sda3"
+RAID="0"
+LVM="0"
+UDEV="1"
+MODCONF="0"
+WAIT="1"
+--8<--------------------------------------------------------------------------
+
+Construire l'initrd :
+
+  # mkinitrd -F
+
+GRUB utilise le fichier de configuration par défaut '/boot/grub/grub.cfg',
+mais le répertoire n'existe pas :
+
+  # mkdir /boot/grub
+
+Créer une première configuration à la volée :
+
+  # grub-mkconfig -o /boot/grub/grub.cfg
+
+Installer GRUB dans le MBR :
+
+  # grub-install /dev/sda
+
+Quitter l'environnement chrooté et redémarrer :
+
+  # exit
+  # reboot
+
+Au redémarrage, sélectionner le noyau GENERIC. Étant donné qu'on n'arrive pas
+à distinguer les noyaux HUGE et GENERIC dans le menu de démarrage, il faudra
+utiliser le menu avancé de GRUB. 
+
+Supprimer le noyau HUGE :
+
+  # removepkg kernel-huge
+
+Si l'on a installé ELILO, on peut également se débarrasser des fichiers
+relatifs à ce chargeur de démarrage sur la partition EFI :
+
+  # cd /boot/efi/EFI/Slackware
+  # rm elilo.conf elilo.efi
+
+Prendre en compte les modifications :
+
+  # grub-mkconfig -o /boot/grub/grub.cfg
+
+Une fois que tout fonctionne correctement, on peut songer à peaufiner GRUB.
+
+Pour passer des options au kernel, il faut éditer '/etc/default/grub' :
+
+--8<---------- /etc/default/grub ---------------------------------------------
+...
+GRUB_CMDLINE_LINUX="video=1024x600 quiet ipv6.disable=1"
+...
+--8<--------------------------------------------------------------------------
+
+Dans la configuration par défaut, GRUB affiche "Slackware 14.1 GNU/Linux" dans
+le menu. Pour corriger ceci, on peut éditer '/etc/grub.d/10_linux' :
+
+--8<---------- /etc/grub.d/10_linux ------------------------------------------
+if [ "x${GRUB_DISTRIBUTOR}" = "x" ] ; then
+  #OS=GNU/Linux
+  OS=Slackware
+else
+  #OS="${GRUB_DISTRIBUTOR} GNU/Linux"
+  OS="${GRUB_DISTRIBUTOR}"
+  ...
+fi
+--8<--------------------------------------------------------------------------
+
+Enfin, on peut mettre un peu de couleur dans l'affichage en éditant
+'/etc/grub.d/40_custom' comme ceci :
+
+--8<---------- /etc/grub.d/40_custom -----------------------------------------
+...
+set color_normal=blue/white
+set menu_color_highlight=white/blue
+set menu_color_normal=blue/white
+--8<--------------------------------------------------------------------------
+
+À chaque fois, la configuration sera prise en compte comme ceci :
+
+  # grub-mkconfig -o /boot/grub/grub.cfg
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
