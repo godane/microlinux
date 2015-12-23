@@ -1,5 +1,6 @@
 Wed Dec 23 15:41:50 CET 2015
 file-roller-2.32.2-i586-1_microlinux.txz: Added.
+gtksourceview-2.10.5-i586-1_microlinux.txz: Added.
 +--------------------------+
 Mon Dec 21 10:53:30 CET 2015
 libreoffice-5.0.4-i586-1_microlinux.txz: Upgraded.
