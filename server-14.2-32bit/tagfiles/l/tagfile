@@ -238,6 +238,7 @@ raptor2:ADD
 rasqal:ADD
 readline:ADD
 redland:ADD
+sbc:ADD
 sdl:ADD
 seamonkey-solibs:ADD
 serf:ADD
