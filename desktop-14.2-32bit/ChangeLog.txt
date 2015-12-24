@@ -1,5 +1,7 @@
 Thu Dec 24 10:57:20 CET 2015
 mozilla-firefox-langpack-43.0.2-i586-1_microlinux.txz: Added.
+mozilla-thunderbird-langpack-38.5.0-i586-1_microlinux.txz: Added.
+flashplayer-plugin-11.2.202.554-i386-1_microlinux.txz: Added.
 +--------------------------+
 Wed Dec 23 15:41:50 CET 2015
 file-roller-2.32.2-i586-1_microlinux.txz: Added.
