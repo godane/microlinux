@@ -1,3 +1,6 @@
+Thu Dec 24 10:18:26 CET 2015
+mozilla-thunderbird-langpack-38.5.0-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Wed Dec 23 10:04:51 CET 2015
 mozilla-firefox-langpack-38.5.2-x86_64-1_microlinux.txz: Upgraded.
 file-roller-2.32.2-x86_64-1_microlinux.txz: Added.
