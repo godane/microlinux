@@ -1,3 +1,9 @@
+Thu Dec 24 11:20:17 CET 2015
+mozilla-firefox-langpack-43.0.2-x86_64-1_microlinux.txz: Added.
+mozilla-thunderbird-langpack-38.5.0-x86_64-1_microlinux.txz: Added.
+flashplayer-plugin-11.2.202.554-x86_64-1_microlinux.txz: Added.
+thunar-archive-plugin-0.3.1-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Wed Dec 23 22:09:02 CET 2015
 file-roller-2.32.2-x86_64-1_microlinux.txz: Added.
 gtksourceview-2.10.5-x86_64-1_microlinux.txz: Added.
