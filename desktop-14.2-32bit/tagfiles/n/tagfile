@@ -102,8 +102,6 @@ nftables:ADD
 nmap:ADD
 nn:ADD
 ntp:ADD
-obex-data-server:ADD
-obexfs:ADD
 obexftp:ADD
 openldap-client:ADD
 openobex:ADD
