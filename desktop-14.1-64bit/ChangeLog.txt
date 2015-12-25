@@ -1,3 +1,9 @@
+Fri Dec 25 09:26:01 CET 2015
+lxdm-0.5.3-x86_64-2_microlinux.txz: Added.
+  LXDM replaces GDM as MLED's default login manager. 
+gdm-2.20.11-x86_64-2_microlinux.txz: Removed.
+  Moved to pasture/.
++--------------------------+
 Thu Dec 24 10:18:26 CET 2015
 mozilla-thunderbird-langpack-38.5.0-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
