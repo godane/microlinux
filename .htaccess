@@ -60,6 +60,9 @@ AddDefaultCharset utf-8
   AddIcon       /microlinux/repository-layout/system-installer.png extras-14.2-32bit
   AddIcon       /microlinux/repository-layout/system-installer.png extras-14.2-64bit
   AddIcon       /microlinux/repository-layout/system-installer.png extras-14.2-source
+  AddIcon       /microlinux/repository-layout/user-trash-full.png pasture-14.1-32bit
+  AddIcon       /microlinux/repository-layout/user-trash-full.png pasture-14.1-64bit
+  AddIcon       /microlinux/repository-layout/user-trash-full.png pasture-14.1-source
   AddIcon       /microlinux/repository-layout/server.png server-14.0-32bit
   AddIcon       /microlinux/repository-layout/server.png server-14.0-64bit
   AddIcon       /microlinux/repository-layout/server.png server-14.0-source
