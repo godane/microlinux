@@ -1,3 +1,33 @@
+Mon Dec 28 13:56:19 CET 2015
+pysetuptools-18.2-x86_64-1_microlinux.txz: Upgraded.
+psutil-3.3.0-x86_64-1_microlinux.txz: Upgraded.
+pytz-2014.10-x86_64-1_microlinux.txz: Added.
+werkzeug-0.9.4-x86_64-1_microlinux.txz: Added.
+mock-1.0.1-x86_64-1_microlinux.txz: Added.
+configobj-4.7.2-x86_64-1_microlinux.txz: Added.
+pyparsing-2.0.3-x86_64-1_microlinux.txz: Added.
+zope.interface-4.1.2-x86_64-1_microlinux.txz: Added.
+zope.event-4.0.3-x86_64-1_microlinux.txz: Added.
+zope.component-4.2.1-x86_64-1_microlinux.txz: Added.
+pycparser-2.14-x86_64-1_microlinux.txz: Added.
+ipaddress-1.0.15-x86_64-1_microlinux.txz: Added.
+enum34-1.1.2-x86_64-1_microlinux.txz: Added.
+six-1.10.0-x86_64-1_microlinux.txz: Added.
+idna-2.0-x86_64-1_microlinux.txz: Added.
+cffi-1.4.2-x86_64-1_microlinux.txz: Added.
+pyasn1-0.1.8-x86_64-1_microlinux.txz: Added.
+cryptography-1.1.1-x86_64-1_microlinux.txz: Added.
+pyOpenSSL-0.15.1-x86_64-1_microlinux.txz: Added.
+ndg_httpsclient-0.4.0-x86_64-1_microlinux.txz: Added.
+python2-pythondialog-3.3.0-x86_64-1_microlinux.txz: Added.
+augeas-1.4.0-x86_64-1_microlinux.txz: Added.
+python-augeas-0.5.0-x86_64-1_microlinux.txz: Added.
+python-requests-2.8.1-x86_64-1_microlinux.txz: Added.
+pyrfc3339-1.0-x86_64-1_microlinux.txz: Added.
+python-parsedatetime-1.5-x86_64-1_microlinux.txz: Added.
+python-configargparse-0.10.0-x86_64-1_microlinux.txz: Added.
+letsencrypt-0.1.1-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Tue Dec  8 11:07:31 CET 2015
 user-settings-console-14.1-noarch-2_microlinux.txz: Rebuilt.
   Some minor modifications to Bash's default configuration.
