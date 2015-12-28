@@ -1,0 +1,13 @@
+      |-----handy-ruler------------------------------------------------------|
+enum34: enum34 (backported Python 3.4 Enum)
+enum34:
+enum34: An enumeration is a set of symbolic names (members) bound to unique,
+enum34: constant values. Within an enumeration, the members can be compared
+enum34: by identity, and the enumeration itself can be iterated over.
+enum34:
+enum34: 
+enum34:
+enum34:
+enum34:
+enum34:
+enum34: Package created by Niki Kovacs <info@microlinux.fr>
