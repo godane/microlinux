@@ -1,0 +1,12 @@
+                     |-----handy-ruler------------------------------------------------------|
+python-configargparse: python-configargparse (Python module)
+python-configargparse:
+python-configargparse: A drop-in replacement for argparse that allows options to also be set
+python-configargparse: via config files and/or environment variables
+python-configargparse:
+python-configargparse:
+python-configargparse:
+python-configargparse:
+python-configargparse: 
+python-configargparse:
+python-configargparse: Package created by Niki Kovacs <info@microlinux.fr>
