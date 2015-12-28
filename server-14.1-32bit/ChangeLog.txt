@@ -13,6 +13,7 @@ pycparser-2.14-i486-1_microlinux.txz: Added.
 ipaddress-1.0.15-i486-1_microlinux.txz: Added.
 enum34-1.1.2-i486-1_microlinux.txz: Added.
 six-1.10.0-i486-1_microlinux.txz: Added.
+idna-2.0-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Dec  8 11:00:05 CET 2015
 user-settings-console-14.1-noarch-2_microlinux.txz: Rebuilt.
