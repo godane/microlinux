@@ -2,6 +2,7 @@ Mon Dec 28 10:17:00 CET 2015
 pysetuptools-18.2-i486-1_microlinux.txz: Upgraded.
 psutil-3.3.0-i486-1_microlinux.txz: Upgraded.
 pytz-2014.10-i486-1_microlinux.txz: Added.
+werkzeug-0.9.4-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Dec  8 11:00:05 CET 2015
 user-settings-console-14.1-noarch-2_microlinux.txz: Rebuilt.
