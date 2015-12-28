@@ -7,6 +7,7 @@ mock-1.0.1-i486-1_microlinux.txz: Added.
 configobj-4.7.2-i486-1_microlinux.txz: Added.
 pyparsing-2.0.3-i486-1_microlinux.txz: Added.
 zope.interface-4.1.2-i486-1_microlinux.txz: Added.
+zope.event-4.0.3-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Dec  8 11:00:05 CET 2015
 user-settings-console-14.1-noarch-2_microlinux.txz: Rebuilt.
