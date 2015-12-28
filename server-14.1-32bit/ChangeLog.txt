@@ -18,6 +18,7 @@ cffi-1.4.2-i486-1_microlinux.txz: Added.
 pyasn1-0.1.8-i486-1_microlinux.txz: Added.
 cryptography-1.1.1-i486-1_microlinux.txz: Added.
 pyOpenSSL-0.15.1-i486-1_microlinux.txz: Added.
+ndg_httpsclient-0.4.0-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Dec  8 11:00:05 CET 2015
 user-settings-console-14.1-noarch-2_microlinux.txz: Rebuilt.
