@@ -1,5 +1,5 @@
 =======================
-MLED 14.1 Release Notes - Fri Apr 17 06:17:34 CEST 2015
+MLED 14.1 Release Notes 
 =======================
 
 The Microlinux Enterprise Desktop 14.1 is a full-blown production desktop based
@@ -59,14 +59,15 @@ Enhanced Xfce 4.12 desktop
 The Xfce desktop is upgraded to version 4.12 and enhanced with the following
 packages:
 
-  * Themed GDM login manager
+  * Themed LXDM login manager
   * Elementary-Xfce icon theme
   * Aero mouse cursor theme (Windows 7 style)
   * Clearlooks Phenix theme (fit for GTK2 and GTK3 applications)
-  * Collection of extra fonts (Google Droid, Webcore fonts, Eurostile)
+  * Plank application launcher
+  * Collection of extra TrueType fonts (XP, Vista, OS X)
   * Sober wallpapers fit for use in a "corporate" environment
   * Custom desktop menu entries (english, french, german)
-  * Xarchiver archive manager
+  * File Roller archive manager
   * Translations for Mozilla Firefox ESR (french and german)
   * Translations for Mozilla Thunderbird ESR (french and german)
   * Appealing default user profile
@@ -86,10 +87,12 @@ MLED provides the following desktop applications:
   * Recoll file search utility
   * Conky system monitor
   * Inkscape vector graphics application
-  * Leafpad text editor
+  * Gedit text editor
   * Openshot video editor
   * Scribus desktop publishing application
   * Transmission BitTorrent client
+  * Remmina remote desktop client
+  * Liferea RSS feed reader
   * Brasero CD/DVD burning software
   * Evince document viewer
   * Galculator pocket calculator
@@ -114,8 +117,8 @@ Additional software
 The following applications are available in the [extras] repository:
 
   * VirtualBox virtualization software
+  * VLC multimedia player
   * Gtkcdlabel CD label generator
-  * Remmina remote desktop client
   * AMule P2P client with UPnP support
   * Dropbox network storage
   * Easytag ID3 tagger
