@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+mock: mock (implements a Mocking and Testing Library in Python)
+mock:
+mock: mock is a Python module that provides a core Mock class. It removes
+mock: the need to create a host of stubs throughout your test suite.
+mock: The mock module also provides a patch() decorator that handles
+mock: patching module and class level attributes within the scope of a
+mock: test, along with sentinel for creating unique objects.
+mock: mock is tested on Python versions 2.4-2.7 and Python 3.
+mock:
+mock: 
+mock: Package created by Niki Kovacs <info@microlinux.fr>
