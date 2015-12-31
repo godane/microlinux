@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+letsencrypt: letsencrypt (Manage X.509 certificates)
+letsencrypt:
+letsencrypt: The Let's Encrypt Client is a tool to automatically receive and
+letsencrypt: install X.509 certificates to enable TLS on servers.
+letsencrypt: The client will interoperate with the Let's Encrypt CA which will be
+letsencrypt: issuing browser-trusted certificates for free.
+letsencrypt:
+letsencrypt:
+letsencrypt: 
+letsencrypt:
+letsencrypt: Package created by Niki Kovacs <info@microlinux.fr>

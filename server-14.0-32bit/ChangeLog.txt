@@ -26,6 +26,7 @@ python-requests-2.8.1-i486-1_microlinux.txz: Added.
 pyrfc3339-1.0-i486-1_microlinux.txz: Added.
 python-parsedatetime-1.5-i486-1_microlinux.txz: Added.
 python-configargparse-0.10.0-i486-1_microlinux.txz: Added.
+letsencrypt-0.1.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Dec  8 10:47:13 CET 2015
 user-settings-console-14.0-noarch-2_microlinux.txz: Rebuilt.
