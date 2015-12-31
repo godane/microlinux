@@ -1,0 +1,12 @@
+              |-----handy-ruler------------------------------------------------------|
+zope.component: zope.component (Zope Component Architecture)
+zope.component:
+zope.component: This package represents the core of the Zope Component Architecture.
+zope.component: Together with the 'zope.interface' package, it provides facilities
+zope.component: for defining, registering and looking up components.
+zope.component:
+zope.component:
+zope.component:
+zope.component:
+zope.component:
+zope.component: Package created by Niki Kovacs <info@microlinux.fr>
