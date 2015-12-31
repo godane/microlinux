@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+pyasn1: pyasn1 (ASN.1 types and codecs in Python)
+pyasn1:
+pyasn1: pyasn1 implements ASN.1 types and codecs (BER, CER, DER) in Python.
+pyasn1:
+pyasn1: Some features include:
+pyasn1: - Generic implementation of ASN.1 types (X.208)
+pyasn1: - Fully standard compliant BER/CER/DER codecs
+pyasn1: - 100% Python, works with Python 2.2 and later
+pyasn1:
+pyasn1: 
+pyasn1: Package created by Niki Kovacs <info@microlinux.fr>
