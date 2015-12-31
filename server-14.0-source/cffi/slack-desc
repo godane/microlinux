@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+cffi: cffi (Foreign Function Interface for Python calling C code)
+cffi:
+cffi: Foreign Function Interface for Python calling C code. The aim of this
+cffi: project is to provide a convenient and reliable way of calling C code
+cffi: from Python.
+cffi:
+cffi: 
+cffi:
+cffi:
+cffi:
+cffi: Package created by Niki Kovacs <info@microlinux.fr>
