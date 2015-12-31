@@ -1,0 +1,12 @@
+         |-----handy-ruler------------------------------------------------------|
+pycparser: pycparser (C parser in Python)
+pycparser:
+pycparser: pycparser is a complete parser of the C language, written in pure
+pycparser: Python using the PLY parsing library. It parses C code into an AST
+pycparser: and can serve as a front-end for C compilers or analysis tools.
+pycparser:
+pycparser:
+pycparser:
+pycparser:
+pycparser: 
+pycparser: Package created by Niki Kovacs <info@microlinux.fr>
