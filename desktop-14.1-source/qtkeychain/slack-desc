@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+qtkeychain: qtkeychain (A Qt API to store passwords and secret data securely)
+qtkeychain:
+qtkeychain: How the data is stored on Linux:
+qtkeychain:
+qtkeychain: If running, GNOME Keyring is used, otherwise qtkeychain tries to
+qtkeychain: use KWallet (via D-Bus), if available. In unsupported environments
+qtkeychain: QtKeychain will report an error. It will not store any data
+qtkeychain: unencrypted unless explicitly requested (setInsecureFallback(
+qtkeychain: true )).
+qtkeychain:
+qtkeychain: Package created by Niki Kovacs <info@microlinux.fr>
