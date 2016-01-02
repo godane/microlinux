@@ -1,0 +1,12 @@
+   |-----handy-ruler------------------------------------------------------|
+vlc: vlc (VLC media player)
+vlc:
+vlc: VLC media player is a free and open source media player and multi-
+vlc: media framework written by the VideoLAN project. VLC is a portable
+vlc: multimedia player, encoder, and streamer supporting many audio and
+vlc: video codecs and file formats as well as DVDs, VCDs, and various
+vlc: streaming protocols. It is able to stream over networks and to
+vlc: transcode multimedia files and save them into various formats.
+vlc:
+vlc: 
+vlc: Package created by Niki Kovacs <info@microlinux.fr>

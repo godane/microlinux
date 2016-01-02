@@ -1,3 +1,8 @@
+Sat Jan  2 20:52:02 CET 2016
+vlc-2.2.1-i586-1_microlinux.txz: Added.
+gnome-mplayer-1.0.8-i586-2_microlinux.txz: Removed.
+gmtk-1.0.8-i586-2_microlinux.txz: Removed.
++--------------------------+
 Tue Dec 29 10:54:07 CET 2015
 mozilla-firefox-langpack-43.0.3-i586-1_microlinux.txz: Upgraded.
 +--------------------------+
