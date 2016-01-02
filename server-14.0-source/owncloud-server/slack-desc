@@ -1,0 +1,12 @@
+               |-----handy-ruler------------------------------------------------------|
+owncloud-server: owncloud-server (ownCloud sync & share server)
+owncloud-server:
+owncloud-server: ownCloud gives you universal access to your files through a web
+owncloud-server: interface or WebDAV. It also provides a platform to easily view & sync
+owncloud-server: your contacts, calendars and bookmarks across all your devices and
+owncloud-server: enables basic editing right on the web.
+owncloud-server:
+owncloud-server: 
+owncloud-server:
+owncloud-server:
+owncloud-server: Package created by Niki Kovacs <info@microlinux.fr>
