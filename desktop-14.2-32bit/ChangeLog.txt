@@ -1,3 +1,8 @@
+Mon Jan  4 07:58:26 CET 2016
+umplayer-0.97-i586-1_microlinux.txz: Added.
+vlc-2.2.1-i586-1_microlinux.txz: Removed.
+  Third time's the charm.
++--------------------------+
 Sat Jan  2 20:52:02 CET 2016
 vlc-2.2.1-i586-1_microlinux.txz: Added.
 gnome-mplayer-1.0.8-i586-2_microlinux.txz: Removed.
