@@ -3,6 +3,7 @@ umplayer-0.97-i586-1_microlinux.txz: Added.
 vlc-2.2.1-i586-1_microlinux.txz: Removed.
   Third time's the charm.
 cantarell-fonts-0.0.19-i486-1_microlinux.txz: Added.
+flashplayer-plugin-11.2.202.559-i386-1_microlinux.txz: Upgraded.
 +--------------------------+
 Sat Jan  2 20:52:02 CET 2016
 vlc-2.2.1-i586-1_microlinux.txz: Added.
