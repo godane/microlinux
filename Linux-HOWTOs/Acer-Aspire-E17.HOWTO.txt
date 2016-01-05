@@ -1,0 +1,188 @@
+=====================
+Acer Aspire E17 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=====================
+
+Dernière révision : 5 janvier 2016
+
+Ce HOWTO décrit l'installation de Slackware Linux sur un ordinateur portable
+Acer Aspire E17.
+
+
+  * Configuration du BIOS
+  * Partitionnement
+  * Système
+  * Chargeur de démarrage
+  * Réseau
+  * Carte graphique
+  * Touchpad
+  * Webcam
+
+
+Configuration du BIOS
+---------------------
+
+La touche [F2] permet d'accéder au BIOS. Voici les options importantes :
+
+  * F12 Boot Menu: [Enabled]
+
+  * Touchpad: [Advanced]
+
+  * Boot Mode: [Legacy]
+
+Enregistrer les modifications et booter sur la clé USB, le DVD ou le CD-Rom
+d'installation en appuyant sur [F12] au démarrage.
+
+
+Partitionnement
+---------------
+
+Le disque dur doit être partitionné en mode GPT.
+
+  # gdisk -l /dev/sda
+  GPT fdisk (gdisk) version 1.0.0
+
+  Partition table scan:
+    MBR: protective
+    BSD: not present
+    APM: not present
+    GPT: present
+
+  Found valid GPT with protective MBR; using GPT.
+  Disk /dev/sda: 1953525168 sectors, 931.5 GiB
+  Logical sector size: 512 bytes
+  Disk identifier (GUID): D2A145DB-57A8-49E0-957D-1F4F9659E13B
+  Partition table holds up to 128 entries
+  First usable sector is 34, last usable sector is 1953525134
+  Partitions will be aligned on 2048-sector boundaries
+  Total free space is 2014 sectors (1007.0 KiB)
+
+  Number  Start (sector)    End (sector)  Size       Code  Name
+     1            2048          206847   100.0 MiB   8300  Linux filesystem
+     2          206848         8595455   4.0 GiB     8200  Linux swap
+     3         8595456      1953525134   927.4 GiB   8300  Linux filesystem
+
+
+Système
+-------
+
+Slackware64 14.1 ne fonctionne pas sur cette machine. Le driver vidéo 'i915'
+provoque un gel de l'écran. Il faut donc opter pour une installation de
+Slackware -current. 
+
+On peut très bien démarrer sur une clé USB d'installation de Slackware64 14.1
+et installer -current via le réseau. Dans l'écran de sélection de
+l'installateur, je choisis "Install from FTP/HTTP server", puis je le fais
+pointer sur mon miroir local comme ceci :
+
+  - URL: http://mirror.nestor/slackware
+
+  - Slackware source directory : /slackware64-current/slackware64
+
+
+Chargeur de démarrage
+---------------------
+
+LILO s'installe normalement sur cette machine et gère les partitions GPT.
+Voici les options du kernel qui vont bien :
+
+--8<---------- /etc/lilo.conf ------------------------------------------------
+...
+append="video=1024x600 quiet ipv6.disable=1 vt.default_utf8=1"
+...
+--8<--------------------------------------------------------------------------
+
+
+Réseau
+------
+
+La carte réseau filaire et la carte sans fil fonctionnent sans problème.
+
+  # lspci | grep -E "Ethernet|Network"
+  02:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. 
+    RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 15)
+  03:00.0 Network controller: Intel Corporation Wireless 3165 (rev 81)
+
+
+Carte graphique
+---------------
+
+La carte graphique est une de ces monstruosités hybrides Intel/NVidia :
+
+  # lspci | grep -E "VGA|3D"
+  00:02.0 VGA compatible controller: Intel Corporation Broadwell-U 
+    Integrated Graphics (rev 09)
+  04:00.0 3D controller: NVIDIA Corporation GK208M [GeForce 920M] (rev a1)
+
+Désinstaller le paquet xf86-video-nouveau :
+
+  # removepkg xf86-video-nouveau
+
+Télécharger le paquet xf86-video-nouveau-blacklist depuis le dépôt extra/, 
+installer ce paquet et redémarrer :
+
+  # installpkg xf86-video-nouveau-blacklist-noarch-1.txz
+  # reboot
+
+À partir de là, ajouter le module 'i915' à l'initrd et configurer l'affichage
+comme si l'on avait affaire à une simple carte graphique Intel.
+
+
+Carte son
+---------
+
+La configuration par défaut ne fonctionne pas. 
+
+  # lspci | grep -i audio
+  00:03.0 Audio device: Intel Corporation Broadwell-U Audio Controller (rev 09)
+  00:1b.0 Audio device: Intel Corporation Wildcat Point-LP High Definition Audio
+    Controller (rev 03)
+
+Éditer '/etc/modprobe.d/snd-hda-intel.conf' comme ceci :
+
+--8<---------- /etc/modprobe.d/snd-hda-intel.conf ----------------------------
+options snd-hda-intel id=PCH index=0
+options snd-hda-intel id=HDMI index=1
+--8<--------------------------------------------------------------------------
+
+Redémarrer et définir la nouvelle carte son par défaut dans le plug-in de
+mixage de Xfce.
+
+
+Touchpad
+--------
+
+Le touchpad ne fonctionne pas correctement dans la configuration par défaut.
+Voici ce qu'on peut faire pour arranger les choses :
+
+  # cd /etc/X11/xorg.conf.d
+  # cp /usr/share/X11/xorg.conf.d/50-synaptics.conf .
+
+Éditer ce fichier en ajoutant une option à la fin :
+
+--8<---------- /etc/X11/xorg.conf.d/50-synaptics.conf ------------------------
+Section "InputClass"
+        Identifier "touchpad"
+        Driver "synaptics"
+        MatchDevicePath "/dev/input/event*"
+        MatchIsTouchpad "on"
+        Option "TapButton1" "1"
+        Option "TapButton2" "2"
+        Option "TapButton3" "3"
+  Option "SoftButtonAreas" "50% 0 82% 0 0 0 0 0"
+EndSection
+--8<--------------------------------------------------------------------------
+
+Relancer X11, et le problème est réglé.
+
+
+Webcam
+------
+
+La webcam fonctionne sans problèmes. Pour la tester, il suffit d'ouvrir un
+terminal et d'invoquer la commande suivante :
+
+  $ mplayer tv://
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
