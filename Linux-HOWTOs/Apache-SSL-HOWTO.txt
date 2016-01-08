@@ -10,6 +10,7 @@ tournant sous Slackware.
 
   * Le protocole HTTPS
   * Configurer Apache et SSL
+  * La politique HSTS
   * Plusieurs hébergements SSL sur un même serveur
 
 
@@ -124,6 +125,32 @@ Effectuer un audit de la sécurité de notre hébergement :
   * https://www.ssllabs.com/ssltest/
 
 
+La politique HSTS
+-----------------
+
+HSTS ("HTTP Strict Transport Security") est un mécanisme de politique de
+sécurité proposé pour HTTP, permettant à un serveur web de déclarer à un agent
+utilisateur (navigateur web) compatible qu'il doit interagir avec
+lui en utilisant une connexion sécurisée (comme HTTPS). La politique est donc
+communiquée à l'agent utilisateur par le serveur via la réponse HTTP, dans le
+champ d'en-tête nommé "Strict-Transport-Security". La politique spécifie une
+période de temps durant laquelle l'agent utilisateur doit accéder au serveur
+uniquement de façon sécurisée.
+
+Pour activer cette politique dans la configuration d'Apache, il suffit
+d'ajouter la ligne suivante dans la définition de l'hôte virtuel :
+
+--8<---------- /etc/httpd/extra/httpd-ssl.conf -------------------------------
+<VirtualHost _default_:443>
+...
+# HSTS
+Header always set Strict-Transport-Security \
+  "max-age=63072000; includeSubDomains"
+...
+</VirtualHost>
+--8<--------------------------------------------------------------------------
+
+
 Plusieurs hébergements SSL sur un même serveur
 ----------------------------------------------
 
@@ -143,6 +170,8 @@ Listen 443
 SSLStrictSNIVHostCheck off --> ajouter
 ...
 --8<--------------------------------------------------------------------------
+
+
 
 
 ------------------------------------------------------------------------------
