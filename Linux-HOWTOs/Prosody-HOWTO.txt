@@ -2,7 +2,7 @@
 Prosody HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =============
 
-Dernière révision : 30 septembre 2015
+Dernière révision : 8 janvier 2016
 
 Ce HOWTO décrit la mise en place d'un serveur de messagerie instantanée XMPP
 avec Prosody sous Slackware Linux.
@@ -70,16 +70,20 @@ dépendances :
 Prosody et les certificats
 --------------------------
 
-La gestion des certificats fait l'object d'un HOWTO à part :
+La gestion des certificats fait l'object d'une série de HOWTOs à part. Par la
+suite, nous utiliserons un certificat généré avec le client Let's Encrypt :
 
-  * SSL-Certificate-HOWTO
+  * Lets-Encrypt-HOWTO
 
 Dans l'exemple qui suit, on va partir du principe qu'on dispose déjà d'un
 certificat valide pour un domaine :
 
-  # ls -l /etc/ssl/startssl/slackbox.fr.*
-  -rw-r----- 1 root certs 4850 sept. 29 14:22 /etc/ssl/startssl/slackbox.fr.crt
-  -rw-r----- 1 root certs 1675 sept. 25 09:11 /etc/ssl/startssl/slackbox.fr.key
+  # ls -l /etc/letsencrypt/live/slackbox.fr/
+  total 0
+  lrwxrwxrwx 1 root certs 35 janv.  8 08:13 cert.pem -> ...
+  lrwxrwxrwx 1 root certs 36 janv.  8 08:13 chain.pem -> ...
+  lrwxrwxrwx 1 root certs 40 janv.  8 08:13 fullchain.pem -> ...
+  lrwxrwxrwx 1 root certs 38 janv.  8 08:13 privkey.pem -> ...
 
 Le serveur Prosody tourne en tant qu'utilisateur 'prosody' et groupe
 'prosody'. L'utilisateur 'prosody' doit avoir accès au certificat en lecture.
@@ -207,8 +211,8 @@ VirtualHost "slackbox.fr"
   enabled = true 
 
   ssl = {
-    key = "/etc/ssl/startssl/slackbox.fr.key";
-    certificate = "/etc/ssl/startssl/slackbox.fr.crt";
+    key = "/etc/letsencrypt/live/slackbox.fr/privkey.pem";
+    certificate = "/etc/letsencrypt/live/slackbox.fr/cert.pem";
   }
 ...
 --8<--------------------------------------------------------------------------
@@ -268,8 +272,8 @@ Pidgin et les certificats
 -------------------------
 
 Les versions récentes de Pidgin posent parfois des problèmes avec les
-certificats SSL, notamment les certificats auto-signés. Voici une astuce qui
-permet d'installer le certificat à la main :
+certificats SSL, notamment les certificats Let's Encrypt et les certificats
+auto-signés. Voici une astuce qui permet d'installer le certificat à la main :
 
   $ cd .purple/certificates/x509/tls_peers/
   $ openssl s_client -connect slackbox.fr:5223
