@@ -2,13 +2,41 @@
 Let's Encrypt HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ===================
 
-Dernière révision : 1er janvier 2016
+Dernière révision : 8 janvier 2016
 
 Ce HOWTO décrit l'utilisation de Let's Encrypt sur un serveur Slackware Linux.
 
 
+  * Introduction
+  * Let's Encrypt
+  * Installation
+  * Plug-ins
+  * Générer un certificat
+  * Configurer Apache
+  * Renouveler un certificat
+  * Certificats et permissions
+  * Automatiser la procédure
+  * Révoquer un certificat
+  * Effectuer des tests
+
+
 Introduction
 ------------
+
+Un certificat électronique peut être vu comme une carte d'identité numérique. Il est
+utilisé principalement :
+
+  * pour identifier et authentifier une personne physique ou morale ;
+  
+  * pour chiffrer des échanges.
+
+Il est signé par un tiers de confiance qui atteste du lien entre l'identité
+physique et l'entité numérique. Le standard le plus utilisé pour la création
+des certificats numériques est le X.509.
+
+
+Let's Encrypt
+-------------
 
 Let's Encrypt est une autorité de certification lancée le 3 décembre 2015 en
 version bêta publique. Elle fournit des certificats SSL/TLS gratuits grâce à
@@ -166,6 +194,41 @@ Pour prolonger la validité d'un certificat, il suffit de le renouveler en
 réinvoquant exactement la même commande utilisée pour le générer initialement.
 
 
+Certificats et permissions
+--------------------------
+
+Si l'on souhaite utiliser plusieurs applications sécurisées pour un même
+domaine (Web, courrier, messagerie XMPP), on se retrouve confronté à un
+problème de permissions. Concrètement, si le serveur Web ainsi que le serveur
+de messagerie Prosody doivent accéder en lecture au certificat et à la clé
+privée, on peut utiliser la solution qui suit.
+
+On crée un groupe système 'certs', on ajoute les utilisateurs système
+respectifs à ce groupe et on règle les permissions des fichiers en fonction,
+c'est-à-dire root:certs. Concrètement :
+
+  # useradd -g 240 certs
+  # chgrp -R certs /etc/letsencrypt
+  # chmod -R g=rx /etc/letsencrypt
+
+Si l'on souhaite qu'une application accède au certificat et à la clé privée,
+il suffit qu'on ajoute l'utilisateur correspondant au groupe système 'certs'.
+Exemple pour la messagerie XMPP Prosody :
+
+  # usermod -a -G certs prosody
+
+Notez que ce n'est pas la peine d'ajouter l'utilisateur 'apache' au groupe
+'certs'. Au démarrage, le serveur Apache s'exécute avec les droits root, puis
+lance une série de processus enfants avec des droits restreints :
+
+  # ps aux | grep httpd | grep -v grep
+  root   3168 0.0 0.2 130500  4304 ?  Ss  08:13   0:00 /usr/sbin/httpd -k start
+  apache 3169 0.0 0.2 878216  5968 ?  Sl  08:13   0:01 /usr/sbin/httpd -k start
+  apache 3170 0.0 0.3 878216  6672 ?  Sl  08:13   0:01 /usr/sbin/httpd -k start
+  apache 3171 0.0 0.3 878216  6488 ?  Sl  08:13   0:01 /usr/sbin/httpd -k start
+  apache 3254 0.0 0.3 878216  6556 ?  Sl  08:14   0:01 /usr/sbin/httpd -k start
+
+
 Automatiser la procédure
 ------------------------
 
@@ -178,6 +241,9 @@ d'un petit script. Par exemple :
 # Create/renew SSL/TLS certificates for scholae.fr
 
 ENCRYPT="/usr/bin/letsencrypt"
+CHGRP="/usr/bin/chgrp"
+CHMOD="/usr/bin/chmod"
+CERTGRP="certs"
 EMAIL="info@microlinux.fr"
 OPTIONS="certonly \
          --standalone-supported-challenges tls-sni-01 \
@@ -187,8 +253,17 @@ OPTIONS="certonly \
          --text \
          --standalone"
 
+# Create $CERTGRP group 
+if ! grep -q "^$CERTGRP:" /etc/group ; then
+  groupadd -g 240 $CERTGRP
+  echo ":: Added $CERTGRP group."
+  sleep 3
+fi
+
+# Stop Apache
+echo ":: Stopping Apache."
 if ps ax | grep -v grep | grep httpd > /dev/null ; then
-  /etc/rc.d/rc.httpd stop
+  /etc/rc.d/rc.httpd stop 1 > /dev/null 2&>1
   sleep 5
 fi
 
@@ -201,6 +276,13 @@ $ENCRYPT $OPTIONS -d mail.scholae.fr \
 $ENCRYPT $OPTIONS -d compta.scholae.fr \
   --webroot-path /srv/httpd/vhosts/scholae-compta/htdocs
 
+# Fix permissions
+echo ":: Setting permissions."
+$CHGRP -R $CERTGRP /etc/letsencrypt
+$CHMOD -R g=rx /etc/letsencrypt
+
+# Start Apache
+echo ":: Starting Apache."
 /etc/rc.d/rc.httpd start
 --8<--------------------------------------------------------------------------
 
