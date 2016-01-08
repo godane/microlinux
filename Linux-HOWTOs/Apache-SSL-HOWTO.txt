@@ -2,13 +2,13 @@
 Apache SSL HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ================
 
-Dernière révision : 25 septembre 2015
+Dernière révision : 8 janvier 2016
 
 Ce HOWTO décrit la mise en place d'un site web sécurisé sur un serveur Apache
 tournant sous Slackware.
 
+
   * Le protocole HTTPS
-  * Le certificat
   * Configurer Apache et SSL
   * Plusieurs hébergements SSL sur un même serveur
 
@@ -34,77 +34,53 @@ Pour savoir si l'on a bien affaire au bon interlocuteur, on utilisera un
 certificat. Cette véritable carte d'identité électronique contient non
 seulement la clé publique du serveur pour crypter les transmissions, mais
 également des renseignements sur le site ainsi que la signature de l'autorité
-de certification. 
+de certification. La génération d'un certificat électronique fait l'objet d'un
+HOWTO à part :
 
-Pour nos premiers essais, nous ne sommes pas obligés d'acheter un certificat,
-et nous pouvons très bien fabriquer nous-mêmes notre certificat auto-signé.
-Cette astuce nous permettra de mettre en place gratuitement notre propre
-hébergement HTTPS. 
+  * SSL-TLS-Certificate-HOWTO
 
-Le hic, c'est que les navigateurs courants comme Firefox ou Internet Explorer
-n'acceptent que les certificats émanant d'autorités reconnues comme Verisign.
-L'utilisateur qui se connectera à notre site HTTPS auto-certifié se retrouvera
-confronté à un avertissement concernant l'identité du site, et c'est à lui de
-décider s'il veut "confirmer une exception de sécurité". 
+Pour nos essais, nous utiliserons un certificat SSL/TLS fourni par le client
+Let's Encrypt. Si l'on décide de partir sur un certificat auto-signé, la
+configuration devra être adaptée en conséquence. 
 
-Enfin, le protocole HTTPS utilise le port 443. Il faut donc songer avant toute
-chose à ouvrir ce port dans le pare-feu.
+Le protocole HTTPS utilise le port 443. Il faut donc songer avant toute chose
+à ouvrir ce port dans le pare-feu.
 
 Dans l'exemple ci-dessous, nous allons configurer un hébergement HTTPS public :
 
-  * https://slackbox.fr
-
-
-Le certificat
--------------
-
-La gestion des certificats SSL fait l'objet d'un HOWTO à part. À vous de
-choisir si vous optez pour un certificat SSL auto-signé simple ou
-multi-domaines, un certificat gratuit de chez StartSSL.com ou un certificat
-payant. Dans tous les cas, nous nous retrouvons avec deux fichiers :
-
-  * un fichier 'slackbox.fr.crt' dans '/etc/ssl/mycerts', avec un lien
-    symbolique dans '/etc/ssl/certs' qui renvoie vers celui-ci ; 
-
-  * un fichier 'slackbox.fr.key' dans '/etc/ssl/private'.
-
-Pour les détails, voir ici :
-
-  * SSL-Certificate-HOWTO.txt
+  * https://www.slackbox.fr
 
 
 Configurer Apache et SSL
 ------------------------
 
-Notre hébergement HTTPS sera rangé en-dessous de '/var/www/vhosts/', dans le
-répertoire 'slackbox-secure/htdocs'. Il faut donc créer cette arborescence
-pour avoir quelque chose qui ressemble à ceci :
+Notre premier hébergement HTTPS sera rangé à l'emplacement défini par la
+configuration par défaut de Slackware, en-dessous de '/srv/httpd/htdocs'.
 
-  # tree /var/www/vhosts/slackbox-secure/
-  /var/www/vhosts/slackbox-secure/
-  `-- htdocs
-      |-- background.jpg
-      |-- index.html
-      |-- pingouin_ayo_small.gif
-      `-- style.css
-
-  1 directory, 4 files
-
-
-Éditer le fichier '/etc/httpd/extra/httpd-ssl.conf' :
+Éditer le fichier '/etc/httpd/extra/httpd-ssl.conf'. La version par défaut de
+ce fichier est amplement commentée. Je ne reproduis ici que les directives
+sans les commentaires :
 
 --8<---------- /etc/httpd/extra/httpd-ssl.conf -------------------------------
-...
-<VirtualHost 195.154.65.130:443>
-DocumentRoot "/srv/httpd/vhosts/slackbox-secure/htdocs"
+Listen 443
+SSLCipherSuite HIGH:MEDIUM:!MD5:!RC4
+SSLProxyCipherSuite HIGH:MEDIUM:!MD5:!RC4
+SSLHonorCipherOrder on
+SSLProtocol all -SSLv3
+SSLProxyProtocol all -SSLv3
+SSLPassPhraseDialog  builtin
+SSLSessionCache        "shmcb:/var/run/ssl_scache(512000)"
+SSLSessionCacheTimeout  300
+<VirtualHost _default_:443>
+DocumentRoot "/srv/httpd/htdocs"
 ServerName www.slackbox.fr:443
-ServerAlias slackbox.fr:443
-ServerAdmin postmaster@slackbox.fr
-ErrorLog "/var/log/httpd/slackbox-secure_log"
-TransferLog "/var/log/httpd/slackbox-secure_log"
+ServerAdmin info@microlinux.fr
+ErrorLog "/var/log/httpd/www.slackbox.fr-error_log"
+TransferLog "/var/log/httpd/www.slackbox.fr-access_log"
 SSLEngine on
-SSLCertificateFile "/etc/ssl/certs/slackbox.fr.crt"
-SSLCertificateKeyFile "/etc/ssl/private/slackbox.fr.key"
+SSLCertificateFile "/etc/letsencrypt/live/slackbox.fr/cert.pem"
+SSLCertificateKeyFile "/etc/letsencrypt/live/slackbox.fr/privkey.pem"
+SSLCertificateChainFile "/etc/letsencrypt/live/slackbox.fr/chain.pem"
 <FilesMatch "\.(cgi|shtml|phtml|php)$">
     SSLOptions +StdEnvVars
 </FilesMatch>
@@ -114,7 +90,7 @@ SSLCertificateKeyFile "/etc/ssl/private/slackbox.fr.key"
 BrowserMatch "MSIE [2-5]" \
          nokeepalive ssl-unclean-shutdown \
          downgrade-1.0 force-response-1.0
-CustomLog "/var/log/httpd/ssl_request_log" \
+CustomLog "/var/log/httpd/www.slackbox.fr-ssl_request_log" \
           "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
 </VirtualHost>
 --8<--------------------------------------------------------------------------
@@ -132,8 +108,8 @@ Include /etc/httpd/extra/httpd-ssl.conf
 ...
 --8<--------------------------------------------------------------------------
 
-  > Faire une recherche sur la chaîne de caractères "ssl" pour éditer le
-    fichier.
+L'astuce consiste ici à faire une recherche sur la chaîne de caractères "ssl"
+pour éditer le fichier.
 
 Redémarrer Apache :
 
@@ -141,72 +117,32 @@ Redémarrer Apache :
 
 Ouvrir notre site sécurisé :
 
-  * https://slackbox.fr
+  * https://www.slackbox.fr
+
+Effectuer un audit de la sécurité de notre hébergement :
+
+  * https://www.ssllabs.com/ssltest/
 
 
 Plusieurs hébergements SSL sur un même serveur
 ----------------------------------------------
 
-Dans cet exemple, nous allons héberger deux sites sécurisés sur le même
-serveur :
+Les versions récentes d'Apache supportent plusieurs hébergements sécurisés
+grâce aux hôtes virtuels. Le fonctionnement est le même que pour les hôtes
+virtuels classiques, au détail près que les hôtes virtuels sécurisés seront
+définis dans '/etc/httpd/extra/httpd-ssl.conf'. 
 
-  * https://www.slackbox.fr
-  * https://www.unixbox.fr
+Bien évidemment, chaque hôte virtuel devra disposer de son propre certificat.
 
-Générer un certificat et une clé privée pour le domaine unixbox.fr. Au total,
-on aura :
-
-  * /etc/ssl/certs/unixbox.fr.crt -> ../mycerts/unixbox.fr.crt
-  * /etc/ssl/mycerts/unixbox.fr.cnf
-  * /etc/ssl/mycerts/unixbox.fr.crt
-  * /etc/ssl/mycerts/unixbox.fr.csr
-  * /etc/ssl/private/unixbox.fr.key
-
-Éditer '/etc/httpd/extra/httpd-ssl.conf' et créer un deuxième hôte virtuel en
-se basant sur le premier comme modèle :
-
---8<---------- /etc/httpd/extra/httpd-ssl.conf -------------------------------
-
-...
-# www.unixbox.fr
-<VirtualHost 195.154.65.130:443>
-DocumentRoot "/srv/httpd/vhosts/unixbox-secure/htdocs"
-ServerName www.unixbox.fr:443
-ServerAlias unixbox.fr:443
-ServerAdmin postmaster@unixbox.fr
-ErrorLog "/var/log/httpd/unixbox-secure_log"
-TransferLog "/var/log/httpd/unixbox-secure_log"
-SSLEngine on
-SSLCertificateFile "/etc/ssl/certs/unixbox.fr.crt"
-SSLCertificateKeyFile "/etc/ssl/private/unixbox.fr.key"
-<FilesMatch "\.(cgi|shtml|phtml|php)$">
-    SSLOptions +StdEnvVars
-</FilesMatch>
-<Directory "/srv/httpd/cgi-bin">
-    SSLOptions +StdEnvVars
-</Directory>
-BrowserMatch "MSIE [2-5]" \
-         nokeepalive ssl-unclean-shutdown \
-         downgrade-1.0 force-response-1.0
-CustomLog "/var/log/httpd/ssl_request_log" \
-          "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
-</VirtualHost>
-
-...
---8<--------------------------------------------------------------------------
-
-  /!\ Sur les anciennes versions d'Apache, il fallait ajouter une option
-  générale pour la configuration des hôtes virtuels sécurisés :
+Sur les anciennes versions d'Apache, il fallait ajouter une option générale
+pour la configuration des hôtes virtuels sécurisés :
 
 --8<---------- /etc/httpd/extra/httpd-ssl.conf -------------------------------
 ...
 Listen 443
-
-SSLStrictSNIVHostCheck off
+SSLStrictSNIVHostCheck off --> ajouter
 ...
 --8<--------------------------------------------------------------------------
-
-Il ne reste qu'à redémarrer Apache.
 
 
 ------------------------------------------------------------------------------
