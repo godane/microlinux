@@ -38,7 +38,7 @@
 PRGNAM=owncloud-server
 SRCNAM=owncloud
 VERSION=${VERSION:-8.2.2}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 ARCH=noarch
@@ -91,9 +91,10 @@ find -L . \
 
 mkdir data
 
+# Strict permissions
 chown -R $PHPUSER:$PHPGROUP *
-chmod -R g+w apps/ data/ config/
-chmod -R o-rwx data/
+find . -type d -exec chmod 0750 {} \;
+find . -type f -exec chmod 0640 {} \;
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a AUTHORS COPYING-AGPL 3rdparty/'LICENSE INFO' \
@@ -101,7 +102,19 @@ cp -a AUTHORS COPYING-AGPL 3rdparty/'LICENSE INFO' \
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
-cat $CWD/slack-desc > $PKG/install/slack-desc
+cat > $PKG/install/slack-desc <<EOF
+owncloud-server-$DOMAIN: owncloud-server-$DOMAIN (ownCloud sync & share server)
+owncloud-server-$DOMAIN:
+owncloud-server-$DOMAIN: ownCloud gives you universal access to your files through a web
+owncloud-server-$DOMAIN: interface or WebDAV. It also provides a platform to easily view & sync
+owncloud-server-$DOMAIN: your contacts, calendars and bookmarks across all your devices and
+owncloud-server-$DOMAIN: enables basic editing right on the web.
+owncloud-server-$DOMAIN:
+owncloud-server-$DOMAIN: Packaged for the [$DOMAIN] domain.
+owncloud-server-$DOMAIN:
+owncloud-server-$DOMAIN:
+owncloud-server-$DOMAIN: Package created by Niki Kovacs <info@microlinux.fr>
+EOF
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$DOMAIN-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
