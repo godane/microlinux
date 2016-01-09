@@ -50,21 +50,6 @@ case "$ARCH" in
     ;;
 esac
 
-# Create skype group 
-if ! grep -q "^skype:" /etc/group ; then
-groupadd -g 666 skype
-echo ":: Added skype group."
-sleep 3
-fi
-
-# Create skype user 
-if ! grep -q "^skype:" /etc/passwd ; then
-useradd -u 666 -d /home/skype -m -s /bin/bash -g skype skype
-usermod -a -G audio,video skype
-echo ":: Added skype user."
-sleep 3
-fi
-
 CWD=$(pwd)
 TMP=${TMP:-/tmp/microlinux}
 PKG=$TMP/package-$PRGNAM
