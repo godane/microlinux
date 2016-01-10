@@ -27,8 +27,8 @@
 PRGNAM=luasec
 HASH=${HASH:-903efaf3b1f090a992963480fa2924dac02f9174}
 VERSION=20140421_$(echo $HASH |cut -c -7)
-BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}
+BUILD=${BUILD:-2}
+TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -39,7 +39,7 @@ if [ -z "$ARCH" ]; then
 fi
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/SBo}
+TMP=${TMP:-/tmp/microlinux}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
@@ -61,7 +61,7 @@ set -e
 
 DOWNLOAD="https://github.com/brunoos/$PRGNAM/archive/$HASH.tar.gz"
 
-wget -c $DOWNLOAD
+#wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
