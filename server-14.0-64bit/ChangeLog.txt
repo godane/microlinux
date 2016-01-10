@@ -1,3 +1,7 @@
+Sun Jan 10 13:02:19 CET 2016
+luasec-20140421_903efaf-x86_64-2_microlinux.txz: Rebuilt.
+  Fixed wrong TAG.
++--------------------------+
 Thu Dec 31 17:43:09 CET 2015
 psutil-3.3.0-x86_64-1_microlinux.txz: Upgraded.
 pysetuptools-18.2-x86_64-1_microlinux.txz: Upgraded.
