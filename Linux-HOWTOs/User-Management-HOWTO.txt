@@ -1,0 +1,172 @@
+=====================
+User Management HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=====================
+
+Dernière révision : 6 novembre 2014
+
+Ce HOWTO décrit la gestion des utilisateurs sur un système Slackware Linux.
+
+
+Ajouter un utilisateur :
+
+  # adduser kikinovak
+
+  /!\ Sur un poste de travail, il est judicieux d'ajouter l'utilisateur à la
+  panoplie de groupes supplémentaires proposés par défaut : audio, cdrom,
+  floppy, plugdev, video, power, netdev, lp, scanner
+
+Supprimer un utilisateur ainsi que toutes ses données :
+
+  # userdel -r kikinovak
+
+Devenir root :
+
+  $ su -
+
+Le tiret '-' signifie que l'on hérite des variables d'environnement de root.
+
+Redevenir soi-même :
+
+  # exit
+
+Ou :
+
+  # logout
+
+Ou encore :
+
+  # <Ctrl>+<D>
+
+Savoir qui l'on est
+
+  $ whoami
+  kikinovak
+
+Afficher l'UID et les GID :
+
+  $ id
+  uid=1000(kikinovak) gid=100(users) groupes=100(users),7(lp),
+  11(floppy),17(audio),18(video),19(cdrom),83(plugdev),84(power),
+  86(netdev),93(scanner)
+
+Afficher l'UID :
+
+  $ id -u
+  1000
+  
+Afficher le GID du groupe primaire :
+
+  $ id -g
+  100
+
+Afficher le nom du groupe primaire :
+
+  $ id -gn
+  users
+
+Afficher la liste complète de tous les groupes dont l'utilisateur est membre :
+
+  $ id -G
+  100 7 11 17 18 19 83 84 86 93
+
+Afficher les noms des groupes dont l'utilisateur est membre :
+
+  $ id -Gn
+  users lp floppy audio video cdrom plugdev power netdev scanner
+
+Alternativement :
+
+  $ groups
+  users lp floppy audio video cdrom plugdev power netdev scanner
+
+En savoir plus sur un autre utilisateur :
+
+  $ id lgibaud
+  uid=1001(lgibaud) gid=100(users) groupes=100(users),7(lp),
+  11(floppy),17(audio),18(video),19(cdrom),83(plugdev),84(power),
+  86(netdev),93(scanner)
+
+Afficher les données GECOS d'un autre utilisateur :
+
+  $ finger lgibaud
+  Login: lgibaud             Name: Laurène Gibaud
+  Directory: /home/lgibaud   Shell: /bin/bash
+  ...
+
+Afficher les utilisateurs réels du système :
+
+  $ awk -F: '$3 > 999 {print $1}' /etc/passwd | sort
+  glagaffe
+  jktartempion
+  kikinovak
+  lgibaud
+  mshanseifan
+
+Afficher les utilisateurs système :
+
+  $ awk -F: '$3 < 999 {print $1}' /etc/passwd | sort
+  adm
+  apache
+  bin
+  daemon
+  ftp
+  games
+  gdm
+  haldaemon
+  halt
+  lp
+  mail
+  messagebus
+  mysql
+  news
+  nobody
+  operator
+  oprofile
+  pop
+  root
+  rpc
+  shutdown
+  smmsp
+  sshd
+  sync
+  uucp
+
+Créer un groupe :
+
+  # groupadd bge
+
+Ajouter un utilisateur à ce groupe :
+
+  # usermod -a -G bge lgibaud
+
+Ajouter un utilisateur à plusieurs groupes :
+
+  # usermod -a -G lp,floppy,audio,video,cdrom,plugdev,power glagaffe
+
+Supprimer un utilisateur d'un groupe secondaire :
+  
+  # gpasswd -d glagaffe scanner
+
+Supprimer un groupe :
+
+  # groupdel bge
+
+Créer un groupe système en spécifiant son GID :
+
+  # groupadd -g 215 vboxusers
+
+Autre exemple de groupe système :
+
+  # groupadd -g 202 dovecot
+
+Créer un utilisateur système :
+
+  # useradd -d /dev/null -s /bin/false -u 202 -g 202 dovecot
+
+Modifier les données GECOS d'un utilisateur :
+
+  # usermod -c "Jean-Kevin Tartempion" jktartempion
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
