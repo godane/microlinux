@@ -1,11 +1,11 @@
-=========
-FTP HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
-=========
+============
+VSFTPD HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+============
 
-Dernière révision : 25 août 2015
+Dernière révision : 11 janvier 2016
 
-Ce HOWTO décrit l'installation et la configuration d'un serveur FTP sous
-Slackware.
+Ce HOWTO décrit l'installation et la configuration d'un serveur FTP avec
+VSFTPD sous Slackware Linux.
 
   * Prérequis
   * Création des utilisateurs
