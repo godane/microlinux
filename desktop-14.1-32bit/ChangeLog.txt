@@ -1,3 +1,8 @@
+Tue Jan 12 10:32:49 CET 2016
+smplayer-15.9.0-i486-1_microlinux.txz: Added.
+	This version of SMPlayer is shipping without all the nagging features like
+	Firefox popup windows or update notifications. Thanks to elcore on LQ.
++--------------------------+
 Sat Jan  9 16:24:07 CET 2016
 apulse-20151219-i486-1_microlinux.txz: Added.
 +--------------------------+
