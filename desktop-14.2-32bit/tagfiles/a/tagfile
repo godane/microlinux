@@ -4,7 +4,6 @@ aaa_elflibs:ADD
 aaa_terminfo:ADD
 acl:ADD
 acpid:ADD
-apmd:ADD
 attr:ADD
 bash:ADD
 bin:ADD
