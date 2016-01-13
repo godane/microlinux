@@ -97,6 +97,17 @@ cvs:
 cvs: Some of the people who have worked on CVS include:  Dick Grune,
 cvs: Brian Berliner, Jeff Polk, and others too numerous to mention.
 cvs:
+Cython: Cython (C bindings for Python)
+Cython:
+Cython: Cython is a language that makes writing C extensions for the Python
+Cython: language as easy as Python itself.  Cython is based on the well-known
+Cython: Pyrex, but supports more cutting edge functionality and optimizations.
+Cython:
+Cython: Homepage: http://www.cython.org/
+Cython:
+Cython:
+Cython:
+Cython:
 dev86: dev86 (8086 development utilities)
 dev86:
 dev86: This is a complete 8086 assembler and loader which can make 32-bit

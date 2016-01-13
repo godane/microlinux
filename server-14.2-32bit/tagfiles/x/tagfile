@@ -201,6 +201,7 @@ xf86-input-synaptics:ADD
 xf86-input-vmmouse:ADD
 xf86-input-void:ADD
 xf86-input-wacom:ADD
+xf86-video-amdgpu:ADD
 xf86-video-apm:ADD
 xf86-video-ark:ADD
 xf86-video-ast:ADD
@@ -215,7 +216,6 @@ xf86-video-i740:ADD
 xf86-video-intel:ADD
 xf86-video-mach64:ADD
 xf86-video-mga:ADD
-xf86-video-modesetting:ADD
 xf86-video-neomagic:ADD
 xf86-video-openchrome:ADD
 xf86-video-r128:ADD

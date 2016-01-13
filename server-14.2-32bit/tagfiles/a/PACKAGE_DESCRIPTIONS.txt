@@ -53,17 +53,6 @@ acpid: ACPI must be compiled into the kernel to run acpid.
 acpid:
 acpid: Homepage:  http://sourceforge.net/projects/acpid2/ 
 acpid:
-apmd: apmd (Advanced Power Management daemon)
-apmd:
-apmd: apmd is an APM monitoring daemon, and works in conjunction with the
-apmd: APM BIOS driver in the kernel.  Apmd (and the included tools) handle
-apmd: tasks such as automatically putting a laptop into suspend when the
-apmd: power level drop below a certain point.  This package also includes
-apmd: the graphical power management tools xapm and xbattery.
-apmd:
-apmd: The apmd tools were written by Rik Faith and are maintained by
-apmd: Avery Pennarun.  xbattery was written by Nathan Sidwell.
-apmd:
 attr: attr (tools for using extended attributes on filesystems)
 attr:
 attr: This package contains a set of tools for manipulating extended
@@ -550,7 +539,7 @@ kernel-firmware:
 kernel-firmware:
 kernel-generic: kernel-generic (a general purpose single processor Linux kernel)
 kernel-generic:
-kernel-generic: This is a Linux kernel with built-in support for most IDE controllers.
+kernel-generic: A Linux kernel with built-in support for most disk controllers.
 kernel-generic: For filesystem support, or if you need to load support for a SCSI or
 kernel-generic: other controller, then you'll need to load one or more kernel modules
 kernel-generic: using an initial ramdisk, or initrd.  For more information about
@@ -592,25 +581,25 @@ kernel-huge-smp: on the initrd, see README.initrd in the /boot directory.
 kernel-huge-smp:
 kernel-huge-smp: SMP is "Symmetric multiprocessing", or multiple CPU/core support.
 kernel-huge-smp:
-kernel-modules: kernel-modules (single CPU Linux kernel modules)
+kernel-modules: kernel-modules (Linux kernel modules)
 kernel-modules:
-kernel-modules: A kernel module is a piece of object code that can be dynamically
-kernel-modules: loaded into the Linux kernel to provide new kernel functions.  Most of
-kernel-modules: these modules provide support for devices such as CD-ROM drives, tape
-kernel-modules: drives, and ethernet cards.  You can choose which modules to load by
-kernel-modules: editing /etc/rc.d/rc.modules.
-kernel-modules:
+kernel-modules: Kernel modules are pieces of code that can be loaded and unloaded into
+kernel-modules: the kernel upon demand.  They extend the functionality of the kernel
+kernel-modules: without the need to reboot the system.  These modules provide support
+kernel-modules: for hardware such as USB devices, RAID controllers, network
+kernel-modules: interfaces, and display devices, or add other additional capabilities
+kernel-modules: to the kernel.
 kernel-modules:
 kernel-modules:
 kernel-modules:
 kernel-modules-smp: kernel-modules (SMP Linux kernel modules)
 kernel-modules-smp:
-kernel-modules-smp: A kernel module is a piece of object code that can be dynamically
-kernel-modules-smp: loaded into the Linux kernel to provide new kernel functions.  Most of
-kernel-modules-smp: these modules provide support for devices such as CD-ROM drives, tape
-kernel-modules-smp: drives, and ethernet cards.  You can choose which modules to load by
-kernel-modules-smp: editing /etc/rc.d/rc.modules.
-kernel-modules-smp:
+kernel-modules-smp: Kernel modules are pieces of code that can be loaded and unloaded into
+kernel-modules-smp: the kernel upon demand.  They extend the functionality of the kernel
+kernel-modules-smp: without the need to reboot the system.  These modules provide support
+kernel-modules-smp: for hardware such as USB devices, RAID controllers, network
+kernel-modules-smp: interfaces, and display devices, or add other additional capabilities
+kernel-modules-smp: to the kernel.
 kernel-modules-smp:
 kernel-modules-smp:
 kernel-modules-smp:
@@ -888,7 +877,7 @@ quota: Edvard Tuinder and Marco van Wieringen ported this code to Linux.
 quota: Jan Kara added support for the new Linux quota format and the XFS
 quota: filesystem.
 quota:
-quota:
+quota: Homepage:  http://sourceforge.net/projects/linuxquota/
 reiserfsprogs: reiserfsprogs (Reiserfs filesystem utilities)
 reiserfsprogs:
 reiserfsprogs: These utilities are used for Reiserfs.  Reiserfs is a file system

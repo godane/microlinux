@@ -41,7 +41,7 @@ blueman:   - Connecting to input and audio devices
 blueman:   - Sending/Receiving/Browsing files via OBEX
 blueman:   - Pairing
 blueman:
-blueman: Homepage:  http://blueman-project.org
+blueman: Homepage:  https://github.com/blueman-project/blueman
 ddd: ddd (Data Display Debugger)
 ddd:
 ddd: GNU DDD is a graphical front-end for command-line debuggers such as
@@ -240,6 +240,17 @@ pan:
 pan:
 pan: Homepage:  http://pan.rebelbase.com
 pan:
+pavucontrol: pavucontrol (PulseAudio Volume Controller)
+pavucontrol:
+pavucontrol: It is a simple GTK based volume control tool("mixer") for
+pavucontrol: PulseAudio sound server.  In contrast to classic mixer tools, this one
+pavucontrol: allows you to control both the volume of hardware devices and of
+pavucontrol: each playback stream separately.
+pavucontrol:
+pavucontrol: Website:  http://0pointer.de/lennart/projects/pavucontrol/
+pavucontrol:
+pavucontrol:
+pavucontrol:
 pidgin: pidgin (GTK+ instant messaging program)
 pidgin:
 pidgin: Pidgin allows you to talk to anyone using a variety of messaging

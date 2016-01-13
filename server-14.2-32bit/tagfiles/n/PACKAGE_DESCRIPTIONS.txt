@@ -713,6 +713,17 @@ libssh2:
 libssh2:
 libssh2:
 libssh2:
+libtirpc: libtirpc (Transport-Independent RPC library)
+libtirpc:
+libtirpc: Libtirpc is a port of Sun's Transport-Independent RPC library to
+libtirpc: Linux.  It is being developed by Bull GNU/Linux NFSv4 project.
+libtirpc:
+libtirpc: You will need this library if you plan to use RPC with a GLIBC
+libtirpc: version newer than 2.13, because the RPC stack has been removed
+libtirpc: from GLIBC versions newer than 2.13.  The library is required
+libtirpc: by the 'rpcbind' package.
+libtirpc:
+libtirpc: http://sourceforge.net/projects/libtirpc/
 links: links (WWW browser for the console)
 links:
 links: Links is a console mode WWW browser, supporting colors, correct table
@@ -1120,28 +1131,6 @@ ntp: Coordinated Universal Time (UTC) via a Global Positioning Service
 ntp: (GPS) receiver, for example. 
 ntp:
 ntp:
-obex-data-server: obex-data-server (Obex D-Bus Service Support)
-obex-data-server:
-obex-data-server: Obex-data-server is a D-Bus service providing high-level OBEX client 
-obex-data-server: and server side functionality, and currently supports OPP, FTP 
-obex-data-server: profiles and Bluetooth transport.
-obex-data-server:
-obex-data-server:
-obex-data-server:
-obex-data-server:
-obex-data-server:
-obex-data-server:
-obexfs: obexfs (mount filesystem of ObexFTP capable devices)
-obexfs:
-obexfs: ObexFS uses FUSE to mount filesystems of ObexFTP capable devices
-obexfs: either manually or in autofs style mode. It can handle all devices
-obexfs: that the obexftp package can handle, connected via serial cable,
-obexfs: IrDA, bluetooth, or USB.
-obexfs:
-obexfs: http://dev.zuckschwerdt.org/openobex/wiki/ObexDownloads
-obexfs:
-obexfs:
-obexfs:
 obexftp: obexftp (Access devices via ObexFTP, such as mobile phones)
 obexftp:
 obexftp: This package contains some command line tools and the ObexFTP
@@ -1149,10 +1138,10 @@ obexftp: library.  Using OpenOBEX it enables you to transfer data via IrDA,
 obexftp: Bluetooth, as well as some custom (Siemens, Ericsson) serial port
 obexftp: protocols.
 obexftp:
-obexftp: ObexFTP was written by Christian W. Zuckschwerdt.
+obexftp: ObexFTP was written by Christian W. Zuckschwerdt and is currently
+obexftp: maintained by Hendrik Sattler.
 obexftp:
-obexftp: The project site is:  http://triq.net/obexftp.html
-obexftp:
+obexftp: Project Site: http://sourceforge.net/projects/openobex/files/obexftp/
 openldap-client: openldap-client (OpenLDAP client programs)
 openldap-client:
 openldap-client: OpenLDAP is an open source implementation of the Lightweight
@@ -1263,17 +1252,6 @@ popa3d: real-world POP3 clients), and high performance.
 popa3d:
 popa3d: The popa3d daemon was written by Solar Designer.
 popa3d:
-portmap: portmap (a daemon to manage RPC connections)
-portmap:
-portmap: The portmapper (/sbin/rpc.portmap) is a network daemon used to manage
-portmap: connections to RPC services.  Daemons that offer RPC services (such
-portmap: as the daemons for NFS) tell the portmapper on what port they listen. 
-portmap: Unlike the services registered with the inetd, RPC network port
-portmap: numbers may change each time the system is booted.
-portmap:
-portmap: The portmapper is required to use NFS or other RPC services.
-portmap:
-portmap:
 ppp: ppp (Point-to-Point Protocol)
 ppp:
 ppp: The Point-to-Point Protocol (PPP) provides a method for transmitting
@@ -1351,6 +1329,17 @@ rfkill:
 rfkill:
 rfkill:
 rfkill:
+rpcbind: rpcbind (a daemon to manage RPC connections)
+rpcbind:
+rpcbind: This is a network daemon used to manage connections to RPC services.
+rpcbind: It is meant as a replacement for the 'rpc.portmap' server from the
+rpcbind: 'portmap' package.  Daemons that offer RPC services (such as the
+rpcbind: daemons for NFS) tell the rpcbind on what port they listen.
+rpcbind: RPC network port numbers may change each time the system is booted.
+rpcbind:
+rpcbind: This package is required to use NFS or other RPC services.
+rpcbind:
+rpcbind: Homepage:  http://sourceforge.net/projects/rpcbind/
 rp-pppoe: rp-pppoe (Roaring Penguin PPPoE client)
 rp-pppoe:
 rp-pppoe: PPPoE (Point-to-Point Protocol over Ethernet) is a protocol used by

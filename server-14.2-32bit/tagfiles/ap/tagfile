@@ -53,6 +53,7 @@ most:ADD
 mpg123:ADD
 nano:ADD
 normalize:ADD
+pamixer:ADD
 pm-utils:ADD
 powertop:ADD
 qpdf:ADD

@@ -128,7 +128,7 @@ cgmanager:
 cgmanager: The package contains two daemons:  cgmanager (which runs on the host),
 cgmanager: and cgproxy (which runs in containers).
 cgmanager:
-cgmanager: Homepage: https://github.com/cgmanager/cgmanager
+cgmanager: Homepage: https://linuxcontainers.org/cgmanager/
 cgmanager:
 cups: CUPS (Common UNIX Printing System)
 cups:
@@ -566,7 +566,7 @@ mpg123: layers 1, 2, and 3 (MPEG 1.0 layer 3 aka MP3 most commonly tested).
 mpg123:
 mpg123: It is free software licensed under LGPL 2.1.
 mpg123:
-mpg123: Homepage: http://mpg123.org/
+mpg123: Homepage:  http://mpg123.org/
 mpg123:
 mpg123:
 mpg123:
@@ -592,6 +592,17 @@ normalize:
 normalize: Chris Vaill is the author of normalize.
 normalize:
 normalize:
+pamixer: pamixer (pulseaudio command line mixer)
+pamixer:
+pamixer: pamixer is a console based mixer for pulseaudio.  It can adjust the
+pamixer: volume levels of the audio sinks.
+pamixer:
+pamixer: Homepage:  https://github.com/cdemoulins/pamixer
+pamixer:
+pamixer:
+pamixer:
+pamixer:
+pamixer:
 pm-utils: pm-utils (Power Management Utilities)
 pm-utils:
 pm-utils: The pm-utils package provides simple shell command line tools to
@@ -817,7 +828,7 @@ vbetool:
 vbetool: vbetool is a small application that executes code from the BIOS of 
 vbetool: your video card. 
 vbetool: 
-vbetool: This is mostly useful for reinitialising the hardware, for instance 
+vbetool: This is mostly useful for reinitializing the hardware, for instance 
 vbetool: after ACPI suspend/resuming. 
 vbetool: 
 vbetool: Homepage: http://www.codon.org.uk/~mjg59/vbetool/

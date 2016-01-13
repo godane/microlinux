@@ -66,6 +66,17 @@ alsa-oss:
 alsa-oss:
 alsa-oss:
 alsa-oss:
+alsa-plugins: alsa-plugins (Advanced Linux Sound Architecture Plugins)
+alsa-plugins:
+alsa-plugins: The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI
+alsa-plugins: functionality to the Linux operating system.
+alsa-plugins: This package includes plugins for ALSA.
+alsa-plugins:
+alsa-plugins: Website:  http://www.alsa-project.org
+alsa-plugins:
+alsa-plugins:
+alsa-plugins:
+alsa-plugins:
 apr: apr (Apache Portable Runtime)
 apr:
 apr: The mission of the Apache Portable Runtime (APR) is to provide a
@@ -121,6 +132,17 @@ atk:
 atk:
 atk:
 atk:
+atkmm: atkmm (C++ bindings for ATK)
+atkmm:
+atkmm: atkmm is the C++ binding for the ATK library.
+atkmm: This module is part of the GNOME C++ bindings effort.
+atkmm:
+atkmm: Homepage:  http://www.gtkmm.org/
+atkmm:
+atkmm:
+atkmm:
+atkmm:
+atkmm:
 at-spi2-atk: at-spi2-atk (AT-SPI2 bridge to ATK)
 at-spi2-atk:
 at-spi2-atk: The At-Spi2 Atk package contains a library that bridges ATK to the
@@ -209,6 +231,17 @@ cairo:
 cairo:
 cairo:
 cairo:
+cairomm: cairomm (C++ wrapper for the cairo graphics library)
+cairomm:
+cairomm: cairomm is a C++ wrapper for the cairo graphics library.  It offers
+cairomm: all the power of cairo with an interface familiar to C++ developers,
+cairomm: including use of the Standard Template Library where it makes sense.
+cairomm:
+cairomm: Homepage:  http://cairographics.org/cairomm/
+cairomm:
+cairomm:
+cairomm:
+cairomm:
 chmlib: chmlib (library for accessing CHM files)
 chmlib:
 chmlib: chmlib is a small library designed for accessing MS ITSS files.
@@ -618,9 +651,9 @@ glibc:
 glibc:
 glibc-i18n: glibc-i18n (locale files from glibc)
 glibc-i18n:
-glibc-i18n: These files go in /usr/lib/locale and /usr/share/i18n/ to provide
-glibc-i18n: internationalization support.  You'll need this package unless you
-glibc-i18n: will be using US English only.
+glibc-i18n: These files go in /usr/lib/locale, /usr/share/i18n/, and
+glibc-i18n: /usr/share/locale/ to provide internationalization support.
+glibc-i18n: You'll need this package unless you will be using US English only.
 glibc-i18n:
 glibc-i18n:
 glibc-i18n:
@@ -638,6 +671,17 @@ glibc-profile: See the gprof man page for more details.
 glibc-profile:
 glibc-profile:
 glibc-profile:
+glibmm: glibmm (C++ bindings for glib)
+glibmm:
+glibmm: glibmm is a set of C++ bindings for glib, including cross-platform
+glibmm: APIs such as a std::string-like UTF8 string class, string utility
+glibmm: methods, such as a text encoding converter API, file access,
+glibmm: and threads.
+glibmm:
+glibmm: Homepage:  http://www.gtkmm.org/
+glibmm:
+glibmm:
+glibmm:
 glib-networking: glib-networking (network-related giomodules for glib)
 glib-networking:
 glib-networking: This package contains network-related giomodules for glib.
@@ -858,6 +902,17 @@ gtk+3:
 gtk+3:
 gtk+3:
 gtk+3:
+gtkmm3: gtkmm3 (C++ interface for GTK+3)
+gtkmm3:
+gtkmm3: gtkmm is the official C++ interface for the popular GUI library
+gtkmm3: GTK+.  Highlights include typesafe callbacks, and a comprehensive set
+gtkmm3: of widgets that are easily extensible via inheritance.
+gtkmm3:
+gtkmm3: Homepage:  http://www.gtkmm.org/
+gtkmm3:
+gtkmm3:
+gtkmm3:
+gtkmm3:
 gtkspell: gtkspell (GTK2 spell checker interface library)
 gtkspell:
 gtkspell: GtkSpell provides MSWord/MacOSX-style highlighting of misspelled words
@@ -1001,6 +1056,17 @@ js185:
 js185:
 js185:
 js185:
+json-c: json-c (JSON library in C)
+json-c:
+json-c: json-c implements a reference counting object model that allows you
+json-c: to easily construct JSON objects in C.
+json-c:
+json-c: Homepage:  https://github.com/json-c/json-c
+json-c:
+json-c:
+json-c:
+json-c:
+json-c:
 judy: judy (sparse dynamic array library)
 judy:
 judy: Judy is a C library that provides a state-of-the-art core technology
@@ -1017,7 +1083,7 @@ keybinder:
 keybinder: keybinder is a library for registering global keyboard shortcuts. 
 keybinder: Keybinder works with GTK-based applications using the X Window System.
 keybinder:
-keybinder: Homepage: http://kaizer.se/wiki/keybinder/
+keybinder: Homepage:  http://kaizer.se/wiki/keybinder/
 keybinder:
 keybinder:
 keybinder:
@@ -1100,6 +1166,17 @@ libart_lgpl:
 libart_lgpl:
 libart_lgpl:
 libart_lgpl:
+libasyncns: libasyncns (asynchronous name query library)
+libasyncns:
+libasyncns: libasyncns is a C library for asynchronous name queries.
+libasyncns: It is an asynchronous wrapper around the libc's synchronous
+libasyncns: getaddrinfo() API.
+libasyncns:
+libasyncns: Website:  http://0pointer.de/lennart/projects/libasyncns
+libasyncns:
+libasyncns:
+libasyncns:
+libasyncns:
 libatasmart: libatasmart (ATA S.M.A.R.T. library)
 libatasmart:
 libatasmart: libatasmart is a lean, small and clean implementation of an ATA
@@ -1751,6 +1828,17 @@ libsecret:
 libsecret:
 libsecret:
 libsecret:
+libsigc++: libsigc++ (typesafe callback system for standard C++)
+libsigc++:
+libsigc++: libsigc++ implements a typesafe callback system for standard C++.
+libsigc++: It allows you to define signals and to connect those signals to any
+libsigc++: callback function, either global or a member function, regardless
+libsigc++: of whether it is static or virtual.
+libsigc++: It also contains adaptor classes for connection of dissimilar
+libsigc++: callbacks and has an ease of use unmatched by other C++ callback
+libsigc++: libraries.  Libsigc++ is licensed under the GNU Library General
+libsigc++: Public License, LGPL.
+libsigc++:
 libsigsegv: GNU libsigsegv (user mode page fault handling library)
 libsigsegv:
 libsigsegv: This is a library for handling page faults in user mode.  A page fault
@@ -2077,7 +2165,7 @@ loudmouth: with the Jabber protocol.  It is designed to be easy to get started
 loudmouth: with, and yet extensible enough to allow you to do anything that the
 loudmouth: Jabber protocol allows.
 loudmouth:
-loudmouth: loudmouth home: http://engineyard.github.com/loudmouth/download/
+loudmouth: loudmouth home:  https://github.com/mcabber/loudmouth
 loudmouth:
 loudmouth:
 loudmouth:
@@ -2101,7 +2189,7 @@ M2Crypto: - HTTPS extensions to Python's httplib, urllib, and xmlrpclib
 M2Crypto: - Unforgeable HMAC'ing AuthCookies for web session management
 M2Crypto: - FTP/TLS client and server, S/MIME v2, ZServerSSL, ZSmime  
 M2Crypto:
-M2Crypto: Website: http://wiki.osafoundation.org/bin/view/Projects/MeTooCrypto
+M2Crypto: Homepage:  https://gitlab.com/m2crypto/m2crypto
 M2Crypto:
 media-player-info: media-player-info (media player capability data)
 media-player-info:
@@ -2257,6 +2345,16 @@ pango:
 pango:
 pango:
 pango:
+pangomm: pangomm (C++ API for Pango)
+pangomm:
+pangomm: Pangomm is a C++ API for Pango.
+pangomm:
+pangomm: Homepage:  http://gtkmm.org
+pangomm:
+pangomm:
+pangomm:
+pangomm:
+pangomm:
 parted: parted (GNU disk partitioning tool)
 parted:
 parted: GNU Parted is a program for creating, destroying, resizing, checking
@@ -2378,6 +2476,17 @@ popt: arguments to be aliased via configuration files and includes utility
 popt: functions for parsing arbitrary strings into argv[] arrays using
 popt: shell-like rules.
 popt:
+pulseaudio: pulseaudio (PulseAudio sound server)
+pulseaudio:
+pulseaudio: pulseaudio is a networked low-latency sound server intended to be an
+pulseaudio: improved replacement for the Enlightened Sound Daemon (EsounD).
+pulseaudio:
+pulseaudio: Homepage:  http://www.pulseaudio.org
+pulseaudio:
+pulseaudio:
+pulseaudio:
+pulseaudio:
+pulseaudio:
 pycairo: pycairo (a set of Python bindings for the cairo graphics library)
 pycairo:
 pycairo: Pycairo is set of Python bindings for the cairo graphics library.
@@ -2631,6 +2740,17 @@ redland: Perl, PHP, Python, Ruby and Tcl.
 redland:
 redland: Homepage:  http://librdf.org/
 redland:
+sbc: sbc (Sub Band Codec for bluetooth audio output)
+sbc:
+sbc: SBC (Sub Band Codec) is a low-complexity audio codec used in the
+sbc: Advanced Audio Distribution Profile (A2DP) bluetooth standard, but can
+sbc: also be used standalone.  It uses 4 or 8 subbands, an adaptive bit
+sbc: allocation algorithm, and adaptive block PCM quantizers.
+sbc:
+sbc: Homepage:  http://www.kernel.org/pub/linux/bluetooth
+sbc:
+sbc:
+sbc:
 sdl: sdl (Simple DirectMedia Layer library)
 sdl:
 sdl: This is the Simple DirectMedia Layer, a generic API that provides low
@@ -2752,6 +2872,17 @@ sound-theme-freedesktop:
 sound-theme-freedesktop:
 sound-theme-freedesktop:
 sound-theme-freedesktop:
+speexdsp: SpeexDSP (DSP library)
+speexdsp:
+speexdsp: SpeexDSP is a patent-free, Open Source/Free Software DSP library.
+speexdsp:
+speexdsp: Homepage:  http://www.speex.org/
+speexdsp:
+speexdsp:
+speexdsp:
+speexdsp:
+speexdsp:
+speexdsp:
 startup-notification: startup-notification ("busy" cursors support)
 startup-notification:
 startup-notification: Adds support for applications to use "busy" cursors while starting up.
