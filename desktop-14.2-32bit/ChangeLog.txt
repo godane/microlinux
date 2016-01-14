@@ -9,6 +9,7 @@ pangomm-2.34.0-i586-1_microlinux.txz: Removed.
   Provided by Slackware.
 MPlayer-20150721-i586-4_microlinux.txz: Rebuilt.
   Compiled against PulseAudio.
+audacious-plugins-3.7.1-i586-1_microlinux.txz: Upgraded.
 +--------------------------+
 Tue Jan 12 11:22:35 CET 2016
 smplayer-15.9.0-i586-1_microlinux.txz: Added.
