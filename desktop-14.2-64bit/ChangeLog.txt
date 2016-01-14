@@ -7,6 +7,11 @@ glibmm-2.36.2-x86_64-1_microlinux.txz: Removed.
 libsigc++-2.2.11-x86_64-1_microlinux.txz: Removed.
 pangomm-2.34.0-x86_64-1_microlinux.txz: Removed.
   Provided by Slackware.
+MPlayer-20150721-x86_64-4_microlinux.txz: Rebuilt.
+  Compiled against PulseAudio.
+audacious-plugins-3.7.1-x86_64-1_microlinux.txz: Upgraded.
+mozilla-firefox-langpack-43.0.4-x86_64-1_microlinux.txz: Upgraded.
+mozilla-thunderbird-langpack-38.5.1-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
 Tue Jan 12 11:35:46 CET 2016
 smplayer-15.9.0-x86_64-1_microlinux.txz: Added.
