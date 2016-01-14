@@ -11,6 +11,7 @@ MPlayer-20150721-i586-4_microlinux.txz: Rebuilt.
   Compiled against PulseAudio.
 audacious-plugins-3.7.1-i586-1_microlinux.txz: Upgraded.
 mozilla-firefox-langpack-43.0.4-i586-1_microlinux.txz: Upgraded.
+mozilla-thunderbird-langpack-38.5.1-i586-1_microlinux.txz: Upgraded.
 +--------------------------+
 Tue Jan 12 11:22:35 CET 2016
 smplayer-15.9.0-i586-1_microlinux.txz: Added.
