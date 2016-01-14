@@ -1,3 +1,13 @@
+Thu Jan 14 08:57:20 CET 2016
+apulse-20151219-i586-1_microlinux.txz: Removed.
+  Obsolete after Slackware's transition to PulseAudio.
+atkmm-2.22.7-i586-1_microlinux.txz: Removed.
+cairomm-1.10.0-i586-1_microlinux.txz: Removed.
+glibmm-2.36.2-i586-1_microlinux.txz: Removed.
+libsigc++-2.2.11-i586-1_microlinux.txz: Removed.
+pangomm-2.34.0-i586-1_microlinux.txz: Removed.
+  Provided by Slackware.
++--------------------------+
 Tue Jan 12 11:22:35 CET 2016
 smplayer-15.9.0-i586-1_microlinux.txz: Added.
 	This version of SMPlayer is shipping without all the nagging features like
