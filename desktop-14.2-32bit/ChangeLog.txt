@@ -7,6 +7,8 @@ glibmm-2.36.2-i586-1_microlinux.txz: Removed.
 libsigc++-2.2.11-i586-1_microlinux.txz: Removed.
 pangomm-2.34.0-i586-1_microlinux.txz: Removed.
   Provided by Slackware.
+MPlayer-20150721-i586-4_microlinux.txz: Rebuilt.
+  Compiled against PulseAudio.
 +--------------------------+
 Tue Jan 12 11:22:35 CET 2016
 smplayer-15.9.0-i586-1_microlinux.txz: Added.
