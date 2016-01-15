@@ -38,15 +38,13 @@
 PRGNAM=owncloud-server
 SRCNAM=owncloud
 VERSION=${VERSION:-8.2.2}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 ARCH=noarch
 
-DOMAIN=${DOMAIN:-defaultdomain}
-DOCROOT=${DOCROOT:-/srv/httpd/htdocs/owncloud}
-PHPUSER=${PHPUSER:-apache}
-PHPGROUP=${PHPGROUP:-apache}
+PHPUSER=apache
+PHPGROUP=apache
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/microlinux}
@@ -56,14 +54,27 @@ OUTPUT=${OUTPUT:-/tmp}
 set -e
 
 echo
+echo "First, type in your domain. This will be something like example.com,"
+echo "example.net, example.org, etc."
+echo
 read -p "DOMAIN [defaultdomain] : " DOMAIN
 DOMAIN=${DOMAIN:-defaultdomain}
 echo
-read -p "DOCROOT [/srv/httpd/htdocs/owncloud] : " DOCROOT
-DOCROOT=${DOCROOT:-/srv/httpd/htdocs/owncloud}
+echo "Next, type in the location of your server's DocumentRoot directory."
+echo "Typically, this will be /srv/httpd/htdocs or /srv/httpd/vhosts."
+echo
+read -p "DOCROOT [/srv/httpd/htdocs] : " DOCROOT
+DOCROOT=${DOCROOT:-/srv/httpd/htdocs}
+echo
+echo "Now, choose a destination folder of your owncloud installation."
+echo "Sensible choices are owncloud/htdocs, example-owncloud/htdocs, etc."
+echo
+read -p "DESTDIR [owncloud/htdocs] : " DESTDIR
+DESTDIR=${DESTDIR:-owncloud/htdocs}
 echo
 echo "DOMAIN  = $DOMAIN"
 echo "DOCROOT = $DOCROOT"
+echo "DESTDIR = $DESTDIR"
 echo
 echo "Ten seconds to bail out by hitting [Ctrl]+[C]..."
 echo
@@ -77,8 +88,8 @@ wget -c $DOWNLOAD
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 
-mkdir -p $PKG/$DOCROOT
-cd $PKG/$DOCROOT
+mkdir -p $PKG/$DOCROOT/$DESTDIR
+cd $PKG/$DOCROOT/$DESTDIR
 tar xvf $CWD/$SRCNAM-$VERSION.tar.bz2
 mv $SRCNAM/{.[!.]*,*} ./
 rmdir owncloud
@@ -91,15 +102,17 @@ find -L . \
 
 mkdir data
 
-# Strict permissions
-chown -R $PHPUSER:$PHPGROUP *
-find . -type d -exec chmod 0750 {} \;
-find . -type f -exec chmod 0640 {} \;
-
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a AUTHORS COPYING-AGPL 3rdparty/'LICENSE INFO' \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+# Set strong directory permissions 
+chown -R $PHPUSER:$PHPGROUP $PKG/$DOCROOT/*
+chown -R root:$PHPGROUP $PKG/$DOCROOT/$DESTDIR/{.[!.]*,*}
+chown -R $PHPUSER:$PHPGROUP $PKG/$DOCROOT/$DESTDIR/{apps,config,data,themes}
+find $PKG/$DOCROOT/$DESTDIR/* -type d -exec chmod 0750 {} \;
+find $PKG/$DOCROOT/$DESTDIR/* -type f -exec chmod 0640 {} \;
 
 mkdir -p $PKG/install
 cat > $PKG/install/slack-desc <<EOF
