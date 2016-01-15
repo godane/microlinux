@@ -28,8 +28,11 @@
 #
 # DOMAIN is your cloud's domain, e. g. example.com, microlinux.eu, etc.
 #
-# DOCROOT is your installation path, e. g. /srv/httpd/vhosts/example/htdocs or
-# something similar. 
+# DOCROOT is your server's DocumentRoot directory, something like
+# /srv/httpd/htdocs or /srv/httpd/vhosts.
+#
+# DESTDIR is the installation path under your DocumentRoot directory, something
+# like example1-owncloud/htdocs, example2-owncloud/htdocs, etc.
 #
 # The resulting package will be named owncloud-server-$DOMAIN-$VERSION, so you
 # can install and run multiple Owncloud instances for different domains on a
