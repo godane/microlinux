@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Volume Control
+Name[de]=Lautstärkeregler
+Name[fr]=Contrôle du volume
+Comment=Pulseaudio
+Exec=pavucontrol
+Icon=multimedia-volume-control
+StartupNotify=true
+Type=Application
+Categories=AudioVideo;Audio;Mixer;GTK;
