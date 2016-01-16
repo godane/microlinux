@@ -85,6 +85,7 @@ gstreamer0:ADD
 gtk+:ADD
 gtk+2:ADD
 gtk+3:ADD
+gtkmm2:ADD
 gtkmm3:ADD
 gtkspell:ADD
 gvfs:ADD

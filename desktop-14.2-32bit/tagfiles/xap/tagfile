@@ -10,6 +10,7 @@ imagemagick:ADD
 mozilla-firefox:ADD
 mozilla-thunderbird:ADD
 network-manager-applet:ADD
+pavucontrol:ADD
 pidgin:ADD
 sane:ADD
 windowmaker:ADD
@@ -29,7 +30,6 @@ gnuchess:SKP
 gnuplot:SKP
 gv:SKP
 pan:SKP
-pavucontrol:SKP
 rdesktop:SKP
 rxvt:SKP
 seamonkey:SKP

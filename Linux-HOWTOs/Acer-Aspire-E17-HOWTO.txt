@@ -2,7 +2,7 @@
 Acer Aspire E17 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =====================
 
-Dernière révision : 5 janvier 2016
+Dernière révision : 16 janvier 2016
 
 Ce HOWTO décrit l'installation de Slackware Linux sur un ordinateur portable
 Acer Aspire E17.
@@ -113,18 +113,9 @@ La carte graphique est une de ces monstruosités hybrides Intel/NVidia :
     Integrated Graphics (rev 09)
   04:00.0 3D controller: NVIDIA Corporation GK208M [GeForce 920M] (rev a1)
 
-Désinstaller le paquet xf86-video-nouveau :
-
-  # removepkg xf86-video-nouveau
-
-Télécharger le paquet xf86-video-nouveau-blacklist depuis le dépôt extra/, 
-installer ce paquet et redémarrer :
-
-  # installpkg xf86-video-nouveau-blacklist-noarch-1.txz
-  # reboot
-
-À partir de là, ajouter le module 'i915' à l'initrd et configurer l'affichage
-comme si l'on avait affaire à une simple carte graphique Intel.
+Elle fonctionne correctement avec les drivers conjoints 'i915' et 'nouveau' en
+mode KMS. Il faut donc ajouter des deux drivers à l'initrd. À partir de là,
+l'affichage graphique ne nécessite plus aucune configuration spécifique. 
 
 
 Carte son
@@ -146,6 +137,9 @@ options snd-hda-intel id=HDMI index=1
 
 Redémarrer et définir la nouvelle carte son par défaut dans le plug-in de
 mixage de Xfce.
+
+Remarque : après la transition de -current vers PulseAudio et le kernel 4.4.0,
+la carte son fonctionne correctement sans aucune configuration supplémentaire.
 
 
 Touchpad
