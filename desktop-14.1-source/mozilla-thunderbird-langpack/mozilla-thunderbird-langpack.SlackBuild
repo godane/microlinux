@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=mozilla-thunderbird-langpack
-VERSION=${VERSION:-38.5.0}   
+VERSION=${VERSION:-38.5.1}   
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}   
 
@@ -63,6 +63,8 @@ URL="https://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases"
 TBIRDLANGS="de fr"
 
 set -e # Exit on most errors
+
+rm -f $CWD/*.xpi
 
 for TBIRDLANG in $TBIRDLANGS; do
 
