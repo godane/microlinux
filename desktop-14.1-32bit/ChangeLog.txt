@@ -1,5 +1,6 @@
 Sat Jan 16 21:16:09 CET 2016
 mozilla-thunderbird-langpack-38.5.1-i486-1_microlinux.txz: Upgraded.
+libtxc_dxtn-1.0.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Jan 12 10:32:49 CET 2016
 smplayer-15.9.0-i486-1_microlinux.txz: Added.

@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+libtxc_dxtn: libtxc_dxtn (S3TC for Mesa)
+libtxc_dxtn:
+libtxc_dxtn: Support for using precompressed textures with hardware decompression
+libtxc_dxtn: in Mesa (currently used by most new games).
+libtxc_dxtn:
+libtxc_dxtn:
+libtxc_dxtn:
+libtxc_dxtn:
+libtxc_dxtn:
+libtxc_dxtn:
+libtxc_dxtn: Package created by Niki Kovacs <info@microlinux.fr>
