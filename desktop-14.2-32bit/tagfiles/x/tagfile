@@ -217,6 +217,8 @@ xf86-video-intel:ADD
 xf86-video-mach64:ADD
 xf86-video-mga:ADD
 xf86-video-neomagic:ADD
+xf86-video-nouveau:ADD
+xf86-video-nv:ADD
 xf86-video-openchrome:ADD
 xf86-video-r128:ADD
 xf86-video-rendition:ADD
@@ -305,6 +307,4 @@ sinhala_lklug-font-ttf:SKP
 tibmachuni-font-ttf:SKP
 ttf-indic-fonts:SKP
 wqy-zenhei-font-ttf:SKP
-xf86-video-nouveau:SKP
-xf86-video-nv:SKP
 
