@@ -7,7 +7,6 @@ biff+comsat:ADD
 bind:ADD
 bluez:ADD
 bluez-firmware:ADD
-bluez-hcidump:ADD
 bootp:ADD
 bridge-utils:ADD
 bsd-finger:ADD
