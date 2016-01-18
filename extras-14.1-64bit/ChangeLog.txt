@@ -1,3 +1,7 @@
+Mon Jan 18 20:52:31 CET 2016
+skype-4.3.0.37-i486-1_microlinux.txz: Removed.
+  Skype is 32-bit only, so we just keep it in the 32-bit repository.
++--------------------------+
 Sat Jan 16 21:42:57 CET 2016
 steam-1.0.0.50-x86_64-1_microlinux.txz: Added.
 +--------------------------+
