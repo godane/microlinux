@@ -1,3 +1,7 @@
+Mon Jan 18 20:46:13 CET 2016
+skype-4.3.0.37-i486-2_microlinux.txz: Rebuilt.
+  Slackware moved to PulseAudio, so there's no need to start Skype via Apulse.
++--------------------------+
 Tue Jan 12 11:31:11 CET 2016
 blender-2.76b-i686-1_microlinux.txz: Added.
 +--------------------------+
