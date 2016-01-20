@@ -27,7 +27,7 @@
 
 PRGNAM=virtualbox
 SRCNAM=VirtualBox
-VERSION=${VERSION:-4.3.34}
+VERSION=${VERSION:-5.0.14}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -80,7 +80,7 @@ else
 fi
 
 # Enable vpx support for video capturing
-if [ "${VPX:-no}" = "no" ]; then
+if [ "${VPX:-no}" = "yes" ]; then
   libvpx="--disable-libvpx"
 else
   libvpx=""
@@ -153,8 +153,6 @@ patch -d src/VBox/Installer/linux -i $CWD/vboxdrv.sh-setup.diff
 # Do not require makeself. We don't plan on building an automatic installer
 # Patch taken from gentoo
 patch -p1 -i $CWD/virtualbox-4-makeself-check.patch
-
-patch -p1 -i $CWD/virtualbox-gsoap.patch
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
