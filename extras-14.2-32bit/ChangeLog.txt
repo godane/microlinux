@@ -1,5 +1,6 @@
 Wed Jan 20 15:50:52 CET 2016
 virtualbox-5.0.14-i586-1_microlinux.txz: Added.
+virtualbox-kernel-5.0.14_4.4.0_smp-i586-1_microlinux.txz: Added.
 +--------------------------+
 Mon Jan 18 20:46:13 CET 2016
 skype-4.3.0.37-i486-2_microlinux.txz: Rebuilt.
