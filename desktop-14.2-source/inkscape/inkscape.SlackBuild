@@ -26,10 +26,10 @@
 
 PRGNAM=inkscape
 VERSION=0.91
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -62,7 +62,7 @@ set -e
 
 DOWNLOAD="https://inkscape.global.ssl.fastly.net/media/resources/file/$PRGNAM-$VERSION.tar.bz2"
 
-wget -c $DOWNLOAD
+#wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
@@ -74,7 +74,7 @@ chown -R root:root .
 chmod -R u+w,go+r-w,a-s .
 
 CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS -std=c++11" \
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
