@@ -1,3 +1,7 @@
+Sun Jan 24 12:18:23 CET 2016
+inkscape-0.91-x86_64-2_microlinux.txz: Rebuilt.
+  Compiled against new poppler. Thanks to Frederic Bezies.
++--------------------------+
 Wed Jan 20 16:02:16 CET 2016
 acpica-20150204-x86_64-1_microlinux.txz: Added.
 +--------------------------+
