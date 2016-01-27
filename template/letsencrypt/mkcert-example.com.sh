@@ -7,7 +7,6 @@ CHGRP="/usr/bin/chgrp"
 CHMOD="/usr/bin/chmod"
 CERTGRP="certs"
 EMAIL="info@microlinux.fr"
-TESTING=""
 OPTIONS="certonly \
          --standalone-supported-challenges tls-sni-01 \
          --email $EMAIL \
