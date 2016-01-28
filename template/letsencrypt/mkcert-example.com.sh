@@ -2,6 +2,8 @@
 #
 # Create/renew SSL/TLS certificates for example.com
 
+DOMAIN="example.com"
+DIRNAM="example"
 ENCRYPT="/usr/bin/letsencrypt"
 CHGRP="/usr/bin/chgrp"
 CHMOD="/usr/bin/chmod"
@@ -29,14 +31,14 @@ if ps ax | grep -v grep | grep httpd > /dev/null ; then
   sleep 5
 fi
 
-$ENCRYPT $OPTIONS -d www.example.com -d example.com \
-  --webroot-path /srv/httpd/vhosts/example-secure/htdocs
+$ENCRYPT $OPTIONS -d www.$DOMAIN -d $DOMAIN \
+  --webroot-path /srv/httpd/vhosts/$DIRNAM-secure/htdocs
 
-$ENCRYPT $OPTIONS -d mail.example.com \
-  --webroot-path /srv/httpd/vhosts/example-webmail/htdocs
+$ENCRYPT $OPTIONS -d mail.$DOMAIN \
+  --webroot-path /srv/httpd/vhosts/$DIRNAM-webmail/htdocs
 
-$ENCRYPT $OPTIONS -d cloud.example.com \
-  --webroot-path /srv/httpd/vhosts/example-owncloud/htdocs
+$ENCRYPT $OPTIONS -d cloud.$DOMAIN \
+  --webroot-path /srv/httpd/vhosts/$DIRNAM-owncloud/htdocs
 
 # Fix permissions
 echo ":: Setting permissions."
