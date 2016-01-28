@@ -27,7 +27,7 @@ fi
 # Stop Apache
 echo ":: Stopping Apache."
 if ps ax | grep -v grep | grep httpd > /dev/null ; then
-  /etc/rc.d/rc.httpd stop 1 > /dev/null 2&>1
+  /etc/rc.d/rc.httpd stop 1 > /dev/null 2>&1
   sleep 5
 fi
 
