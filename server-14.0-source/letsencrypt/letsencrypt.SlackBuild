@@ -25,7 +25,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=letsencrypt
-VERSION=${VERSION:-0.2.0}
+VERSION=${VERSION:-0.3.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
