@@ -1,5 +1,6 @@
 Fri Jan 29 15:20:29 CET 2016
 antiword-0.37-i586-1_microlinux.txz: Added.
+unrtf-0.21.7-i586-1_microlinux.txz: Added.
 +--------------------------+
 Sun Jan 24 12:02:01 CET 2016
 inkscape-0.91-i586-2_microlinux.txz: Rebuilt.

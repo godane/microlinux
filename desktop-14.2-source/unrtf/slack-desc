@@ -1,0 +1,12 @@
+     |-----handy-ruler------------------------------------------------------|
+unrtf: unrtf (RTF file converter)
+unrtf:
+unrtf: UnRTF is a command-line program written in C which converts
+unrtf: documents in Rich Text (.rtf) format to HTML, LaTeX, PostScript,
+unrtf: and other formats. Converting to HTML, it supports a number of
+unrtf: features of Rich Text Format.
+unrtf:
+unrtf:
+unrtf:
+unrtf:
+unrtf: Package created by Niki Kovacs <info@microlinux.fr>
