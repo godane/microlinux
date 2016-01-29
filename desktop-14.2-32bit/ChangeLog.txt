@@ -3,6 +3,7 @@ antiword-0.37-i586-1_microlinux.txz: Added.
 unrtf-0.21.7-i586-1_microlinux.txz: Added.
 exiftool-10.10-i586-1_microlinux.txz: Added.
 recoll-1.21.4-i586-1_microlinux.txz: Added.
+galculator-2.1.4-i586-1_microlinux.txz: Added.
 +--------------------------+
 Sun Jan 24 12:02:01 CET 2016
 inkscape-0.91-i586-2_microlinux.txz: Rebuilt.
