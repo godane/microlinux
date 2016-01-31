@@ -1,5 +1,6 @@
 Sun Jan 31 12:51:26 CET 2016
 libwebp-0.4.4-i586-1_microlinux.txz: Added.
+webkitgtk3-2.4.9-i586-1_microlinux.txz: Added.
 +--------------------------+
 Fri Jan 29 15:20:29 CET 2016
 antiword-0.37-i586-1_microlinux.txz: Added.
