@@ -1,0 +1,275 @@
+==============
+Owncloud HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+==============
+
+Dernière révision : 2 février 2016
+
+Ce HOWTO décrit l'utilisation au quotidien d'un serveur OwnCloud existant.
+
+
+  * Introduction
+  * L'interface Web OwnCloud
+  * Accéder à vos fichiers en utilisant l'interface Web
+  * Client de synchronisation OwnCloud
+
+
+============
+Introduction
+============
+
+OwnCloud est une plateforme de stockage et de partage de fichiers et
+d'applications en ligne. C'est une alternative à Dropbox, lequel est basé sur
+un Cloud public. Dans OwnCloud, le stockage de données se fait au sein de
+l'infrastructure de l'entreprise, et les accès sont soumis à la politique de
+sécurité informatique de celle-ci. 
+
+OwnCloud vous permet de partager certains fichiers et répertoires de votre
+ordinateur en les synchronisant avec le serveur OwnCloud. Il suffit de définir
+le ou les répertoires partagés. Leur contenu est immédiatement synchronisé
+avec le serveur ainsi qu'avec tous les postes clients que vous définissez, que
+ceux-ci tournent sous Microsoft Windows, sous Mac OS X ou sous Linux. OwnCloud
+fonctionne également avec les smartphones et les tablettes. 
+
+OwnCloud est un logiciel libre sous licence AGPLv3.
+
+
+========================
+L'interface Web OwnCloud
+========================
+
+En principe, il suffit d'un navigateur Web pour se connecter au serveur
+OwnCloud. Il suffit de vous rendre à l'adresse du serveur et de saisir votre
+nom d'utilisateur et votre mot de passe. Exemple :
+
+  * https://cloud.votre-entreprise.com
+
+OwnCloud peut être utilisé avec n'importe quel navigateur Web moderne :
+
+  - Firefox > version 14
+
+  - Chrome  > version 18
+
+  - Safari  > version 5
+
+  - Internet Explorer > version 9
+
+
+Naviguer dans l'interface utilisateur
+-------------------------------------
+
+Dans sa configuration par défaut, l'interface Web d'OwnCloud s'ouvre sur la
+page Fichiers. Cette page (plus exactement : cette application) permet
+d'ajouter, de supprimer et de partager des fichiers, et plus généralement
+d'opérer des changements en fonction des privilèges que l'administrateur du
+serveur vous a attribués. 
+
+L'interface utilisateur d'OwnCloud contient un certain nombre d'éléments :
+
+  - Le sélecteur d'applications en haut à gauche : cliquez sur la petite
+    flèche pour faire apparaître un menu déroulant qui permet de naviguer
+    entre les différentes applications.
+
+  - Les infos des applications : la barre latérale gauche affiche une série de
+    filtres et de tâches associés à l'application que vous avez sélectionnée.
+    À titre d'exemple, si vous utilisez l'application Fichiers, vous disposez
+    d'une série de filtres qui vous permettent de retrouver rapidement vos
+    fichiers, comme les fichiers qui ont été partagés avec vous, ou les
+    fichiers que vous partagez avec d'autres. D'autres applications
+    afficheront d'autres éléments ici. 
+
+  - La fenêtre principale de l'application : elle correspond à la partie
+    centrale de l'écran. C'est le champ qui affiche le contenu à proprement
+    parler de l'application. 
+
+  - La barre de navigation : elle se situe au-dessus de la fenêtre principale
+    de l'application et permet une navigation en fil d'Ariane. Un simple clic
+    permet de remonter dans la hiérarchie des fichiers et des répertoires
+    jusqu'au répertoire utilisateur symbolisé par une petite maison ("home"). 
+
+  - Le bouton 'Nouveau' : symbolisé par le signe '+', ce bouton permet de
+    créer des fichiers et des répertoires ou de faire un upload de fichiers.
+
+    /!\ Certains navigateurs Web supportent également les opérations de
+    glisser-déposer depuis le gestionnaire de fichiers vers l'interface Web.
+    Pour les fichiers simples, cela ne pose pas de problèmes. Dans l'état
+    actuel, les navigateurs Chrome et Chromium sont les seuls à supporter le
+    glisser-déposer de répertoires entiers. 
+
+  - Le champ Recherche : cliquez sur la petite loupe en haut à droite de
+    l'écran pour rechercher des fichiers.
+
+  - Le bouton Images : il ressemble à quatre petits carrés et vous amène
+    directement à la galerie d'images.
+
+  - Le menu Personnel : situé en haut à droite, il vous permet d'accéder à vos
+    paramètres personnels.
+
+
+===================================================
+Accéder à vos fichiers en utilisant l'interface Web
+===================================================
+
+L'interface Web d'OwnCloud vous permet de créer, visualiser, éditer,
+supprimer, partager et repartager des fichiers. L'administrateur OwnCloud peut
+éventuellement désactiver ces fonctionnalités. C'est donc à lui de s'adresser
+si vous les cherchez en vain. 
+
+OwnCloud affiche des icônes ou des miniatures selon le type de fichiers et
+selon le paramétrage fait par l'administrateur. Lorsqu'on survole un fichier
+ou un dossier avec le curseur, cela affiche une série de boutons de contrôle :
+
+  - Favoris : cliquez sur l'étoile à gauche de l'icône symbolisant le fichier
+    ou le dossier pour l'ajouter aux favoris. Par la suite, le filtre Favoris
+    dans la barre latérale permet de les retrouver rapidement.
+
+  - Partage : ce bouton permet de partager un fichier ou un dossier avec
+    d'autres utilisateurs ou un autre groupe d'utilisateurs. Il permet
+    également d'afficher ou de révoquer les partages existants. En tout et
+    pour tout, il y a cinq permissions différentes sur les partages :
+
+    1. Peut partager : permet aux utilisateurs de repartager un contenu
+       partagé.
+
+    2. Peut modifier : permet aux utilisateurs d'éditer les fichiers que vous
+       partagez avec eux.
+
+    3. Création : permet aux utilisateurs de créer de nouveaux fichiers et de
+       les ajouter au partage.
+
+    4. Modification : permet l'upload de la nouvelle version d'un fichier
+       partagé, en remplacement d'une ancienne version.
+
+    5. Suppression : permet aux autres de supprimer des fichiers partagés.
+
+  - Le menu Overflow : ce menu symbolisé par trois petits points '...' permet
+    de renommer, de télécharger ou de supprimer des fichiers. L'entrée de menu
+    Détails affiche les infos détaillés sur un éventuel partage.
+
+
+Prévisualiser des fichiers
+--------------------------
+
+Les fichiers texte simple, les vidéos et les images peuvent être prévisualisés
+par un simple clic sur le nom du fichier. La prévisualisation dépend des
+applications activées et des réglages opérés par l'administrateur. Lorsque
+OwnCloud n'est pas capable de prévisualiser un fichier, il démarre le
+téléchargement et rapatrie le fichier sur votre ordinateur local. 
+
+
+Naviguer dans vos fichiers
+--------------------------
+
+La navigation dans vos données est aussi simple qu'un clic sur un répertoire
+pour y rentrer et un autre clic sur le bouton 'Précédent' du navigateur Web
+pour revenir en arrière. En dehors de cela, la barre de navigation en haut de
+l'écran permet de se déplacer rapidement dans les répertoires.
+
+
+Identification des partages
+---------------------------
+
+Chaque dossier partagé est identifié par une icône Partage spécifique. Les
+liens partagés en public sont marqués par une chaîne. Les dossiers non
+partagés ne sont pas marqués. 
+
+
+Créer ou charger des fichiers et des répertoires
+------------------------------------------------
+
+Le bouton 'Nouveau' symbolisé par un petit '+' permet de charger ou de créer
+des fichiers ou des répertoires directement dans une arborescence OwnCloud. 
+
+Ce bouton fournit les options suivantes :
+
+  - Chargement : chargez des fichiers dans OwnCloud depuis votre ordinateur.
+    Vous pouvez également glisser-déposer des fichiers depuis votre
+    gestionnaire de fichiers. 
+
+  - Fichier texte : créez un fichier au format texte simple dans le répertoire
+    courant.
+
+  - Dossier : créez un dossier dans le répertoire courant. 
+
+
+Sélectionner des fichiers ou des répertoires
+--------------------------------------------
+
+Vous pouvez sélectionner des fichiers ou des répertoires en cliquant sur les
+cases respectives qui apparaissent au survol du curseur. La petite case tout
+en haut de la liste de fichiers permet de sélectionner l'ensemble des fichiers
+et/ou répertoires "à la louche". 
+
+Une fois qu'on a sélectionné un ensemble de fichiers, on peut les supprimer ou
+alors les télécharger grâce aux deux boutons qui apparaissent en haut de la
+liste des fichiers.
+
+  /!\ Si le bouton 'Télécharger' n'est pas visible, c'est que l'administrateur
+  n'a pas activé cette fonctionnalité.
+
+
+Filtrer l'affichage des fichiers
+--------------------------------
+
+Le panneau latéral gauche de l'application Fichiers contient une série de
+filtres qui permettent de trier et de gérer rapidement les fichiers.
+
+
+Déplacer des fichiers
+---------------------
+
+Vous pouvez déplacer les fichiers et les dossiers par un simple
+glisser-déposer vers un autre répertoire.
+
+
+Gérer les fichiers supprimés
+----------------------------
+
+Lorsque vous supprimez un fichier dans OwnCloud, il n'est pas immédiatement
+détruit de façon permanente. Au lieu de cela, il est déplacé dans la
+Corbeille. Sa suppression sera permanente lorsque vous l'aurez explicitement
+supprimé manuellement, ou lorsque l'application Fichiers Supprimés (la
+Corbeille) l'aura supprimé pour créer de la place pour d'autres fichiers. 
+
+Retrouvez vos fichiers supprimés en cliquant sur le bouton 'Fichiers
+supprimés' correspondant dans l'interface Web de OwnCloud. Vous aurez alors la
+possibilité de restaurer les fichiers en question, ou alors de les supprimer
+de façon permanente. 
+
+Faites attention lorsque vous supprimez des fichiers partagés. OwnCloud ne
+possède pas de pouvoirs magiques pour vous empêcher de vous tirer dans le
+pied. 
+
+Notez que les fichiers supprimés ne sont pas comptabilisés dans votre quota de
+stockage. Pour éviter que les utilisateurs ne dépassent pas leur quota,
+l'application 'Fichiers supprimés' alloue un maximumn de 50 % de l'espace
+libre disponible aux fichiers supprimés. Si vos fichiers supprimés dépassent
+cette limite, OwnCloud commence par supprimer les fichiers plus anciens
+jusqu'à ce que la limite d'espace disponible soit atteinte à nouveau. Dans la
+configuration par défaut, les fichiers supprimés sont conservés dans la
+Corbeille pendant une durée de 180 jours. 
+
+
+==================================
+Client de synchronisation OwnCloud
+==================================
+
+Pour la synchronisation des fichiers avec un poste de travail, la méthode
+recommandée est l'utilisation du client OwnCloud pour Windows, Mac OS X et
+Linux. 
+
+Le client OwnCloud vous permet de vous connecter de façon entièrement
+transparente à votre serveur OwnCloud. Vous pouvez créer des fichiers et des
+arborescences dans votre répertoire utilisateur et synchroniser ces contenus
+avec votre serveur OwnCloud. Il suffit de copier les fichiers et les
+répertoires en question vers un répertoire défini de votre poste, et le client
+OwnCloud se chargera du reste. Si vous modifiez un ou plusieurs fichiers sur
+votre poste local, cette modification se répercutera vers tous les autres
+postes. Ce qui signifie que vous aurez toujours la dernière version de vos
+fichiers, où que vous soyez.
+
+Le client OwnCloud existe également pour les smartphones et les tablettes
+tournant sous iOS et Android. 
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
