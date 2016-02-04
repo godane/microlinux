@@ -1,3 +1,6 @@
+Thu Feb  4 18:52:32 CET 2016
+mozilla-firefox-langpack-38.6.0-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Sat Jan 16 21:16:09 CET 2016
 mozilla-thunderbird-langpack-38.5.1-i486-1_microlinux.txz: Upgraded.
 libtxc_dxtn-1.0.1-i486-1_microlinux.txz: Added.
