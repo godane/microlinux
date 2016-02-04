@@ -28,10 +28,10 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=MPlayer
-VERSION=${VERSION:-20160125}	 
+VERSION=${VERSION:-20160125}   
 FFMPEG=${FFMPEG:-2.8.5}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_microlinux}		
+TAG=${TAG:-_microlinux}   
 
 NUMJOBS=${NUMJOBS:--j9}
 
@@ -44,9 +44,9 @@ if [ -z "$ARCH" ]; then
 fi
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/microlinux}	
+TMP=${TMP:-/tmp/microlinux} 
 PKG=$TMP/package-$PRGNAM
-OUTPUT=${OUTPUT:-/tmp}	
+OUTPUT=${OUTPUT:-/tmp}  
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -100,13 +100,15 @@ XPREF=$(pkg-config --variable=prefix x11) || true
 ./configure \
   --prefix=/usr \
   --mandir=/usr/man \
-	--confdir=/etc/mplayer \
-	--disable-gui \
-	--enable-menu \
-	--disable-arts \
-	--disable-bitmap-font \
-	--codecsdir=/usr/lib${LIBDIRSUFFIX}/codecs \
-	--language="en de fr" 
+  --confdir=/etc/mplayer \
+  --disable-gui \
+  --enable-menu \
+  --enable-vdpau \
+  --disable-arts \
+  --disable-bitmap-font \
+  --enable-runtime-cpudetection \
+  --codecsdir=/usr/lib${LIBDIRSUFFIX}/codecs \
+  --language="en de fr" 
 
 # So that MPlayer does not report "UNKNOWN" as it's version:
 echo $VERSION > VERSION
