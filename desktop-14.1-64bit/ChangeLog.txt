@@ -1,3 +1,7 @@
+Thu Feb  4 19:17:21 CET 2016
+mozilla-firefox-langpack-38.6.0-x86_64-1_microlinux.txz: Upgraded.
+MPlayer-20160125-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Sat Jan 16 21:41:19 CET 2016
 mozilla-thunderbird-langpack-38.5.1-x86_64-1_microlinux.txz: Upgraded.
 libtxc_dxtn-1.0.1-x86_64-1_microlinux.txz: Added.
