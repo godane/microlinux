@@ -18,8 +18,10 @@ gimp:SKP
 gkrellm:SKP
 gnuchess:SKP
 gnuplot:SKP
+gparted:SKP
 gucharmap:SKP
 gv:SKP
+hexchat:SKP
 imagemagick:SKP
 mozilla-firefox:SKP
 mozilla-thunderbird:SKP
@@ -35,7 +37,6 @@ vim-gvim:SKP
 x11-ssh-askpass:SKP
 x3270:SKP
 xaos:SKP
-xchat:SKP
 xfractint:SKP
 xgames:SKP
 xine-lib:SKP
