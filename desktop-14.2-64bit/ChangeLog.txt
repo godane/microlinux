@@ -1,3 +1,8 @@
+Fri Feb  5 07:17:44 CET 2016
+gst-libav-1.6.3-x86_64-1_microlinux.txz: Upgraded.
+gst-plugins-bad-1.6.3-x86_64-1_microlinux.txz: Upgraded.
+gst-plugins-ugly-1.6.3-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Feb  4 19:54:46 CET 2016
 mozilla-firefox-langpack-44.0-x86_64-1_microlinux.txz: Upgraded.
 MPlayer-20160125-x86_64-1_microlinux.txz: Upgraded.
