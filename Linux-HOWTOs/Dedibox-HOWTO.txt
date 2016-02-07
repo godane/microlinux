@@ -2,7 +2,7 @@
 Dedibox HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =============
 
-Dernière révision : 7 octobre 2015 
+Dernière révision : 7 février 2016
 
 Ce HOWTO décrit l'installation et la configuration de Slackware Linux 14.1
 64-bits sur un serveur dédié Dedibox SC de chez Online. Slackware ne figure
@@ -335,6 +335,11 @@ ftp://ftp.fu-berlin.de/unix/linux/slackware/slackware64-14.1/
 Au terme de la mise à jour, ce n'est pas la peine d'invoquer LILO, vu qu'on ne
 l'a pas encore configuré. Pour le traitement des fichiers de configuration
 nouvellement installés, on peut sereinement choisir l'option (O)verwrite.
+
+  /!\ Depuis le 15 janvier 2016, la configuration par défaut d'OpenSSH ne
+  permet plus à root de se connecter. Il faut donc éditer le fichier de
+  configuration '/etc/ssh/sshd_config' et définir 'PermitRootLogin=yes' si
+  l'on souhaite se connecter en tant que root.
 
 Revenir dans 'pkgtool' et configurer le chargeur de démarrage LILO :
 
