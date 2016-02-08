@@ -71,7 +71,7 @@ SNAPSHOTS=30
 MAXSIZE=500
 
 # Exclude files by type (needs full path)
-EXCLUDES=/root/scripts/exclude-list.txt
+EXCLUDES=/root/bin/exclude-list.txt
 
 echo
 
