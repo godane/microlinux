@@ -13,7 +13,6 @@ Il a été testé avec succès sur Slackware 13.37, 14.0 et 14.1.
   * Télécharger la nouvelle version de Slackware
   * Faire le ménage et élaguer le système
   * Mettre à jour le système de base
-  * Configurer le système
   * Touches finales
 
 
