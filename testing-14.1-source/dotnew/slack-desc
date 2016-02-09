@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+dotnew: dotnew (manage *.new system configuration files)
+dotnew:
+dotnew: Dotnew is a utility to help with the management of *.new system
+dotnew: configuration files in Slackware Linux. It includes both graphical
+dotnew: and console user interfaces.
+dotnew: 
+dotnew: 
+dotnew:
+dotnew: 
+dotnew: 
+dotnew: Package created by Niki Kovacs <info@microlinux.fr>
