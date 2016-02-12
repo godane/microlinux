@@ -2,7 +2,7 @@
 Upgrade HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =============
 
-Dernière révision : 7 février 2016
+Dernière révision : 12 février 2016
 
 Ce HOWTO décrit la mise à jour de Slackware Linux vers la prochaine version.
 Il a été testé avec succès sur Slackware 13.37, 14.0 et 14.1.
@@ -170,6 +170,8 @@ Supprimer les paquets obsolètes
 
   # slackpkg clean-system
 
+  /!\ Garder le paquet 'user-settings-console' !
+
 Mettre à jour le système de base :
 
   # slackpkg upgrade-all
@@ -187,6 +189,10 @@ Remplacer à la louche les fichiers de configuration existants :
   # slackpkg new-config
   (O)verwrite all old files with the new ones. The
      old files will be stored with the suffix .orig
+
+Sur une installation en software RAID, reconfigurer la grappe de disques :
+
+  # mdadm --examine --scan > /etc/mdadm.conf
 
 Vérifier la nouvelle version du noyau :
 
@@ -225,6 +231,15 @@ Prendre en compte la nouvelle configuration :
 
   # lilo
 
+Sur une machine distante, il faudra éventuellement autoriser l'accès SSH pour
+root :
+
+--8<---------- /etc/ssh/sshd_config ------------------------------------------
+...
+PermitRootLogin yes
+...
+--8<--------------------------------------------------------------------------
+
 Croiser les doigts et redémarrer :
 
   # reboot
@@ -237,11 +252,16 @@ Vérifier ce qui reste :
 
   # find /etc /var/ /usr -name '*.new'
 
-Reconfigurer manuellement :
+Les fichiers suivants devront être fusionnés :
 
   * /etc/passwd
   * /etc/shadow
   * /etc/group
+
+  /!\ Voir le Vimdiff-HOWTO pour plus de détails.
+
+Reconfigurer manuellement :
+
   * /etc/rc.d/rc.inet1.conf
   * /usr/share/vim/vimrc
 
