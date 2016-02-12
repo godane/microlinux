@@ -279,6 +279,9 @@ Une fois que tout fonctionne correctement, on peut faire un peu de ménage :
   * /etc/modprobe.d/*.conf
   * /etc/rc.d/rc.hald
   * /etc/rc.d/rc.modules-$OLDKERNEL
+  * /root/config
+  * /root/new-config.txt
+  * /root/slackware{64}-$VERSION
 
 Et enfin :
 
