@@ -86,7 +86,7 @@ Redéfinir temporairement les variables d'environnement LANG et LC_COLLATE :
 Sauvegarder la configuration actuelle de la machine :
 
   # mkdir /root/config
-  # cp -R /etc /var/named /config/
+  # cp -R /etc /var/named /root/config/
 
 Arrêter et désactiver les services inutiles pour ne garder que le strict
 minimum :
