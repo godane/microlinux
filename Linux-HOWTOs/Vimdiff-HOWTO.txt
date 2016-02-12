@@ -108,6 +108,11 @@ Explication :
 première solution, c'est pour que tous les utilisateurs du système en
 profitent.
 
+Si l'on n'a qu'une paire de fichiers à éditer, ce n'est pas la peine de
+reparamétrer les raccourcis clavier. On peut très bien se déplacer en
+utilisant les raccourcis classiques [J] et [K] pour bouger le curseur au début
+de chaque champ en surbrillance.
+
 
 Utilisation
 -----------
