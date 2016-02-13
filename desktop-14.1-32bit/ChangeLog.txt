@@ -1,3 +1,6 @@
+Sat Feb 13 15:29:59 CET 2016
+mozilla-firefox-langpack-38.6.1-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Feb  4 18:52:32 CET 2016
 mozilla-firefox-langpack-38.6.0-i486-1_microlinux.txz: Upgraded.
 MPlayer-20160125-i486-1_microlinux.txz: Upgraded.
