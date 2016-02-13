@@ -1,3 +1,6 @@
+Sat Feb 13 15:48:09 CET 2016
+mozilla-firefox-langpack-44.0.2-i586-1_microlinux.txz: Upgraded.
++--------------------------+
 Fri Feb  5 06:59:59 CET 2016
 gst-libav-1.6.3-i586-1_microlinux.txz: Upgraded.
 gst-plugins-bad-1.6.3-i586-1_microlinux.txz: Upgraded.
