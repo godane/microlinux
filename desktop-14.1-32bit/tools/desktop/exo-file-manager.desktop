@@ -1,2 +1,14 @@
 [Desktop Entry]
-NoDisplay=true
+Name=File Manager
+Name[de]=Dateimanager
+Name[fr]=Gestionnaire de fichiers
+Comment=Exo File Manager
+Version=1.0
+Type=Application
+Exec=exo-open --launch FileManager %u
+Icon=system-file-manager
+StartupNotify=true
+Terminal=false
+Categories=Utility;X-XFCE;X-Xfce-Toplevel;
+OnlyShowIn=XFCE;
+X-XFCE-MimeType=inode/directory;x-scheme-handler/trash;
