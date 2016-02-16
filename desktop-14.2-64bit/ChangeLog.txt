@@ -1,3 +1,7 @@
+Tue Feb 16 12:09:21 CET 2016
+user-settings-xfce-14.2-noarch-3_microlinux.txz: Rebuilt.
+  Default user profile has been slightly improved.
++--------------------------+
 Sat Feb 13 16:02:26 CET 2016
 mozilla-firefox-langpack-44.0.2-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
