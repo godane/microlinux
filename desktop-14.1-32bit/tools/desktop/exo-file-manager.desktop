@@ -2,7 +2,9 @@
 Name=File Manager
 Name[de]=Dateimanager
 Name[fr]=Gestionnaire de fichiers
-Comment=Exo File Manager
+Comment=File Manager
+Comment[de]=Dateimanager
+Comment[fr]=Gestionnaire de fichiers
 Version=1.0
 Type=Application
 Exec=exo-open --launch FileManager %u

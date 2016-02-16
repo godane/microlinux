@@ -2,7 +2,9 @@
 Name=Electronic Mail
 Name[de]=Elektronische Post
 Name[fr]=Courrier électronique
-Comment=Exo Mail Reader
+Comment=Electronic Mail
+Comment[de]=Elektronische Post
+Comment[fr]=Courrier électronique
 Version=1.0
 Type=Application
 Exec=exo-open --launch MailReader %u

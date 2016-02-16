@@ -2,7 +2,9 @@
 Name=Web Browser
 Name[de]=Webbrowser
 Name[fr]=Navigateur Internet
-Comment=Exo Web Browser
+Comment=Web Browser
+Comment[de]=Webbrowser
+Comment[fr]=Navigateur Internet
 Version=1.0
 Type=Application
 Exec=exo-open --launch WebBrowser %u
