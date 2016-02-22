@@ -23,6 +23,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # forked of celt slackbuild by Matteo Bernardini <ponce@slackbuilds.org>
+#
+# Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=celt051
 SRCNAM=celt

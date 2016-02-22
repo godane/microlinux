@@ -23,6 +23,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # With tweaks from rworkman to use in SlackBuilds.org tree
+#
+# Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=device-tree-compiler
 VERSION=${VERSION:-1.4.1}
