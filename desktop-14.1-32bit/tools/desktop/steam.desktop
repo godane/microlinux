@@ -7,7 +7,7 @@ Exec=/usr/bin/steam %U
 Icon=steam
 Terminal=false
 Type=Application
-Categories=Network;FileTransfer;Game;
+Categories=Game;
 MimeType=x-scheme-handler/steam;
 Actions=Store;Community;Library;Servers;Screenshots;News;Settings;BigPicture;Friends;
 

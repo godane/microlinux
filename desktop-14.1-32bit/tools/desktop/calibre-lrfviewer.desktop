@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=LRF Viewer
+Name[de]=LRF-Dateibetrachter
+Name[fr]=Visionneuse de livres Sony
+Comment=Calibre LRF Viewer
+Version=1.0
+Type=Application
+TryExec=lrfviewer
+Exec=lrfviewer %f
+Icon=calibre-viewer
+MimeType=application/x-sony-bbeb;
+Categories=Office;
