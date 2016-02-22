@@ -6,6 +6,8 @@ spice-0.12.6-x86_64-1_microlinux.txz: Added.
 device-tree-compiler-1.4.1-x86_64-1_microlinux.txz: Added.
 qemu-2.4.1-x86_64-1_microlinux.txz: Added.
 urlgrabber-3.10-x86_64-1_microlinux.txz: Added.
+yajl-2.1.0-x86_64-1_microlinux.txz: Added.
+libbsd-0.7.0-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Thu Jan 28 09:36:09 CET 2016
 letsencrypt-0.3.0-x86_64-1_microlinux.txz: Upgraded.
