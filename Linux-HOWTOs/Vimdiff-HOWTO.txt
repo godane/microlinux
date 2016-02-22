@@ -1,0 +1,148 @@
+=============
+Vimdiff HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=============
+
+Dernière révision : 10 février 2016
+
+Ce HOWTO décrit l'utilisation de Vimdiff pour fusionner des fichiers de
+configuration.
+
+
+  * Introduction
+  * Méthodologie
+  * Exemple pratique
+  * Paramétrage de Vim
+  * Utilisation
+
+
+Introduction
+------------
+
+Dans certaines situations, par exemple lors de la mise à jour de Slackware
+Linux vers la prochaine version, il est nécessaire de fusionner certains
+fichiers de configuration. On ne peut pas se contenter de choisir entre
+l'ancien fichier et la nouvelle version, il faut procéder à un réel travail
+d'édition, notamment pour les fichiers suivants :
+
+  * /etc/passwd
+  * /etc/shadow
+  * /etc/group
+
+Vimdiff est l'outil qu'il nous faut pour ce travail. Il est déjà contenu dans
+l'éditeur Vim.
+
+
+Méthodologie
+------------
+
+Admettons que nous souhaitons fusionner deux fichiers 'passwd' et
+'passwd.new'. Dans ce cas, nous les ouvrons tous les deux avec Vimdiff comme
+ceci :
+
+  # vimdiff passwd passwd.new
+
+Fusionner les deux fichiers équivaudra ici à les éditer pas à pas, en gardant
+les parties pertinentes de l'un ou de l'autre fichier. À l'issue de
+l'opération, les deux fichiers seront identiques :
+
+  # diff passwd passwd.new
+
+Et il ne restera plus qu'à se débarrasser de 'passwd.new'.
+
+
+Exemple pratique
+----------------
+
+Pour nous entraîner, nous allons transférer les fichiers '/etc/passwd' et
+'/etc/group' d'une installation existante tournant sur une version plus
+ancienne de Slackware. Dans la mesure du possible, on choisira une machine sur
+laquelle il y a déjà un certain nombre d'utilisateurs. 
+
+  $ mkdir slackware-14.0
+  $ cd slackware-14.0
+  $ scp serveur-14.0:/etc/{passwd,group} .
+  $ cd ..
+
+Ensuite, on fait la même chose avec une installation fraîche de Slackware
+-current.
+
+  $ mkdir slackware-current
+  $ cd slackware-current
+  $ scp serveur-current:/etc/{passwd,group} .
+  $ cd ..
+
+On copie les fichiers respectifs en les renommant :
+
+  $ cp slackware-14.0/{passwd,group} .
+  $ cp slackware-current/passwd ./passwd.new
+  $ cp slackware-current/group ./group.new
+
+Enfin, on sauvegarde ces fichiers pour pouvoir refaire l'exercice :
+
+  $ mkdir orig
+  $ cp passwd* group* orig/
+
+
+Paramétrage de Vim
+------------------
+
+Avant de lancer Vimdiff, il est utile de paramétrer l'éditeur Vim en éditant
+son fichier de configuration comme ceci :
+
+--8<---------- /usr/share/vim/vimrc ------------------------------------------
+" Custom vimdiff shortcuts
+if &diff
+  nnoremap - [c
+  nnoremap + ]c
+  set diffopt+=iwhite
+endif
+--8<--------------------------------------------------------------------------
+
+Explication :
+
+  - l'option 'nnoremap' permet de redéfinir des raccourcis clavier biscornus.
+
+  - l'option 'diffopt+=iwhite' ignore le calcul des espaces.
+
+Évidemment, on peut se contenter d'éditer '~/.vimrc'. Si j'opte pour la
+première solution, c'est pour que tous les utilisateurs du système en
+profitent.
+
+Si l'on n'a qu'une paire de fichiers à éditer, ce n'est pas la peine de
+reparamétrer les raccourcis clavier. On peut très bien se déplacer en
+utilisant les raccourcis classiques [J] et [K] pour bouger le curseur au début
+de chaque champ en surbrillance.
+
+
+Utilisation
+-----------
+
+Ouvrir les deux fichiers que l'on souhaite fusionner :
+
+  $ vimdiff passwd passwd.new
+
+Les deux fichiers s'ouvrent côte à côte. Les différences sont marquées en
+surbrillance. 
+
+En cas normal, on utiliserait les raccourcis ']c' et '[c' pour naviguer d'une
+différence à l'autre. Étant donné que ce raccourci clavier est à peu près
+inutilisable au quotidien, nous l'avons remplacé par les touches [+] et [-],
+qui nous serviront donc respectivement à naviguer à la prochaine et à la
+précédente différence.
+
+La combinaison de touches [Ctrl]+[W]-[W] permet de basculer du pan de gauche
+vers le pan de droite et inversement. C'est exactement le même raccourci qu'en
+mode :split. 
+
+La commande 'do' ("diff obtain") permet de récupérer une portion de texte
+depuis le panneau en face vers le panneau actif.
+
+À l'inverse, 'dp' ("diff put") permet d'envoyer la portion de texte en
+surbrillance vers l'espace correspondant du panneau en face.
+
+Enfin, la commande ':diffupdate' permet de rafraîchir le calcul des zones de
+différence dans les deux textes.
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt

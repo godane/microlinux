@@ -2,7 +2,7 @@
 Postfix HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =============
 
-Dernière révision : 12 juin 2015
+Dernière révision : 29 janvier 2016
 
 Ce HOWTO décrit la mise en place d'un serveur mail avec Postfix sous Slackware
 Linux.
@@ -87,10 +87,9 @@ Au final, on doit avoir quelque chose comme ceci :
   postfix:x:200:
   postdrop:x:201:
 
-Lancer la compilation de Postfix (3m30 sur une Dedibox SC) et installer le
-paquet résultant.
+Lancer la compilation de Postfix et installer le paquet résultant.
 
-  > Si l'on choisit le paquet MLES, la création des utilisateurs et des
+  /!\ Si l'on choisit le paquet MLES, la création des utilisateurs et des
   groupes système est gérée automatiquement par le script de
   post-installation.
 

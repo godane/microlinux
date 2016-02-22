@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+recoll: recoll (personal full text search tool)
+recoll:
+recoll: Recoll is a personal full text search tool for Unix/Linux.
+recoll: It is based on the very strong Xapian backend, for which it
+recoll: provides an easy to use, feature-rich, easy administration,
+recoll: QT graphical interface.
+recoll:
+recoll: 
+recoll:
+recoll:
+recoll: Package created by Niki Kovacs <info@microlinux.fr>

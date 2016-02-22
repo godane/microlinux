@@ -2,16 +2,15 @@
 Dovecot HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =============
 
-Dernière révision : 20 août 2013
+Dernière révision : 31 janvier 2016
 
 Ce HOWTO décrit la mise en place d'un serveur  IMAP avec Dovecot sous
 Slackware Linux.
 
 
-  * Le serveur IMAP Dovecot
+  * Introduction
   * Prérequis
-  * Installation de Dovecot
-  * Générer le certificat
+  * Installation
   * Configuration initiale de Dovecot
   * Ajouter l'authentification SMTP à Postfix
   * Utiliser le port 587 pour l'envoi
@@ -19,8 +18,8 @@ Slackware Linux.
   * Supprimer Dovecot
 
 
-Le serveur IMAP Dovecot
------------------------
+Introduction
+------------
 
 Dovecot est un serveur IMAP et POP3 pour les systèmes d'exploitation UNIX et
 dérivés. Nous le configurons ici pour le seul protocole IMAP.
@@ -29,11 +28,17 @@ dérivés. Nous le configurons ici pour le seul protocole IMAP.
 Prérequis
 ---------
 
+Pour nos tests, on utilisera une adresse kikinovak@slackbox.fr, qu'on aura
+configurée dans Postfix.
+
 Dans le pare-feu, il faudra ouvrir le port 993 (IMAPS = IMAP over SSL) en TCP.
 
+Dovecot utilise un certificat SSL/TLS, qu'il faudra générer au préalable. Pour
+les détails, voir le SSL-TLS-Certificate-HOWTO.
 
-Installation de Dovecot
------------------------
+
+Installation
+------------
 
 Dovecot ne fait pas partie d'une installation standard de Slackware.  On va
 donc le compiler à partir des sources, en utilisant le script de
@@ -46,75 +51,20 @@ Créer quelques utilisateurs et groupes système nécessaires pour Dovecot :
   # groupadd -g 248 dovenull
   # useradd -d /dev/null -s /bin/false -u 248 -g 248 dovenull
 
+Au final, on doit avoir quelque chose comme ceci :
+
+  # grep dove /etc/passwd
+  dovecot:x:202:202::/dev/null:/bin/false
+  dovenull:x:248:248::/dev/null:/bin/false
+  # grep dove /etc/group
+  dovecot:x:202:
+  dovenull:x:248:
+
 Lancer la compilation de Dovecot et installer le paquet résultant.
 
-
-Générer le certificat
----------------------
-
-Éditer '/usr/doc/dovecot-2.x.y/dovecot-openssl.cnf' en fournissant des
-données qui vous correspondent, comme ceci :
-
---8<---------- /usr/doc/dovecot-2.x.y/dovecot-openssl.cnf --------------------
-[ req ]
-default_bits = 1024
-encrypt_key = yes
-distinguished_name = req_dn
-x509_extensions = cert_type
-prompt = no
-
-[ req_dn ]
-# country (2 letter code)
-C=FR
-
-# State or Province Name (full name)
-ST=Gard
-
-# Locality Name (eg. city)
-L=Montpezat
-
-# Organization (eg. company)
-O=Microlinux
-
-# Organizational Unit Name (eg. section)
-OU=Serveur IMAP 
-
-# Common Name (*.example.com is also possible)
-CN=sd-25854.dedibox.fr
-
-# E-mail contact
-emailAddress=info@microlinux.fr
-
-[ cert_type ]
-nsCertType = server
---8<--------------------------------------------------------------------------
-
-Dans le même répertoire, éditer 'mkcert.sh' et passer la durée du certificat de
-un à dix ans, en ajoutant tout simplement un zéro à l'option '-days' :
-
---8<---------- /usr/share/dovecot-2.x.y/mkcert.sh ----------------------------
-...
-$OPENSSL req -new -x509 -nodes -config $OPENSSLCONFIG -out $CERTFILE \ 
-  -keyout $KEYFILE -days 3650 || exit 2
-...
---8<--------------------------------------------------------------------------
-
-Générer le certificat :
-
-  # sh mkcert.sh
-  Generating a 1024 bit RSA private key
-  ....++++++
-  ......++++++
-  writing new private key to '/etc/ssl/private/dovecot.pem'
-  -----
-  ...
-
-On doit se retrouver avec deux nouveaux fichiers 'dovecot.pem' dans
-'/etc/ssl/private' et '/etc/ssl/certs'. Vérifier :
-
-  # find /etc/ssl -name 'dovecot.pem'
-  /etc/ssl/private/dovecot.pem
-  /etc/ssl/certs/dovecot.pem
+  /!\ Là encore, comme pour Postfix, si l'on choisit le paquet MLES, la
+  création des utilisateurs et des groupes système est gérée automatiquement 
+  par le script de post-installation.
 
 
 Configuration initiale de Dovecot
@@ -126,8 +76,8 @@ Configuration initiale de Dovecot
 # /etc/dovecot/dovecot.conf
 protocols = imap 
 listen = *
-ssl_cert = </etc/ssl/certs/dovecot.pem
-ssl_key = </etc/ssl/private/dovecot.pem
+ssl_cert = </etc/letsencrypt/live/mail.slackbox.fr/fullchain.pem
+ssl_key = </etc/letsencrypt/live/mail.slackbox.fr/privkey.pem
 mail_location = maildir:~/Maildir
 auth_mechanisms = plain
 passdb {
@@ -149,13 +99,9 @@ Activer et démarrer Dovecot :
   # chmod +x /etc/rc.d/rc.dovecot
   # /etc/rc.d/rc.dovecot start
 
-Se connecter en local :
+Se connecter avec Mutt, en local ou à distance :
 
-  $ mutt -f imaps://kikinovak@localhost
-
-Se connecter à distance :
-
-  $ mutt -f imaps://kikinovak@sd-25854.dedibox.fr
+  $ mutt -f imaps://kikinovak@slackbox.fr
 
 
 Ajouter l'authentification SMTP à Postfix
@@ -200,8 +146,8 @@ Au total, notre fichier '/etc/dovecot/dovecot.conf' ressemble donc à ceci :
 --8<---------- /etc/dovecot/dovecot.conf -------------------------------------
 protocols = imap 
 listen = *
-ssl_cert = </etc/ssl/certs/dovecot.pem
-ssl_key = </etc/ssl/private/dovecot.pem
+ssl_cert = </etc/letsencrypt/live/mail.slackbox.fr/fullchain.pem
+ssl_key = </etc/letsencrypt/live/mail.slackbox.fr/privkey.pem
 mail_location = maildir:~/Maildir
 auth_mechanisms = plain login
 passdb {
@@ -233,8 +179,8 @@ Ensuite, il faut ajouter quelques lignes à la fin du fichier de configuration
 de Postfix :
 
 --8<---------- /etc/postfix/main.cf ------------------------------------------
-smtpd_tls_cert_file             = /etc/ssl/certs/dovecot.pem
-smtpd_tls_key_file              = /etc/ssl/private/dovecot.pem
+smtpd_tls_cert_file    = /etc/letsencrypt/live/mail.slackbox.fr/fullchain.pem
+smtpd_tls_key_file     = /etc/letsencrypt/live/mail.slackbox.fr/privkey.pem
 smtpd_tls_security_level        = may
 smtpd_sasl_auth_enable          = yes
 broken_sasl_auth_clients        = yes
@@ -249,7 +195,7 @@ smtpd_recipient_restrictions    = permit_mynetworks,
 Et pour finir, prendre en compte la nouvelle configuration :
 
   # /etc/rc.d/rc.dovecot restart
-  # /etc/rc.d/rc.postfix reload
+  # /etc/rc.d/rc.postfix restart
 
 
 Utiliser le port 587 pour l'envoi
@@ -286,24 +232,16 @@ cliquer sur 'Continuer'. Dans la fenêtre subséquente, cliquer sur
 Exemple de configuration :
 
   Serveur entrant            : IMAP
-  Nom du serveur             : mail.unixbox.fr
+  Nom du serveur             : mail.slackbox.fr
   Port                       : 993
-  Nom d'utilisateur          : nkovacs
+  Nom d'utilisateur          : kikinovak
   Sécurité connexion         : SSL/TLS
   Authentification           : Mot de passe normal
-  Serveur sortant            : mail.unixbox.fr
+  Serveur sortant            : mail.slackbox.fr
   Port                       : 587
   Sécurité de la connexion   : STARTTLS
   Méthode d'authentification : Mot de passe normal
-  Nom d'utilisateur          : nkovacs
-
-  /!\ Une fois qu'on a saisi l'ensemble des paramètres, il faut cliquer
-  directement sur 'Terminé'. Les tests de connexion échoueront, étant donné
-  que nous utilisons un certificat auto-signé.
-
-  /!\ Il faudra songer à confirmer l'exception de sécurité à deux reprises :
-  une fois pour la réception, une autre fois pour l'envoi. Gare aux messages
-  d'erreur qui s'affichent derrière la fenêtre de rédaction principale. 
+  Nom d'utilisateur          : kikinovak
 
 
 Supprimer Dovecot
@@ -325,18 +263,10 @@ Supprimer le script de démarrage :
 
   # rm -f /etc/rc.d/rc.dovecot
 
-Supprimer les certificats :
-
-  # find /etc/ssl/ -name '*dovecot*'
-  /etc/ssl/private/dovecot.pem
-  /etc/ssl/certs/dovecot.pem
-  # find /etc/ssl/ -name '*dovecot*' | xargs rm -f
-
 Supprimer les utilisateurs et les groupes système correspondants :
 
   # userdel -r dovecot  --> supprime également le groupe 'dovecot'
   # userdel -r dovenull --> supprime également le groupe 'dovenull'
-
 
 
 ------------------------------------------------------------------------------

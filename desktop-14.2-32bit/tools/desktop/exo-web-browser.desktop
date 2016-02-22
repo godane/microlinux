@@ -2,11 +2,13 @@
 Name=Web Browser
 Name[de]=Webbrowser
 Name[fr]=Navigateur Internet
-Comment=Mozilla Firefox ESR
+Comment=Web Browser
+Comment[de]=Webbrowser
+Comment[fr]=Navigateur Internet
 Version=1.0
 Type=Application
-Exec=firefox %u
-#Icon=firefox
+Exec=exo-open --launch WebBrowser %u
+#Icon=web-browser
 Icon=internet-web-browser
 StartupNotify=true
 Terminal=false

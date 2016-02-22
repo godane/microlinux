@@ -40,11 +40,16 @@
 # script takes care of synchronizing the backup server with the remote clients
 # AND snapshot rotation in one go. 
 
-# Network
+# Local Area Network
 DOMAIN="microlinux.lan"
 CLIENT[0]="bernadette"
 CLIENT[1]="raymonde"
 CLIENT[2]="leanore"
+
+# Public servers
+#DOMAIN="dedibox.fr"
+#CLIENT[0]="sd-48975.dedibox.fr"
+#CLIENT[1]="sd-41893.dedibox.fr"
 
 # Colors
 WHITE="\033[01;37m"
@@ -54,7 +59,7 @@ RED="\033[01;31m"
 NC="\033[00m"
 
 # Delay in seconds before running each step. Set to 0 or 1.
-DELAY=0
+DELAY=1
 
 # Where we store all backups
 BACKUPDIR="/srv/backup"
@@ -66,7 +71,7 @@ SNAPSHOTS=30
 MAXSIZE=500
 
 # Exclude files by type (needs full path)
-EXCLUDES=/root/scripts/exclude-list.txt
+EXCLUDES=/root/bin/exclude-list.txt
 
 echo
 
@@ -93,10 +98,10 @@ sleep $DELAY
 
 for HOST in ${CLIENT[*]} ; do
   if [ -d $BACKUPDIR/$DOMAIN/$HOST ] ; then
-    echo -e ":: Backup directory for host $BLUE$HOST.$DOMAIN$NC exists."
+    echo -e ":: Backup directory for host $BLUE$HOST$NC exists."
     sleep $DELAY
   else
-    echo -e ":: Creating backup directory for host $BLUE$HOST.$DOMAIN$NC."
+    echo -e ":: Creating backup directory for host $BLUE$HOST$NC."
     sleep $DELAY
     mkdir -p $BACKUPDIR/$DOMAIN/$HOST
   fi
@@ -108,14 +113,14 @@ echo "::"
 sleep $DELAY
 
 for HOST in ${CLIENT[*]} ; do
-  echo -e ":: Checking if host $BLUE$HOST.$DOMAIN$NC is online..."
+  echo -e ":: Checking if host $BLUE$HOST$NC is online..."
   sleep $DELAY
   CONNECT=$(ssh -o BatchMode=yes -o ConnectTimeout=5 root@$HOST echo OK 2>&1)
   if [ "$CONNECT" = "OK" ] ; then
-    echo -e ":: Host $BLUE$HOST.$DOMAIN$NC is ${GREEN}online${NC}."
+    echo -e ":: Host $BLUE$HOST$NC is ${GREEN}online${NC}."
     sleep $DELAY
   else
-    echo -e ":: Host $BLUE$HOST.$DOMAIN$NC is ${RED}offline${NC}."
+    echo -e ":: Host $BLUE$HOST$NC is ${RED}offline${NC}."
     sleep $DELAY
   fi
   echo "::"
@@ -128,7 +133,7 @@ sleep $DELAY
 for HOST in ${CLIENT[*]} ; do
   CONNECT=$(ssh -o BatchMode=yes -o ConnectTimeout=5 root@$HOST echo OK 2>&1)
   if [ "$CONNECT" = "OK" ] ; then
-    echo -e ":: Backing up host $GREEN$HOST.$DOMAIN$NC..."
+    echo -e ":: Backing up host $GREEN$HOST$NC..."
     sleep $DELAY
     # Delete oldest snapshot if it exists
     if [ -d $BACKUPDIR/$DOMAIN/$HOST/snapshot.$SNAPSHOTS ] ; then
@@ -203,7 +208,7 @@ for HOST in ${CLIENT[*]} ; do
     echo -e ":: [${GREEN}OK${NC}]"
     sleep $DELAY
   else
-    echo -e ":: Skipping unreachable host $RED$HOST.$DOMAIN$NC."
+    echo -e ":: Skipping unreachable host $RED$HOST$NC."
     sleep $DELAY
   fi
   echo "::"

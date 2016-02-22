@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=mozilla-firefox-langpack
-VERSION=${VERSION:-38.5.2}   
+VERSION=${VERSION:-38.6.1}   
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}   
 
@@ -63,6 +63,8 @@ URL="https://ftp.mozilla.org/pub/mozilla.org/firefox/releases"
 FOXLANGS="de fr"
 
 set -e # Exit on most errors
+
+rm -f $CWD/*.xpi
 
 for FOXLANG in $FOXLANGS; do
 

@@ -116,6 +116,7 @@ libbluedevil:ADD
 libcaca:ADD
 libcanberra:ADD
 libcap:ADD
+libcap-ng:ADD
 libcddb:ADD
 libcdio:ADD
 libcdio-paranoia:ADD

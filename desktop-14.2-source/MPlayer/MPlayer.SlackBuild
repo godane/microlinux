@@ -28,12 +28,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=MPlayer
-VERSION=${VERSION:-20150721}	 
-FFMPEG=${FFMPEG:-2.7.2}
-BUILD=${BUILD:-4}
+VERSION=${VERSION:-20160125}	 
+FFMPEG=${FFMPEG:-2.8.5}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}		
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -83,11 +83,6 @@ rm -rf ffmpeg
 tar xvf $CWD/ffmpeg-$FFMPEG.tar.xz
 mv ffmpeg-$FFMPEG ffmpeg
 
-# Patch for recent libvpx
-cd ffmpeg
-patch -p1 < $CWD/ffmpeg-libvpxenc-remove-some-unused-ctrl-id-mappings.patch
-cd ..
-
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -115,12 +110,12 @@ sed -i "s|lopenjpeg|lopenmj2|" ./configure
 	--disable-gui \
 	--enable-menu \
   --enable-vdpau \
-  --disable-live \
 	--disable-arts \
 	--disable-bitmap-font \
-	--enable-runtime-cpudetection \
 	--codecsdir=/usr/lib${LIBDIRSUFFIX}/codecs \
-	--language="en de fr" 
+	--language="en de fr" \
+  --extra-cflags="-I/usr/include/openmj2-2.1/" \
+  --enable-runtime-cpudetection
 
 # So that MPlayer does not report "UNKNOWN" as it's version:
 echo $VERSION > VERSION

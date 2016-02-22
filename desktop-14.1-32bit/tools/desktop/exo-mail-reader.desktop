@@ -1,13 +1,14 @@
 [Desktop Entry]
-Version=1.0
-Encoding=UTF-8
 Name=Electronic Mail
 Name[de]=Elektronische Post
 Name[fr]=Courrier électronique
-Comment=Mozilla Thunderbird ESR
+Comment=Electronic Mail
+Comment[de]=Elektronische Post
+Comment[fr]=Courrier électronique
+Version=1.0
 Type=Application
-Exec=thunderbird
-#Icon=thunderbird
+Exec=exo-open --launch MailReader %u
+#Icon=internet-mail
 Icon=applications-mail
 StartupNotify=true
 Terminal=false

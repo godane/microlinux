@@ -1,3 +1,33 @@
+Tue Feb 16 12:09:21 CET 2016
+user-settings-xfce-14.2-noarch-3_microlinux.txz: Rebuilt.
+  Default user profile has been slightly improved.
++--------------------------+
+Sat Feb 13 16:02:26 CET 2016
+mozilla-firefox-langpack-44.0.2-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
+Fri Feb  5 07:17:44 CET 2016
+gst-libav-1.6.3-x86_64-1_microlinux.txz: Upgraded.
+gst-plugins-bad-1.6.3-x86_64-1_microlinux.txz: Upgraded.
+gst-plugins-ugly-1.6.3-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
+Thu Feb  4 19:54:46 CET 2016
+mozilla-firefox-langpack-44.0-x86_64-1_microlinux.txz: Upgraded.
+MPlayer-20160125-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
+Tue Feb  2 11:13:27 CET 2016
+untex-1.3-x86_64-1_microlinux.txz: Added.
++--------------------------+
+Sun Jan 31 13:48:58 CET 2016
+libwebp-0.4.4-x86_64-1_microlinux.txz: Added.
+webkitgtk3-2.4.9-x86_64-1_microlinux.txz: Added.
++--------------------------+
+Fri Jan 29 16:26:09 CET 2016
+antiword-0.37-x86_64-1_microlinux.txz: Added.
+unrtf-0.21.7-x86_64-1_microlinux.txz: Added.
+exiftool-10.10-x86_64-1_microlinux.txz: Added.
+recoll-1.21.4-x86_64-1_microlinux.txz: Added.
+galculator-2.1.4-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Sun Jan 24 12:18:23 CET 2016
 inkscape-0.91-x86_64-2_microlinux.txz: Rebuilt.
   Compiled against new poppler. Thanks to Frederic Bezies.
