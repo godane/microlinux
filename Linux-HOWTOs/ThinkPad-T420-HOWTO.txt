@@ -1,0 +1,59 @@
+===================
+ThinkPad T420 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+===================
+
+Dernière révision : 22 février 2016
+
+Ce HOWTO décrit l'installation de Slackware Linux sur un ordinateur portable
+Lenovo ThinkPad T420.
+
+
+  * Configuration du BIOS
+  * Système
+  * Partitionnement
+  * Chargeur de démarrage
+
+
+Configuration du BIOS
+---------------------
+
+Au démarrage, appuyer sur la touche bleue [ThinkVantage], puis sur [F1] pour
+accéder au BIOS.
+
+  * Load Setup Defaults
+
+  * UEFI/Legacy Boot : [Legacy Only]
+
+Enregistrer les modifications, insérer la clé USB d'installation, redémarrer
+en appuyant sur la touche [ThinkVantage], puis sur [F12] et sélectionner la
+clé USB.
+
+
+Système
+-------
+
+Slackware64 14.1 tourne parfaitement sur cette machine. Rien à signaler,
+tout fonctionne "out of the box".
+
+
+Partitionnement
+---------------
+
+On peut procéder à un partitionnement classique avec 'cfdisk'.
+
+
+Chargeur de démarrage
+---------------------
+
+LILO s'installe normalement sur cette machine. Voici les options du kernel qui
+vont bien :
+
+--8<---------- /etc/lilo.conf ------------------------------------------------
+...
+append="video=1024x600 quiet ipv6.disable=1 vt.default_utf8=1"
+...
+--8<--------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
