@@ -9,6 +9,8 @@ urlgrabber-3.10-x86_64-1_microlinux.txz: Added.
 yajl-2.1.0-x86_64-1_microlinux.txz: Added.
 libbsd-0.7.0-x86_64-1_microlinux.txz: Added.
 netcat-openbsd-1.105-x86_64-1_microlinux.txz: Added.
+	This package conflicts with Slackware's 'nc' package. Make sure to remove it.
+libvirt-1.2.21-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Thu Jan 28 09:36:09 CET 2016
 letsencrypt-0.3.0-x86_64-1_microlinux.txz: Upgraded.
