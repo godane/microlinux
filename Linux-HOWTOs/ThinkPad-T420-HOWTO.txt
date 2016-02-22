@@ -20,9 +20,9 @@ Configuration du BIOS
 Au démarrage, appuyer sur la touche bleue [ThinkVantage], puis sur [F1] pour
 accéder au BIOS.
 
-  * Load Setup Defaults
+  * Restart > Load Setup Defaults
 
-  * UEFI/Legacy Boot : [Legacy Only]
+  * Startup > UEFI/Legacy Boot : [Legacy Only]
 
 Enregistrer les modifications, insérer la clé USB d'installation, redémarrer
 en appuyant sur la touche [ThinkVantage], puis sur [F12] et sélectionner la
