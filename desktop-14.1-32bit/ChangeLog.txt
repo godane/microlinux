@@ -9,6 +9,7 @@ yajl-2.1.0-i486-1_microlinux.txz: Added.
 libbsd-0.7.0-i486-1_microlinux.txz: Added.
 netcat-openbsd-1.105-i486-1_microlinux.txz: Added.
 libvirt-1.2.21-i486-1_microlinux.txz: Added.
+gnome-python2-gconf-2.28.1-i486-1_SBo.txz: Added.
 +--------------------------+
 Tue Feb 16 10:26:13 CET 2016
 user-settings-xfce-14.1-noarch-2_microlinux.txz: Rebuilt.
