@@ -1,9 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
 Version=1.0
-Name=Virtualization Software
-Name[de]=Virtualisierungssoftware
-Name[fr]=Logiciel de virtualisation
+Name=Virtualization
+Name[de]=Virtualisierung
+Name[fr]=Virtualisation
 Comment=VirtualBox
 Type=Application
 Exec=VirtualBox %U
