@@ -29,7 +29,7 @@
 PRGNAM=gnome-python2-gconf
 VERSION=${VERSION:-2.28.1}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}
+TAG=${TAG:-_microlinux}
 SRCNAM=gnome-python
 
 NUMJOBS=${NUMJOBS:--j9}
@@ -43,7 +43,7 @@ if [ -z "$ARCH" ]; then
 fi
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/SBo}
+TMP=${TMP:-/tmp/microlinux}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
