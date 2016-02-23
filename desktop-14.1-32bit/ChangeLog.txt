@@ -7,6 +7,7 @@ device-tree-compiler-1.4.1-i686-1_microlinux.txz: Added.
 urlgrabber-3.10-i486-1_microlinux.txz: Added.
 yajl-2.1.0-i486-1_microlinux.txz: Added.
 libbsd-0.7.0-i486-1_microlinux.txz: Added.
+netcat-openbsd-1.105-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Feb 16 10:26:13 CET 2016
 user-settings-xfce-14.1-noarch-2_microlinux.txz: Rebuilt.
