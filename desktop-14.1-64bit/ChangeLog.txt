@@ -1,3 +1,7 @@
+Tue Feb 23 15:44:30 CET 2016
+mozilla-thunderbird-langpack-38.6.0-x86_64-1_microlinux.txz: Upgraded.
+jdk-8u73-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Tue Feb 23 11:14:44 CET 2016
 celt051-0.5.1.3-x86_64-1_microlinux.txz: Added.
 usbredir-0.7-x86_64-1_microlinux.txz: Added.
