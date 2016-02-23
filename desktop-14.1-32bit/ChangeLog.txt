@@ -15,6 +15,7 @@ ipaddr-py-2.1.10-i486-1_microlinux.txz: Added.
 spice-gtk-0.28-i486-1_microlinux.txz: Added.
 gtk-vnc-0.5.4-i486-1_microlinux.txz: Added.
 libvirt-glib-0.2.3-i486-1_microlinux.txz: Added.
+vte3-0.36.5-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Feb 16 10:26:13 CET 2016
 user-settings-xfce-14.1-noarch-2_microlinux.txz: Rebuilt.
