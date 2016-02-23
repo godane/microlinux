@@ -1,5 +1,6 @@
 Tue Feb 23 09:21:25 CET 2016
 celt051-0.5.1.3-i486-1_microlinux.txz: Added.
+usbredir-0.7-i486-1_microlinux.txz: Added.
 +--------------------------+
 Tue Feb 16 10:26:13 CET 2016
 user-settings-xfce-14.1-noarch-2_microlinux.txz: Rebuilt.
