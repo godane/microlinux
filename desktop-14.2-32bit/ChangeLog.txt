@@ -1,3 +1,12 @@
+Tue Feb 23 15:55:00 CET 2016
+mozilla-thunderbird-langpack-38.6.0-i586-1_microlinux.txz: Upgraded.
+jdk-8u73-i586-2_microlinux.txz: Upgraded.
+libreoffice-5.0.5-i586-1_microlinux.txz: Upgraded.
+libreoffice-langpack-fr-5.0.5-i586-1_microlinux.txz: Upgraded.
+libreoffice-langpack-de-5.0.5-i586-1_microlinux.txz: Upgraded.
+libreoffice-helppack-fr-5.0.5-i586-1_microlinux.txz: Upgraded.
+libreoffice-helppack-de-5.0.5-i586-1_microlinux.txz: Upgraded.
++--------------------------+
 Tue Feb 16 12:04:11 CET 2016
 user-settings-xfce-14.2-noarch-3_microlinux.txz: Rebuilt.
   Default user profile has been slightly improved.
