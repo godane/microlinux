@@ -1,0 +1,4 @@
+# Start libvirt:
+if [ -x /etc/rc.d/rc.libvirt ]; then
+  /etc/rc.d/rc.libvirt start
+fi

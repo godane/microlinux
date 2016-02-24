@@ -1,0 +1,4 @@
+# Stop libvirt:
+if [ -x /etc/rc.d/rc.libvirt ]; then
+  /etc/rc.d/rc.libvirt stop
+fi
