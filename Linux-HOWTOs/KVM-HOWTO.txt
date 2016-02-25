@@ -1,0 +1,330 @@
+=========
+KVM HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=========
+
+Dernière révision : 25 février 2016
+
+Ce HOWTO décrit la virtualisation avec KVM sous Slackware Linux.
+
+
+Introduction
+------------
+
+J'ai souvent besoin de compiler des paquets pour des versions et des
+architectures différentes de Slackware Linux. Jusqu'ici j'ai adopté une
+solution multiboot quelque peu brute de décoffrage (voir le Buildbox HOWTO),
+et j'ai également testé la virtualisation avec VirtualBox. 
+
+Ces deux solutions sont assez limitées. La meilleure solution consiste ici à
+mettre en place une série de machines virtuelles avec QEMU/KVM et LibVirt. 
+
+Dans ce tutoriel, je décrirai la mise en place d'un hôte KVM dans mon réseau
+local (kvmhost.microlinux.lan) et d'une série de machines virtuelles
+installées sur cet hôte (buildbox.microlinux.lan). 
+
+Nous allons éviter de nous compliquer la vie avec les myriades d'options en
+ligne de commande de QEMU. Au lieu de cela, nous allons profiter des
+fonctionnalités de LibVirt et de Virt-Manager, qui nous faciliteront
+considérablement la tâche. 
+
+Il serait aisé d'écrire un gros livre sur le sujet de la virtualisation avec
+KVM. D'ailleurs, cela a été fait (cf. "Documentation"). Ce tutoriel est conçu
+avant tout pour une prise en main de KVM par la pratique. 
+
+
+Prérequis
+---------
+
+Au démarrage de l'hôte KVM, guetter l'avertissement suivant :
+
+  ...
+  kvm: disabled by bios
+  ...
+
+Dans ce cas, il faut activer la virtualisation dans le BIOS. Sur ma machine,
+une station de travail HP Compaq DC5850, l'option correspondante est bien
+cachée dans le sous-menu "Security > System Security > Virtualization
+Technology" du BIOS. Dans certains cas, l'option se trouve également dans le
+sous-menu "Power". Dans un cas comme dans l'autre, il faudra choisir "Enable".
+
+Pour que Qemu/KVM ait des performances acceptables, il faut vérifier que notre
+processeur soit compatible avec les extensions de virtualisation. Sous Linux,
+il est facile de vérifier cela avec la ligne de commande suivante.
+
+  $ egrep '^flags.*(vmx|svm)' /proc/cpuinfo >/dev/null && echo OK || echo KO
+  OK
+
+Le serveur peut donc supporter la virtualisation hardware.
+
+  /!\ Attention, ça ne marche pas sur une Dedibox SC de chez Online. Le
+  processeur VIA affiche des capacités KVM sans en être capable dans la
+  pratique. 
+  
+  
+Installation
+------------
+
+Notre serveur sera de type "headless", c'est-à-dire qu'il démarrera en niveau
+d'exécution 3. On fera donc fi des groupes de paquets KDE, KDEI, XAP et XFCE.
+En revanche, on installera quand-même X et WindowMaker pour pouvoir configurer
+l'affichage graphique correctement, même si nous ne l'utilisons pas. 
+
+La distribution Slackware ne fournit pas de paquets pour QEMU et LibVirt, mais
+nous trouvons tout ce qu'il faut sur SlackBuilds.org. Installer dans l'ordre :
+
+  * celt051
+  * pyparsing 
+  * usbredir
+  * six
+  * spice-protocol
+  * spice
+  * device-tree-compiler
+  * qemu
+  * urlgrabber
+  * yajl
+  * libbsd
+  * netcat-openbsd ==> supprimer le paquet 'nc'
+  * libvirt
+
+Quelques remarques :
+
+  1. Sur Slackware 14.1, 'libusb' est trop vieux. Lorsqu'on compile 'qemu', il
+  faut le faire avec l'option 'LIBUSB=yes' pour utiliser une version statique
+  plus récente de 'libusb'. 
+
+  2. Le paquet 'netcat-openbsd' entre en conflit avec le paquet 'nc' de
+  Slackware. Il faudra donc le désinstaller au préalable.
+
+  3. Tous ces paquets sont fournis par les dépôts MLES.
+
+Les machines virtuelles sur le serveur seront gérées à distance sur ma station
+de travail avec Virt-Manager. Il me faut donc installer LibVirt et
+Virt-Manager. Là aussi, compiler et installer dans l'ordre :
+
+  * celt051
+  * pyparsing 
+  * usbredir
+  * six
+  * spice-protocol
+  * spice
+  * device-tree-compiler
+  * urlgrabber
+  * yajl
+  * libbsd
+  * netcat-openbsd 
+  * libvirt
+  * gnome-python2-gconf
+  * tunctl
+  * ipaddr-py
+  * vala
+  * orc
+  * gstreamer1
+  * gst1-plugins-base
+  * spice-gtk
+  * gtk-vnc
+  * libvirt-glib
+  * pygobject3
+  * vte3
+  * libvirt-python
+  * libosinfo
+  * virt-manager
+
+Quelques remarques :
+
+  1. Là aussi, il faudra supprimer le paquet 'nc' de Slackware, qui entre en
+  conflit avec 'netcat-openbsd'. 
+
+  2. Tous les paquets sont disponibles dans les dépôts MLED.
+
+
+Configuration
+-------------
+
+Le démon LibVirt doit être lancé au démarrage de la machine aussi bien sur
+l'hôte KVM que sur la station de travail. Pour ce faire, il faudra ajouter une
+stance à '/etc/rc.d/rc.local' :
+
+--8<---------- /etc/rc.d/rc.local --------------------------------------------
+# Start libvirt:
+if [ -x /etc/rc.d/rc.libvirt ]; then
+  /etc/rc.d/rc.libvirt start
+fi
+--8<--------------------------------------------------------------------------
+
+Pour faire les choses proprement et arrêter le démon de LibVirt à l'extinction
+de la machine, on pourra également éditer '/etc/rc.d/rc.local_shutdown' :
+
+--8<---------- /etc/rc.d/rc.local_shutdown -----------------------------------
+# Stop libvirt:
+if [ -x /etc/rc.d/rc.libvirt ]; then
+  /etc/rc.d/rc.libvirt stop
+fi
+--8<--------------------------------------------------------------------------
+
+Sur l'hôte KVM, je dois disposer d'un utilisateur "commun mortel", qui doit
+être membre du groupe 'users'. 
+
+La connexion à distance de Virt-Manager vers l'hôte KVM se sera via SSH. Je
+dois donc mettre en place une authentification par clé et sans mot de passe.
+Pour les détails, voir le SSH-Key-HOWTO.
+
+
+Création d'une première machine virtuelle
+-----------------------------------------
+
+Lancer Virt-Manager sur la station de travail. Dans un premier temps, il
+faudra nous connecter à l'hôte KVM :
+
+  Fichier > Ajouter une connexion
+
+  Hyperviseur : QEMU/KVM
+
+  [*] Connexion à un hôte distant
+
+  Méthode : SSH
+
+  Nom d'utilisateur : kikinovak
+
+  Nom de l'hôte : kvmhost.microlinux.lan
+
+  [*] Connexion automatique
+
+Appuyer sur 'Connecter'. Si tout se passe bien, on voit apparaître une
+nouvelle ligne 'QEMU/KVM:kvmhost.microlinux.lan' dans la fenêtre principale de
+Virt-Manager.
+
+Faire un clic droit sur la ligne symbolisant l'hôte KVM et cliquer sur
+'Détails' dans le menu contextuel.
+
+Dans la configuration par défaut, LibVirt stocke les images ISO et les
+conteneurs (ou images disque) dans '/var/lib/libvirt/images'. Nous pourrons
+personnaliser cet emplacement par la suite, mais pour l'instant, nous allons
+tout simplement utiliser cet emplacement par défaut. 
+
+Étant donné qu'il me faudra installer plusieurs versions et architectures de
+Slackware, je télécharge les fichiers ISO correspondants vers ce répertoire.
+Je retourne dans Virt-Manager, je rafraîchis la vue avec le bouton 'Actualiser
+la liste des volumes', et j'obtiens ceci :
+
+  * slackware-14.0-install-dvd.iso   2.29 GiB iso
+  * slackware-14.1-install-dvd.iso   3.58 GiB iso
+  * slackware64-14.0-install-dvd.iso 2.24 GiB iso
+  * slackware64-14.1-install-dvd.iso 3.65 GiB iso
+
+Fermer la fenêtre, refaire un clic droit sur la ligne symbolisant l'hôte KVM
+et choisir 'Nouveau' dans le menu contextuel :
+
+  Nouveau > Créer une machine virtuelle
+
+  [*] Média d'installation local (image ISO)
+
+  [*] Utiliser une image ISO > Parcourir > choisir l'image ISO souhaitée
+
+  Type de système d'exploitation : Linux
+
+  Version : Slackware 14.0/14.1
+
+  Sélectionner la quantité de RAM et le nombre de processeurs dédiés.
+
+  [*] Activer le stockage pour cette machine virtuelle
+
+  [*] Créer une image disque sur le disque dur de l'ordinateur
+
+  Choisir la taille de l'image disque.
+
+L'installation de la machine virtuelle s'ouvre dans une nouvelle fenêtre. On
+peut maximiser cette fenêtre et même l'afficher en plein écran. Pour récupérer
+le focus de la souris, il faudra utiliser la combinaison de touches
+[Ctrl]+[Alt] à gauche du clavier. 
+
+
+Réseau
+------
+
+Au redémarrage initial de la machine virtuelle, on s'aperçoit qu'il n'y a
+aucune interface réseau à part 'lo'. On va donc changer cela. 
+
+La machine hôte nécessite une petite modification. On va créer un pont
+(bridge) comme ceci :
+
+--8<---------- /etc/rc.d/rc.inet1.conf ---------------------------------------
+...
+# Config information for br0::
+IFNAME[0]="br0"
+BRNICS[0]="eth0"
+IPADDR[0]=""
+NETMASK[0]=""
+USE_DHCP[0]="yes"
+DHCP_HOSTNAME[0]=""
+...
+--8<--------------------------------------------------------------------------
+
+Déconnecter Virt-Manager et redémarrer l'hôte KVM pour prendre en compte la
+nouvelle configuration réseau.
+
+Paramètres de la machine virtuelle > NIC :XX:YY:ZZ > Clic droit > Enlever 
+
+Ajouter un matériel > Network > Réseau :
+
+  Network source : Bridge br0: Host device eth0
+
+  Adresse MAC : 52:54:00:XX:YY:ZZ (définir)
+
+  Device model : virtio
+
+Avec cette configuration, on obtient une interface 'eth0' dans la machine
+virtuelle, et celle-ci fait partie du réseau local. L'adresse MAC peut être
+utilisée pour créer une entrée invariable dans la configuration Dnsmasq du
+serveur local. 
+
+
+Affichage
+---------
+
+Dans un premier temps, configurer le serveur graphique Xorg sur l'hôte KVM. 
+
+Ouvrir les paramètres de la machine virtuelle et remplacer la carte vidéo QXL
+par défaut par une carte VGA. 
+
+Ensuite, démarrer la machine virtuelle et créer une stance de configuration
+pour le serveur graphique Xorg, dans laquelle on pourra définir manuellement
+la résolution de l'écran :
+
+--8<---------- /etc/X11/xorg.conf.d/monitor.conf -----------------------------
+Section "Monitor"
+        Identifier "Monitor0"
+        HorizSync   30 - 80
+        VertRefresh 40 - 90
+EndSection
+
+Section "Device"
+        Identifier "Card0"
+        Driver     "vesa"
+Endsection
+
+Section "Screen"
+        Identifier "Screen0"
+        Device     "Card0"
+        Monitor    "Monitor0"
+        SubSection "Display"
+                Viewport 0 0
+                Modes "1280x1024"
+        EndSubSection
+EndSection
+--8<--------------------------------------------------------------------------
+
+
+Documentation
+-------------
+
+  * KVM für die Server-Virtualisierung, Michael Kofler, 2012
+
+  * Apprentissage de QEMU/LibVirt par l'exemple, Nicolas Hennion
+
+  * KVM and LibVirt sur http://docs.slackware.com
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
+
+
