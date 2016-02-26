@@ -2,9 +2,19 @@
 KVM HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =========
 
-Dernière révision : 25 février 2016
+Dernière révision : 26 février 2016
 
 Ce HOWTO décrit la virtualisation avec KVM sous Slackware Linux.
+
+
+  * Introduction
+  * Prérequis
+  * Installation
+  * Configuration
+  * Création d'une première machine virtuelle
+  * Réseau
+  * Affichage
+  * Migrer vers un autre hyperviseur
 
 
 Introduction
@@ -18,9 +28,9 @@ et j'ai également testé la virtualisation avec VirtualBox.
 Ces deux solutions sont assez limitées. La meilleure solution consiste ici à
 mettre en place une série de machines virtuelles avec QEMU/KVM et LibVirt. 
 
-Dans ce tutoriel, je décrirai la mise en place d'un hôte KVM dans mon réseau
-local (kvmhost.microlinux.lan) et d'une série de machines virtuelles
-installées sur cet hôte (buildbox.microlinux.lan). 
+Dans ce tutoriel, je décrirai la mise en place d'un hôte KVM (également appelé
+"hyperviseur") dans mon réseau local (kvmhost.microlinux.lan) et d'une série
+de machines virtuelles installées sur cet hôte (buildbox.microlinux.lan). 
 
 Nous allons éviter de nous compliquer la vie avec les myriades d'options en
 ligne de commande de QEMU. Au lieu de cela, nous allons profiter des
@@ -335,6 +345,53 @@ Section "Screen"
         EndSubSection
 EndSection
 --8<--------------------------------------------------------------------------
+
+
+Migrer vers un autre hyperviseur
+--------------------------------
+
+On peut très bien migrer une machine virtuelle d'un hyperviseur KVM vers un
+autre. Dans un premier temps, il faut éteindre la machine virtuelle.
+
+Afficher ce qu'on a :
+
+  # virsh list --all
+   ID    Nom                            État
+  ----------------------------------------------------
+   -     MLES-14.1-64bit                fermé
+
+Faire un dump de la configuration pour la copier sur le nouvel hyperviseur :
+
+  # virsh dumpxml MLES-14.1-64bit > /tmp/MLES-14.1-64bit.xml
+  # scp /tmp/MLES-14.1-64bit.xml kvmhost:/tmp/
+
+Se connecter au nouvel hyperviseur et importer la configuration :
+
+  # virsh define /tmp/MLES-14.1-64bit.xml
+
+Il faudra probablement effectuer quelques ajustements. Dans l'exemple, le
+démarrage de la machine virtuelle sur le nouvel hyperviseur s'est soldé par
+une première erreur :
+
+  ...
+  Guest and host CPU are not compatible: Host CPU does not provide required
+  features: monitor
+  ...
+
+Pour résoudre ce problème, j'ai ouvert les paramètres de l'hôte à l'onglet
+'Processor' et j'ai coché ceci :
+
+  [*] Copy host CPU configuration
+
+Une deuxième tentative de démarrage s'est soldée par un message d'erreur
+concernant une interface réseau inexistante :
+
+  ...
+  Cannot get interface MTU on 'br1': No such device
+  ...
+
+Là aussi, il suffisait d'ouvrir les paramètres de la machine virtuelle et de
+rectifier l'interface correcte, en l'occurrence le pont 'br0'. 
 
 
 Documentation
