@@ -277,6 +277,29 @@ virtuelle, et celle-ci fait partie du réseau local. L'adresse MAC peut être
 utilisée pour créer une entrée invariable dans la configuration Dnsmasq du
 serveur local. 
 
+Parlant de serveur local, sur une passerelle munie de deux cartes réseau, il
+faudra modifier la configuration comme ceci :
+
+--8<---------- /etc/rc.d/rc.inet1.conf ---------------------------------------
+...
+# Config information for eth0:
+IPADDR[0]="192.168.1.2"
+NETMASK[0]="255.255.255.0"
+USE_DHCP[0]=""
+DHCP_HOSTNAME[0]=""
+ 
+# Config information for br1::
+IFNAME[1]="br1"
+BRNICS[1]="eth1"
+IPADDR[1]="192.168.2.1"
+NETMASK[1]="255.255.255.0"
+USE_DHCP[1]=""
+DHCP_HOSTNAME[1]=""
+...
+--8<--------------------------------------------------------------------------
+
+Les machines virtuelles utiliseront le pont 'br1'. 
+
 
 Affichage
 ---------
