@@ -1,5 +1,8 @@
 Sun Feb 28 08:17:34 CET 2016
 iperf-2.0.5-i486-1_microlinux.txz: Added.
+libvirt-1.2.21-i486-2_microlinux.txz: Rebuilt.
+  Fixed 'virsh: command not found' in rc.libvirt.
+	Thanks to Matteo Bernardini.
 +--------------------------+
 Mon Feb 22 09:42:03 CET 2016
 celt051-0.5.1.3-i486-1_microlinux.txz: Added.

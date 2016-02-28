@@ -20,13 +20,13 @@ check_running_machines() {
 
   count=0
 
-  for machine in $(virsh list --name --state-running | grep -v ^$) ; do
+  for machine in $(/usr/sbin/virsh list --name --state-running | grep -v ^$) ; do
     /usr/sbin/virsh shutdown $machine
   done
 
   echo -n "Waiting machines"
 
-  while [ $(virsh list --name --state-running | grep -v ^$ | wc -l) -gt "0" ]; do
+  while [ $(/usr/sbin/virsh list --name --state-running | grep -v ^$ | wc -l) -gt "0" ]; do
     if [ "$count" -ge "$TIMEOUT" ];then
       break
     fi
@@ -37,10 +37,10 @@ check_running_machines() {
 
   echo ""
 
-  if [ $(virsh list --name --state-running | grep -v ^$ | wc -l) -gt "0" ];then
+  if [ $(/usr/sbin/virsh list --name --state-running | grep -v ^$ | wc -l) -gt "0" ];then
 
     echo -n "The following machines are still running, forcing shutdown: "
-    for machine in $(virsh list --name --state-running | grep -v ^$) ; do
+    for machine in $(/usr/sbin/virsh list --name --state-running | grep -v ^$) ; do
       /usr/sbin/virsh destroy $machine
       echo -n "$machine "
     done
