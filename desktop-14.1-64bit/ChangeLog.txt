@@ -1,3 +1,9 @@
+Sun Feb 28 08:55:17 CET 2016
+iperf-2.0.5-x86_64-1_microlinux.txz: Added.
+libvirt-1.2.21-x86_64-2_microlinux.txz: Rebuilt.
+  Fixed 'virsh: command not found' in rc.libvirt.
+	Thanks to Matteo Bernardini.
++--------------------------+
 Tue Feb 23 15:44:30 CET 2016
 mozilla-thunderbird-langpack-38.6.0-x86_64-1_microlinux.txz: Upgraded.
 jdk-8u73-x86_64-1_microlinux.txz: Upgraded.
