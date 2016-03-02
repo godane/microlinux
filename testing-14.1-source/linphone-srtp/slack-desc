@@ -1,0 +1,12 @@
+             |-----handy-ruler------------------------------------------------------|
+linphone-srtp: linphone-srtp (Secure RTP libraries)
+linphone-srtp:
+linphone-srtp: linphone-srtp is a fork of libSRTP that is compatible
+linphone-srtp: with Linphone itself.
+linphone-srtp:
+linphone-srtp: The libSRTP library is an open-source implementation of
+linphone-srtp: the Secure Real-time Transport Protocol (SRTP) originally
+linphone-srtp: authored by Cisco Systems, Inc. It is available under
+linphone-srtp: a BSD-style license.
+linphone-srtp: 
+linphone-srtp: Package created by Niki Kovacs <info@microlinux.fr>
