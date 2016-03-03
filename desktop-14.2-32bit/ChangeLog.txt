@@ -1,3 +1,6 @@
+Thu Mar  3 14:42:24 CET 2016
+flashplayer-plugin-11.2.202.569-i386-1_microlinux.txz: Upgraded.
++--------------------------+
 Tue Feb 23 15:55:00 CET 2016
 mozilla-thunderbird-langpack-38.6.0-i586-1_microlinux.txz: Upgraded.
 jdk-8u73-i586-2_microlinux.txz: Upgraded.
