@@ -24,6 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=xfce4-power-manager      
+# 1.5.2 requires gtk+-3.14.0 or higher, so we stick with 1.4.4
 VERSION=${VERSION:-1.4.4}  
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}   
