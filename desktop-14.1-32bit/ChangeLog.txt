@@ -1,6 +1,7 @@
 Fri Mar  4 12:29:52 CET 2016
 exo-0.10.7-i486-1_microlinux.txz: Upgraded.
 xfdesktop-4.12.3-i486-1_microlinux.txz: Upgraded.
+xfce4-weather-plugin-0.8.6-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Thu Mar  3 14:00:17 CET 2016
 flashplayer-plugin-11.2.202.569-i386-1_microlinux.txz: Upgraded.
