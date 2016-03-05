@@ -2,10 +2,11 @@
 Apache HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ============
 
-Dernière révision : 26 avril 2015
+Dernière révision : 5 mars 2016
 
 Ce HOWTO décrit la configuration d'un serveur Apache sur une machine tournant
 sous Slackware. 
+
 
   * Introduction
   * Prérequis
@@ -72,10 +73,6 @@ exemple :
   * http://192.168.2.1
 
 On peut également invoquer le nom d'hôte :
-
-  * http://nestor
-
-Ou encore :
 
   * http://nestor.microlinux.lan
 
@@ -160,10 +157,15 @@ ici comme aspirateur de site :
 
   # wget -r -np -nH --cut-dirs=1 http://www.slackbook.org/html/
 
-Éventuellement, assainir les permissions :
+Assainir les permissions :
 
   # find . -type d | xargs chmod 0755
   # find . -type f | xargs chmod 0644
+
+Éventuellement, on pourra définir des permissions plus strictes :
+
+  # find . -type d | xargs chmod 0750
+  # find . -type f | xargs chmod 0640
 
 Le serveur Apache tourne avec les droits de l'utilisateur 'apache' et du groupe
 'apache' :
@@ -315,6 +317,8 @@ Au total, on a donc :
 
 On va définir les permissions à la louche :
 
+  # find . -type d | xargs chmod 0750
+  # find . -type f | xargs chmod 0640
   # chown -R apache:apache *
 
 Éditer le fichier '/etc/httpd/extra/httpd-vhosts.conf'. On pourra utiliser une
@@ -413,9 +417,9 @@ Redémarrer Apache pour prendre en compte les deux nouveaux hôtes virtuels :
 
 Tester l'affichage des trois différents sites :
 
-  * http://slackware.nestor 
-  * http://freebsd.nestor 
-  * http://nestor --> page par défaut
+  * http://slackware.nestor.microlinux.lan 
+  * http://freebsd.nestor.microlinux.lan 
+  * http://nestor.microlinux.lan --> page par défaut
 
 Sur un serveur dédié avec un domaine publiquement accessible, la configuration
 des hôtes virtuels ressemblera à ceci :
