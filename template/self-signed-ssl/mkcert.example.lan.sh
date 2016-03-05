@@ -1,9 +1,8 @@
 #!/bin/sh
 #
-# mkcrt.sh
+# mkcert-example.lan.sh
 #
-# Script to generate a self-signed certificate for multiple domains like
-# example.com, www.example.com, mail.example.com, ftp.example.com, etc.
+# Script to generate a self-signed certificate for multiple local domains.
 #
 # Usage: copy this script to an appropriate place on the system like
 # /root/scripts/ or /etc/ssl/scripts/. Eventually, rename it to something like
@@ -17,7 +16,7 @@
 #
 # Niki Kovacs <info@microlinux.fr>
 
-DOMAIN="slackbox.fr"
+DOMAIN="amandine.microlinux.lan"
 
 SSLDIR="/etc/ssl"
 CRTDIR="$SSLDIR/mycerts"
@@ -28,7 +27,7 @@ CSRFILE="$CRTDIR/$DOMAIN.csr"
 CRTFILE="$CRTDIR/$DOMAIN.crt"
 
 # Testing
-# rm -f $CNFFILE $KEYFILE $CSRFILE $CRTFILE
+rm -f $CNFFILE $KEYFILE $CSRFILE $CRTFILE
 
 # Create certs group 
 if ! grep -q "^certs:" /etc/group ; then
@@ -89,8 +88,8 @@ subjectAltName = @alt_names
 
 [alt_names]
 DNS.1 = $DOMAIN
-DNS.2 = www.$DOMAIN
-DNS.3 = mail.$DOMAIN
+DNS.2 = cloud.$DOMAIN
+DNS.3 = cmsmadesimple.$DOMAIN
 DNS.4 = ftp.$DOMAIN
 EOF
 
