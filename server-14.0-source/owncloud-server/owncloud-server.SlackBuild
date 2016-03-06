@@ -69,7 +69,7 @@ echo
 read -p "DOCROOT [/srv/httpd/htdocs] : " DOCROOT
 DOCROOT=${DOCROOT:-/srv/httpd/htdocs}
 echo
-echo "Now, choose a destination folder of your owncloud installation."
+echo "Now, choose a destination folder for your OwnCloud installation."
 echo "Sensible choices are owncloud/htdocs, example-owncloud/htdocs, etc."
 echo
 read -p "DESTDIR [owncloud/htdocs] : " DESTDIR
