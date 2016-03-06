@@ -24,7 +24,7 @@
 #
 # Modified by Niki Kovacs <info@microlinux.fr>
 #
-# This modified version will ask you to provide values for two variables:
+# This modified version will ask you to provide values for three variables:
 #
 # DOMAIN is your cloud's domain, e. g. example.com, microlinux.eu, etc.
 #
