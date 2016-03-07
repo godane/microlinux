@@ -37,8 +37,7 @@
 # can install and run multiple CMS Made Simple instances for different domains 
 # on a single server, using Apache Virtual Hosts.
 
-PRGNAM=cmsmadesimple1
-SRCNAM=cmsmadesimple
+PRGNAM=cmsmadesimple
 VERSION=${VERSION:-1.12.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
@@ -83,7 +82,7 @@ echo
 
 sleep 10
 
-DOWNLOAD="http://s3.amazonaws.com/cmsms/downloads/12791/$SRCNAM-$VERSION-full.tar.gz"
+DOWNLOAD="http://s3.amazonaws.com/cmsms/downloads/12791/$PRGNAM-$VERSION-full.tar.gz"
 
 wget -c $DOWNLOAD
 
@@ -92,7 +91,7 @@ mkdir -p $TMP $PKG $OUTPUT
 
 mkdir -p $PKG/$DOCROOT/$DESTDIR
 cd $PKG/$DOCROOT/$DESTDIR
-tar xvf $CWD/$SRCNAM-$VERSION-full.tar.gz
+tar xvf $CWD/$PRGNAM-$VERSION-full.tar.gz
 
 # Move documentation to an appropriate place
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
