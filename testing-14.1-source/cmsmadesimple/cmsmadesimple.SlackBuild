@@ -68,10 +68,10 @@ read -p "DOCROOT [/srv/httpd/htdocs] : " DOCROOT
 DOCROOT=${DOCROOT:-/srv/httpd/htdocs}
 echo
 echo "Now, choose a destination folder for your CMS Made Simple installation."
-echo "Sensible choices are cmsms/htdocs, example-cmsms/htdocs, etc."
+echo "Sensible choices are cmsmadesimple/htdocs, example-cmsmadesimple/htdocs, etc."
 echo
-read -p "DESTDIR [cmsms/htdocs] : " DESTDIR
-DESTDIR=${DESTDIR:-cmsms/htdocs}
+read -p "DESTDIR [cmsmadesimple/htdocs] : " DESTDIR
+DESTDIR=${DESTDIR:-cmsmadesimple/htdocs}
 echo
 echo "DOMAIN  = $DOMAIN"
 echo "DOCROOT = $DOCROOT"
