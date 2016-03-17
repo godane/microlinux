@@ -258,6 +258,11 @@ Et pour une sauvegarde globale :
 
   $ gunzip -c sauvegarde.sql.gz | mysql -u root -p
 
+Si l'on obtient des erreurs de connexion aux bases restaurées, il faudra se
+connecter au moniteur MySQL, puis :
+
+  mysql> flush privileges;
+
 
 ------------------------------------------------------------------------------
 # vim: syntax=txt
