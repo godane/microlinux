@@ -251,17 +251,6 @@ flac: libFLAC and libFLAC++ are available under the LGPL and the sources for
 flac: flac, metaflac, and the plugins are available under the GPL.
 flac:
 flac: FLAC was developed by Josh Coalson.
-foomatic-filters: foomatic-filters (Universal print filter/RIP wrapper)
-foomatic-filters:
-foomatic-filters: foomatic-rip is a universal print filter, which is used by CUPS with
-foomatic-filters: the gutenprint and hplip printer drivers.  It translates PostScript
-foomatic-filters: (and also other file formats) to the printer's native language,
-foomatic-filters: usually using Ghostscript (gs) as the external renderer.  The way
-foomatic-filters: this translation is done is described in a PPD file.
-foomatic-filters:
-foomatic-filters: For more information on foomatic, see:  http://linuxprinting.org
-foomatic-filters:
-foomatic-filters:
 ghostscript: ghostscript (Postscript and PDF interpreter)
 ghostscript:
 ghostscript: Ghostscript is an interpreter of Adobe Systems' PostScript(tm)
@@ -337,7 +326,7 @@ htop: Tasks related to processes (killing, renicing) can be done without
 htop: entering their PIDs.
 htop:
 htop: htop is developed by Hisham Muhammad.
-htop: Homepage:  http://htop.sf.net
+htop: Homepage:  http://hisham.hm/htop/
 htop:
 ispell: ispell (spelling checker)
 ispell:
@@ -713,10 +702,10 @@ slackpkg: Slackpkg DOESN'T replace pkgtool. Actually, Slackpkg uses pkgtool
 slackpkg: for all install|upgrade|remove functions.
 slackpkg:
 slackpkg:
-soma: Soma - a command line/dialog internet radio player
+soma: Soma (a command line/dialog internet radio player)
 soma:
-soma: Soma is a frontend for mplayer to play radio playlists pls,m3u and 
-soma: ram. More will be added as it progresses.
+soma: Soma is a frontend for mplayer to play radio playlists pls, m3ui, and 
+soma: ram.  More will be added as it progresses.
 soma:
 soma: Homepage: http://www.dawoodfall.net/slackbuilds/noversion/soma
 soma:

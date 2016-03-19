@@ -176,6 +176,7 @@ libsndfile:ADD
 libsoup:ADD
 libspectre:ADD
 libssh:ADD
+libssh2:ADD
 libtasn1:ADD
 libtermcap:ADD
 libtheora:ADD
@@ -238,9 +239,6 @@ pygtk:ADD
 pyrex:ADD
 python-pillow:ADD
 qca:ADD
-qca-cyrus-sasl:ADD
-qca-gnupg:ADD
-qca-ossl:ADD
 qimageblitz:ADD
 qjson:ADD
 qt:ADD

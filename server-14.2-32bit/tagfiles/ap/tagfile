@@ -22,7 +22,6 @@ dmidecode:ADD
 dvd+rw-tools:ADD
 enscript:ADD
 flac:ADD
-foomatic-filters:ADD
 ghostscript:ADD
 ghostscript-fonts-std:ADD
 gphoto2:ADD

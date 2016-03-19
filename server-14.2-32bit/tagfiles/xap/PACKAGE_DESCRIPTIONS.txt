@@ -152,6 +152,17 @@ gnuplot: supports many different types of terminals, plotters, and printers
 gnuplot: (including many color devices, and pseudo-devices like LaTeX) and is
 gnuplot: easily extensible to include new devices.
 gnuplot:
+gparted: gparted (Graphical partition editor)
+gparted:
+gparted: With GParted you can resize, copy, and move partitions without data
+gparted: loss, enabling you to:
+gparted:
+gparted:   * Grow or shrink your C: drive
+gparted:   * Create space for new operating systems
+gparted:   * Attempt data rescue from lost partitions
+gparted:
+gparted: http://gparted.sourceforge.net/
+gparted:
 gucharmap: gucharmap (character map utility)
 gucharmap:
 gucharmap: gucharmap is a Unicode character map and font viewer.
@@ -174,6 +185,17 @@ gv: Theisen's ghostview 1.5 as a starting point.
 gv:
 gv:
 gv:
+hexchat: hexchat (GTK+ IRC client)
+hexchat:
+hexchat: HexChat is an IRC client for Windows and UNIX-like operating systems.
+hexchat:
+hexchat: Website:  https://hexchat.github.io/
+hexchat:
+hexchat:
+hexchat:
+hexchat:
+hexchat:
+hexchat:
 imagemagick: imagemagick (a robust collection of image processing tools)
 imagemagick:
 imagemagick: ImageMagick is a collection of tools for manipulating and displaying
@@ -372,17 +394,6 @@ xaos:
 xaos: Visit XaoS online:  http://xaos.sf.net
 xaos:
 xaos:
-xchat: xchat (GTK+-based IRC client)
-xchat:
-xchat: X-Chat is a GTK+-based IRC (Internet Relay Chat) client.
-xchat:
-xchat:
-xchat:
-xchat:
-xchat:
-xchat:
-xchat:
-xchat:
 xfractint: xfractint (fractal generation program)
 xfractint:
 xfractint: Xfractint draws a wide variety of fractals. Xfractint is a port of the

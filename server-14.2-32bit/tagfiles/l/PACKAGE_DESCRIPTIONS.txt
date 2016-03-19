@@ -473,15 +473,15 @@ fftw: competitive with vendor-tuned libraries.
 fftw:
 fftw: Homepage: http://www.fftw.org/
 fftw:
-freetype: freetype (A Free, High-Quality, and Portable Font Engine)
+freetype: freetype (A free, high-quality, and portable font engine)
 freetype:
-freetype: The FreeType engine is a free and portable TrueType font rendering
-freetype: engine.  It has been developed to provide TrueType support to a
-freetype: great variety of platforms and environments.
+freetype: FreeType is a free and portable font rendering engine.  It has been
+freetype: developed to provide support for a number of font formats, including
+freetype: TrueType, Type 1, and OpenType, and is designed to be small,
+freetype: efficient, highly customizable, and portable while capable of
+freetype: producing high-quality output.
 freetype:
-freetype:
-freetype:
-freetype:
+freetype: Homepage:  http://www.freetype.org
 freetype:
 freetype:
 fribidi: fribidi (Unicode BiDirectional algorithm library)
@@ -490,7 +490,7 @@ fribidi: This library implements the Unicode BiDirectional algorithm, which
 fribidi: is needed in order to support right-to-left languages such as Arabic
 fribidi: and Hebrew.  It is used in display software like KDE's SVG modules.
 fribidi:
-fribidi:
+fribidi: Homepage:  http://fribidi.org
 fribidi:
 fribidi:
 fribidi:
@@ -902,6 +902,17 @@ gtk+3:
 gtk+3:
 gtk+3:
 gtk+3:
+gtkmm2: gtkmm2 (C++ interface for GTK+2)
+gtkmm2:
+gtkmm2: gtkmm is the official C++ interface for the popular GUI library
+gtkmm2: GTK+.  Highlights include typesafe callbacks, and a comprehensive set
+gtkmm2: of widgets that are easily extensible via inheritance.
+gtkmm2:
+gtkmm2: Homepage:  http://www.gtkmm.org/
+gtkmm2:
+gtkmm2:
+gtkmm2:
+gtkmm2:
 gtkmm3: gtkmm3 (C++ interface for GTK+3)
 gtkmm3:
 gtkmm3: gtkmm is the official C++ interface for the popular GUI library
@@ -1232,6 +1243,17 @@ libcap: Andrew Main, and Alexander Kjeldaas.
 libcap:
 libcap:
 libcap:
+libcap-ng: libcap-ng (capabilities library and utilities)
+libcap-ng:
+libcap-ng: The libcap-ng library is intended to make programming with POSIX
+libcap-ng: capabilities easier.  The package also includes utilities to help
+libcap-ng: analyze a system for programs that may have too much privilege.
+libcap-ng:
+libcap-ng: libcap-ng was written and is maintained by Steve Grubb.
+libcap-ng:
+libcap-ng: Homepage:  https://people.redhat.com/sgrubb/libcap-ng/
+libcap-ng:
+libcap-ng:
 libcddb: libcddb (An online CD database library)
 libcddb:
 libcddb: Libcddb is a library that implements the different protocols (CDDBP,
@@ -1427,7 +1449,7 @@ libical: 2447). It parses iCal components and provides C/C++/Python/Java APIs
 libical: for manipulating the component properties, parameters, and
 libical: subcomponents.
 libical:
-libical: Homepage:  http://sourceforge.net/projects/freeassociation/
+libical: Homepage:  https://github.com/libical/libical
 libical:
 libical:
 libid3tag: libid3tag (ID3 tag manipulation library)
@@ -1655,13 +1677,13 @@ libnl:
 libnl3: libnl3 (Netlink Protocol Library Suite version 3)
 libnl3:
 libnl3: The libnl suite is a collection of libraries providing APIs to 
-libnl3: netlink protocol based Linux kernel interfaces.
-libnl3: Netlink is a IPC mechanism primarily between the kernel and user 
-libnl3: space processes. It was designed to be a more flexible successor 
-libnl3: to ioctl to provide mainly networking related kernel configuration 
-libnl3: and monitoring interfaces. 
+libnl3: netlink protocol based Linux kernel interfaces.  Netlink is a IPC
+libnl3: mechanism primarily between the kernel and user space processes.
+libnl3: It was designed to be a more flexible successor to ioctl to provide
+libnl3: mainly networking related kernel configuration and monitoring
+libnl3: interfaces. 
 libnl3:
-libnl3: Homepage: http://www.infradead.org/~tgr/libnl/
+libnl3: Homepage:  https://github.com/thom311/libnl
 libnl3:
 libnotify: libnotify (notification library)
 libnotify: 
@@ -1894,6 +1916,17 @@ libssh: Homepage: http://www.libssh.org/
 libssh:
 libssh:
 libssh:
+libssh2: libssh2 (SSH2 library)
+libssh2:
+libssh2: libssh2 is a library implementing the SSH2 protocol, available under
+libssh2: the revised BSD license.
+libssh2:
+libssh2: Homepage:  http://www.libssh2.org/
+libssh2:
+libssh2:
+libssh2:
+libssh2:
+libssh2:
 libtasn1: libtasn1 (ASN.1 library)
 libtasn1:
 libtasn1: Libtasn1 is the GNU ASN.1 library.  Abstract Syntax Notation One
@@ -2597,39 +2630,6 @@ qca: to easily change or upgrade crypto implementations without needing
 qca: to recompile the application.
 qca:
 qca: QCA was written by Justin Karneges.
-qca-cyrus-sasl: qca-cyrus-sasl (Cyrus SASL plugin for QCA)
-qca-cyrus-sasl:
-qca-cyrus-sasl: This plugin provides features based on Cyrus SASL version 2.
-qca-cyrus-sasl:
-qca-cyrus-sasl:
-qca-cyrus-sasl:
-qca-cyrus-sasl:
-qca-cyrus-sasl:
-qca-cyrus-sasl:
-qca-cyrus-sasl:
-qca-cyrus-sasl:
-qca-gnupg: qca-gnupg (GnuPG plugin for QCA)
-qca-gnupg:
-qca-gnupg: This plugin provides features based on GnuPG.
-qca-gnupg:
-qca-gnupg:
-qca-gnupg:
-qca-gnupg:
-qca-gnupg:
-qca-gnupg:
-qca-gnupg:
-qca-gnupg:
-qca-ossl: qca-ossl (OpenSSL plugin for QCA)
-qca-ossl:
-qca-ossl: This plugin provides features based on OpenSSL.  It implements:
-qca-ossl: * Hashing - SHA1, SHA0, RIPEMD160, MD2, MD4, MD5
-qca-ossl: * Hashing - SHA224, SHA256, SHA384 and SHA512
-qca-ossl: * Block Ciphers
-qca-ossl: * Keyed Hash Message Authentication Code (HMAC), using SHA1,
-qca-ossl:   MD5, and RIPEMD160
-qca-ossl: * Public keys - RSA, DSA, Diffie-Hellman
-qca-ossl: * PKCS#12       * SSL/TLS       * CMS (for S/MIME)
-qca-ossl:
 qimageblitz: QImageBlitz (Graphical effect and filter library for KDE4)
 qimageblitz:
 qimageblitz: Blitz is a graphical effect and filter library for KDE4.0 that 
@@ -2810,12 +2810,12 @@ shared-mime-info: shared-mime-info (MIME database)
 shared-mime-info:
 shared-mime-info: This package contains:
 shared-mime-info:
-shared-mime-info:   The freedesktop.org shared MIME database spec.
-shared-mime-info:   The merged GNOME and KDE databases, in the new format.
-shared-mime-info:   The update-mime-database command, used to install new MIME data.
+shared-mime-info: The freedesktop.org shared MIME database spec.
+shared-mime-info: The merged GNOME and KDE databases, in the new format.
+shared-mime-info: The update-mime-database command, used to install new MIME data.
 shared-mime-info:
-shared-mime-info: See http://www.freedesktop.org/standards/shared-mime-info.html for
-shared-mime-info: more information.
+shared-mime-info: Homepage:  https://freedesktop.org/wiki/Software/shared-mime-info/
+shared-mime-info:
 shared-mime-info:
 sip: SIP (a tool for generating Python bindings)
 sip:

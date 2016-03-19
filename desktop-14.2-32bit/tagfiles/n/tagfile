@@ -64,7 +64,6 @@ libnetfilter_queue:ADD
 libnfnetlink:ADD
 libnftnl:ADD
 libqmi:ADD
-libssh2:ADD
 libtirpc:ADD
 links:ADD
 lynx:ADD

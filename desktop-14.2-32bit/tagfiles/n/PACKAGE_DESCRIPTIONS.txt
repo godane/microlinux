@@ -64,17 +64,6 @@ bluez-firmware:
 bluez-firmware:
 bluez-firmware:
 bluez-firmware:
-bluez-hcidump: bluez-hcidump (Bluetooth analyzer)
-bluez-hcidump:
-bluez-hcidump: The bluez-hcidump package contains a network analyzer for Bluetooth.
-bluez-hcidump: This utility (hcidump) utility reads raw HCI data coming from and
-bluez-hcidump: going to a Bluetooth device and prints commands, events and data.
-bluez-hcidump:
-bluez-hcidump: For more info, visit:  http://www.bluez.org
-bluez-hcidump:
-bluez-hcidump:
-bluez-hcidump:
-bluez-hcidump:
 bootp: bootp
 bootp:
 bootp: This is an enhanced version of the CMU BOOTP server which was derived
@@ -702,17 +691,6 @@ libqmi:
 libqmi:
 libqmi:
 libqmi:
-libssh2: libssh2 (SSH2 library)
-libssh2:
-libssh2: libssh2 is a library implementing the SSH2 protocol, available under
-libssh2: the revised BSD license.
-libssh2:
-libssh2: Homepage:  http://www.libssh2.org/
-libssh2:
-libssh2:
-libssh2:
-libssh2:
-libssh2:
 libtirpc: libtirpc (Transport-Independent RPC library)
 libtirpc:
 libtirpc: Libtirpc is a port of Sun's Transport-Independent RPC library to
