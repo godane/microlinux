@@ -1,0 +1,141 @@
+===========
+Iperf HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+===========
+
+Dernière révision : 22 mars 2016
+
+Ce HOWTO décrit l'outil de test de performance réseau Iperf.
+
+
+  * Introduction
+  * Prérequis
+  * Installation
+  * Utilisation basique
+  * Utilisation avancée
+
+
+Introduction
+------------
+
+Iperf fait partie des outils indispensables pour tout administrateur réseau
+qui se respecte. C'est un outil de mesure de performance réseau qui se
+présente sous la forme d'une ligne de commande à exécuter sur deux machines
+disposées aux extrémités du réseau à tester.
+
+Iperf fonctionne comme un client-serveur. La première machine lance Iperf en
+"mode serveur", la seconde en "mode client". Par défaut le test réseau se fait
+en utilisant le protocole TCP. 
+
+
+Prérequis
+---------
+
+Iperf utilise le port 5001 en TCP. Il faut donc songer à ouvrir ce port sur la
+machine qui sert de "serveur". 
+
+
+Installation
+------------
+
+Iperf ne fait pas partie d'une installation standard de Slackware, mais on le
+trouve sur SlackBuilds.org. Des paquets binaires sont disponibles dans les
+dépôts MLED et MLES.
+
+
+Utilisation basique
+-------------------
+
+Sur une des deux machines de test, nous allons lancer le serveur grâce à la
+commande suivante :
+
+  # iperf -s 
+  ------------------------------------------------------------
+  Server listening on TCP port 5001
+  TCP window size: 85.3 KByte (default)
+  ------------------------------------------------------------
+
+Sur l'autre machine, il ne reste plus qu'à lancer le client en précisant
+l'adresse du serveur :
+
+  # iperf -c nestor
+  ------------------------------------------------------------
+  Client connecting to nestor, TCP port 5001
+  TCP window size: 22.9 KByte (default)
+  ------------------------------------------------------------
+  [  3] local 192.168.2.2 port 38947 connected with 192.168.2.1 port 5001
+
+Le rapport s'affiche au bout de dix secondes de test :
+
+  [ ID] Interval       Transfer     Bandwidth
+  [  3]  0.0-10.0 sec  1.09 GBytes   934 Mbits/sec
+
+
+Utilisation avancée
+-------------------
+
+Pour afficher des rapports intermédiaires, il suffit de le spécifier sur le
+client et/ou le serveur. Côté serveur :
+
+  # iperf -s -i 1
+  ------------------------------------------------------------
+  Server listening on TCP port 5001
+  TCP window size: 85.3 KByte (default)
+  ------------------------------------------------------------
+  [  4] local 192.168.2.1 port 5001 connected with 192.168.2.2 port 38953
+  [ ID] Interval       Transfer     Bandwidth
+  [  4]  0.0- 1.0 sec   111 MBytes   932 Mbits/sec
+  [  4]  1.0- 2.0 sec   111 MBytes   934 Mbits/sec
+  [  4]  2.0- 3.0 sec   111 MBytes   934 Mbits/sec
+  [  4]  3.0- 4.0 sec   111 MBytes   934 Mbits/sec
+  [  4]  4.0- 5.0 sec   111 MBytes   934 Mbits/sec
+  [  4]  5.0- 6.0 sec   111 MBytes   934 Mbits/sec
+  [  4]  6.0- 7.0 sec   111 MBytes   934 Mbits/sec
+  [  4]  7.0- 8.0 sec   111 MBytes   934 Mbits/sec
+  [  4]  8.0- 9.0 sec   111 MBytes   934 Mbits/sec
+  [  4]  9.0-10.0 sec   111 MBytes   934 Mbits/sec
+  [  4]  0.0-10.0 sec  1.09 GBytes   933 Mbits/sec
+
+Côté client :
+
+  # iperf -c nestor -i 1
+  ------------------------------------------------------------
+  Client connecting to nestor, TCP port 5001
+  TCP window size: 22.9 KByte (default)
+  ------------------------------------------------------------
+  [  3] local 192.168.2.2 port 38953 connected with 192.168.2.1 port 5001
+  [ ID] Interval       Transfer     Bandwidth
+  [  3]  0.0- 1.0 sec   112 MBytes   935 Mbits/sec
+  [  3]  1.0- 2.0 sec   112 MBytes   935 Mbits/sec
+  [  3]  2.0- 3.0 sec   111 MBytes   933 Mbits/sec
+  [  3]  3.0- 4.0 sec   112 MBytes   935 Mbits/sec
+  [  3]  4.0- 5.0 sec   111 MBytes   933 Mbits/sec
+  [  3]  5.0- 6.0 sec   112 MBytes   935 Mbits/sec
+  [  3]  6.0- 7.0 sec   111 MBytes   933 Mbits/sec
+  [  3]  7.0- 8.0 sec   111 MBytes   934 Mbits/sec
+  [  3]  8.0- 9.0 sec   111 MBytes   934 Mbits/sec
+  [  3]  9.0-10.0 sec   111 MBytes   933 Mbits/sec
+  [  3]  0.0-10.0 sec  1.09 GBytes   934 Mbits/sec
+
+Une autre option permet de fixer au niveau du client la durée totale du test en
+secondes :
+
+  # iperf -c nestor -t 60 -i 10
+  ------------------------------------------------------------
+  Client connecting to nestor, TCP port 5001
+  TCP window size: 22.9 KByte (default)
+  ------------------------------------------------------------
+  [  3] local 192.168.2.2 port 38963 connected with 192.168.2.1 port 5001
+  [ ID] Interval       Transfer     Bandwidth
+  [  3]  0.0-10.0 sec  1.09 GBytes   934 Mbits/sec
+  [  3] 10.0-20.0 sec  1.09 GBytes   934 Mbits/sec
+  [  3] 20.0-30.0 sec  1.09 GBytes   934 Mbits/sec
+  [  3] 30.0-40.0 sec  1.09 GBytes   934 Mbits/sec
+  [  3] 40.0-50.0 sec  1.09 GBytes   934 Mbits/sec
+  [  3] 50.0-60.0 sec  1.09 GBytes   934 Mbits/sec
+  [  3]  0.0-60.0 sec  6.53 GBytes   934 Mbits/sec
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
+
+
