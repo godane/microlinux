@@ -7,9 +7,18 @@ a/user-settings-console
 ap/sbopkg
 ap/slackpkg+
 
+# Basic tools
+ap/augeas
+ap/device-tree-compiler
+ap/p7zip
+ap/pwgen
+ap/recode
+ap/unrar
+
 # Development
 d/cppunit
 d/lua
+d/spice-protocol
  
 # Libraries
 l/libbsd
@@ -19,6 +28,7 @@ l/lua-filesystem
 l/luaexpat
 l/luasec
 l/luasocket
+l/usbredir
 
 # Multimedia
 ap/celt051
@@ -68,17 +78,20 @@ d/ndg_httpsclient
 d/psutil
 d/pyparsing
 d/pyrfc3339
- 
-# Basic tools
-ap/augeas
-ap/device-tree-compiler
-ap/glances
-ap/p7zip
-ap/pwgen
-ap/recode
-ap/unrar
+d/python2-pythondialog
+d/python-augeas
+d/python-configargparse
+d/python-parsedatetime
+d/python-requests
+d/pytz
+d/pyxdg
+d/werkzeug
+d/zope.event
+d/zope.interface
+d/zope.component
 
-# ---------------------------------------
+# System monitor
+ap/glances
 
 # Networking
 n/dovecot
@@ -93,25 +106,11 @@ n/squid
 n/squidanalyzer
 n/squidGuard
 
-# Virtualization
+# KVM
+n/spice
 ap/qemu
 l/libvirt
 
 # Web applications
-# cmsmadesimple
-# owncloud-server
-
-# python2-pythondialog
-# python-augeas
-# python-configargparse
-# python-parsedatetime
-# python-requests
-# pytz
-# pyxdg
-# spice
-# spice-protocol
-# usbredir
-# werkzeug
-# zope.component
-# zope.event
-# zope.interface
+# n/cmsmadesimple
+# n/owncloud-server
