@@ -1,0 +1,117 @@
+# Build order for MLES 14.0
+
+# User profiles
+a/user-settings-console
+
+# Package management
+ap/sbopkg
+ap/slackpkg+
+
+# Development
+d/cppunit
+d/lua
+ 
+# Libraries
+l/libbsd
+l/libsigc++
+l/libtorrent
+l/lua-filesystem
+l/luaexpat
+l/luasec
+l/luasocket
+
+# Multimedia
+ap/celt051
+ap/faad2
+l/id3lib
+ap/lame
+l/libcuefile
+l/libmms
+l/libmp4v2
+l/libmpdclient
+l/libreplaygain
+ap/speex
+ap/twolame
+l/libshout
+ap/musepack-tools
+ap/faac
+ap/ffmpeg
+n/icecast
+n/mpd
+n/ncmpc
+
+# Perl 
+d/perl-BerkeleyDB
+d/perl-digest-sha1
+d/perl-digest-hmac
+d/perl-net-ip
+d/perl-net-dns
+d/perl-IO-Multiplex
+d/perl-Net-Server
+
+# Python
+d/pysetuptools
+d/pycparser
+d/cffi
+d/configobj
+d/ipaddress
+d/enum34
+d/pyasn1
+d/six
+d/idna
+d/cryptography
+d/urlgrabber
+d/yajl
+d/mock
+d/pyOpenSSL
+d/ndg_httpsclient
+d/psutil
+d/pyparsing
+d/pyrfc3339
+ 
+# Basic tools
+ap/augeas
+ap/device-tree-compiler
+ap/glances
+ap/p7zip
+ap/pwgen
+ap/recode
+ap/unrar
+
+# ---------------------------------------
+
+# Networking
+n/dovecot
+n/iperf
+n/letsencrypt
+n/netcat-openbsd
+n/postfix
+n/postgrey
+n/prosody
+n/rtorrent
+n/squid
+n/squidanalyzer
+n/squidGuard
+
+# Virtualization
+ap/qemu
+l/libvirt
+
+# Web applications
+# cmsmadesimple
+# owncloud-server
+
+# python2-pythondialog
+# python-augeas
+# python-configargparse
+# python-parsedatetime
+# python-requests
+# pytz
+# pyxdg
+# spice
+# spice-protocol
+# usbredir
+# werkzeug
+# zope.component
+# zope.event
+# zope.interface
