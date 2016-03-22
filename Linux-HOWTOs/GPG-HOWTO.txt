@@ -27,6 +27,7 @@ Ce HOWTO décrit l'utilisation de GPG (GNU Privacy Guard) sous Linux.
   * Passons aux choses sérieuses
   * Publier sa clé
   * Rechercher et importer une clé publique
+  * Renouveler une clé
   * Utiliser GPG avec Thunderbird
 
 
@@ -785,6 +786,42 @@ Importer une de ces clés en spécifiant son empreinte :
   gpg: la prochaine vérification de la base de confiance aura lieu le 2016-06-28
   gpg:       Quantité totale traitée : 1
   gpg:                     importées : 1
+
+
+Renouveler une clé
+------------------
+
+Lorsqu'une clé arrive à sa date d'expiration, il faudra songer à prolonger sa
+date de validité. 
+
+Afficher les clés dont on dispose :
+
+  $ gpg --list-keys
+
+Éditer la clé souhaitée en spécifiant son empreinte :
+
+  $ gpg --edit-key 58CF72D9
+
+Afficher les clés pour savoir ce que l'on édite :
+
+  gpg> list
+
+Définir la date d'expiration :
+
+  gpg> expire
+
+Il faudra éventuellement renouveler l'opération pour une clé secondaire :
+
+  gpg> key 1
+  
+Une fois que toutes les clés sont renouvelées, enregistrer les données :
+
+  gpg> save
+
+Il ne reste plus qu'à envoyer le tout sur un serveur de clés :
+
+  $ gpg --keyserver pgp.mit.edu --send-keys 58CF72D9
+  gpg: envoi de la clef 58CF72D9 au serveur hkp pgp.mit.edu
 
 
 Utiliser GPG avec Thunderbird
