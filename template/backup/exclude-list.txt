@@ -30,6 +30,7 @@
 *.iso
 *.ISO
 *.vdi
+*.qcow2
 
 # Audio
 *.ogg
