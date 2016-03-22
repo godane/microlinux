@@ -27,10 +27,6 @@ export NUMJOBS="$NUMJOBS"
 
 BUILDPACKAGES=$(egrep -v '(^\#)|(^\s+$)' $CWD/build_order)
 
-echo $BUILDPACKAGES
-
-exit 0
-
 for BUILDPACKAGE in $BUILDPACKAGES; do
   CATEGORY=$(dirname $BUILDPACKAGE)
   PACKAGE=$(basename $BUILDPACKAGE)

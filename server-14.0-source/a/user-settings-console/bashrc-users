@@ -1,0 +1,26 @@
+# ~/.bashrc
+
+# PATH
+PATH=$PATH:/sbin
+
+# Alias
+alias ls='ls --color=auto'
+alias ll='ls -al'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias cp='cp -i'
+alias rm='rm -i'
+alias mv='mv -i'
+alias vi='vim'
+alias uman='GROFF_ENCODING=utf8 man'
+
+# PS1
+GREEN='\[\033[0;32m\]'
+WHITE='\[\033[1;37m\]'
+NC='\[\033[0;m\]'
+PS1="$GREEN[$WHITE\u$NC@$WHITE\h$NC:$WHITE\W$GREEN] \$ $NC"
+
+# Vim
+EDITOR=vim
+VISUAL=$EDITOR
+export EDITOR VISUAL

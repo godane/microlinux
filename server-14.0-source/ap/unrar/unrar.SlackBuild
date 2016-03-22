@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Slackware build script for augeas
+# Slackware build script for unrar
 
-# Copyright 2015 Nikos Giotis <nikos.giotis@gmail.com>
+# Copyright 2010-2013  Mario Preksavec, Zagreb, HR
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,13 +24,13 @@
 #
 # Modified by Niki Kovacs <info@microlinux.fr>
 
-
-PRGNAM=augeas
-VERSION=${VERSION:-1.4.0}
-BUILD=${BUILD:-1}
+PRGNAM=unrar
+SRCNAM=unrarsrc
+VERSION=${VERSION:-5.2.6}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS=${NUMJOBS:--j3}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -61,47 +61,53 @@ fi
 
 set -e
 
-DOWNLOAD="http://download.augeas.net/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="ftp://ftp.rarlab.com/rar/$SRCNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-cd $PRGNAM-$VERSION
+rm -rf $PRGNAM libunrar
+tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
+
+cd $PRGNAM
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
   -o -perm 511 \) -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
-  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+ -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
-./configure \
-  --prefix=/usr \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --sysconfdir=/etc \
-  --localstatedir=/var \
-  --mandir=/usr/man \
-  --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --enable-static=no \
-  --build=$ARCH-slackware-linux
+patch -p1 < $CWD/unrar-5.0.13-soname.patch
+cp -a $TMP/$PRGNAM/ $TMP/libunrar
 
-make $NUMJOBS
-make install DESTDIR=$PKG
+make $NUMJOBS -C $TMP/libunrar lib libversion=$VERSION CXXFLAGS="$SLKCFLAGS"
+make $NUMJOBS CXXFLAGS="$SLKCFLAGS" -f makefile unrar lib
+
+install -D -m 755 unrar $PKG/usr/bin/unrar
+install -D -m 755 $TMP/libunrar/libunrar.so.$VERSION $PKG/usr/lib${LIBDIRSUFFIX}/libunrar.so.$VERSION
+install -D -m 644 dll.hpp "$PKG/usr/include/unrar/dll.hpp"
+
+(
+  cd /usr/lib${LIBDIRSUFFIX}
+  ln -s libunrar.so.$VERSION $PKG/usr/lib${LIBDIRSUFFIX}/libunrar.so
+  ln -s libunrar.so.$VERSION $PKG/usr/lib${LIBDIRSUFFIX}/libunrar.so.5
+)
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-find $PKG/usr/man -type f -exec gzip -9 {} \;
-for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+mkdir -p $PKG/usr/man/man1
+gzip -9c $CWD/unrar.1 > $PKG/usr/man/man1/unrar.1.gz
+
+mkdir -p $PKG/usr/include/unrar
+cp -a *.cpp *.hpp $PKG/usr/include/unrar
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS ChangeLog HACKING INSTALL NEWS README $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a acknow.txt readme.txt license.txt $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+chmod 0644 $PKG/usr/doc/$PRGNAM-$VERSION/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
