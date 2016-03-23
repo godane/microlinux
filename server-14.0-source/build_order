@@ -21,14 +21,14 @@ d/lua
 d/spice-protocol
  
 # Libraries
-#l/libbsd
-#l/libsigc++
-#l/libtorrent
-#l/lua-filesystem
-#l/luaexpat
-#l/luasec
-#l/luasocket
-#l/usbredir
+l/libbsd
+l/libsigc++
+l/libtorrent
+l/lua-filesystem
+l/luaexpat
+l/luasec
+l/luasocket
+#l/usbredir ==> category ?
 
 # Multimedia
 #ap/celt051

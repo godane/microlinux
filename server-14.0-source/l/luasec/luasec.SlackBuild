@@ -27,7 +27,7 @@
 PRGNAM=luasec
 HASH=${HASH:-903efaf3b1f090a992963480fa2924dac02f9174}
 VERSION=20140421_$(echo $HASH |cut -c -7)
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
