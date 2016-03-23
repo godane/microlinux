@@ -1,3 +1,100 @@
+Wed Mar 23 16:09:26 CET 2016
+	After weighing the pros and the cons, we're introducing package categories
+	for clarity's sake.  These are mostly inspired by upstream, so Slackware
+	users will feel "at home". We've also added an automatic build infrastructure
+	with a master build script in the source directory to ease maintenance. As
+	you can guess, this doesn't change much for the user. Just update and use the
+	stuff as you did before. 
+profile/user-settings-console-14.0-noarch-3_microlinux.txz: Rebuilt.
+ap/sbopkg-0.36.0-noarch-2_microlinux.txz: Rebuilt.
+ap/slackpkg+-1.3.2-noarch-3_microlinux.txz: Rebuilt.
+ap/augeas-1.4.0-i486-2_microlinux.txz: Rebuilt.
+ap/device-tree-compiler-1.4.1-i686-2_microlinux.txz: Rebuilt.
+ap/p7zip-9.20.1-i486-2_microlinux.txz: Rebuilt.
+ap/pwgen-2.06-i486-2_microlinux.txz: Rebuilt.
+ap/recode-3.7_beta2-i486-2_microlinux.txz: Rebuilt.
+ap/unrar-5.2.6-i486-2_microlinux.txz: Rebuilt.
+d/cppunit-1.13.2-i486-2_microlinux.txz: Rebuilt.
+d/lua-5.1.5-i486-2_microlinux.txz: Rebuilt.
+d/spice-protocol-0.12.10-noarch-2_microlinux.txz: Rebuilt.
+l/libbsd-0.7.0-i486-2_microlinux.txz: Rebuilt.
+l/libmpdclient-2.7-i486-2_microlinux.txz: Rebuilt.
+l/libsigc++-2.2.11-i486-2_microlinux.txz: Rebuilt.
+l/libtorrent-0.13.6-i486-2_microlinux.txz: Rebuilt.
+l/lua-filesystem-1.6.2-i486-2_microlinux.txz: Rebuilt.
+l/luaexpat-1.3.0-i486-2_microlinux.txz: Rebuilt.
+l/luasec-20140421_903efaf-i486-3_microlinux.txz: Rebuilt.
+l/luasocket-20130909_6d5e40c-i486-2_microlinux.txz: Rebuilt.
+l/usbredir-0.7-i486-2_microlinux.txz: Rebuilt.
+multimedia/celt051-0.5.1.3-i486-2_microlinux.txz: Rebuilt.
+multimedia/faad2-2.7-i486-2_microlinux.txz: Rebuilt.
+multimedia/id3lib-3.8.3-i486-2_microlinux.txz: Rebuilt.
+multimedia/lame-3.99.5-i486-2_microlinux.txz: Rebuilt.
+multimedia/libcuefile-r475-i486-2_microlinux.txz: Rebuilt.
+multimedia/libmms-0.6.2-i486-2_microlinux.txz: Rebuilt.
+multimedia/libmp4v2-2.0.0-i486-2_microlinux.txz: Rebuilt.
+multimedia/libreplaygain-r475-i486-2_microlinux.txz: Rebuilt.
+multimedia/speex-1.2rc1-i486-2_microlinux.txz: Rebuilt.
+multimedia/twolame-0.3.13-i486-2_microlinux.txz: Rebuilt.
+multimedia/libshout-2.3.1-i486-2_microlinux.txz: Rebuilt.
+multimedia/musepack-tools-r475-i486-2_microlinux.txz: Rebuilt.
+multimedia/faac-1.28-i486-2_microlinux.txz: Rebuilt.
+multimedia/ffmpeg-0.11.1-i486-2_microlinux.txz: Rebuilt.
+n/icecast-2.4.2-i486-2_microlinux.txz: Rebuilt.
+n/mpd-0.19.10-i486-2_microlinux.txz: Rebuilt.
+n/ncmpc-0.24-i486-2_microlinux.txz: Rebuilt.
+d/perl-BerkeleyDB-0.53-i486-2_microlinux.txz: Rebuilt.
+d/perl-digest-sha1-2.13-i486-2_microlinux.txz: Rebuilt.
+d/perl-digest-hmac-1.03-i486-2_microlinux.txz: Rebuilt.
+d/perl-net-ip-1.26-i486-2_microlinux.txz: Rebuilt.
+d/perl-net-dns-0.72-i486-2_microlinux.txz: Rebuilt.
+d/perl-IO-Multiplex-1.13-i486-2_microlinux.txz: Rebuilt.
+d/perl-Net-Server-2.007-i486-2_microlinux.txz: Rebuilt.
+d/pysetuptools-18.2-i486-2_microlinux.txz: Rebuilt.
+d/pycparser-2.14-i486-2_microlinux.txz: Rebuilt.
+d/cffi-1.4.2-i486-2_microlinux.txz: Rebuilt.
+d/configobj-4.7.2-i486-2_microlinux.txz: Rebuilt.
+d/ipaddress-1.0.15-i486-2_microlinux.txz: Rebuilt.
+d/enum34-1.1.2-i486-2_microlinux.txz: Rebuilt.
+d/pyasn1-0.1.8-i486-2_microlinux.txz: Rebuilt.
+d/six-1.10.0-i486-2_microlinux.txz: Rebuilt.
+d/idna-2.0-i486-2_microlinux.txz: Rebuilt.
+d/cryptography-1.1.1-i486-2_microlinux.txz: Rebuilt.
+d/urlgrabber-3.10-i486-2_microlinux.txz: Rebuilt.
+d/yajl-2.1.0-i486-2_microlinux.txz: Rebuilt.
+d/mock-1.0.1-i486-2_microlinux.txz: Rebuilt.
+d/pyOpenSSL-0.15.1-i486-2_microlinux.txz: Rebuilt.
+d/ndg_httpsclient-0.4.0-i486-2_microlinux.txz: Rebuilt.
+d/psutil-3.3.0-i486-2_microlinux.txz: Rebuilt.
+d/pyparsing-2.0.3-i486-2_microlinux.txz: Rebuilt.
+d/pyrfc3339-1.0-i486-2_microlinux.txz: Rebuilt.
+d/python2-pythondialog-3.3.0-i486-2_microlinux.txz: Rebuilt.
+d/python-augeas-0.5.0-i486-2_microlinux.txz: Rebuilt.
+d/python-configargparse-0.10.0-i486-2_microlinux.txz: Rebuilt.
+d/python-parsedatetime-1.5-i486-2_microlinux.txz: Rebuilt.
+d/python-requests-2.8.1-i486-2_microlinux.txz: Rebuilt.
+d/pytz-2014.10-i486-2_microlinux.txz: Rebuilt.
+d/pyxdg-0.25-i486-2_microlinux.txz: Rebuilt.
+d/werkzeug-0.9.4-i486-2_microlinux.txz: Rebuilt.
+d/zope.event-4.0.3-i486-2_microlinux.txz: Rebuilt.
+d/zope.interface-4.1.2-i486-2_microlinux.txz: Rebuilt.
+d/zope.component-4.2.1-i486-2_microlinux.txz: Rebuilt.
+ap/glances-1.7.6-i486-2_microlinux.txz: Rebuilt.
+n/dovecot-2.2.18-i486-2_microlinux.txz: Rebuilt.
+n/iperf-2.0.5-i486-2_microlinux.txz: Rebuilt.
+n/letsencrypt-0.3.0-i486-2_microlinux.txz: Rebuilt.
+n/netcat-openbsd-1.105-i486-2_microlinux.txz: Rebuilt.
+n/postfix-2.11.6-i486-2_microlinux.txz: Rebuilt.
+n/postgrey-1.34-i486-2_microlinux.txz: Rebuilt.
+n/prosody-0.9.8-i486-3_microlinux.txz: Rebuilt.
+n/rtorrent-0.9.6-i486-2_microlinux.txz: Rebuilt.
+n/squid-3.4.12-i486-2_microlinux.txz: Rebuilt.
+n/squidanalyzer-5.4-i486-2_microlinux.txz: Rebuilt.
+n/squidGuard-1.4-i486-3_microlinux.txz: Rebuilt.
+n/spice-0.12.6-i486-2_microlinux.txz: Rebuilt.
+ap/qemu-2.4.1-i486-2_microlinux.txz: Rebuilt.
+ap/libvirt-1.2.21-i486-3_microlinux.txz: Rebuilt.
++--------------------------+
 Sun Feb 28 07:49:43 CET 2016
 iperf-2.0.5-i486-1_microlinux.txz: Added.
 libvirt-1.2.21-i486-2_microlinux.txz: Rebuilt.
