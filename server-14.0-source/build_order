@@ -1,7 +1,7 @@
 # Build order for MLES 14.0
 
 # User profiles
-a/user-settings-console
+profile/user-settings-console
 
 # Package management
 ap/sbopkg
@@ -22,94 +22,94 @@ d/spice-protocol
  
 # Libraries
 l/libbsd
+l/libmpdclient
 l/libsigc++
 l/libtorrent
 l/lua-filesystem
 l/luaexpat
 l/luasec
 l/luasocket
-#l/usbredir ==> category ?
+l/usbredir
 
 # Multimedia
-#ap/celt051
-#ap/faad2
-#l/id3lib
-#ap/lame
-#l/libcuefile
-#l/libmms
-#l/libmp4v2
-#l/libmpdclient
-#l/libreplaygain
-#ap/speex
-#ap/twolame
-#l/libshout
-#ap/musepack-tools
-#ap/faac
-#ap/ffmpeg
-#n/icecast
-#n/mpd
-#n/ncmpc
+multimedia/celt051
+multimedia/faad2
+multimedia/id3lib
+multimedia/lame
+multimedia/libcuefile
+multimedia/libmms
+multimedia/libmp4v2
+multimedia/libreplaygain
+multimedia/speex
+multimedia/twolame
+multimedia/libshout
+multimedia/musepack-tools
+multimedia/faac
+multimedia/ffmpeg
+n/icecast
+n/mpd
+n/ncmpc
 
 # Perl 
-#d/perl-BerkeleyDB
-#d/perl-digest-sha1
-#d/perl-digest-hmac
-#d/perl-net-ip
-#d/perl-net-dns
-#d/perl-IO-Multiplex
-#d/perl-Net-Server
+d/perl-BerkeleyDB
+d/perl-digest-sha1
+d/perl-digest-hmac
+d/perl-net-ip
+d/perl-net-dns
+d/perl-IO-Multiplex
+d/perl-Net-Server
 
 # Python
-#d/pysetuptools
-#d/pycparser
-#d/cffi
-#d/configobj
-#d/ipaddress
-#d/enum34
-#d/pyasn1
-#d/six
-#d/idna
-#d/cryptography
-#d/urlgrabber
-#d/yajl
-#d/mock
-#d/pyOpenSSL
-#d/ndg_httpsclient
-#d/psutil
-#d/pyparsing
-#d/pyrfc3339
-#d/python2-pythondialog
-#d/python-augeas
-#d/python-configargparse
-#d/python-parsedatetime
-#d/python-requests
-#d/pytz
-#d/pyxdg
-#d/werkzeug
-#d/zope.event
-#d/zope.interface
-#d/zope.component
+d/pysetuptools
+d/pycparser
+d/cffi
+d/configobj
+d/ipaddress
+d/enum34
+d/pyasn1
+d/six
+d/idna
+d/cryptography
+d/urlgrabber
+d/yajl
+d/mock
+d/pyOpenSSL
+d/ndg_httpsclient
+d/psutil
+d/pyparsing
+d/pyrfc3339
+d/python2-pythondialog
+d/python-augeas
+d/python-configargparse
+d/python-parsedatetime
+d/python-requests
+d/pytz
+d/pyxdg
+d/werkzeug
+d/zope.event
+d/zope.interface
+d/zope.component
 
 # System monitor
-#ap/glances
+ap/glances
 
 # Networking
-#n/dovecot
-#n/iperf
-#n/letsencrypt
-#n/netcat-openbsd
-#n/postfix
-#n/postgrey
-#n/prosody
-#n/rtorrent
-#n/squid
-#n/squidanalyzer
-#n/squidGuard
+n/dovecot
+n/iperf
+n/letsencrypt
+n/netcat-openbsd
+n/postfix
+n/postgrey
+n/prosody
+n/rtorrent
+n/squid
+n/squidanalyzer
+n/squidGuard
 
 # KVM
-#n/spice
-#ap/qemu
-#l/libvirt
+n/spice
+ap/qemu
+ap/libvirt
 
 # Web applications
 # n/cmsmadesimple
