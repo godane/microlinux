@@ -14,6 +14,7 @@ Ce HOWTO décrit la virtualisation avec KVM sous Slackware Linux.
   * Création d'une première machine virtuelle
   * Réseau
   * Affichage
+  * Souris
   * Migrer vers un autre hyperviseur
 
 
@@ -345,6 +346,15 @@ Section "Screen"
         EndSubSection
 EndSection
 --8<--------------------------------------------------------------------------
+
+
+Souris
+------
+
+Si le mouvement de la souris est saccadé dans la machine virtuelle, on peut
+utiliser l'astuce suivante.
+
+  Ajouter un matériel > Input > Tablette graphique USB evTouch
 
 
 Migrer vers un autre hyperviseur
