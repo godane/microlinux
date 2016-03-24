@@ -1,3 +1,100 @@
+Thu Mar 24 14:59:00 CET 2016
+	After weighing the pros and the cons, we're introducing package categories
+	for clarity's sake.  These are mostly inspired by upstream, so Slackware
+	users will feel "at home". We've also added an automatic build infrastructure
+	with a master build script in the source directory to ease maintenance. As
+	you can guess, this doesn't change much for the user. Just update and use the
+	stuff as you did before. 
+profile/user-settings-console-14.1-noarch-3_microlinux.txz: Rebuilt.
+ap/sbopkg-0.37.0-noarch-2_microlinux.txz: Rebuilt.
+ap/slackpkg+-1.3.2-noarch-3_microlinux.txz: Rebuilt.
+ap/augeas-1.4.0-x86_64-2_microlinux.txz: Rebuilt.
+ap/device-tree-compiler-1.4.1-x86_64-2_microlinux.txz: Rebuilt.
+ap/p7zip-9.20.1-x86_64-2_microlinux.txz: Rebuilt.
+ap/pwgen-2.06-x86_64-2_microlinux.txz: Rebuilt.
+ap/recode-3.7_beta2-x86_64-1_microlinux.txz: Upgraded.
+ap/unrar-5.2.6-x86_64-2_microlinux.txz: Rebuilt.
+d/cppunit-1.13.2-x86_64-2_microlinux.txz: Rebuilt.
+d/lua-5.1.5-x86_64-2_microlinux.txz: Rebuilt.
+d/spice-protocol-0.12.10-noarch-2_microlinux.txz: Rebuilt.
+l/libbsd-0.7.0-x86_64-2_microlinux.txz: Rebuilt.
+l/libmpdclient-2.9-x86_64-2_microlinux.txz: Rebuilt.
+l/libsigc++-2.2.11-x86_64-2_microlinux.txz: Rebuilt.
+l/libtorrent-0.13.6-x86_64-2_microlinux.txz: Rebuilt.
+l/lua-filesystem-1.6.2-x86_64-2_microlinux.txz: Rebuilt.
+l/luaexpat-1.3.0-x86_64-2_microlinux.txz: Rebuilt.
+l/luasec-20140421_903efaf-x86_64-3_microlinux.txz: Rebuilt.
+l/luasocket-20130909_6d5e40c-x86_64-2_microlinux.txz: Rebuilt.
+l/usbredir-0.7-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/celt051-0.5.1.3-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/faad2-2.7-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/id3lib-3.8.3-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/lame-3.99.5-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/libcuefile-r475-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/libmms-0.6.2-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/libmp4v2-2.0.0-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/libreplaygain-r475-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/speex-1.2rc1-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/twolame-0.3.13-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/libshout-2.3.1-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/musepack-tools-r475-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/faac-1.28-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/ffmpeg-2.1-x86_64_custom-2_microlinux.txz: Rebuilt.
+n/icecast-2.4.2-x86_64-2_microlinux.txz: Rebuilt.
+n/mpd-0.19.10-x86_64-2_microlinux.txz: Rebuilt.
+n/ncmpc-0.24-x86_64-2_microlinux.txz: Rebuilt.
+d/perl-BerkeleyDB-0.53-x86_64-2_microlinux.txz: Rebuilt.
+d/perl-digest-sha1-2.13-x86_64-2_microlinux.txz: Rebuilt.
+d/perl-digest-hmac-1.03-x86_64-2_microlinux.txz: Rebuilt.
+d/perl-net-ip-1.26-x86_64-2_microlinux.txz: Rebuilt.
+d/perl-net-dns-0.72-x86_64-2_microlinux.txz: Rebuilt.
+d/perl-IO-Multiplex-1.13-x86_64-2_microlinux.txz: Rebuilt.
+d/perl-Net-Server-2.007-x86_64-2_microlinux.txz: Rebuilt.
+d/pysetuptools-18.2-x86_64-2_microlinux.txz: Rebuilt.
+d/pycparser-2.14-x86_64-2_microlinux.txz: Rebuilt.
+d/cffi-1.4.2-x86_64-2_microlinux.txz: Rebuilt.
+d/configobj-4.7.2-x86_64-2_microlinux.txz: Rebuilt.
+d/ipaddress-1.0.15-x86_64-2_microlinux.txz: Rebuilt.
+d/enum34-1.1.2-x86_64-2_microlinux.txz: Rebuilt.
+d/pyasn1-0.1.8-x86_64-2_microlinux.txz: Rebuilt.
+d/six-1.10.0-x86_64-2_microlinux.txz: Rebuilt.
+d/idna-2.0-x86_64-2_microlinux.txz: Rebuilt.
+d/cryptography-1.1.1-x86_64-2_microlinux.txz: Rebuilt.
+d/urlgrabber-3.10-x86_64-2_microlinux.txz: Rebuilt.
+d/yajl-2.1.0-x86_64-2_microlinux.txz: Rebuilt.
+d/mock-1.0.1-x86_64-2_microlinux.txz: Rebuilt.
+d/pyOpenSSL-0.15.1-x86_64-2_microlinux.txz: Rebuilt.
+d/ndg_httpsclient-0.4.0-x86_64-2_microlinux.txz: Rebuilt.
+d/psutil-3.3.0-x86_64-2_microlinux.txz: Rebuilt.
+d/pyparsing-2.0.3-x86_64-2_microlinux.txz: Rebuilt.
+d/pyrfc3339-1.0-x86_64-2_microlinux.txz: Rebuilt.
+d/python2-pythondialog-3.3.0-x86_64-2_microlinux.txz: Rebuilt.
+d/python-augeas-0.5.0-x86_64-2_microlinux.txz: Rebuilt.
+d/python-configargparse-0.10.0-x86_64-2_microlinux.txz: Rebuilt.
+d/python-parsedatetime-1.5-x86_64-2_microlinux.txz: Rebuilt.
+d/python-requests-2.8.1-x86_64-2_microlinux.txz: Rebuilt.
+d/pytz-2014.10-x86_64-2_microlinux.txz: Rebuilt.
+d/pyxdg-0.25-x86_64-2_microlinux.txz: Rebuilt.
+d/werkzeug-0.9.4-x86_64-2_microlinux.txz: Rebuilt.
+d/zope.event-4.0.3-x86_64-2_microlinux.txz: Rebuilt.
+d/zope.interface-4.1.2-x86_64-2_microlinux.txz: Rebuilt.
+d/zope.component-4.2.1-x86_64-2_microlinux.txz: Rebuilt.
+ap/glances-1.7.6-x86_64-2_microlinux.txz: Rebuilt.
+n/dovecot-2.2.18-x86_64-2_microlinux.txz: Rebuilt.
+n/iperf-2.0.5-x86_64-2_microlinux.txz: Rebuilt.
+n/letsencrypt-0.3.0-x86_64-2_microlinux.txz: Rebuilt.
+n/netcat-openbsd-1.105-x86_64-2_microlinux.txz: Rebuilt.
+n/postfix-2.11.6-x86_64-2_microlinux.txz: Rebuilt.
+n/postgrey-1.34-x86_64-2_microlinux.txz: Rebuilt.
+n/prosody-0.9.8-x86_64-3_microlinux.txz: Rebuilt.
+n/rtorrent-0.9.6-x86_64-2_microlinux.txz: Rebuilt.
+n/squid-3.4.12-x86_64-2_microlinux.txz: Rebuilt.
+n/squidanalyzer-5.4-x86_64-2_microlinux.txz: Rebuilt.
+n/squidGuard-1.4-x86_64-3_microlinux.txz: Rebuilt.
+n/spice-0.12.6-x86_64-2_microlinux.txz: Rebuilt.
+ap/qemu-2.4.1-x86_64-2_microlinux.txz: Rebuilt.
+ap/libvirt-1.2.21-x86_64-3_microlinux.txz: Rebuilt.
++--------------------------+
 Sun Feb 28 08:28:35 CET 2016
 iperf-2.0.5-x86_64-1_microlinux.txz: Added.
 libvirt-1.2.21-x86_64-2_microlinux.txz: Rebuilt.
