@@ -1,0 +1,9 @@
+# Build order for MLED 14.1
+
+# User profiles
+profile/user-settings-console
+
+# Package management
+# ap/sbopkg
+# ap/slackpkg+
+
