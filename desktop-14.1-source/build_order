@@ -4,6 +4,72 @@
 profile/user-settings-console
 
 # Package management
-# ap/sbopkg
-# ap/slackpkg+
+ap/sbopkg
+ap/slackpkg+
 
+# Development
+d/jdk
+
+# Perl
+d/perl-extutils-depends
+d/perl-extutils-pkgconfig
+d/perl-glib
+
+# Multimedia
+
+# Fonts
+x/apple-fonts
+x/cantarell-fonts
+x/eurostile-fonts
+x/google-droid-fonts
+x/webcore-fonts
+
+# GNOME 
+gnome/gtk-engines
+gnome/libunique
+
+# Applications
+xap/libreoffice
+
+# Translations
+# locale/libreoffice-langpack (build manually)
+locale/mozilla-firefox-langpack
+locale/mozilla-thunderbird-langpack
+
+# Help files
+# f/libreoffice-helppack (build manually)
+
+# Xfce
+xfce/libxfce4util
+xfce/xfconf
+xfce/libxfce4ui
+xfce/exo
+xfce/garcon
+xfce/tumbler
+xfce/Thunar
+xfce/xfce4-panel
+xfce/xfce4-settings
+xfce/xfce4-session
+xfce/xfdesktop
+xfce/xfwm4
+xfce/xfce4-appfinder
+xfce/gtk-xfce-engine
+xfce/xfce4-terminal
+xfce/elementary-xfce
+xfce/aero
+xfce/luna-wallpapers
+xfce/microlinux-wallpapers
+xfce/clearlooks-phenix-theme
+xfce/orage
+xfce/xfce4-mixer
+xfce/thunar-volman
+xfce/xfce4-power-manager
+xfce/xfce4-notifyd
+xfce/xfce4-volumed
+xfce/xfce4-clipman-plugin
+xfce/xfce4-screenshooter
+xfce/xfce4-taskmanager
+xfce/xfce4-weather-plugin
+xfce/xfce4-whiskermenu-plugin
+xfce/xfce4-systemload-plugin
+xfce/xfce4-xkb-plugin

@@ -1,0 +1,8 @@
+The Microlinux Enterprise Desktop is a full-blown production desktop based on Slackware Linux and the Xfce desktop environment, with many enhancements. It is currently used by various small town halls, public libraries, schools and local radio stations in South France.
+
+MLED is not some derivative Linux distribution. It aims to provide all the stuff that's commonly missing in Slackware - popular applications, multimedia codecs, plugins, fonts, translations - through a series of package repositories that can be easily managed through Slackware's package manager. These package sets are installed on top of a trimmed-down but otherwise mostly unaltered Slackware base system. A handful of stock Slackware packages have been rebuilt for enhanced functionality. Elegant and sober artwork fit for use in a corporate environment is included.
+
+Check out the MLED project page for more information.
+
+http://www.microlinux.fr/mled.php
+

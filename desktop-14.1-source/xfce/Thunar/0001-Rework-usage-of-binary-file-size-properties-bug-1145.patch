@@ -1,0 +1,682 @@
+From 9be9c1b40b165c0c26185bbb0aae360a127e9eb6 Mon Sep 17 00:00:00 2001
+From: Harald Judt <h.judt@gmx.at>
+Date: Sun, 8 Mar 2015 11:31:01 +0100
+Subject: Rework usage of binary file size properties (bug #11450)
+
+Move get_property calls to the object initialization and, where
+appropriate, use signals to notify of any misc-file-size-binary
+preference changes. This way, all components should update immediately
+whenever the preference changes, while still being nice to performance.
+---
+ thunar/thunar-gio-extensions.c    |   8 +--
+ thunar/thunar-gio-extensions.h    |   3 +-
+ thunar/thunar-list-model.c        |   8 +--
+ thunar/thunar-list-model.h        |   4 ++
+ thunar/thunar-properties-dialog.c |  33 ++++++++++-
+ thunar/thunar-shortcuts-model.c   |  36 +++++++++++-
+ thunar/thunar-size-label.c        |  50 +++++++++++-----
+ thunar/thunar-standard-view.c     |   3 +
+ thunar/thunar-transfer-job.c      | 116 +++++++++++++++++++++++++++++++-------
+ 9 files changed, 210 insertions(+), 51 deletions(-)
+
+diff --git a/thunar/thunar-gio-extensions.c b/thunar/thunar-gio-extensions.c
+index 3cd9824..78a427f 100644
+--- a/thunar/thunar-gio-extensions.c
++++ b/thunar/thunar-gio-extensions.c
+@@ -409,22 +409,16 @@ thunar_g_file_get_free_space (GFile   *file,
+ 
+ 
+ gchar *
+-thunar_g_file_get_free_space_string (GFile *file)
++thunar_g_file_get_free_space_string (GFile *file, gboolean file_size_binary)
+ {
+   gchar             *fs_free_str;
+   gchar             *fs_size_str;
+   guint64            fs_free;
+   guint64            fs_size;
+   gchar             *fs_string = NULL;
+-  ThunarPreferences *preferences;
+-  gboolean           file_size_binary;
+ 
+   _thunar_return_val_if_fail (G_IS_FILE (file), NULL);
+ 
+-  preferences = thunar_preferences_get ();
+-  g_object_get (preferences, "misc-file-size-binary", &file_size_binary, NULL);
+-  g_object_unref (preferences);
+-
+   if (thunar_g_file_get_free_space (file, &fs_free, &fs_size)
+       && fs_size > 0)
+     {
+diff --git a/thunar/thunar-gio-extensions.h b/thunar/thunar-gio-extensions.h
+index c19101e..7d8922d 100644
+--- a/thunar/thunar-gio-extensions.h
++++ b/thunar/thunar-gio-extensions.h
+@@ -55,7 +55,8 @@ gboolean  thunar_g_file_get_free_space           (GFile                *file,
+                                                   guint64              *fs_free_return,
+                                                   guint64              *fs_size_return);
+ 
+-gchar    *thunar_g_file_get_free_space_string    (GFile                *file);
++gchar    *thunar_g_file_get_free_space_string    (GFile                *file,
++                                                  gboolean              file_size_binary);
+ 
+ /**
+  * THUNAR_TYPE_G_FILE_LIST:
+diff --git a/thunar/thunar-list-model.c b/thunar/thunar-list-model.c
+index a0eb7ec..a9e59c1 100644
+--- a/thunar/thunar-list-model.c
++++ b/thunar/thunar-list-model.c
+@@ -185,9 +185,7 @@ static void               thunar_list_model_set_date_style        (ThunarListMod
+ static gint               thunar_list_model_get_num_files         (ThunarListModel        *store);
+ static gboolean           thunar_list_model_get_folders_first     (ThunarListModel        *store);
+ 
+-static gboolean           thunar_list_model_get_file_size_binary  (ThunarListModel        *store);
+-static void               thunar_list_model_set_file_size_binary  (ThunarListModel        *store,
+-                                                                   gboolean                file_size_binary);
++
+ 
+ struct _ThunarListModelClass
+ {
+@@ -1999,7 +1997,7 @@ thunar_list_model_set_show_hidden (ThunarListModel *store,
+  *
+  * Return value: %TRUE if file size format is binary.
+  **/
+-static gboolean
++gboolean
+ thunar_list_model_get_file_size_binary (ThunarListModel *store)
+ {
+   _thunar_return_val_if_fail (THUNAR_IS_LIST_MODEL (store), FALSE);
+@@ -2016,7 +2014,7 @@ thunar_list_model_get_file_size_binary (ThunarListModel *store)
+  * If @file_size_binary is %TRUE the file size should be
+  * formatted as binary.
+  **/
+-static void
++void
+ thunar_list_model_set_file_size_binary (ThunarListModel *store,
+                                         gboolean         file_size_binary)
+ {
+diff --git a/thunar/thunar-list-model.h b/thunar/thunar-list-model.h
+index 192f7c5..459ee7a 100644
+--- a/thunar/thunar-list-model.h
++++ b/thunar/thunar-list-model.h
+@@ -49,6 +49,10 @@ gboolean         thunar_list_model_get_show_hidden        (ThunarListModel  *sto
+ void             thunar_list_model_set_show_hidden        (ThunarListModel  *store,
+                                                            gboolean          show_hidden);
+ 
++gboolean         thunar_list_model_get_file_size_binary   (ThunarListModel  *store);
++void             thunar_list_model_set_file_size_binary   (ThunarListModel  *store,
++                                                           gboolean          file_size_binary);
++
+ ThunarFile      *thunar_list_model_get_file               (ThunarListModel  *store,
+                                                            GtkTreeIter      *iter);
+ 
+diff --git a/thunar/thunar-properties-dialog.c b/thunar/thunar-properties-dialog.c
+index 6fc68a1..67135d2 100644
+--- a/thunar/thunar-properties-dialog.c
++++ b/thunar/thunar-properties-dialog.c
+@@ -65,6 +65,7 @@ enum
+ {
+   PROP_0,
+   PROP_FILES,
++  PROP_FILE_SIZE_BINARY,
+ };
+ 
+ /* Signal identifiers */
+@@ -119,6 +120,7 @@ struct _ThunarPropertiesDialog
+   ThunarPreferences      *preferences;
+ 
+   GList                  *files;
++  gboolean                file_size_binary;
+ 
+   ThunarThumbnailer      *thumbnailer;
+   guint                   thumbnail_request;
+@@ -184,6 +186,19 @@ thunar_properties_dialog_class_init (ThunarPropertiesDialogClass *klass)
+                                                         EXO_PARAM_READWRITE));
+ 
+   /**
++   * ThunarPropertiesDialog:file_size_binary:
++   *
++   * Whether the file size should be shown in binary or decimal.
++   **/
++  g_object_class_install_property (gobject_class,
++                                   PROP_FILE_SIZE_BINARY,
++                                   g_param_spec_boolean ("file-size-binary",
++                                                         "FileSizeBinary",
++                                                         NULL,
++                                                         FALSE,
++                                                         EXO_PARAM_READWRITE));
++
++  /**
+    * ThunarPropertiesDialog::reload:
+    * @dialog : a #ThunarPropertiesDialog.
+    *
+@@ -218,10 +233,15 @@ thunar_properties_dialog_init (ThunarPropertiesDialog *dialog)
+   guint      row = 0;
+   GtkWidget *image;
+ 
+-  /* acquire a reference on the preferences and monitor the "misc-date-style" setting */
++  /* acquire a reference on the preferences and monitor the
++     "misc-date-style" and "misc-file-size-binary" settings */
+   dialog->preferences = thunar_preferences_get ();
+   g_signal_connect_swapped (G_OBJECT (dialog->preferences), "notify::misc-date-style",
+                             G_CALLBACK (thunar_properties_dialog_reload), dialog);
++  exo_binding_new (G_OBJECT (dialog->preferences), "misc-file-size-binary",
++                   G_OBJECT (dialog), "file-size-binary");
++  g_signal_connect_swapped (G_OBJECT (dialog->preferences), "notify::misc-file-size-binary",
++                            G_CALLBACK (thunar_properties_dialog_reload), dialog);
+ 
+   /* create a new thumbnailer */
+   dialog->thumbnailer = thunar_thumbnailer_get ();
+@@ -605,6 +625,10 @@ thunar_properties_dialog_get_property (GObject    *object,
+       g_value_set_boxed (value, thunar_properties_dialog_get_files (dialog));
+       break;
+ 
++    case PROP_FILE_SIZE_BINARY:
++      g_value_set_boolean (value, dialog->file_size_binary);
++      break;
++
+     default:
+       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+       break;
+@@ -627,6 +651,10 @@ thunar_properties_dialog_set_property (GObject      *object,
+       thunar_properties_dialog_set_files (dialog, g_value_get_boxed (value));
+       break;
+ 
++    case PROP_FILE_SIZE_BINARY:
++      dialog->file_size_binary = g_value_get_boolean (value);
++      break;
++
+     default:
+       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+       break;
+@@ -1055,7 +1083,8 @@ thunar_properties_dialog_update_single (ThunarPropertiesDialog *dialog)
+   /* update the free space (only for folders) */
+   if (thunar_file_is_directory (file))
+     {
+-      fs_string = thunar_g_file_get_free_space_string (thunar_file_get_file (file));
++      fs_string = thunar_g_file_get_free_space_string (thunar_file_get_file (file),
++                                                       dialog->file_size_binary);
+       if (thunar_g_file_get_free_space (thunar_file_get_file (file), &fs_free, &fs_size)
+           && fs_size > 0)
+         {
+diff --git a/thunar/thunar-shortcuts-model.c b/thunar/thunar-shortcuts-model.c
+index 8a1bdc3..9ace3e3 100644
+--- a/thunar/thunar-shortcuts-model.c
++++ b/thunar/thunar-shortcuts-model.c
+@@ -62,7 +62,8 @@ typedef struct _ThunarShortcut ThunarShortcut;
+ enum
+ {
+   PROP_0,
+-  PROP_HIDDEN_BOOKMARKS
++  PROP_HIDDEN_BOOKMARKS,
++  PROP_FILE_SIZE_BINARY
+ };
+ 
+ 
+@@ -171,6 +172,7 @@ struct _ThunarShortcutsModel
+ 
+   ThunarPreferences    *preferences;
+   gchar               **hidden_bookmarks;
++  gboolean              file_size_binary;
+ 
+   ThunarDeviceMonitor  *device_monitor;
+ 
+@@ -226,6 +228,19 @@ thunar_shortcuts_model_class_init (ThunarShortcutsModelClass *klass)
+                                                        NULL,
+                                                        G_TYPE_STRV,
+                                                        EXO_PARAM_READWRITE));
++
++  /**
++   * ThunarPropertiesDialog:file_size_binary:
++   *
++   * Whether the file size should be shown in binary or decimal.
++   **/
++  g_object_class_install_property (gobject_class,
++                                   PROP_FILE_SIZE_BINARY,
++                                   g_param_spec_boolean ("file-size-binary",
++                                                         "FileSizeBinary",
++                                                         NULL,
++                                                         FALSE,
++                                                         EXO_PARAM_READWRITE));
+ }
+ 
+ 
+@@ -271,6 +286,10 @@ thunar_shortcuts_model_init (ThunarShortcutsModel *model)
+   exo_binding_new (G_OBJECT (model->preferences), "hidden-bookmarks",
+                    G_OBJECT (model), "hidden-bookmarks");
+ 
++  /* binary file size */
++  exo_binding_new (G_OBJECT (model->preferences), "misc-file-size-binary",
++                   G_OBJECT (model), "file-size-binary");
++
+   /* load volumes */
+   thunar_shortcuts_model_shortcut_devices (model);
+ 
+@@ -302,6 +321,9 @@ thunar_shortcuts_model_finalize (GObject *object)
+   g_list_foreach (model->shortcuts, (GFunc) thunar_shortcut_free, model);
+   g_list_free (model->shortcuts);
+ 
++  /* disconnect from the preferences */
++  g_object_unref (model->preferences);
++
+   /* free hidden list */
+   g_strfreev (model->hidden_bookmarks);
+ 
+@@ -338,6 +360,10 @@ thunar_shortcuts_model_get_property (GObject    *object,
+       g_value_set_boxed (value, model->hidden_bookmarks);
+       break;
+ 
++    case PROP_FILE_SIZE_BINARY:
++      g_value_set_boolean (value, model->file_size_binary);
++      break;
++
+     default:
+       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+       break;
+@@ -394,6 +420,10 @@ thunar_shortcuts_model_set_property (GObject      *object,
+       thunar_shortcuts_model_header_visibility (model);
+       break;
+ 
++    case PROP_FILE_SIZE_BINARY:
++      model->file_size_binary = g_value_get_boolean (value);
++      break;
++
+     default:
+       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+       break;
+@@ -530,6 +560,7 @@ thunar_shortcuts_model_get_value (GtkTreeModel *tree_model,
+   guint32         trash_items;
+   gchar          *trash_string;
+   gchar          *parse_name;
++  gboolean        file_size_binary;
+ 
+   _thunar_return_if_fail (iter->stamp == THUNAR_SHORTCUTS_MODEL (tree_model)->stamp);
+   _thunar_return_if_fail (THUNAR_IS_SHORTCUTS_MODEL (tree_model));
+@@ -583,7 +614,8 @@ thunar_shortcuts_model_get_value (GtkTreeModel *tree_model,
+ 
+           if (file != NULL)
+             {
+-              disk_usage = thunar_g_file_get_free_space_string (file);
++              file_size_binary = THUNAR_SHORTCUTS_MODEL (tree_model)->file_size_binary;
++              disk_usage = thunar_g_file_get_free_space_string (file, file_size_binary);
+               g_object_unref (file);
+               g_value_take_string (value, disk_usage);
+             }
+diff --git a/thunar/thunar-size-label.c b/thunar/thunar-size-label.c
+index 1afaea7..bb0839c 100644
+--- a/thunar/thunar-size-label.c
++++ b/thunar/thunar-size-label.c
+@@ -43,6 +43,7 @@ enum
+ {
+   PROP_0,
+   PROP_FILES,
++  PROP_FILE_SIZE_BINARY
+ };
+ 
+ 
+@@ -87,8 +88,10 @@ struct _ThunarSizeLabel
+   GtkHBox             __parent__;
+ 
+   ThunarDeepCountJob *job;
++  ThunarPreferences  *preferences;
+ 
+   GList              *files;
++  gboolean            file_size_binary;
+ 
+   GtkWidget          *label;
+   GtkWidget          *spinner;
+@@ -121,6 +124,19 @@ thunar_size_label_class_init (ThunarSizeLabelClass *klass)
+                                    g_param_spec_boxed ("files", "files", "files",
+                                                        THUNARX_TYPE_FILE_INFO_LIST,
+                                                        EXO_PARAM_READWRITE));
++
++  /**
++   * ThunarPropertiesDialog:file_size_binary:
++   *
++   * Whether the file size should be shown in binary or decimal.
++   **/
++  g_object_class_install_property (gobject_class,
++                                   PROP_FILE_SIZE_BINARY,
++                                   g_param_spec_boolean ("file-size-binary",
++                                                         "FileSizeBinary",
++                                                         NULL,
++                                                         FALSE,
++                                                         EXO_PARAM_READWRITE));
+ }
+ 
+ 
+@@ -130,6 +146,12 @@ thunar_size_label_init (ThunarSizeLabel *size_label)
+ {
+   GtkWidget *ebox;
+ 
++  /* binary file size */
++  size_label->preferences = thunar_preferences_get ();
++  exo_binding_new (G_OBJECT (size_label->preferences), "misc-file-size-binary",
++                   G_OBJECT (size_label), "file-size-binary");
++  g_signal_connect_swapped (G_OBJECT (size_label->preferences), "notify::misc-file-size-binary",
++                            G_CALLBACK (thunar_size_label_files_changed), size_label);
+   gtk_widget_push_composite_child ();
+ 
+   /* configure the box */
+@@ -177,6 +199,10 @@ thunar_size_label_finalize (GObject *object)
+   /* reset the file property */
+   thunar_size_label_set_files (size_label, NULL);
+ 
++  /* disconnect from the preferences */
++  g_signal_handlers_disconnect_by_func (size_label->preferences, thunar_size_label_files_changed, size_label);
++  g_object_unref (size_label->preferences);
++
+   (*G_OBJECT_CLASS (thunar_size_label_parent_class)->finalize) (object);
+ }
+ 
+@@ -196,6 +222,10 @@ thunar_size_label_get_property (GObject    *object,
+       g_value_set_boxed (value, thunar_size_label_get_files (size_label));
+       break;
+ 
++    case PROP_FILE_SIZE_BINARY:
++      g_value_set_boolean (value, size_label->file_size_binary);
++      break;
++
+     default:
+       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+       break;
+@@ -218,6 +248,10 @@ thunar_size_label_set_property (GObject      *object,
+       thunar_size_label_set_files (size_label, g_value_get_boxed (value));
+       break;
+ 
++    case PROP_FILE_SIZE_BINARY:
++      size_label->file_size_binary = g_value_get_boolean (value);
++      break;
++
+     default:
+       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+       break;
+@@ -267,17 +301,11 @@ thunar_size_label_files_changed (ThunarSizeLabel *size_label)
+ {
+   gchar             *size_string;
+   guint64            size;
+-  ThunarPreferences *preferences;
+-  gboolean           file_size_binary;
+ 
+   _thunar_return_if_fail (THUNAR_IS_SIZE_LABEL (size_label));
+   _thunar_return_if_fail (size_label->files != NULL);
+   _thunar_return_if_fail (THUNAR_IS_FILE (size_label->files->data));
+ 
+-  preferences = thunar_preferences_get ();
+-  g_object_get (preferences, "misc-file-size-binary", &file_size_binary, NULL);
+-  g_object_unref (preferences);
+-
+   /* cancel the pending job (if any) */
+   if (G_UNLIKELY (size_label->job != NULL))
+     {
+@@ -315,7 +343,7 @@ thunar_size_label_files_changed (ThunarSizeLabel *size_label)
+       size = thunar_file_get_size (THUNAR_FILE (size_label->files->data));
+ 
+       /* setup the new label */
+-      size_string = g_format_size_full (size, file_size_binary ? G_FORMAT_SIZE_LONG_FORMAT | G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_LONG_FORMAT);
++      size_string = g_format_size_full (size, size_label->file_size_binary ? G_FORMAT_SIZE_LONG_FORMAT | G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_LONG_FORMAT);
+       gtk_label_set_text (GTK_LABEL (size_label->label), size_string);
+       g_free (size_string);
+     }
+@@ -370,24 +398,18 @@ thunar_size_label_status_update (ThunarDeepCountJob *job,
+   gchar             *text;
+   guint              n;
+   gchar             *unreable_text;
+-  ThunarPreferences *preferences;
+-  gboolean           file_size_binary;
+ 
+   _thunar_return_if_fail (THUNAR_IS_DEEP_COUNT_JOB (job));
+   _thunar_return_if_fail (THUNAR_IS_SIZE_LABEL (size_label));
+   _thunar_return_if_fail (size_label->job == job);
+ 
+-  preferences = thunar_preferences_get ();
+-  g_object_get (preferences, "misc-file-size-binary", &file_size_binary, NULL);
+-  g_object_unref (preferences);
+-
+   /* determine the total number of items */
+   n = file_count + directory_count + unreadable_directory_count;
+ 
+   if (G_LIKELY (n > unreadable_directory_count))
+     {
+       /* update the label */
+-      size_string = g_format_size_full (total_size, file_size_binary ? G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_DEFAULT);
++      size_string = g_format_size_full (total_size, size_label->file_size_binary ? G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_DEFAULT);
+       text = g_strdup_printf (ngettext ("%u item, totalling %s", "%u items, totalling %s", n), n, size_string);
+       g_free (size_string);
+       
+diff --git a/thunar/thunar-standard-view.c b/thunar/thunar-standard-view.c
+index c6a210d..0ebfa62 100644
+--- a/thunar/thunar-standard-view.c
++++ b/thunar/thunar-standard-view.c
+@@ -714,6 +714,9 @@ thunar_standard_view_init (ThunarStandardView *standard_view)
+    */
+   g_signal_connect_swapped (G_OBJECT (standard_view->model), "notify::num-files", G_CALLBACK (thunar_standard_view_update_statusbar_text), standard_view);
+ 
++  /* be sure to update the statusbar text whenever the file-size-binary property changes */
++  g_signal_connect_swapped (G_OBJECT (standard_view->model), "notify::file-size-binary", G_CALLBACK (thunar_standard_view_update_statusbar_text), standard_view);
++
+   /* connect to size allocation signals for generating thumbnail requests */
+   g_signal_connect_after (G_OBJECT (standard_view), "size-allocate",
+                           G_CALLBACK (thunar_standard_view_size_allocate), NULL);
+diff --git a/thunar/thunar-transfer-job.c b/thunar/thunar-transfer-job.c
+index 2f15c71..82482e0 100644
+--- a/thunar/thunar-transfer-job.c
++++ b/thunar/thunar-transfer-job.c
+@@ -42,10 +42,29 @@
+ 
+ 
+ 
++/* Property identifiers */
++enum
++{
++  PROP_0,
++  PROP_FILE_SIZE_BINARY,
++};
++
++
++
+ typedef struct _ThunarTransferNode ThunarTransferNode;
+ 
+ 
+ 
++static void     thunar_transfer_job_get_property (GObject    *object,
++                                                  guint       prop_id,
++                                                  GValue     *value,
++                                                  GParamSpec *pspec);
++
++static void     thunar_transfer_job_set_property (GObject      *object,
++                                                  guint         prop_id,
++                                                  const GValue *value,
++                                                  GParamSpec   *pspec);
++
+ static void     thunar_transfer_job_finalize     (GObject                *object);
+ static gboolean thunar_transfer_job_execute      (ExoJob                 *job,
+                                                   GError                **error);
+@@ -74,6 +93,9 @@ struct _ThunarTransferJob
+   guint64               total_progress;
+   guint64               file_progress;
+   guint64               transfer_rate;
++
++  ThunarPreferences    *preferences;
++  gboolean              file_size_binary;
+ };
+ 
+ struct _ThunarTransferNode
+@@ -97,9 +119,24 @@ thunar_transfer_job_class_init (ThunarTransferJobClass *klass)
+ 
+   gobject_class = G_OBJECT_CLASS (klass);
+   gobject_class->finalize = thunar_transfer_job_finalize;
++  gobject_class->get_property = thunar_transfer_job_get_property;
++  gobject_class->set_property = thunar_transfer_job_set_property;
+ 
+   exojob_class = EXO_JOB_CLASS (klass);
+   exojob_class->execute = thunar_transfer_job_execute;
++
++  /**
++   * ThunarPropertiesDialog:file_size_binary:
++   *
++   * Whether the file size should be shown in binary or decimal.
++   **/
++  g_object_class_install_property (gobject_class,
++                                   PROP_FILE_SIZE_BINARY,
++                                   g_param_spec_boolean ("file-size-binary",
++                                                         "FileSizeBinary",
++                                                         NULL,
++                                                         FALSE,
++                                                         EXO_PARAM_READWRITE));
+ }
+ 
+ 
+@@ -107,6 +144,10 @@ thunar_transfer_job_class_init (ThunarTransferJobClass *klass)
+ static void
+ thunar_transfer_job_init (ThunarTransferJob *job)
+ {
++  job->preferences = thunar_preferences_get ();
++  exo_binding_new (G_OBJECT (job->preferences), "misc-file-size-binary",
++                   G_OBJECT (job), "file-size-binary");
++
+   job->type = 0;
+   job->source_node_list = NULL;
+   job->target_file_list = NULL;
+@@ -130,12 +171,58 @@ thunar_transfer_job_finalize (GObject *object)
+ 
+   thunar_g_file_list_free (job->target_file_list);
+ 
++  g_object_unref (job->preferences);
++
+   (*G_OBJECT_CLASS (thunar_transfer_job_parent_class)->finalize) (object);
+ }
+ 
+ 
+ 
+ static void
++thunar_transfer_job_get_property (GObject     *object,
++                                  guint        prop_id,
++                                  GValue      *value,
++                                  GParamSpec  *pspec)
++{
++  ThunarTransferJob *job = THUNAR_TRANSFER_JOB (object);
++
++  switch (prop_id)
++    {
++    case PROP_FILE_SIZE_BINARY:
++      g_value_set_boolean (value, job->file_size_binary);
++      break;
++
++    default:
++      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
++      break;
++    }
++}
++
++
++
++static void
++thunar_transfer_job_set_property (GObject      *object,
++                                  guint         prop_id,
++                                  const GValue *value,
++                                  GParamSpec   *pspec)
++{
++  ThunarTransferJob *job = THUNAR_TRANSFER_JOB (object);
++
++  switch (prop_id)
++    {
++    case PROP_FILE_SIZE_BINARY:
++      job->file_size_binary = g_value_get_boolean (value);
++      break;
++
++    default:
++      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
++      break;
++    }
++}
++
++
++
++static void
+ thunar_transfer_job_progress (goffset  current_num_bytes,
+                               goffset  total_num_bytes,
+                               gpointer user_data)
+@@ -670,26 +757,20 @@ retry_remove:
+ 
+ 
+ static gboolean
+-thunar_transfer_job_veryify_destination (ThunarTransferJob  *transfer_job,
+-                                         GError            **error)
++thunar_transfer_job_verify_destination (ThunarTransferJob  *transfer_job,
++                                        GError            **error)
+ {
+   GFileInfo         *filesystem_info;
+-  guint64             free_space;
++  guint64            free_space;
+   GFile             *dest;
+   GFileInfo         *dest_info;
+   gchar             *dest_name = NULL;
+   gchar             *base_name;
+   gboolean           succeed = TRUE;
+   gchar             *size_string;
+-  ThunarPreferences *preferences;
+-  gboolean           file_size_binary;
+ 
+   _thunar_return_val_if_fail (THUNAR_IS_TRANSFER_JOB (transfer_job), FALSE);
+ 
+-  preferences = thunar_preferences_get ();
+-  g_object_get (preferences, "misc-file-size-binary", &file_size_binary, NULL);
+-  g_object_unref (preferences);
+-
+   /* no target file list */
+   if (transfer_job->target_file_list == NULL)
+     return TRUE;
+@@ -736,7 +817,8 @@ thunar_transfer_job_veryify_destination (ThunarTransferJob  *transfer_job,
+       free_space = g_file_info_get_attribute_uint64 (filesystem_info, G_FILE_ATTRIBUTE_FILESYSTEM_FREE);
+       if (transfer_job->total_size > free_space)
+         {
+-          size_string = g_format_size_full (transfer_job->total_size - free_space, file_size_binary ? G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_DEFAULT);
++          size_string = g_format_size_full (transfer_job->total_size - free_space,
++                                            transfer_job->file_size_binary ? G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_DEFAULT);
+           succeed = thunar_job_ask_no_size (THUNAR_JOB (transfer_job),
+                                              _("Error while copying to \"%s\": %s more space is "
+                                                "required to copy to the destination"),
+@@ -954,7 +1036,7 @@ thunar_transfer_job_execute (ExoJob  *job,
+   if (G_LIKELY (err == NULL))
+     {
+       /* check destination */
+-      if (!thunar_transfer_job_veryify_destination (transfer_job, &err))
++      if (!thunar_transfer_job_verify_destination (transfer_job, &err))
+         {
+           if (err != NULL)
+             {
+@@ -1080,20 +1162,14 @@ thunar_transfer_job_get_status (ThunarTransferJob *job)
+   gchar             *transfer_rate_str;
+   GString           *status;
+   gulong             remaining_time;
+-  ThunarPreferences *preferences;
+-  gboolean           file_size_binary;
+ 
+   _thunar_return_val_if_fail (THUNAR_IS_TRANSFER_JOB (job), NULL);
+ 
+-  preferences = thunar_preferences_get ();
+-  g_object_get (preferences, "misc-file-size-binary", &file_size_binary, NULL);
+-  g_object_unref (preferences);
+-
+   status = g_string_sized_new (100);
+ 
+   /* transfer status like "22.6MB of 134.1MB" */
+-  total_size_str = g_format_size_full (job->total_size, file_size_binary ? G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_DEFAULT);
+-  total_progress_str = g_format_size_full (job->total_progress, file_size_binary ? G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_DEFAULT);
++  total_size_str = g_format_size_full (job->total_size, job->file_size_binary ? G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_DEFAULT);
++  total_progress_str = g_format_size_full (job->total_progress, job->file_size_binary ? G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_DEFAULT);
+   g_string_append_printf (status, _("%s of %s"), total_progress_str, total_size_str);
+   g_free (total_size_str);
+   g_free (total_progress_str);
+@@ -1103,7 +1179,7 @@ thunar_transfer_job_get_status (ThunarTransferJob *job)
+       && (job->last_update_time - job->start_time) > MINIMUM_TRANSFER_TIME)
+     {
+       /* remaining time based on the transfer speed */
+-      transfer_rate_str = g_format_size_full (job->transfer_rate, file_size_binary ? G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_DEFAULT);
++      transfer_rate_str = g_format_size_full (job->transfer_rate, job->file_size_binary ? G_FORMAT_SIZE_IEC_UNITS : G_FORMAT_SIZE_DEFAULT);
+       remaining_time = (job->total_size - job->total_progress) / job->transfer_rate;
+ 
+       if (remaining_time > 0)
+-- 
+2.3.1
+
