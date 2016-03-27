@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+zvbi: zvbi (Zapping VBI library)
+zvbi:
+zvbi: ZVBI provides functions to capture and decode VBI data.
+zvbi: It is written in plain ANSI C with few dependencies on other tools
+zvbi: and libraries, licensed under GPL.
+zvbi:
+zvbi:
+zvbi:
+zvbi:
+zvbi:
+zvbi: Package created by Niki Kovacs <info@microlinux.fr>

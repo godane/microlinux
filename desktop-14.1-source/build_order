@@ -7,15 +7,65 @@ profile/user-settings-console
 ap/sbopkg
 ap/slackpkg+
 
+# Basic tools
+ap/p7zip
+ap/recode
+ap/unrar
+
+# Libraries
+l/eigen3
+
 # Development
 d/jdk
+d/lua
+d/orc
 
 # Perl
 d/perl-extutils-depends
 d/perl-extutils-pkgconfig
 d/perl-glib
 
+# Python
+d/numpy
+
 # Multimedia
+multimedia/a52dec
+multimedia/celt
+multimedia/celt051
+multimedia/dirac
+multimedia/faad2
+multimedia/gsm
+multimedia/ladspa_sdk
+multimedia/lame
+multimedia/libass
+multimedia/libavc1394
+multimedia/libbluray
+multimedia/libdc1394
+multimedia/libfdk-aac
+multimedia/libiec61883
+multimedia/libilbc
+multimedia/libmodplug
+multimedia/libmp4v2
+multimedia/libquvi-scripts
+multimedia/libquvi
+multimedia/libvpx
+multimedia/OpenAL
+multimedia/opencore-amr
+# Rebuild manually to resolve circular dependency with ffmpeg
+multimedia/opencv
+multimedia/openjpeg
+multimedia/opus
+multimedia/rtmpdump
+multimedia/schroedinger
+multimedia/speex
+multimedia/twolame
+multimedia/x264
+multimedia/x265
+multimedia/xvidcore
+multimedia/zvbi
+multimedia/faac
+multimedia/frei0r
+multimedia/ffmpeg
 
 # Fonts
 x/apple-fonts
