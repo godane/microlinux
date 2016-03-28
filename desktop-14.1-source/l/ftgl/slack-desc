@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+ftgl: FTGL (font rendering library for OpenGL applications)
+ftgl:
+ftgl: FTGL is a free, open source library to enable developers to use
+ftgl: arbitrary fonts in their OpenGL (www.opengl.org) applications.
+ftgl: Unlike other OpenGL font libraries FTGL uses standard font file
+ftgl: formats so doesn't need a preprocessing step to convert the high
+ftgl: quality font data into a lesser quality, proprietary format.
+ftgl: FTGL uses the Freetype (www.freetype.org) font library to open and
+ftgl: 'decode' the fonts. It then takes that output and stores it in a
+ftgl: format most efficient for OpenGL rendering.
+ftgl: Package created by Niki Kovacs <info@microlinux.fr>

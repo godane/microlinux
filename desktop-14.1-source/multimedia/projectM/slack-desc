@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+projectM: projectM (Music visualization program)
+projectM:
+projectM: projectM is an OpenGL based advanced music visualization program
+projectM: for Linux, Mac OSX, and Windows.  It is backward compatible with
+projectM: all the features of Milkdrop 1.x (and now 2.x), but has many new
+projectM: toys and enhancements.
+projectM:
+projectM:
+projectM:
+projectM:
+projectM: Package created by Niki Kovacs <info@microlinux.fr>

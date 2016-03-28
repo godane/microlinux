@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+glfw: GLFW (OpenGL framework)
+glfw:
+glfw: GLFW is a free, Open Source, multi-platform library for opening a
+glfw: window, creating an OpenGL context and managing input. It is easy to
+glfw: integrate into existing applications and does not lay claim to the
+glfw: main loop.
+glfw:
+glfw: 
+glfw: 
+glfw: 
+glfw: Package created by Niki Kovacs <info@microlinux.fr>

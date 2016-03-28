@@ -30,8 +30,8 @@ BUILDPACKAGES=$(egrep -v '(^\#)|(^\s+$)' $CWD/build_order)
 for BUILDPACKAGE in $BUILDPACKAGES; do
   CATEGORY=$(dirname $BUILDPACKAGE)
   PACKAGE=$(basename $BUILDPACKAGE)
-  if [ -r ${TXZDIR}/${CATEGORY}/${PACKAGE}-[r0-9]*.txz ] ; then
-    if [ -r /var/log/packages/${PACKAGE}-[r0-9]* ] ; then
+  if [ -r ${TXZDIR}/${CATEGORY}/${PACKAGE}-[rV0-9]*.txz ] ; then
+    if [ -r /var/log/packages/${PACKAGE}-[rV0-9]* ] ; then
       continue
     fi
   fi
@@ -48,7 +48,7 @@ for BUILDPACKAGE in $BUILDPACKAGES; do
     cd ${SOURCEDIR}/${CATEGORY}/${PACKAGE} || exit 1
     ./${PACKAGE}.SlackBuild || exit 1
   )
-  upgradepkg --install-new ${TXZDIR}/${CATEGORY}/${PACKAGE}-[r0-9]*.txz || exit 1
+  upgradepkg --install-new ${TXZDIR}/${CATEGORY}/${PACKAGE}-[rV0-9]*.txz || exit 1
 done
 
 echo 

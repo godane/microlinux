@@ -4,7 +4,7 @@
 profile/user-settings-console
 
 # Package management
-ap/sbopkg
+ap/sbopkg 
 ap/slackpkg+
 
 # Basic tools
@@ -14,6 +14,13 @@ ap/unrar
 
 # Libraries
 l/eigen3
+l/ftgl
+l/glfw
+l/libburn
+l/libebml
+l/libisofs
+l/libjpeg-turbo
+l/libvdpau
 
 # Development
 d/jdk
@@ -34,31 +41,53 @@ multimedia/celt
 multimedia/celt051
 multimedia/dirac
 multimedia/faad2
+multimedia/flashplayer-plugin
 multimedia/gsm
 multimedia/ladspa_sdk
 multimedia/lame
 multimedia/libass
 multimedia/libavc1394
 multimedia/libbluray
+multimedia/libcdaudio
+multimedia/libcuefile
 multimedia/libdc1394
+multimedia/libdca
+multimedia/libdv
+multimedia/libdvbpsi
+multimedia/libdvdcss
+multimedia/libdvdnav
 multimedia/libfdk-aac
 multimedia/libiec61883
 multimedia/libilbc
+multimedia/libkate
+multimedia/libmatroska
 multimedia/libmodplug
 multimedia/libmp4v2
+multimedia/libmpeg2
 multimedia/libquvi-scripts
 multimedia/libquvi
+multimedia/libreplaygain
+multimedia/libva
 multimedia/libvpx
+multimedia/live555
+# Build manually
+# multimedia/mplayer-codecs32
+# multimedia/mplayer-codecs64
+multimedia/musepack-tools
 multimedia/OpenAL
 multimedia/opencore-amr
 # Rebuild manually to resolve circular dependency with ffmpeg
 multimedia/opencv
 multimedia/openjpeg
 multimedia/opus
+multimedia/portaudio
+multimedia/projectM
 multimedia/rtmpdump
 multimedia/schroedinger
 multimedia/speex
 multimedia/twolame
+multimedia/vcdimager
+multimedia/vsxu
 multimedia/x264
 multimedia/x265
 multimedia/xvidcore
@@ -66,6 +95,17 @@ multimedia/zvbi
 multimedia/faac
 multimedia/frei0r
 multimedia/ffmpeg
+multimedia/libquicktime
+multimedia/libshout
+multimedia/mlt
+multimedia/gst-ffmpeg
+multimedia/gst-plugins-bad
+multimedia/gst-plugins-ugly
+multimedia/gstreamer1
+multimedia/gst1-plugins-base
+multimedia/gst1-plugins-good
+multimedia/gst1-libav
+multimedia/gst1-plugins-bad
 
 # Fonts
 x/apple-fonts
