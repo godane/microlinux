@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+libtar: libtar (tar file manipulation API)
+libtar:
+libtar: libtar is a C library for manipulating POSIX tar files.
+libtar: It handles adding and extracting files to/from a tar archive.
+libtar:
+libtar: 
+libtar:
+libtar:
+libtar:
+libtar:
+libtar: Package created by Niki Kovacs <info@microlinux.fr>

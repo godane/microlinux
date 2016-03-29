@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+chromaprint: chromaprint (audio fingerprint library)
+chromaprint:
+chromaprint: Chromaprint is the core component of the Acoustid project.
+chromaprint: It's a client-side library that implements a custom algorithm for
+chromaprint: extracting fingerprints from any audio source.
+chromaprint:
+chromaprint: 
+chromaprint:
+chromaprint:
+chromaprint:
+chromaprint: Package created by Niki Kovacs <info@microlinux.fr>

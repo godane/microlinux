@@ -1,6 +1,6 @@
 # Build order for MLED 14.1
 
-# User profiles
+# User profile (Bash, Vim, Xterm)
 profile/user-settings-console
 
 # Package management
@@ -14,6 +14,7 @@ ap/p7zip
 ap/recode
 ap/unrar
 ap/unrtf
+n/iperf
  
 # Development
 d/acpica
@@ -46,9 +47,13 @@ l/libgee
 l/libgtop
 l/libisofs
 l/libjpeg-turbo
+l/libminizip
 l/libosinfo
+l/libssh2
 l/libsigc++
+l/libtar
 l/libunique
+l/libupnp
 l/libvdpau
 l/libwebp
 l/libwnck3
@@ -156,6 +161,7 @@ multimedia/zvbi
 multimedia/faac
 multimedia/frei0r
 multimedia/ffmpeg
+multimedia/chromaprint
 multimedia/libquicktime
 multimedia/libshout
 multimedia/mlt
@@ -207,6 +213,8 @@ xap/libreoffice
 xap/MPlayer
 xap/openshot
 xap/recoll
+xap/scribus
+xap/transmission
 
 # Translations
 # locale/libreoffice-langpack (build manually)
@@ -253,3 +261,6 @@ xfce/xfce4-xkb-plugin
 xfce/thunar-archive-plugin
 xfce/ffmpegthumbnailer
 xfce/plank
+
+# User profile (Xfce)
+profile/user-settings-xfce
