@@ -8,24 +8,64 @@ ap/sbopkg
 ap/slackpkg+
 
 # Basic tools
+ap/antiword
+ap/exiftool
 ap/p7zip
 ap/recode
 ap/unrar
+ap/unrtf
+ 
+# Development
+d/acpica
+d/jdk
+d/lua
+d/mm-common
+d/orc
+d/scons
+d/spice-protocol
+d/vala
 
 # Libraries
 l/eigen3
 l/ftgl
 l/glfw
+l/gnome-common
+l/gnome-python2-gconf
+l/goocanvas
+l/gsl
+l/gtk-engines
+l/gtksourceview
+l/imlib2
+l/json-glib
+l/libbsd
 l/libburn
+l/libdbusmenu
 l/libebml
+l/libexif-gtk
+l/libgee
+l/libgtop
 l/libisofs
 l/libjpeg-turbo
+l/libosinfo
+l/libsigc++
+l/libunique
 l/libvdpau
-
-# Development
-d/jdk
-d/lua
-d/orc
+l/libwebp
+l/libwnck3
+l/podofo
+l/tolua++
+l/usbredir
+l/vte3
+l/wxPython
+l/xapian-core
+l/yajl
+l/bamf
+l/glibmm
+l/cairomm
+l/pangomm
+l/atkmm
+l/gtkmm
+l/gtkmm3
 
 # Perl
 d/perl-extutils-depends
@@ -33,7 +73,26 @@ d/perl-extutils-pkgconfig
 d/perl-glib
 
 # Python
+d/BeautifulSoup
+d/pysetuptools
+d/apsw
+d/cssselect
+d/cssutils
+d/dnspython
+d/ipaddr-py
+d/lxml
+d/mechanize
+d/netifaces
 d/numpy
+d/psutil
+d/pygobject3
+d/pygoocanvas
+d/pygtksourceview
+d/pyparsing
+d/pyxdg
+d/six
+d/urlgrabber
+d/python-dateutil
 
 # Multimedia
 multimedia/a52dec
@@ -43,6 +102,7 @@ multimedia/dirac
 multimedia/faad2
 multimedia/flashplayer-plugin
 multimedia/gsm
+multimedia/id3lib
 multimedia/ladspa_sdk
 multimedia/lame
 multimedia/libass
@@ -85,6 +145,7 @@ multimedia/projectM
 multimedia/rtmpdump
 multimedia/schroedinger
 multimedia/speex
+multimedia/totem-pl-parser
 multimedia/twolame
 multimedia/vcdimager
 multimedia/vsxu
@@ -114,12 +175,38 @@ x/eurostile-fonts
 x/google-droid-fonts
 x/webcore-fonts
 
-# GNOME 
-gnome/gtk-engines
-gnome/libunique
+# KVM
+n/gtk-vnc
+n/netcat-openbsd
+n/spice
+n/spice-gtk
+n/tunctl
+ap/device-tree-compiler
+ap/libvirt
+l/libvirt-glib
+l/libvirt-python
 
 # Applications
+xap/asunder
+xap/audacious
+xap/audacious-plugins
+xap/audacity
+xap/brasero
+xap/calibre
+xap/conky
+xap/evince
+xap/file-roller
+xap/galculator
+xap/gedit
+xap/gedit-plugins
+xap/gnote
+xap/gthumb
+xap/gtkam
+xap/inkscape
 xap/libreoffice
+xap/MPlayer
+xap/openshot
+xap/recoll
 
 # Translations
 # locale/libreoffice-langpack (build manually)
@@ -163,3 +250,6 @@ xfce/xfce4-weather-plugin
 xfce/xfce4-whiskermenu-plugin
 xfce/xfce4-systemload-plugin
 xfce/xfce4-xkb-plugin
+xfce/thunar-archive-plugin
+xfce/ffmpegthumbnailer
+xfce/plank
