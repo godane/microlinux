@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=3D Graphics
+Name[de]=3D-Grafiksoftware
+Name[fr]=Modélisation 3D
+Comment=Blender
+Version=1.0
+Terminal=false
+Icon=blender
+Type=Application
+Categories=Graphics;
+TryExec=blender
+Exec=blender
+StartupNotify=true

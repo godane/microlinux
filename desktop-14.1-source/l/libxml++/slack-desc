@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+libxml++: libxml++ (C++ wrapper for the libxml XML parser library)
+libxml++:
+libxml++: libxml++ is a C++ wrapper for the libxml XML parser library. Its
+libxml++: original author is Ari Johnson and it is currently maintained by
+libxml++: Christophe de Vienne and Murray Cumming. It is released under the
+libxml++: LGPL version 2 or above.
+libxml++:
+libxml++:
+libxml++:
+libxml++:
+libxml++: Package created by Niki Kovacs <info@microlinux.fr>

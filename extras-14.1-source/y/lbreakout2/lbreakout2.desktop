@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Breakout Game
+Name[de]=Breakout
+Name[fr]=Casse-briques
+Comment=LBreakout2
+Exec=lbreakout2
+Terminal=false
+Type=Application
+Categories=Application;Game;ArcadeGame
+Icon=lbreakout2.png
+StartupNotify=false

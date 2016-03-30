@@ -27,6 +27,7 @@ d/spice-protocol
 d/vala
 
 # Libraries
+l/cryptopp
 l/eigen3
 l/ftgl
 l/glfw
@@ -48,6 +49,7 @@ l/libgtop
 l/libisofs
 l/libjpeg-turbo
 l/libminizip
+l/libopenraw
 l/libosinfo
 l/libssh2
 l/libsigc++
@@ -57,7 +59,9 @@ l/libupnp
 l/libvdpau
 l/libwebp
 l/libwnck3
+l/muParser
 l/podofo
+l/qtkeychain
 l/tolua++
 l/usbredir
 l/vte3
@@ -71,6 +75,8 @@ l/pangomm
 l/atkmm
 l/gtkmm
 l/gtkmm3
+l/libxml++
+l/libofx
 
 # Perl
 d/perl-extutils-depends
@@ -81,6 +87,8 @@ d/perl-glib
 d/BeautifulSoup
 d/pysetuptools
 d/apsw
+d/backports-ssl-match-hostname
+d/cddb-py
 d/cssselect
 d/cssutils
 d/dnspython
@@ -94,10 +102,15 @@ d/pygobject3
 d/pygoocanvas
 d/pygtksourceview
 d/pyparsing
+d/pytz
 d/pyxdg
+d/simplejson
 d/six
+d/SQLAlchemy
+d/tornado
 d/urlgrabber
 d/python-dateutil
+d/matplotlib
 
 # Multimedia
 multimedia/a52dec
@@ -181,7 +194,9 @@ x/eurostile-fonts
 x/google-droid-fonts
 x/webcore-fonts
 
-# KVM
+# Misc
+d/PyAudio
+n/freerdp
 n/gtk-vnc
 n/netcat-openbsd
 n/spice
@@ -265,3 +280,6 @@ xfce/plank
 
 # User profile (Xfce)
 profile/user-settings-xfce
+
+# Login manager
+x/lxdm

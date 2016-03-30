@@ -2,3 +2,39 @@
 
 # Basic tools
 ap/cdlabelgen
+ap/qemu
+
+# Development
+d/fpc
+d/fpc-source
+d/lazarus
+
+# Fonts
+x/scholae-fonts
+
+# Applications
+xap/aMule
+xap/anki
+xap/blender
+xap/dropbox
+xap/easytag
+xap/filezilla
+xap/gcompris
+xap/geogebra
+xap/gtkcdlabel
+xap/homebank
+xap/librecad
+xap/owncloud-client
+xap/povray
+xap/remmina
+xap/simple-scan
+xap/virt-manager
+xap/virtualbox
+xap/virtualbox-kernel
+xap/virtualbox-extension-pack
+xap/winff
+xap/xpe
+
+# Games
+y/aisleriot
+y/lbreakout2
