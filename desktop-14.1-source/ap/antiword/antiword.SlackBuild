@@ -27,7 +27,7 @@
 
 PRGNAM=antiword
 VERSION=0.37
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j3}

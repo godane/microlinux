@@ -1,20 +1,20 @@
 # Build order for MLED 14.1
 
 # User profile (Bash, Vim, Xterm)
-# profile/user-settings-console
+profile/user-settings-console
 
 # Package management
-# ap/sbopkg 
-# ap/slackpkg+
+ap/sbopkg 
+ap/slackpkg+
 
 # Basic tools
-# ap/antiword
-# ap/exiftool
-# ap/p7zip
-# ap/recode
-# ap/unrar
-# ap/unrtf
-# n/iperf
+ap/antiword
+ap/exiftool
+ap/p7zip
+ap/recode
+ap/unrar
+ap/unrtf
+n/iperf
  
 # Development
 # d/acpica
