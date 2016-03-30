@@ -27,38 +27,38 @@ d/spice-protocol
 d/vala
 
 # Libraries
-# l/cryptopp
-# l/eigen3
-# l/ftgl
-# l/glfw
-# l/gnome-common
-# l/gnome-python2-gconf
-# l/goocanvas
-# l/gsl
-# l/gtk-engines
-# l/gtksourceview
-# l/imlib2
-# l/json-glib
-# l/libbsd
-# l/libburn
-# l/libdbusmenu
-# l/libebml
-# l/libexif-gtk
-# l/libgee
-# l/libgtop
-# l/libisofs
-# l/libjpeg-turbo
-# l/libminizip
-# l/libopenraw
-# l/libosinfo
-# l/libssh2
-# l/libsigc++
-# l/libtar
-# l/libunique
-# l/libupnp
-# l/libvdpau
-# l/libwebp
-# l/libwnck3
+l/cryptopp
+l/eigen3
+l/ftgl
+l/glfw
+l/gnome-common
+l/gnome-python2-gconf
+l/goocanvas
+l/gsl
+l/gtk-engines
+l/gtksourceview
+l/imlib2
+l/json-glib
+l/libbsd
+l/libburn
+l/libdbusmenu
+l/libebml
+l/libexif-gtk
+l/libgee
+l/libgtop
+l/libisofs
+l/libjpeg-turbo
+l/libminizip
+l/libopenraw
+l/libosinfo
+l/libssh2
+l/libsigc++
+l/libtar
+l/libunique
+l/libupnp
+l/libvdpau
+l/libwebp
+l/libwnck3
 # l/muParser
 # l/podofo
 # l/qtkeychain

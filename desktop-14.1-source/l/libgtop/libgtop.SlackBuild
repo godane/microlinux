@@ -25,10 +25,10 @@
 
 PRGNAM=libgtop
 VERSION=${VERSION:-2.28.5}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in

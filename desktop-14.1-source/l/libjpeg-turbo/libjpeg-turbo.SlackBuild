@@ -27,10 +27,10 @@
 
 PRGNAM=libjpeg-turbo
 VERSION=${VERSION:-1.4.2}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
 # The default is to install the package to /opt/$PRGNAM, but you can override
 # it here. Set PREFIX to /usr to overwrite the conventional libjpeg.
@@ -67,7 +67,8 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
 
-#wget -c $DOWNLOAD
+rm -f $PRGNAM-$VERSION.tar.gz
+curl -O -J -L $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
