@@ -17,14 +17,14 @@ ap/unrtf
 n/iperf
  
 # Development
-# d/acpica
-# d/jdk
-# d/lua
-# d/mm-common
-# d/orc
-# d/scons
-# d/spice-protocol
-# d/vala
+d/acpica
+d/jdk
+d/lua
+d/mm-common
+d/orc
+d/scons
+d/spice-protocol
+d/vala
 
 # Libraries
 # l/cryptopp
