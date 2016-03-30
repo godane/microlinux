@@ -62,7 +62,7 @@ set -e
 
 DOWNLOAD="https://github.com/frankosterfeld/$PRGNAM/archive/v$VERSION.tar.gz"
 
-curl -O -J -L $DOWNLOAD
+wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

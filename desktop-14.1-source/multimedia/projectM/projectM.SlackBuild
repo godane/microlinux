@@ -51,7 +51,7 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/projectm/$PRGNAM-complete-$VERSION-Source.tar.gz"
 
-wget -c $DOWNLOAD
+#wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

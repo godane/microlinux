@@ -1,285 +1,285 @@
 # Build order for MLED 14.1
 
 # User profile (Bash, Vim, Xterm)
-profile/user-settings-console
+# profile/user-settings-console
 
 # Package management
-ap/sbopkg 
-ap/slackpkg+
+# ap/sbopkg 
+# ap/slackpkg+
 
 # Basic tools
-ap/antiword
-ap/exiftool
-ap/p7zip
-ap/recode
-ap/unrar
-ap/unrtf
-n/iperf
+# ap/antiword
+# ap/exiftool
+# ap/p7zip
+# ap/recode
+# ap/unrar
+# ap/unrtf
+# n/iperf
  
 # Development
-d/acpica
-d/jdk
-d/lua
-d/mm-common
-d/orc
-d/scons
-d/spice-protocol
-d/vala
+# d/acpica
+# d/jdk
+# d/lua
+# d/mm-common
+# d/orc
+# d/scons
+# d/spice-protocol
+# d/vala
 
 # Libraries
-l/cryptopp
-l/eigen3
-l/ftgl
-l/glfw
-l/gnome-common
-l/gnome-python2-gconf
-l/goocanvas
-l/gsl
-l/gtk-engines
-l/gtksourceview
-l/imlib2
-l/json-glib
-l/libbsd
-l/libburn
-l/libdbusmenu
-l/libebml
-l/libexif-gtk
-l/libgee
-l/libgtop
-l/libisofs
-l/libjpeg-turbo
-l/libminizip
-l/libopenraw
-l/libosinfo
-l/libssh2
-l/libsigc++
-l/libtar
-l/libunique
-l/libupnp
-l/libvdpau
-l/libwebp
-l/libwnck3
-l/muParser
-l/podofo
-l/qtkeychain
-l/tolua++
-l/usbredir
-l/vte3
-l/wxPython
-l/xapian-core
-l/yajl
-l/bamf
-l/glibmm
-l/cairomm
-l/pangomm
-l/atkmm
-l/gtkmm
-l/gtkmm3
-l/libxml++
-l/libofx
+# l/cryptopp
+# l/eigen3
+# l/ftgl
+# l/glfw
+# l/gnome-common
+# l/gnome-python2-gconf
+# l/goocanvas
+# l/gsl
+# l/gtk-engines
+# l/gtksourceview
+# l/imlib2
+# l/json-glib
+# l/libbsd
+# l/libburn
+# l/libdbusmenu
+# l/libebml
+# l/libexif-gtk
+# l/libgee
+# l/libgtop
+# l/libisofs
+# l/libjpeg-turbo
+# l/libminizip
+# l/libopenraw
+# l/libosinfo
+# l/libssh2
+# l/libsigc++
+# l/libtar
+# l/libunique
+# l/libupnp
+# l/libvdpau
+# l/libwebp
+# l/libwnck3
+# l/muParser
+# l/podofo
+# l/qtkeychain
+# l/tolua++
+# l/usbredir
+# l/vte3
+# l/wxPython
+# l/xapian-core
+# l/yajl
+# l/bamf
+# l/glibmm
+# l/cairomm
+# l/pangomm
+# l/atkmm
+# l/gtkmm
+# l/gtkmm3
+# l/libxml++
+# l/libofx
 
 # Perl
-d/perl-extutils-depends
-d/perl-extutils-pkgconfig
-d/perl-glib
+# d/perl-extutils-depends
+# d/perl-extutils-pkgconfig
+# d/perl-glib
 
 # Python
-d/BeautifulSoup
-d/pysetuptools
-d/apsw
-d/backports-ssl-match-hostname
-d/cddb-py
-d/cssselect
-d/cssutils
-d/dnspython
-d/ipaddr-py
-d/lxml
-d/mechanize
-d/netifaces
-d/numpy
-d/psutil
-d/pygobject3
-d/pygoocanvas
-d/pygtksourceview
-d/pyparsing
-d/pytz
-d/pyxdg
-d/simplejson
-d/six
-d/SQLAlchemy
-d/tornado
-d/urlgrabber
-d/python-dateutil
-d/matplotlib
+# d/BeautifulSoup
+# d/pysetuptools
+# d/apsw
+# d/backports-ssl-match-hostname
+# d/cddb-py
+# d/cssselect
+# d/cssutils
+# d/dnspython
+# d/ipaddr-py
+# d/lxml
+# d/mechanize
+# d/netifaces
+# d/numpy
+# d/psutil
+# d/pygobject3
+# d/pygoocanvas
+# d/pygtksourceview
+# d/pyparsing
+# d/pytz
+# d/pyxdg
+# d/simplejson
+# d/six
+# d/SQLAlchemy
+# d/tornado
+# d/urlgrabber
+# d/python-dateutil
+# d/matplotlib
 
 # Multimedia
-multimedia/a52dec
-multimedia/celt
-multimedia/celt051
-multimedia/dirac
-multimedia/faad2
-multimedia/flashplayer-plugin
-multimedia/gsm
-multimedia/id3lib
-multimedia/ladspa_sdk
-multimedia/lame
-multimedia/libass
-multimedia/libavc1394
-multimedia/libbluray
-multimedia/libcdaudio
-multimedia/libcuefile
-multimedia/libdc1394
-multimedia/libdca
-multimedia/libdv
-multimedia/libdvbpsi
-multimedia/libdvdcss
-multimedia/libdvdnav
-multimedia/libfdk-aac
-multimedia/libiec61883
-multimedia/libilbc
-multimedia/libkate
-multimedia/libmatroska
-multimedia/libmodplug
-multimedia/libmp4v2
-multimedia/libmpeg2
-multimedia/libquvi-scripts
-multimedia/libquvi
-multimedia/libreplaygain
-multimedia/libva
-multimedia/libvpx
-multimedia/live555
+# multimedia/a52dec
+# multimedia/celt
+# multimedia/celt051
+# multimedia/dirac
+# multimedia/faad2
+# multimedia/flashplayer-plugin
+# multimedia/gsm
+# multimedia/id3lib
+# multimedia/ladspa_sdk
+# multimedia/lame
+# multimedia/libass
+# multimedia/libavc1394
+# multimedia/libbluray
+# multimedia/libcdaudio
+# multimedia/libcuefile
+# multimedia/libdc1394
+# multimedia/libdca
+# multimedia/libdv
+# multimedia/libdvbpsi
+# multimedia/libdvdcss
+# multimedia/libdvdnav
+# multimedia/libfdk-aac
+# multimedia/libiec61883
+# multimedia/libilbc
+# multimedia/libkate
+# multimedia/libmatroska
+# multimedia/libmodplug
+# multimedia/libmp4v2
+# multimedia/libmpeg2
+# multimedia/libquvi-scripts
+# multimedia/libquvi
+# multimedia/libreplaygain
+# multimedia/libva
+# multimedia/libvpx
+# multimedia/live555
 # Build manually
 # multimedia/mplayer-codecs32
 # multimedia/mplayer-codecs64
-multimedia/musepack-tools
-multimedia/OpenAL
-multimedia/opencore-amr
+# multimedia/musepack-tools
+# multimedia/OpenAL
+# multimedia/opencore-amr
 # Rebuild manually to resolve circular dependency with ffmpeg
-multimedia/opencv
-multimedia/openjpeg
-multimedia/opus
-multimedia/portaudio
-multimedia/projectM
-multimedia/rtmpdump
-multimedia/schroedinger
-multimedia/speex
-multimedia/totem-pl-parser
-multimedia/twolame
-multimedia/vcdimager
-multimedia/vsxu
-multimedia/x264
-multimedia/x265
-multimedia/xvidcore
-multimedia/zvbi
-multimedia/faac
-multimedia/frei0r
-multimedia/ffmpeg
-multimedia/chromaprint
-multimedia/libquicktime
-multimedia/libshout
-multimedia/mlt
-multimedia/gst-ffmpeg
-multimedia/gst-plugins-bad
-multimedia/gst-plugins-ugly
-multimedia/gstreamer1
-multimedia/gst1-plugins-base
-multimedia/gst1-plugins-good
-multimedia/gst1-libav
-multimedia/gst1-plugins-bad
+# multimedia/opencv
+# multimedia/openjpeg
+# multimedia/opus
+# multimedia/portaudio
+# multimedia/projectM
+# multimedia/rtmpdump
+# multimedia/schroedinger
+# multimedia/speex
+# multimedia/totem-pl-parser
+# multimedia/twolame
+# multimedia/vcdimager
+# multimedia/vsxu
+# multimedia/x264
+# multimedia/x265
+# multimedia/xvidcore
+# multimedia/zvbi
+# multimedia/faac
+# multimedia/frei0r
+# multimedia/ffmpeg
+# multimedia/chromaprint
+# multimedia/libquicktime
+# multimedia/libshout
+# multimedia/mlt
+# multimedia/gst-ffmpeg
+# multimedia/gst-plugins-bad
+# multimedia/gst-plugins-ugly
+# multimedia/gstreamer1
+# multimedia/gst1-plugins-base
+# multimedia/gst1-plugins-good
+# multimedia/gst1-libav
+# multimedia/gst1-plugins-bad
 
 # Fonts
-x/apple-fonts
-x/cantarell-fonts
-x/eurostile-fonts
-x/google-droid-fonts
-x/webcore-fonts
+# x/apple-fonts
+# x/cantarell-fonts
+# x/eurostile-fonts
+# x/google-droid-fonts
+# x/webcore-fonts
 
 # Misc
-d/PyAudio
-n/freerdp
-n/gtk-vnc
-n/netcat-openbsd
-n/spice
-n/spice-gtk
-n/tunctl
-ap/device-tree-compiler
-ap/libvirt
-l/libvirt-glib
-l/libvirt-python
+# d/PyAudio
+# n/freerdp
+# n/gtk-vnc
+# n/netcat-openbsd
+# n/spice
+# n/spice-gtk
+# n/tunctl
+# ap/device-tree-compiler
+# ap/libvirt
+# l/libvirt-glib
+# l/libvirt-python
 
 # Applications
-xap/asunder
-xap/audacious
-xap/audacious-plugins
-xap/audacity
-xap/brasero
-xap/calibre
-xap/conky
-xap/evince
-xap/file-roller
-xap/galculator
-xap/gedit
-xap/gedit-plugins
-xap/gnote
-xap/gthumb
-xap/gtkam
-xap/inkscape
-xap/libreoffice
-xap/MPlayer
-xap/openshot
-xap/recoll
-xap/scribus
-xap/smplayer
-xap/transmission
+#xap/asunder
+#xap/audacious
+#xap/audacious-plugins
+#xap/audacity
+#xap/brasero
+#xap/calibre
+#xap/conky
+#xap/evince
+#xap/file-roller
+#xap/galculator
+#xap/gedit
+#xap/gedit-plugins
+#xap/gnote
+#xap/gthumb
+#xap/gtkam
+#xap/inkscape
+#xap/libreoffice
+#xap/MPlayer
+#xap/openshot
+#xap/recoll
+#xap/scribus
+#xap/smplayer
+#xap/transmission
 
 # Translations
 # locale/libreoffice-langpack (build manually)
-locale/mozilla-firefox-langpack
-locale/mozilla-thunderbird-langpack
+#locale/mozilla-firefox-langpack
+#locale/mozilla-thunderbird-langpack
 
 # Help files
 # f/libreoffice-helppack (build manually)
 
 # Xfce
-xfce/libxfce4util
-xfce/xfconf
-xfce/libxfce4ui
-xfce/exo
-xfce/garcon
-xfce/tumbler
-xfce/Thunar
-xfce/xfce4-panel
-xfce/xfce4-settings
-xfce/xfce4-session
-xfce/xfdesktop
-xfce/xfwm4
-xfce/xfce4-appfinder
-xfce/gtk-xfce-engine
-xfce/xfce4-terminal
-xfce/elementary-xfce
-xfce/aero
-xfce/luna-wallpapers
-xfce/microlinux-wallpapers
-xfce/clearlooks-phenix-theme
-xfce/orage
-xfce/xfce4-mixer
-xfce/thunar-volman
-xfce/xfce4-power-manager
-xfce/xfce4-notifyd
-xfce/xfce4-volumed
-xfce/xfce4-clipman-plugin
-xfce/xfce4-screenshooter
-xfce/xfce4-taskmanager
-xfce/xfce4-weather-plugin
-xfce/xfce4-whiskermenu-plugin
-xfce/xfce4-systemload-plugin
-xfce/xfce4-xkb-plugin
-xfce/thunar-archive-plugin
-xfce/ffmpegthumbnailer
-xfce/plank
+#xfce/libxfce4util
+#xfce/xfconf
+#xfce/libxfce4ui
+#xfce/exo
+#xfce/garcon
+#xfce/tumbler
+#xfce/Thunar
+#xfce/xfce4-panel
+#xfce/xfce4-settings
+#xfce/xfce4-session
+#xfce/xfdesktop
+#xfce/xfwm4
+#xfce/xfce4-appfinder
+#xfce/gtk-xfce-engine
+#xfce/xfce4-terminal
+#xfce/elementary-xfce
+#xfce/aero
+#xfce/luna-wallpapers
+#xfce/microlinux-wallpapers
+#xfce/clearlooks-phenix-theme
+#xfce/orage
+#xfce/xfce4-mixer
+#xfce/thunar-volman
+#xfce/xfce4-power-manager
+#xfce/xfce4-notifyd
+#xfce/xfce4-volumed
+#xfce/xfce4-clipman-plugin
+#xfce/xfce4-screenshooter
+#xfce/xfce4-taskmanager
+#xfce/xfce4-weather-plugin
+#xfce/xfce4-whiskermenu-plugin
+#xfce/xfce4-systemload-plugin
+#xfce/xfce4-xkb-plugin
+#xfce/thunar-archive-plugin
+#xfce/ffmpegthumbnailer
+#xfce/plank
 
 # User profile (Xfce)
-profile/user-settings-xfce
+#profile/user-settings-xfce
 
 # Login manager
-x/lxdm
+#x/lxdm

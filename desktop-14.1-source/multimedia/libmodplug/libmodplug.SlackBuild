@@ -62,7 +62,8 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/modplug-xmms/$PRGNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+rm -f $PRGNAM-$VERSION.tar.gz
+curl -O -J -L $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
