@@ -28,7 +28,7 @@
 
 PRGNAM=pyparsing
 VERSION=${VERSION:-2.0.3}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
@@ -62,7 +62,8 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
 
-#wget -c $DOWNLOAD
+rm -f $PRGNAM-$VERSION.tar.gz
+curl -O -J -L $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
