@@ -149,7 +149,7 @@ multimedia/libva
 multimedia/libvpx
 multimedia/live555
 # Build manually
-multimedia/mplayer-codecs32
+# multimedia/mplayer-codecs32
 # multimedia/mplayer-codecs64
 multimedia/musepack-tools
 multimedia/OpenAL
