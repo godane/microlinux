@@ -59,24 +59,24 @@ l/libupnp
 l/libvdpau
 l/libwebp
 l/libwnck3
-# l/muParser
-# l/podofo
-# l/qtkeychain
-# l/tolua++
-# l/usbredir
-# l/vte3
-# l/wxPython
-# l/xapian-core
-# l/yajl
-# l/bamf
-# l/glibmm
-# l/cairomm
-# l/pangomm
-# l/atkmm
-# l/gtkmm
-# l/gtkmm3
-# l/libxml++
-# l/libofx
+l/muParser
+l/podofo
+l/qtkeychain
+l/tolua++
+l/usbredir
+l/vte3
+l/wxPython
+l/xapian-core
+l/yajl
+l/bamf
+l/glibmm
+l/cairomm
+l/pangomm
+l/atkmm
+l/gtkmm
+l/gtkmm3
+l/libxml++
+l/libofx
 
 # Perl
 # d/perl-extutils-depends

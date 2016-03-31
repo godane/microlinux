@@ -26,10 +26,10 @@
 
 PRGNAM=wxPython
 VERSION=2.8.12.1
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -62,7 +62,8 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/wxpython/$PRGNAM-src-$VERSION.tar.bz2"
 
-#wget -c $DOWNLOAD
+rm -f $PRGNAM-src-$VERSION.tar.bz2
+curl -O -J -L $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
