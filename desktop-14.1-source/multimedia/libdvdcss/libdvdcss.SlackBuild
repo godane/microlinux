@@ -26,10 +26,10 @@
 
 PRGNAM=libdvdcss
 VERSION=1.2.13
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
 # Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then
@@ -64,7 +64,7 @@ set -e
 
 DOWNLOAD="http://mirror.ircam.fr/pub/videolan/$PRGNAM/$VERSION/$PRGNAM-$VERSION.tar.bz2"
 
-#wget -c $DOWNLOAD
+wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

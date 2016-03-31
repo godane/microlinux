@@ -62,7 +62,8 @@ set -e
 
 DOWNLOAD="ftp://ftp.videolan.org/pub/videolan/$PRGNAM/$VERSION/$PRGNAM-$VERSION.tar.bz2"
 
-#wget -c $DOWNLOAD
+rm -f $PRGNAM-$VERSION.tar.bz2
+curl -O -J -L $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

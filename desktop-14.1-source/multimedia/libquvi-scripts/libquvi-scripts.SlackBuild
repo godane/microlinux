@@ -10,7 +10,7 @@
 
 PRGNAM=libquvi-scripts
 VERSION=${VERSION:-0.4.21}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j9}
@@ -46,7 +46,8 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/quvi/$PRGNAM-$VERSION.tar.xz"
 
-#wget -c $DOWNLOAD
+rm -f $PRGNAM-$VERSION.tar.xz
+curl -O -J -L $DOWNLOAD
 
 DOCS="AUTHORS COPYING ChangeLog INSTALL NEWS README"
 

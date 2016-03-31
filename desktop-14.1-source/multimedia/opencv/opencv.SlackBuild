@@ -27,7 +27,7 @@
 PRGNAM=opencv
 PRGNAM2=opencv_contrib
 VERSION=${VERSION:-3.0.0}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j9}
@@ -64,7 +64,7 @@ set -e
 DOWNLOAD="https://github.com/Itseez/$PRGNAM/archive/$VERSION.tar.gz \
           https://github.com/Itseez/$PRGNAM2/archive/$VERSION.zip"
 
-#wget -c $DOWNLOAD
+wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
