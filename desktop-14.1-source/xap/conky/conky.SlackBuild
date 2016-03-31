@@ -8,10 +8,10 @@
 
 PRGNAM=conky
 VERSION=1.9.0
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -47,7 +47,8 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.bz2"
 
-#wget -c $DOWNLOAD
+rm -f $PRGNAM-$VERSION.tar.bz2
+curl -O -J -L $DOWNLOAD
 
 if [ "${LUA:-yes}" = "yes" ]; then
   lua_params="--enable-lua --enable-lua-cairo --enable-imlib2 --enable-lua-imlib2"

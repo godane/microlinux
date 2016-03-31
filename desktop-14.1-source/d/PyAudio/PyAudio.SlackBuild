@@ -9,7 +9,7 @@
 PRGNAM=PyAudio
 SRCNAM=pyaudio
 VERSION=${VERSION:-0.2.4}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then

@@ -169,7 +169,7 @@ multimedia/vcdimager
 multimedia/vsxu
 multimedia/x264
 multimedia/x265
- multimedia/xvidcore
+multimedia/xvidcore
 multimedia/zvbi
 multimedia/faac
 multimedia/frei0r
@@ -188,40 +188,40 @@ multimedia/gst1-libav
 multimedia/gst1-plugins-bad
 
 # Fonts
-# x/apple-fonts
-# x/cantarell-fonts
-# x/eurostile-fonts
-# x/google-droid-fonts
-# x/webcore-fonts
+x/apple-fonts
+x/cantarell-fonts
+x/eurostile-fonts
+x/google-droid-fonts
+x/webcore-fonts
 
 # Misc
-# d/PyAudio
-# n/freerdp
-# n/gtk-vnc
-# n/netcat-openbsd
-# n/spice
-# n/spice-gtk
-# n/tunctl
-# ap/device-tree-compiler
-# ap/libvirt
-# l/libvirt-glib
-# l/libvirt-python
+d/PyAudio
+n/freerdp
+n/gtk-vnc
+n/netcat-openbsd
+n/spice
+n/spice-gtk
+n/tunctl
+ap/device-tree-compiler
+ap/libvirt
+l/libvirt-glib
+l/libvirt-python
 
 # Applications
-#xap/asunder
-#xap/audacious
-#xap/audacious-plugins
-#xap/audacity
-#xap/brasero
-#xap/calibre
-#xap/conky
-#xap/evince
-#xap/file-roller
-#xap/galculator
-#xap/gedit
-#xap/gedit-plugins
-#xap/gnote
-#xap/gthumb
+xap/asunder
+xap/audacious
+xap/audacious-plugins
+xap/audacity
+xap/brasero
+xap/calibre
+xap/conky
+xap/evince
+xap/file-roller
+xap/galculator
+xap/gedit
+xap/gedit-plugins
+xap/gnote
+xap/gthumb
 #xap/gtkam
 #xap/inkscape
 #xap/libreoffice
