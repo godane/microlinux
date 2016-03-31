@@ -157,35 +157,35 @@ multimedia/opencore-amr
 # Rebuild manually to resolve circular dependency with ffmpeg
 multimedia/opencv
 multimedia/openjpeg
-# multimedia/opus
-# multimedia/portaudio
-# multimedia/projectM
-# multimedia/rtmpdump
-# multimedia/schroedinger
-# multimedia/speex
-# multimedia/totem-pl-parser
-# multimedia/twolame
-# multimedia/vcdimager
-# multimedia/vsxu
-# multimedia/x264
-# multimedia/x265
-# multimedia/xvidcore
-# multimedia/zvbi
-# multimedia/faac
-# multimedia/frei0r
-# multimedia/ffmpeg
-# multimedia/chromaprint
-# multimedia/libquicktime
-# multimedia/libshout
-# multimedia/mlt
-# multimedia/gst-ffmpeg
-# multimedia/gst-plugins-bad
-# multimedia/gst-plugins-ugly
-# multimedia/gstreamer1
-# multimedia/gst1-plugins-base
-# multimedia/gst1-plugins-good
-# multimedia/gst1-libav
-# multimedia/gst1-plugins-bad
+multimedia/opus
+multimedia/portaudio
+multimedia/projectM
+multimedia/rtmpdump
+multimedia/schroedinger
+multimedia/speex
+multimedia/totem-pl-parser
+multimedia/twolame
+multimedia/vcdimager
+multimedia/vsxu
+multimedia/x264
+multimedia/x265
+ multimedia/xvidcore
+multimedia/zvbi
+multimedia/faac
+multimedia/frei0r
+multimedia/ffmpeg
+multimedia/chromaprint
+multimedia/libquicktime
+multimedia/libshout
+multimedia/mlt
+multimedia/gst-ffmpeg
+multimedia/gst-plugins-bad
+multimedia/gst-plugins-ugly
+multimedia/gstreamer1
+multimedia/gst1-plugins-base
+multimedia/gst1-plugins-good
+multimedia/gst1-libav
+multimedia/gst1-plugins-bad
 
 # Fonts
 # x/apple-fonts

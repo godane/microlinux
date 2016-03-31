@@ -28,10 +28,10 @@
 
 PRGNAM=x264
 VERSION=20150223
-BUILD=${BUILD:-3}
+BUILD=${BUILD:-4}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
 if [ -z "$ARCH" ]; then
  case "$( uname -m )" in

@@ -26,10 +26,10 @@
 
 PRGNAM=portaudio
 VERSION=${VERSION:-V19}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
 # eek!
 SRCNAME="pa_stable_v19_20111121.tgz"
