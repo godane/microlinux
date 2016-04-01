@@ -27,7 +27,7 @@
 
 PRGNAM=fpc
 VERSION=${SRCVER:-2.6.4}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
@@ -59,7 +59,7 @@ set -e
 DOWNLOAD="http://downloads.sourceforge.net/freepascal/$PRGNAM-$VERSION.$ARCH-linux.tar \
 http://downloads.sourceforge.net/freepascal/fpcbuild-$VERSION.tar.gz"
 
-#wget -c $DOWNLOAD
+wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

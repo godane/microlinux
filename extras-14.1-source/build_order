@@ -29,9 +29,9 @@ xap/povray
 xap/remmina
 xap/simple-scan
 xap/virt-manager
-xap/virtualbox
-xap/virtualbox-kernel
-xap/virtualbox-extension-pack
+#xap/virtualbox
+#xap/virtualbox-kernel
+#xap/virtualbox-extension-pack
 xap/winff
 xap/xpe
 

@@ -26,10 +26,10 @@
 
 PRGNAM=librecad
 VERSION=${VERSION:-2.0.7}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS=${NUMJOBS:--j9}
 
 ORIG_PRGNAM=LibreCAD
 

@@ -29,7 +29,7 @@
 
 PRGNAM=blender
 VERSION=${VERSION:-2.76b}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 SRCVERSION=${VERSION}-linux-glibc211

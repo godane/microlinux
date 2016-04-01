@@ -28,7 +28,7 @@
 PRGNAM=virtualbox
 SRCNAM=VirtualBox
 VERSION=${VERSION:-5.0.14}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
