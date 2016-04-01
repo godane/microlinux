@@ -263,23 +263,23 @@ xfce/microlinux-wallpapers
 xfce/clearlooks-phenix-theme
 xfce/orage
 xfce/xfce4-mixer
-#xfce/thunar-volman
-#xfce/xfce4-power-manager
-#xfce/xfce4-notifyd
-#xfce/xfce4-volumed
-#xfce/xfce4-clipman-plugin
-#xfce/xfce4-screenshooter
-#xfce/xfce4-taskmanager
-#xfce/xfce4-weather-plugin
-#xfce/xfce4-whiskermenu-plugin
-#xfce/xfce4-systemload-plugin
-#xfce/xfce4-xkb-plugin
-#xfce/thunar-archive-plugin
-#xfce/ffmpegthumbnailer
-#xfce/plank
+xfce/thunar-volman
+xfce/xfce4-power-manager
+xfce/xfce4-notifyd
+xfce/xfce4-volumed
+xfce/xfce4-clipman-plugin
+xfce/xfce4-screenshooter
+xfce/xfce4-taskmanager
+xfce/xfce4-weather-plugin
+xfce/xfce4-whiskermenu-plugin
+xfce/xfce4-systemload-plugin
+xfce/xfce4-xkb-plugin
+xfce/thunar-archive-plugin
+xfce/ffmpegthumbnailer
+xfce/plank
 
 # User profile (Xfce)
-#profile/user-settings-xfce
+profile/user-settings-xfce
 
 # Login manager
-#x/lxdm
+x/lxdm

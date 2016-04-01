@@ -27,7 +27,7 @@
 
 PRGNAM=lxdm
 VERSION=${VERSION:-0.5.3}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j9}
@@ -63,7 +63,8 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.xz"
 
-#wget -c $DOWNLOAD
+rm -f $PRGNAM-$VERSION.tar.xz
+curl -O -J -L $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
