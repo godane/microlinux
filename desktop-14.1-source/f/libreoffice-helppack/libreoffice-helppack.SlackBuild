@@ -29,7 +29,7 @@
 
 PRGNAM=libreoffice-helppack
 VERSION=${VERSION:-"4.4.7"}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 #LOLANG=${LOLANG:-en-GB}
@@ -74,8 +74,9 @@ set -e
 # Concatenate all parts to get the full name of the tarball
 TARNAME="LibreOffice_${SRCVERSION}_Linux_${SRCARCH}_rpm_helppack_${LOLANG}.tar.gz"
 
-# Download mirror
-MIRROR=download.documentfoundation.org/libreoffice/stable/$VERSION/rpm/$URLARCH
+# LibreOffice admins, eat shit
+#MIRROR=download.documentfoundation.org/libreoffice/stable/$VERSION/rpm/$URLARCH
+MIRROR="www.microlinux.fr/download/libreoffice/$VERSION"
 
 DOWNLOAD="http://$MIRROR/$TARNAME"
 
