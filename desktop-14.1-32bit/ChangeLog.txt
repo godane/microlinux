@@ -258,6 +258,14 @@ x/lxdm-0.5.3-i486-3_microlinux.txz: Rebuilt.
 apulse-20151219-i486-1_microlinux.txz: Removed.
 liferea-1.10.15-i486-1_microlinux.txz: Removed.
 webkitgtk3-2.4.9-i486-1_microlinux.txz: Removed.
+geoclue-0.12.99-i486-1_microlinux.txz: Removed.
+libpeas-1.8.1-i486-1_microlinux.txz: Removed.
+libtxc_dxtn-1.0.1-i486-1_microlinux.txz: Removed.
+numlockx-1.2-i486-1_microlinux.txz: Removed.
+libgnomecanvas-2.30.3-i486-1_microlinux.txz: Removed.
+libgnomecups-0.2.3-i486-1_microlinux.txz: Removed.
+libgnomeprint-2.18.8-i486-1_microlinux.txz: Removed.
+libgnomeprintui-2.18.6-i486-1_microlinux.txz: Removed.
 +--------------------------+
 Fri Mar  4 12:29:52 CET 2016
 exo-0.10.7-i486-1_microlinux.txz: Upgraded.
