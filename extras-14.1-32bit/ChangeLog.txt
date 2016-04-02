@@ -1,4 +1,9 @@
 Sat Apr  2 15:28:49 CEST 2016
+	Brace yourselves, spring is coming. After weighing the pros and the cons,
+	we're introducing package categories for clarity's sake.  These are mostly
+	inspired by upstream, so Slackware users will feel "at home". We've also
+	added an automatic build infrastructure with a master build script in the
+	source directory to ease maintenance. 
 ap/cdlabelgen-4.3.0-noarch-2_microlinux.txz: Rebuilt.
 ap/qemu-2.4.1-i486-2_microlinux.txz: Rebuilt.
 d/fpc-2.6.4-i386-2_microlinux.txz: Rebuilt.

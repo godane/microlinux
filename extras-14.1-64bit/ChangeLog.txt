@@ -1,3 +1,43 @@
+Sat Apr  2 16:08:57 CEST 2016
+	Brace yourselves, spring is coming. After weighing the pros and the cons,
+	we're introducing package categories for clarity's sake.  These are mostly
+	inspired by upstream, so Slackware users will feel "at home". We've also
+	added an automatic build infrastructure with a master build script in the
+	source directory to ease maintenance. 
+	MLED 14.1 64-bit now defaults to pure 64-bit and doesn't use Multilib.
+ap/cdlabelgen-4.3.0-noarch-2_microlinux.txz: Rebuilt.
+ap/qemu-2.4.1-x86_64-2_microlinux.txz: Rebuilt.
+d/fpc-2.6.4-x86_64-2_microlinux.txz: Rebuilt.
+d/fpc-source-2.6.4-noarch-2_microlinux.txz: Rebuilt.
+d/lazarus-1.2.6-x86_64-2_microlinux.txz: Rebuilt.
+x/scholae-fonts-1.0-noarch-3_microlinux.txz: Rebuilt.
+xap/aMule-2.3.1-x86_64-2_microlinux.txz: Rebuilt.
+xap/anki-2.0.32-noarch-2_microlinux.txz: Rebuilt.
+xap/blender-2.76b-x86_64-2_microlinux.txz: Rebuilt.
+xap/dropbox-3.10.7-x86_64-2_microlinux.txz: Rebuilt.
+xap/easytag-2.1.10-x86_64-2_microlinux.txz: Rebuilt.
+xap/filezilla-3.8.1-x86_64-2_microlinux.txz: Rebuilt.
+xap/gcompris-15.02-x86_64-2_microlinux.txz: Rebuilt.
+xap/geogebra-5.0.214.0-x86_64-2_microlinux.txz: Rebuilt.
+xap/gtkcdlabel-1.15-noarch-2_microlinux.txz: Rebuilt.
+xap/homebank-5.0.3-x86_64-2_microlinux.txz: Rebuilt.
+xap/librecad-2.0.7-x86_64-2_microlinux.txz: Rebuilt.
+xap/owncloud-client-2.1.1-x86_64-2_microlinux.txz: Rebuilt.
+xap/povray-3.7.0.0-x86_64-2_microlinux.txz: Rebuilt.
+xap/remmina-1.2.0_rcgit.1-x86_64-2_microlinux.txz: Rebuilt.
+xap/simple-scan-2.32.0.2-x86_64-2_microlinux.txz: Rebuilt.
+xap/virt-manager-1.2.1-x86_64-2_microlinux.txz: Rebuilt.
+xap/virtualbox-5.0.14-x86_64-2_microlinux.txz: Rebuilt.
+xap/virtualbox-kernel-5.0.14_3.10.17-x86_64-2_microlinux.txz: Rebuilt.
+xap/virtualbox-extension-pack-5.0.14-x86_64-1_microlinux.txz: Rebuilt.
+xap/winff-20150729-x86_64-2_microlinux.txz: Rebuilt.
+xap/xpe-0.9.5b-x86_64-2_microlinux.txz: Rebuilt.
+y/aisleriot-3.6.2-x86_64-3_microlinux.txz: Rebuilt.
+y/lbreakout2-2.6.3-x86_64-2_microlinux.txz: Rebuilt.
+steam-1.0.0.50-x86_64-1_microlinux.txz: Removed.
+spotify64-0.9.11.27.g2b1a638.81-x86_64-1_microlinux.txz: Removed.
+wine-1.6.2-x86_64-1_microlinux.txz: Removed.
++--------------------------+
 Wed Mar 16 08:12:43 CET 2016
 geogebra-5.0.214.0-x86_64-1_microlinux.txz: Added.
 +--------------------------+
