@@ -35,16 +35,20 @@ GREYLIST=off
 # from which repository you prefer to search it.
 # The syntax is "<repository_name>:<package_name>"
 # Accepts regular expressions. To give priority to an entire repository use "<repository_name>:.*"
-PKGS_PRIORITY=( multilib:.* microlinux-desktop:.* )
+PKGS_PRIORITY=( microlinux-desktop:.* )
 
 # List repositories you want to use (defined below)
 # remember to launch 'slackpkg update' if you modify that row.
-REPOPLUS=( multilib microlinux-desktop microlinux-extras )
+REPOPLUS=( microlinux-desktop microlinux-extras )
 
 # Define mirrors (uncomment one or more mirror; remember to add it to REPOPLUS)
-MIRRORPLUS['multilib']=http://taper.alienbase.nl/mirrors/people/alien/multilib/14.1/
 MIRRORPLUS['microlinux-desktop']=http://www.microlinux.fr/microlinux/desktop-14.1-64bit/
 MIRRORPLUS['microlinux-extras']=http://www.microlinux.fr/microlinux/extras-14.1-64bit/
+
+# Multilib
+# REPOPLUS=( multilib microlinux-desktop microlinux-extras )
+# MIRRORPLUS['multilib']=http://taper.alienbase.nl/mirrors/people/alien/multilib/14.1/
+# PKGS_PRIORITY=( multilib:.* microlinux-desktop:.* )
 
 #
 # Supported Repositories (see /usr/doc/slackpkg+-* for details):
