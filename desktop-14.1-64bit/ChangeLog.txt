@@ -1,3 +1,9 @@
+Mon Apr  4 19:20:42 CEST 2016
+ap/slackpkg+-1.3.2-noarch-4_microlinux.txz: Rebuilt.
+  Multilib is not activated in the default configuration.
+multimedia/opencv-3.0.0-x86_64-4_microlinux.txz: Rebuilt.
+  Recompiled against ffmpeg to resolve a circular dependency.
++--------------------------+
 Sat Apr  2 15:37:22 CEST 2016
 	Brace yourselves, spring is coming. After weighing the pros and the cons,
 	we're introducing package categories for clarity's sake.  These are mostly
