@@ -35,8 +35,10 @@ PKGS_PRIORITY=( microlinux-desktop:.* )
 REPOPLUS=( microlinux-desktop microlinux-extras )
 
 # Define mirrors (uncomment one or more mirror; remember to add it to REPOPLUS)
-MIRRORPLUS['microlinux-desktop']=http://www.microlinux.fr/microlinux/desktop-14.1-32bit/
-MIRRORPLUS['microlinux-extras']=http://www.microlinux.fr/microlinux/extras-14.1-32bit/
+MIRRORPLUS['microlinux-desktop']=http://slackware.uk/microlinux/desktop-14.1-32bit/
+MIRRORPLUS['microlinux-extras']=http://slackware.uk/microlinux/extras-14.1-32bit/
+#MIRRORPLUS['microlinux-desktop']=http://www.microlinux.fr/microlinux/desktop-14.1-32bit/
+#MIRRORPLUS['microlinux-extras']=http://www.microlinux.fr/microlinux/extras-14.1-32bit/
 
 #
 # Supported Repositories (see /usr/doc/slackpkg+-* for details):

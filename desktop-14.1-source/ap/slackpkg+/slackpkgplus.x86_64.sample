@@ -42,12 +42,14 @@ PKGS_PRIORITY=( microlinux-desktop:.* )
 REPOPLUS=( microlinux-desktop microlinux-extras )
 
 # Define mirrors (uncomment one or more mirror; remember to add it to REPOPLUS)
-MIRRORPLUS['microlinux-desktop']=http://www.microlinux.fr/microlinux/desktop-14.1-64bit/
-MIRRORPLUS['microlinux-extras']=http://www.microlinux.fr/microlinux/extras-14.1-64bit/
+MIRRORPLUS['microlinux-desktop']=http://slackware.uk/microlinux/desktop-14.1-64bit/
+MIRRORPLUS['microlinux-extras']=http://slackware.uk/microlinux/extras-14.1-64bit/
+#MIRRORPLUS['microlinux-desktop']=http://www.microlinux.fr/microlinux/desktop-14.1-64bit/
+#MIRRORPLUS['microlinux-extras']=http://www.microlinux.fr/microlinux/extras-14.1-64bit/
 
 # Multilib
 # REPOPLUS=( multilib microlinux-desktop microlinux-extras )
-# MIRRORPLUS['multilib']=http://taper.alienbase.nl/mirrors/people/alien/multilib/14.1/
+# MIRRORPLUS['multilib']=http://slackware.uk/people/alien/multilib/14.1/
 # PKGS_PRIORITY=( multilib:.* microlinux-desktop:.* )
 
 #
