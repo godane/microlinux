@@ -43,6 +43,4 @@ for DOMAIN in ${DOMAIN[*]}; do
   ((COUNT++))
 done
 
-echo "::"
-
 exit 0
