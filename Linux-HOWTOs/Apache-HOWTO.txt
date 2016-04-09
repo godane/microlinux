@@ -162,11 +162,6 @@ Assainir les permissions :
   # find . -type d | xargs chmod 0755
   # find . -type f | xargs chmod 0644
 
-Éventuellement, on pourra définir des permissions plus strictes :
-
-  # find . -type d | xargs chmod 0750
-  # find . -type f | xargs chmod 0640
-
 Le serveur Apache tourne avec les droits de l'utilisateur 'apache' et du groupe
 'apache' :
 
