@@ -231,6 +231,7 @@ xap/recoll
 xap/scribus
 xap/smplayer
 xap/transmission
+xap/vlc
 
 # Translations
 # locale/libreoffice-langpack (build manually)

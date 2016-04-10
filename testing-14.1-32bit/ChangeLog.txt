@@ -1,3 +1,7 @@
+Sun Apr 10 09:06:20 CEST 2016
+vlc-2.1.6-i486-1_microlinux.txz: Removed.
+  Moved to main repository.
++--------------------------+
 Tue Apr  5 08:35:25 CEST 2016
 hplip-3.15.11-i486-1_microlinux.txz: Added.
 vlc-2.1.6-i486-1_microlinux.txz: Added.
