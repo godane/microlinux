@@ -1,0 +1,143 @@
+=====================
+Owncloud Server HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+=====================
+
+Dernière révision : 15 avril 2016
+
+Ce HOWTO décrit la mise en place d'un serveur OwnCloud sous Slackware Linux.
+
+
+  * Introduction
+  * Prérequis
+  * Téléchargement
+  * Installation
+  * Mise à jour
+
+
+Introduction
+------------
+
+OwnCloud est une plateforme de stockage et de partage de fichiers et
+d'applications en ligne. C'est une alternative à Dropbox, lequel est basé sur
+un Cloud public. Dans OwnCloud, le stockage de données se fait au sein de
+l'infrastructure de l'entreprise, et les accès sont soumis à la politique de
+sécurité informatique de celle-ci. 
+
+OwnCloud vous permet de partager certains fichiers et répertoires de votre
+ordinateur en les synchronisant avec le serveur OwnCloud. Il suffit de définir
+le ou les répertoires partagés. Leur contenu est immédiatement synchronisé
+avec le serveur ainsi qu'avec tous les postes clients que vous définissez, que
+ceux-ci tournent sous Microsoft Windows, sous Mac OS X ou sous Linux. OwnCloud
+fonctionne également avec les smartphones et les tablettes. 
+
+OwnCloud est un logiciel libre sous licence AGPLv3.
+
+
+Prérequis
+---------
+
+OwnCloud s'installe sur un serveur LAMP sécurisé. On aura donc besoin de
+plusieurs composants.
+
+  1. un certificat SSL          (SSL-TLS-Certificate-HOWTO)
+
+  2. un hébergement sécurisé    (Apache-SSL-HOWTO)
+
+  3. une base de données MySQL  (MySQL-HOWTO)
+
+
+Téléchargement
+--------------
+
+Sur le serveur, on rangera OwnCloud dans un endroit approprié :
+
+  # cd
+  # mkdir -p webapps/owncloud
+  # cd webapps/owncloud/
+  # wget -c http://download.owncloud.org/community/owncloud-8.2.2.tar.bz2
+
+
+Installation
+------------
+
+OwnCloud sera installé dans un hôte virtuel :
+
+  # cd /srv/httpd/vhosts
+  # mkdir microlinux-owncloud
+  # cd microlinux-owncloud
+  # tar xvjf /root/webapps/owncloud/owncloud-8.2.2.tar.bz2
+  # mv owncloud htdocs
+  # cd ..
+
+Régler les permissions :
+
+  # find microlinux-owncloud/ -type d -exec chmod 0750 \{} \;
+  # find microlinux-owncloud/ -type f -exec chmod 0640 \{} \;
+  # chown -R apache:apache microlinux-owncloud/
+
+À présent, ouvrir l'assistant d'installation dans l'interface Web d'OwnCloud.
+
+
+Mise à jour
+-----------
+
+Éventuellement, mettre OwnCloud en mode maintenance en éditant 'config.php' :
+
+--8<---------- htdocs/config/config.php --------------------------------------
+$CONFIG = array (
+  ...
+  'maintenance' => true, 
+);
+--8<--------------------------------------------------------------------------
+
+Sauvegarder l'installation :
+
+  # cd /srv/httpd/vhosts
+  # mv microlinux-owncloud/ microlinux-owncloud.bak
+
+Installer la nouvelle version :
+
+  # mkdir microlinux-owncloud
+  # tar xvjf /root/webapps/owncloud/owncloud-8.2.3.tar.bz2
+  # mv owncloud htdocs
+
+Restaurer la configuration :
+
+  # cd htdocs/config
+  # rm config.sample.php
+  # cp ../../../microlinux-owncloud.bak/htdocs/config/config.php .
+  # cd ..
+
+Restaurer les données :
+
+  # cp -R ../../microlinux-owncloud.bak/htdocs/data .
+
+Identifier et restaurer les applications tierces :
+
+  # cd apps/
+  # cp -R ../../../microlinux-owncloud.bak/htdocs/apps/contacts/ .
+  # cd ..
+
+Définir les permissions :
+
+  # cd /srv/httpd/vhosts/
+  # find microlinux-owncloud/ -type d -exec chmod 0750 \{} \;
+  # find microlinux-owncloud/ -type f -exec chmod 0640 \{} \;
+  # chown -R apache:apache microlinux-owncloud/
+
+Désactiver le mode de maintenance si on l'a activé :
+
+--8<---------- htdocs/config/config.php --------------------------------------
+$CONFIG = array (
+  ...
+  'maintenance' => false, 
+);
+--8<--------------------------------------------------------------------------
+
+Ouvrir l'interface Web et suivre les étapes de l'assistant de mise à jour.
+
+Il faudra songer à réactiver les applications tierces.
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
