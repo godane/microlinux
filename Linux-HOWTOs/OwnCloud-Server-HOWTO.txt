@@ -114,30 +114,42 @@ if [ -f ${ocpath}/data/.htaccess ]
 fi
 --8<--------------------------------------------------------------------------
 
-Une fois qu'on a défini les permissions, on peut ouvrir l'assistant
-d'installation dans l'interface Web d'OwnCloud.
+Ranger ce script dans un endroit approprié avant de l'éditer et l'exécuter :
+
+  # cd /root/bin
+  # ./set-owncloud-permissions.sh
+  Creating possible missing Directories
+  chmod Files and Directories
+  chown Directories
+  chmod/chown .htaccess
+
+À présent, ouvrir l'assistant d'installation dans l'interface Web d'OwnCloud.
 
 
 Mise à jour
 -----------
 
-Éventuellement, mettre OwnCloud en mode maintenance en éditant 'config.php' :
+Mettre OwnCloud en mode maintenance :
 
---8<---------- htdocs/config/config.php --------------------------------------
-$CONFIG = array (
-  ...
-  'maintenance' => true, 
-);
---8<--------------------------------------------------------------------------
+  # cd /srv/httpd/vhosts/microlinux-owncloud/htdocs
+  # sudo -u apache php occ maintenance:mode --on
+  Maintenance mode enabled
 
-Sauvegarder l'installation :
+Faire pointer l'hôte virtuel vers une page de maintenance. Si c'est une page
+statique index.html, il faudra créer un lien symbolique index.php qui pointe
+vers cette page. Une fois que c'est fait, redémarrer le serveur.
 
-  # cd /srv/httpd/vhosts
-  # mv microlinux-owncloud/ microlinux-owncloud.bak
+Renommer l'installation existante :
 
-Installer la nouvelle version :
+Sauvegarder l'installation existante avec les données :
+
+  # cd /srv/httpd/vhosts/
+  # mv microlinux-owncloud microlinux-owncloud.old
+  
+Installer la nouvelle version de OwnCloud :
 
   # mkdir microlinux-owncloud
+  # cd microlinux-owncloud
   # tar xvjf /root/webapps/owncloud/owncloud-8.2.3.tar.bz2
   # mv owncloud htdocs
 
@@ -145,38 +157,71 @@ Restaurer la configuration :
 
   # cd htdocs/config
   # rm config.sample.php
-  # cp ../../../microlinux-owncloud.bak/htdocs/config/config.php .
+  # mv /srv/httpd/vhosts/microlinux-owncloud.old/htdocs/config/config.php .
   # cd ..
 
 Restaurer les données :
 
-  # cp -R ../../microlinux-owncloud.bak/htdocs/data .
+  # mv /srv/httpd/vhosts/microlinux-owncloud.old/htdocs/data .
 
 Identifier et restaurer les applications tierces :
 
   # cd apps/
-  # cp -R ../../../microlinux-owncloud.bak/htdocs/apps/contacts/ .
+  # ls
+    activity  encryption  external  files  files_external  files_pdfviewer
+    ...
+  # ls /srv/httpd/vhosts/microlinux-owncloud.old/htdocs/apps/
+    activity  contacts encryption  external  files  files_external  
+    ...
+  # mv /srv/httpd/vhosts/microlinux-owncloud.old/htdocs/apps/contacts/ .
   # cd ..
 
-Définir les permissions :
+Définir les permissions à l'aide du script.
 
-  # cd /srv/httpd/vhosts/
-  # find microlinux-owncloud/ -type d -exec chmod 0750 \{} \;
-  # find microlinux-owncloud/ -type f -exec chmod 0640 \{} \;
-  # chown -R apache:apache microlinux-owncloud/
+  # cd /root/bin
+  # ./set-owncloud-permissions.sh
+  Creating possible missing Directories
+  chmod Files and Directories
+  chown Directories
+  chmod/chown .htaccess
 
-Désactiver le mode de maintenance si on l'a activé :
+À présent, on peut faire pointer l'hôte virtuel vers la nouvelle installation
+d'OwnCloud. Le mode maintenance est toujours activé.
 
---8<---------- htdocs/config/config.php --------------------------------------
-$CONFIG = array (
+Lancer la mise à jour interne :
+
+  # cd /srv/httpd/vhosts/microlinux-owncloud/htdocs
+  # sudo -u apache php occ upgrade
+  ownCloud or one of the apps require upgrade 
+  Only a limited number of commands are available
+  You may use your browser or the occ upgrade command to do the upgrade
+  Set log level to debug - current level: 'Warning'
+  Checking whether the database schema can be updated 
+  (this can take a long time depending on the database size)
+  Checked database schema update
+  Checking updates of apps
+  Checked database schema update for apps
+  Updating database schema
+  Updated database
+  Update successful
+  Maintenance mode is kept active
+  Reset log level to 'Warning'
+
+Revenir en mode normal :
+
+  # sudo -u apache php occ maintenance:mode --off
+  Maintenance mode disabled
+
+Rescanner les fichiers :
+
+  # sudo -u apache php console.php files:scan --all
+  Scanning file   /administrateur/
+  Scanning folder /administrateur/
+  Scanning file   /administrateur/thumbnails
+  Scanning file   /administrateur/files
   ...
-  'maintenance' => false, 
-);
---8<--------------------------------------------------------------------------
-
-Ouvrir l'interface Web et suivre les étapes de l'assistant de mise à jour.
-
-Il faudra songer à réactiver les applications tierces.
+  
+Il ne reste plus qu'à réactiver les applications tierces.
 
 
 ------------------------------------------------------------------------------
