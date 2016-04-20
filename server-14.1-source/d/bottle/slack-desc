@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+bottle: bottle (Python web framework)
+bottle: 
+bottle: bottle is a fast, simple and lightweight WSGI micro web-framework
+bottle: for Python. It is distributed as a single file module and has no
+bottle: dependencies other than the Python Standard Library.
+bottle:
+bottle: 
+bottle:
+bottle: 
+bottle: 
+bottle: Package created by Niki Kovacs <info@microlinux.fr>
