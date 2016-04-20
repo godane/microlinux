@@ -114,3 +114,6 @@ ap/libvirt
 # Web applications
 # n/cmsmadesimple
 # n/owncloud-server
+
+# Misc
+d/hddtemp
