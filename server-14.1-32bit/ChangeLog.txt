@@ -2,6 +2,8 @@ Wed Apr 20 15:20:49 CEST 2016
 d/hddtemp-0.3beta15-i486-1_microlinux.txz: Added.
 d/bottle-0.12.8-i486-1_microlinux.txz: Added.
 d/backports-ssl-match-hostname-3.4.0.2-i486-1_microlinux.txz: Added.
+d/tornado-4.2.1-i486-1_microlinux.txz: Added.
+d/numpy-1.9.1-i486-1_microlinux.txz: Added.
 +--------------------------+
 Thu Mar 24 12:58:13 CET 2016
 	After weighing the pros and the cons, we're introducing package categories

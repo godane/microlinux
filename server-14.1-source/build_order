@@ -119,3 +119,5 @@ ap/libvirt
 d/hddtemp
 d/bottle
 d/backports-ssl-match-hostname
+d/tornado
+d/numpy
