@@ -1,3 +1,12 @@
+Wed Apr 20 17:41:28 CEST 2016
+d/hddtemp-0.3beta15-x86_64-1_microlinux.txz: Added.
+d/bottle-0.12.8-x86_64-1_microlinux.txz: Added.
+d/backports-ssl-match-hostname-3.4.0.2-x86_64-1_microlinux.txz: Added.
+d/tornado-4.2.1-x86_64-1_microlinux.txz: Added.
+d/numpy-1.9.1-x86_64-1_microlinux.txz: Added.
+d/python-dateutil-2.4.2-x86_64-1_microlinux.txz: Added.
+d/matplotlib-1.4.2-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Thu Mar 24 14:59:00 CET 2016
 	After weighing the pros and the cons, we're introducing package categories
 	for clarity's sake.  These are mostly inspired by upstream, so Slackware
