@@ -125,3 +125,5 @@ d/python-dateutil
 d/matplotlib
 d/python3
 d/netifaces
+d/py3sensors
+
