@@ -90,9 +90,6 @@ d/zope.event
 d/zope.interface
 d/zope.component
 
-# System monitor
-ap/glances
-
 # Networking
 n/dovecot
 n/iperf
@@ -115,7 +112,7 @@ ap/libvirt
 # n/cmsmadesimple
 # n/owncloud-server
 
-# Misc
+# More Python modules
 d/hddtemp
 d/bottle
 d/backports-ssl-match-hostname
@@ -130,3 +127,7 @@ d/pymdstat
 d/pystatsd
 d/pycrypto
 d/pysnmp
+
+# System monitor
+ap/glances
+
