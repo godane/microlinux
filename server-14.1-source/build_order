@@ -128,4 +128,4 @@ d/netifaces
 d/py3sensors
 d/pymdstat
 d/pystatsd
-
+d/pycrypto
