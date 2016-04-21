@@ -6,6 +6,7 @@ d/pymdstat-0.4.2-i486-1_microlinux.txz: Added.
 d/pystatsd-0.1.6-i486-1_microlinux.txz: Added.
 d/pycrypto-2.6.1-i486-1_microlinux.txz: Added.
 d/pysnmp-4.1.16d-i486-1_microlinux.txz: Added.
+ap/glances-2.5.1-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Wed Apr 20 15:20:49 CEST 2016
 d/hddtemp-0.3beta15-i486-1_microlinux.txz: Added.

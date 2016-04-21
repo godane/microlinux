@@ -2,7 +2,7 @@
 
 # Slackware build script for glances
 
-# Copyright 2013 Philip Lacroix <philnx at bluebottle dot com>
+# Copyright 2013-2015 Philip Lacroix <slackph at posteo dot de>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -25,8 +25,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=glances
-VERSION=${VERSION:-1.7.6}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-2.5.1}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
@@ -52,39 +52,44 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/v$VERSION.tar.gz || tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+
+# The upstream tarball will be named differently, depending on
+# the file being downloaded manually (web browser) or with wget.
+if [ -e $CWD/v$VERSION.tar.gz ]; then
+  tar xvzf $CWD/v$VERSION.tar.gz
+else
+  tar xvzf $CWD/$PRGNAM-$VERSION.tar.gz
+fi
+
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
- \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 -o -perm 511 \) \
- -exec chmod 755 {} \; -o \
- \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
- -exec chmod 644 {} \;
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 \
+  -o -perm 400 \) -exec chmod 644 {} \;
 
 python setup.py install --root=$PKG
 
-# Python 3 support
-if $(python3 -c 'import sys' 2>/dev/null); then
-  python3 setup.py install --root=$PKG
-fi
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" \
+  | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-# Don't clobber configuration files
-mv $PKG/etc/$PRGNAM/$PRGNAM.conf $PKG/etc/$PRGNAM/$PRGNAM.conf.new
+PRGUSR=$PKG/usr
+PRGSHR=$PKG/usr/share
+PRGDOC=$PKG/usr/doc/$PRGNAM-$VERSION
 
-find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
-  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+# Move and compress man page.
+mv $PRGSHR/man $PRGUSR/
+gzip -9 $PRGUSR/man/man1/$PRGNAM.1
 
-mv $PKG/usr/share/man $PKG/usr/
-gzip -9 $PKG/usr/man/man?/*.?
-
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-mv $PKG/usr/share/doc/$PRGNAM/* $PKG/usr/doc/$PRGNAM-$VERSION
-rm -rf $PKG/usr/share/doc
-cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+# Install documentation.
+mkdir -p $PRGDOC
+mv $PRGSHR/doc/$PRGNAM/* $PRGDOC/
+cat $CWD/$PRGNAM.SlackBuild > $PRGDOC/$PRGNAM.SlackBuild
+rm -rf $PRGSHR
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
