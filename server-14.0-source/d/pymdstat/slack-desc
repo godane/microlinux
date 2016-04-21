@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+pymdstat: pymdstat (library to parse /proc/mdstat)
+pymdstat: 
+pymdstat: PyMDstat is a pythonic library to parse /proc/mdstat, which shows a
+pymdstat: snapshot of the kernel's RAID/md state. 
+pymdstat:
+pymdstat: 
+pymdstat:
+pymdstat: 
+pymdstat: 
+pymdstat: 
+pymdstat: Package created by Niki Kovacs <info@microlinux.fr>

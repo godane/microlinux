@@ -11,4 +11,5 @@ config() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-config etc/glances/glances.conf.new
+config etc/hddtemp/hddtemp.db.new
+

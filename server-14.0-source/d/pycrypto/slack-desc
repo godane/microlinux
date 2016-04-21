@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+pycrypto: pycrypto (Python Cryptography Toolkit)
+pycrypto:
+pycrypto: This is a collection of both secure hash functions (such as MD5 and
+pycrypto: SHA), and various encryption algorithms (AES, DES, IDEA, RSA,
+pycrypto: ElGamal, etc.). The package is structured to make adding new
+pycrypto: modules easy.
+pycrypto:
+pycrypto: 
+pycrypto:
+pycrypto:
+pycrypto: Package created by Niki Kovacs <info@microlinux.fr>
