@@ -1,5 +1,6 @@
 Thu Apr 21 07:21:48 CEST 2016
 d/python3-3.5.1-i486-1_microlinux.txz: Added.
+d/netifaces-0.10.4-i486-1_microlinux.txz: Added.
 +--------------------------+
 Wed Apr 20 15:20:49 CEST 2016
 d/hddtemp-0.3beta15-i486-1_microlinux.txz: Added.
