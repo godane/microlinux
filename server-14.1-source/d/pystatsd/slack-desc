@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+pystatsd: pystatsd (Graphite frontend)
+pystatsd:
+pystatsd: pystatsd is a client and server implementation of Etsy's statsd
+pystatsd: server, a front end/proxy for the Graphite stats collection and
+pystatsd: graphing server.
+pystatsd:
+pystatsd: 
+pystatsd:
+pystatsd:
+pystatsd:
+pystatsd: Package created by Niki Kovacs <info@microlinux.fr>

@@ -3,6 +3,7 @@ d/python3-3.5.1-i486-1_microlinux.txz: Added.
 d/netifaces-0.10.4-i486-1_microlinux.txz: Added.
 d/py3sensors-0cf96f4e2cfe-i486-1_microlinux.txz: Added.
 d/pymdstat-0.4.2-i486-1_microlinux.txz: Added.
+d/pystatsd-0.1.6-i486-1_microlinux.txz: Added.
 +--------------------------+
 Wed Apr 20 15:20:49 CEST 2016
 d/hddtemp-0.3beta15-i486-1_microlinux.txz: Added.
