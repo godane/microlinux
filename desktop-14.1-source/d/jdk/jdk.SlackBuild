@@ -26,8 +26,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=jdk
-VERSION=${VERSION:-8u73}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-8u91}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 DVER=1.8.0_$(printf $VERSION | cut -du -f2)
