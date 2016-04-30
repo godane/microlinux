@@ -1,3 +1,6 @@
+Sat Apr 30 08:20:55 CEST 2016
+locale/mozilla-firefox-langpack-38.8.0-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Sun Apr 10 09:02:59 CEST 2016
 multimedia/flashplayer-plugin-11.2.202.616-i386-2_microlinux.txz: Upgraded.
 xap/vlc-2.1.6-i486-1_microlinux.txz: Added.
