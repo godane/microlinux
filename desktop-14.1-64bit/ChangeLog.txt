@@ -1,3 +1,8 @@
+Sat Apr 30 09:20:02 CEST 2016
+locale/mozilla-firefox-langpack-38.8.0-x86_64-1_microlinux.txz: Upgraded.
+locale/mozilla-thunderbird-langpack-45.0-x86_64-1_microlinux.txz: Upgraded.
+d/jdk-8u91-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Sun Apr 10 09:13:17 CEST 2016
 multimedia/flashplayer-plugin-11.2.202.616-x86_64-2_microlinux.txz: Upgraded.
 xap/vlc-2.1.6-x86_64-1_microlinux.txz: Added.
