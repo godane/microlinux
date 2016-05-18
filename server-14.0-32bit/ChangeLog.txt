@@ -1,3 +1,6 @@
+Wed May 18 09:35:54 CEST 2016
+n/squid-3.5.19-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Apr 21 15:49:05 CEST 2016
 d/hddtemp-0.3beta15-i486-1_microlinux.txz: Added.
 d/bottle-0.12.8-i486-1_microlinux.txz: Added.
