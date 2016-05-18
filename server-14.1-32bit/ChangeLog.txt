@@ -1,3 +1,6 @@
+Wed May 18 09:58:40 CEST 2016
+n/squid-3.5.19-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Apr 21 07:21:48 CEST 2016
 d/python3-3.5.1-i486-1_microlinux.txz: Added.
 d/netifaces-0.10.4-i486-1_microlinux.txz: Added.
