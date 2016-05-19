@@ -1,3 +1,6 @@
+Thu May 19 09:52:49 CEST 2016
+n/squidanalyzer-6.5-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Wed May 18 10:07:21 CEST 2016
 n/squid-3.5.19-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
