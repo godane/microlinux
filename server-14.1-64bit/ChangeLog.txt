@@ -1,3 +1,7 @@
+Fri May 20 09:00:20 CEST 2016
+n/squidanalyzer-6.5-x86_64-2_microlinux.txz: Rebuilt.
+  Added a doinst.sh to preserve configuration files after an upgrade.
++--------------------------+
 Thu May 19 09:52:49 CEST 2016
 n/squidanalyzer-6.5-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
