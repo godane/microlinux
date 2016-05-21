@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=PDF Toolkit
+Name[de]=PDF Toolkit 
+Name[fr]=Outils PDF
+Comment=PDF Chain
+Encoding=UTF-8
+Exec=pdfchain
+Icon=pdfchain
+Type=Application
+StartupNotify=false
+Categories=Office;
+MimeType=application/pdf;
+Terminal=false
