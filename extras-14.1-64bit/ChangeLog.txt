@@ -1,3 +1,6 @@
+Sat May 21 09:13:09 CEST 2016
+xap/cinelerra-2.3-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Fri May 20 11:46:18 CEST 2016
 xap/HandBrake-0.9.9-x86_64-1_microlinux.txz: Added.
 +--------------------------+
