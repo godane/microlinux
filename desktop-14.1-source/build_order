@@ -284,3 +284,6 @@ profile/user-settings-xfce
 
 # Login manager
 x/lxdm
+
+# Misc
+multimedia/mjpegtools
