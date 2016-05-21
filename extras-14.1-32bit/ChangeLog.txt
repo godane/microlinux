@@ -1,3 +1,6 @@
+Sat May 21 17:19:45 CEST 2016
+xap/pdfchain-0.4.4-i486-1_microlinux.txz: Added.
++--------------------------+
 Sat May 21 08:58:08 CEST 2016
 xap/cinelerra-2.3-i486-1_microlinux.txz: Added.
 +--------------------------+
