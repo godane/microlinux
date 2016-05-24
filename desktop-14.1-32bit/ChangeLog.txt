@@ -1,3 +1,7 @@
+Tue May 24 06:36:25 CEST 2016
+x/lxdm-0.5.3-i486-4_microlinux.txz. Rebuilt.
+  Respawn X on logout. Thanks to heyjann on LQ.
++--------------------------+
 Sat May 21 17:12:55 CEST 2016
 ap/pdftk-2.02-i486-1_microlinux.txz: Added.
 +--------------------------+
