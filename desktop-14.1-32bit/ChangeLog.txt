@@ -1,3 +1,6 @@
+Fri Jun 10 09:07:06 CEST 2016
+locale/mozilla-thunderbird-langpack-45.1.1-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Tue May 24 06:36:25 CEST 2016
 x/lxdm-0.5.3-i486-4_microlinux.txz. Rebuilt.
   Respawn X on logout. Thanks to heyjann on LQ.
