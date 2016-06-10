@@ -1,3 +1,7 @@
+Fri Jun 10 09:23:01 CEST 2016
+locale/mozilla-thunderbird-langpack-45.1.1-x86_64-1_microlinux.txz: Upgraded.
+multimedia/flashplayer-plugin-11.2.202.621-x86_64-2_microlinux.txz: Upgraded.
++--------------------------+
 Tue May 24 06:40:32 CEST 2016
 x/lxdm-0.5.3-x86_64-4_microlinux.txz: Rebuilt.
   Respawn X on logout. Thanks to heyjann on LQ.
