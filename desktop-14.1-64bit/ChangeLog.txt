@@ -1,3 +1,8 @@
+Wed Jun 15 13:36:01 CEST 2016
+ap/hplip-3.15.11-x86_64-1_microlinux.txz: Added.
+  Slackware's HPLIP 3.13.10 is seriously outdated and doesn't manage an
+	increasing number of modern HP printers, so here's an update.
++--------------------------+
 Fri Jun 10 09:23:01 CEST 2016
 locale/mozilla-thunderbird-langpack-45.1.1-x86_64-1_microlinux.txz: Upgraded.
 multimedia/flashplayer-plugin-11.2.202.621-x86_64-2_microlinux.txz: Upgraded.
