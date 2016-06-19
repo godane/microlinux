@@ -23,7 +23,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=flashplayer-plugin
-VERSION=${VERSION:-11.2.202.621}
+VERSION=${VERSION:-11.2.202.626}
 BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 VERS_MAJ=$(printf $VERSION | cut -d. -f1)
