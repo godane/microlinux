@@ -1,3 +1,6 @@
+Sun Jun 19 13:39:28 CEST 2016
+multimedia/flashplayer-plugin-11.2.202.626-x86_64-2_microlinux.txz: Upgraded.
++--------------------------+
 Wed Jun 15 13:36:01 CEST 2016
 ap/hplip-3.15.11-x86_64-1_microlinux.txz: Added.
   Slackware's HPLIP 3.13.10 is seriously outdated and doesn't manage an
