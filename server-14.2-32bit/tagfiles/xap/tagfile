@@ -1,5 +1,4 @@
 # Add
-fluxbox:ADD
 sane:ADD
 windowmaker:ADD
 
@@ -11,6 +10,7 @@ blackbox:SKP
 blueman:SKP
 ddd:SKP
 electricsheep:SKP
+fluxbox:SKP
 fvwm:SKP
 geeqie:SKP
 gftp:SKP
