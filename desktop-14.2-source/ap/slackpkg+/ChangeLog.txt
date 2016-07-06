@@ -1,0 +1,347 @@
+Sat Jun 25 15:36:00 CEST 2016
+pkg/slackpkg+-1.7.0-noarch-3mt.txz: Rebuilt
+  - slackpkg search did not honor the '+' symbol (thanks to yars)
+  - slackpkg check-updates did not work unless you set VERBOSE=3 (thanks to
+    Talus).
++-------------------------+
+
+Sat Jun 18 13:43:00 CEST 2016
+pkg/slackpkg+-1.7.0-noarch-2mt.txz: Rebuilt
+  - Suppress wget output in ChangeLog downloading to avoid unwanted 404 errors
+  - Fixed an issue when an invalid repository is configured
+  - Updated repository list
++-------------------------+
+
+Tue Jun 07 19:55:00 CEST 2016
+pkg/slackpkg+-1.7.0-noarch-1mt.txz: Upgraded
+  After an huge work from community, we release the new slackpkg+ 1.7; so as
+  everytime :), a big thanks goes to phenixia2003 that wrote most new code.
+  We tried to release a more stable and improved version.
+  slackpkg+ 1.7 adds new features with some new entries in configuration file
+  that you should merge in your old slackpkgplus.conf:
+    SEARCH_CLOG_INPARENT , WW_FILE_SEARCH , DETAILED_INFO , STRICTGPG
+  see README for details.
+  New features:
+  - Now slackpkg+ allow you to see the ChangeLog in dialogbox.
+  - Now 'info' command allow you to see more details for the packages.
+  - Now slackpkg+ uses a Strict GPG Check.
+  Improvements:
+  - Quick output for Cached Download for a most clear output.
+  - Improved performance for huge package lists.
+  - Graylist works in remove and clean-system.
+  - 'search' command is faster, looks for dir:/ repositories too, shows packages
+    from all repositories (duplicated included), sort it by status and colors
+    the output, and the 'file-search' command now can find substrings.
+  - Cached Download works with check-updates too.
+  - Reinstall command allow to select repository name when two repositories
+    contains the same package.
+  And many other BugFix or small things. See 'CHANGES' in documentation for a
+  full list.
++-------------------------+
+
+Version 1.7.0rc3 - 03/Jun/2016
+  This could be the last batch of updates before 1.7.0 stable, so please test!
+  - dialog did no more trap develop errors (but if occurs please report it)
+  - givepriority did drop matched package if it is the first in pkglist
+  - Added /usr/src/slackpkg+-*/slackpkg.bash_completation. Edit it for
+    instructions.
+
+Version 1.7.0rc2 - 02/Jun/2016
+  - ChangeLog did not skipped for dir:/ repositories
+  - ChangeLog did not show correctly certain slackware changelog
+  - dir:/ repositories does not need STRICTGPG nor GPG key; however remember
+    that if .asc file exists a key must be manually imported
+  - Removed makeinstlog.sh since it was bugged and no longer supported
+  - Repositories in default configuration file are bumped to 14.2
+  - Full 1.7.0 changes tracked in CHANGES file
+  - Added /usr/libexec/slackpkg/zchangelog.sh tool. Edit it to see instructions.
+
+Version 1.7.0rc1 - 19/May/2016
+  - WW_FILE_SEARCH did affect file search AND package search
+  - fixed warning in update when one repository does not have the changelog
+  - ignore the package extension in package selection
+  - fixed a regression in dir: repository
+
+Version 1.7.b4.3 - 02/May/2016
+  - Optimized code for generating ChangeLogs. (phenixia2003)
+
+Version 1.7.b4.2 - 18/Apr/2016
+  - Improved cached downloader with specifics output for ChangeLogs
+  - Fixed a bug in TAG_PRIORITY when the package is not installed
+  - Improved performance in upgrade by skipping priority check for
+    not installed packages
+
+Version 1.7.b4.1 - 15/Apr/2016
+  - slackpkg allow ChangeLog for third-party repositories too.
+  - Reduced verbosity in cached downloader == most clear output.
+
+Version 1.7.b4 - 14/Mar/2016
+  - slackpkg search now search in dir:// repositories too.
+  - subdirectory allowed in dir:// repositories.
+  - slackpkg search honour correctly the '+' character
+  - Added 'ChangeLog' dialog box to show the changelog of selected packages
+    (thanks to phenixia2003)
+
+Version 1.7.b3 - 27/Feb/2016
+  - Added WW_FILE_SEARCH to file-search whole-words o not (thanks to yars068)
+  - Colorized the slackpkg search results
+  - Added DETAILED_INFO to allow slackpkg info to show many details on the
+    package
+  - slackpkg reinstall fixed; also now allow to choose the repository as in 
+    install/upgrade; this becouse there more than one repository containing 
+    identicals packages.
+  - dir:// repositories and inline repositories has most priority
+
+Version 1.7.b2 - 29/Jan/2016
+  - Avoid slackpkg to corrupt the slackware database if there are some manual
+    upgrade in progress.
+  - Fixed a regression in TAG_PRIORITY.
+  - Added spinning in check-updates.
+  - Fixed bad trap CTRL+C when spinning is on.
+  - Fixed a regression in SENSITIVE_SEARCH.
+  - Cached Download works with check-updates too.
+  - check-updates shows downloader output if VERBOSE=3
+
+Version 1.7.b1 - 18/Jan/2016
+  Well, I think that we can mark that version as Beta.  It does not contains
+  new features, but it was done a large work of bugfixes and improvements.
+  A special thanks is for phenixia2003 and yars068 for code contributing and
+  for many other for ideas and testing. It's the time for the tests, to find
+  for bugs or someother improvement.
+  - Improved greylist. Now it allow to match the name in installed packages,
+    so it also impact remove and clean-system actions.
+  - Improved performance searching packages and preparing the package list in
+    large install/upgrade.
+  - Improved 'slackpkg search' that now shows all packages matching from all
+    repositories, not just that in priority; it will mark as 'masked' the
+    packages that would not selected in install/upgrade mode. Also always show
+    repository source for official packages.
+  - Quick output for Cached Download..
+  - Does not show notices to remember to run 'slackpkg update' when running
+    slackpkg check-updates.
+  - Fixed Download Only when upgrade base packages (aaa_base, pkgtools...).
+  - Fixed a bug in slackpkg upgrade when used with $ROOT.
+  - Repositories now can contains letters, numbers, minus and underscore
+  - Fixed a bug on x86 hosts when a repository contains also x86_64 packages
+  - Some fix in Strict GPG Check.
+
+Version 1.7.a1 - 04/Jan/2016
+  It's the time for a stable version of slackpkg+. Currently it is just a
+  development version to fix older feature and add/test new. I'll need more
+  test possible to make it bugfree ;).
+  - Code reordering; now slackpkg+ is only slackpkgplus.sh
+  - BugFix: slackpkg did give 'grep: write error' when running with "sudo su -".
+  - Added repositories; improved checkrepos.sh
+  - Strict GPG Check: Packages and metadata in one repository should be signed
+    with just the root GPG-KEY. This improve security. Some repository might
+    want to contains heterogeneous package. In this case, set STRICTGPG=off.
+    See README.
+  - New repository for slackpkg+ development version
+
+Version 1.6.1 - 20/Dec/2015
+  - Added DOWNLOADONLY to just download packages without installing it
+
+Version 1.6.0 - 19/Dec/2015
+  - Added CACHEUPDATE. You can now speedup the slackpkg update by caching
+    metadata files.
+
+Version 1.5.2 - 18/Dec/2015
+  - Fixed a missed $ROOT
+  - Added SHOWORDER option. It's a way to sort packages in dialog box to help
+    reviewing large upgrade from many repositories. The SHOWORDER option
+    accepts "package" "repository" "tag" "path" "arch".
+  - Fixed some repository url. There are already some 14.2 repositories!!!
+  - slackpkg+ advise you to update the pkglist before use it 
+  - Added a script in /usr/doc/slackpkg+-* to a fast check of repositories
+  - slackpkg -dialog=off now show repository name as with dialog
+  - Added SENSITIVE_SEARCH option to search case-insensitive
+    (thanks to phenixia2003)
+  - Important fixes in the priority manager. Many thanks to all people that
+    reported the bugs and a Big thanks to phenixia2003 for the fix. Now we need
+    your help to test it.
+
+Version 1.5.1 - 20/Nov/2015
+  Note for Slackware 14.1 users: slackware-current introduce important bug fix
+  in slackpkg 2.82.0-14 (see Slackware ChangeLog) not backported in slackware
+  14.1; it is not mandatory but you are encouraged to upgrade it by download it
+  manually; be sure to greylist slackpkg to avoid an automatic downgrade.
+  - The trailing slash in MIRRORPLUS[] is now optional (thanks to phenixia2003
+    and Didier Spaier)
+  - Added DOWNLOADCMD option to add a custom downloader
+  - Fixed a bug that causes that ALL repositories fail if ONE repository fails
+    (thanks to FR on Alien Pasture for reporting)
+  - Fixed TAG_PRIORITY to avoid impact in slackpkg install
+
+Version 1.5.0 - 10/Jul/2015
+  - Fixed TAG_PRIORITY
+  - Fixed repositories list
+
+Version 1.4.99 - 01/Jul/2015
+  - Added priority by tag. Setting TAG_PRIORITY to 'on' slackpkg+
+    automatically upgrade packages from repository where the tag is the same
+    of the already installed package.
+
+Version 1.4.1 - 16/Jun/2015
+  - Fix for repositories having CHECKSUMS.md5.gz.asc
+
+Version 1.4.0 - 13/Dec/2014
+  - Now the official repositories (slackware64, extra, patches...) are treated
+    as thirdy party repositories, so you can add it in PKGS_PRIORITY
+    (phenixia2003)
+  - To put an entire repository in PKGS_PRIORITY, you no more need to add
+    ':.*' after the name (phenixia2003)
+
+Version 1.3.3 - 26/Oct/2014
+  - Patched to avoid to install glibc-debug from alienbob multilib (thanks to
+    phenixia2003)
+
+Version 1.3.2 - 13/Jul/2014
+  - Patched to reflect changes on slackpkg 2.82.0-13
+
+Version 1.3.1 - 7/Mar/2014
+  - Improved check-updates function (thanks to phenixia2003)
+  - Improved debug-mode
+
+Version 1.3.0 - 1/Jan/2014
+  - Added a debug-mode download verbosity
+  - On upgrade, the status bar show available packages from every repository
+
+Version 1.2.0 - 9/Dec/2013
+  - Now ALLOW32BIT also auto-greylist the 32bit packages
+  - Added an install log in /var/lib/slackpkg/install.log; use
+    '/usr/libexec/slackpkg/makeinstlog.sh -t' to create a starting
+    install.log (it TRY to detect the repository)
+
+Version 1.1.0 - 6/Dec/2013
+  - Added ALLOW32BIT flag to allow to install 32bit packages on a 64bit system
+  - setupmultilib.sh install only adaptative multilib by default
+  - Small fixes
+
+Version 1.0.2 - 6/Dec/2013
+  - Added WGETOPTS
+  - Moved notifications on a dedicated configuration file (notifymsg.conf)
+
+Version 1.0.1 - 14/Nov/2013
+  - Fixed fatal on 'pasture' repository and on invalid repository
+
+Version 1.0 - 11/Nov/2013
+  - slackpkg+ 1.0 stable finally relased
+  - All repositories aligned to newest slackware version
+  - Documentation reformatting and some typo fix (thanx to idlemoor)
+  - Added function 'notification on event' that allow to insert reminders
+    when you install/ugrade/remove some packages. See slackpkgplus.conf samples.
+    (thanks to phenixia2003)
+
+Version 1.0rc3 - 28/Oct/2013
+  - slackpkg+ 1.0 release candidate 3.  Last call.  :)
+  - Added setupmultilib.sh in /usr/doc/slackpkg+-*, an helper for configure
+    multilibs in slackpkgplus.conf
+
+Version 1.0rc2 - 21/Oct/2013
+  - Looks like we get a slackpkg+ 1.0 release candidate 2...  but things are
+    pretty much nailed down at this point.  Please test and report any last :D
+  - Updated some repository to 14.1
+
+Version 1.0rc1 - 16/Oct/2013
+  - Slackware 14.1 is coming up. I think that also slackpkg+ is ready so as
+    Slackware I mark it as rc1 :). slackpkg 2.82.0-11 added the 14.1 repositories.
+    Unfortuatly I don't know which third-party repository will contains 14.1 
+    packages, so I can't add 14.1 to repositories.txt
+  - You can now ovverride SLACKPKGPLUS VERBOSE from command-line (as USEBL)
+
+Version 0.9.7.4 - 24/Sep/2013
+  - Try a better way to detect the newest version of the same package in local
+    or remote directory (does not guarantees 100% success)
+  - Try to download CHECKSUMS.md5.gz.asc if CHECKSUMS.md5.asc does not exists
+    (as salixos repository)
+
+Version 0.9.7.3 - 10/Sep/2013
+  - Fix an issue with dir:// repositories and gpg check
+
+Version 0.9.7.2 - 09/Sep/2013
+  - Added support for unrepositorized local directory in config file
+  - Added USEBL to temporary skip blacklist check (USEBL=0 slackpkg install..)
+
+Version 0.9.7.1 - 06/Sep/2013
+  - fixed a bug on 'slackpkg upgrade file:..'
+
+Version 0.9.7 - 05/Sep/2013
+  - Added install/upgrade/reinstall from disk with file:package.txz or dir:path,
+    and remote with {http,ftp,htts}://site/path/[package.txz], unrepositorized
+    packages. Please, read the README file.
+  - Disallow to choice the download manager; slackpkg+ require wget AND lftp
+
+Version 0.9.6.1 - 02/Sep/2013
+  - fixed a bug in new dialog function (thanks to phenixia2003)
+
+Version 0.9.6 - 01/Sep/2013
+  - fixed a slackpkg bug that does not recreate $WORKDIR if it does not exists.
+  - added repository name in dialog
+
+Version 0.9.5 - 28/Aug/2013
+  - fixed a problem with some compat32 packages
+  - fixed a issue about packages selection with the official slackware repository
+    (thanks to phenixia2003)
+
+Version 0.9.4 - 27/Aug/2013
+  - fixed a issue when a pattern is used multiple times in argument
+  - fixed a bug in install/upgrade regarding the enhanced priority
+  - fixed a bug in search which leads to wrong information about upgrade
+  - allow to to install/upgrade/reinstall/remove all the packages from
+    a given repository (thanks to phenixia2003 for big patch)
+
+Version 0.9.3 - 25/Aug/2013
+  - fixed md5 check (thanks to AlienBob)
+  
+Version 0.9.2 - 01/Aug/2013
+  - allow to search the non $ARCH packages
+  - speed up the update process
+  - allow to disable the download status bar
+
+Version 0.9.1 - 05/May/2013
+  - fixed an error when a folder is missing in the slackware mirror (as
+    /testing).
+  - fixed a conflict searching the package 'slackpkg'
+  - added file-search function
+
+Version 0.9rc3 - 01/May/2013
+  - added more config file checks
+  - fixed a bug that does not allow to use the gpg check
+  - fixed a bug that deny to use local slackware mirror
+
+Version 0.9rc2 - 30/Apr/2013
+  - added config file checks
+  - fixed a bug that try to check gpg even if CHECKGPG is set to off
+  - fixed a bug that show compat32 packages as duplicated
+  - implemented 'slackpkg search'
+
+Version 0.9rc1 - 29/Apr/2013
+  - added some repository
+
+Version 0.9beta2 - 27/Apr/2013
+  - fixed a 'package' bug that override slackpkgplus.conf (instead .new)
+  - added doinst.sh that auto-select a configuration file depending $ARCH
+  - fixed priority system bug when two repositories have package with the same
+    full name
+
+Version 0.9beta1 - 26/Apr/2013
+  - added repositories in conf file
+  - added a priority system for repository only
+  - added support to local repository
+  
+Version 0.9test1 - 26/Apr/2013
+  - added a priority system for repository and single packages
+  - added gpg support
+  - added explicit support for alienbob multilibs
+
+Version 0.3beta - 10/Oct/2012
+  - Added slackware 14.0 in default configuration
+
+Version 0.2beta - 28/Sep/2012
+  - renamed in 'slackpkg+'
+  - allow to add multiple repositories
+  - extends the slackpkg 'PRIORITY'
+
+Version 0.1 - 12/Jul/2011
+  First release.
+  - added slacky repository to slackpkg
