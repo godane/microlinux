@@ -1,0 +1,5 @@
+# Build order for MLED 14.2
+
+# User profile (Bash, Vim, Xterm)
+profile/user-settings-console
+
