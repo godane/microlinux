@@ -3,3 +3,5 @@
 # User profile (Bash, Vim, Xterm)
 profile/user-settings-console
 
+# Package management
+ap/sbopkg 
