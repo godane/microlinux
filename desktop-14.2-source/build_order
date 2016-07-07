@@ -15,6 +15,7 @@ l/gtk-engines
 l/json-glib
 l/libdbusmenu
 l/libgee
+l/libgtop
 
 # Xfce
 xfce/elementary-xfce
