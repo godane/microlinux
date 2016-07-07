@@ -6,3 +6,6 @@ profile/user-settings-console
 # Package management
 ap/sbopkg 
 ap/slackpkg+
+
+# Xfce
+xfce/elementary-xfce
