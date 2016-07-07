@@ -16,6 +16,8 @@ l/json-glib
 l/libdbusmenu
 l/libgee
 l/libgtop
+l/libwnck3
+l/bamf
 
 # Xfce
 xfce/elementary-xfce
