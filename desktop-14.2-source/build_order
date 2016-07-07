@@ -9,6 +9,7 @@ ap/slackpkg+
 
 # Libraries
 l/gtk-engines
+l/json-glib
 
 # Xfce
 xfce/elementary-xfce
