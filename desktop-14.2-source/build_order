@@ -24,6 +24,9 @@ l/bamf
 x/apple-fonts
 x/google-droid-fonts
 
+# Applications
+xap/libreoffice
+
 # Xfce
 xfce/elementary-xfce
 xfce/aero
