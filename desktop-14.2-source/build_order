@@ -20,6 +20,7 @@ l/libwnck3
 l/bamf
 
 # Fonts
+x/apple-fonts
 x/google-droid-fonts
 
 # Xfce
