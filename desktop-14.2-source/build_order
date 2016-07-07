@@ -7,6 +7,9 @@ profile/user-settings-console
 ap/sbopkg 
 ap/slackpkg+
 
+# Development
+d/vala
+
 # Libraries
 l/gtk-engines
 l/json-glib
