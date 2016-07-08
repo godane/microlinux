@@ -17,6 +17,7 @@ ap/unrtf
 n/iperf
 
 # Development
+d/acpica
 d/jdk
 d/lua
 d/vala
