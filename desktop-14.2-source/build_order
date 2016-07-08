@@ -9,6 +9,7 @@ ap/slackpkg+
 
 # Basic tools
 ap/antiword
+ap/exiftool
 
 # Development
 d/jdk
