@@ -23,6 +23,7 @@ l/bamf
 
 # Multimedia
 multimedia/libass
+multimedia/libbluray
 
 # Fonts
 x/apple-fonts
