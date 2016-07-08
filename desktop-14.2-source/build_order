@@ -9,6 +9,7 @@ ap/slackpkg+
 
 # Development
 d/jdk
+d/lua
 d/vala
 
 # Libraries
