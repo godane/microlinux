@@ -21,6 +21,9 @@ l/libgtop
 l/libwnck3
 l/bamf
 
+# Multimedia
+multimedia/libass
+
 # Fonts
 x/apple-fonts
 x/google-droid-fonts
