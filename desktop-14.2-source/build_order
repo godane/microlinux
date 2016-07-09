@@ -67,6 +67,7 @@ multimedia/zvbi
 
 multimedia/faac
 multimedia/frei0r
+multimedia/ffmpeg
 
 # Fonts
 x/apple-fonts
