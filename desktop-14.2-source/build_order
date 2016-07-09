@@ -35,6 +35,8 @@ l/bamf
 multimedia/celt
 multimedia/libass
 multimedia/libbluray
+multimedia/libdc1394
+multimedia/libmp4v2
 
 # Fonts
 x/apple-fonts
