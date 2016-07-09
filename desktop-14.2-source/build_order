@@ -46,6 +46,7 @@ multimedia/libavc1394
 multimedia/libbluray
 multimedia/libdc1394
 multimedia/libdca
+multimedia/libdvbpsi
 multimedia/libfdk-aac
 multimedia/libiec61883
 multimedia/libilbc
