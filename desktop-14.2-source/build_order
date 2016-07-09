@@ -36,6 +36,7 @@ d/numpy
 
 # Multimedia
 multimedia/celt
+multimedia/gsm
 multimedia/libass
 multimedia/libbluray
 multimedia/libdc1394
