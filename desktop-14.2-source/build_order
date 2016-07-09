@@ -44,6 +44,7 @@ multimedia/libmp4v2
 multimedia/opencv
 
 multimedia/faac
+multimedia/frei0r
 
 # Fonts
 x/apple-fonts
