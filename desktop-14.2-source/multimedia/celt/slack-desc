@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+celt: celt (low delay audio codec)
+celt:
+celt: CELT is a very low delay audio codec designed for high-quality
+celt: communications. Traditional full-bandwidth  codecs such as Vorbis and
+celt: AAC can offer high quality but they require codec delays of hundreds
+celt: of milliseconds, which makes them unsuitable  for real-time
+celt: interactive applications like teleconferencing. Speech targeted
+celt: codecs, such as Speex or G.722, have lower 20-40ms delays but their
+celt: speech focus and limited sampling rates restricts their quality,
+celt: especially for music.
+celt: Package created by Niki Kovacs <info@microlinux.fr>

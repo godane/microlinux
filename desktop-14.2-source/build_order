@@ -32,6 +32,7 @@ l/libwnck3
 l/bamf
 
 # Multimedia
+multimedia/celt
 multimedia/libass
 multimedia/libbluray
 
