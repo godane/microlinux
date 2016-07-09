@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+libminizip: libminizip (compression library)
+libminizip:
+libminizip: libminizip is small library to compress and decompress zip files
+libminizip: with the help of zlib.
+libminizip:
+libminizip:
+libminizip:
+libminizip:
+libminizip:
+libminizip:
+libminizip: Package created by Niki Kovacs <info@microlinux.fr>
