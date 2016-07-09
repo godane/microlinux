@@ -49,6 +49,7 @@ multimedia/libilbc
 multimedia/libmodplug
 multimedia/libmp4v2
 multimedia/OpenAL
+multimedia/opencore-amr
 multimedia/opencv
 
 multimedia/faac
