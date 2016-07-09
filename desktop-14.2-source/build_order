@@ -48,6 +48,7 @@ multimedia/libiec61883
 multimedia/libilbc
 multimedia/libmodplug
 multimedia/libmp4v2
+multimedia/OpenAL
 multimedia/opencv
 
 multimedia/faac
