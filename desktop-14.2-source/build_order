@@ -78,6 +78,7 @@ multimedia/faac
 multimedia/frei0r
 multimedia/ffmpeg
 multimedia/chromaprint
+multimedia/libshout
 
 # Fonts
 x/apple-fonts
