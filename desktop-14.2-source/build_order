@@ -31,6 +31,9 @@ l/libgtop
 l/libwnck3
 l/bamf
 
+# Python
+d/numpy
+
 # Multimedia
 multimedia/celt
 multimedia/libass
