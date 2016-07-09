@@ -26,6 +26,7 @@ d/vala
 l/gtk-engines
 l/json-glib
 l/libdbusmenu
+l/libebml
 l/libgee
 l/libgtop
 l/libwebp
