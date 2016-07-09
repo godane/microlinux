@@ -51,6 +51,7 @@ multimedia/libmp4v2
 multimedia/OpenAL
 multimedia/opencore-amr
 multimedia/opencv
+multimedia/opus
 
 multimedia/faac
 multimedia/frei0r
