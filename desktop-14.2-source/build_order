@@ -28,6 +28,7 @@ l/json-glib
 l/libdbusmenu
 l/libgee
 l/libgtop
+l/libwebp
 l/libwnck3
 l/bamf
 
@@ -50,7 +51,6 @@ multimedia/libmodplug
 multimedia/libmp4v2
 multimedia/libquvi-scripts
 multimedia/libquvi
-multimedia/libwebp
 multimedia/OpenAL
 multimedia/opencore-amr
 multimedia/opencv
