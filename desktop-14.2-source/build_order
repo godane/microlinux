@@ -38,6 +38,8 @@ multimedia/libbluray
 multimedia/libdc1394
 multimedia/libmp4v2
 
+multimedia/faac
+
 # Fonts
 x/apple-fonts
 x/google-droid-fonts
