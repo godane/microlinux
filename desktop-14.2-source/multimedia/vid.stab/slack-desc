@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+vid.stab: vid.stab (video stabilization library)
+vid.stab:
+vid.stab: Vidstab is a video stabilization library which can be plugged-in
+vid.stab: with FFmpeg and Transcode.
+vid.stab:
+vid.stab: 
+vid.stab:
+vid.stab:
+vid.stab:
+vid.stab:
+vid.stab: Package created by Niki Kovacs <info@microlinux.fr>
