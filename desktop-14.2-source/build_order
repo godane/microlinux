@@ -112,6 +112,7 @@ x/apple-fonts
 x/google-droid-fonts
 
 # Applications
+xap/audacious-plugins
 xap/libreoffice
 xap/vlc
 
