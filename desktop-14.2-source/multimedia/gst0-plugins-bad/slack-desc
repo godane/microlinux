@@ -1,0 +1,12 @@
+                |-----handy-ruler------------------------------------------------------|
+gst0-plugins-bad: gst0-plugins-bad (a set of GStreamer plugins)
+gst0-plugins-bad:
+gst0-plugins-bad: GStreamer Bad Plug-ins is a set of plug-ins that aren't up to
+gst0-plugins-bad: par compared to the rest. They might be close to being good 
+gst0-plugins-bad: quality, but they're missing something - be it a good code 
+gst0-plugins-bad: review, some documentation, a set of tests, a real live 
+gst0-plugins-bad: maintainer, or some actual wide use.
+gst0-plugins-bad:
+gst0-plugins-bad: 
+gst0-plugins-bad:
+gst0-plugins-bad: Package created by Niki Kovacs <info@microlinux.fr>
