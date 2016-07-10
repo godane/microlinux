@@ -98,6 +98,7 @@ multimedia/musepack-tools
 multimedia/vsxu
 
 multimedia/gst-libav
+multimedia/gst-plugins-bad
 
 # Fonts
 x/apple-fonts
