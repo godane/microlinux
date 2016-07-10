@@ -48,6 +48,7 @@ multimedia/celt
 multimedia/dirac
 multimedia/faad2
 multimedia/gsm
+multimedia/id3lib
 multimedia/ladspa_sdk
 multimedia/lame
 multimedia/libass
