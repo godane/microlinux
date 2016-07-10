@@ -99,6 +99,7 @@ multimedia/vsxu
 
 multimedia/gst-libav
 multimedia/gst-plugins-bad
+multimedia/gst-plugins-ugly
 
 # Fonts
 x/apple-fonts
