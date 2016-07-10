@@ -92,6 +92,8 @@ multimedia/libshout
 multimedia/musepack-tools
 multimedia/vsxu
 
+multimedia/gst-libav
+
 # Fonts
 x/apple-fonts
 x/google-droid-fonts
