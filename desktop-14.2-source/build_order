@@ -90,6 +90,7 @@ multimedia/ffmpeg
 multimedia/chromaprint
 multimedia/libshout
 multimedia/musepack-tools
+multimedia/vsxu
 
 # Fonts
 x/apple-fonts
