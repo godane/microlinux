@@ -23,6 +23,7 @@ d/lua
 d/vala
 
 # Libraries
+l/ftgl
 l/gtk-engines
 l/json-glib
 l/libdbusmenu
