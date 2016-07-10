@@ -43,6 +43,7 @@ d/numpy
 
 # Multimedia
 multimedia/amrnb
+multimedia/amrwb
 multimedia/celt
 multimedia/dirac
 multimedia/faad2
