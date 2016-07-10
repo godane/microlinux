@@ -1,0 +1,12 @@
+                 |-----handy-ruler------------------------------------------------------|
+gst0-plugins-ugly: gst0-plugins-ugly (a set of GStreamer plugins)
+gst0-plugins-ugly:
+gst0-plugins-ugly: GStreamer Ugly Plug-ins is a set of plug-ins that have good 
+gst0-plugins-ugly: quality and correct functionality, but distributing them 
+gst0-plugins-ugly: might pose problems. The license on either the plug-ins or 
+gst0-plugins-ugly: the supporting libraries might not be how we'd like. The 
+gst0-plugins-ugly: code might be widely known to present patent problems.
+gst0-plugins-ugly:
+gst0-plugins-ugly: 
+gst0-plugins-ugly: 
+gst0-plugins-ugly: Package created by Niki Kovacs <info@microlinux.fr>

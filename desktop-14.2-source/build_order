@@ -99,6 +99,7 @@ multimedia/vsxu
 
 multimedia/gst0-ffmpeg
 multimedia/gst0-plugins-bad
+multimedia/gst0-plugins-ugly
 multimedia/gst-libav
 multimedia/gst-plugins-bad
 multimedia/gst-plugins-ugly
