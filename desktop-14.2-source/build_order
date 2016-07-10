@@ -114,6 +114,7 @@ x/google-droid-fonts
 # Applications
 xap/audacious-plugins
 xap/libreoffice
+xap/MPlayer
 xap/vlc
 
 # Xfce
