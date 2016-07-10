@@ -42,6 +42,7 @@ l/bamf
 d/numpy
 
 # Multimedia
+multimedia/amrnb
 multimedia/celt
 multimedia/dirac
 multimedia/faad2
