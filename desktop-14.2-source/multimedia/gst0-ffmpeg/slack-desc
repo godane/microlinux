@@ -1,0 +1,12 @@
+           |-----handy-ruler---------------------------------------------------|
+gst0-ffmpeg: gst0-ffmpeg (A GStreamer FFmpeg plugin)
+gst0-ffmpeg:
+gst0-ffmpeg: This module contains a GStreamer plugin for FFmpeg, as well as an
+gst0-ffmpeg: internal copy of the FFmpeg source code.
+gst0-ffmpeg:
+gst0-ffmpeg: 
+gst0-ffmpeg:
+gst0-ffmpeg: 
+gst0-ffmpeg:
+gst0-ffmpeg:
+gst0-ffmpeg: Package created by Niki Kovacs <info@microlinux.fr>
