@@ -92,6 +92,7 @@ multimedia/faac
 multimedia/frei0r
 multimedia/ffmpeg
 multimedia/chromaprint
+multimedia/libquicktime
 multimedia/libshout
 multimedia/musepack-tools
 multimedia/vsxu
