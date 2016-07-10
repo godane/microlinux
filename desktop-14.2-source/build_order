@@ -96,6 +96,7 @@ multimedia/libquicktime
 multimedia/libshout
 multimedia/musepack-tools
 multimedia/vsxu
+multimedia/mlt
 
 multimedia/gst0-ffmpeg
 multimedia/gst0-plugins-bad
