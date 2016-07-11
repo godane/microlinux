@@ -1,0 +1,47 @@
+[Desktop Entry]
+Name=Office Suite
+Name[de]=Bürosuite
+Name[fr]=Suite bureautique
+Comment=Libre Office
+Version=1.0
+Terminal=false
+NoDisplay=false
+#Icon=libreoffice4.4-startcenter
+Icon=applications-office
+Type=Application
+Categories=Office;X-Red-Hat-Base;X-SuSE-Core-Office;X-MandrivaLinux-Office-Other;
+Exec=libreoffice4.4 %U
+MimeType=application/vnd.openofficeorg.extension;
+StartupNotify=true
+X-GIO-NoFuse=true
+StartupWMClass=libreoffice-startcenter
+X-KDE-Protocols=file,http,ftp,webdav
+
+##Define Actions
+Actions=Writer;Calc;Impress;Draw;Base;Math;
+
+[Desktop Action Writer]
+Name=Text Document
+Exec=libreoffice4.4 --writer
+
+[Desktop Action Calc]
+Name=Spreadsheet
+Exec=libreoffice4.4 --calc
+
+[Desktop Action Impress]
+Name=Presentation
+Exec=libreoffice4.4 --impress
+
+[Desktop Action Draw]
+Name=Drawing
+Exec=libreoffice4.4 --draw
+
+[Desktop Action Base]
+Name=Database
+Exec=libreoffice4.4 --base
+
+[Desktop Action Math]
+Name=Formula
+Exec=libreoffice4.4 --math
+
+##End of actions menu

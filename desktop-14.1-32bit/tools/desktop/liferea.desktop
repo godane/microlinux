@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=RSS Feed Reader
+Name[de]==RSS-Feedreader
+Name[fr]=Lecteur de flux RSS
+Comment=Liferea
+Exec=liferea
+#Icon=liferea
+Icon=internet-news-reader
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Network;Feed;
+Version=1.1
+MimeType=application/rss+xml;application/atom+xml;application/rdf+xml;

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Educational suite
+Name[de]=Lernspiele
+Name[fr]=Suite éducative
+Comment=GCompris
+Exec=gcompris
+Icon=gcompris
+Terminal=false
+Type=Application
+Categories=Education;Game;KidsGame;
+StartupNotify=true
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gcompris
+X-GNOME-Bugzilla-Component=

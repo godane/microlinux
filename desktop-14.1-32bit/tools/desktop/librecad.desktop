@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=CAD System
+Name[de]=CAD-Programm
+Name[fr]=Application de DAO
+Comment=LibreCAD
+Name=LibreCAD
+TryExec=librecad
+Exec=librecad %F
+Icon=librecad
+Categories=Graphics;Engineering;
+MimeType=image/vnd.dxf
+StartupNotify=true

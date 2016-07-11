@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=E-book Viewer
+Name[de]=E-book-Betrachter
+Name[fr]=Visionneuse de livres numériques
+Comment=Calibre Viewer
+Version=1.0
+Type=Application
+TryExec=ebook-viewer
+Exec=ebook-viewer --detach %f
+Icon=calibre-viewer
+Categories=Office;
