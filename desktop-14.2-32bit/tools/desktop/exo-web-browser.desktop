@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Web Browser
+Name[de]=Webbrowser
+Name[fr]=Navigateur Internet
+Comment=Web Browser
+Comment[de]=Webbrowser
+Comment[fr]=Navigateur Internet
+Version=1.0
+Type=Application
+Exec=exo-open --launch WebBrowser %u
+#Icon=web-browser
+Icon=internet-web-browser
+StartupNotify=true
+Terminal=false
+Categories=Network;X-XFCE;X-Xfce-Toplevel;
+OnlyShowIn=XFCE;
+X-XFCE-MimeType=x-scheme-handler/http;x-scheme-handler/https;

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Application launch dock
+Name[de]=Anwendungsstartleiste
+Name[fr]=Lanceur d'applications
+Comment=Plank
+Categories=Utility;
+Type=Application
+Exec=plank
+Icon=plank
+Terminal=false
+NoDisplay=false
