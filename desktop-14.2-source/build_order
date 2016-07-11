@@ -118,6 +118,7 @@ x/google-droid-fonts
 # Applications
 xap/audacious-plugins
 xap/brasero
+xap/gthumb
 xap/libreoffice
 xap/MPlayer
 xap/vlc
