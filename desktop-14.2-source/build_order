@@ -40,6 +40,7 @@ l/libwebp
 l/libwnck3
 l/wxPython
 l/bamf
+l/podofo
 
 # Python
 d/BeautifulSoup
