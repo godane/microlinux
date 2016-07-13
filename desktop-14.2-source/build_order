@@ -42,6 +42,7 @@ l/wxPython
 l/bamf
 
 # Python
+d/BeautifulSoup
 d/numpy
 
 # Multimedia
@@ -115,6 +116,7 @@ multimedia/gst-plugins-ugly
 x/apple-fonts
 x/eurostile-fonts
 x/google-droid-fonts
+x/webcore-fonts
 
 # Applications
 xap/asunder
