@@ -43,6 +43,7 @@ l/bamf
 
 # Python
 d/BeautifulSoup
+d/lxml
 d/numpy
 
 # Multimedia
