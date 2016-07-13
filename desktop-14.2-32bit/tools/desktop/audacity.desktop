@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Sound Editor
+Name[de]=Audio-Editor
+Name[fr]=Éditeur audio
+Comment=Audacity
+Exec=audacity
+Icon=audacity
+StartupNotify=true
+Type=Application
+Categories=AudioVideo;
