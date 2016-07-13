@@ -38,6 +38,7 @@ l/libtar
 l/libupnp
 l/libwebp
 l/libwnck3
+l/wxPython
 l/bamf
 
 # Python
@@ -93,7 +94,6 @@ multimedia/x264
 multimedia/x265
 multimedia/xvidcore
 multimedia/zvbi
-
 multimedia/faac
 multimedia/frei0r
 multimedia/ffmpeg
@@ -103,7 +103,6 @@ multimedia/libshout
 multimedia/musepack-tools
 multimedia/vsxu
 multimedia/mlt
-
 multimedia/gst0-ffmpeg
 multimedia/gst0-plugins-bad
 multimedia/gst0-plugins-ugly
