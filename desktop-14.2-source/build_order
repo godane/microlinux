@@ -54,6 +54,7 @@ d/netifaces
 d/numpy
 d/psutil
 d/six
+d/python-dateutil
 
 # Multimedia
 multimedia/amrnb
