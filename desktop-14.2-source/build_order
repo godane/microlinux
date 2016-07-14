@@ -46,6 +46,7 @@ l/podofo
 d/BeautifulSoup
 d/apsw
 d/cssselect
+d/cssutils
 d/lxml
 d/numpy
 
