@@ -45,6 +45,7 @@ l/podofo
 # Python
 d/BeautifulSoup
 d/apsw
+d/cssselect
 d/lxml
 d/numpy
 

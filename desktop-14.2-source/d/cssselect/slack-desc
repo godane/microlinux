@@ -1,0 +1,12 @@
+         |-----handy-ruler------------------------------------------------------|
+cssselect: cssselect
+cssselect:
+cssselect: cssselect parses CSS3 Selectors and translate them to XPath 1.0
+cssselect: expressions. Such expressions can be used in lxml or another XPath
+cssselect: engine to find the matching elements in an XML or HTML document.
+cssselect:
+cssselect:
+cssselect:
+cssselect:
+cssselect:
+cssselect: Package created by Niki Kovacs <info@microlinux.fr>
