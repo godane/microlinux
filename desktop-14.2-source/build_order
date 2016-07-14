@@ -27,6 +27,7 @@ l/ftgl
 l/glfw
 l/goocanvas
 l/gtk-engines
+l/imlib2
 l/json-glib
 l/libaudclient
 l/libburn
@@ -43,6 +44,7 @@ l/libwnck3
 l/wxPython
 l/bamf
 l/podofo
+l/tolua++
 
 # Python
 d/BeautifulSoup
@@ -139,6 +141,7 @@ xap/audacious-plugins
 xap/audacity
 xap/brasero
 xap/calibre
+xap/conky
 xap/gthumb
 xap/inkscape
 xap/libreoffice
