@@ -28,6 +28,7 @@ l/glfw
 l/goocanvas
 l/gtk-engines
 l/json-glib
+l/libaudclient
 l/libburn
 l/libdbusmenu
 l/libebml
