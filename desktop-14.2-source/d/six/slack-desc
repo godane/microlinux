@@ -1,0 +1,12 @@
+   |-----handy-ruler------------------------------------------------------|
+six: six (Python 2 and 3 compatibility utilities)
+six:
+six: Six is a Python 2 and 3 compatibility library. It provides utility
+six: functions for smoothing over the differences between the Python
+six: versions with the goal of writing Python code that is compatible on
+six: both Python versions. See the documentation for more information on
+six: what is provided.
+six:
+six: 
+six:
+six: Package created by Niki Kovacs <info@microlinux.fr>
