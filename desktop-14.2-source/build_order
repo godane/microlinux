@@ -25,6 +25,7 @@ d/vala
 # Libraries
 l/ftgl
 l/glfw
+l/goocanvas
 l/gtk-engines
 l/json-glib
 l/libburn
