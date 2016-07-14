@@ -55,6 +55,7 @@ d/netifaces
 d/numpy
 d/psutil
 d/pygoocanvas
+d/pyxdg
 d/six
 d/python-dateutil
 
