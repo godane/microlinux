@@ -47,6 +47,7 @@ d/BeautifulSoup
 d/apsw
 d/cssselect
 d/cssutils
+d/dnspython
 d/lxml
 d/numpy
 
