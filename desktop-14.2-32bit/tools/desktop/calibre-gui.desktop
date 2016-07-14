@@ -6,6 +6,6 @@ Comment=Calibre
 Version=1.0
 Type=Application
 TryExec=calibre
-Exec=calibre --detach %F
+Exec=calibre --no-update-check --detach %F
 Icon=calibre-gui
 Categories=Office;
