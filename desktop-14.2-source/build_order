@@ -52,6 +52,8 @@ d/lxml
 d/mechanize
 d/netifaces
 d/numpy
+d/psutil
+d/six
 
 # Multimedia
 multimedia/amrnb
