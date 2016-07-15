@@ -27,6 +27,7 @@ l/ftgl
 l/glfw
 l/goocanvas
 l/gtk-engines
+l/gtksourceview
 l/imlib2
 l/json-glib
 l/libaudclient
