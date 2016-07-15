@@ -54,6 +54,7 @@ d/apsw
 d/cssselect
 d/cssutils
 d/dnspython
+d/epub
 d/lxml
 d/mechanize
 d/netifaces
