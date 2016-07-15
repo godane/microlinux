@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=File search
+Name[de]=Dateisuche
+Name[fr]=Recherche de fichiers
+Comment=Recoll
+Categories=Utility;
+Exec=recoll
+GenericName=Local Text Search
+Icon=catfish
+Terminal=false
+Type=Application
+Keywords=Search;Full Text;
