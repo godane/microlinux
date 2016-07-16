@@ -172,3 +172,5 @@ xfce/plank
 # User profile (Xfce)
 profile/user-settings-xfce
 
+# Login manager
+x/lxdm
