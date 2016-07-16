@@ -159,6 +159,7 @@ xap/MPlayer
 xap/openshot
 xap/recoll
 xap/scribus
+xap/transmission
 xap/vlc
 
 # Xfce
@@ -170,6 +171,8 @@ xfce/clearlooks-phenix-theme
 xfce/xfce4-whiskermenu-plugin
 xfce/plank
 xfce/ffmpegthumbnailer
+xfce/tumbler
+xfce/thunar-archive-plugin
 
 # User profile (Xfce)
 profile/user-settings-xfce
