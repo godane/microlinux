@@ -4,6 +4,8 @@ locale/libreoffice-langpack-fr-5.1.4-i586-1_microlinux.txz: Added.
 locale/libreoffice-langpack-de-5.1.4-i586-1_microlinux.txz: Added.
 multimedia/mplayer-codecs32-20110131-i586-1_microlinux.txz: Added.
 multimedia/flashplayer-plugin-11.2.202.632-i386-1_microlinux.txz: Added.
+multimedia/opencv-3.1.0-i586-2_microlinux.txz: Rebuilt.
+  Recompiled against ffmpeg to resolve circular dependency.
 +--------------------------+
 Mon Jul 18 17:22:18 CEST 2016
   Brace yourselves, MLED 14.2 is coming. 
