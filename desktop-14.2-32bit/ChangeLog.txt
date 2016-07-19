@@ -2,6 +2,7 @@ Tue Jul 19 08:49:22 CEST 2016
 ap/cdlabelgen-4.3.0-noarch-1_microlinux.txz: Added.
 locale/libreoffice-langpack-fr-5.1.4-i586-1_microlinux.txz: Added.
 locale/libreoffice-langpack-de-5.1.4-i586-1_microlinux.txz: Added.
+multimedia/mplayer-codecs32-20110131-i586-1_microlinux.txz: Added.
 +--------------------------+
 Mon Jul 18 17:22:18 CEST 2016
   Brace yourselves, MLED 14.2 is coming. 
