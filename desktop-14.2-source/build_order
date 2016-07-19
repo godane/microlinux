@@ -170,6 +170,7 @@ xap/vlc
 # Translations
 # locale/libreoffice-langpack (build manually)
 locale/mozilla-firefox-langpack
+locale/mozilla-thunderbird-langpack
 
 # Xfce
 xfce/elementary-xfce
