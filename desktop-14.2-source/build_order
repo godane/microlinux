@@ -54,6 +54,7 @@ l/tolua++
 # Python
 d/BeautifulSoup
 d/apsw
+d/cddb-py
 d/cssselect
 d/cssutils
 d/dnspython
