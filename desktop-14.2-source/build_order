@@ -167,6 +167,10 @@ xap/scribus
 xap/transmission
 xap/vlc
 
+# Translations
+# locale/libreoffice-langpack (build manually)
+locale/mozilla-firefox-langpack
+
 # Xfce
 xfce/elementary-xfce
 xfce/aero
