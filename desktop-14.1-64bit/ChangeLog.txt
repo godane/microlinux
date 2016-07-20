@@ -1,3 +1,7 @@
+Wed Jul 20 08:52:00 CEST 2016
+locale/mozilla-thunderbird-langpack-45.2.0-x86_64-1_microlinux.txz: Upgraded.
+ap/p7zip-16.02-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Sun Jun 19 13:39:28 CEST 2016
 multimedia/flashplayer-plugin-11.2.202.626-x86_64-2_microlinux.txz: Upgraded.
 +--------------------------+

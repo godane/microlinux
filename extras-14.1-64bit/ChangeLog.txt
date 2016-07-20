@@ -1,3 +1,8 @@
+Wed Jul 20 09:23:00 CEST 2016
+xap/virtualbox-5.0.24-x86_64-1_microlinux.txz: Upgraded.
+xap/virtualbox-kernel-5.0.24_3.10.17-x86_64-1_microlinux.txz: Upgraded.
+xap/virtualbox-extension-pack-5.0.24-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Sat May 21 17:31:44 CEST 2016
 xap/pdfchain-0.4.4-x86_64-1_microlinux.txz: Added.
 +--------------------------+
