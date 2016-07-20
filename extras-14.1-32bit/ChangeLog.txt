@@ -1,3 +1,8 @@
+Wed Jul 20 08:37:24 CEST 2016
+xap/virtualbox-5.0.24-i486-1_microlinux.txz: Upgraded.
+xap/virtualbox-kernel-5.0.24_3.10.17_smp-i486-1_microlinux.txz: Upgraded.
+xap/virtualbox-extension-pack-5.0.24-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Sat May 21 17:19:45 CEST 2016
 xap/pdfchain-0.4.4-i486-1_microlinux.txz: Added.
 +--------------------------+
