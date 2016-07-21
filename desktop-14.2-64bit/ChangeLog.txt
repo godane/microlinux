@@ -1,3 +1,8 @@
+Thu Jul 21 10:39:34 CEST 2016
+l/qtkeychain-0.5.0-x86_64-2_microlinux.txz: Added.
+l/libunique-1.1.6-x86_64-1_microlinux.txz: Added.
+xfce/xfce4-notes-plugin-1.8.1-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Tue Jul 19 10:27:47 CEST 2016
 ap/cdlabelgen-4.3.0-noarch-1_microlinux.txz: Added.
 locale/libreoffice-langpack-de-5.1.4-x86_64-1_microlinux.txz: Added.
