@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Network Storage
+Name[de]=Filehosting-Dienst
+Name[fr]=Stockage en ligne
+Comment=Owncloud
+Exec=/usr/bin/owncloud
+Icon=owncloud
+Type=Application
+Categories=Network;FileTransfer;Cloud;Sync;
