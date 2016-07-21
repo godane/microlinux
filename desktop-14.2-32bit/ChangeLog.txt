@@ -1,5 +1,6 @@
 Thu Jul 21 09:55:11 CEST 2016
 l/qtkeychain-0.5.0-i586-2_microlinux.txz: Added.
+l/libunique-1.1.6-i586-1_microlinux.txz: Added.
 +--------------------------+
 Tue Jul 19 08:49:22 CEST 2016
 ap/cdlabelgen-4.3.0-noarch-1_microlinux.txz: Added.
