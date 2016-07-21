@@ -23,8 +23,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=flashplayer-plugin
-VERSION=${VERSION:-11.2.202.626}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-11.2.202.632}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 VERS_MAJ=$(printf $VERSION | cut -d. -f1)
 URL="fpdownload.macromedia.com/get/flashplayer/pdc"
