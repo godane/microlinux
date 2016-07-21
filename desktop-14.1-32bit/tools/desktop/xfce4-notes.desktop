@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Take notes
+Name[de]=Notizblock
+Name[fr]=Prendre des notes
+Comment=Xfce Notes Plugin
+Version=1.0
+Type=Application
+TryExec=xfce4-notes
+Exec=xfce4-notes
+Icon=xfce4-notes-plugin
+Terminal=false
+Categories=GTK;Utility;TrayIcon;
+OnlyShowIn=XFCE;GNOME;
+StartupNotify=false
