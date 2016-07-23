@@ -198,3 +198,5 @@ x/lxdm
 # KVM stack
 d/spice-protocol
 multimedia/celt051
+d/pyparsing
+l/usbredir
