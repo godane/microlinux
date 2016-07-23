@@ -1,3 +1,7 @@
+Sat Jul 23 10:40:13 CEST 2016
+ap/qemu-2.4.1-x86_64-1_microlinux.txz: Added.
+xap/virt-manager-1.4.0-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Thu Jul 21 10:42:36 CEST 2016
 xap/owncloud-client-2.2.2-x86_64-1_microlinux.txz: Added.
 +--------------------------+
