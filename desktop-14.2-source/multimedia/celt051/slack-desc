@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+celt051: celt051 (low delay audio codec - version 0.5.1.x)
+celt051:
+celt051: CELT is a very low delay audio codec designed for high-quality
+celt051: communications. Traditional full-bandwidth codecs such as Vorbis and
+celt051: AAC can offer high quality but they require codec delays of hundreds
+celt051: of milliseconds, which makes them unsuitable for real-time
+celt051: interactive applications like teleconferencing.  Speech targeted
+celt051: codecs, such as Speex or G.722, have lower 20-40ms delays but their
+celt051: speech focus and limited sampling rates restricts their quality,
+celt051: especially for music.
+celt051: Package created by Niki Kovacs <info@microlinux.fr>
