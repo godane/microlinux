@@ -211,3 +211,4 @@ l/gnome-python2-gconf
 n/tunctl
 d/ipaddr-py
 n/spice-gtk
+n/gtk-vnc
