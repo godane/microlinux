@@ -1,5 +1,8 @@
 # No particular build order for MLED 14.2 Extras
 
+# Qemu
+ap/qemu
+
 # Applications
 xap/gtkcdlabel
 xap/owncloud-client
