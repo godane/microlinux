@@ -204,3 +204,4 @@ n/spice
 ap/device-tree-compiler
 d/urlgrabber
 l/yajl
+l/libbsd

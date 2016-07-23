@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+libbsd: libbsd (library of BSD functions)
+libbsd:
+libbsd: This library provides useful functions commonly found on BSD systems,
+libbsd: and lacking on others like GNU systems, thus making it easier to port
+libbsd: projects with strong BSD origins, without needing to embed the same
+libbsd: code over and over again on each project.
+libbsd:
+libbsd: 
+libbsd:
+libbsd:
+libbsd: Package created by Niki Kovacs <info@microlinux.fr>
