@@ -203,3 +203,4 @@ l/usbredir
 n/spice
 ap/device-tree-compiler
 d/urlgrabber
+l/yajl
