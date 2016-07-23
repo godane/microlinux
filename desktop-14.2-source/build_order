@@ -214,4 +214,4 @@ n/spice-gtk
 n/gtk-vnc
 l/libvirt-glib
 l/libvirt-python
-
+l/libosinfo
