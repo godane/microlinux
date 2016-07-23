@@ -207,3 +207,4 @@ l/yajl
 l/libbsd
 n/netcat-openbsd
 ap/libvirt
+l/gnome-python2-gconf
