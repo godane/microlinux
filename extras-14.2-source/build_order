@@ -6,3 +6,4 @@ ap/qemu
 # Applications
 xap/gtkcdlabel
 xap/owncloud-client
+xap/virt-manager
