@@ -213,3 +213,5 @@ d/ipaddr-py
 n/spice-gtk
 n/gtk-vnc
 l/libvirt-glib
+l/libvirt-python
+
