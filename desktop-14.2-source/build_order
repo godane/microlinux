@@ -194,3 +194,6 @@ profile/user-settings-xfce
 
 # Login manager
 x/lxdm
+
+# KVM stack
+d/spice-protocol
