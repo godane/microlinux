@@ -205,3 +205,4 @@ ap/device-tree-compiler
 d/urlgrabber
 l/yajl
 l/libbsd
+n/netcat-openbsd
