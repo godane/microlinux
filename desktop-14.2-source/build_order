@@ -216,3 +216,4 @@ l/libvirt-glib
 l/libvirt-python
 l/libosinfo
 l/vte3
+d/python-requests
