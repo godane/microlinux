@@ -218,3 +218,6 @@ l/libosinfo
 l/vte3
 d/python-requests
 d/python-urllib3
+
+# Misc
+n/freerdp

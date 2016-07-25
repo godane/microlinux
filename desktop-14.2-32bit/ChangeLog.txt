@@ -1,6 +1,7 @@
 Mon Jul 25 09:26:21 CEST 2016
 ap/libvirt-1.3.5-i586-2_microlinux.txz: Rebuilt.
   Fixed rc.libvirt.
+n/freerdp-20160509-i586-1_microlinux.txz: Added.
 +--------------------------+
 Sat Jul 23 10:14:20 CEST 2016
 d/spice-protocol-0.12.11-noarch-1_microlinux.txz: Added.
