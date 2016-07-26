@@ -7,3 +7,6 @@ ap/qemu
 xap/gtkcdlabel
 xap/owncloud-client
 xap/virt-manager
+#xap/virtualbox
+#xap/virtualbox-kernel
+#xap/virtualbox-extension-pack
