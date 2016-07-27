@@ -5,6 +5,7 @@ ap/qemu
 
 # Applications
 xap/gtkcdlabel
+xap/HandBrake
 xap/owncloud-client
 xap/virt-manager
 #xap/virtualbox
