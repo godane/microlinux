@@ -6,6 +6,7 @@ d/pytz-2014.10-i586-1_microlinux.txz: Added.
 d/simplejson-3.8.1-i586-1_microlinux.txz: Added.
 d/SQLAlchemy-1.0.14-i586-1_microlinux.txz: Added.
 d/tornado-4.4.0-i586-1_microlinux.txz: Added.
+d/matplotlib-1.4.2-i586-1_microlinux.txz: Added.
 +--------------------------+
 Mon Jul 25 09:26:21 CEST 2016
 ap/libvirt-1.3.5-i586-2_microlinux.txz: Rebuilt.

@@ -228,3 +228,4 @@ d/pytz
 d/simplejson
 d/SQLAlchemy
 d/tornado
+d/matplotlib
