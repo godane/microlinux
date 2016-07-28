@@ -1,0 +1,12 @@
+                            |-----handy-ruler------------------------------------------------------|
+backports-ssl-match-hostname: backports-ssl-match-hostname (The ssl.match_hostname() function)
+backports-ssl-match-hostname:
+backports-ssl-match-hostname: The Secure Sockets layer is only actually secure if you
+backports-ssl-match-hostname: check the hostname in the certificate returned by the
+backports-ssl-match-hostname: server to which you are connecting, and verify that
+backports-ssl-match-hostname: it matches to hostname that you are trying to reach.
+backports-ssl-match-hostname:
+backports-ssl-match-hostname: 
+backports-ssl-match-hostname:
+backports-ssl-match-hostname:
+backports-ssl-match-hostname: Package created by Niki Kovacs <info@microlinux.fr>
