@@ -4,6 +4,7 @@
 ap/qemu
 
 # Applications
+xap/aMule
 xap/gtkcdlabel
 xap/HandBrake
 xap/owncloud-client
