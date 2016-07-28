@@ -225,3 +225,4 @@ l/cryptopp
 l/muParser
 d/backports-ssl-match-hostname
 d/pytz
+d/simplejson
