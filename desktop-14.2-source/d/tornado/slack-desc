@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+tornado: tornado (web framework and asynchronous networking library)
+tornado:
+tornado: Tornado is a Python web framework and asynchronous networking library
+tornado: originally developed at FriendFeed. By using non-blocking network I/O
+tornado: Tornado can scale to tens of thousands of open connections, making it
+tornado: ideal for long polling, WebSockets, and other applications that
+tornado: require a long-lived connection to each user.
+tornado:
+tornado: 
+tornado:
+tornado: Package created by Niki Kovacs <info@microlinux.fr>

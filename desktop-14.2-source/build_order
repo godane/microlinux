@@ -227,3 +227,4 @@ d/backports-ssl-match-hostname
 d/pytz
 d/simplejson
 d/SQLAlchemy
+d/tornado
