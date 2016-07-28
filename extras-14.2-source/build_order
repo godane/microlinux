@@ -5,6 +5,7 @@ ap/qemu
 
 # Applications
 xap/aMule
+xap/easytag
 xap/gtkcdlabel
 xap/HandBrake
 xap/librecad
