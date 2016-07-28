@@ -5,6 +5,7 @@ ap/qemu
 
 # Applications
 xap/aMule
+xap/anki
 xap/easytag
 xap/gtkcdlabel
 xap/HandBrake
