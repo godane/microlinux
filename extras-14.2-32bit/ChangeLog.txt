@@ -1,5 +1,6 @@
 Fri Jul 29 16:46:41 CEST 2016
 xap/filezilla-3.19.0-i586-1_microlinux.txz: Added.
+xap/remmina-20160509-i586-1_microlinux.txz: Added.
 +--------------------------+
 Wed Jul 27 19:30:14 CEST 2016
 xap/HandBrake-0.9.9-i686-1_microlinux.txz: Added.
