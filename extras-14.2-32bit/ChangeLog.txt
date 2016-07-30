@@ -1,6 +1,7 @@
 Sat Jul 30 08:46:27 CEST 2016
 xap/simple-scan-2.32.0.2-i586-1_microlinux.txz: Added.
 y/aisleriot-3.6.2-i586-1_microlinux.txz: Added.
+xap/homebank-5.0.9-i586-1_microlinux.txz: Added.
 +--------------------------+
 Fri Jul 29 16:46:41 CEST 2016
 xap/filezilla-3.19.0-i586-1_microlinux.txz: Added.
