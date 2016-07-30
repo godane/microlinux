@@ -1,3 +1,8 @@
+Sat Jul 30 10:35:15 CEST 2016
+l/libxml++-2.40.1-x86_64-1_microlinux.txz: Added.
+l/libofx-0.9.10-x86_64-1_microlinux.txz: Added.
+  Thanks to Matteo Bernardini.
++--------------------------+
 Fri Jul 29 17:36:11 CEST 2016
 l/libfilezilla-0.6.0-x86_64-1_microlinux.txz: Added.
 l/wxGTK3-3.0.2-x86_64-1_microlinux.txz: Added.
