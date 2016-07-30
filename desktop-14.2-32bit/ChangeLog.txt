@@ -1,5 +1,7 @@
 Sat Jul 30 09:01:56 CEST 2016
 l/libxml++-2.40.1-i586-1_microlinux.txz: Added.
+l/libofx-0.9.10-i586-1_microlinux.txz: Added.
+  Thanks to Matteo Bernardini.
 +--------------------------+
 Fri Jul 29 16:28:28 CEST 2016
 l/libfilezilla-0.6.0-i586-1_microlinux.txz: Added.
