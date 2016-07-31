@@ -24,6 +24,7 @@ xap/virt-manager
 #xap/virtualbox
 #xap/virtualbox-kernel
 #xap/virtualbox-extension-pack
+xap/winff
 
 # Games
 y/aisleriot
