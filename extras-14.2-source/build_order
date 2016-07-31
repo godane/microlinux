@@ -3,6 +3,9 @@
 # Qemu
 ap/qemu
 
+# Development
+d/fpc
+
 # Applications
 xap/aMule
 xap/anki

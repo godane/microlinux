@@ -1,0 +1,12 @@
+   |-----handy-ruler------------------------------------------------------|
+fpc: fpc (Free Pascal is a Pascal compiler)
+fpc:
+fpc: Free Pascal (aka FPK Pascal) is a 32 and 64 bit professional Pascal
+fpc: compiler. It is available for different processors: Intel x86,
+fpc: Amd64/x86_64, PowerPC, PowerPC64, Sparc, ARM. The discontinued 1.0
+fpc: version also supports the Motorola 680x0. The following operating
+fpc: systems are supported: Linux, FreeBSD, Mac OS X/Darwin, DOS, Win32,
+fpc: Win64, WinCE, OS/2, Netware (libc and classic) and MorphOS.
+fpc:
+fpc: 
+fpc: Package created by Niki Kovacs <info@microlinux.fr>
