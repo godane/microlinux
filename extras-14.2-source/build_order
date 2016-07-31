@@ -5,6 +5,7 @@ ap/qemu
 
 # Development
 d/fpc
+d/fpc-source
 
 # Applications
 xap/aMule
