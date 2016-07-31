@@ -6,6 +6,7 @@ ap/qemu
 # Development
 d/fpc
 d/fpc-source
+d/lazarus
 
 # Applications
 xap/aMule

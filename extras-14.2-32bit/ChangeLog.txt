@@ -1,6 +1,7 @@
 Sun Jul 31 11:27:23 CEST 2016
 d/fpc-2.6.4-i386-1_microlinux.txz: Added.
 d/fpc-source-2.6.4-noarch-1_microlinux.txz: Added.
+d/lazarus-1.2.6-i386-1_microlinux.txz: Added.
 +--------------------------+
 Sat Jul 30 08:46:27 CEST 2016
 xap/simple-scan-2.32.0.2-i586-1_microlinux.txz: Added.
