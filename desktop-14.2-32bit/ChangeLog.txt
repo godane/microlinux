@@ -1,5 +1,6 @@
 Mon Aug  1 08:37:23 CEST 2016
 multimedia/portaudio-20140130-i586-1_microlinux.txz: Added.
+d/PyAudio-0.2.4-i586-1_microlinux.txz: Added.
 +--------------------------+
 Sat Jul 30 09:01:56 CEST 2016
 l/libxml++-2.40.1-i586-1_microlinux.txz: Added.

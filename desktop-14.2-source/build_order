@@ -234,3 +234,4 @@ l/wxGTK3
 l/libxml++
 l/libofx
 multimedia/portaudio
+d/PyAudio
