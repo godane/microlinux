@@ -239,7 +239,7 @@ On crée un groupe système 'certs', on ajoute les utilisateurs système
 respectifs à ce groupe et on règle les permissions des fichiers en fonction,
 c'est-à-dire root:certs. Concrètement :
 
-  # useradd -g 240 certs
+  # groupadd -g 240 certs
   # chgrp -R certs /etc/letsencrypt
   # chmod -R g=rx /etc/letsencrypt
 
