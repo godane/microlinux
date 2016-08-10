@@ -27,7 +27,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=libreoffice
-VERSION=${VERSION:-"5.1.4"}
+VERSION=${VERSION:-"5.1.5"}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 

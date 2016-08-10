@@ -1,6 +1,11 @@
 Wed Aug 10 10:10:31 CEST 2016
 locale/mozilla-firefox-langpack-45.3.0-i586-1_microlinux.txz: Upgraded.
 d/jdk-8u102-i586-1_microlinux.txz: Upgraded.
+xap/libreoffice-5.1.5-i586-1_microlinux.txz: Upgraded.
+locale/libreoffice-langpack-fr-5.1.5-i586-1_microlinux.txz: Upgraded.
+locale/libreoffice-langpack-de-5.1.5-i586-1_microlinux.txz: Upgraded.
+f/libreoffice-helppack-fr-5.1.5-i586-1_microlinux.txz: Upgraded.
+f/libreoffice-helppack-de-5.1.5-i586-1_microlinux.txz: Upgraded.
 +--------------------------+
 Mon Aug  1 10:53:11 CEST 2016
 MLED 14.2 has been released! 
