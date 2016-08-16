@@ -2,7 +2,7 @@
 Asus S300 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ===============
 
-Dernière révision : 19 avril 2015
+Dernière révision : 16 août 2015
 
 Ce HOWTO décrit de façon succincte les particularités de l'installation de
 Slackware Linux 14.1 64-bit sur un ordinateur portable Asus S300.
@@ -13,6 +13,7 @@ Slackware Linux 14.1 64-bit sur un ordinateur portable Asus S300.
   * Démarrage
   * Partitionnement
   * Chargeur de démarrage
+  * Notes sur Slackware 14.2
 
 
 Prérequis
@@ -186,6 +187,23 @@ set menu_color_normal=blue/white
 À chaque fois, la configuration sera prise en compte comme ceci :
 
   # grub-mkconfig -o /boot/grub/grub.cfg
+
+
+Notes sur Slackware 14.2
+------------------------
+
+Slackware 14.2 s'installe très bien sur l'Asus S300. Quelques petites
+remarques sur cette nouvelle version :
+
+  1. Ce n'est plus la peine d'ajouter 'i915' explicitement à l'initrd.
+
+  2. Le répertoire '/boot/grub' existe déjà et ne doit pas être créé.
+
+  3. Il vaut mieux supprimer le paquet 'kernel-huge' avant la configuration
+     initiale de GRUB.
+
+  4. Malheureusement les résolutions respectives du framebuffer et de X.org
+     semblent liées avec cette nouvelle version.
 
 
 ------------------------------------------------------------------------------
