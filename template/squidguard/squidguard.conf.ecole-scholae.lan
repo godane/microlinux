@@ -1,0 +1,465 @@
+# /etc/squidguard/squidguard.conf
+
+dbhome /var/lib/squidguard/dest
+logdir /var/log/squidguard
+
+time couvrefeu {
+  weekly mtwhf 00:00-07:00
+  weekly smtwh 22:30-24:00
+}
+
+src direction {
+  ip 192.168.10.2-192.168.10.49
+}
+
+src salleinfo {
+  ip 192.168.10.201-192.168.10.210
+}
+
+# Sites adultes 
+destination adult {
+  domainlist adult/domains
+  urllist adult/urls
+  log adult
+}
+ 
+# Sites racistes, antisémites, incitant à la haine
+destination agressif {
+  domainlist agressif/domains
+  urllist agressif/urls
+  log agressif
+}
+
+# Sites orientés vers l'audio et la vidéo
+destination audio-video {
+  domainlist audio-video/domains
+  urllist audio-video/urls
+  log audio-video
+}
+
+# Blogs
+destination blog {
+  domainlist blog/domains
+  urllist blog/urls
+  log blog
+}
+
+# Sites pour désinfecter et mettre à jour des ordinateurs
+destination cleaning {
+  domainlist cleaning/domains
+  urllist cleaning/urls
+  log cleaning
+}
+
+# Sites décrivant la fabrication de bombes, de poison, etc.
+destination dangerous_material {
+  domainlist dangerous_material/domains
+  urllist dangerous_material/urls
+  log dangerous_material
+}
+
+# Sites de téléchargement
+destination download {
+  domainlist download/domains
+  urllist download/urls
+  log download
+}
+
+# Drogue
+destination drogue {
+  domainlist drogue/domains
+  urllist drogue/urls
+  log drogue
+}
+
+# Infos financières
+destination financial {
+  domainlist financial/domains
+  urllist financial/urls
+  log financial
+}
+
+# Forums
+destination forums {
+  domainlist forums/domains
+  urllist forums/urls
+  log forums
+}
+
+# Jeux en ligne, casino
+destination gambling {
+  domainlist gambling/domains
+  urllist gambling/urls
+  log gambling
+}
+
+# Sites de piratage et d'agressions informatiques
+destination hacking {
+  domainlist hacking/domains
+  urllist hacking/urls
+  log hacking
+}
+
+# Sites éducatifs
+destination liste_bu {
+  domainlist liste_bu/domains
+  urllist liste_bu/urls
+  log liste_bu
+}
+
+# Sonneries de mobiles
+destination mobile-phone {
+  domainlist mobile-phone/domains
+  urllist mobile-phone/urls
+  log mobile-phone
+}
+
+# Phishing, pièges bancaires, etc.
+destination phishing {
+  domainlist phishing/domains
+  urllist phishing/urls
+  log phishing
+}
+
+# Publicité
+destination publicite {
+  domainlist publicite/domains
+  urllist publicite/urls
+  log publicite
+}
+
+# Webradio
+destination radio {
+  domainlist radio/domains
+  urllist radio/urls
+  log radio
+}
+
+# Redirecteurs 1/3 
+destination redirector {
+  domainlist redirector/domains
+  urllist redirector/urls
+  log redirector
+}
+
+# Redirecteurs 2/3
+destination strict_redirector {
+  domainlist strict_redirector/domains
+  urllist strict_redirector/urls
+  log strict_redirector
+}
+
+# Redirecteurs 3/3
+destination strong_redirector {
+  domainlist strong_redirector/domains
+  urllist strong_redirector/urls
+  log strong_redirector
+}
+
+# Sites qui expliquent comme tricher aux examens
+destination tricheur {
+  domainlist tricheur/domains
+  urllist tricheur/urls
+  log tricheur
+}
+
+# Warez
+destination warez {
+  domainlist warez/domains
+  urllist warez/urls
+  log warez
+}
+
+# Webmail
+destination webmail {
+  domainlist webmail/domains
+  urllist webmail/urls
+  log webmail
+}
+
+# Jeux 
+destination games {
+  domainlist games/domains
+  urllist games/urls
+  log games
+}
+
+# Jeux éducatifs
+destination educational_games {
+  domainlist educational_games/domains
+  urllist educational_games/urls
+  log educational_games
+}
+
+# Sites pour adultes
+destination mixed_adult {
+  domainlist mixed_adult/domains
+  urllist mixed_adult/urls
+  log mixed_adult
+}
+
+# Sites de téléchargement
+destination filehosting {
+  domainlist filehosting/domains
+  urllist filehosting/urls
+  log filehosting
+}
+
+# Changement de propriétaire
+destination reaffected {
+  domainlist reaffected/domains
+  urllist reaffected/urls
+  log reaffected
+}
+
+# Éducation sexuelle
+destination sexual_education {
+  domainlist sexual_education/domains
+  urllist sexual_education/urls
+  log sexual_education
+}
+
+# Shopping
+destination shopping {
+  domainlist shopping/domains
+  urllist shopping/urls
+  log shopping
+}
+
+# Sites de rencontres
+destination dating {
+  domainlist dating/domains
+  urllist dating/urls
+  log dating
+}
+
+# Marketing
+destination marketingware {
+  domainlist marketingware/domains
+  urllist marketingware/urls
+  log marketingware
+}
+
+# Astrologie
+destination astrology {
+  domainlist astrology/domains
+  urllist astrology/urls
+  log astrology
+}
+
+# Sectes
+destination sect {
+  domainlist sect/domains
+  urllist sect/urls
+  log sect
+}
+
+# People
+destination celebrity {
+  domainlist celebrity/domains
+  urllist celebrity/urls
+  log celebrity
+}
+
+# Mangas
+destination manga {
+  domainlist manga/domains
+  urllist manga/urls
+  log manga
+}
+
+# Sites pour les enfants
+destination child {
+  domainlist child/domains
+  urllist child/urls
+  log child
+}
+
+# Malwares
+destination malware {
+  domainlist malware/domains
+  urllist malware/urls
+  log malware
+}
+
+# Presse en ligne
+destination press {
+  domainlist press/domains
+  urllist press/urls
+  log press
+}
+
+# Messagerie instantanée
+destination chat {
+  domainlist chat/domains
+  urllist chat/urls
+  log chat
+}
+
+# Prise de contrôle à distance
+destination remote-control {
+  domainlist remote-control/domains
+  urllist remote-control/urls
+  log remote-control
+}
+
+# Réseaux sociaux
+destination social_networks {
+  domainlist social_networks/domains
+  urllist social_networks/urls
+  log social_networks
+}
+
+# Recherche d'emploi
+destination jobsearch {
+  domainlist jobsearch/domains
+  log jobsearch
+}
+
+# Sport
+destination sports {
+  domainlist sports/domains
+  log sports
+}
+
+# Banque en ligne
+destination bank {
+  domainlist bank/domains
+  log bank
+}
+
+# Paris en ligne
+destination arjel {
+  domainlist arjel/domains
+  log arjel
+}
+
+# Cuisine
+destination cooking {
+  domainlist cooking/domains
+  log cooking
+}
+
+# Lingerie
+destination lingerie {
+  domainlist lingerie/domains
+  urllist lingerie/urls
+  log lingerie
+}
+
+# Traduction
+destination translation {
+  domainlist translation/domains
+  urllist translation/urls
+  log translation
+}
+
+# Bitcoin
+destination bitcoin {
+  domainlist bitcoin/domains
+  urllist bitcoin/urls
+  log bitcoin
+}
+
+# Dialers
+destination dialer {
+  domainlist dialer/domains
+  log dialer
+}
+
+# DDoS
+destination ddos {
+  domainlist ddos/domains
+  log ddos
+}
+
+# Mises à jour
+destination update {
+  domainlist update/domains
+  log update
+}
+
+# Associations religieuses
+destination associations_religieuses {
+  domainlist associations_religieuses/domains
+  log associations_religieuses
+}
+
+# Réduction d'URL
+destination shortener {
+  domainlist shortener/domains
+  urllist shortener/urls
+  log shortener
+}
+
+acl {
+  direction {
+    pass all
+  }
+  salleinfo within couvrefeu {
+    pass none
+    redirect http://squidguard.serveur-hp.ecole-scholae.lan/avertissement.html
+  }
+  salleinfo {
+    pass !adult
+    pass !agressif
+    pass audio-video
+    pass blog
+    pass !cleaning
+    pass !dangerous_material
+    pass !download
+    pass !drogue
+    pass financial
+    pass forums
+    pass !gambling
+    pass !hacking
+    pass liste_bu
+    pass !mobile-phone
+    pass !phishing
+    pass !publicite
+    pass radio
+    pass !redirector
+    pass !strict_redirector
+    pass !strong_redirector
+    pass !tricheur
+    pass !warez
+    pass webmail
+    pass !games
+    pass educational_games
+    pass !mixed_adult
+    pass !filehosting
+    pass !reaffected
+    pass sexual_education
+    pass !shopping
+    pass !dating
+    pass !marketingware
+    pass astrology
+    pass !sect
+    pass !celebrity
+    pass !manga
+    pass child
+    pass !malware
+    pass press
+    pass !chat
+    pass !remote-control
+    pass social_networks
+    pass jobsearch
+    pass sports
+    pass bank
+    pass !arjel
+    pass cooking
+    pass !lingerie
+    pass translation
+    pass !bitcoin
+    pass !dialer
+    pass !ddos
+    pass update
+    pass !associations_religieuses
+    pass !shortener
+    redirect http://squidguard.serveur-hp.ecole-scholae.lan/avertissement.html
+  }
+  default {
+    pass none
+    redirect http://squidguard.serveur-hp.ecole-scholae.lan/avertissement.html
+  }
+}
