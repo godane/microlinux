@@ -1,3 +1,6 @@
+Sat Sep  3 09:48:18 CEST 2016
+xap/CherryTree-0.37.4-i486-1_microlinux.txz: Added.
++--------------------------+
 Thu Jul 21 09:35:59 CEST 2016
 xap/owncloud-client-2.2.2-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
