@@ -1,3 +1,6 @@
+Tue Sep  6 15:58:57 CEST 2016
+locale/mozilla-thunderbird-langpack-45.3.0-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Wed Aug 10 09:27:18 CEST 2016
 locale/mozilla-firefox-langpack-45.3.0-i486-1_microlinux.txz: Upgraded.
 d/jdk-8u102-i586-1_microlinux.txz: Upgraded.
