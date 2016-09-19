@@ -1,3 +1,6 @@
+Mon Sep 19 08:31:23 CEST 2016
+xap/owncloud-client-2.2.3-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Sun Sep 18 14:45:28 CEST 2016
 xap/virtualbox-5.0.26-i486-1_microlinux.txz: Upgraded.
 xap/virtualbox-kernel-5.0.26_3.10.103_smp-i486-1_microlinux.txz: Upgraded.
