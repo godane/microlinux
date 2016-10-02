@@ -13,7 +13,7 @@ xap/flowblade-1.8-i486-1_microlinux.txz: Added.
 xap/openshot-1.4.3-i486-3_microlinux.txz: Removed.
 	Openshot may be the most intuitive video editor in the Linux world, but it's
 	terribly buggy and crashy, which makes it mostly unusable. Here's Flowblade,
-	another nifty and intutive video editor which proves to be rock solid. 
+  a rock-solid and equally intuitive replacement.
 locale/mozilla-firefox-langpack-45.4.0-i486-1_microlinux.txz: Upgraded.
 locale/mozilla-thunderbird-langpack-45.4.0-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
