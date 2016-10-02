@@ -2,6 +2,7 @@ Sun Oct  2 11:12:51 CEST 2016
 l/gnome-mime-data-2.18.0-i586-1_microlinux.txz: Added.
 l/ORBit2-2.14.19-i586-1_microlinux.txz: Added.
 l/libbonobo-2.32.1-i586-1_microlinux.txz: Added.
+l/gnome-vfs-2.24.4-i586-1_microlinux.txz: Added.
 +--------------------------+
 Mon Sep 19 08:41:53 CEST 2016
 multimedia/flashplayer-plugin-11.2.202.635-i386-1_microlinux.txz: Upgraded.
