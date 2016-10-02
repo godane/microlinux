@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Video Editor
+Name[de]=Video-Bearbeitungs-Software
+Name[fr]=Éditeur vidéo
+Comment=Flowblade
+Exec=flowblade %f
+Terminal=false
+Type=Application
+Icon=flowblade
+Categories=GNOME;GTK;AudioVideo;AudioVideoEditing;
+MimeType=application/vnd.flowblade-project;
+X-Ubuntu-Gettext-Domain=Flowblade
