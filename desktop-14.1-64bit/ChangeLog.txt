@@ -10,6 +10,12 @@ l/libgnomeui-2.24.5-x86_64-1_microlinux.txz: Added.
 d/pyorbit-2.24.0-x86_64-1_microlinux.txz: Added.
 l/gnome-python-2.28.1-x86_64-1_microlinux.txz: Added.
 xap/flowblade-1.8-x86_64-1_microlinux.txz: Added.
+xap/openshot-1.4.3-x86_64-3_microlinux.txz: Removed.
+	Openshot may be the most intuitive video editor in the Linux world, but it's
+	terribly buggy and crashy, which makes it mostly unusable. Here's Flowblade,
+	another nifty and intutive video editor which proves to be rock solid. 
+locale/mozilla-firefox-langpack-45.4.0-x86_64-1_microlinux.txz: Upgraded.
+locale/mozilla-thunderbird-langpack-45.4.0-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
 Sun Sep 18 14:58:29 CEST 2016
 multimedia/flashplayer-plugin-11.2.202.635-x86_64-1_microlinux.txz: Upgraded.
