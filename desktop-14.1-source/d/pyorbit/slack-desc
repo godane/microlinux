@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+pyorbit: PyORBit (Python bindings for the ORBit2 CORBA ORB)
+pyorbit:
+pyorbit: PyORBit is a binding for the ORBit2 CORBA ORB. It aims to be
+pyorbit: compatible with the Python language mapping standard, implementing
+pyorbit: both the client side and server side bindings. PyORBit is capable of
+pyorbit: calling methods of in-process ORBit servers implemented in C, and
+pyorbit: being called by C code.
+pyorbit:
+pyorbit:
+pyorbit:
+pyorbit: Package created by Niki Kovacs <info@microlinux.fr>
