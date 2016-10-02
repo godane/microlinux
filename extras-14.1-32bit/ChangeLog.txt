@@ -1,3 +1,6 @@
+Sun Oct  2 16:04:55 CEST 2016
+xap/owncloud-client-2.2.4-i486-1_microlinux.txz: Upgraded.
++--------------------------+
 Mon Sep 19 08:31:23 CEST 2016
 xap/owncloud-client-2.2.3-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
