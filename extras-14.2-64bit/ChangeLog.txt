@@ -1,3 +1,6 @@
+Sun Oct  2 16:45:01 CEST 2016
+xap/owncloud-client-2.2.4-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Mon Sep 19 09:05:12 CEST 2016
 xap/virtualbox-kernel-5.0.26_4.4.19-x86_64-2_microlinux.txz: Rebuilt.
 xap/owncloud-client-2.2.3-x86_64-1_microlinux.txz: Upgraded.
