@@ -10,6 +10,8 @@ l/libgnomeui-2.24.5-i486-1_microlinux.txz: Added.
 d/pyorbit-2.24.0-i486-1_microlinux.txz. Added.
 l/gnome-python-2.28.1-i486-1_microlinux.txz: Added.
 xap/flowblade-1.8-i486-1_microlinux.txz: Added.
+locale/mozilla-firefox-langpack-45.4.0-i486-1_microlinux.txz: Upgraded.
+locale/mozilla-thunderbird-langpack-45.4.0-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Sun Sep 18 14:20:13 CEST 2016
 multimedia/flashplayer-plugin-11.2.202.635-i386-1_microlinux.txz: Upgraded.
