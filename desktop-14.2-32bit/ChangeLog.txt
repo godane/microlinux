@@ -1,5 +1,6 @@
 Mon Oct 10 09:50:36 CEST 2016
 multimedia/live555-2016.09.22-i586-1_microlinux.txz: Upgraded.
+xap/vlc-2.2.4-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
 Sun Oct  2 11:12:51 CEST 2016
 l/gnome-mime-data-2.18.0-i586-1_microlinux.txz: Added.
