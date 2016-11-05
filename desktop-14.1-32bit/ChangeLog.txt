@@ -5,6 +5,7 @@ l/geoclue-0.12.99-i486-1_microlinux.txz: Added.
 l/hyphen-2.8.8-i486-1_microlinux.txz: Added.
 l/webkitgtk3-2.4.11-i486-1_microlinux.txz: Added.
 l/LibRaw-0.17.0-i486-1_microlinux.txz: Added.
+xap/shotwell-0.20.2-i486-1_microlinux.txz: Added.
 +--------------------------+
 Mon Oct 31 08:54:22 CET 2016
 multimedia/flashplayer-plugin-11.2.202.643-i386-1_microlinux.txz: Upgraded.
