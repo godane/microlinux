@@ -2,6 +2,7 @@ Sat Nov  5 06:41:01 CET 2016
 l/libgexiv2-0.7.0-i486-1_microlinux.txz. Added.
 l/rest-0.7.91-i486-1_microlinux.txz: Added.
 l/geoclue-0.12.99-i486-1_microlinux.txz: Added.
+l/hyphen-2.8.8-i486-1_microlinux.txz: Added.
 +--------------------------+
 Mon Oct 31 08:54:22 CET 2016
 multimedia/flashplayer-plugin-11.2.202.643-i386-1_microlinux.txz: Upgraded.
