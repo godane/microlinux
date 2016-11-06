@@ -249,3 +249,5 @@ l/geoclue
 l/hyphen
 l/rest
 l/webkit2gtk
+l/libgexiv2
+#xap/shotwell
