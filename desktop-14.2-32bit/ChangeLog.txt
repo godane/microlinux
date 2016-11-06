@@ -1,5 +1,6 @@
 Sun Nov  6 10:07:02 CET 2016
 l/geoclue-0.12.99-i586-1_microlinux.txz: Added.
+l/hyphen-2.8.8-i586-1_microlinux.txz: Added.
 +--------------------------+
 Mon Oct 31 08:37:41 CET 2016
 multimedia/flashplayer-plugin-11.2.202.643-i386-1_microlinux.txz: Upgraded.
