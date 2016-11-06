@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Photo Manager
+Name[de]=Bildverwaltung
+Name[fr]=Gestionnaire de photos
+Comment=Shotwell
+Version=1.0
+Exec=shotwell %U
+Icon=shotwell
+Terminal=false
+Type=Application
+MimeType=x-content/image-dcf;
+Categories=Graphics;Photography;GNOME;GTK;
+StartupNotify=true
