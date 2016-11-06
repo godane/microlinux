@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+geoclue: geoclue (geoinformation service)
+geoclue:
+geoclue: Geoclue is a modular geoinformation service built on top of the D-Bus
+geoclue: messaging system. The goal of the Geoclue project is to make creating
+geoclue: location-aware applications as simple as possible.
+geoclue: Geoclue defines a set of geoinformation APIs, but it also includes
+geoclue: some providers that implement those APIs.
+geoclue:
+geoclue: 
+geoclue:
+geoclue: Package created by Niki Kovacs <info@microlinux.fr>
