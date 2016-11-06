@@ -1,3 +1,11 @@
+Sun Nov  6 14:52:00 CET 2016
+l/geoclue-0.12.99-x86_64-1_microlinux.txz: Added.
+l/hyphen-2.8.8-x86_64-1_microlinux.txz: Added.
+l/rest-0.8.0-x86_64-1_microlinux.txz: Added.
+l/webkit2gtk-2.14.1-x86_64-1_microlinux.txz: Added.
+l/libgexiv2-0.10.3-x86_64-1_microlinux.txz: Added.
+xap/shotwell-0.24.1-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Mon Oct 31 08:41:41 CET 2016
 multimedia/flashplayer-plugin-11.2.202.643-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
