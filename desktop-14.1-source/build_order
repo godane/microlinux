@@ -286,10 +286,10 @@ xfce/plank
 # xfce/xfce4-notes-plugin
 
 # User profile (Xfce)
-# profile/user-settings-xfce
+profile/user-settings-xfce
 
 # Login manager
-# x/lxdm
+x/lxdm
 
 # Misc
 # multimedia/mjpegtools
