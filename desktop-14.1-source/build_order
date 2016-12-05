@@ -282,7 +282,7 @@ xfce/xfce4-systemload-plugin
 xfce/xfce4-xkb-plugin
 xfce/thunar-archive-plugin
 # xfce/ffmpegthumbnailer
-# xfce/plank
+xfce/plank
 # xfce/xfce4-notes-plugin
 
 # User profile (Xfce)
