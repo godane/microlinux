@@ -250,7 +250,7 @@ xap/libreoffice
 xfce/libxfce4util
 xfce/xfconf
 xfce/libxfce4ui
-# xfce/exo
+xfce/exo
 # xfce/garcon
 # xfce/tumbler
 # xfce/Thunar
