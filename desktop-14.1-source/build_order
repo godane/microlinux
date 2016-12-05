@@ -261,7 +261,7 @@ xfce/xfdesktop
 xfce/xfwm4
 xfce/xfce4-appfinder
 xfce/gtk-xfce-engine
-# xfce/xfce4-terminal
+xfce/xfce4-terminal
 # xfce/elementary-xfce
 # xfce/aero
 # xfce/luna-wallpapers
