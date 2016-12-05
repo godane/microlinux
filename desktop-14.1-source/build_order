@@ -193,6 +193,7 @@ d/lxml
 # multimedia/gst1-plugins-bad
 
 # Fonts
+x/fontforge
 # x/apple-fonts
 # x/cantarell-fonts
 # x/eurostile-fonts
