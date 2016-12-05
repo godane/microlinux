@@ -7,13 +7,6 @@ profile/user-settings-console
 ap/sbopkg 
 ap/slackpkg+
 
-# Infinality
-d/BeautifulSoup
-d/lxml
-l/freetype
-x/fontconfig
-l/cairo
-
 # Basic tools
 # ap/antiword
 # ap/exiftool
@@ -91,6 +84,7 @@ d/perl-extutils-pkgconfig
 d/perl-glib
 
 # Python
+d/BeautifulSoup
 # d/pysetuptools
 # d/apsw
 # d/backports-ssl-match-hostname
@@ -99,6 +93,7 @@ d/perl-glib
 # d/cssutils
 # d/dnspython
 # d/ipaddr-py
+d/lxml
 # d/mechanize
 # d/netifaces
 # d/numpy
@@ -191,6 +186,11 @@ d/perl-glib
 # multimedia/gst1-plugins-good
 # multimedia/gst1-libav
 # multimedia/gst1-plugins-bad
+
+# Infinality
+l/freetype
+x/fontconfig
+l/cairo
 
 # Fonts
 x/fontforge
