@@ -10,6 +10,7 @@ ap/slackpkg+
 # Infinality
 l/freetype
 x/fontconfig
+l/cairo
 
 # Basic tools
 # ap/antiword
