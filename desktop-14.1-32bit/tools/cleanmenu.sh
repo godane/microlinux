@@ -8,7 +8,7 @@ ENTRIESDIR=$CWD/desktop
 ENTRIES=`ls $ENTRIESDIR` 
 MENUDIRS="  /usr/share/applications \
             /usr/share/distcc \
-            /opt/libreoffice4.4/share/xdg "
+            /opt/libreoffice5.2/share/xdg "
 
 for MENUDIR in $MENUDIRS; do
 	for ENTRY in $ENTRIES; do
