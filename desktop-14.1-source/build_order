@@ -275,8 +275,8 @@ xfce/xfce4-notifyd
 xfce/xfce4-volumed
 xfce/xfce4-clipman-plugin
 xfce/xfce4-screenshooter
-# xfce/xfce4-taskmanager
-# xfce/xfce4-weather-plugin
+xfce/xfce4-taskmanager
+xfce/xfce4-weather-plugin
 # xfce/xfce4-whiskermenu-plugin
 # xfce/xfce4-systemload-plugin
 # xfce/xfce4-xkb-plugin
