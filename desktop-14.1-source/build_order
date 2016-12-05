@@ -258,7 +258,7 @@ xfce/xfce4-panel
 xfce/xfce4-settings
 xfce/xfce4-session
 xfce/xfdesktop
-# xfce/xfwm4
+xfce/xfwm4
 # xfce/xfce4-appfinder
 # xfce/gtk-xfce-engine
 # xfce/xfce4-terminal
