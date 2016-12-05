@@ -7,6 +7,9 @@ profile/user-settings-console
 ap/sbopkg 
 ap/slackpkg+
 
+# Infinality
+l/freetype
+
 # Basic tools
 # ap/antiword
 # ap/exiftool
