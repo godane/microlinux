@@ -26,8 +26,8 @@
 
 PRGNAM=unrar
 SRCNAM=unrarsrc
-VERSION=${VERSION:-5.2.6}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-5.4.5}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j9}
