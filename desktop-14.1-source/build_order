@@ -15,7 +15,7 @@ l/cairo
 # Basic tools
 # ap/antiword
 # ap/exiftool
-# ap/p7zip
+ap/p7zip
 # ap/recode
 # ap/unrar
 # ap/unrtf
@@ -279,7 +279,7 @@ xfce/xfce4-taskmanager
 xfce/xfce4-weather-plugin
 xfce/xfce4-whiskermenu-plugin
 xfce/xfce4-systemload-plugin
-# xfce/xfce4-xkb-plugin
+xfce/xfce4-xkb-plugin
 # xfce/thunar-archive-plugin
 # xfce/ffmpegthumbnailer
 # xfce/plank
