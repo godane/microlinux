@@ -23,7 +23,7 @@ l/cairo
  
 # Development
 # d/acpica
-# d/jdk
+d/jdk
 # d/lua
 # d/mm-common
 # d/orc
@@ -230,7 +230,7 @@ x/webcore-fonts
 # xap/gthumb
 # xap/gtkam
 # xap/inkscape
-# xap/libreoffice
+xap/libreoffice
 # xap/MPlayer
 # xap/recoll
 # xap/scribus

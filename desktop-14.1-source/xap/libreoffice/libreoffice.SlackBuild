@@ -4,7 +4,7 @@
 
 # Copyright 2006,2007,2008,2009,2010  Robby Workman, Northport, Alabama, USA
 # Copyright 2010-2014 Niels Horn, Rio de Janeiro, RJ, Brazil
-# Copyright 2014-2015 Willy Sudiarto Raharjo <willysr@slackbuilds.org>
+# Copyright 2014-2016 Willy Sudiarto Raharjo <willysr@slackbuilds.org>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -27,8 +27,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=libreoffice
-VERSION=${VERSION:-"4.4.7"}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-"5.2.3"}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 # These variables seem to change with (almost) every release...
@@ -37,14 +37,14 @@ SRCSHORT=$(echo $VERSION | cut -f1-2 -d.)
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
-    i?86) ARCH=i486 ;;
+    i?86) ARCH=i586 ;;
     arm*) ARCH=arm ;;
        *) ARCH=$( uname -m ) ;;
   esac
 fi
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/microlinux}
+TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
@@ -79,9 +79,8 @@ fi
 # We have all the variables, construct the name of the tarball
 TARNAME="LibreOffice_${SRCVERSION}_Linux_${SRCARCH}_rpm${TARJRE}.tar.gz"
 
-# LibreOffice admins, eat shit
-#MIRROR="download.documentfoundation.org/$PRGNAM/stable/$VERSION/rpm/$URLARCH"
-MIRROR="www.microlinux.fr/download/$PRGNAM/$VERSION"
+# Download mirror
+MIRROR=download.documentfoundation.org/$PRGNAM/stable/$VERSION/rpm/$URLARCH
 
 DOWNLOAD="http://$MIRROR/$TARNAME"
 
@@ -155,7 +154,7 @@ cp $CWD/open-libre-together.sh $PKG/usr/doc/$PRGNAM-$VERSION/
 
 # Disable Java support if desired (see above)
 if [ "$DISABLE_JAVA" = "YES" ]; then
-  chmod -x $PKG/opt/libreoffice$SRCSHORT/ure/bin/javaldx
+  chmod -x $PKG/opt/libreoffice$SRCSHORT/program/javaldx
 fi
 
 mkdir -p $PKG/install
