@@ -280,7 +280,7 @@ xfce/xfce4-weather-plugin
 xfce/xfce4-whiskermenu-plugin
 xfce/xfce4-systemload-plugin
 xfce/xfce4-xkb-plugin
-# xfce/thunar-archive-plugin
+xfce/thunar-archive-plugin
 # xfce/ffmpegthumbnailer
 # xfce/plank
 # xfce/xfce4-notes-plugin
