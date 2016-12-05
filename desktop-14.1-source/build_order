@@ -43,7 +43,7 @@ d/vala
 l/gtk-engines
 # l/gtksourceview
 # l/imlib2
-# l/json-glib
+l/json-glib
 # l/libbsd
 # l/libburn
 # l/libdbusmenu
