@@ -93,7 +93,7 @@ d/BeautifulSoup
 # d/cssutils
 # d/dnspython
 # d/ipaddr-py
-# d/lxml
+d/lxml
 # d/mechanize
 # d/netifaces
 # d/numpy
