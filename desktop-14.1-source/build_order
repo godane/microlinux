@@ -8,6 +8,8 @@ ap/sbopkg
 ap/slackpkg+
 
 # Infinality
+d/BeautifulSoup
+d/lxml
 l/freetype
 x/fontconfig
 l/cairo
@@ -89,7 +91,6 @@ d/perl-extutils-pkgconfig
 d/perl-glib
 
 # Python
-d/BeautifulSoup
 # d/pysetuptools
 # d/apsw
 # d/backports-ssl-match-hostname
@@ -98,7 +99,6 @@ d/BeautifulSoup
 # d/cssutils
 # d/dnspython
 # d/ipaddr-py
-d/lxml
 # d/mechanize
 # d/netifaces
 # d/numpy
