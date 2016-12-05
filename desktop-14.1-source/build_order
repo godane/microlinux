@@ -269,7 +269,7 @@ xfce/microlinux-wallpapers
 xfce/clearlooks-phenix-theme
 xfce/orage
 xfce/xfce4-mixer
-# xfce/thunar-volman
+xfce/thunar-volman
 # xfce/xfce4-power-manager
 # xfce/xfce4-notifyd
 # xfce/xfce4-volumed
