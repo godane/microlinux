@@ -198,7 +198,7 @@ x/fontforge
 # x/cantarell-fonts
 # x/eurostile-fonts
 # x/google-droid-fonts
-# x/webcore-fonts
+x/webcore-fonts
 
 # Misc
 # d/PyAudio
