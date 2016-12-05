@@ -50,7 +50,7 @@ l/libdbusmenu
 # l/libebml
 # l/libexif-gtk
 l/libgee
-# l/libgtop
+l/libgtop
 # l/libisofs
 # l/libjpeg-turbo
 # l/libminizip
