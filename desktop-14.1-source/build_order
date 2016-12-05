@@ -84,7 +84,7 @@ ap/slackpkg+
 # d/perl-glib
 
 # Python
-# d/BeautifulSoup
+d/BeautifulSoup
 # d/pysetuptools
 # d/apsw
 # d/backports-ssl-match-hostname
