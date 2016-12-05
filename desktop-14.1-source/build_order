@@ -252,7 +252,7 @@ xfce/xfconf
 xfce/libxfce4ui
 xfce/exo
 xfce/garcon
-# xfce/tumbler
+xfce/tumbler
 # xfce/Thunar
 # xfce/xfce4-panel
 # xfce/xfce4-settings
