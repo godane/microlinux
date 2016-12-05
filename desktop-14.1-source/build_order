@@ -46,7 +46,7 @@ l/gtk-engines
 l/json-glib
 # l/libbsd
 # l/libburn
-# l/libdbusmenu
+l/libdbusmenu
 # l/libebml
 # l/libexif-gtk
 l/libgee
