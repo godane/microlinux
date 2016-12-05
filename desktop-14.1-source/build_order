@@ -49,7 +49,7 @@ l/gtk-engines
 # l/libdbusmenu
 # l/libebml
 # l/libexif-gtk
-# l/libgee
+l/libgee
 # l/libgtop
 # l/libisofs
 # l/libjpeg-turbo
