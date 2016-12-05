@@ -247,7 +247,7 @@ xap/libreoffice
 # f/libreoffice-helppack (build manually)
 
 # Xfce
-# xfce/libxfce4util
+xfce/libxfce4util
 # xfce/xfconf
 # xfce/libxfce4ui
 # xfce/exo
