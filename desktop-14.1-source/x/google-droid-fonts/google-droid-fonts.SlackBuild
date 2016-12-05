@@ -25,8 +25,9 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=google-droid-fonts
+# More recent versions don't seem to feature the classic Droid Sans font
 VERSION=${VERSION:-20100409}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 ARCH=noarch
