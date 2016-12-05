@@ -9,6 +9,7 @@ ap/slackpkg+
 
 # Infinality
 l/freetype
+x/fontconfig
 
 # Basic tools
 # ap/antiword
