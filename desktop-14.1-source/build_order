@@ -29,7 +29,7 @@ d/jdk
 # d/orc
 # d/scons
 # d/spice-protocol
-# d/vala
+d/vala
 
 # Libraries
 # l/cryptopp
