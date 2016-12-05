@@ -262,7 +262,7 @@ xfce/xfwm4
 xfce/xfce4-appfinder
 xfce/gtk-xfce-engine
 xfce/xfce4-terminal
-# xfce/elementary-xfce
+xfce/elementary-xfce
 # xfce/aero
 # xfce/luna-wallpapers
 # xfce/microlinux-wallpapers
