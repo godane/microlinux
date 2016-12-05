@@ -63,7 +63,7 @@ l/libgtop
 # l/libupnp
 # l/libvdpau
 # l/libwebp
-# l/libwnck3
+l/libwnck3
 # l/muParser
 # l/podofo
 # l/qtkeychain
