@@ -249,7 +249,7 @@ xap/libreoffice
 # Xfce
 xfce/libxfce4util
 xfce/xfconf
-# xfce/libxfce4ui
+xfce/libxfce4ui
 # xfce/exo
 # xfce/garcon
 # xfce/tumbler
