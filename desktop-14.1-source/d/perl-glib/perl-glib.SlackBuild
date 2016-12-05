@@ -29,7 +29,7 @@
 
 PRGNAM=perl-glib
 VERSION=${VERSION:-1.307}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 SRCNAM=Glib

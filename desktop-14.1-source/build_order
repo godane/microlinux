@@ -84,9 +84,9 @@ d/jdk
 # l/libofx
 
 # Perl
-# d/perl-extutils-depends
-# d/perl-extutils-pkgconfig
-# d/perl-glib
+d/perl-extutils-depends
+d/perl-extutils-pkgconfig
+d/perl-glib
 
 # Python
 d/BeautifulSoup
@@ -248,7 +248,7 @@ xap/libreoffice
 
 # Xfce
 xfce/libxfce4util
-# xfce/xfconf
+xfce/xfconf
 # xfce/libxfce4ui
 # xfce/exo
 # xfce/garcon
