@@ -266,7 +266,7 @@ xfce/elementary-xfce
 xfce/aero
 xfce/luna-wallpapers
 xfce/microlinux-wallpapers
-# xfce/clearlooks-phenix-theme
+xfce/clearlooks-phenix-theme
 # xfce/orage
 # xfce/xfce4-mixer
 # xfce/thunar-volman
