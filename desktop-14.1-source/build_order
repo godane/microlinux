@@ -195,8 +195,8 @@ d/lxml
 # Fonts
 x/fontforge
 x/apple-fonts
-# x/cantarell-fonts
-# x/eurostile-fonts
+x/cantarell-fonts
+x/eurostile-fonts
 # x/google-droid-fonts
 x/webcore-fonts
 
