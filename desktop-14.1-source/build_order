@@ -39,13 +39,13 @@ l/gtk-engines
 # l/imlib2
 l/json-glib
 # l/libbsd
-# l/libburn
+l/libburn
 l/libdbusmenu
 l/libebml
 # l/libexif-gtk
 l/libgee
 l/libgtop
-# l/libisofs
+l/libisofs
 l/libjpeg-turbo
 l/libminizip
 # l/libopenraw
