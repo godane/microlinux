@@ -119,7 +119,7 @@ multimedia/celt
 # multimedia/dirac
 # multimedia/faad2
 # multimedia/flashplayer-plugin
-# multimedia/gsm
+multimedia/gsm
 # multimedia/id3lib
 # multimedia/ladspa_sdk
 # multimedia/lame
