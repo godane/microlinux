@@ -177,7 +177,7 @@ multimedia/frei0r
 multimedia/ffmpeg
 # multimedia/chromaprint
 # multimedia/libquicktime
-# multimedia/libshout
+multimedia/libshout
 # multimedia/mlt
 # multimedia/gst-ffmpeg
 # multimedia/gst-plugins-bad
