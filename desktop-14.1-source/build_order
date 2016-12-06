@@ -29,7 +29,7 @@ d/vala
 # Libraries
 # l/cryptopp
 l/eigen3
-# l/ftgl
+l/ftgl
 # l/glfw
 # l/gnome-common
 # l/gnome-python2-gconf
