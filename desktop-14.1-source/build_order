@@ -76,6 +76,7 @@ l/pangomm
 l/atkmm
 l/gtkmm
 l/libbonobo
+l/gnome-vfs
 # l/gtkmm3
 # l/libxml++
 # l/libofx
@@ -301,7 +302,6 @@ x/lxdm
 # multimedia/mjpegtools
 # ap/pdftk
 # ap/hplip
-# l/gnome-vfs
 # l/libgnome
 # l/libgnomecanvas
 # l/libbonoboui
