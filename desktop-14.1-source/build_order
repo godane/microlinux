@@ -30,7 +30,7 @@ d/vala
 # l/cryptopp
 l/eigen3
 l/ftgl
-# l/glfw
+l/glfw
 # l/gnome-common
 # l/gnome-python2-gconf
 # l/goocanvas
