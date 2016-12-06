@@ -25,13 +25,12 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=gst1-plugins-good
+SRCNAM=gst-plugins-good
 VERSION=${VERSION:-1.4.5}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
-
-SRCNAM=gst-plugins-good
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in

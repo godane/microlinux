@@ -129,7 +129,7 @@ multimedia/libbluray
 multimedia/libcuefile
 multimedia/libdc1394
 multimedia/libdca
-# multimedia/libdv
+multimedia/libdv
 multimedia/libdvbpsi
 multimedia/libdvdcss
 multimedia/libdvdnav
@@ -183,9 +183,9 @@ multimedia/libshout
 # multimedia/gst-plugins-ugly
 multimedia/gstreamer1
 multimedia/gst1-plugins-base
-# multimedia/gst1-plugins-good
-# multimedia/gst1-libav
-# multimedia/gst1-plugins-bad
+multimedia/gst1-plugins-good
+multimedia/gst1-libav
+multimedia/gst1-plugins-bad
 
 # Networking
 n/freerdp
