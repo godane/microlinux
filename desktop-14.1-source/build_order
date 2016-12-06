@@ -71,7 +71,7 @@ l/bamf
 l/glibmm
 l/cairomm
 l/pangomm
-# l/atkmm
+l/atkmm
 # l/gtkmm
 # l/gtkmm3
 # l/libxml++
