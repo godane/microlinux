@@ -116,7 +116,7 @@ d/numpy
 multimedia/a52dec
 multimedia/celt
 # multimedia/celt051
-# multimedia/dirac
+multimedia/dirac
 multimedia/faad2
 # multimedia/flashplayer-plugin
 multimedia/gsm
