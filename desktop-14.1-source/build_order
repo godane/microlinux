@@ -122,7 +122,7 @@ multimedia/celt
 multimedia/gsm
 # multimedia/id3lib
 multimedia/ladspa_sdk
-# multimedia/lame
+multimedia/lame
 # multimedia/libass
 multimedia/libavc1394
 multimedia/libbluray
