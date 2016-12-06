@@ -146,7 +146,7 @@ multimedia/libquvi
 multimedia/libreplaygain
 multimedia/libva
 multimedia/libvpx
-# multimedia/live555
+multimedia/live555
 # # Build manually
 # # multimedia/mplayer-codecs32
 # # multimedia/mplayer-codecs64
