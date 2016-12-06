@@ -48,7 +48,7 @@ l/libgee
 l/libgtop
 # l/libisofs
 # l/libjpeg-turbo
-# l/libminizip
+l/libminizip
 # l/libopenraw
 # l/libosinfo
 # l/libssh2
