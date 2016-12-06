@@ -232,7 +232,7 @@ xap/file-roller
 # xap/gnote
 # xap/gthumb
 # xap/gtkam
-# xap/inkscape
+xap/inkscape
 xap/libreoffice
 # xap/MPlayer
 # xap/recoll
