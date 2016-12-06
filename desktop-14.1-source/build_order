@@ -51,7 +51,7 @@ l/libminizip
 # l/libopenraw
 # l/libosinfo
 l/libssh2
-# l/libsigc++
+l/libsigc++
 l/libtar
 # l/libunique
 l/libupnp
