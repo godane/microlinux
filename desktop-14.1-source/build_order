@@ -28,7 +28,7 @@ d/vala
 
 # Libraries
 # l/cryptopp
-# l/eigen3
+l/eigen3
 # l/ftgl
 # l/glfw
 # l/gnome-common
