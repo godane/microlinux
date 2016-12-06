@@ -25,13 +25,13 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=x265
-VERSION=${VERSION:-1.7}
-REVISION=${REVISION:-8425278def1e}
+VERSION=${VERSION:-1.8}
+REVISION=${REVISION:-e27327f5da35}
 SRCNAM=multicoreware
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
