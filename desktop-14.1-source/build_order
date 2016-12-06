@@ -145,7 +145,7 @@ multimedia/libmpeg2
 multimedia/libquvi-scripts
 multimedia/libquvi
 multimedia/libreplaygain
-# multimedia/libva
+multimedia/libva
 multimedia/libvpx
 # multimedia/live555
 # # Build manually
