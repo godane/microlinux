@@ -181,7 +181,7 @@ multimedia/libshout
 # multimedia/gst-ffmpeg
 # multimedia/gst-plugins-bad
 # multimedia/gst-plugins-ugly
-# multimedia/gstreamer1
+multimedia/gstreamer1
 # multimedia/gst1-plugins-base
 # multimedia/gst1-plugins-good
 # multimedia/gst1-libav
