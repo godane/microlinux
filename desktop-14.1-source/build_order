@@ -69,7 +69,7 @@ l/libwnck3
 # l/yajl
 l/bamf
 l/glibmm
-# l/cairomm
+l/cairomm
 # l/pangomm
 # l/atkmm
 # l/gtkmm
