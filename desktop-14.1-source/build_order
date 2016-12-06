@@ -33,7 +33,7 @@ l/glfw
 # l/gnome-common
 # l/gnome-python2-gconf
 # l/goocanvas
-# l/gsl
+l/gsl
 l/gtk-engines
 # l/gtksourceview
 # l/imlib2
