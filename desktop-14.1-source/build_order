@@ -123,7 +123,7 @@ multimedia/gsm
 # multimedia/id3lib
 multimedia/ladspa_sdk
 multimedia/lame
-# multimedia/libass
+multimedia/libass
 multimedia/libavc1394
 multimedia/libbluray
 # multimedia/libcdaudio
@@ -171,10 +171,10 @@ multimedia/vid.stab
 multimedia/x264
 multimedia/x265
 multimedia/xvidcore
-# multimedia/zvbi
+multimedia/zvbi
 multimedia/faac
 multimedia/frei0r
-# multimedia/ffmpeg
+multimedia/ffmpeg
 # multimedia/chromaprint
 # multimedia/libquicktime
 # multimedia/libshout
