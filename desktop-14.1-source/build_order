@@ -114,6 +114,7 @@ d/pyorbit
 # d/SQLAlchemy
 # d/tornado
 # d/urlgrabber
+d/gnome-python
 # d/python-dateutil
 # d/matplotlib
 
@@ -307,7 +308,6 @@ x/lxdm
 # l/libgnomecanvas
 # l/libbonoboui
 # l/libgnomeui
-# l/gnome-python
 # xap/flowblade
 # l/libgexiv2
 # l/rest
