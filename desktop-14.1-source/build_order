@@ -127,7 +127,7 @@ multimedia/libass
 multimedia/libavc1394
 multimedia/libbluray
 # multimedia/libcdaudio
-# multimedia/libcuefile
+multimedia/libcuefile
 multimedia/libdc1394
 multimedia/libdca
 # multimedia/libdv
@@ -144,14 +144,14 @@ multimedia/libmp4v2
 multimedia/libmpeg2
 multimedia/libquvi-scripts
 multimedia/libquvi
-# multimedia/libreplaygain
+multimedia/libreplaygain
 # multimedia/libva
 multimedia/libvpx
 # multimedia/live555
 # # Build manually
 # # multimedia/mplayer-codecs32
 # # multimedia/mplayer-codecs64
-# multimedia/musepack-tools
+multimedia/musepack-tools
 multimedia/OpenAL
 multimedia/opencore-amr
 # # Rebuild manually to resolve circular dependency with ffmpeg
