@@ -47,7 +47,7 @@ l/libdbusmenu
 l/libgee
 l/libgtop
 # l/libisofs
-# l/libjpeg-turbo
+l/libjpeg-turbo
 l/libminizip
 # l/libopenraw
 # l/libosinfo

@@ -27,10 +27,10 @@
 
 PRGNAM=libjpeg-turbo
 VERSION=${VERSION:-1.4.2}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 # The default is to install the package to /opt/$PRGNAM, but you can override
 # it here. Set PREFIX to /usr to overwrite the conventional libjpeg.
