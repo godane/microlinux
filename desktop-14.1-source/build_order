@@ -96,7 +96,7 @@ d/BeautifulSoup
 d/lxml
 # d/mechanize
 # d/netifaces
-# d/numpy
+d/numpy
 # d/psutil
 # d/pygobject3
 # d/pygoocanvas
