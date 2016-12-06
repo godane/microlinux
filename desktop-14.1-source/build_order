@@ -113,7 +113,7 @@ d/lxml
 # d/matplotlib
 
 # Multimedia
-# multimedia/a52dec
+multimedia/a52dec
 # multimedia/celt
 # multimedia/celt051
 # multimedia/dirac
