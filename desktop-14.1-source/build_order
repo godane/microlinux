@@ -53,7 +53,7 @@ l/libminizip
 # l/libosinfo
 l/libssh2
 # l/libsigc++
-# l/libtar
+l/libtar
 # l/libunique
 l/libupnp
 # l/libvdpau
