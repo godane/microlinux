@@ -78,6 +78,9 @@ l/gtkmm
 l/libbonobo
 l/gnome-vfs
 l/libgnome
+l/libgnomecanvas
+l/libbonoboui
+l/libgnomeui
 # l/gtkmm3
 # l/libxml++
 # l/libofx
@@ -89,7 +92,7 @@ d/perl-glib
 
 # Python
 d/BeautifulSoup
-# d/pysetuptools
+d/pysetuptools
 # d/apsw
 # d/backports-ssl-match-hostname
 # d/cddb-py
@@ -102,7 +105,7 @@ d/lxml
 # d/netifaces
 d/numpy
 # d/psutil
-# d/pygobject3
+d/pygobject3
 # d/pygoocanvas
 # d/pygtksourceview
 d/pyorbit
@@ -233,6 +236,7 @@ xap/brasero
 # xap/conky
 # xap/evince
 xap/file-roller
+xap/flowblade
 # xap/galculator
 # xap/gedit
 # xap/gedit-plugins
@@ -305,10 +309,6 @@ x/lxdm
 # multimedia/mjpegtools
 # ap/pdftk
 # ap/hplip
-# l/libgnomecanvas
-# l/libbonoboui
-# l/libgnomeui
-# xap/flowblade
 # l/libgexiv2
 # l/rest
 # l/geoclue

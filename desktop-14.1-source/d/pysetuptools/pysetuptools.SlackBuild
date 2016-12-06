@@ -23,11 +23,10 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=pysetuptools
-VERSION=${VERSION:-18.2}
-BUILD=${BUILD:-2}
-TAG=${TAG:-_microlinux}
-
 SRCNAM=setuptools
+VERSION=${VERSION:-18.2}
+BUILD=${BUILD:-3}
+TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
