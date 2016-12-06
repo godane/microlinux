@@ -31,6 +31,7 @@ l/eigen3
 l/ftgl
 l/glfw
 # l/gnome-common
+l/gnome-mime-data
 # l/gnome-python2-gconf
 # l/goocanvas
 l/gsl
@@ -299,7 +300,6 @@ x/lxdm
 # multimedia/mjpegtools
 # ap/pdftk
 # ap/hplip
-# l/gnome-mime-data
 # l/libbonobo
 # l/gnome-vfs
 # l/libgnome
