@@ -14,7 +14,6 @@ ap/p7zip
 # ap/recode
 ap/unrar
 # ap/unrtf
-# n/iperf
  
 # Development
 # d/acpica
@@ -42,7 +41,7 @@ l/json-glib
 # l/libbsd
 # l/libburn
 l/libdbusmenu
-# l/libebml
+l/libebml
 # l/libexif-gtk
 l/libgee
 l/libgtop
@@ -138,7 +137,7 @@ multimedia/libfdk-aac
 multimedia/libiec61883
 multimedia/libilbc
 multimedia/libkate
-# multimedia/libmatroska
+multimedia/libmatroska
 multimedia/libmodplug
 multimedia/libmp4v2
 multimedia/libmpeg2
@@ -190,6 +189,7 @@ multimedia/libshout
 
 # Networking
 n/freerdp
+n/iperf
 
 # Infinality
 l/freetype
