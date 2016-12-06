@@ -55,7 +55,7 @@ l/libssh2
 l/libtar
 # l/libunique
 l/libupnp
-# l/libvdpau
+l/libvdpau
 # l/libwebp
 l/libwnck3
 # l/muParser
@@ -175,7 +175,7 @@ multimedia/faac
 multimedia/frei0r
 multimedia/ffmpeg
 multimedia/chromaprint
-# multimedia/libquicktime
+multimedia/libquicktime
 multimedia/libshout
 # multimedia/mlt
 # multimedia/gst-ffmpeg
