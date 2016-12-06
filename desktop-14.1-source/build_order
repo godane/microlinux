@@ -72,7 +72,7 @@ l/glibmm
 l/cairomm
 l/pangomm
 l/atkmm
-# l/gtkmm
+l/gtkmm
 # l/gtkmm3
 # l/libxml++
 # l/libofx
