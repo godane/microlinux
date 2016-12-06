@@ -131,8 +131,8 @@ multimedia/libbluray
 multimedia/libdc1394
 multimedia/libdca
 # multimedia/libdv
-# multimedia/libdvbpsi
-# multimedia/libdvdcss
+multimedia/libdvbpsi
+multimedia/libdvdcss
 # multimedia/libdvdnav
 multimedia/libfdk-aac
 multimedia/libiec61883

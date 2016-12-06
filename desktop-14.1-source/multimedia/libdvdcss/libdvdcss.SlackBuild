@@ -26,10 +26,10 @@
 
 PRGNAM=libdvdcss
 VERSION=1.2.13
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 # Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then
