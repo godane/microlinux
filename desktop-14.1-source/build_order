@@ -152,7 +152,7 @@ multimedia/libmp4v2
 # # multimedia/mplayer-codecs32
 # # multimedia/mplayer-codecs64
 # multimedia/musepack-tools
-# multimedia/OpenAL
+multimedia/OpenAL
 # multimedia/opencore-amr
 # # Rebuild manually to resolve circular dependency with ffmpeg
 multimedia/opencv
