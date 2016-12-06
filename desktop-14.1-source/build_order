@@ -156,7 +156,7 @@ multimedia/libmp4v2
 # multimedia/opencore-amr
 # # Rebuild manually to resolve circular dependency with ffmpeg
 multimedia/opencv
-# multimedia/openjpeg
+multimedia/openjpeg
 # multimedia/opus
 # multimedia/portaudio
 # multimedia/projectM
