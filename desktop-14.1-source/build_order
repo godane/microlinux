@@ -134,7 +134,7 @@ multimedia/libdc1394
 # multimedia/libdvbpsi
 # multimedia/libdvdcss
 # multimedia/libdvdnav
-# multimedia/libfdk-aac
+multimedia/libfdk-aac
 # multimedia/libiec61883
 # multimedia/libilbc
 # multimedia/libkate
