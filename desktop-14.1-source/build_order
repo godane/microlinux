@@ -59,6 +59,7 @@ l/libvdpau
 # l/libwebp
 l/libwnck3
 # l/muParser
+l/ORBit2
 # l/podofo
 # l/qtkeychain
 # l/tolua++
@@ -299,7 +300,6 @@ x/lxdm
 # ap/pdftk
 # ap/hplip
 # l/gnome-mime-data
-# l/ORBit2
 # l/libbonobo
 # l/gnome-vfs
 # l/libgnome
