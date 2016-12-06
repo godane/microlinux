@@ -133,7 +133,7 @@ multimedia/libdca
 # multimedia/libdv
 multimedia/libdvbpsi
 multimedia/libdvdcss
-# multimedia/libdvdnav
+multimedia/libdvdnav
 multimedia/libfdk-aac
 multimedia/libiec61883
 multimedia/libilbc
