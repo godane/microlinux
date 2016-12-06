@@ -21,7 +21,7 @@ ap/unrar
 d/jdk
 d/lua
 # d/mm-common
-# d/orc
+d/orc
 # d/scons
 # d/spice-protocol
 d/vala
