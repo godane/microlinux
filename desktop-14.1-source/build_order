@@ -19,7 +19,7 @@ ap/unrar
 # Development
 # d/acpica
 d/jdk
-# d/lua
+d/lua
 # d/mm-common
 # d/orc
 # d/scons
@@ -142,8 +142,8 @@ multimedia/libilbc
 multimedia/libmodplug
 multimedia/libmp4v2
 # multimedia/libmpeg2
-# multimedia/libquvi-scripts
-# multimedia/libquvi
+multimedia/libquvi-scripts
+multimedia/libquvi
 # multimedia/libreplaygain
 # multimedia/libva
 # multimedia/libvpx
