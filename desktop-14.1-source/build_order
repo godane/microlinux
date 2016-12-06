@@ -157,7 +157,7 @@ multimedia/opencore-amr
 # # Rebuild manually to resolve circular dependency with ffmpeg
 multimedia/opencv
 multimedia/openjpeg
-# multimedia/opus
+multimedia/opus
 # multimedia/portaudio
 # multimedia/projectM
 # multimedia/rtmpdump
