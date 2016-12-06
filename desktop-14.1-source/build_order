@@ -140,7 +140,7 @@ multimedia/libdc1394
 # multimedia/libkate
 # multimedia/libmatroska
 # multimedia/libmodplug
-# multimedia/libmp4v2
+multimedia/libmp4v2
 # multimedia/libmpeg2
 # multimedia/libquvi-scripts
 # multimedia/libquvi
