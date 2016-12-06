@@ -105,6 +105,7 @@ d/numpy
 # d/pygobject3
 # d/pygoocanvas
 # d/pygtksourceview
+d/pyorbit
 # d/pyparsing
 # d/pytz
 # d/pyxdg
@@ -306,7 +307,6 @@ x/lxdm
 # l/libgnomecanvas
 # l/libbonoboui
 # l/libgnomeui
-# d/pyorbit
 # l/gnome-python
 # xap/flowblade
 # l/libgexiv2
