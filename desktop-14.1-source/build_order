@@ -182,7 +182,7 @@ multimedia/libshout
 # multimedia/gst-plugins-bad
 # multimedia/gst-plugins-ugly
 multimedia/gstreamer1
-# multimedia/gst1-plugins-base
+multimedia/gst1-plugins-base
 # multimedia/gst1-plugins-good
 # multimedia/gst1-libav
 # multimedia/gst1-plugins-bad
