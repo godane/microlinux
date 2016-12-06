@@ -239,7 +239,7 @@ xap/libreoffice
 # xap/scribus
 # xap/smplayer
 # xap/transmission
-# xap/vlc
+xap/vlc
 
 # Translations
 # locale/libreoffice-langpack (build manually)
