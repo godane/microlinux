@@ -121,7 +121,7 @@ multimedia/celt
 # multimedia/flashplayer-plugin
 multimedia/gsm
 # multimedia/id3lib
-# multimedia/ladspa_sdk
+multimedia/ladspa_sdk
 # multimedia/lame
 # multimedia/libass
 multimedia/libavc1394
