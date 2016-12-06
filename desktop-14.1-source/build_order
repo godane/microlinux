@@ -125,7 +125,7 @@ multimedia/a52dec
 # multimedia/lame
 # multimedia/libass
 # multimedia/libavc1394
-# multimedia/libbluray
+multimedia/libbluray
 # multimedia/libcdaudio
 # multimedia/libcuefile
 # multimedia/libdc1394
