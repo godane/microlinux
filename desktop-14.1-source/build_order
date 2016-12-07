@@ -10,6 +10,7 @@ ap/slackpkg+
 # Basic tools
 ap/antiword
 ap/exiftool
+ap/hplip
 ap/p7zip
 ap/recode
 ap/unrar
