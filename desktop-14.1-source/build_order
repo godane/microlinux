@@ -8,6 +8,7 @@ ap/sbopkg
 ap/slackpkg+
 
 # Basic tools
+ap/antiword
 ap/p7zip
 ap/unrar
  
