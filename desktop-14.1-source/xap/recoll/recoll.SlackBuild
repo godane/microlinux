@@ -26,11 +26,11 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=recoll
-VERSION=${VERSION:-1.21.2}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-1.22.3}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 # from the official online documenatation:
 #

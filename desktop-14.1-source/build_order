@@ -63,6 +63,7 @@ l/libssh2
 l/libtar
 l/libupnp
 l/libvdpau
+l/xapian-core
 l/bamf
 
 # Perl
@@ -168,6 +169,7 @@ gnome/file-roller
 xap/flowblade
 xap/inkscape
 xap/libreoffice
+xap/recoll
 xap/vlc
 
 # Xfce
