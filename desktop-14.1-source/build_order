@@ -13,6 +13,7 @@ ap/exiftool
 ap/p7zip
 ap/recode
 ap/unrar
+ap/unrtf
  
 # Development
 d/jdk
