@@ -16,6 +16,32 @@ d/jdk
 d/lua
 d/orc
 
+# GNOME 
+gnome/gnome-mime-data
+gnome/gtk-engines
+gnome/json-glib
+gnome/libgnomecanvas
+gnome/libgtop
+gnome/libsigc++
+gnome/libwnck3
+gnome/mm-common
+gnome/ORBit2
+gnome/pygobject3
+gnome/vala
+gnome/libbonobo
+gnome/gnome-vfs
+gnome/libgnome
+gnome/libbonoboui
+gnome/libgnomeui
+gnome/pyorbit
+gnome/gnome-python
+gnome/libgee
+gnome/glibmm
+gnome/cairomm
+gnome/pangomm
+gnome/atkmm
+gnome/gtkmm
+
 # Libraries
 l/eigen3
 l/ftgl
@@ -43,32 +69,6 @@ d/BeautifulSoup
 d/pysetuptools
 d/lxml
 d/numpy
-
-# GNOME 
-gnome/gnome-mime-data
-gnome/gtk-engines
-gnome/json-glib
-gnome/libgnomecanvas
-gnome/libgtop
-gnome/libsigc++
-gnome/libwnck3
-gnome/mm-common
-gnome/ORBit2
-gnome/pygobject3
-gnome/vala
-gnome/libbonobo
-gnome/gnome-vfs
-gnome/libgnome
-gnome/libbonoboui
-gnome/libgnomeui
-gnome/pyorbit
-gnome/gnome-python
-gnome/libgee
-gnome/glibmm
-gnome/cairomm
-gnome/pangomm
-gnome/atkmm
-gnome/gtkmm
 
 # Multimedia
 multimedia/a52dec
@@ -102,13 +102,13 @@ multimedia/libreplaygain
 multimedia/libva
 multimedia/libvpx
 multimedia/live555
-# # Build manually
-# # multimedia/mplayer-codecs32
-# # multimedia/mplayer-codecs64
+# Build manually
+# multimedia/mplayer-codecs32
+# multimedia/mplayer-codecs64
 multimedia/musepack-tools
 multimedia/OpenAL
 multimedia/opencore-amr
-# # Rebuild manually to resolve circular dependency with ffmpeg
+# Rebuild manually to resolve circular dependency with ffmpeg
 multimedia/opencv
 multimedia/openjpeg
 multimedia/opus
