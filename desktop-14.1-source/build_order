@@ -11,6 +11,7 @@ ap/slackpkg+
 ap/antiword
 ap/exiftool
 ap/p7zip
+ap/recode
 ap/unrar
  
 # Development
