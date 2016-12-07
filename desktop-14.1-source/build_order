@@ -8,62 +8,30 @@ ap/sbopkg
 ap/slackpkg+
 
 # Basic tools
-# ap/antiword
-# ap/exiftool
 ap/p7zip
-# ap/recode
 ap/unrar
-# ap/unrtf
  
 # Development
-# d/acpica
 d/jdk
 d/lua
 d/orc
-# d/scons
-# d/spice-protocol
 
 # Libraries
-# l/cryptopp
 l/eigen3
 l/ftgl
 l/glfw
-# l/gnome-common
-# l/gnome-python2-gconf
-# l/goocanvas
 l/gsl
-# l/gtksourceview
-# l/imlib2
-# l/libbsd
 l/libburn
 l/libdbusmenu
 l/libebml
-# l/libexif-gtk
 l/libisofs
 l/libjpeg-turbo
 l/libminizip
-# l/libopenraw
-# l/libosinfo
 l/libssh2
 l/libtar
-# l/libunique
 l/libupnp
 l/libvdpau
-# l/libwebp
-l/libwnck3
-# l/muParser
-# l/podofo
-# l/qtkeychain
-# l/tolua++
-# l/usbredir
-# l/vte3
-# l/wxPython
-# l/xapian-core
-# l/yajl
 l/bamf
-# l/gtkmm3
-# l/libxml++
-# l/libofx
 
 # Perl
 d/perl-extutils-depends
@@ -73,71 +41,46 @@ d/perl-glib
 # Python
 d/BeautifulSoup
 d/pysetuptools
-# d/apsw
-# d/backports-ssl-match-hostname
-# d/cddb-py
-# d/cssselect
-# d/cssutils
-# d/dnspython
-# d/ipaddr-py
 d/lxml
-# d/mechanize
-# d/netifaces
 d/numpy
-# d/psutil
-# d/pygoocanvas
-# d/pygtksourceview
-# d/pyparsing
-# d/pytz
-# d/pyxdg
-# d/simplejson
-# d/six
-# d/SQLAlchemy
-# d/tornado
-# d/urlgrabber
-# d/python-dateutil
-# d/matplotlib
 
 # GNOME 
-d/mm-common
-d/vala
-l/gtk-engines
-l/json-glib
-l/libgee
-l/libgtop
-l/libsigc++
-l/glibmm
-l/cairomm
-l/pangomm
-l/atkmm
-l/gtkmm
-l/libbonobo
-l/gnome-vfs
-l/libgnome
-l/libgnomecanvas
-l/libbonoboui
-l/libgnomeui
-d/pygobject3
-l/gnome-mime-data
-l/ORBit2
-d/pyorbit
-d/gnome-python
+gnome/gnome-mime-data
+gnome/gtk-engines
+gnome/json-glib
+gnome/libgnomecanvas
+gnome/libgtop
+gnome/libsigc++
+gnome/libwnck3
+gnome/mm-common
+gnome/ORBit2
+gnome/pygobject3
+gnome/vala
+gnome/libbonobo
+gnome/gnome-vfs
+gnome/libgnome
+gnome/libbonoboui
+gnome/libgnomeui
+gnome/pyorbit
+gnome/gnome-python
+gnome/libgee
+gnome/glibmm
+gnome/cairomm
+gnome/pangomm
+gnome/atkmm
+gnome/gtkmm
 
 # Multimedia
 multimedia/a52dec
 multimedia/celt
-# multimedia/celt051
 multimedia/dirac
 multimedia/faad2
-# multimedia/flashplayer-plugin
 multimedia/gsm
-# multimedia/id3lib
 multimedia/ladspa_sdk
 multimedia/lame
 multimedia/libass
 multimedia/libavc1394
 multimedia/libbluray
-# multimedia/libcdaudio
 multimedia/libcuefile
 multimedia/libdc1394
 multimedia/libdca
@@ -190,9 +133,6 @@ multimedia/chromaprint
 multimedia/libquicktime
 multimedia/libshout
 multimedia/mlt
-# multimedia/gst-ffmpeg
-# multimedia/gst-plugins-bad
-# multimedia/gst-plugins-ugly
 multimedia/gstreamer1
 multimedia/gst1-plugins-base
 multimedia/gst1-plugins-good
@@ -216,51 +156,13 @@ x/eurostile-fonts
 x/google-droid-fonts
 x/webcore-fonts
 
-# Misc
-# d/PyAudio
-# n/gtk-vnc
-# n/netcat-openbsd
-# n/spice
-# n/spice-gtk
-# n/tunctl
-# ap/device-tree-compiler
-# ap/libvirt
-# l/libvirt-glib
-# l/libvirt-python
-
 # Applications
-# xap/asunder
-# xap/audacious
-# xap/audacious-plugins
-# xap/audacity
-xap/brasero
-# xap/calibre
-# xap/conky
-# xap/evince
-xap/file-roller
+gnome/brasero
+gnome/file-roller
 xap/flowblade
-# xap/galculator
-# xap/gedit
-# xap/gedit-plugins
-# xap/gnote
-# xap/gthumb
-# xap/gtkam
 xap/inkscape
 xap/libreoffice
-# xap/MPlayer
-# xap/recoll
-# xap/scribus
-# xap/smplayer
-# xap/transmission
 xap/vlc
-
-# Translations
-# locale/libreoffice-langpack (build manually)
-# locale/mozilla-firefox-langpack
-# locale/mozilla-thunderbird-langpack
-
-# Help files
-# f/libreoffice-helppack (build manually)
 
 # Xfce
 xfce/libxfce4util
@@ -297,24 +199,10 @@ xfce/xfce4-whiskermenu-plugin
 xfce/xfce4-systemload-plugin
 xfce/xfce4-xkb-plugin
 xfce/thunar-archive-plugin
-# xfce/ffmpegthumbnailer
 xfce/plank
-# xfce/xfce4-notes-plugin
 
 # User profile (Xfce)
 profile/user-settings-xfce
 
 # Login manager
 x/lxdm
-
-# Misc
-# multimedia/mjpegtools
-# ap/pdftk
-# ap/hplip
-# l/libgexiv2
-# l/rest
-# l/geoclue
-# l/hyphen
-# l/webkitgtk3
-# l/LibRaw
-# xap/shotwell
