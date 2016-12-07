@@ -19,11 +19,9 @@ ap/unrar
 # d/acpica
 d/jdk
 d/lua
-d/mm-common
 d/orc
 # d/scons
 # d/spice-protocol
-d/vala
 
 # Libraries
 # l/cryptopp
@@ -31,28 +29,22 @@ l/eigen3
 l/ftgl
 l/glfw
 # l/gnome-common
-l/gnome-mime-data
 # l/gnome-python2-gconf
 # l/goocanvas
 l/gsl
-l/gtk-engines
 # l/gtksourceview
 # l/imlib2
-l/json-glib
 # l/libbsd
 l/libburn
 l/libdbusmenu
 l/libebml
 # l/libexif-gtk
-l/libgee
-l/libgtop
 l/libisofs
 l/libjpeg-turbo
 l/libminizip
 # l/libopenraw
 # l/libosinfo
 l/libssh2
-l/libsigc++
 l/libtar
 # l/libunique
 l/libupnp
@@ -60,7 +52,6 @@ l/libvdpau
 # l/libwebp
 l/libwnck3
 # l/muParser
-l/ORBit2
 # l/podofo
 # l/qtkeychain
 # l/tolua++
@@ -70,17 +61,6 @@ l/ORBit2
 # l/xapian-core
 # l/yajl
 l/bamf
-l/glibmm
-l/cairomm
-l/pangomm
-l/atkmm
-l/gtkmm
-l/libbonobo
-l/gnome-vfs
-l/libgnome
-l/libgnomecanvas
-l/libbonoboui
-l/libgnomeui
 # l/gtkmm3
 # l/libxml++
 # l/libofx
@@ -105,10 +85,8 @@ d/lxml
 # d/netifaces
 d/numpy
 # d/psutil
-d/pygobject3
 # d/pygoocanvas
 # d/pygtksourceview
-d/pyorbit
 # d/pyparsing
 # d/pytz
 # d/pyxdg
@@ -117,9 +95,33 @@ d/pyorbit
 # d/SQLAlchemy
 # d/tornado
 # d/urlgrabber
-d/gnome-python
 # d/python-dateutil
 # d/matplotlib
+
+# GNOME 
+d/mm-common
+d/vala
+l/gtk-engines
+l/json-glib
+l/libgee
+l/libgtop
+l/libsigc++
+l/glibmm
+l/cairomm
+l/pangomm
+l/atkmm
+l/gtkmm
+l/libbonobo
+l/gnome-vfs
+l/libgnome
+l/libgnomecanvas
+l/libbonoboui
+l/libgnomeui
+d/pygobject3
+l/gnome-mime-data
+l/ORBit2
+d/pyorbit
+d/gnome-python
 
 # Multimedia
 multimedia/a52dec
