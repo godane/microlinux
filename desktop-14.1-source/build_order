@@ -192,6 +192,7 @@ x/webcore-fonts
 
 # KVM
 ap/qemu
+ap/libvirt
 
 # GNOME applications
 gnome/aisleriot
