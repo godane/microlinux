@@ -18,6 +18,7 @@ ap/unrtf
 ap/untex
  
 # Development
+d/acpica
 d/jdk
 d/lua
 d/orc
@@ -192,6 +193,7 @@ xap/libreoffice
 xap/MPlayer
 xap/recoll
 xap/scribus
+xap/transmission
 xap/vlc
 
 # Xfce
