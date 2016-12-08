@@ -14,6 +14,7 @@ ap/exiftool
 ap/hplip
 ap/p7zip
 ap/pdftk
+ap/qemu
 ap/recode
 ap/unrar
 ap/unrtf
