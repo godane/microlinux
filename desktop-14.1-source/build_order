@@ -83,6 +83,7 @@ l/usbredir
 l/wxPython
 l/xapian-core
 l/bamf
+l/yajl
 
 # Perl
 d/perl-extutils-depends
