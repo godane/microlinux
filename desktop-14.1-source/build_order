@@ -15,7 +15,6 @@ ap/exiftool
 ap/hplip
 ap/p7zip
 ap/pdftk
-ap/qemu
 ap/recode
 ap/unrar
 ap/unrtf
@@ -97,6 +96,7 @@ d/pysetuptools
 d/lxml
 d/six
 d/numpy
+d/urlgrabber
 
 # Multimedia
 multimedia/a52dec
@@ -174,8 +174,6 @@ n/freerdp
 n/iperf
 n/spice
 
-# KVM
-
 # Infinality
 l/freetype
 x/fontconfig
@@ -188,6 +186,9 @@ x/cantarell-fonts
 x/eurostile-fonts
 x/google-droid-fonts
 x/webcore-fonts
+
+# KVM
+ap/qemu
 
 # GNOME applications
 gnome/aisleriot
