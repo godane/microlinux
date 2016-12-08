@@ -26,6 +26,7 @@ d/jdk
 d/lua
 d/orc
 d/scons
+d/spice-protocol
 
 # GNOME libraries
 gnome/gnome-mime-data
