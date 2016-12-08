@@ -96,6 +96,7 @@ d/numpy
 # Multimedia
 multimedia/a52dec
 multimedia/celt
+multimedia/celt051
 multimedia/dirac
 multimedia/faad2
 multimedia/flashplayer-plugin
@@ -166,6 +167,8 @@ multimedia/gst1-plugins-bad
 # Networking
 n/freerdp
 n/iperf
+
+# KVM
 
 # Infinality
 l/freetype
