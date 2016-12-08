@@ -202,7 +202,7 @@ xap/inkscape
 xap/librecad
 xap/libreoffice
 xap/MPlayer
-# xap/owncloud-client
+xap/owncloud-client
 xap/recoll
 xap/scribus
 xap/transmission
