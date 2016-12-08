@@ -21,6 +21,7 @@ ap/untex
 d/jdk
 d/lua
 d/orc
+d/scons
 
 # GNOME libraries
 gnome/gnome-mime-data
