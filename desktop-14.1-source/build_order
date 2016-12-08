@@ -78,6 +78,7 @@ l/muParser
 l/podofo
 l/qtkeychain
 l/tolua++
+l/usbredir
 l/wxPython
 l/xapian-core
 l/bamf
@@ -89,6 +90,7 @@ d/perl-glib
 
 # Python
 d/BeautifulSoup
+d/pyparsing
 d/pysetuptools
 d/lxml
 d/numpy
