@@ -25,12 +25,12 @@
 #
 # Modified by Niki Kovacs <info@microlinux.fr>
 
-PRGNAM=gedit
-VERSION=${VERSION:-2.30.4}
-BUILD=${BUILD:-2}
+PRGNAM=gedit-plugins
+VERSION=${VERSION:-2.32.0}
+BUILD=${BUILD:-3}
 TAG=${TAG=_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -61,7 +61,7 @@ fi
 
 set -e
 
-DOWNLOAD="ftp://ftp.gnome.org/pub/gnome/sources/$PRGNAM/2.30/$PRGNAM-$VERSION.tar.bz2"
+DOWNLOAD="ftp://ftp.gnome.org/pub/gnome/sources/$PRGNAM/2.32/$PRGNAM-$VERSION.tar.bz2"
 
 wget -c $DOWNLOAD
 
@@ -85,9 +85,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --sysconfdir=/etc \
   --localstatedir=/var \
-  --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --disable-scrollkeeper \
   --build=$ARCH-slackware-linux
 
 make $NUMJOBS
@@ -95,9 +93,6 @@ make install DESTDIR=$PKG
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
-
-find $PKG/usr/man -type f -exec gzip -9 {} \;
-for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a AUTHORS COPYING NEWS README $PKG/usr/doc/$PRGNAM-$VERSION

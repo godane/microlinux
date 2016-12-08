@@ -28,10 +28,10 @@
 
 PRGNAM=gtksourceview
 VERSION=${VERSION:-2.10.5}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -62,7 +62,7 @@ fi
 
 set -e
 
-DOWNLOAD="http://ftp.acc.umu.se/pub/gnome/sources/$PRGNAM/2.10/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="http://ftp.gnome.org/pub/gnome/sources/$PRGNAM/2.10/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 

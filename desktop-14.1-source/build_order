@@ -26,6 +26,7 @@ d/scons
 # GNOME libraries
 gnome/gnome-mime-data
 gnome/gtk-engines
+gnome/gtksourceview
 gnome/json-glib
 gnome/libgnomecanvas
 gnome/libgtop
@@ -48,6 +49,7 @@ gnome/cairomm
 gnome/pangomm
 gnome/atkmm
 gnome/gtkmm
+gnome/pygtksourceview
 
 # General libraries
 l/eigen3
@@ -167,15 +169,19 @@ x/eurostile-fonts
 x/google-droid-fonts
 x/webcore-fonts
 
-# Applications
+# GNOME applications
+gnome/brasero
+gnome/evince
+gnome/file-roller
+gnome/gedit
+gnome/gedit-plugins
+
+# General applications
 xap/asunder
 xap/audacious
 xap/audacious-plugins
 xap/audacity
-gnome/brasero
 xap/conky
-gnome/evince
-gnome/file-roller
 xap/flowblade
 xap/galculator
 xap/inkscape
