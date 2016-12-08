@@ -93,6 +93,7 @@ d/BeautifulSoup
 d/pyparsing
 d/pysetuptools
 d/lxml
+d/six
 d/numpy
 
 # Multimedia
