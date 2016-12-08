@@ -67,6 +67,7 @@ l/libssh2
 l/libtar
 l/libupnp
 l/libvdpau
+l/libwebp
 l/tolua++
 l/wxPython
 l/xapian-core
