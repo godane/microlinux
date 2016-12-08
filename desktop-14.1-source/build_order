@@ -181,6 +181,7 @@ x/google-droid-fonts
 x/webcore-fonts
 
 # GNOME applications
+gnome/aisleriot
 gnome/brasero
 gnome/evince
 gnome/file-roller
