@@ -29,7 +29,7 @@
 
 PRGNAM=libreoffice-langpack
 VERSION=${VERSION:-"5.2.3"}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 #LOLANG=${LOLANG:-en-GB}
