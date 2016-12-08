@@ -171,6 +171,7 @@ multimedia/gst1-plugins-bad
 # Networking
 n/freerdp
 n/iperf
+n/spice
 
 # KVM
 
