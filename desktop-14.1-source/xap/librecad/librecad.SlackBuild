@@ -25,13 +25,12 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=librecad
-VERSION=${VERSION:-2.0.7}
-BUILD=${BUILD:-2}
+ORIG_PRGNAM=LibreCAD
+VERSION=${VERSION:-2.0.11}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
-
-ORIG_PRGNAM=LibreCAD
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
