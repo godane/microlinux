@@ -64,6 +64,7 @@ l/libebml
 l/libisofs
 l/libjpeg-turbo
 l/libminizip
+l/libopenraw
 l/libssh2
 l/libtar
 l/libupnp
