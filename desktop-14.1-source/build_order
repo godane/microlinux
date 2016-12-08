@@ -74,6 +74,7 @@ l/libvdpau
 l/libwebp
 l/muParser
 l/podofo
+l/qtkeychain
 l/tolua++
 l/wxPython
 l/xapian-core
@@ -201,6 +202,7 @@ xap/inkscape
 xap/librecad
 xap/libreoffice
 xap/MPlayer
+# xap/owncloud-client
 xap/recoll
 xap/scribus
 xap/transmission
