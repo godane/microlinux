@@ -251,3 +251,7 @@ profile/user-settings-xfce
 
 # Login manager
 x/lxdm
+
+# Build manually
+# locale/libreoffice-langpack
+

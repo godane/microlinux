@@ -28,7 +28,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=libreoffice-langpack
-VERSION=${VERSION:-"4.4.7"}
+VERSION=${VERSION:-"5.2.3"}
 BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
@@ -74,9 +74,9 @@ set -e
 # Concatenate all parts to get the full name of the tarball
 TARNAME="LibreOffice_${SRCVERSION}_Linux_${SRCARCH}_rpm_langpack_${LOLANG}.tar.gz"
 
-# LibreOffice admins, eat shit
-#MIRROR=download.documentfoundation.org/libreoffice/stable/$VERSION/rpm/$URLARCH
-MIRROR="www.microlinux.fr/download/libreoffice/$VERSION"
+# LibreOffice admins love to play hide & seek with their tarballs
+MIRROR=download.documentfoundation.org/libreoffice/stable/$VERSION/rpm/$URLARCH
+#MIRROR="www.microlinux.fr/download/libreoffice/$VERSION"
 
 DOWNLOAD="http://$MIRROR/$TARNAME"
 
