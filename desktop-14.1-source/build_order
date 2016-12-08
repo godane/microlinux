@@ -9,6 +9,7 @@ ap/slackpkg+
 
 # Basic tools
 ap/antiword
+ap/cdlabelgen
 ap/exiftool
 ap/hplip
 ap/p7zip
