@@ -95,6 +95,7 @@ d/perl-glib
 
 # Python
 d/BeautifulSoup
+d/cddb-py
 d/ipaddr-py
 d/pyparsing
 d/pysetuptools
