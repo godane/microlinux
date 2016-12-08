@@ -41,6 +41,7 @@ gnome/mm-common
 gnome/ORBit2
 gnome/pygobject3
 gnome/vala
+gnome/vte3
 gnome/libbonobo
 gnome/gnome-vfs
 gnome/libgnome

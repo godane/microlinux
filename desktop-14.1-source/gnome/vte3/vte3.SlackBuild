@@ -24,13 +24,13 @@
 #
 # Modified by Niki Kovacs <info@microlinux.fr>
 
-SRCNAM=vte
 PRGNAM=vte3
+SRCNAM=vte
 VERSION=${VERSION:-0.36.5}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
