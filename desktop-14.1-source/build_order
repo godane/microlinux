@@ -62,6 +62,7 @@ l/ftgl
 l/glfw
 l/gsl
 l/imlib2
+l/libbsd
 l/libburn
 l/libdbusmenu
 l/libebml
