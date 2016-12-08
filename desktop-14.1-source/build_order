@@ -201,6 +201,7 @@ ap/qemu
 ap/libvirt
 l/libvirt-glib
 l/libvirt-python
+xap/virt-manager
 
 # GNOME applications
 gnome/aisleriot
