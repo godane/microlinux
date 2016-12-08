@@ -22,7 +22,7 @@ d/jdk
 d/lua
 d/orc
 
-# GNOME 
+# GNOME libraries
 gnome/gnome-mime-data
 gnome/gtk-engines
 gnome/json-glib
@@ -48,7 +48,7 @@ gnome/pangomm
 gnome/atkmm
 gnome/gtkmm
 
-# Libraries
+# General libraries
 l/eigen3
 l/ftgl
 l/glfw
@@ -164,6 +164,7 @@ x/google-droid-fonts
 x/webcore-fonts
 
 # Applications
+xap/asunder
 gnome/brasero
 gnome/file-roller
 xap/flowblade
