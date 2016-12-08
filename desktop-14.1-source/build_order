@@ -176,6 +176,7 @@ gnome/evince
 gnome/file-roller
 gnome/gedit
 gnome/gedit-plugins
+gnome/gthumb
 
 # General applications
 xap/asunder
@@ -187,6 +188,7 @@ xap/flowblade
 xap/galculator
 xap/inkscape
 xap/libreoffice
+xap/MPlayer
 xap/recoll
 xap/vlc
 
