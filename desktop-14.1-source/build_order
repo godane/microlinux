@@ -93,6 +93,7 @@ d/perl-glib
 
 # Python
 d/BeautifulSoup
+d/ipaddr-py
 d/pyparsing
 d/pysetuptools
 d/lxml
