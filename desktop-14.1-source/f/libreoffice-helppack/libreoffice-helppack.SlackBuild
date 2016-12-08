@@ -28,8 +28,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=libreoffice-helppack
-VERSION=${VERSION:-"4.4.7"}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-"5.2.3"}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 #LOLANG=${LOLANG:-en-GB}
@@ -75,8 +75,7 @@ set -e
 TARNAME="LibreOffice_${SRCVERSION}_Linux_${SRCARCH}_rpm_helppack_${LOLANG}.tar.gz"
 
 # LibreOffice admins, eat shit
-#MIRROR=download.documentfoundation.org/libreoffice/stable/$VERSION/rpm/$URLARCH
-MIRROR="www.microlinux.fr/download/libreoffice/$VERSION"
+MIRROR=download.documentfoundation.org/libreoffice/stable/$VERSION/rpm/$URLARCH
 
 DOWNLOAD="http://$MIRROR/$TARNAME"
 
