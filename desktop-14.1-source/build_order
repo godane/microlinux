@@ -12,6 +12,7 @@ ap/antiword
 ap/exiftool
 ap/hplip
 ap/p7zip
+ap/pdftk
 ap/recode
 ap/unrar
 ap/unrtf
@@ -192,6 +193,7 @@ xap/audacity
 xap/conky
 xap/flowblade
 xap/galculator
+xap/gtkam
 xap/inkscape
 xap/libreoffice
 xap/MPlayer
