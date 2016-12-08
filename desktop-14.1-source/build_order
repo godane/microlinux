@@ -61,6 +61,7 @@ l/imlib2
 l/libburn
 l/libdbusmenu
 l/libebml
+l/libexif-gtk
 l/libisofs
 l/libjpeg-turbo
 l/libminizip
