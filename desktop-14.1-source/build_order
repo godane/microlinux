@@ -54,6 +54,7 @@ l/eigen3
 l/ftgl
 l/glfw
 l/gsl
+l/imlib2
 l/libburn
 l/libdbusmenu
 l/libebml
