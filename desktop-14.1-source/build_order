@@ -72,6 +72,7 @@ l/libtar
 l/libupnp
 l/libvdpau
 l/libwebp
+l/muParser
 l/podofo
 l/tolua++
 l/wxPython
@@ -183,6 +184,7 @@ gnome/file-roller
 gnome/gedit
 gnome/gedit-plugins
 gnome/gthumb
+gnome/simple-scan
 
 # General applications
 xap/asunder
