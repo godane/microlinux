@@ -112,6 +112,7 @@ d/netifaces
 d/numpy
 d/psutil
 d/pyparsing
+d/pytz
 d/six
 d/SQLAlchemy
 d/urlgrabber
