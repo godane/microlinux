@@ -9,14 +9,7 @@ d/lazarus
 x/scholae-fonts
 
 # Applications
-#xap/aMule
-#xap/anki
-#xap/blender
-#xap/dropbox
-#xap/easytag
-#xap/filezilla
-#xap/gcompris
-#xap/geogebra
+xap/geogebra
 #xap/gtkcdlabel
 #xap/homebank
 #xap/librecad
