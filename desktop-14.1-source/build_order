@@ -118,6 +118,7 @@ d/six
 d/SQLAlchemy
 d/tornado
 d/urlgrabber
+d/python-dateutil
 
 # Multimedia
 multimedia/a52dec
