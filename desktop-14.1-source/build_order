@@ -108,6 +108,7 @@ d/dnspython
 d/ipaddr-py
 d/lxml
 d/mechanize
+d/netifaces
 d/numpy
 d/pyparsing
 d/six
