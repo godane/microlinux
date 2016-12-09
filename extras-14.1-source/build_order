@@ -11,21 +11,16 @@ x/scholae-fonts
 # Applications
 xap/geogebra
 xap/povray
-#xap/remmina
-#xap/simple-scan
-#xap/virt-manager
+xap/xpe
 #xap/virtualbox
 #xap/virtualbox-kernel
 #xap/virtualbox-extension-pack
 #xap/winff
-#xap/xpe
 
 # Games
-#y/aisleriot
 #y/lbreakout2
 
 # Misc
-#xap/HandBrake
 #xap/cinelerra
 #xap/pdfchain
 #xap/CherryTree

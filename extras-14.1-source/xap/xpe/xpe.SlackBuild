@@ -10,10 +10,10 @@
 
 PRGNAM=xpe
 VERSION=0.9.5b
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 # The tarballs come with the name "xpe_project" to distinguish them from
 # the "xpe_daily" svn snapshots
