@@ -29,10 +29,10 @@
 
 PRGNAM=povray
 VERSION=${VERSION:-3.7.0.0}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 # The "short" version number is needed later:
 SHORT_VERSION=$( echo $VERSION | cut -f1-2 -d. )

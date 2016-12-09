@@ -10,11 +10,7 @@ x/scholae-fonts
 
 # Applications
 xap/geogebra
-#xap/gtkcdlabel
-#xap/homebank
-#xap/librecad
-#xap/owncloud-client
-#xap/povray
+xap/povray
 #xap/remmina
 #xap/simple-scan
 #xap/virt-manager
