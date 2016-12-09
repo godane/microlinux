@@ -110,6 +110,7 @@ d/lxml
 d/mechanize
 d/netifaces
 d/numpy
+d/psutil
 d/pyparsing
 d/six
 d/SQLAlchemy
