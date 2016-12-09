@@ -56,6 +56,7 @@ gnome/cairomm
 gnome/pangomm
 gnome/atkmm
 gnome/gtkmm
+gnome/gtkmm3
 gnome/pygtksourceview
 
 # General libraries
@@ -211,6 +212,7 @@ gnome/evince
 gnome/file-roller
 gnome/gedit
 gnome/gedit-plugins
+gnome/gnote
 gnome/gthumb
 gnome/simple-scan
 
