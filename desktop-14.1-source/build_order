@@ -113,8 +113,10 @@ d/numpy
 d/psutil
 d/pyparsing
 d/pytz
+d/simplejson
 d/six
 d/SQLAlchemy
+d/tornado
 d/urlgrabber
 
 # Multimedia
