@@ -98,10 +98,11 @@ d/perl-glib
 
 # Python
 d/BeautifulSoup
+d/pysetuptools
+d/apsw
 d/cddb-py
 d/ipaddr-py
 d/pyparsing
-d/pysetuptools
 d/lxml
 d/six
 d/SQLAlchemy

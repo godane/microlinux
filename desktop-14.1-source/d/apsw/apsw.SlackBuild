@@ -26,7 +26,7 @@
 
 PRGNAM=apsw
 VERSION=${VERSION:-3.7.17_r1}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
@@ -44,7 +44,7 @@ OUTPUT=${OUTPUT:-/tmp}
 
 set -e
 
-DOWNLOAD="http://apsw.googlecode.com/files/$PRGNAM-${VERSION/_/-}.zip"
+DOWNLOAD="http://github.com/rogerbinns/$PRGNAM/archive/${VERSION/_/-}.zip"
 
 wget -c $DOWNLOAD
 
@@ -52,7 +52,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-${VERSION/_/-}
-unzip $CWD/$PRGNAM-${VERSION/_/-}.zip
+unzip $CWD/${VERSION/_/-}.zip
 cd $PRGNAM-${VERSION/_/-}
 chown -R root:root .
 find -L . \
@@ -73,7 +73,7 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a PKG-INFO doc/* $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a LICENSE  doc/* $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
