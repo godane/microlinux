@@ -106,11 +106,12 @@ d/cssselect
 d/cssutils
 d/dnspython
 d/ipaddr-py
-d/pyparsing
 d/lxml
+d/mechanize
+d/numpy
+d/pyparsing
 d/six
 d/SQLAlchemy
-d/numpy
 d/urlgrabber
 
 # Multimedia
