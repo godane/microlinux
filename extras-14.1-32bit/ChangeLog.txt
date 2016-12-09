@@ -1,3 +1,41 @@
+Fri Dec  9 17:06:34 CET 2016
+d/fpc-2.6.4-i386-3_microlinux.txz: Rebuilt.
+d/fpc-source-2.6.4-noarch-3_microlinux.txz: Rebuilt.
+d/lazarus-1.2.6-i386-3_microlinux.txz: Rebuilt.
+x/scholae-fonts-1.0-noarch-4_microlinux.txz: Rebuilt.
+xap/geogebra-5.0.214.0-i586-3_microlinux.txz: Rebuilt.
+xap/pdfchain-0.4.4.2-i486-1_microlinux.txz: Upgraded.
+xap/povray-3.7.0.0-i486-3_microlinux.txz: Rebuilt.
+xap/xpe-0.9.5b-i486-3_microlinux.txz: Rebuilt.
+ap/cdlabelgen-4.3.0-noarch-2_microlinux.txz: Removed.
+ap/qemu-2.4.1-i486-2_microlinux.txz: Removed.
+xap/anki-2.0.32-noarch-2_microlinux.txz: Removed.
+xap/gtkcdlabel-1.15-noarch-2_microlinux.txz: Removed.
+xap/homebank-5.0.3-i486-2_microlinux.txz: Removed.
+xap/librecad-2.0.7-i486-2_microlinux.txz: Removed.
+xap/owncloud-client-2.1.1-i486-2_microlinux.txz: Removed.
+xap/remmina-1.2.0_rcgit.1-i486-2_microlinux.txz: Removed.
+xap/simple-scan-2.32.0.2-i486-2_microlinux.txz: Removed.
+y/aisleriot-3.6.2-i486-3_microlinux.txz: Removed.
+xap/HandBrake-0.9.9-i686-1_microlinux.txz: Removed.
+xap/CherryTree-0.37.4-i486-1_microlinux.txz: Removed.
+  This batch has been moved to the main repository.
+xap/aMule-2.3.1-i486-2_microlinux.txz: Removed
+xap/blender-2.76b-i686-2_microlinux.txz: Removed
+xap/dropbox-3.10.7-i486-2_microlinux.txz: Removed
+xap/easytag-2.1.10-i486-2_microlinux.txz: Removed
+xap/filezilla-3.8.1-i486-2_microlinux.txz: Removed
+xap/gcompris-15.02-i486-2_microlinux.txz: Removed
+xap/cinelerra-2.3-i486-1_microlinux.txz: Removed
+y/lbreakout2-2.6.3-i486-2_microlinux.txz: Removed
+	These packages have been dropped. Use 'sbopkg' to install them.
+xap/winff-20150729-i486-1_microlinux.txz: Removed
+xap/virtualbox-5.0.26-i486-1_microlinux.txz: Removed
+xap/virtualbox-kernel-5.0.26_3.10.103_smp-i486-1_microlinux.txz: Removed
+xap/virtualbox-extension-pack-5.0.26-i486-1_microlinux.txz: Removed
+  This batch has only temporarily been removed until I can figure out some
+	unexpected quirks. 
++--------------------------+
 Sun Oct  2 16:04:55 CEST 2016
 xap/owncloud-client-2.2.4-i486-1_microlinux.txz: Upgraded.
 +--------------------------+
