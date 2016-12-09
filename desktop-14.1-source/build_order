@@ -102,6 +102,7 @@ d/pysetuptools
 d/apsw
 d/backports-ssl-match-hostname
 d/cddb-py
+d/cssselect
 d/ipaddr-py
 d/pyparsing
 d/lxml
