@@ -36,6 +36,7 @@ gnome/json-glib
 gnome/libgnomecanvas
 gnome/libgtop
 gnome/libsigc++
+gnome/libunique
 gnome/libwnck3
 gnome/libxml++
 gnome/mm-common
@@ -290,6 +291,7 @@ xfce/xfce4-xkb-plugin
 xfce/thunar-archive-plugin
 xfce/ffmpegthumbnailer
 xfce/plank
+xfce/xfce4-notes-plugin
 
 # User profile (Xfce)
 profile/user-settings-xfce
