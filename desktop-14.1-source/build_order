@@ -104,6 +104,7 @@ d/pyparsing
 d/pysetuptools
 d/lxml
 d/six
+d/SQLAlchemy
 d/numpy
 d/urlgrabber
 
