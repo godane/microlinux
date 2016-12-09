@@ -104,6 +104,7 @@ d/backports-ssl-match-hostname
 d/cddb-py
 d/cssselect
 d/cssutils
+d/dnspython
 d/ipaddr-py
 d/pyparsing
 d/lxml
