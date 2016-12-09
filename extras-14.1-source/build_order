@@ -10,6 +10,7 @@ x/scholae-fonts
 
 # Applications
 xap/geogebra
+xap/pdfchain
 xap/povray
 xap/xpe
 #xap/virtualbox
@@ -22,5 +23,4 @@ xap/xpe
 
 # Misc
 #xap/cinelerra
-#xap/pdfchain
 #xap/CherryTree
