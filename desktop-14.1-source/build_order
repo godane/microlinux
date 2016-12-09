@@ -37,6 +37,7 @@ gnome/libgnomecanvas
 gnome/libgtop
 gnome/libsigc++
 gnome/libwnck3
+gnome/libxml++
 gnome/mm-common
 gnome/ORBit2
 gnome/pygobject3
