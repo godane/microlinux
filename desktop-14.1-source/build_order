@@ -311,3 +311,6 @@ locale/mozilla-thunderbird-langpack
 # locale/libreoffice-langpack
 # multimedia/mplayer-codecs32
 # multimedia/mplayer-codecs64
+# xap/virtualbox
+# xap/virtualbox-kernel
+# xap/virtualbox-extension-pack
