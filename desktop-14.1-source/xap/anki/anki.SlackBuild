@@ -7,8 +7,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=anki
-VERSION=${VERSION:-2.0.32}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-2.0.36}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 ARCH="noarch"
 

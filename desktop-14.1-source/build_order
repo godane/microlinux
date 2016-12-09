@@ -233,6 +233,7 @@ gnome/gthumb
 gnome/simple-scan
 
 # General applications
+xap/anki
 xap/asunder
 xap/audacious
 xap/audacious-plugins
