@@ -141,9 +141,6 @@ multimedia/libreplaygain
 multimedia/libva
 multimedia/libvpx
 multimedia/live555
-# Build manually
-# multimedia/mplayer-codecs32
-# multimedia/mplayer-codecs64
 multimedia/musepack-tools
 multimedia/OpenAL
 multimedia/opencore-amr
@@ -284,6 +281,11 @@ profile/user-settings-xfce
 # Login manager
 x/lxdm
 
+# Translations
+locale/mozilla-firefox-langpack
+locale/mozilla-thunderbird-langpack
+
 # Build manually
 # locale/libreoffice-langpack
-
+# multimedia/mplayer-codecs32
+# multimedia/mplayer-codecs64
