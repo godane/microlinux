@@ -119,6 +119,7 @@ d/SQLAlchemy
 d/tornado
 d/urlgrabber
 d/python-dateutil
+d/matplotlib
 
 # Multimedia
 multimedia/a52dec
