@@ -166,6 +166,7 @@ multimedia/openjpeg
 multimedia/opus
 multimedia/portaudio
 multimedia/projectM
+multimedia/PyAudio
 multimedia/rtmpdump
 multimedia/schroedinger
 multimedia/speex
