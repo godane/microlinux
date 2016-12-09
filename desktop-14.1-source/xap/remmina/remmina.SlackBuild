@@ -25,14 +25,13 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=remmina
+SRCNAM=Remmina
 VERSION=${VERSION:-1.2.0_rcgit.1}
-BUILD=${BUILD:-2}
+TARVERSION=${VERSION/_/-}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
-
-SRCNAM=Remmina
-TARVERSION=${VERSION/_/-}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 AVAHI=${AVAHI:-OFF}
 TELEPATHY=${TELEPATHY:-OFF}
