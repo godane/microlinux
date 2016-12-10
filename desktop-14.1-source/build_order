@@ -309,6 +309,7 @@ locale/mozilla-thunderbird-langpack
 
 # Build manually
 # locale/libreoffice-langpack
+# f/libreoffice-helppack
 # multimedia/mplayer-codecs32
 # multimedia/mplayer-codecs64
 # xap/virtualbox

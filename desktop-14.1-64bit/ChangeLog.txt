@@ -1,3 +1,331 @@
+Sat Dec 10 08:01:31 CET 2016
+profile/user-settings-console-14.1-noarch-4_microlinux.txz: Rebuilt.
+ap/sbopkg-0.37.0-noarch-3_microlinux.txz: Rebuilt.
+ap/slackpkg+-1.3.2-noarch-6_microlinux.txz: Rebuilt.
+ap/antiword-0.37-x86_64-3_microlinux.txz: Rebuilt.
+ap/cdlabelgen-4.3.0-noarch-3_microlinux.txz: Added.
+ap/device-tree-compiler-1.4.1-x86_64-3_microlinux.txz: Rebuilt.
+ap/exiftool-10.36-x86_64-1_microlinux.txz: Upgraded.
+ap/hplip-3.15.11-x86_64-2_microlinux.txz: Rebuilt.
+ap/p7zip-16.02-x86_64-2_microlinux.txz: Rebuilt.
+ap/pdftk-2.02-x86_64-2_microlinux.txz: Rebuilt.
+ap/recode-3.7_beta2-x86_64-3_microlinux.txz: Rebuilt.
+ap/unrar-5.4.5-x86_64-1_microlinux.txz: Upgraded.
+ap/unrtf-0.21.9-x86_64-1_microlinux.txz: Upgraded.
+ap/untex-1.3-x86_64-1_microlinux.txz: Added.
+d/acpica-20150204-x86_64-3_microlinux.txz: Rebuilt.
+d/jdk-8u112-x86_64-1_microlinux.txz: Upgraded.
+d/lua-5.1.5-x86_64-3_microlinux.txz: Rebuilt.
+d/orc-0.4.24-x86_64-3_microlinux.txz: Rebuilt.
+d/scons-2.4.1-x86_64-1_microlinux.txz: Upgraded.
+d/spice-protocol-0.12.12-noarch-1_microlinux.txz: Upgraded.
+gnome/gnome-mime-data-2.18.0-x86_64-2_microlinux.txz: Rebuilt.
+gnome/gtk-engines-2.20.2-x86_64-3_microlinux.txz: Rebuilt.
+gnome/gtksourceview-2.10.5-x86_64-3_microlinux.txz: Rebuilt.
+gnome/json-glib-0.14.2-x86_64-3_microlinux.txz: Rebuilt.
+gnome/libgnomecanvas-2.30.3-x86_64-2_microlinux.txz: Rebuilt.
+gnome/libgtop-2.28.5-x86_64-3_microlinux.txz: Rebuilt.
+gnome/libsigc++-2.2.11-x86_64-3_microlinux.txz: Rebuilt.
+gnome/libunique-1.1.6-x86_64-3_microlinux.txz: Rebuilt.
+gnome/libwnck3-3.4.9-x86_64-3_microlinux.txz: Rebuilt.
+gnome/mm-common-0.9.7-noarch-3_microlinux.txz: Rebuilt.
+gnome/ORBit2-2.14.19-x86_64-2_microlinux.txz: Rebuilt.
+gnome/pygobject3-3.10.2-x86_64-3_microlinux.txz: Rebuilt.
+gnome/vala-0.28.1-x86_64-1_microlinux.txz: Upgraded.
+gnome/vte3-0.36.5-x86_64-3_microlinux.txz: Rebuilt.
+gnome/libbonobo-2.32.1-x86_64-2_microlinux.txz: Rebuilt.
+gnome/gnome-vfs-2.24.4-x86_64-2_microlinux.txz: Rebuilt.
+gnome/libgnome-2.32.1-x86_64-2_microlinux.txz: Rebuilt.
+gnome/libbonoboui-2.24.5-x86_64-2_microlinux.txz: Rebuilt.
+gnome/libgnomeui-2.24.5-x86_64-2_microlinux.txz: Rebuilt.
+gnome/pyorbit-2.24.0-x86_64-2_microlinux.txz: Rebuilt.
+gnome/gnome-python-2.28.1-x86_64-2_microlinux.txz: Rebuilt.
+gnome/libgee-0.16.1-x86_64-3_microlinux.txz: Rebuilt.
+gnome/glibmm-2.36.2-x86_64-3_microlinux.txz: Rebuilt.
+gnome/cairomm-1.10.0-x86_64-3_microlinux.txz: Rebuilt.
+gnome/pangomm-2.34.0-x86_64-3_microlinux.txz: Rebuilt.
+gnome/atkmm-2.22.7-x86_64-3_microlinux.txz: Rebuilt.
+gnome/gtkmm-2.24.4-x86_64-3_microlinux.txz: Rebuilt.
+gnome/gtkmm3-3.8.1-x86_64-4_microlinux.txz: Rebuilt.
+gnome/pygtksourceview-2.10.1-x86_64-3_microlinux.txz: Rebuilt.
+gnome/libxml++-2.38.1-x86_64-1_microlinux.txz: Upgraded.
+l/eigen3-3.2.4-x86_64-3_microlinux.txz: Rebuilt.
+l/ftgl-2.1.3_rc5-x86_64-3_microlinux.txz: Rebuilt.
+l/glfw-2.7.8-x86_64-3_microlinux.txz: Rebuilt.
+l/gsl-1.16-x86_64-3_microlinux.txz: Rebuilt.
+l/imlib2-1.4.7-x86_64-3_microlinux.txz: Rebuilt.
+l/libbsd-0.7.0-x86_64-1_microlinux.txz: Rebuilt.
+l/libburn-1.4.0-x86_64-3_microlinux.txz: Rebuilt.
+l/libdbusmenu-12.10.2-x86_64-3_microlinux.txz: Rebuilt.
+l/libebml-1.3.1-x86_64-3_microlinux.txz: Rebuilt.
+l/libexif-gtk-0.3.5-x86_64-3_microlinux.txz: Rebuilt.
+l/libisofs-1.4.0-x86_64-5_microlinux.txz: Rebuilt.
+l/libjpeg-turbo-1.4.2-x86_64-3_microlinux.txz: Rebuilt.
+l/libminizip-1.2.8-x86_64-3_microlinux.txz: Rebuilt.
+l/libofx-0.9.9-x86_64-3_microlinux.txz: Rebuilt.
+l/libopenraw-0.0.9-x86_64-3_microlinux.txz: Rebuilt.
+l/libosinfo-0.2.11-x86_64-3_microlinux.txz: Rebuilt.
+l/libssh2-1.4.3-x86_64-3_microlinux.txz: Rebuilt.
+l/libtar-1.2.20-x86_64-3_microlinux.txz: Rebuilt.
+l/libupnp-1.6.17-x86_64-3_microlinux.txz: Rebuilt.
+l/libvdpau-1.1.1-x86_64-3_microlinux.txz: Rebuilt.
+l/libwebp-0.4.3-x86_64-3_microlinux.txz: Rebuilt.
+l/muParser-2.2.4-x86_64-3_microlinux.txz: Rebuilt.
+l/podofo-0.9.3-x86_64-3_microlinux.txz: Rebuilt.
+l/qtkeychain-0.5.0-x86_64-1_microlinux.txz: Upgraded.
+l/tolua++-1.0.93-x86_64-3_microlinux.txz: Rebuilt.
+l/usbredir-0.7-x86_64-3_microlinux.txz: Rebuilt.
+l/wxPython-2.8.12.1-x86_64-3_microlinux.txz: Rebuilt.
+l/xapian-core-1.2.24-x86_64-1_microlinux.txz: Upgraded.
+l/bamf-0.5.1-x86_64-1_microlinux.txz: Rebuilt.
+l/yajl-2.1.0-x86_64-3_microlinux.txz: Rebuilt.
+d/perl-extutils-depends-0.404-x86_64-3_microlinux.txz: Rebuilt.
+d/perl-extutils-pkgconfig-1.15-x86_64-3_microlinux.txz: Rebuilt.
+d/perl-glib-1.307-x86_64-3_microlinux.txz: Rebuilt.
+d/BeautifulSoup-3.2.1-x86_64-3_microlinux.txz: Rebuilt.
+d/pysetuptools-18.2-x86_64-3_microlinux.txz: Rebuilt.
+d/apsw-3.7.17_r1-x86_64-3_microlinux.txz: Rebuilt.
+d/backports-ssl-match-hostname-3.4.0.2-x86_64-3_microlinux.txz: Rebuilt.
+d/cddb-py-1.4-x86_64-3_microlinux.txz: Rebuilt.
+d/cssselect-0.9.1-x86_64-3_microlinux.txz: Rebuilt.
+d/cssutils-1.0.1-x86_64-1_microlinux.txz: Upgraded.
+d/dnspython-1.12.0-x86_64-3_microlinux.txz: Rebuilt.
+d/ipaddr-py-2.1.10-x86_64-3_microlinux.txz: Rebuilt.
+d/lxml-3.5.0-x86_64-1_microlinux.txz: Upgraded.
+d/mechanize-0.2.5-x86_64-3_microlinux.txz: Rebuilt.
+d/netifaces-0.10.4-x86_64-3_microlinux.txz: Rebuilt.
+d/numpy-1.9.1-x86_64-3_microlinux.txz: Rebuilt.
+d/psutil-3.3.0-x86_64-1_microlinux.txz: Upgraded.
+d/pyparsing-2.0.3-x86_64-3_microlinux.txz: Rebuilt.
+d/pytz-2014.10-x86_64-3_microlinux.txz: Rebuilt.
+d/simplejson-3.8.1-x86_64-1_microlinux.txz: Upgraded.
+d/six-1.10.0-x86_64-1_microlinux.txz: Upgraded.
+d/SQLAlchemy-1.0.11-x86_64-1_microlinux.txz: Upgraded.
+d/tornado-4.2.1-x86_64-1_microlinux.txz: Upgraded.
+d/urlgrabber-3.10-x86_64-3_microlinux.txz: Rebuilt.
+d/python-dateutil-2.4.2-x86_64-1_microlinux.txz: Upgraded.
+d/matplotlib-1.4.2-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/a52dec-0.7.4-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/celt-0.11.3-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/celt051-0.5.1.3-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/dirac-1.0.2-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/faad2-2.7-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/flashplayer-plugin-11.2.202.644-x86_64-1_microlinux.txz: Upgraded.
+multimedia/gsm-1.0.13-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/ladspa_sdk-1.13-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/lame-3.99.5-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libass-0.12.1-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libavc1394-0.5.4-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libbluray-0.9.2-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/libcdaudio-0.99.12p2-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libcuefile-r475-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libdc1394-2.2.3-x86_64-1_microlinux.txz: Upgraded.
+multimedia/libdca-0.0.5-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libdv-1.0.0-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libdvbpsi-1.1.1-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libdvdcss-1.2.13-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libdvdnav-4.2.0-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libfdk-aac-0.1.4-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libiec61883-1.2.0-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libilbc-2.0.2-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libkate-0.4.1-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libmatroska-1.4.2-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libmodplug-0.8.8.5-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libmp4v2-2.0.0-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libmpeg2-0.5.1-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libquvi-scripts-0.4.21-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libquvi-0.4.1-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libreplaygain-r475-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libva-1.6.2-x86_64-1_microlinux.txz: Upgraded.
+multimedia/libvpx-1.5.0-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/live555-2015.12.22-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/musepack-tools-r475-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/OpenAL-1.17.1-x86_64-1_microlinux.txz: Upgraded.
+multimedia/opencore-amr-0.1.3-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/opencv-3.0.0-x86_64-5_microlinux.txz: Rebuilt.
+  Built twice to resolve a circular dependency with ffmpeg.
+multimedia/openjpeg-1.5.2-x86_64-2_microlinux.txz: Rebuilt.
+multimedia/opus-1.1.1-x86_64-3_microlinux.txz: Upgraded.
+multimedia/portaudio-V19-x86_64-3_microlinux.txz: Upgraded.
+multimedia/projectM-2.1.0-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/PyAudio-0.2.4-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/rtmpdump-20150115_a107cef-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/schroedinger-1.0.11-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/speex-1.2rc2-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/totem-pl-parser-3.4.5-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/twolame-0.3.13-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/vcdimager-0.7.24-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/vid.stab-97c6ae2-x86_64-1_microlinux.txz: Added.
+multimedia/vsxu-0.4.2-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/x264-20150223-x86_64-5_microlinux.txz: Rebuilt.
+multimedia/x265-1.8-x86_64-1_microlinux.txz: Upgraded.
+multimedia/xvidcore-1.3.3-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/zvbi-0.2.35-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/faac-1.28-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/frei0r-1.4-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/ffmpeg-2.6.4-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/chromaprint-1.2-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libquicktime-1.2.4-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/libshout-2.3.1-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/mlt-0.9.8-x86_64-1_microlinux.txz: Upgraded.
+multimedia/gstreamer1-1.4.5-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/gst1-plugins-base-1.4.5-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/gst1-plugins-good-1.4.5-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/gst1-libav-1.4.5-x86_64-3_microlinux.txz: Rebuilt.
+multimedia/gst1-plugins-bad-1.4.5-x86_64-3_microlinux.txz: Rebuilt.
+n/freerdp-1.2.0_beta1_android9-x86_64-4_microlinux.txz: Rebuilt.
+n/gtk-vnc-0.5.4-x86_64-3_microlinux.txz: Rebuilt.
+n/iperf-2.0.5-x86_64-3_microlinux.txz: Rebuilt.
+n/netcat-openbsd-1.105-x86_64-3_microlinux.txz: Rebuilt.
+n/spice-0.12.8-x86_64-1_microlinux.txz: Upgraded.
+n/spice-gtk-0.28-x86_64-3_microlinux.txz: Rebuilt.
+n/tunctl-1.5-x86_64-3_microlinux.txz: Rebuilt.
+l/freetype-2.6-x86_64-1_microlinux.txz: Added.
+x/fontconfig-2.11.1-x86_64-1_microlinux.txz: Added.
+l/cairo-1.14.2-x86_64-1_microlinux.txz: Added.
+x/fontforge-20141126-x86_64-1_microlinux.txz: Added.
+x/apple-fonts-1.0-noarch-3_microlinux.txz: Rebuilt.
+x/cantarell-fonts-0.0.25-x86_64-1_microlinux.txz: Upgraded.
+x/eurostile-fonts-1.0-noarch-3_microlinux.txz: Rebuilt.
+x/google-droid-fonts-20100409-noarch-3_microlinux.txz: Rebuilt.
+x/webcore-fonts-3.0-noarch-3_microlinux.txz: Rebuilt.
+ap/qemu-2.4.1-x86_64-3_microlinux.txz: Added.
+ap/libvirt-1.2.21-x86_64-4_microlinux.txz: Rebuilt.
+l/libvirt-glib-0.2.3-x86_64-3_microlinux.txz: Rebuilt.
+l/libvirt-python-1.2.21-x86_64-3_microlinux.txz: Rebuilt.
+xap/virt-manager-1.2.1-x86_64-3_microlinux.txz: Added.
+gnome/aisleriot-3.6.2-x86_64-4_microlinux.txz: Added.
+gnome/brasero-3.12.1-x86_64-3_microlinux.txz: Rebuilt.
+gnome/evince-3.12.2-x86_64-3_microlinux.txz: Rebuilt.
+gnome/file-roller-2.32.2-x86_64-3_microlinux.txz: Rebuilt.
+gnome/gedit-2.30.4-x86_64-3_microlinux.txz: Rebuilt.
+gnome/gedit-plugins-2.32.0-x86_64-3_microlinux.txz: Rebuilt.
+gnome/gnote-0.8.4-x86_64-4_microlinux.txz: Rebuilt.
+gnome/gthumb-3.2.9.1-x86_64-4_microlinux.txz: Rebuilt.
+gnome/simple-scan-2.32.0.2-x86_64-3_microlinux.txz: Added.
+xap/anki-2.0.36-noarch-1_microlinux.txz: Added.
+xap/asunder-2.8-x86_64-3_microlinux.txz: Rebuilt.
+xap/audacious-3.6.2-x86_64-3_microlinux.txz: Rebuilt.
+xap/audacious-plugins-3.6.2-x86_64-3_microlinux.txz: Rebuilt.
+xap/audacity-2.1.0-x86_64-3_microlinux.txz: Rebuilt.
+xap/calibre-1.48.0-x86_64-3_microlinux.txz: Rebuilt.
+xap/CherryTree-0.37.6-x86_64-1_microlinux.txz: Added.
+xap/conky-1.9.0-x86_64-4_microlinux.txz: Rebuilt.
+xap/flowblade-1.8-x86_64-2_microlinux.txz: Rebuilt.
+xap/galculator-2.1.4-x86_64-1_microlinux.txz: Upgraded.
+xap/gtkam-0.2.0-x86_64-4_microlinux.txz: Rebuilt.
+xap/gtkcdlabel-1.15-noarch-3_microlinux.txz: Added.
+xap/HandBrake-0.9.9-x86_64-2_microlinux.txz: Added.
+xap/homebank-5.0.3-x86_64-3_microlinux.txz: Added.
+xap/inkscape-0.91-x86_64-3_microlinux.txz: Rebuilt.
+xap/librecad-2.0.11-x86_64-1_microlinux.txz: Added.
+xap/libreoffice-5.2.3-x86_64-1_microlinux.txz: Upgraded.
+xap/MPlayer-20160125-x86_64-3_microlinux.txz: Rebuilt.
+xap/owncloud-client-2.2.4-x86_64-2_microlinux.txz: Added.
+xap/recoll-1.22.3-x86_64-1_microlinux.txz: Upgraded.
+xap/remmina-1.2.0_rcgit.1-x86_64-3_microlinux.txz: Added.
+xap/scribus-1.4.6-x86_64-1_microlinux.txz: Upgraded.
+xap/transmission-2.84-x86_64-3_microlinux.txz: Rebuilt.
+xap/vlc-2.1.6-x86_64-2_microlinux.txz: Rebuilt.
+xfce/libxfce4util-4.12.1-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfconf-4.12.1-x86_64-1_microlinux.txz: Upgraded.
+xfce/libxfce4ui-4.12.1-x86_64-3_microlinux.txz: Rebuilt.
+xfce/exo-0.10.7-x86_64-3_microlinux.txz: Rebuilt.
+xfce/garcon-0.4.0-x86_64-3_microlinux.txz: Rebuilt.: Rebuilt.
+xfce/tumbler-0.1.31-x86_64-4_microlinux.txz: Rebuilt.
+xfce/Thunar-1.6.10-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-panel-4.12.1-x86_64-1_microlinux.txz: Upgraded.
+xfce/xfce4-settings-4.12.1-x86_64-1_microlinux.txz: Upgraded.
+xfce/xfce4-session-4.12.1-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfdesktop-4.12.3-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfwm4-4.12.3-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-appfinder-4.12.0-x86_64-3_microlinux.txz: Rebuilt.
+xfce/gtk-xfce-engine-3.2.0-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-terminal-0.6.3-x86_64-3_microlinux.txz: Rebuilt.
+xfce/elementary-xfce-0.7-noarch-3_microlinux.txz: Rebuilt.
+xfce/aero-1.0-noarch-3_microlinux.txz: Rebuilt.
+xfce/luna-wallpapers-0.2-noarch-5_microlinux.txz: Rebuilt.
+xfce/microlinux-wallpapers-1.0-noarch-4_microlinux.txz: Rebuilt.
+xfce/clearlooks-phenix-theme-4.0-noarch-3_microlinux.txz: Rebuilt.
+xfce/orage-4.12.1-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-mixer-4.10.0-x86_64-3_microlinux.txz: Rebuilt.
+xfce/thunar-volman-0.8.1-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-power-manager-1.4.4-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-notifyd-0.2.4-x86_64-4_microlinux.txz: Rebuilt.
+xfce/xfce4-volumed-0.1.13-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-clipman-plugin-1.2.6-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-screenshooter-1.8.2-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-taskmanager-1.1.0-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-weather-plugin-0.8.8-x86_64-1_microlinux.txz: Upgraded.
+xfce/xfce4-whiskermenu-plugin-1.5.3-x86_64-1_microlinux.txz: Upgraded.
+xfce/xfce4-systemload-plugin-1.1.2-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-xkb-plugin-0.7.1-x86_64-3_microlinux.txz: Rebuilt.
+xfce/thunar-archive-plugin-0.3.1-x86_64-3_microlinux.txz: Rebuilt.
+xfce/ffmpegthumbnailer-2.0.10-x86_64-3_microlinux.txz: Rebuilt.
+xfce/plank-0.10.1-x86_64-3_microlinux.txz: Rebuilt.
+xfce/xfce4-notes-plugin-1.8.1-x86_64-2_microlinux.txz: Rebuilt.
+profile/user-settings-xfce-14.1-noarch-3_microlinux.txz: Rebuilt.
+x/lxdm-0.5.3-x86_64-5_microlinux.txz: Rebuilt.
+locale/mozilla-firefox-langpack-45.5.1-x86_64-1_microlinux.txz: Upgraded.
+locale/mozilla-thunderbird-langpack-45.5.1-x86_64-1_microlinux.txz: Upgraded.
+locale/libreoffice-langpack-fr-5.2.3-x86_64-1_microlinux.txz: Upgraded.
+locale/libreoffice-langpack-de-5.2.3-x86_64-1_microlinux.txz: Upgraded.
+f/libreoffice-helppack-fr-5.2.3-x86_64-1_microlinux.txz: Upgraded.
+f/libreoffice-helppack-de-5.2.3-x86_64-1_microlinux.txz: Upgraded.
+multimedia/mplayer-codecs64-20061022-x86_64-1_microlinux.txz: Rebuilt.
+l/cryptopp-5.6.2-x86_64-2_microlinux.txz: Removed.
+l/gnome-common-3.14.0-noarch-2_microlinux.txz: Removed.
+l/gnome-python2-gconf-2.28.1-x86_64-2_microlinux.txz: Removed.
+l/goocanvas-0.15-x86_64-2_microlinux.txz: Removed.
+d/pygoocanvas-0.14.1-x86_64-2_microlinux.txz: Removed.
+d/pyxdg-0.25-x86_64-2_microlinux.txz: Removed.
+multimedia/id3lib-3.8.3-x86_64-2_microlinux.txz: Removed.
+multimedia/gst-ffmpeg-0.10.13-x86_64-2_microlinux.txz: Removed.
+multimedia/gst-plugins-bad-0.10.23-x86_64-2_microlinux.txz: Removed.
+multimedia/gst-plugins-ugly-0.10.19-x86_64-2_microlinux.txz: Removed.
+xap/smplayer-15.9.0-x86_64-2_microlinux.txz: Removed.
+multimedia/mjpegtools-2.1.0-x86_64-1_microlinux.txz: Removed.
+l/libgexiv2-0.7.0-x86_64-1_microlinux.txz: Removed.
+l/rest-0.7.91-x86_64-1_microlinux.txz: Removed.
+l/geoclue-0.12.99-x86_64-1_microlinux.txz: Removed.
+l/hyphen-2.8.8-x86_64-1_microlinux.txz: Removed.
+l/webkitgtk3-2.4.11-x86_64-1_microlinux.txz: Removed.
+l/LibRaw-0.17.0-x86_64-1_microlinux.txz: Removed.
+xap/shotwell-0.20.2-x86_64-1_microlinux.txz: Removed.
+	Brace yourselves, winter is coming. Here's a long-needed overhaul for MLED.
+	14.1. No dramatic changes, but a myriad of incremental improvements, mostly
+	under the hood. 
+	All the build scripts have been cleaned up and checked, as well as the
+	automatic build environment. Package groups are now built in a coherent
+	order. Cleaning this up sometimes felt like trying to solve a Tangram puzzle
+	with a few hundred pieces. The result is a clean and easily maintainable
+	system, where everything just works. All the packages have been rebuilt, and
+	more than forty have been upgraded, with a special focus on a complete and
+	coherent multimedia stack. 
+	This update introduces the [gnome] package group for all the GNOME-specific
+	libraries and applications. 
+	A few words on packages that were removed. The Shotwell photo manager has
+	been a huge disappointment, what with its highly idiosyncratic and
+	counter-intuitive behavior. SMPlayer has also been removed, since VLC now
+	works perfectly, and there's still the beefed-up no-GUI version of MPlayer
+	under the hood. 
+	Some applications from the [extras] repository have been merged into the main
+	section. 
+	We're now officially using the Infinality patchset with its nice font
+	rendering. 
+	Don't worry if a handful of LibreOffice icons have disappeared from the dock
+	after the update. You can add them again with a simple drag-and-drop.
+	Here's how you can perform this massive update:
+	
+		# init 3
+		# slackpkg update
+		# slackpkg upgrade-all
+		# slackpkg install microlinux-desktop
+		# slackpkg clean-system   --> uncomment those packages you want to keep
+		# init 4
+
+	You might want to refresh your custom menu entries after the update.
++--------------------------+
 Sat Nov  5 20:37:14 CET 2016
 l/libgexiv2-0.7.0-x86_64-1_microlinux.txz: Added.
 l/rest-0.7.91-x86_64-1_microlinux.txz: Added.
