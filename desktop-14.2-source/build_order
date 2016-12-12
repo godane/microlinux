@@ -19,6 +19,7 @@ ap/untex
 
 # Development
 d/acpica
+d/jdk
 
 # GNOME libraries
 gnome/gtk-engines
