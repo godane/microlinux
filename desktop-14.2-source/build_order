@@ -29,6 +29,7 @@ gnome/libgee
 
 # General libraries
 l/bamf
+l/html5lib
 l/libdbusmenu
 
 # Perl
@@ -42,6 +43,7 @@ n/iperf
 
 # Infinality
 l/freetype
+#x/fontconfig
 
 # Fonts
 
