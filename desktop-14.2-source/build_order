@@ -64,6 +64,7 @@ xfce/plank
 profile/user-settings-xfce
 
 # Login manager
+x/lxdm
 
 # Translations
 
