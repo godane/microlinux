@@ -41,6 +41,7 @@ l/OpenBLAS
 # Python
 d/BeautifulSoup4
 d/lxml
+d/numpy
 
 # Multimedia
 multimedia/celt
