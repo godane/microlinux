@@ -4,7 +4,7 @@ set -e
 
 TXZ=$(head -2 ChangeLog.txt|cut -f1 -d:|cut -f2 -d/|tail -1)
 VERSION=$(echo $TXZ|cut -f2 -d-)
-BUILD=${BUILD:-1_microlinux}
+BUILD=${BUILD:-2_microlinux}
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}

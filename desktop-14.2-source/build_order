@@ -5,5 +5,5 @@ profile/user-settings-console
 
 # Package management
 ap/sbopkg 
-# ap/slackpkg+
+ap/slackpkg+
 
