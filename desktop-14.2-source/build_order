@@ -40,6 +40,7 @@ d/lxml
 
 # Multimedia
 multimedia/libass
+multimedia/libbluray
 
 # Networking
 n/iperf
