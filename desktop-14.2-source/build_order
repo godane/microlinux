@@ -46,6 +46,7 @@ n/iperf
 # Infinality
 l/freetype
 x/fontconfig
+l/cairo
 
 # Fonts
 
