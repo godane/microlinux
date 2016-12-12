@@ -51,6 +51,7 @@ l/cairo
 # Fonts
 x/fontforge
 x/apple-fonts
+x/cantarell-fonts
 
 # KVM
 
