@@ -45,7 +45,7 @@ n/iperf
 
 # Infinality
 l/freetype
-#x/fontconfig
+x/fontconfig
 
 # Fonts
 
