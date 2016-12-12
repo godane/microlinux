@@ -49,6 +49,7 @@ x/fontconfig
 l/cairo
 
 # Fonts
+x/fontforge
 
 # KVM
 
