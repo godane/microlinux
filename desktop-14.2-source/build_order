@@ -28,6 +28,7 @@ gnome/vala
 gnome/libgee
 
 # General libraries
+l/bamf
 l/libdbusmenu
 
 # Perl
