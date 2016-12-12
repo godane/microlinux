@@ -38,10 +38,10 @@
 PRGNAM=libmp4v2
 SRCNAM=mp4v2
 VERSION=2.0.0
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -72,7 +72,7 @@ fi
 
 set -e
 
-DOWNLOAD="http://mp4v2.googlecode.com/files/$SRCNAM-$VERSION.tar.bz2"
+DOWNLOAD="http://pkgs.fedoraproject.org/repo/pkgs/$PRGNAM/$SRCNAM-$VERSION.tar.bz2/c91f06711225b34b4c192c9114887b14/$SRCNAM-$VERSION.tar.bz2"
 
 wget -c $DOWNLOAD
 

@@ -43,6 +43,7 @@ multimedia/celt
 multimedia/libass
 multimedia/libbluray
 multimedia/libdc1394
+multimedia/libmp4v2
 
 # Networking
 n/iperf
