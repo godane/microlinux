@@ -44,6 +44,7 @@ multimedia/libass
 multimedia/libbluray
 multimedia/libdc1394
 multimedia/libmp4v2
+multimedia/faac
 
 # Networking
 n/iperf
