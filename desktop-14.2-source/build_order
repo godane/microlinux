@@ -21,6 +21,7 @@ ap/untex
 
 # GNOME libraries
 gnome/gtk-engines
+gnome/json-glib
 
 # General libraries
 
