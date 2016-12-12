@@ -73,6 +73,7 @@ x/webcore-fonts
 # GNOME applications
 
 # General applications
+xap/inkscape
 xap/libreoffice
 
 # Xfce
