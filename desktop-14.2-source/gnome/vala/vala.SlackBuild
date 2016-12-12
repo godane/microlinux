@@ -25,11 +25,11 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=vala
-VERSION=${VERSION:-0.32.1}
+VERSION=${VERSION:-0.34.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -60,7 +60,7 @@ fi
 
 set -eu
 
-DOWNLOAD="http://ftp.gnome.org/pub/GNOME/sources/$PRGNAM/0.32/$PRGNAM-$VERSION.tar.xz"
+DOWNLOAD="http://ftp.gnome.org/pub/GNOME/sources/$PRGNAM/0.34/$PRGNAM-$VERSION.tar.xz"
 
 wget -c $DOWNLOAD
 
@@ -76,6 +76,9 @@ find -L . \
   -o -perm 511 \) -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+
+# Patch to support older GTK+3
+patch -p1 < $CWD/patch_support-gtk318.diff
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
