@@ -42,6 +42,7 @@ d/lxml
 multimedia/celt
 multimedia/libass
 multimedia/libbluray
+multimedia/libdc1394
 
 # Networking
 n/iperf
