@@ -22,6 +22,7 @@ ap/untex
 # GNOME libraries
 gnome/gtk-engines
 gnome/json-glib
+gnome/libgtop
 
 # General libraries
 l/libdbusmenu
