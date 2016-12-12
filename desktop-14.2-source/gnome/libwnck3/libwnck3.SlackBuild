@@ -25,11 +25,12 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=libwnck3
+SRCNAM="libwnck"
 VERSION=${VERSION:-3.20.1}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -59,8 +60,6 @@ else
 fi
 
 set -e
-
-SRCNAM="libwnck"
 
 DOWNLOAD="http://ftp.gnome.org/pub/gnome/sources/$SRCNAM/3.20/$SRCNAM-$VERSION.tar.xz"
 
