@@ -34,6 +34,7 @@ gnome/libgee
 l/bamf
 l/html5lib
 l/libdbusmenu
+l/OpenBLAS
 
 # Perl
 
