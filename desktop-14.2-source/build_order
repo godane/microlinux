@@ -39,6 +39,7 @@ d/BeautifulSoup4
 d/lxml
 
 # Multimedia
+multimedia/libass
 
 # Networking
 n/iperf
