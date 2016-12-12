@@ -36,6 +36,7 @@ l/libdbusmenu
 
 # Python
 d/BeautifulSoup4
+d/lxml
 
 # Multimedia
 
