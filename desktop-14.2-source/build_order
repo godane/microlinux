@@ -58,6 +58,7 @@ multimedia/libilbc
 multimedia/libmodplug
 multimedia/libmp4v2
 multimedia/libquvi-scripts
+multimedia/libquvi
 multimedia/OpenAL
 multimedia/opencore-amr
 # Rebuild manually to resolve circular dependency with ffmpeg
