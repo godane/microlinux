@@ -122,6 +122,7 @@ multimedia/libshout
 multimedia/musepack-tools
 multimedia/vsxu
 multimedia/mlt
+multimedia/gst-libav
 
 # Networking
 n/iperf
