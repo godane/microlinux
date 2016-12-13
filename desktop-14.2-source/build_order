@@ -59,6 +59,7 @@ multimedia/lame
 multimedia/libass
 multimedia/libavc1394
 multimedia/libbluray
+multimedia/libcuefile
 multimedia/libdc1394
 multimedia/libdca
 multimedia/libdvbpsi
