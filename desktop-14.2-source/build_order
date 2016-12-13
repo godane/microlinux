@@ -98,6 +98,7 @@ multimedia/frei0r
 multimedia/ffmpeg
 multimedia/chromaprint
 multimedia/libshout
+multimedia/musepack-tools
 
 # Networking
 n/iperf
