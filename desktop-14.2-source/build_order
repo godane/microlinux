@@ -34,6 +34,7 @@ gnome/libbonobo
 gnome/gnome-vfs
 gnome/libgee
 gnome/libgnome
+gnome/libgnomecanvas
 gnome/pyorbit
 
 # General libraries
