@@ -53,6 +53,7 @@ multimedia/libmp4v2
 # Rebuild manually to resolve circular dependency with ffmpeg
 multimedia/opencv
 multimedia/faac
+multimedia/frei0r
 
 # Networking
 n/iperf
