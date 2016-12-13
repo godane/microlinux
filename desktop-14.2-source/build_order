@@ -66,6 +66,7 @@ multimedia/amrwb
 multimedia/celt
 multimedia/dirac
 multimedia/faad2
+# multimedia/flashplayer-plugin --> fix URL
 multimedia/gsm
 multimedia/ladspa_sdk
 multimedia/lame
