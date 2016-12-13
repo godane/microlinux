@@ -33,6 +33,7 @@ gnome/libgee
 # General libraries
 l/bamf
 l/ftgl
+l/glfw
 l/html5lib
 l/libdbusmenu
 l/libebml
