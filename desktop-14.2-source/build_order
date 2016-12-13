@@ -46,6 +46,7 @@ d/numpy
 
 # Multimedia
 multimedia/celt
+multimedia/faad2
 multimedia/gsm
 multimedia/ladspa_sdk
 multimedia/lame
