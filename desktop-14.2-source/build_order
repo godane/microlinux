@@ -103,6 +103,7 @@ multimedia/libquicktime
 multimedia/libshout
 multimedia/musepack-tools
 multimedia/vsxu
+multimedia/mlt
 
 # Networking
 n/iperf
