@@ -33,6 +33,7 @@ gnome/vala
 gnome/libbonobo
 gnome/gnome-vfs
 gnome/libgee
+gnome/libgnome
 
 # General libraries
 l/bamf
