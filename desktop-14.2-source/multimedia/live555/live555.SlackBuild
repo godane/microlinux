@@ -25,12 +25,12 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=live555
-VERSION=${VERSION:-2016.09.22}
+VERSION=${VERSION:-2016.11.28}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 SRCNAM=live
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -73,8 +73,12 @@ for f in $(find . -type f |xargs grep -l "PREFIX =") ; do echo $f; sed -i -e "/P
 for f in $(find . -type f |xargs grep -l "LIBDIR =") ; do echo $f; sed -i -e "/LIBDIR =/c\LIBDIR = \$(PREFIX)\/lib$LIBDIRSUFFIX" $f ; done
 
 ./genMakefiles linux-with-shared-libraries
-make $NUMJOBS
-make install DESTDIR=$PKG
+make
+make install DESTDIR=$PKG || {
+    # Intermittent race condition 
+    sleep 1
+    make install DESTDIR=$PKG
+}
 
 mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig
 sed -e "s/%VERSION%/$VERSION/" -e "s/%LIBDIRSUFFIX%/$LIBDIRSUFFIX/" -e "s/%PREFIX%/\/usr/" $CWD/live555.pc.in >$PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig/live555.pc
