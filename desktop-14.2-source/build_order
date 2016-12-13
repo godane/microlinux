@@ -23,6 +23,7 @@ d/jdk
 d/lua
 
 # GNOME libraries
+gnome/gnome-mime-data
 gnome/gtk-engines
 gnome/json-glib
 gnome/libgtop
