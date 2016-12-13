@@ -76,6 +76,7 @@ multimedia/xvidcore
 multimedia/zvbi
 multimedia/faac
 multimedia/frei0r
+multimedia/ffmpeg
 
 # Networking
 n/iperf
