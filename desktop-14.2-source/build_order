@@ -125,6 +125,7 @@ x/webcore-fonts
 # General applications
 xap/inkscape
 xap/libreoffice
+xap/vlc
 
 # Xfce
 xfce/elementary-xfce
