@@ -123,6 +123,7 @@ multimedia/musepack-tools
 multimedia/vsxu
 multimedia/mlt
 multimedia/gst-libav
+multimedia/gst-plugins-bad
 
 # Networking
 n/iperf
