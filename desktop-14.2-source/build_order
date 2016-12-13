@@ -47,6 +47,7 @@ d/numpy
 multimedia/celt
 multimedia/gsm
 multimedia/ladspa_sdk
+multimedia/lame
 multimedia/libass
 multimedia/libavc1394
 multimedia/libbluray
