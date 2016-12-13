@@ -36,6 +36,7 @@ gnome/libgee
 gnome/libgnome
 gnome/libgnomecanvas
 gnome/libbonoboui
+gnome/libgnomeui
 gnome/pyorbit
 
 # General libraries
