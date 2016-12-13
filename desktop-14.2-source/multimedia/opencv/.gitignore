@@ -1,2 +1,3 @@
-*.tar.gz
-*.zip
+opencv-*.tar.gz
+opencv_contrib-*.zip
+plantuml*.jar

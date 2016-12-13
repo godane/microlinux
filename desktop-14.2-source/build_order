@@ -50,6 +50,8 @@ multimedia/libbluray
 multimedia/libdc1394
 multimedia/libfdk-aac
 multimedia/libmp4v2
+# Rebuild manually to resolve circular dependency with ffmpeg
+multimedia/opencv
 multimedia/faac
 
 # Networking
