@@ -74,6 +74,7 @@ multimedia/libass
 multimedia/libavc1394
 multimedia/libbluray
 multimedia/libcdaudio
+multimedia/libcue
 multimedia/libcuefile
 multimedia/libdc1394
 multimedia/libdca
