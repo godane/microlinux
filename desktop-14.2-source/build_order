@@ -30,6 +30,7 @@ gnome/libgtop
 gnome/libwnck3
 gnome/ORBit2
 gnome/vala
+gnome/libbonobo
 gnome/libgee
 
 # General libraries
