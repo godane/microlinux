@@ -36,6 +36,7 @@ l/html5lib
 l/libdbusmenu
 l/libebml
 l/libminizip
+l/libtar
 l/libwebp
 l/OpenBLAS
 
@@ -88,6 +89,7 @@ multimedia/faac
 multimedia/frei0r
 multimedia/ffmpeg
 multimedia/chromaprint
+multimedia/libshout
 
 # Networking
 n/iperf
