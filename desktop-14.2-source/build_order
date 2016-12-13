@@ -79,6 +79,7 @@ multimedia/zvbi
 multimedia/faac
 multimedia/frei0r
 multimedia/ffmpeg
+multimedia/chromaprint
 
 # Networking
 n/iperf
