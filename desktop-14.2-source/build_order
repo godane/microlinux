@@ -124,6 +124,7 @@ multimedia/vsxu
 multimedia/mlt
 multimedia/gst-libav
 multimedia/gst-plugins-bad
+multimedia/gst-plugins-ugly
 
 # Networking
 n/iperf
