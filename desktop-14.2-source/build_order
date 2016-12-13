@@ -64,6 +64,7 @@ multimedia/opencore-amr
 # Rebuild manually to resolve circular dependency with ffmpeg
 multimedia/opencv
 multimedia/opus
+multimedia/rtmpdump
 multimedia/faac
 multimedia/frei0r
 
