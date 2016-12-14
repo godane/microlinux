@@ -45,6 +45,7 @@ l/bamf
 l/ftgl
 l/glfw
 l/html5lib
+l/imlib2
 l/libburn
 l/libdbusmenu
 l/libebml
