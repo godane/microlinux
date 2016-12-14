@@ -25,11 +25,11 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=podofo
-VERSION=${VERSION:-0.9.3}
+VERSION=${VERSION:-0.9.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/microlinux}
@@ -79,8 +79,8 @@ find -L . \
 
 # Fix mandir directory.
 sed -i 's|share/man|man|' CMakeLists.txt
-# Remove innocuous build warning for zlib.
-rm -f cmake/modules/FindZLIB.cmake
+# Don't compile unit tests on x86 with cppunit.
+sed -i 's|PODOFO_HAVE_CPPUNIT.*|PODOFO_HAVE_CPPUNIT OFF)|' CMakeLists.txt
 
 mkdir build
 cd build
