@@ -1,16 +1,10 @@
-# MLED 14.1 Extras
-
-# Development
-d/fpc
-d/fpc-source
-d/lazarus
-
-# Fonts
-x/scholae-fonts
-
-# Applications
-xap/geogebra
-xap/pdfchain
-xap/povray
-xap/xpe
+# MLED 14.1 Extras - no particular build order
+fpc
+fpc-source
+lazarus
+scholae-fonts
+geogebra
+pdfchain
+povray
+xpe
 
