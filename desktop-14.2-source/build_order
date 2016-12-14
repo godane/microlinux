@@ -155,6 +155,7 @@ x/webcore-fonts
 # GNOME applications
 gnome/brasero
 gnome/evince
+gnome/file-roller
 
 # General applications
 xap/asunder
