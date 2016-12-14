@@ -26,11 +26,11 @@
 
 PRGNAM=libaudclient
 VERSION=${VERSION:-3.5_rc2}
-BUILD=${BUILD:-1}
-TAG=${TAG:-_microlinux}
 SRCVER=$(echo $VERSION | tr _ - )
+BUILD=${BUILD:-2}
+TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in

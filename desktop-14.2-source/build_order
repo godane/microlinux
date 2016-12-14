@@ -46,6 +46,7 @@ l/ftgl
 l/glfw
 l/html5lib
 l/imlib2
+l/libaudclient
 l/libburn
 l/libdbusmenu
 l/libebml
