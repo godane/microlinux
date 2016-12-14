@@ -188,6 +188,8 @@ xfce/plank
 xfce/ffmpegthumbnailer
 xfce/tumbler
 xfce/thunar-archive-plugin
+xfce/xfce4-xkb-plugin
+xfce/arc-theme
 
 # User profile (Xfce)
 profile/user-settings-xfce
