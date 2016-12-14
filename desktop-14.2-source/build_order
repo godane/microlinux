@@ -147,6 +147,7 @@ x/webcore-fonts
 # GNOME applications
 
 # General applications
+xap/asunder
 xap/flowblade
 xap/inkscape
 xap/libreoffice
