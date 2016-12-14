@@ -187,6 +187,7 @@ xfce/xfce4-whiskermenu-plugin
 xfce/plank
 xfce/ffmpegthumbnailer
 xfce/tumbler
+xfce/thunar-archive-plugin
 
 # User profile (Xfce)
 profile/user-settings-xfce
