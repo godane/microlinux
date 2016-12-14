@@ -39,6 +39,7 @@ gnome/libgnomecanvas
 gnome/libbonoboui
 gnome/libgnomeui
 gnome/pyorbit
+gnome/pygtksourceview
 gnome/gnome-python
 
 # General libraries
