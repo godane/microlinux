@@ -56,7 +56,9 @@ l/libupnp
 l/libwebp
 l/OpenBLAS
 l/podofo
+l/tolua++
 l/wxPython
+
 
 # Perl
 
