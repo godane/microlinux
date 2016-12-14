@@ -148,6 +148,7 @@ x/webcore-fonts
 
 # General applications
 xap/asunder
+xap/audacious-plugins
 xap/flowblade
 xap/inkscape
 xap/libreoffice
