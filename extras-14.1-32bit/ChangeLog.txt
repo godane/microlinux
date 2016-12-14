@@ -1,3 +1,14 @@
+Wed Dec 14 17:03:58 CET 2016
+	We're dropping package categories (ap/, d/, x/, xap/) in the extras/
+	repository. This seems to make more sense, the more so since this is also how
+	upstream Slackware works. More generally, the extras/ repository will host
+	all those packages that are not part of a "classic" one-app-per-task MLED
+	desktop, e. g. alternative applications or simply specific packages required
+	by Microlinux clients. Expect some stuff from the main trunk to migrate back
+	to this repository. Note that if a package requires one or more dependencies,
+	these will all be added to the main repository to spare you the hassle of
+	hunting them down one by one. 
++--------------------------+
 Fri Dec  9 17:06:34 CET 2016
 d/fpc-2.6.4-i386-3_microlinux.txz: Rebuilt.
 d/fpc-source-2.6.4-noarch-3_microlinux.txz: Rebuilt.
