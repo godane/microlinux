@@ -25,6 +25,7 @@ d/lua
 # GNOME libraries
 gnome/gnome-mime-data
 gnome/gtk-engines
+gnome/gtksourceview
 gnome/json-glib
 gnome/libgtop
 gnome/libwnck3
