@@ -73,6 +73,7 @@ d/BeautifulSoup4
 d/apsw
 d/cddb-py
 d/cssselect
+d/cssutils
 d/lxml
 d/numpy
 
