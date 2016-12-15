@@ -52,6 +52,7 @@ l/glfw
 l/html5lib
 l/imlib2
 l/libaudclient
+l/libbsd
 l/libburn
 l/libdbusmenu
 l/libebml
