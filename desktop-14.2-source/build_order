@@ -21,6 +21,7 @@ ap/untex
 d/acpica
 d/jdk
 d/lua
+d/spice-protocol
 
 # GNOME libraries
 gnome/gnome-mime-data
