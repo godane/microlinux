@@ -81,6 +81,7 @@ d/netifaces
 d/numpy
 d/psutil
 d/six
+d/SQLAlchemy
 d/python-dateutil
 
 # Multimedia

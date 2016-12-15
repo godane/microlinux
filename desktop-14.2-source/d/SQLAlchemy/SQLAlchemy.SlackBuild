@@ -26,7 +26,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=SQLAlchemy
-VERSION=${VERSION:-1.0.14}
+VERSION=${VERSION:-1.1.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -60,7 +60,7 @@ fi
 set -e
 
 # WTF ?!?
-DOWNLOAD="https://pypi.python.org/packages/aa/cb/e3990b9da48facbe48b80a281a51fb925ff84aaaca44d368d658b0160fcf/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="https://pypi.python.org/packages/ca/ca/c2436fdb7bb75d772d9fa17ba60c4cfded6284eed053a7274b2beb96596a/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
@@ -78,6 +78,11 @@ find -L . \
  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 python setup.py install --root=$PKG
+
+# Python 3 support.
+if $(python3 -c 'import sys' 2>/dev/null); then
+  python3 setup.py install --root=$PKG
+fi
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
