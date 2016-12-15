@@ -191,6 +191,7 @@ x/webcore-fonts
 ap/qemu
 ap/libvirt
 l/libvirt-glib
+l/libvirt-python
 
 # GNOME applications
 gnome/brasero
