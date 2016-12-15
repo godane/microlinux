@@ -190,6 +190,7 @@ x/webcore-fonts
 # KVM
 ap/qemu
 ap/libvirt
+l/libvirt-glib
 
 # GNOME applications
 gnome/brasero
