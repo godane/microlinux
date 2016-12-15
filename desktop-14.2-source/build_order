@@ -77,6 +77,7 @@ d/cssutils
 d/dnspython
 d/lxml
 d/mechanize
+d/netifaces
 d/numpy
 
 # Multimedia
