@@ -25,7 +25,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=simplejson
-VERSION=${VERSION:-3.8.1}
+VERSION=${VERSION:-3.10.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -44,7 +44,8 @@ OUTPUT=${OUTPUT:-/tmp}
 
 set -e
 
-DOWNLOAD="http://pypi.python.org/packages/source/s/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
+# WTF?!
+DOWNLOAD="https://pypi.python.org/packages/40/ad/52c1f3a562df3b210e8f165e1aa243a178c454ead65476a39fa3ce1847b6/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
@@ -68,7 +69,7 @@ fi
 
 python setup.py install --root=$PKG
 
-if $(python3 -c 'import os' 2>/dev/null); then
+if [ "${PYTHON3:-no}" == "yes" ]; then
   python3 setup.py install --root=$PKG
 fi
 
