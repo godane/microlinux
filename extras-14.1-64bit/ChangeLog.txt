@@ -1,13 +1,24 @@
-Wed Dec 14 17:20:20 CET 2016
+Thu Dec 15 08:44:34 CET 2016
+aisleriot-3.6.2-x86_64-4_microlinux.txz: Added.
+gnote-0.8.4-x86_64-4_microlinux.txz: Added.
+simple-scan-2.32.0.2-x86_64-3_microlinux.txz: Added.
+anki-2.0.36-noarch-1_microlinux.txz: Added.
+calibre-1.48.0-x86_64-3_microlinux.txz: Added.
+gtkcdlabel-1.15-noarch-3_microlinux.txz: Added.
+HandBrake-0.9.9-x86_64-2_microlinux.txz: Added.
+homebank-5.0.3-x86_64-3_microlinux.txz: Added.
+librecad-2.0.11-x86_64-1_microlinux.txz: Added.
+owncloud-client-2.2.4-x86_64-2_microlinux.txz: Added.
+remmina-1.2.0_rcgit.1-x86_64-3_microlinux.txz: Added.
+virt-manager-1.2.1-x86_64-3_microlinux.txz: Added.
 	We're dropping package categories (ap/, d/, x/, xap/) in the extras/
 	repository. This seems to make more sense, the more so since this is also how
-	upstream Slackware works. More generally, the extras/ repository will host
-	all those packages that are not part of a "classic" one-app-per-task MLED
-	desktop, e. g. alternative applications or simply specific packages required
-	by Microlinux clients. Expect some stuff from the main trunk to migrate back
-	to this repository. Note that if a package requires one or more dependencies,
-	these will all be added to the main repository to spare you the hassle of
-	hunting them down one by one. 
+	upstream Slackware works. More generally, the extras/ repository is supposed
+	to provide all those packages that are not part of a "classic"
+	one-app-per-task MLED desktop, e. g. alternative or less used applications or
+	simply specific packages requested by Microlinux clients. Note that if a
+	package requires one or more dependencies, these will all be added to the
+	main repository to spare you the hassle of hunting them down one by one. 
 +--------------------------+
 Sat Dec 10 08:10:34 CET 2016
 d/fpc-2.6.4-x86_64-3_microlinux.txz: Rebuilt.

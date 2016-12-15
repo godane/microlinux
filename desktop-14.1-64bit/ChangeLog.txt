@@ -1,3 +1,21 @@
+Thu Dec 15 08:40:52 CET 2016
+gnome/aisleriot-3.6.2-x86_64-4_microlinux.txz: Removed.
+gnome/gnote-0.8.4-x86_64-4_microlinux.txz: Removed.
+gnome/simple-scan-2.32.0.2-x86_64-3_microlinux.txz: Removed.
+xap/anki-2.0.36-noarch-1_microlinux.txz: Removed.
+xap/calibre-1.48.0-x86_64-3_microlinux.txz: Removed.
+xap/gtkcdlabel-1.15-noarch-3_microlinux.txz: Removed.
+xap/HandBrake-0.9.9-x86_64-2_microlinux.txz: Removed.
+xap/homebank-5.0.3-x86_64-3_microlinux.txz: Removed.
+xap/librecad-2.0.11-x86_64-1_microlinux.txz: Removed.
+xap/owncloud-client-2.2.4-x86_64-2_microlinux.txz: Removed.
+xap/remmina-1.2.0_rcgit.1-x86_64-3_microlinux.txz: Removed.
+xap/virt-manager-1.2.1-x86_64-3_microlinux.txz: Removed.
+	Moved to the extras/ repository, supposed to provide all those packages that
+	are not part of a "classic" one-app-per-task MLED desktop, e. g. alternative
+	or less used applications or simply specific packages requested by Microlinux
+	clients.
++--------------------------+
 Sat Dec 10 08:01:31 CET 2016
 profile/user-settings-console-14.1-noarch-4_microlinux.txz: Rebuilt.
 ap/sbopkg-0.37.0-noarch-3_microlinux.txz: Rebuilt.
