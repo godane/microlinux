@@ -167,6 +167,7 @@ multimedia/gst-plugins-bad
 multimedia/gst-plugins-ugly
 
 # Networking
+n/gtk-vnc
 n/iperf
 n/netcat-openbsd
 n/spice
