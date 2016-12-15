@@ -20,5 +20,3 @@ if [ -x /usr/bin/update-mime-database ]; then
 fi
 
 config etc/php.d/mlt.ini.new
-config etc/php.d/mlt.ini.new
-config etc/php.d/mlt.ini.new
