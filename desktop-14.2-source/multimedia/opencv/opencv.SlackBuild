@@ -76,7 +76,7 @@ DOWNLOAD="https://github.com/Itseez/$PRGNAM/archive/$VERSION/$PRGNAM-$VERSION.ta
         https://github.com/Itseez/$PRGNAM2/archive/3.1.0/$PRGNAM2-$VERSION.zip \
         http://sourceforge.net/projects/plantuml/files/plantuml.8051.jar"
 
-wget -c $DOWNLOAD
+#wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
