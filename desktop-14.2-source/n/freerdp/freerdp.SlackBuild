@@ -29,10 +29,10 @@
 
 PRGNAM=freerdp
 VERSION=${VERSION:-20160509}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 DIRNAME=FreeRDP-master
 
