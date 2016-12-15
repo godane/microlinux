@@ -76,6 +76,7 @@ d/cssselect
 d/cssutils
 d/dnspython
 d/lxml
+d/mechanize
 d/numpy
 
 # Multimedia
