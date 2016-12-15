@@ -1,7 +1,7 @@
 # MLED 14.2 Extras - no particular build order
 fpc
 fpc-source
-#lazarus
+lazarus
 #scholae-fonts
 #geogebra
 #pdfchain
