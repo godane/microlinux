@@ -96,6 +96,7 @@ d/matplotlib
 multimedia/amrnb
 multimedia/amrwb
 multimedia/celt
+multimedia/celt051
 multimedia/dirac
 multimedia/faad2
 # multimedia/flashplayer-plugin --> fix URL
