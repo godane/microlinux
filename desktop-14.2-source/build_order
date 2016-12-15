@@ -169,6 +169,7 @@ multimedia/gst-plugins-ugly
 n/iperf
 n/netcat-openbsd
 n/spice
+n/tunctl
 
 # Infinality
 l/freetype
