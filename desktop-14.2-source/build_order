@@ -74,6 +74,7 @@ d/apsw
 d/cddb-py
 d/cssselect
 d/cssutils
+d/dnspython
 d/lxml
 d/numpy
 
