@@ -71,6 +71,7 @@ l/wxPython
 # Python
 d/BeautifulSoup4
 d/apsw
+d/backports-ssl-match-hostname
 d/cddb-py
 d/cssselect
 d/cssutils
