@@ -133,6 +133,7 @@ multimedia/opencv
 multimedia/opus
 multimedia/projectM
 multimedia/portaudio
+multimedia/PyAudio
 multimedia/rtmpdump
 multimedia/schroedinger
 multimedia/soundtouch
