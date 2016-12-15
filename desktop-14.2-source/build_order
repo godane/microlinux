@@ -176,6 +176,7 @@ x/google-droid-fonts
 x/webcore-fonts
 
 # KVM
+ap/qemu
 
 # GNOME applications
 gnome/brasero
