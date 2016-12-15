@@ -81,6 +81,7 @@ d/mechanize
 d/netifaces
 d/numpy
 d/psutil
+d/pyparsing
 d/pytz
 d/simplejson
 d/six
