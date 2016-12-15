@@ -1,0 +1,12 @@
+            |-----handy-ruler------------------------------------------------------|
+virt-manager: virt-manager (a gtk interface for libvirt)
+virt-manager:
+virt-manager: virt-manager is a gtk interface for libvirt.
+virt-manager: It supports Xen, qemu/kvm, virtualbox, and perhaps others.
+virt-manager:
+virt-manager:
+virt-manager:
+virt-manager:
+virt-manager:
+virt-manager:
+virt-manager: Package created by Niki Kovacs <info@microlinux.fr>
