@@ -1,34 +1,22 @@
-# No particular build order for MLED 14.2 Extras
+# MLED 14.2 Extras - no particular build order
+#fpc
+#fpc-source
+#lazarus
+#scholae-fonts
+#geogebra
+#pdfchain
+#povray
+#xpe
+#anki
+#calibre
+#HandBrake
+#homebank
+#librecad
+#owncloud-client
+#remmina
+#virt-manager
+#aisleriot
+#gnote
+#simple-scan
+#gtkcdlabel
 
-# Qemu
-ap/qemu
-
-# Development
-d/fpc
-d/fpc-source
-d/lazarus
-
-# Applications
-xap/aMule
-xap/anki
-xap/blender
-xap/easytag
-xap/filezilla
-xap/gtkcdlabel
-xap/HandBrake
-xap/homebank
-xap/librecad
-xap/owncloud-client
-xap/remmina
-xap/simple-scan
-xap/virt-manager
-#xap/virtualbox
-#xap/virtualbox-kernel
-#xap/virtualbox-extension-pack
-xap/winff
-
-# Games
-y/aisleriot
-
-# Misc
-xap/CherryTree
