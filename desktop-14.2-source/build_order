@@ -33,6 +33,7 @@ gnome/libgtop
 gnome/libwnck3
 gnome/ORBit2
 gnome/vala
+gnome/vte3
 gnome/libbonobo
 gnome/gnome-vfs
 gnome/libgee
