@@ -84,6 +84,7 @@ d/psutil
 d/simplejson
 d/six
 d/SQLAlchemy
+d/tornado
 d/python-dateutil
 
 # Multimedia
