@@ -164,6 +164,7 @@ multimedia/gst-plugins-ugly
 
 # Networking
 n/iperf
+n/spice
 
 # Infinality
 l/freetype
