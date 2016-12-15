@@ -167,6 +167,7 @@ multimedia/gst-plugins-ugly
 
 # Networking
 n/iperf
+n/netcat-openbsd
 n/spice
 
 # Infinality
@@ -184,6 +185,7 @@ x/webcore-fonts
 
 # KVM
 ap/qemu
+ap/libvirt
 
 # GNOME applications
 gnome/brasero
