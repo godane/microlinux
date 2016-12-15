@@ -41,6 +41,7 @@ gnome/libgnomeui
 gnome/pyorbit
 gnome/pygtksourceview
 gnome/gnome-python
+gnome/libxml++
 
 # General libraries
 l/bamf
