@@ -88,6 +88,7 @@ d/six
 d/SQLAlchemy
 d/tornado
 d/python-dateutil
+d/matplotlib
 
 # Multimedia
 multimedia/amrnb
