@@ -82,6 +82,7 @@ d/cddb-py
 d/cssselect
 d/cssutils
 d/dnspython
+d/ipaddr-py
 d/lxml
 d/mechanize
 d/netifaces
