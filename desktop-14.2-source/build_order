@@ -81,6 +81,7 @@ d/mechanize
 d/netifaces
 d/numpy
 d/psutil
+d/pytz
 d/simplejson
 d/six
 d/SQLAlchemy
