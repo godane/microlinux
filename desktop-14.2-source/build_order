@@ -92,6 +92,7 @@ d/numpy
 d/psutil
 d/pyparsing
 d/python-requests
+d/python-urllib3
 d/pytz
 d/simplejson
 d/six
