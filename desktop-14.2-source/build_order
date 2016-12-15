@@ -72,6 +72,7 @@ l/wxPython
 d/BeautifulSoup4
 d/apsw
 d/cddb-py
+d/cssselect
 d/lxml
 d/numpy
 
