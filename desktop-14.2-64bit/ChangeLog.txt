@@ -1,3 +1,6 @@
+Sat Dec 17 17:06:43 CET 2016
+multimedia/flashplayer-plugin-24.0.0.186-x86_64-1_microlinux.txz: Added.
++--------------------------+
 Sat Dec 17 10:47:07 CET 2016
 profile/user-settings-console-14.2-noarch-2_microlinux.txz: Rebuilt.
 ap/sbopkg-0.38.1-noarch-1_microlinux.txz: Upgraded.
