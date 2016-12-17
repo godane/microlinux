@@ -249,5 +249,6 @@ locale/mozilla-firefox-langpack
 locale/mozilla-thunderbird-langpack
 
 # Build manually
+# locale/libreoffice-langpack
 
 

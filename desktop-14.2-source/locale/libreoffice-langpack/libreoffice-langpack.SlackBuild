@@ -28,7 +28,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=libreoffice-langpack
-VERSION=${VERSION:-"5.1.5"}
+VERSION=${VERSION:-"5.2.3"}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
