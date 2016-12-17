@@ -8,19 +8,19 @@ homebank-5.0.9-i586-2_microlinux.txz: Rebuilt.
 lazarus-1.2.6-i386-2_microlinux.txz: Rebuilt.
 remmina-20160509-i586-2_microlinux.txz: Rebuilt.
 virt-manager-1.4.0-i586-2_microlinux.txz: Rebuilt.
-xap/owncloud-client-2.2.4-i586-1_microlinux.txz: Removed.
-xap/CherryTree-0.37.4-i586-1_microlinux.txz: Removed.
-xap/blender-2.77a-i686-1_microlinux.txz: Removed.
-xap/winff-20150729-i586-1_microlinux.txz: Removed.
-xap/simple-scan-2.32.0.2-i586-1_microlinux.txz: Removed.
-y/aisleriot-3.6.2-i586-1_microlinux.txz: Removed.
-xap/filezilla-3.19.0-i586-1_microlinux.txz: Removed.
-xap/HandBrake-0.9.9-i686-1_microlinux.txz: Removed.
-xap/librecad-2.0.11-i586-1_microlinux.txz: Removed.
-xap/easytag-2.1.10-i586-1_microlinux.txz: Removed.
-xap/virtualbox-5.0.26-i586-1_microlinux.txz: Removed.
-xap/virtualbox-kernel-5.0.26_4.4.19_smp-i586-2_microlinux.txz: Removed.
-xap/virtualbox-extension-pack-5.0.26-i586-1_microlinux.txz: Removed.
+owncloud-client-2.2.4-i586-1_microlinux.txz: Removed.
+CherryTree-0.37.4-i586-1_microlinux.txz: Removed.
+blender-2.77a-i686-1_microlinux.txz: Removed.
+winff-20150729-i586-1_microlinux.txz: Removed.
+simple-scan-2.32.0.2-i586-1_microlinux.txz: Removed.
+aisleriot-3.6.2-i586-1_microlinux.txz: Removed.
+filezilla-3.19.0-i586-1_microlinux.txz: Removed.
+HandBrake-0.9.9-i686-1_microlinux.txz: Removed.
+librecad-2.0.11-i586-1_microlinux.txz: Removed.
+easytag-2.1.10-i586-1_microlinux.txz: Removed.
+virtualbox-5.0.26-i586-1_microlinux.txz: Removed.
+virtualbox-kernel-5.0.26_4.4.19_smp-i586-2_microlinux.txz: Removed.
+virtualbox-extension-pack-5.0.26-i586-1_microlinux.txz: Removed.
 	We're dropping package categories (ap/, d/, x/, xap/) in the extras/
 	repository. This seems to make more sense, the more so since this is also how
 	upstream Slackware works. More generally, the extras/ repository is supposed
