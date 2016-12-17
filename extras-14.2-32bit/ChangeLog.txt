@@ -1,3 +1,36 @@
+Sat Dec 17 10:21:00 CET 2016
+anki-2.0.36-noarch-2_microlinux.txz: Rebuilt.
+calibre-1.48.0-i586-2_microlinux.txz: Rebuilt.
+fpc-2.6.4-i386-2_microlinux.txz: Rebuilt.
+fpc-source-2.6.4-noarch-2_microlinux.txz: Rebuilt.
+gtkcdlabel-1.15-noarch-2_microlinux.txz: Rebuilt.
+homebank-5.0.9-i586-2_microlinux.txz: Rebuilt.
+lazarus-1.2.6-i386-2_microlinux.txz: Rebuilt.
+remmina-20160509-i586-2_microlinux.txz: Rebuilt.
+virt-manager-1.4.0-i586-2_microlinux.txz: Rebuilt.
+xap/owncloud-client-2.2.4-i586-1_microlinux.txz: Removed.
+xap/CherryTree-0.37.4-i586-1_microlinux.txz: Removed.
+xap/blender-2.77a-i686-1_microlinux.txz: Removed.
+xap/winff-20150729-i586-1_microlinux.txz: Removed.
+xap/simple-scan-2.32.0.2-i586-1_microlinux.txz: Removed.
+y/aisleriot-3.6.2-i586-1_microlinux.txz: Removed.
+xap/filezilla-3.19.0-i586-1_microlinux.txz: Removed.
+xap/HandBrake-0.9.9-i686-1_microlinux.txz: Removed.
+xap/librecad-2.0.11-i586-1_microlinux.txz: Removed.
+xap/easytag-2.1.10-i586-1_microlinux.txz: Removed.
+xap/virtualbox-5.0.26-i586-1_microlinux.txz: Removed.
+xap/virtualbox-kernel-5.0.26_4.4.19_smp-i586-2_microlinux.txz: Removed.
+xap/virtualbox-extension-pack-5.0.26-i586-1_microlinux.txz: Removed.
+	We're dropping package categories (ap/, d/, x/, xap/) in the extras/
+	repository. This seems to make more sense, the more so since this is also how
+	upstream Slackware works. More generally, the extras/ repository is supposed
+	to provide all those packages that are not part of a "classic"
+	one-app-per-task MLED desktop, e. g. alternative or less used applications or
+	simply specific packages requested by Microlinux clients. Note that if a
+	package requires one or more dependencies, these will all be added to the
+	main repository to spare you the hassle of hunting them down one by one. 
+	Some packages that have been removed will be added again in the days to come.
++--------------------------+
 Sun Oct  2 16:31:15 CEST 2016
 xap/owncloud-client-2.2.4-i586-1_microlinux.txz: Upgraded.
 +--------------------------+
