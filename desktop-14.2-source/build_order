@@ -246,6 +246,7 @@ x/lxdm
 
 # Translations
 locale/mozilla-firefox-langpack
+locale/mozilla-thunderbird-langpack
 
 # Build manually
 
