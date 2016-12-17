@@ -23,11 +23,11 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=flashplayer-plugin
-VERSION=${VERSION:-11.2.202.643}
+VERSION=${VERSION:-24.0.0.186}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 VERS_MAJ=$(printf $VERSION | cut -d. -f1)
-URL="fpdownload.macromedia.com/get/flashplayer/pdc"
+URL="fpdownload.adobe.com/get/flashplayer/pdc"
 
 case "$( uname -m )" in
   i?86) ARCH=i386 ;;
@@ -51,7 +51,7 @@ OUTPUT=${OUTPUT:-/tmp}
 
 set -e
 
-DOWNLOAD="https://$URL/$VERSION/install_flash_player_${VERS_MAJ}_linux.${ARCH}.tar.gz"
+DOWNLOAD="https://$URL/$VERSION/flash_player_npapi_linux.${ARCH}.tar.gz"
 
 wget -c $DOWNLOAD
 
@@ -59,9 +59,9 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 
-tar xf $CWD/install_flash_player_${VERS_MAJ}_linux.${ARCH}.tar.gz -C $PKG
+tar xvzf $CWD/flash_player_npapi_linux.${ARCH}.tar.gz -C $PKG
 
-if ! strings $PKG/libflashplayer.so | grep -wq "^${VERSION}$" 2>/dev/null ; then
+if ! strings $PKG/libflashplayer.so | grep -wq "${VERSION}$" 2>/dev/null ; then
   printf "\n\tThis script is written for version $VERSION of the plugin,\n"
   printf "\tbut you don't seem to have that version.  This is likely\n"
   printf "\tokay, and it's almost surely not your fault - Adobe tends\n"
@@ -77,8 +77,9 @@ if [ "$ARCH" = "x86_64" ]; then
 fi
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-mv $PKG/readme.txt $PKG/usr/doc/$PRGNAM-$VERSION
+mv $PKG/readme.txt $PKG/license.pdf $PKG/LGPL/* $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+rm -rf $PKG/LGPL
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc

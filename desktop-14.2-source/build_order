@@ -109,7 +109,7 @@ multimedia/celt
 multimedia/celt051
 multimedia/dirac
 multimedia/faad2
-# multimedia/flashplayer-plugin --> fix URL
+multimedia/flashplayer-plugin
 multimedia/gsm
 multimedia/ladspa_sdk
 multimedia/lame
