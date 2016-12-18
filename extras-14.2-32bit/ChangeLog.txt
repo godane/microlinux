@@ -1,3 +1,6 @@
+Sun Dec 18 09:29:07 CET 2016
+aisleriot-3.6.2-i586-1_microlinux.txz: Added.
++--------------------------+
 Sat Dec 17 10:21:00 CET 2016
 anki-2.0.36-noarch-2_microlinux.txz: Rebuilt.
 calibre-1.48.0-i586-2_microlinux.txz: Rebuilt.
