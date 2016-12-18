@@ -1,3 +1,7 @@
+Sun Dec 18 10:10:01 CET 2016
+l/muParser-2.2.5-x86_64-1_microlinux.txz: Added.
+l/qtkeychain-0.5.0-x86_64-3_microlinux.txz: Added.
++--------------------------+
 Sat Dec 17 17:06:43 CET 2016
 multimedia/flashplayer-plugin-24.0.0.186-x86_64-1_microlinux.txz: Added.
 +--------------------------+

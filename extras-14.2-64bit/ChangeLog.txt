@@ -1,3 +1,9 @@
+Sun Dec 18 10:32:03 CET 2016
+aisleriot-3.6.2-x86_64-1_microlinux.txz: Added.
+geogebra-5.0.214.0-x86_64-3_microlinux.txz: Added.
+librecad-2.0.11-x86_64-1_microlinux.txz: Added.
+owncloud-client-2.2.4-x86_64-2_microlinux.txz: Added.
++--------------------------+
 Sat Dec 17 11:46:46 CET 2016
 anki-2.0.36-noarch-2_microlinux.txz: Rebuilt.
 calibre-1.48.0-x86_64-2_microlinux.txz: Rebuilt.
