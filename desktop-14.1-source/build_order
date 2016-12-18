@@ -169,6 +169,7 @@ multimedia/projectM
 multimedia/PyAudio
 multimedia/rtmpdump
 multimedia/schroedinger
+multimedia/soundtouch
 multimedia/speex
 multimedia/totem-pl-parser
 multimedia/twolame
@@ -303,6 +304,3 @@ locale/mozilla-thunderbird-langpack
 # xap/virtualbox
 # xap/virtualbox-kernel
 # xap/virtualbox-extension-pack
-
-# Later additions
-multimedia/soundtouch
