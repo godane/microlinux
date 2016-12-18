@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Dynamic Mathematics
+Name[de]=Dynamische Mathematik
+Name[fr]=Mathématiques dynamiques
+Comment=GeoGebra
+TryExec=geogebra
+Exec=geogebra %F
+#Icon=geogebra
+Icon=x-office-drawing-template
+Terminal=false
+Type=Application
+StartupNotify=true
+StartupWMClass=geogebra-GeoGebra
+Categories=Education;Science;Math;
+MimeType=application/vnd.geogebra.file;application/vnd.geogebra.tool;
