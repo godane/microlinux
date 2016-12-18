@@ -303,3 +303,6 @@ locale/mozilla-thunderbird-langpack
 # xap/virtualbox
 # xap/virtualbox-kernel
 # xap/virtualbox-extension-pack
+
+# Later additions
+multimedia/soundtouch
