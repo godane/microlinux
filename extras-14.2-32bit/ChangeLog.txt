@@ -1,6 +1,7 @@
 Sun Dec 18 09:29:07 CET 2016
 aisleriot-3.6.2-i586-1_microlinux.txz: Added.
 geogebra-5.0.214.0-i586-3_microlinux.txz: Added.
+librecad-2.0.11-i586-1_microlinux.txz: Added.
 +--------------------------+
 Sat Dec 17 10:21:00 CET 2016
 anki-2.0.36-noarch-2_microlinux.txz: Rebuilt.
