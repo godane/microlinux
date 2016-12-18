@@ -1,3 +1,7 @@
+Sun Dec 18 07:20:28 CET 2016
+multimedia/flashplayer-plugin-24.0.0.186-x86_64-1_microlinux.txz: Upgraded.
+locale/mozilla-firefox-langpack-45.6.0-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Thu Dec 15 08:40:52 CET 2016
 gnome/aisleriot-3.6.2-x86_64-4_microlinux.txz: Removed.
 gnome/gnote-0.8.4-x86_64-4_microlinux.txz: Removed.
