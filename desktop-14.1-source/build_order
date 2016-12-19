@@ -42,6 +42,7 @@ gnome/libwnck3
 gnome/mm-common
 gnome/ORBit2
 gnome/pygobject3
+gnome/pygoocanvas
 gnome/vala
 gnome/vte3
 gnome/libbonobo

@@ -1,5 +1,6 @@
 Mon Dec 19 09:11:01 CET 2016
 gnome/goocanvas-0.15-i486-3_microlinux.txz: Added
+gnome/pygoocanvas-0.14.1-i486-3_microlinux.txz: Added.
 +--------------------------+
 Sun Dec 18 07:07:12 CET 2016
 multimedia/flashplayer-plugin-24.0.0.186-i386-1_microlinux.txz: Upgraded.
