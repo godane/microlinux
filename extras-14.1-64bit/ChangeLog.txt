@@ -1,5 +1,6 @@
 Mon Dec 19 09:28:37 CET 2016
 openshot-1.4.3-x86_64-3_microlinux.txz: Added.
+blender-2.76b-x86_64-3_microlinux.txz: Added.
 +--------------------------+
 Thu Dec 15 08:44:34 CET 2016
 aisleriot-3.6.2-x86_64-4_microlinux.txz: Added.
