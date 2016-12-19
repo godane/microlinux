@@ -1,3 +1,6 @@
+Mon Dec 19 09:22:03 CET 2016
+openshot-1.4.3-i486-3_microlinux.txz. Added.
++--------------------------+
 Thu Dec 15 08:26:48 CET 2016
 aisleriot-3.6.2-i486-4_microlinux.txz: Added.
 gnote-0.8.4-i486-4_microlinux.txz: Added.
