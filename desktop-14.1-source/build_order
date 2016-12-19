@@ -116,6 +116,7 @@ d/numpy
 d/psutil
 d/pyparsing
 d/pytz
+d/pyxdg
 d/simplejson
 d/six
 d/SQLAlchemy
