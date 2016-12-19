@@ -30,6 +30,7 @@ d/spice-protocol
 
 # GNOME libraries
 gnome/gnome-mime-data
+gnome/goocanvas
 gnome/gtk-engines
 gnome/gtksourceview
 gnome/json-glib
