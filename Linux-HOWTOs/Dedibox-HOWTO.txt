@@ -389,9 +389,17 @@ On peut se demander à quoi servent les groupes T et X. À titre d'exemple, T es
 nécessaire pour compiler 'ffmpeg', un composant central pour le streaming
 audio. Et certains paquets comme 'php' ont des dépendances dans le groupe X.
 
-Certains modèles de Dedibox sont incompatibles avec le module de kernel
-'acpi_cpufreq', qui a une méchante tendance à les faire geler. Il vaut donc
-mieux blacklister ce module :
+Certains modèles de Dedibox équipées d'un processeur VIA sont incompatibles
+avec le module de kernel 'acpi_cpufreq', qui a une méchante tendance à les
+faire geler. 
+
+Vérifier le modèle de processeur :
+
+  # cat /proc/cpuinfo | grep model
+  model   : 15
+  model name  : VIA Nano processor U2250 (1.6GHz Capable)
+
+Blacklister le module qui pose problème :
 
 --8<---------- /etc/modprobe.d/blacklist.conf --------------------------------
 blacklist acpi_cpufreq
