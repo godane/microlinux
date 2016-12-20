@@ -1,2 +1,0 @@
-  # SSH illimité 
-  $IPT -A INPUT -p tcp -s 62.212.104.80 -i $IFACE_INET --dport 22 -j ACCEPT
