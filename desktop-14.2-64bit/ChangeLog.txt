@@ -1,3 +1,8 @@
+Wed Dec 21 14:51:43 CET 2016
+gnome/goocanvas-0.15-x86_64-4_microlinux.txz. Added.
+gnome/pygoocanvas-0.14.1-x86_64-4_microlinux.txz: Added.
+d/pyxdg-0.25-x86_64-4_microlinux.txz: Added.
++--------------------------+
 Sun Dec 18 10:10:01 CET 2016
 l/muParser-2.2.5-x86_64-1_microlinux.txz: Added.
 l/qtkeychain-0.5.0-x86_64-3_microlinux.txz: Added.
