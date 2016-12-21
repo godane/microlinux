@@ -1,0 +1,111 @@
+#!/bin/sh
+
+# Slackware build script for HandBrake
+
+# This slackbuild maintained by Klaatu at klaatu@hackerpublicradio.org
+# Modified by David Somero at SlackBuilds.org.
+# Modified by Erik Hanson at SlackBuilds.org
+# Patched to fix x264 segfault by John Vogel
+#
+# Modified by Niki Kovacs <info@microlinux.fr>
+
+PRGNAM=HandBrake
+VERSION=${VERSION:-0.10.5}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_microlinux}
+DOCDIR=${DOCDIR:-/usr/doc}
+
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i686 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/microlinux}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+if [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "i686" ]; then
+  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+else
+  SLKCFLAGS="-O2"
+  LIBDIRSUFFIX=""
+fi
+
+SLKCFLAGS="$SLKCFLAGS -fno-aggressive-loop-optimizations"
+saved_CFLAGS="$CFLAGS"
+saved_CXXFLAGS="$CFLAGS"
+export CFLAGS="$SLKCFLAGS"
+export CXXFLAGS="$SLKCFLAGS"
+
+set -e
+
+DOWNLOAD="http://download.handbrake.fr/handbrake/releases/$VERSION/$PRGNAM-$VERSION.tar.bz2 \
+          http://download.handbrake.fr/contrib/libvpx-v1.3.0.tar.bz2 \
+          http://download.handbrake.fr/handbrake/contrib/libav-v10.1.tar.bz2 \
+          http://download.handbrake.fr/handbrake/contrib/fdk-aac-v0.1.1-6-gbae4553.tar.bz2
+          http://download.handbrake.fr/handbrake/contrib/libdvdread-5.0.0-6-gcb1ae87.tar.gz \
+          http://download.handbrake.fr/handbrake/contrib/libdvdnav-5.0.1-0-gaa3659d.tar.gz \
+          http://download.handbrake.fr/contrib/x265_1.9.tar.gz \
+          http://download.handbrake.fr/handbrake/contrib/libbluray-0.5.0.tar.bz2"
+
+wget -c $DOWNLOAD
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2
+cd $PRGNAM-$VERSION
+mkdir -p download
+cp -r $CWD/* download
+chown -R root:root .
+find -L . \
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+./configure \
+  --prefix=/usr \
+  --disable-gtk-update-checks \
+  --enable-fdk-aac \
+  --disable-libav-aac \
+  --enable-x265 \
+  --arch=$ARCH
+
+cd build
+  # Fix underlinking by configuring the gtk module first, then sed:
+  make gtk.configure
+  make $NUMJOBS
+  make install DESTDIR=$PKG
+cd $TMP/$PRGNAM-$VERSION
+
+export CFLAGS="$saved_CFLAGS"
+export CXXFLAGS="$saved_CXXFLAGS"
+
+mkdir -p $PKG/$DOCDIR/$PRGNAM-$VERSION
+cp -a AUTHORS COPYING CREDITS NEWS THANKS TRANSLATIONS \
+ $PKG/$DOCDIR/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/$DOCDIR/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
