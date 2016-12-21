@@ -98,6 +98,7 @@ d/pyparsing
 d/python-requests
 d/python-urllib3
 d/pytz
+d/pyxdg
 d/simplejson
 d/six
 d/SQLAlchemy
