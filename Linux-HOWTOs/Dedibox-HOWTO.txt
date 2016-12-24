@@ -188,8 +188,8 @@ console de secours, nous allons nous y prendre à plusieurs reprises :
 
 Installer 'a/pkgtools' dans l'environnement de secours :
 
-  # apt-get install xz-utils
   # cp a/pkgtools-14.2-noarch-10.txz /
+  # cd /
   # tar xvf pkgtools-14.2-noarch-10.txz 
   ./
   var/
