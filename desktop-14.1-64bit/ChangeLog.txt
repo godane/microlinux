@@ -1,3 +1,10 @@
+Sun Dec 25 14:12:33 CET 2016
+xap/libreoffice-5.2.4-x86_64-1_microlinux.txz: Upgraded.
+locale/libreoffice-langpack-de-5.2.4-x86_64-1_microlinux.txz: Upgraded.
+locale/libreoffice-langpack-fr-5.2.4-x86_64-1_microlinux.txz: Upgraded.
+f/libreoffice-helppack-de-5.2.4-x86_64-1_microlinux.txz: Upgraded.
+f/libreoffice-helppack-fr-5.2.4-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
 Mon Dec 19 09:26:32 CET 2016
 gnome/goocanvas-0.15-x86_64-3_microlinux.txz: Added.
 gnome/pygoocanvas-0.14.1-x86_64-3_microlinux.txz: Added.
