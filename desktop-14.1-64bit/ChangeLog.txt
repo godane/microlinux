@@ -1,3 +1,7 @@
+Mon Dec 26 16:39:06 CET 2016
+profile/user-settings-xfce-14.1-noarch-4_microlinux.txz: Rebuilt.
+  Added LibreOffice 5.2 launchers to Plank and Whiskermenu.
++--------------------------+
 Sun Dec 25 14:12:33 CET 2016
 xap/libreoffice-5.2.4-x86_64-1_microlinux.txz: Upgraded.
 locale/libreoffice-langpack-de-5.2.4-x86_64-1_microlinux.txz: Upgraded.
