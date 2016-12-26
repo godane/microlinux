@@ -2,7 +2,7 @@
 Xfce 4.12 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ===============
 
-Dernière révision : 11 avril 2015
+Dernière révision : 26 décembre 2016
 
 Ce HOWTO décrit la configuration du bureau Xfce 4.12 sous Slackware Linux.
 
@@ -124,7 +124,7 @@ Ajouter des lanceurs pour les applications de base :
   * LibreOffice 
   * gThumb
   * Audacious
-  * MPlayer ou VLC
+  * VLC
 
 Dans les Paramètres Xfce > Sessions et démarrage, définir le lancement
 automatique de Plank à l'ouverture d'une session.
