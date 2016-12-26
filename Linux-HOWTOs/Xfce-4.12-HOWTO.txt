@@ -82,7 +82,7 @@ Ajouter des favoris pour les applications de base :
   * LibreOffice Impress
   * gThumb
   * Audacious
-  * MPlayer
+  * VLC
 
   [*] Changer de catégories au survol
 
