@@ -21,4 +21,5 @@ d/python-dateutil
 d/pytz
 d/six
 d/tornado
+d/matplotlib
 
