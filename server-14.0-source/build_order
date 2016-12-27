@@ -21,6 +21,7 @@ d/numpy
 d/py3sensors
 d/pymdstat
 d/pyparsing
+d/pystatsd
 d/python-dateutil
 d/pytz
 d/six
