@@ -21,6 +21,7 @@ d/mock
 d/netifaces
 d/numpy
 d/py3sensors
+d/pycrypto
 d/pymdstat
 d/pyparsing
 d/pystatsd
