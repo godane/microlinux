@@ -11,7 +11,6 @@ ap/slackpkg+
 l/OpenBLAS
 
 # Python
-d/python3
 d/pysetuptools
 d/backports-ssl-match-hostname
 d/bottle
