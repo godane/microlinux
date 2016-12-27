@@ -1,3 +1,7 @@
+Tue Dec 27 09:13:05 CET 2016
+profile/user-settings-console-14.1-noarch-5_microlinux.txz: Rebuilt.
+  Avoid clobbering existing configuration files.
++--------------------------+
 Mon Dec 26 16:39:06 CET 2016
 profile/user-settings-xfce-14.1-noarch-4_microlinux.txz: Rebuilt.
   Added LibreOffice 5.2 launchers to Plank and Whiskermenu.
