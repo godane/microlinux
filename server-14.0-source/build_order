@@ -16,6 +16,7 @@ d/pysetuptools
 d/backports-ssl-match-hostname
 d/bottle
 d/hddtemp
+d/ipaddress
 d/mock
 d/netifaces
 d/numpy
