@@ -7,6 +7,9 @@ profile/user-settings-console
 ap/sbopkg
 ap/slackpkg+
 
+# General libraries
+l/OpenBLAS
+
 # Python
 d/pysetuptools
 d/backports-ssl-match-hostname
