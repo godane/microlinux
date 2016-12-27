@@ -34,3 +34,6 @@ d/matplotlib
 d/psutil
 d/pysnmp
 
+# System monitor
+ap/glances
+
