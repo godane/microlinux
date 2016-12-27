@@ -1,0 +1,133 @@
+# Build order for MLES 14.0
+
+# User profiles
+profile/user-settings-console
+
+# Package management
+ap/sbopkg
+ap/slackpkg+
+
+# Basic tools
+ap/augeas
+ap/device-tree-compiler
+ap/p7zip
+ap/pwgen
+ap/recode
+ap/unrar
+
+# Development
+d/cppunit
+d/lua
+d/spice-protocol
+ 
+# Libraries
+l/libbsd
+l/libmpdclient
+l/libsigc++
+l/libtorrent
+l/lua-filesystem
+l/luaexpat
+l/luasec
+l/luasocket
+l/usbredir
+
+# Multimedia
+multimedia/celt051
+multimedia/faad2
+multimedia/id3lib
+multimedia/lame
+multimedia/libcuefile
+multimedia/libmms
+multimedia/libmp4v2
+multimedia/libreplaygain
+multimedia/speex
+multimedia/twolame
+multimedia/libshout
+multimedia/musepack-tools
+multimedia/faac
+multimedia/ffmpeg
+n/icecast
+n/mpd
+n/ncmpc
+
+# Perl 
+d/perl-BerkeleyDB
+d/perl-digest-sha1
+d/perl-digest-hmac
+d/perl-net-ip
+d/perl-net-dns
+d/perl-IO-Multiplex
+d/perl-Net-Server
+
+# Python
+d/pysetuptools
+d/pycparser
+d/cffi
+d/configobj
+d/ipaddress
+d/enum34
+d/pyasn1
+d/six
+d/idna
+d/cryptography
+d/urlgrabber
+d/yajl
+d/mock
+d/pyOpenSSL
+d/ndg_httpsclient
+d/psutil
+d/pyparsing
+d/pyrfc3339
+d/python2-pythondialog
+d/python-augeas
+d/python-configargparse
+d/python-parsedatetime
+d/python-requests
+d/pytz
+d/pyxdg
+d/werkzeug
+d/zope.event
+d/zope.interface
+d/zope.component
+
+# Networking
+n/dovecot
+n/iperf
+n/letsencrypt
+n/netcat-openbsd
+n/postfix
+n/postgrey
+n/prosody
+n/rtorrent
+n/squid
+n/squidanalyzer
+n/squidGuard
+
+# KVM
+n/spice
+ap/qemu
+ap/libvirt
+
+# Web applications
+# n/cmsmadesimple
+# n/owncloud-server
+
+# More Python modules
+d/hddtemp
+d/bottle
+d/backports-ssl-match-hostname
+d/tornado
+d/numpy
+d/python-dateutil
+d/matplotlib
+d/python3
+d/netifaces
+d/py3sensors
+d/pymdstat
+d/pystatsd
+d/pycrypto
+d/pysnmp
+
+# System monitor
+ap/glances
+
