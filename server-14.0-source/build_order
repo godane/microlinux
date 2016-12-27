@@ -17,4 +17,5 @@ d/bottle
 d/hddtemp
 d/numpy
 d/pytz
+d/tornado
 
