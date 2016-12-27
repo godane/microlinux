@@ -17,6 +17,7 @@ d/bottle
 d/hddtemp
 d/numpy
 d/pyparsing
+d/python-dateutil
 d/pytz
 d/six
 d/tornado
