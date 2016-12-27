@@ -9,6 +9,7 @@ ap/slackpkg+
 
 # Python
 d/pysetuptools
+d/backports-ssl-match-hostname
 d/bottle
 d/hddtemp
 d/pytz
