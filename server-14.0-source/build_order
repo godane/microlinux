@@ -15,5 +15,6 @@ d/pysetuptools
 d/backports-ssl-match-hostname
 d/bottle
 d/hddtemp
+d/numpy
 d/pytz
 
