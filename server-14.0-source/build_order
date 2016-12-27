@@ -1,5 +1,5 @@
 # Build order for MLES 14.0
 
-# User profiles
+# User profile (Bash, Vim, Xterm)
 profile/user-settings-console
 
