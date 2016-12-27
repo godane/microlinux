@@ -7,6 +7,14 @@ Dernière révision : 27 décembre 2016
 Ce HOWTO décrit la mise en place d'un serveur de sauvegardes avec Rsnapshot
 sous Slackware Linux.
 
+  * Introduction
+  * Prérequis
+  * Installation
+  * Configuration
+  * Tester la configuration
+  * Synchronisation initiale
+  * Définition des tâches automatiques
+
 
 Introduction
 ------------
