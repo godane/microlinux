@@ -16,6 +16,7 @@ d/backports-ssl-match-hostname
 d/bottle
 d/hddtemp
 d/numpy
+d/pyparsing
 d/pytz
 d/tornado
 
