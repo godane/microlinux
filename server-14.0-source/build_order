@@ -8,6 +8,7 @@ ap/sbopkg
 ap/slackpkg+
 
 # Python
+d/pysetuptools
 d/bottle
 d/hddtemp
 d/pytz
