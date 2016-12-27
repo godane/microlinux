@@ -19,6 +19,7 @@ d/hddtemp
 d/netifaces
 d/numpy
 d/py3sensors
+d/pymdstat
 d/pyparsing
 d/python-dateutil
 d/pytz
