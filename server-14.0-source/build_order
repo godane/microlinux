@@ -10,4 +10,5 @@ ap/slackpkg+
 # Python
 d/bottle
 d/hddtemp
+d/pytz
 
