@@ -25,8 +25,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=python-requests
-VERSION=${VERSION:-2.8.1}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-2.12.1}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 SRCNAM=requests
@@ -60,7 +60,7 @@ fi
 
 set -e 
 
-DOWNLOAD="http://pypi.python.org/packages/source/r/$SRCNAM/$SRCNAM-$VERSION.tar.gz"
+DOWNLOAD="https://github.com/kennethreitz/$SRCNAM/archive/v$VERSION/$SRCNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
@@ -79,14 +79,9 @@ find -L . \
 
 python setup.py install --root=$PKG
 
-# Python 3 support.
-if $(python3 -c 'import sys' 2>/dev/null); then
-  python3 setup.py install --root=$PKG
-fi
-
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  HISTORY.rst LICENSE NOTICE PKG-INFO README.rst \
+  HISTORY.rst LICENSE NOTICE README.rst \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 

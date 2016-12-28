@@ -37,6 +37,7 @@ d/python-augeas
 d/python-configargparse
 d/python-dateutil
 d/python-parsedatetime
+d/python-requests
 d/python2-pythondialog
 d/pytz
 d/six
