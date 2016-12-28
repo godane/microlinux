@@ -51,6 +51,7 @@ d/psutil
 d/pysnmp
 d/cryptography
 d/pyOpenSSL
+d/ndg_httpsclient
 
 # System monitor
 ap/glances

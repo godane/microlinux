@@ -25,8 +25,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=ndg_httpsclient
-VERSION=${VERSION:-0.4.0}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-0.4.2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
@@ -58,7 +58,7 @@ fi
 
 set -e
 
-DOWNLOAD="https://pypi.python.org/packages/source/n/ndg-httpsclient/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="https://pypi.python.org/packages/a2/a7/ad1c1c48e35dc7545dab1a9c5513f49d5fa3b5015627200d2be27576c2a0/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
