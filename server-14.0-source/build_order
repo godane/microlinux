@@ -30,9 +30,11 @@ d/pystatsd
 d/python-configargparse
 d/python-dateutil
 d/python-parsedatetime
+d/python2-pythondialog
 d/pytz
 d/six
 d/tornado
+d/werkzeug
 d/matplotlib
 d/psutil
 d/pysnmp

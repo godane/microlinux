@@ -25,8 +25,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=python2-pythondialog
-VERSION=${VERSION:-3.3.0}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-3.4.0}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
@@ -58,7 +58,7 @@ fi
 
 set -e
 
-DOWNLOAD="https://pypi.python.org/packages/source/p/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="https://pypi.python.org/packages/26/34/b4cf8018dbc51e8a0fae2c51a0dd2c1f34419caa9e3eb83646c73d1beb9d/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
