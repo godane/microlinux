@@ -30,6 +30,7 @@ d/pymdstat
 d/pyparsing
 d/pyrfc3339
 d/pystatsd
+d/python-augeas
 d/python-configargparse
 d/python-dateutil
 d/python-parsedatetime
