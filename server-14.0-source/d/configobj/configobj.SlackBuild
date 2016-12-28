@@ -15,7 +15,7 @@
 
 PRGNAM=configobj
 VERSION=${VERSION:-4.7.2}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then

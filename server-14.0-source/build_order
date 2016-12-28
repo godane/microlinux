@@ -14,6 +14,7 @@ l/OpenBLAS
 d/pysetuptools
 d/backports-ssl-match-hostname
 d/bottle
+d/configobj
 d/hddtemp
 d/ipaddress
 d/mock
