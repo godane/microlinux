@@ -29,6 +29,7 @@ d/pyrfc3339
 d/pystatsd
 d/python-configargparse
 d/python-dateutil
+d/python-parsedatetime
 d/pytz
 d/six
 d/tornado
