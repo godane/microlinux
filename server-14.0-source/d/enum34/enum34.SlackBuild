@@ -25,8 +25,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=enum34
-VERSION=${VERSION:-1.1.2}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-1.1.6}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
@@ -58,7 +58,7 @@ fi
 
 set -e
 
-DOWNLOAD="https://pypi.python.org/packages/source/e/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="https://pypi.python.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
@@ -76,10 +76,6 @@ find -L . \
  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 python setup.py install --root=$PKG
-
-if $(python3 -c 'import sys' 2>/dev/null); then
-  python3 setup.py install --root=$PKG
-fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true

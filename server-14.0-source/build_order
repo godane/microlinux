@@ -18,6 +18,7 @@ d/pysetuptools
 d/backports-ssl-match-hostname
 d/bottle
 d/configobj
+d/enum34
 d/hddtemp
 d/idna
 d/ipaddress
