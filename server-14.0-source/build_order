@@ -19,12 +19,14 @@ d/backports-ssl-match-hostname
 d/bottle
 d/configobj
 d/hddtemp
+d/idna
 d/ipaddress
 d/mock
 d/netifaces
 d/numpy
 d/py3sensors
 d/pyasn1
+d/pycparser
 d/pycrypto
 d/pymdstat
 d/pyparsing
