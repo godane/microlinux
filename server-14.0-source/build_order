@@ -7,6 +7,9 @@ profile/user-settings-console
 ap/sbopkg
 ap/slackpkg+
 
+# Basic tools
+ap/augeas
+
 # General libraries
 l/OpenBLAS
 
