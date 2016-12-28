@@ -25,6 +25,7 @@ d/pyasn1
 d/pycrypto
 d/pymdstat
 d/pyparsing
+d/pyrfc3339
 d/pystatsd
 d/python-dateutil
 d/pytz

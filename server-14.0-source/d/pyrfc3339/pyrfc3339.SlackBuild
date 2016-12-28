@@ -27,7 +27,7 @@
 PRGNAM=pyrfc3339
 SRCNAM=pyRFC3339
 VERSION=${VERSION:-1.0}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
