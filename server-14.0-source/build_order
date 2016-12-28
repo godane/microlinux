@@ -10,6 +10,7 @@ ap/slackpkg+
 # Basic tools
 ap/augeas
 ap/p7zip
+ap/pwgen
 
 # General libraries
 l/OpenBLAS
