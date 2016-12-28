@@ -1,0 +1,12 @@
+            |-----handy-ruler------------------------------------------------------|
+libaudclient: libaudclient (legacy dbus audacious client library)
+libaudclient:
+libaudclient: libaudclient is a legacy D-Bus client library that used to be included
+libaudclient: with Audacious.
+libaudclient:
+libaudclient: 
+libaudclient:
+libaudclient:
+libaudclient:
+libaudclient:
+libaudclient: Package created by Niki Kovacs <info@microlinux.fr>

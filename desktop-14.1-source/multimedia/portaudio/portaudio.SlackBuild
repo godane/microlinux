@@ -32,7 +32,7 @@ TAG=${TAG:-_microlinux}
 NUMJOBS=${NUMJOBS:--j9}
 
 # eek!
-SRCNAME="pa_stable_v19_20111121.tgz"
+SRCNAME="pa_stable_v19_20140130.tgz"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in

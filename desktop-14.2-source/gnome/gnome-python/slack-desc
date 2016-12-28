@@ -1,0 +1,12 @@
+            |-----handy-ruler------------------------------------------------------|
+gnome-python: gnome-python (Python bindings for GNOME)
+gnome-python:
+gnome-python: gnome-python is a set of bindings for the Gnome platform
+gnome-python: libraries. It builds on top of the PyGTK bindings for GTK and
+gnome-python: the PyORBit bindings for ORBit2.
+gnome-python:
+gnome-python:
+gnome-python:
+gnome-python:
+gnome-python:
+gnome-python: Package created by Niki Kovacs <info@microlinux.fr>

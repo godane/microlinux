@@ -22,15 +22,13 @@ case $(uname -m) in
 esac  
 
 # Set the number of parallel make jobs
-NUMJOBS="-j9"
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 export NUMJOBS="$NUMJOBS"
 
-BUILDPACKAGES=$(egrep -v '(^\#)|(^\s+$)' $CWD/build_order)
+PACKAGES=$(egrep -v '(^\#)|(^\s+$)' $CWD/build_order)
 
-for BUILDPACKAGE in $BUILDPACKAGES; do
-  CATEGORY=$(dirname $BUILDPACKAGE)
-  PACKAGE=$(basename $BUILDPACKAGE)
-  if [ -r ${TXZDIR}/${CATEGORY}/${PACKAGE}-[rV0-9]*.txz ] ; then
+for PACKAGE in $PACKAGES; do
+  if [ -r ${TXZDIR}/${PACKAGE}-[rV0-9]*.txz ] ; then
     if [ -r /var/log/packages/${PACKAGE}-[rV0-9]* ] ; then
       continue
     fi
@@ -43,12 +41,12 @@ for BUILDPACKAGE in $BUILDPACKAGES; do
   sleep 3
 
   (
-    OUTPUT=${TXZDIR}/${CATEGORY}
+    OUTPUT=${TXZDIR}
     export OUTPUT
-    cd ${SOURCEDIR}/${CATEGORY}/${PACKAGE} || exit 1
+    cd ${SOURCEDIR}/${PACKAGE} || exit 1
     ./${PACKAGE}.SlackBuild || exit 1
   )
-  upgradepkg --install-new ${TXZDIR}/${CATEGORY}/${PACKAGE}-[rV0-9]*.txz || exit 1
+  upgradepkg --install-new ${TXZDIR}/${PACKAGE}-[rV0-9]*.txz || exit 1
 done
 
 echo 

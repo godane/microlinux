@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Virtualization
+Name[de]=Virtualisierung
+Name[fr]=Virtualisation
+Comment=Virtual Machine Manager
+#Icon=virt-manager
+Icon=vinagre
+Exec=virt-manager
+Type=Application
+Terminal=false
+Categories=System;
+StartupNotify=true

@@ -1,0 +1,261 @@
+# Build order for MLED 14.2
+
+# User profile (Bash, Vim, Xterm)
+profile/user-settings-console
+
+# Package management
+ap/sbopkg 
+ap/slackpkg+
+
+# Basic tools
+ap/antiword
+ap/cdlabelgen
+ap/device-tree-compiler
+ap/exiftool
+ap/p7zip
+ap/recode
+ap/unrar
+ap/unrtf
+ap/untex
+
+# Development
+d/acpica
+d/jdk
+d/lua
+d/spice-protocol
+
+# GNOME libraries
+gnome/gnome-mime-data
+gnome/goocanvas
+gnome/gtk-engines
+gnome/gtksourceview
+gnome/json-glib
+gnome/libgtop
+gnome/libwnck3
+gnome/ORBit2
+gnome/pygoocanvas
+gnome/vala
+gnome/vte3
+gnome/libbonobo
+gnome/gnome-vfs
+gnome/libgee
+gnome/libgnome
+gnome/libgnomecanvas
+gnome/libbonoboui
+gnome/libgnomeui
+gnome/pyorbit
+gnome/pygtksourceview
+gnome/gnome-python
+gnome/libxml++
+
+# General libraries
+l/bamf
+l/ftgl
+l/glfw
+l/html5lib
+l/imlib2
+l/libaudclient
+l/libbsd
+l/libburn
+l/libdbusmenu
+l/libebml
+l/libexif-gtk
+l/libisofs
+l/libminizip
+l/libofx
+l/libopenraw
+l/libosinfo
+l/libtar
+l/libunique
+l/libupnp
+l/libwebp
+l/muParser
+l/OpenBLAS
+l/podofo
+l/qtkeychain
+l/tolua++
+l/usbredir
+l/wxPython
+l/yajl
+
+# Perl
+
+# Python
+d/BeautifulSoup4
+d/apsw
+d/backports-ssl-match-hostname
+d/cddb-py
+d/cssselect
+d/cssutils
+d/dnspython
+d/ipaddr-py
+d/lxml
+d/mechanize
+d/netifaces
+d/numpy
+d/psutil
+d/pyparsing
+d/python-requests
+d/python-urllib3
+d/pytz
+d/pyxdg
+d/simplejson
+d/six
+d/SQLAlchemy
+d/tornado
+d/urlgrabber
+d/python-dateutil
+d/matplotlib
+
+# Multimedia
+multimedia/amrnb
+multimedia/amrwb
+multimedia/celt
+multimedia/celt051
+multimedia/dirac
+multimedia/faad2
+multimedia/flashplayer-plugin
+multimedia/gsm
+multimedia/ladspa_sdk
+multimedia/lame
+multimedia/libass
+multimedia/libavc1394
+multimedia/libbluray
+multimedia/libcdaudio
+multimedia/libcue
+multimedia/libcuefile
+multimedia/libdc1394
+multimedia/libdca
+multimedia/libdv
+multimedia/libdvbpsi
+multimedia/libdvdcss
+multimedia/libfdk-aac
+multimedia/libiec61883
+multimedia/libilbc
+multimedia/libkate
+multimedia/libmatroska
+multimedia/libmms
+multimedia/libmodplug
+multimedia/libmp4v2
+multimedia/libmpeg2
+multimedia/libquvi-scripts
+multimedia/libquvi
+multimedia/libreplaygain
+multimedia/live555
+multimedia/OpenAL
+multimedia/opencore-amr
+# Rebuild manually to resolve circular dependency with ffmpeg
+multimedia/opencv
+multimedia/opus
+multimedia/projectM
+multimedia/portaudio
+multimedia/PyAudio
+multimedia/rtmpdump
+multimedia/schroedinger
+multimedia/soundtouch
+multimedia/speex
+multimedia/totem-pl-parser
+multimedia/twolame
+multimedia/vcdimager
+multimedia/vid.stab
+multimedia/x264
+multimedia/x265
+multimedia/xvidcore
+multimedia/zvbi
+multimedia/faac
+multimedia/frei0r
+multimedia/ffmpeg
+multimedia/chromaprint
+multimedia/libquicktime
+multimedia/libshout
+multimedia/musepack-tools
+multimedia/vsxu
+multimedia/mlt
+multimedia/gst-libav
+multimedia/gst-plugins-bad
+multimedia/gst-plugins-ugly
+
+# Networking
+n/freerdp
+n/gtk-vnc
+n/iperf
+n/netcat-openbsd
+n/spice
+n/spice-gtk
+n/tunctl
+
+# Infinality
+l/freetype
+x/fontconfig
+l/cairo
+
+# Fonts
+x/fontforge
+x/apple-fonts
+x/cantarell-fonts
+x/eurostile-fonts
+x/google-droid-fonts
+x/webcore-fonts
+
+# KVM
+ap/qemu
+ap/libvirt
+l/libvirt-glib
+l/libvirt-python
+
+# GNOME applications
+gnome/brasero
+gnome/evince
+gnome/file-roller
+gnome/gedit
+gnome/gedit-plugins
+gnome/gthumb
+
+# General applications
+xap/asunder
+xap/audacious-plugins
+xap/audacity
+xap/CherryTree
+xap/conky
+xap/flowblade
+xap/galculator
+xap/gtkam
+xap/inkscape
+xap/libreoffice
+xap/MPlayer
+xap/recoll
+xap/scribus
+xap/transmission
+xap/vlc
+
+# Xfce
+xfce/elementary-xfce
+xfce/aero
+xfce/microlinux-wallpapers
+xfce/luna-wallpapers
+xfce/clearlooks-phenix-theme
+xfce/xfce4-whiskermenu-plugin
+xfce/plank
+xfce/ffmpegthumbnailer
+xfce/tumbler
+xfce/thunar-archive-plugin
+xfce/xfce4-xkb-plugin
+xfce/arc-theme
+xfce/xfce4-notes-plugin
+
+# User profile (Xfce)
+profile/user-settings-xfce
+
+# Login manager
+x/lxdm
+
+# Translations
+locale/mozilla-firefox-langpack
+locale/mozilla-thunderbird-langpack
+
+# Build manually
+# locale/libreoffice-langpack
+# locale/libreoffice-helppack
+# multimedia/mplayer-codecs32
+
+

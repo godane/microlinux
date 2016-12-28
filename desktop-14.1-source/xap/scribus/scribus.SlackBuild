@@ -29,11 +29,11 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=scribus
-VERSION=1.4.5
-BUILD=${BUILD:-2}
+VERSION=1.4.6
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -64,16 +64,16 @@ fi
 
 set -e
 
-DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.bz2"
+DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.xz"
 
-rm -f $PRGNAM-$VERSION.tar.bz2
+rm -f $PRGNAM-$VERSION.tar.xz
 curl -O -J -L $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvjf $CWD/$PRGNAM-$VERSION.tar.bz2
+tar xvf $CWD/$PRGNAM-$VERSION.tar.xz
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \

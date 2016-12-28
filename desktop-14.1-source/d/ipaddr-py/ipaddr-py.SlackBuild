@@ -25,10 +25,10 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=ipaddr-py
-VERSION=${VERSION:-2.1.10}
-BUILD=${BUILD:-2}
-TAG=${TAG:-_microlinux}
 SRCNAM=ipaddr
+VERSION=${VERSION:-2.1.10}
+BUILD=${BUILD:-3}
+TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -59,7 +59,7 @@ fi
 
 set -e
 
-DOWNLOAD="https://ipaddr-py.googlecode.com/files/$SRCNAM-$VERSION.tar.gz"
+DOWNLOAD="http://pkgs.fedoraproject.org/repo/pkgs/python-ipaddr/$SRCNAM-$VERSION.tar.gz/f315ac829218e9735c5d772d59a3e0e7/$SRCNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 

@@ -27,7 +27,7 @@
 
 PRGNAM=luna-wallpapers      
 VERSION=${VERSION:-0.2}  
-BUILD=${BUILD:-4}
+BUILD=${BUILD:-5}
 TAG=${TAG:-_microlinux}   
 
 ARCH=noarch

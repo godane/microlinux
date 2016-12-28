@@ -1,18 +1,96 @@
-Wed Jan 20 16:23:39 CET 2016
-virtualbox-5.0.14-x86_64-1_microlinux.txz: Added.
-virtualbox-kernel-5.0.14_4.4.0-x86_64-1_microlinux.txz: Added.
-virtualbox-extension-pack-5.0.14-x86_64-1_microlinux.txz: Added.
+Wed Dec 21 14:55:07 CET 2016
+HandBrake-0.10.5-x86_64-1_microlinux.txz: Added.
+openshot-1.4.3-x86_64-3_microlinux.txz: Added.
+blender-2.76b-x86_64-3_microlinux.txz: Added.
 +--------------------------+
-Mon Jan 18 20:40:59 CET 2016
-skype-4.3.0.37-i486-1_microlinux.txz: Removed.
-  Skype is 32-bit only, so we just keep it in the 32-bit repository.
+Sun Dec 18 10:32:03 CET 2016
+aisleriot-3.6.2-x86_64-1_microlinux.txz: Added.
+geogebra-5.0.214.0-x86_64-3_microlinux.txz: Added.
+librecad-2.0.11-x86_64-1_microlinux.txz: Added.
+owncloud-client-2.2.4-x86_64-2_microlinux.txz: Added.
 +--------------------------+
-Tue Jan 12 11:41:37 CET 2016
-blender-2.76b-x86_64-1_microlinux.txz: Added.
+Sat Dec 17 11:46:46 CET 2016
+anki-2.0.36-noarch-2_microlinux.txz: Rebuilt.
+calibre-1.48.0-x86_64-2_microlinux.txz: Rebuilt.
+fpc-2.6.4-x86_64-2_microlinux.txz: Rebuilt.
+fpc-source-2.6.4-noarch-2_microlinux.txz: Rebuilt.
+gtkcdlabel-1.15-noarch-2_microlinux.txz: Rebuilt.
+homebank-5.0.9-x86_64-2_microlinux.txz: Rebuilt.
+lazarus-1.2.6-x86_64-2_microlinux.txz: Rebuilt.
+remmina-20160509-x86_64-2_microlinux.txz: Rebuilt.
+virt-manager-1.4.0-x86_64-2_microlinux.txz: Rebuilt.
+owncloud-client-2.2.4-x86_64-1_microlinux.txz: Removed.
+CherryTree-0.37.4-x86_64-1_microlinux.txz: Removed.
+blender-2.77a-x86_64-1_microlinux.txz: Removed.
+winff-20150729-x86_64-1_microlinux.txz: Removed.
+simple-scan-2.32.0.2-x86_64-1_microlinux.txz: Removed.
+aisleriot-3.6.2-x86_64-1_microlinux.txz: Removed.
+filezilla-3.19.0-x86_64-1_microlinux.txz: Removed.
+HandBrake-0.9.9-x86_64-1_microlinux.txz: Removed.
+librecad-2.0.11-x86_64-1_microlinux.txz: Removed.
+easytag-2.1.10-x86_64-1_microlinux.txz: Removed.
+virtualbox-5.0.26-x86_64-1_microlinux.txz: Removed.
+virtualbox-kernel-5.0.26_4.4.19-x86_64-2_microlinux.txz: Removed.
+virtualbox-extension-pack-5.0.26-x86_64-1_microlinux.txz: Removed.
+	We're dropping package categories (ap/, d/, x/, xap/) in the extras/
+	repository. This seems to make more sense, the more so since this is also how
+	upstream Slackware works. More generally, the extras/ repository is supposed
+	to provide all those packages that are not part of a "classic"
+	one-app-per-task MLED desktop, e. g. alternative or less used applications or
+	simply specific packages requested by Microlinux clients. Note that if a
+	package requires one or more dependencies, these will all be added to the
+	main repository to spare you the hassle of hunting them down one by one. 
+	Some packages that have been removed will be added again in the days to come.
 +--------------------------+
-Sat Jan  9 16:43:40 CET 2016
-skype-4.3.0.37-i486-1_microlinux.txz: Added.
+Sun Oct  2 16:45:01 CEST 2016
+xap/owncloud-client-2.2.4-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+
-Sat Nov 28 07:27:49 CET 2015
-dropbox-3.10.7-x86_64-1_microlinux.txz: Added.
+Mon Sep 19 09:05:12 CEST 2016
+xap/virtualbox-kernel-5.0.26_4.4.19-x86_64-2_microlinux.txz: Rebuilt.
+xap/owncloud-client-2.2.3-x86_64-1_microlinux.txz: Upgraded.
++--------------------------+
+Sat Sep  3 10:10:48 CEST 2016
+xap/CherryTree-0.37.4-x86_64-1_microlinux.txz: Added.
++--------------------------+
+Sun Jul 31 18:27:35 CEST 2016
+xap/blender-2.77a-x86_64-1_microlinux.txz: Added.
++--------------------------+
+Sun Jul 31 12:50:37 CEST 2016
+d/fpc-2.6.4-x86_64-1_microlinux.txz: Added.
+d/fpc-source-2.6.4-noarch-1_microlinux.txz: Added.
+d/lazarus-1.2.6-x86_64-1_microlinux.txz: Added.
+xap/winff-20150729-x86_64-1_microlinux.txz: Added.
++--------------------------+
+Sat Jul 30 10:37:51 CEST 2016
+xap/simple-scan-2.32.0.2-x86_64-1_microlinux.txz: Added.
+y/aisleriot-3.6.2-x86_64-1_microlinux.txz: Added.
+xap/homebank-5.0.9-x86_64-1_microlinux.txz: Added.
++--------------------------+
+Fri Jul 29 17:40:17 CEST 2016
+xap/filezilla-3.19.0-x86_64-1_microlinux.txz: Added.
+xap/remmina-20160509-x86_64-1_microlinux.txz: Added.
++--------------------------+
+Thu Jul 28 09:50:56 CEST 2016
+xap/aMule-2.3.1-x86_64-1_microlinux.txz: Added.
+xap/librecad-2.0.11-x86_64-1_microlinux.txz: Added.
+xap/easytag-2.1.10-x86_64-1_microlinux.txz: Added.
+xap/anki-2.0.36-noarch-1_microlinux.txz: Added.
++--------------------------+
+Wed Jul 27 19:42:02 CEST 2016
+xap/HandBrake-0.9.9-x86_64-1_microlinux.txz: Added.
++--------------------------+
+Tue Jul 26 16:23:48 CEST 2016
+xap/virtualbox-5.0.26-x86_64-1_microlinux.txz: Added.
+xap/virtualbox-kernel-5.0.26_4.4.14-x86_64-1_microlinux.txz: Added.
+xap/virtualbox-extension-pack-5.0.26-x86_64-1_microlinux.txz: Added.
++--------------------------+
+Sat Jul 23 10:40:13 CEST 2016
+ap/qemu-2.4.1-x86_64-1_microlinux.txz: Added.
+xap/virt-manager-1.4.0-x86_64-1_microlinux.txz: Added.
++--------------------------+
+Thu Jul 21 10:42:36 CEST 2016
+xap/owncloud-client-2.2.2-x86_64-1_microlinux.txz: Added.
++--------------------------+
+Tue Jul 19 10:44:31 CEST 2016
+xap/gtkcdlabel-1.15-noarch-1_microlinux.txz: Added.
 +--------------------------+

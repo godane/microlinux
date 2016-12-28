@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=E-book editor
+Name[de]=E-Book-Editor
+Name[fr]=Éditeur de livres numériques
+Comment=Calibre Ebook Edit
+Version=1.0
+Type=Application
+TryExec=ebook-edit
+Exec=ebook-edit --detach %f
+Icon=calibre-ebook-edit
+Categories=Office;

@@ -1,0 +1,228 @@
+===============
+Rsnapshot HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
+===============
+
+Dernière révision : 27 décembre 2016
+
+Ce HOWTO décrit la mise en place d'un serveur de sauvegardes avec Rsnapshot
+sous Slackware Linux.
+
+  * Introduction
+  * Prérequis
+  * Installation
+  * Configuration
+  * Tester la configuration
+  * Synchronisation initiale
+  * Définition des tâches automatiques
+  * Afficher la taille des sauvegardes
+
+
+Introduction
+------------
+
+Rsnapshot est une solution de sauvegarde robuste et efficace écrite en PERL et
+basée sur Rsync. En combinaison avec SSH, Rsnapshot permet d'effectuer des
+sauvegardes à distance.  Une fois que la première synchronisation des données
+est effectuée, les sauvegardes se font de manière incrémentale moyennant une
+série de liens durs (hard links), ce qui évite la duplication inutile. 
+
+Rsnapshot tourne sur le serveur de sauvegardes. Les machines dont il faut
+sauvegarder les données sont totalement passives, il faut juste qu'elles aient
+un serveur SSH activé. 
+
+
+Prérequis
+---------
+
+Le serveur de sauvegardes doit pouvoir se connecter via SSH aux machines
+distantes. Il faut donc configurer l'authentification par clé SSH au
+préalable. Pour plus de détails, voir le SSH-Key-HOWTO. 
+
+
+Installation
+------------
+
+Le portail SlackBuilds.org fournit un script SlackBuild pour Rsnapshot. En
+dehors des outils classiques Rsync et SSH, aucune dépendance externe n'est
+requise.
+
+
+Configuration
+-------------
+
+Rsnapshot se configure par le biais du fichier '/etc/rsnapshot.conf'. Le
+fichier fourni par défaut est amplement commenté et pourra servir de point de
+départ. La page de manuel rsnapshot(1) fournit la référence complète.  Au lieu
+d'éditer le fichier '/etc/rsnapshot.conf', nous allons le renommer et repartir
+de zéro :
+
+  # cd /etc
+  # mv rsnapshot.conf rsnapshot.conf.default
+
+Éditer une configuration personnalisée comme ceci, par exemple :
+
+--8<---------- /etc/rsnapshot.conf -------------------------------------------
+# Version
+config_version  1.2
+
+# Emplacement des sauvegardes
+snapshot_root   /srv/backup
+
+# Programmes externes
+cmd_cp              /usr/bin/cp
+cmd_rm              /usr/bin/rm
+cmd_rsync           /usr/bin/rsync
+cmd_ssh             /usr/bin/ssh
+cmd_logger          /usr/bin/logger
+cmd_du              /usr/bin/du
+cmd_rsnapshot_diff  /usr/bin/rsnapshot-diff
+
+# Fréquence des sauvegardes
+retain  hourly  6
+retain  daily   7
+retain  weekly  4
+retain  monthly 3
+
+# Affichage des infos
+verbose 2
+
+# Logs
+loglevel        3
+logfile /var/log/rsnapshot
+
+# Fichier de verrouillage
+lockfile        /var/run/rsnapshot.pid
+
+# Fichiers à ne pas sauvegarder
+exclude_file    /etc/rsnapshot_exclude.list
+
+# sd-48975.dedibox.fr
+backup  root@sd-48975.dedibox.fr:/etc            sd-48975.dedibox.fr
+backup  root@sd-48975.dedibox.fr:/home           sd-48975.dedibox.fr
+backup  root@sd-48975.dedibox.fr:/var/named      sd-48975.dedibox.fr
+backup  root@sd-48975.dedibox.fr:/var/www/vhosts sd-48975.dedibox.fr
+backup  root@sd-48975.dedibox.fr:/usr/local/sbin sd-48975.dedibox.fr
+backup  root@sd-48975.dedibox.fr:/sqldump        sd-48975.dedibox.fr
+--8<--------------------------------------------------------------------------
+
+Quelques remarques :
+
+  - Il faut impérativement utiliser les tabulations comme séparateurs. Si l'on
+    utilise l'éditeur Vim, l'option ':set list' permettra d'afficher les
+    tabulations dans le fichier.
+
+  - L'emplacement des sauvegardes spécifié par la directive 'snapshot_root'
+    sera créé au besoin par Rsnapshot.
+
+  - Les commandes correspondent à un système Slackware Linux 14.2.
+
+  - La directive 'retain hourly 6' correspond à une sauvegarde complète
+    toutes les quatre heures. 
+
+  - Le fichier spécifié dans la directive 'exclude_file' contiendra
+    éventuellement les types de fichiers et de répertoires sur lesquels on
+    pourra faire l'impasse. 
+
+  - Dans l'exemple ci-dessus, on spécifie les arborescences de données à
+    sauvegarder, plutôt que de choisir l'ensemble du système à la louche pour
+    ensuite exclure les parties du système que l'on ne veut pas sauvegarder.
+
+  - Les bases de données sont récupérées par le biais d'un script 'sqldump.sh'
+    installé sur la machine distante, qui range les sauvegardes SQL
+    soigneusement ficelées dans un répertoire '/sqldump'.
+
+
+Tester la configuration
+-----------------------
+
+Une fois qu'on a édité la configuration, on peut vérifier si l'on n'a pas fait
+d'erreurs de syntaxe :
+
+  # rsnapshot configtest
+  Syntax OK
+
+L'option '-t' permet ensuite de simuler une sauvegarde. Dans ce cas, Rsnapshot
+nous affiche toutes les opérations qu'il effectuerait, sans réellement les
+exécuter :
+
+  # rsnapshot -t hourly
+
+
+Synchronisation initiale
+------------------------
+
+Si le serveur distant contient quelques centaines de gigaoctets de données, la
+première synchronisation peut être assez longue. La bonne politique consiste à
+effectuer cette première opération à la main, comme ceci :
+
+  # rsnapshot hourly
+
+Dans une deuxième console, on peut se faire une idée de la progression du
+transfert :
+
+  # watch ls -lh /srv/backup
+
+Au bout de l'opération, on pourra vérifier si tout s'est bien déroulé :
+
+  # less /var/log/rsnapshot
+
+  [2016-12-22T18:18:11] /usr/bin/rsnapshot hourly: started
+  [2016-12-22T18:18:11] echo 8430 > /var/run/rsnapshot.pid
+  [2016-12-22T18:18:11] mkdir -m 0700 -p /srv/backup/
+  [2016-12-22T18:18:11] mkdir -m 0755 -p /srv/backup/hourly.0/
+  [2016-12-22T18:18:11] /usr/bin/rsync -a --delete ...
+                        ...
+  [2016-12-22T18:42:49] touch /srv/backup/hourly.0/
+  [2016-12-22T18:42:50] rm -f /var/run/rsnapshot.pid
+  [2016-12-22T18:42:50] /usr/bin/rsnapshot hourly: completed successfully
+
+
+Définition des tâches automatiques
+----------------------------------
+
+Dès que la synchronisation initiale des données s'est bien déroulée, on peut
+définir une série de tâches automatisées pour les sauvegardes. Voici à quoi
+cela peut ressembler :
+
+  # crontab -e
+  ...
+  # Rsnapshot
+  0  */4 * * *  /usr/bin/rsnapshot hourly
+  50 3   * * *  /usr/bin/rsnapshot daily
+  40 3   * * 1  /usr/bin/rsnapshot weekly
+  30 3   1 * *  /usr/bin/rsnapshot monthly
+
+En règle générale, c'est une bonne idée d'exécuter les tâches à grands
+intervalles un peu avant celles à intervalles plus réduits. Voici ce que l'on
+obtient au bout de 24 heures :
+
+  # ls -lh /srv/backup/
+  total 28K
+  drwxr-xr-x 3 root root 4,0K déc.  26 04:00 daily.0
+  drwxr-xr-x 3 root root 4,0K déc.  27 08:00 hourly.0
+  drwxr-xr-x 3 root root 4,0K déc.  27 04:00 hourly.1
+  drwxr-xr-x 3 root root 4,0K déc.  27 00:00 hourly.2
+  drwxr-xr-x 3 root root 4,0K déc.  26 20:00 hourly.3
+  drwxr-xr-x 3 root root 4,0K déc.  26 16:00 hourly.4
+  drwxr-xr-x 3 root root 4,0K déc.  26 12:00 hourly.5
+
+
+Afficher la taille des sauvegardes
+----------------------------------
+
+La commande 'rsnapshot du' (disk usage) permet d'afficher l'espace disque
+occupé par les sauvegardes respectives :
+
+  # rsnapshot du
+  52G /srv/backup/hourly.0/
+  78M /srv/backup/hourly.1/
+  299M  /srv/backup/hourly.2/
+  78M /srv/backup/hourly.3/
+  78M /srv/backup/hourly.4/
+  90M /srv/backup/hourly.5/
+  78M /srv/backup/daily.0/
+  53G total
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt

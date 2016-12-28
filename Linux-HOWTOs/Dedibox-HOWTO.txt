@@ -2,9 +2,9 @@
 Dedibox HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 =============
 
-Dernière révision : 7 février 2016
+Dernière révision : 20 décembre 2016
 
-Ce HOWTO décrit l'installation et la configuration de Slackware Linux 14.1
+Ce HOWTO décrit l'installation et la configuration de Slackware Linux 14.2
 64-bits sur un serveur dédié Dedibox SC de chez Online. Slackware ne figure
 pas parmi les distributions proposées par Online, mais on peut quand-même
 l'installer à l'aide de la console de secours, avec un peu de patience.
@@ -12,7 +12,7 @@ l'installer à l'aide de la console de secours, avec un peu de patience.
   * Installation initiale
   * Démarrer une session de secours
   * Préparer le disque
-  * Installer un système Slackware serveur
+  * Installer un système Slackware réduit
   * Configuration post-installation
   * Redémarrage initial
   * Pare-feu
@@ -40,7 +40,7 @@ Démarrer une session de secours
 -------------------------------
 
 Une fois que le système est installé, passer en 'Mode secours' et choisir
-'Ubuntu 14.04 amd64' comme système de secours. 
+'Ubuntu 16.04 amd64' comme système de secours. 
 
   /!\ Il se peut qu'avec certains abonnements comme la Dedibox SC, on ne
   dispose que de 'Ubuntu 12.04 amd64'. Ce n'est pas grave, étant donné que le
@@ -54,23 +54,14 @@ lancer la connexion.
   /!\ Parfois, le mot de passe temporaire pour la session de secours ne
   fonctionne pas tout de suite. Dans ce cas, il suffit d'insister un peu.
 
-  $ ssh kikinovak@195.154.65.130
-  kikinovak@195.154.65.130's password: 
+  $ ssh kikinovak@163.172.81.8
+  kikinovak@163.172.81.8's password: 
 
-  Welcome to Ubuntu 14.04.1 LTS (GNU/Linux 3.13.0-24-generic x86_64)
+  Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-47-generic x86_64)
 
-   * Documentation:  https://help.ubuntu.com/
-
-    System information as of Sun Oct 19 10:10:44 CEST 2014
-
-    System load:    1.23      Processes:           79
-    Usage of /home: unknown   Users logged in:     0
-    Memory usage:   3%        IP address for eth0: 195.154.65.130
-    Swap usage:     0%
-
-    Graph this data and manage this system at:
-      https://landscape.canonical.com/
-
+   * Documentation:  https://help.ubuntu.com
+   * Management:     https://landscape.canonical.com
+   * Support:        https://ubuntu.com/advantage
 
   The programs included with the Ubuntu system are free software;
   the exact distribution terms for each program are described in the
@@ -88,16 +79,16 @@ lancer la connexion.
   Aide et documentation : http://documentation.dedibox.fr
   Console de gestion    : http://console.dedibox.fr
 
-  Serveur : 195-154-65-130
-  Adr IP  : 195.154.65.130
-  Adr MAC : e8:9a:8f:13:e6:47
-  Système : Ubuntu 14.04.1 LTS (trusty) x86_64
-  Démarré : dimanche 19 octobre 2014, 10:11:33 (UTC+0200)
+  Serveur : 163-172-81-8
+  Adr IP  : 163.172.81.8
+  Adr MAC : 00:07:CB:0B:55:78
+  Système : Ubuntu 16.04.1 LTS (xenial) x86_64
+  Démarré : mardi 20 décembre 2016, 15:36:23 (UTC+0100)
 
   To run a command as administrator (user "root"), use "sudo <command>".
   See "man sudo_root" for details.
 
-  kikinovak@195-154-65-130:~$ 
+  kikinovak@163-172-81-8:~$ 
 
 
 Préparer le disque
@@ -125,26 +116,28 @@ Définir la variable d'environnement LANG :
   # LANG=C
   # export LANG
 
-Si l'on utilise 'fdisk' pour le partitionnement, on se retrouve avec des
-erreurs du style 'Partition 1 does not start on physical sector boundary.' Il
-vaut mieux utiliser 'gdisk'. Éventuellement, voir le 'Partition-HOWTO' pour
-plus de détails :
+Partitionner le disque :
 
-  # gdisk /dev/sda
+  # fdisk /dev/sda
 
-Schéma :
+  /!\ Si l'on utilise 'fdisk' pour le partitionnement, on peut éventuellement
+  se retrouver avec des erreurs du style 'Partition 1 does not start on
+  physical sector boundary.' Dans ce cas, il vaut mieux utiliser 'gdisk'. 
 
-  # gdisk -l /dev/sda
+Schéma de partitionnement :
 
-  Found valid GPT with protective MBR; using GPT.
-  Disk /dev/sda: 976773168 sectors, 465.8 GiB
+  # fdisk -l /dev/sda
+  Disk /dev/sda: 931.5 GiB, 1000204886016 bytes, 1953525168 sectors
+  Units: sectors of 1 * 512 = 512 bytes
+  Sector size (logical/physical): 512 bytes / 4096 bytes
+  I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+  Disklabel type: dos
+  Disk identifier: 0x826fa19f
 
-  ...
-
-  Number  Start (sector)    End (sector)  Size       Code  Name
-     1            2048          206847   100.0 MiB   8300  Linux filesystem
-     2          206848         4401151   2.0 GiB     8200  Linux swap
-     3         4401152       976773134   463.7 GiB   8300  Linux filesystem
+  Device     Boot   Start        End    Sectors   Size Id Type
+  /dev/sda1  *       2048     206847     204800   100M 83 Linux
+  /dev/sda2        206848    8595455    8388608     4G 82 Linux swap / Solaris
+  /dev/sda3       8595456 1953525167 1944929712 927.4G 83 Linux
 
 
 Étant donné que nous n'avons pas accès à l'installateur Slackware, nous allons
@@ -165,33 +158,26 @@ Créer et monter la partition '/boot' :
   # mount /dev/sda1 /mnt/boot
 
 
-Installer un système Slackware serveur
---------------------------------------
+Installer un système Slackware réduit
+-------------------------------------
 
-On va récupérer un système Slackware serveur sur un miroir FTP. La console de
-secours comporte déjà le client FTP 'lftp'. Pour plus de confort, on va
-installer NcFTP :
+Récupérer une poignée d'outils nécessaires pour l'installation :
 
   # apt-get update
-  # apt-get install ncftp 
+  # apt-get install ncftp xz-utils dialog
 
-Une installation serveur sera composée des groupes de paquets A, AP, D, F, L,
-N, T, TCL, X et Y. 
+On va récupérer un système Slackware réduit sur un miroir FTP. Ce système sera
+composé des groupes de paquets A, AP, D, L et N.
 
-  /!\ On peut se demander à quoi servent les groupes T et X. À titre
-  d'exemple, T est nécessaire pour compiler 'ffmpeg', un composant central
-  pour le streaming audio. Et certains paquets comme 'php' ont des dépendances
-  dans le groupe X.
-
-Créer un répertoire 'slackware64' et télécharger une première fournée de
+Créer un répertoire 'slackware64-14.2' et télécharger une première fournée de
 paquets dans ce répertoire. Étant donné que l'espace est limité dans notre
 console de secours, nous allons nous y prendre à plusieurs reprises :
 
-  # mkdir slackware64
-  # cd slackware64/
+  # mkdir slackware64-14.2
+  # cd slackware64-14.2
   # ncftp mirror.switch.ch
-  ncftp > cd mirror/slackware/slackware64-14.1/slackware64/
-  ncftp > get -R a ap d f n
+  ncftp > cd mirror/slackware/slackware64-14.2/slackware64/
+  ncftp > get -R a ap d l n
   ncftp > bye
 
   /!\ Le téléchargement produit quelques avertissements sans conséquence, que
@@ -202,9 +188,9 @@ console de secours, nous allons nous y prendre à plusieurs reprises :
 
 Installer 'a/pkgtools' dans l'environnement de secours :
 
-  # cp a/pkgtools-14.1-noarch-2.tgz /
+  # cp a/pkgtools-14.2-noarch-10.txz /
   # cd /
-  # tar xvzf pkgtools-14.1-noarch-2.tgz 
+  # tar xvf pkgtools-14.2-noarch-10.txz 
   ./
   var/
   var/log/
@@ -216,23 +202,17 @@ Installer 'a/pkgtools' dans l'environnement de secours :
   var/log/setup/setup.services
   install/
   install/slack-desc
+  install/doinst.sh
   sbin/
   sbin/removepkg
   sbin/explodepkg
   sbin/pkgtool
   sbin/upgradepkg
   sbin/makepkg
-  sbin/makebootdisk
   sbin/installpkg
   usr/
   usr/man/
-  usr/man/man8/
-  usr/man/man8/pkgtool.8.gz
-  usr/man/man8/upgradepkg.8.gz
-  usr/man/man8/makepkg.8.gz
-  usr/man/man8/installpkg.8.gz
-  usr/man/man8/explodepkg.8.gz
-  usr/man/man8/removepkg.8.gz
+  ...
 
 Créer un lien symbolique vers 'du' pour que 'pkgtools' fonctionne correctement
 sous Ubuntu :
@@ -241,7 +221,7 @@ sous Ubuntu :
 
 Installer les paquets téléchargés vers l'environnement chrooté :
 
-  # cd /root/slackware64
+  # cd /root/slackware64-14.2
   # installpkg --root /mnt */*.t?z
 
   /!\ Là encore, on pourra sereinement ignorer l'avertissement concernant la
@@ -250,47 +230,15 @@ Installer les paquets téléchargés vers l'environnement chrooté :
     WARNING: pkgtools are unstable with tar > 1.13.
              You should provide a "tar-1.13" in your $PATH.
 
-Le système de secours chargé dans la RAM est passablement saturé avec les
-cinq groupes de paquets téléchargés :
-
-  # df -h
-  Filesystem      Size  Used Avail Use% Mounted on
-  aufs            985M  675M  311M  69% /
-
-On va les supprimer pour faire de la place :
-
-  # rm -rf a/ ap/ d/ f/ n/
-  # df -h
-  Filesystem      Size  Used Avail Use% Mounted on
-  aufs            985M  226M  760M  23% /
-
-À présent, on peut récupérer et installer le groupe de paquets L :
-
-  # ncftp mirror.switch.ch
-  ncftp > cd mirror/slackware/slackware64-14.1/slackware64/
-  ncftp > get -R l
-  ncftp > bye
-  # installpkg --root /mnt l/*.t?z
-  # rm -rf l/
-
-Enfin, récupérer et installer les groupes restants T, TCL, X et Y :
-
-  # ncftp mirror.switch.ch
-  ncftp > cd mirror/slackware/slackware64-14.1/slackware64/
-  ncftp > get -R t tcl x y
-  ncftp > bye
-  # installpkg --root /mnt */*.t?z
-  # rm -rf t/ tcl/ x/ y/
-
 
 Configuration post-installation
 -------------------------------
 
 Lier les systèmes '/proc', '/dev' et '/sys' à ceux de la console de secours :
 
-  # mount --rbind /proc /mnt/proc
-  # mount --rbind /dev /mnt/dev
-  # mount --rbind /sys /mnt/sys
+  # mount --bind /proc /mnt/proc
+  # mount --bind /dev /mnt/dev
+  # mount --bind /sys /mnt/sys
 
 Changer dans l'environnement chrooté en spécifiant l'interpréteur de commandes
 Bash :
@@ -319,15 +267,14 @@ pays, par exemple :
 
 --8<---------- /etc/slackpkg/mirrors -----------------------------------------
 ...
-# GERMANY (DE)
-ftp://ftp.fu-berlin.de/unix/linux/slackware/slackware64-14.1/
+# FRANCE (FR)
+ftp://nephtys.lip6.fr/pub/linux/distributions/slackware/slackware64-14.2/
 ...
 --8<--------------------------------------------------------------------------
 
-  /!\ Assurez-vous de ne choisir qu'un seul miroir pour Slackware stable. Même
-  si vous êtes en France, optez pour le miroir ftp.fu-berlin.de ou
-  mirror.switch.ch. Le miroir OVH est inutilisable comme à peu près tout ce
-  qui vient de chez OVH.
+  /!\ Assurez-vous de ne choisir qu'un seul miroir pour Slackware stable.
+  Notez que le miroir OVH est inutilisable comme à peu près tout ce qui vient
+  de chez OVH.
 
   # slackpkg update
   # slackpkg upgrade-all
@@ -351,8 +298,9 @@ USE UTF-8 TEXT CONSOLE  : Yes
 
 SELECT LILO DESTINATION : MBR - Install to Master Boot Record
 
-Éditer '/etc/lilo.conf' manuellement et corriger quelques entrées, notamment
-la partition principale qui n'est pas détectée automatiquement.
+Ignorer les avertissements et éditer '/etc/lilo.conf' manuellement pour
+corriger quelques entrées, notamment la partition principale qui n'est pas
+détectée automatiquement :
 
 --8<---------- /etc/lilo.conf ------------------------------------------------
 ...
@@ -365,12 +313,12 @@ timeout = 10
 ...
 image = /boot/vmlinuz
   root = /dev/sda3
-  label = MLES-14.1-64bit
+  label = MLES-14.2-64bit
   read-only
 --8<--------------------------------------------------------------------------
 
-Prendre en compte les modifications en ignorant les avertissements sans
-conséquence :
+Prendre en compte les modifications en ignorant encore une fois les
+avertissements sans conséquence :
 
   # lilo
   Warning: Unable to determine video adapter in use in the present system.
@@ -426,61 +374,36 @@ Démonter les partitions :
   # umount /mnt/boot
   # umount /mnt
 
-On obtient probablement des messages d'erreur de ce style :
-
-  umount: /mnt: device is busy.
-          (In some cases useful info about processes that use
-           the device is found by lsof(8) or fuser(1))
-
-Dans un cas comme dans l'autre, revenir dans l'interface web de la console
-Online, repasser en mode normal et croiser les doigts. 
+Revenir dans l'interface web de la console Online, repasser en mode normal et
+croiser les doigts. 
 
 
 Redémarrage initial
 -------------------
 
-Certains modèles de Dedibox sont incompatibles avec le module de kernel
-'acpi_cpufreq', qui a une méchante tendance à les faire geler. Il vaut donc
-mieux blacklister ce module :
+Installer les groupes de paquets manquants :
+
+  # slackpkg install f k t tcl x y
+
+On peut se demander à quoi servent les groupes T et X. À titre d'exemple, T est
+nécessaire pour compiler 'ffmpeg', un composant central pour le streaming
+audio. Et certains paquets comme 'php' ont des dépendances dans le groupe X.
+
+Certains modèles de Dedibox équipées d'un processeur VIA sont incompatibles
+avec le module de kernel 'acpi_cpufreq', qui a une méchante tendance à les
+faire geler. 
+
+Vérifier le modèle de processeur :
+
+  # cat /proc/cpuinfo | grep model
+  model   : 15
+  model name  : VIA Nano processor U2250 (1.6GHz Capable)
+
+Blacklister le module qui pose problème :
 
 --8<---------- /etc/modprobe.d/blacklist.conf --------------------------------
 blacklist acpi_cpufreq
 --8<--------------------------------------------------------------------------
-
-Récupérer et installer le paquet 'user-settings-console'. En ligne de
-commande, utilisez le navigateur Links pour accéder aux dépôts distants :
-
-  # links http://www.microlinux.fr/microlinux/
-
-Repérez le dépôt 'server-14.1-64bit' et naviguez vers le sous-répertoire
-'slackware64/'. Téléchargez le paquet 'user-settings-console' en utilisant la
-touche [D] comme "Download" et installez-le. Ensuite :
-
-  # source ~/.bashrc
-
-Je fournis une collection de scripts et de fichiers de configuration prêts à
-l'emploi pour accélérer le processus d'installation. Récupérez toute cette
-arborescence en utilisant la commande suivante :
-
-  # cd 
-  # git clone https://github.com/kikinovak/microlinux
-
-Dans la configuration par défaut, le gestionnaire de paquets 'slackpkg' ne
-fonctionne qu'avec les dépôts officiels de Slackware. Nous devons télécharger
-et installer le plugin 'slackpkg+' de Matteo Rossini pour activer
-l'utilisation de dépôts de paquets tiers. Microlinux vous évite la corvée en
-fournissant des paquets 'slackpkg+' préconfigurés pour l'utilisation des
-dépôts MLES.
-
-Revenez dans les dépôts distants avec Links :
-
-  # links http://www.microlinux.fr/microlinux
-
-Téléchargez et installez le paquet 'slackpkg+'. Ensuite :
-
-  # slackpkg update gpg
-  # slackpkg update
-  # slackpkg install microlinux-server
 
 Basculer vers le noyau GENERIC. Pour la construction de l'initrd, voir le
 Generic-Kernel-HOWTO.
@@ -489,12 +412,16 @@ Peaufiner la configuration du réseau. Éditer '/etc/hosts' comme ceci :
 
 --8<----------- /etc/hosts ---------------------------------------------------
 127.0.0.1          localhost.localdomain localhost
-195.154.65.130     sd-41893.dedibox.fr sd-41893
+163.172.81.8       sd-107066.dedibox.fr sd-107066
 --8<--------------------------------------------------------------------------
 
 
 Pare-feu
 --------
+
+Récupérer mes scripts d'installation :
+
+  # git clone https://github.com/kikinovak/microlinux
 
 Le répertoire 'template/firewall' contient un pare-feu prêt à l'emploi :
 

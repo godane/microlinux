@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Media Player
-Name[de]=Media-Player
-Name[fr]=Lecteur multimédia
+Name=Video Player
+Name[de]=Video-Player
+Name[fr]=Lecteur vidéo
 Comment=VLC
 Version=1.0
 Exec=/usr/bin/vlc --started-from-file %U

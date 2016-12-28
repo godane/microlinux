@@ -2,10 +2,10 @@
 Asus S300 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ===============
 
-Dernière révision : 19 avril 2015
+Dernière révision : 16 août 2015
 
 Ce HOWTO décrit de façon succincte les particularités de l'installation de
-Slackware Linux 14.1 64-bit sur un ordinateur portable Asus S300.
+Slackware Linux 64-bit sur un ordinateur portable Asus S300.
 
 
   * Prérequis
@@ -13,6 +13,8 @@ Slackware Linux 14.1 64-bit sur un ordinateur portable Asus S300.
   * Démarrage
   * Partitionnement
   * Chargeur de démarrage
+  * Résolution de X.org
+  * Touchpad
 
 
 Prérequis
@@ -109,6 +111,8 @@ MODCONF="0"
 WAIT="1"
 --8<--------------------------------------------------------------------------
 
+  Note : sous Slackware 14.2, ce n'est plus la peine d'ajouter 'i915'.
+
 Construire l'initrd :
 
   # mkinitrd -F
@@ -117,6 +121,8 @@ GRUB utilise le fichier de configuration par défaut '/boot/grub/grub.cfg',
 mais le répertoire n'existe pas :
 
   # mkdir /boot/grub
+
+  Note : le répertoire existe déjà sous Slackware 14.2.
 
 Créer une première configuration à la volée :
 
@@ -186,6 +192,54 @@ set menu_color_normal=blue/white
 À chaque fois, la configuration sera prise en compte comme ceci :
 
   # grub-mkconfig -o /boot/grub/grub.cfg
+
+
+Résolution de X.org
+-------------------
+
+Depuis Slackware 14.2, X.org démarre par défaut avec la résolution définie
+pour le framebuffer, en l'occurrence 1024x600. Pour corriger ce comportement,
+il faut éditer un fichier de configuration comme ceci :
+
+--8<---------- /etc/X11/xorg.conf.d/10-asus-s300-screen.conf ------------------
+Section "Screen"
+  Identifier "Default Screen"
+  Device "Intel HD Graphics"
+  Monitor "Default Monitor"
+  DefaultDepth 24
+  Subsection "Display"
+    Depth 24
+    Modes "1366x768" 
+  EndSubSection
+EndSection
+--8<--------------------------------------------------------------------------
+
+
+Touchpad
+--------
+
+Le touchpad ne fonctionne pas correctement dans la configuration par défaut.
+Voici ce qu'on peut faire pour arranger les choses :
+
+  # cd /etc/X11/xorg.conf.d
+  # cp /usr/share/X11/xorg.conf.d/50-synaptics.conf .
+
+Éditer ce fichier en ajoutant une option à la fin :
+
+--8<---------- /etc/X11/xorg.conf.d/50-synaptics.conf ------------------------
+Section "InputClass"
+        Identifier "touchpad"
+        Driver "synaptics"
+        MatchDevicePath "/dev/input/event*"
+        MatchIsTouchpad "on"
+        Option "TapButton1" "1"
+        Option "TapButton2" "2"
+        Option "TapButton3" "3"
+  Option "SoftButtonAreas" "50% 0 82% 0 0 0 0 0"
+EndSection
+--8<--------------------------------------------------------------------------
+
+Relancer X11, et le problème est réglé.
 
 
 ------------------------------------------------------------------------------

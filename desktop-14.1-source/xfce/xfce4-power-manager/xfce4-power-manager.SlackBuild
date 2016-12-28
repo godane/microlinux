@@ -26,10 +26,10 @@
 PRGNAM=xfce4-power-manager      
 # 1.5.2 requires gtk+-3.14.0 or higher, so we stick with 1.4.4
 VERSION=${VERSION:-1.4.4}  
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}   
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 # Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then

@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+libbonoboui: libbonoboui (Independant CORBA interface support library)
+libbonoboui:
+libbonoboui: The bonobo library supports independant CORBA interfaces for
+libbonoboui: creating reusable components. It provides GNOME with a framework
+libbonoboui: for handling compound documents, such as embedding a spreadsheet
+libbonoboui: in a word processor document.
+libbonoboui:
+libbonoboui:
+libbonoboui:
+libbonoboui:
+libbonoboui: Package created by Niki Kovacs <info@microlinux.fr>

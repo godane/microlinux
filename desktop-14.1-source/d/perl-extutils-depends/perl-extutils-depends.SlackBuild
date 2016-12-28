@@ -29,7 +29,7 @@
 
 PRGNAM=perl-extutils-depends
 VERSION=${VERSION:-0.404}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 SRCNAM=ExtUtils-Depends

@@ -86,24 +86,24 @@ AddDefaultCharset utf-8
   AddDescription "Microlinux Enterprise Desktop 14.1 32-bit" desktop-14.1-32bit
   AddDescription "Microlinux Enterprise Desktop 14.1 64-bit" desktop-14.1-64bit
   AddDescription "Microlinux Enterprise Desktop 14.1 source" desktop-14.1-source
-  AddDescription "Work in progress" desktop-14.2-32bit
-  AddDescription "Work in progress" desktop-14.2-64bit
-  AddDescription "Work in progress" desktop-14.2-source
+  AddDescription "Microlinux Enterprise Desktop 14.2 32-bit" desktop-14.2-32bit
+  AddDescription "Microlinux Enterprise Desktop 14.2 64-bit" desktop-14.2-64bit
+  AddDescription "Microlinux Enterprise Desktop 14.2 source" desktop-14.2-source
   AddDescription "Microlinux Enterprise Desktop Extras 14.1 32-bit" extras-14.1-32bit
   AddDescription "Microlinux Enterprise Desktop Extras 14.1 64-bit" extras-14.1-64bit
   AddDescription "Microlinux Enterprise Desktop Extras 14.1 source" extras-14.1-source
-  AddDescription "Work in progress" extras-14.2-32bit
-  AddDescription "Work in progress" extras-14.2-64bit
-  AddDescription "Work in progress" extras-14.2-source
+  AddDescription "Microlinux Enterprise Desktop Extras 14.2 32-bit" extras-14.2-32bit
+  AddDescription "Microlinux Enterprise Desktop Extras 14.2 64-bit" extras-14.2-64bit
+  AddDescription "Microlinux Enterprise Desktop Extras 14.2 source" extras-14.2-source
   AddDescription "Microlinux Enterprise Server 14.0 32-bit" server-14.0-32bit
   AddDescription "Microlinux Enterprise Server 14.0 64-bit" server-14.0-64bit
   AddDescription "Microlinux Enterprise Server 14.0 source" server-14.0-source
   AddDescription "Microlinux Enterprise Server 14.1 32-bit" server-14.1-32bit
   AddDescription "Microlinux Enterprise Server 14.1 64-bit" server-14.1-64bit
   AddDescription "Microlinux Enterprise Server 14.1 source" server-14.1-source
-  AddDescription "Microlinux Enterprise Server 14.2 32-bit" server-14.2-32bit
-  AddDescription "Microlinux Enterprise Server 14.2 64-bit" server-14.2-64bit
-  AddDescription "Microlinux Enterprise Server 14.2 source" server-14.2-source
+  AddDescription "Work in progress" server-14.2-32bit
+  AddDescription "Work in progress" server-14.2-64bit
+  AddDescription "Work in progress" server-14.2-source
   AddDescription "Experimental Software 14.1 32-bit" testing-14.1-32bit
   AddDescription "Experimental Software 14.1 64-bit" testing-14.1-64bit
   AddDescription "Experimental Software 14.1 source" testing-14.1-source

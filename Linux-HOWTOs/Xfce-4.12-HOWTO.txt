@@ -2,7 +2,7 @@
 Xfce 4.12 HOWTO (c) Nicolas Kovacs <info@microlinux.fr>
 ===============
 
-Dernière révision : 11 avril 2015
+Dernière révision : 26 décembre 2016
 
 Ce HOWTO décrit la configuration du bureau Xfce 4.12 sous Slackware Linux.
 
@@ -82,7 +82,7 @@ Ajouter des favoris pour les applications de base :
   * LibreOffice Impress
   * gThumb
   * Audacious
-  * MPlayer
+  * VLC
 
   [*] Changer de catégories au survol
 
@@ -104,7 +104,9 @@ sélecteur de bureaux virtuels.
 
 Tableau de bord > Tableau de bord 2 : supprimer 
 
-Démarrer le lanceur d'applications Plank et ouvrir les Préférences.
+Démarrer le lanceur d'applications Plank et ouvrir les Préférences :
+
+  $ plank --preferences
 
   Thème : Transparent
 
@@ -122,7 +124,7 @@ Ajouter des lanceurs pour les applications de base :
   * LibreOffice 
   * gThumb
   * Audacious
-  * MPlayer
+  * VLC
 
 Dans les Paramètres Xfce > Sessions et démarrage, définir le lancement
 automatique de Plank à l'ouverture d'une session.
@@ -141,7 +143,7 @@ Thunar : augmenter d'un cran la taille des icônes
 Création du profil
 ------------------
 
-  # mkdir /etc/skel/.config/xfce4
+  # mkdir -pv /etc/skel/.config/xfce4
   # cp -Rv /home/template/.config/xfce4/{panel,terminal,xfconf} \
       /etc/skel/.config/xfce4/
   # cp -Rv /home/template/.config/{plank,autostart} /etc/skel/.config/ 

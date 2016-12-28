@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=E-book management
+Name[de]=E-Book-Software
+Name[fr]=Gestion de livres numériques
+Comment=Calibre
+Version=1.0
+Type=Application
+TryExec=calibre
+Exec=calibre --no-update-check --detach %F
+Icon=calibre-gui
+Categories=Office;

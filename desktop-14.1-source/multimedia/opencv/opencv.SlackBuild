@@ -27,10 +27,10 @@
 PRGNAM=opencv
 PRGNAM2=opencv_contrib
 VERSION=${VERSION:-3.0.0}
-BUILD=${BUILD:-4}
+BUILD=${BUILD:-5}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -64,7 +64,7 @@ set -e
 DOWNLOAD="https://github.com/Itseez/$PRGNAM/archive/$VERSION.tar.gz \
           https://github.com/Itseez/$PRGNAM2/archive/$VERSION.zip"
 
-#wget -c $DOWNLOAD
+wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

@@ -25,12 +25,13 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=muParser
-VERSION=${VERSION:-2.2.4}
-BUILD=${BUILD:-2}
-TAG=${TAG:-_microlinux}
-
 SRCNAM=$(echo $PRGNAM | tr A-Z a-z)
 SRCVER=v2_2_4
+VERSION=${VERSION:-2.2.4}
+BUILD=${BUILD:-3}
+TAG=${TAG:-_microlinux}
+
+# Parallel builds are broken
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in

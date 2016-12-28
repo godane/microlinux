@@ -25,9 +25,10 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=py3sensors
+# WTF ?!?
 SRCNAM=gleb_zhulik-$PRGNAM
 VERSION=${VERSION:-0cf96f4e2cfe}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then

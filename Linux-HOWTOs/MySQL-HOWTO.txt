@@ -14,6 +14,7 @@ MySQL/MariaDB sous Slackware.
   * Exemple de base de données
   * Sauvegarde
   * Restauration
+  * Sauvegardes automatiques
 
 
 Généralités
@@ -262,6 +263,17 @@ Si l'on obtient des erreurs de connexion aux bases restaurées, il faudra se
 connecter au moniteur MySQL, puis :
 
   mysql> flush privileges;
+
+
+Sauvegardes automatiques
+------------------------
+
+Le répertoire 'template/backup' fournit un script Bash 'sqldump.sh' qui permet
+d'effectuer des sauvegardes automatiques de l'ensemble des bases MySQL d'un
+serveur. Les sauvegardes se présentent sous forme d'une série de fichiers
+compressés '*.sql.gz' rangés dans le répertoire '/sqldump'. Par la suite, ces
+fichiers pourront être récupérés par un serveur de sauvegardes distant. Voir
+le Rsnapshot-HOWTO pour plus de détails.
 
 
 ------------------------------------------------------------------------------

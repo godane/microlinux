@@ -11,7 +11,7 @@
 
 PRGNAM=matplotlib
 VERSION=${VERSION:-1.4.2}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 TARBALL_VERSION=1.4.2 # Tarball sometimes has a wrong version number

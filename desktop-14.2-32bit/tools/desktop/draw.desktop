@@ -5,20 +5,9 @@ Name[fr]=Logiciel de dessin
 Comment=LibreOffice Draw
 Version=1.0
 Terminal=false
-#Icon=libreoffice5.0-draw
+#Icon=libreoffice5.2-draw
 Icon=ooo-draw
 Type=Application
 Categories=Office;FlowChart;Graphics;2DGraphics;VectorGraphics;X-Red-Hat-Base;X-MandrivaLinux-Office-Drawing;
-Exec=libreoffice5.0 --draw %U
-MimeType=application/vnd.oasis.opendocument.graphics;application/vnd.oasis.opendocument.graphics-flat-xml;application/vnd.oasis.opendocument.graphics-template;application/vnd.sun.xml.draw;application/vnd.sun.xml.draw.template;application/vnd.visio;application/x-wpg;application/vnd.corel-draw;application/vnd.ms-publisher;image/x-freehand;application/clarisworks;application/x-pagemaker;
-StartupNotify=true
-X-GIO-NoFuse=true
-Keywords=Vector;Schema;Diagram;Layout;OpenDocument Graphics;Microsoft Publisher;Corel Draw;cdr;odg;svg;
-InitialPreference=5
-StartupWMClass=libreoffice-draw
-X-KDE-Protocols=file,http,ftp,webdav
-
-Actions=NewDocument;
-[Desktop Action NewDocument]
-Name=New Drawing
-Exec=libreoffice5.0 --draw
+Exec=libreoffice5.2 --draw %U
+MimeType=application/vnd.oasis.opendocument.graphics;application/vnd.oasis.opendocument.graphics-flat-xml;application/vnd.oasis.opendocument.graphics-template;application/vnd.sun.xml.draw;application/vnd.sun.xml.draw.template;application/vnd.visio;application/x-wpg;application/vnd.corel-draw;application/vnd.ms-publisher;image/x-freehand;application/clarisworks;application/x-pagemaker;application/pdf;

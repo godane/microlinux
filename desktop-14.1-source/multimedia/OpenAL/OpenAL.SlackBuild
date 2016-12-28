@@ -26,11 +26,11 @@
 
 PRGNAM=OpenAL
 SRCNAM=openal-soft
-VERSION=1.16.0
-BUILD=${BUILD:-2}
+VERSION=1.17.1
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
