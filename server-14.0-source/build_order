@@ -37,6 +37,7 @@ d/tornado
 d/werkzeug
 d/zope.event
 d/zope.interface
+d/zope.component
 d/matplotlib
 d/psutil
 d/pysnmp
