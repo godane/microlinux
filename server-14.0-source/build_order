@@ -50,6 +50,7 @@ d/matplotlib
 d/psutil
 d/pysnmp
 d/cryptography
+d/pyOpenSSL
 
 # System monitor
 ap/glances
