@@ -54,6 +54,9 @@ d/cryptography
 d/pyOpenSSL
 d/ndg_httpsclient
 
+# Networking
+n/letsencrypt
+
 # System monitor
 ap/glances
 
