@@ -49,6 +49,7 @@ d/cffi
 d/matplotlib
 d/psutil
 d/pysnmp
+d/cryptography
 
 # System monitor
 ap/glances

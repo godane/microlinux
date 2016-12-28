@@ -27,8 +27,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=cryptography
-VERSION=${VERSION:-1.1.1}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-1.6}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
@@ -60,7 +60,7 @@ fi
 
 set -e
 
-DOWNLOAD="https://pypi.python.org/packages/source/c/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="https://pypi.python.org/packages/d7/a2/b90736c37fd720db425c5e48d69da75a6eff6609b22d2123762f1ae8c5f5/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
