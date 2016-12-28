@@ -35,6 +35,7 @@ d/pytz
 d/six
 d/tornado
 d/werkzeug
+d/zope.event
 d/matplotlib
 d/psutil
 d/pysnmp
