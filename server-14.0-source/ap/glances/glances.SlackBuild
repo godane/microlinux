@@ -25,8 +25,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=glances
-VERSION=${VERSION:-2.5.1}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-2.7.1}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
