@@ -55,6 +55,7 @@ d/pyOpenSSL
 d/ndg_httpsclient
 
 # Networking
+n/dovecot
 n/letsencrypt
 n/postfix
 
