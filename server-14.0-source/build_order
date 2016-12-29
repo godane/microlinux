@@ -24,6 +24,7 @@ l/libsigc++
 l/libtorrent
 l/lua-filesystem
 l/luaexpat
+l/luasec
 l/OpenBLAS
 
 # Perl

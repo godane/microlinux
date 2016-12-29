@@ -27,8 +27,10 @@
 PRGNAM=luasec
 HASH=${HASH:-903efaf3b1f090a992963480fa2924dac02f9174}
 VERSION=20140421_$(echo $HASH |cut -c -7)
-BUILD=${BUILD:-3}
+BUILD=${BUILD:-4}
 TAG=${TAG:-_microlinux}
+
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -80,7 +82,7 @@ cd src
   patch < $CWD/makefile.patch
 cd -
 
-make linux \
+make $NUMJOBS linux \
   LUACPATH="/usr/lib${LIBDIRSUFFIX}/lua/5.1" \
   LIB_PATH=" -L/usr/lib${LIBDIRSUFFIX}" \
   SLKCFLAGS="${SLKCFLAGS}"
