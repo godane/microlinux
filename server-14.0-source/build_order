@@ -11,6 +11,7 @@ ap/slackpkg+
 ap/augeas
 ap/p7zip
 ap/pwgen
+ap/recode
 
 # Development
 d/cppunit

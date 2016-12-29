@@ -36,10 +36,10 @@ PRGNAM=recode
 SRCNAM=Recode
 VERSION=${VERSION:-3.7_beta2}
 SRCVER=$(echo $VERSION | tr _ -)
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
