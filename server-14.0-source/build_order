@@ -90,6 +90,7 @@ multimedia/lame
 multimedia/libcuefile
 multimedia/libmms
 multimedia/libmp4v2
+multimedia/libreplaygain
 multimedia/speex
 multimedia/libshout
 # n/icecast
