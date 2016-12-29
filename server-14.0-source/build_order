@@ -84,6 +84,7 @@ n/rtorrent
 ap/glances
 
 # Multimedia
+multimedia/lame
 multimedia/speex
 multimedia/libshout
 # n/icecast
