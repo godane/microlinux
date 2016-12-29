@@ -84,6 +84,7 @@ n/iperf
 n/letsencrypt
 n/postfix
 n/postgrey
+n/prosody
 n/rtorrent
 
 # System monitor
