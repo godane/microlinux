@@ -16,6 +16,7 @@ ap/unrar
 
 # Development
 d/cppunit
+d/lua
 
 # General libraries
 l/libmpdclient
