@@ -83,3 +83,7 @@ n/rtorrent
 # System monitor
 ap/glances
 
+# Multimedia
+multimedia/speex
+multimedia/libshout
+# n/icecast
