@@ -27,7 +27,7 @@
 PRGNAM=perl-net-ip
 SRCNAM=Net-IP
 VERSION=${VERSION:-1.26}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
@@ -47,7 +47,8 @@ DOCFILES="Changes README COPYING"
 
 set -e # Exit on most errors
 
-DOWNLOAD="http://search.cpan.org/CPAN/authors/id/M/MA/MANU/$SRCNAM-$VERSION.tar.gz"
+DOWNLOAD="http://fossies.org/linux/privat/$SRCNAM-$VERSION.tar.gz"
+#DOWNLOAD="http://search.cpan.org/CPAN/authors/id/M/MA/MANU/$SRCNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD 
 

@@ -26,6 +26,7 @@ l/OpenBLAS
 d/perl-BerkeleyDB
 d/perl-digest-sha1
 d/perl-digest-hmac
+d/perl-net-ip
 
 # Python
 d/pysetuptools
