@@ -12,6 +12,7 @@ ap/augeas
 ap/p7zip
 ap/pwgen
 ap/recode
+ap/unrar
 
 # Development
 d/cppunit
