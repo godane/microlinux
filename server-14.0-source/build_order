@@ -22,6 +22,9 @@ l/libsigc++
 l/libtorrent
 l/OpenBLAS
 
+# Perl
+d/perl-BerkeleyDB
+
 # Python
 d/pysetuptools
 d/backports-ssl-match-hostname
