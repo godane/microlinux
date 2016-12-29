@@ -92,5 +92,6 @@ multimedia/libmms
 multimedia/libmp4v2
 multimedia/libreplaygain
 multimedia/speex
+multimedia/twolame
 multimedia/libshout
 # n/icecast
