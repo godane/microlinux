@@ -58,6 +58,7 @@ metamail:ADD
 mobile-broadband-provider-info:ADD
 mtr:ADD
 mutt:ADD
+nc:ADD
 ncftp:ADD
 net-snmp:ADD
 net-tools:ADD
@@ -128,6 +129,3 @@ wpa_supplicant:ADD
 yptools:ADD
 ytalk:ADD
 zd1211-firmware:ADD
-
-# Skip
-nc:SKP
