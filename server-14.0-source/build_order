@@ -87,6 +87,7 @@ ap/glances
 multimedia/faad2
 multimedia/id3lib
 multimedia/lame
+multimedia/libcuefile
 multimedia/speex
 multimedia/libshout
 # n/icecast
