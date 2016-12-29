@@ -22,6 +22,7 @@ d/lua
 l/libmpdclient
 l/libsigc++
 l/libtorrent
+l/lua-filesystem
 l/OpenBLAS
 
 # Perl

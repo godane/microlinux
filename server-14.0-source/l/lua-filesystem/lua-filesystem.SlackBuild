@@ -26,8 +26,10 @@
 PRGNAM=lua-filesystem
 SRCNAM=luafilesystem
 VERSION=${VERSION:-1.6.2}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
+
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -80,7 +82,7 @@ sed -i \
   -e "s|/lib|/lib$LIBDIRSUFFIX|" \
   -e "s|-O2 -Wall -fPIC|$SLKCFLAGS -Wall|" \
   config
-make
+make $NUMJOBS
 install -m 0755 -D src/lfs.so $PKG/usr/lib$LIBDIRSUFFIX/lua/5.1/lfs.so
 install -m 0644 -D src/lfs.h $PKG/usr/include/lfs.h
 
