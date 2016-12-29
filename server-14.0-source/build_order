@@ -12,8 +12,13 @@ ap/augeas
 ap/p7zip
 ap/pwgen
 
+# Development
+d/cppunit
+
 # General libraries
+l/libsigc++
 l/OpenBLAS
+l/libtorrent
 
 # Python
 d/pysetuptools
