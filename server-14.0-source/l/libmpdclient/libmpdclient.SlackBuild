@@ -6,11 +6,11 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=libmpdclient
-VERSION=2.7
-BUILD=${BUILD:-2}
+VERSION=2.9
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 # Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then
@@ -43,7 +43,7 @@ fi
 
 set -e
 
-DOWNLOAD="http://www.musicpd.org/download/$PRGNAM/2/$PRGNAM-$VERSION.tar.bz2"
+DOWNLOAD="http://www.musicpd.org/download/$PRGNAM/2/$PRGNAM-$VERSION.tar.xz"
 
 wget -c $DOWNLOAD
 
@@ -51,7 +51,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2
+tar xvf $CWD/$PRGNAM-$VERSION.tar.xz
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find . \

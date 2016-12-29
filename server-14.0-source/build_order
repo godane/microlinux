@@ -18,6 +18,7 @@ ap/unrar
 d/cppunit
 
 # General libraries
+l/libmpdclient
 l/libsigc++
 l/libtorrent
 l/OpenBLAS
