@@ -85,6 +85,7 @@ ap/glances
 
 # Multimedia
 multimedia/faad2
+multimedia/id3lib
 multimedia/lame
 multimedia/speex
 multimedia/libshout
