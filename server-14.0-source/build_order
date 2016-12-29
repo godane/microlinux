@@ -88,6 +88,7 @@ multimedia/faad2
 multimedia/id3lib
 multimedia/lame
 multimedia/libcuefile
+multimedia/libmms
 multimedia/speex
 multimedia/libshout
 # n/icecast
