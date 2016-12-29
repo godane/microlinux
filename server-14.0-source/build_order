@@ -17,8 +17,8 @@ d/cppunit
 
 # General libraries
 l/libsigc++
-l/OpenBLAS
 l/libtorrent
+l/OpenBLAS
 
 # Python
 d/pysetuptools
@@ -66,6 +66,7 @@ n/dovecot
 n/iperf
 n/letsencrypt
 n/postfix
+n/rtorrent
 
 # System monitor
 ap/glances
