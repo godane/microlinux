@@ -4,7 +4,7 @@
 profile/user-settings-console
 
 # Package management
-# ap/sbopkg
+ap/sbopkg
 # ap/slackpkg+
 
 # Basic tools
