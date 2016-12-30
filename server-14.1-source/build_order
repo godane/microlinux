@@ -18,7 +18,7 @@ ap/unrar
 # Development
 d/cppunit
 d/lua
-# d/spice-protocol
+d/spice-protocol
  
 # Libraries
 # l/libbsd
