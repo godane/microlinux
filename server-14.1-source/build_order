@@ -16,7 +16,7 @@ ap/recode
 ap/unrar
 
 # Development
-# d/cppunit
+d/cppunit
 # d/lua
 # d/spice-protocol
  
