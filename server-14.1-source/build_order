@@ -12,7 +12,7 @@ ap/augeas
 ap/device-tree-compiler
 ap/p7zip
 ap/pwgen
-# ap/recode
+ap/recode
 # ap/unrar
 
 # Development
