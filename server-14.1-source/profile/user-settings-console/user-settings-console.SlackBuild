@@ -27,7 +27,7 @@ set -x
 
 PRGNAM=user-settings-console
 VERSION=${VERSION:-14.1}	
-BUILD=${BUILD:-3}
+BUILD=${BUILD:-4}
 TAG=${TAG:-"_microlinux"}
 
 ARCH=noarch
@@ -42,32 +42,34 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 
 mkdir -p $PKG/root
-cat $CWD/bashrc-root  > $PKG/root/.bashrc
-cat $CWD/bash_profile > $PKG/root/.bash_profile
-cat $CWD/bash_logout  > $PKG/root/.bash_logout
-chmod 0644 $PKG/root/{.bashrc,.bash_profile,.bash_logout}
+cat $CWD/bashrc-root  > $PKG/root/.bashrc.new
+cat $CWD/bash_profile > $PKG/root/.bash_profile.new
+cat $CWD/bash_logout  > $PKG/root/.bash_logout.new
+cat $CWD/Xresources  > $PKG/root/.Xresources.new
+chmod 0644 $PKG/root/.[!.]*.new
 
 mkdir -p $PKG/etc/skel
 cat $CWD/bashrc-users > $PKG/etc/skel/.bashrc
 cat $CWD/bash_profile > $PKG/etc/skel/.bash_profile
 cat $CWD/bash_logout  > $PKG/etc/skel/.bash_logout 
 cat $CWD/Xresources  > $PKG/etc/skel/.Xresources
-chmod 0644 $PKG/etc/skel/{.bashrc,.bash_profile,.bash_logout,.Xresources}
+chmod 0644 $PKG/etc/skel/.[!.]*
 
 mkdir -p $PKG/usr/share/vim
-cat $CWD/vimrc > $PKG/usr/share/vim/vimrc
-chmod 0644 $PKG/usr/share/vim/vimrc
+cat $CWD/vimrc > $PKG/usr/share/vim/vimrc.new
+chmod 0644 $PKG/usr/share/vim/vimrc.new
 
 mkdir -p $PKG/etc/profile.d
-cat $CWD/lang.sh > $PKG/etc/profile.d/lang.sh
-chmod 0755 $PKG/etc/profile.d/lang.sh
+cat $CWD/lang.sh > $PKG/etc/profile.d/lang.sh.new
+chmod 0755 $PKG/etc/profile.d/lang.sh.new
 
 mkdir -p $PKG/etc/rc.d
-cat $CWD/rc.font > $PKG/etc/rc.d/rc.font
-chmod 0755 $PKG/etc/rc.d/rc.font
+cat $CWD/rc.font > $PKG/etc/rc.d/rc.font.new
+chmod 0755 $PKG/etc/rc.d/rc.font.new
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh  > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}

@@ -1,6 +1,6 @@
 # Build order for MLES 14.1
 
-# User profiles
+# User profile (Bash, Vim, Xterm)
 profile/user-settings-console
 
 # Package management
