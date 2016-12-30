@@ -9,7 +9,7 @@ ap/slackpkg+
 
 # Basic tools
 ap/augeas
-# ap/device-tree-compiler
+ap/device-tree-compiler
 # ap/p7zip
 # ap/pwgen
 # ap/recode
