@@ -21,7 +21,7 @@ d/lua
 d/spice-protocol
  
 # Libraries
-# l/libbsd
+l/libbsd
 # l/libmpdclient
 # l/libsigc++
 # l/libtorrent
