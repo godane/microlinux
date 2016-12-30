@@ -17,7 +17,7 @@ ap/unrar
 
 # Development
 d/cppunit
-# d/lua
+d/lua
 # d/spice-protocol
  
 # Libraries
