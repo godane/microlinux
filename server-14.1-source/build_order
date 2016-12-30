@@ -8,7 +8,7 @@ ap/sbopkg
 ap/slackpkg+
 
 # Basic tools
-# ap/augeas
+ap/augeas
 # ap/device-tree-compiler
 # ap/p7zip
 # ap/pwgen
