@@ -43,6 +43,7 @@ d/perl-Net-Server
 # Python
 d/pysetuptools
 d/backports-ssl-match-hostname
+d/bottle
 # d/pycparser
 # d/cffi
 # d/configobj
@@ -115,7 +116,6 @@ d/backports-ssl-match-hostname
 
 # More Python modules
 # d/hddtemp
-# d/bottle
 # d/tornado
 # d/numpy
 # d/python-dateutil
