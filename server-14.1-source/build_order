@@ -90,7 +90,7 @@ n/dovecot
 n/iperf
 n/letsencrypt
 n/netcat-openbsd
-# n/postfix
+n/postfix
 # n/postgrey
 # n/prosody
 # n/rtorrent
