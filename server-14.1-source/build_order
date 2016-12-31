@@ -40,29 +40,8 @@ d/perl-net-dns
 d/perl-IO-Multiplex
 d/perl-Net-Server
 
-
-
-# Multimedia
-# multimedia/celt051
-# multimedia/faad2
-# multimedia/id3lib
-# multimedia/lame
-# multimedia/libcuefile
-# multimedia/libmms
-# multimedia/libmp4v2
-# multimedia/libreplaygain
-# multimedia/speex
-# multimedia/twolame
-# multimedia/libshout
-# multimedia/musepack-tools
-# multimedia/faac
-# multimedia/ffmpeg
-# n/icecast
-# n/mpd
-# n/ncmpc
-
 # Python
-# d/pysetuptools
+d/pysetuptools
 # d/pycparser
 # d/cffi
 # d/configobj
@@ -91,6 +70,25 @@ d/perl-Net-Server
 # d/zope.event
 # d/zope.interface
 # d/zope.component
+
+# Multimedia
+# multimedia/celt051
+# multimedia/faad2
+# multimedia/id3lib
+# multimedia/lame
+# multimedia/libcuefile
+# multimedia/libmms
+# multimedia/libmp4v2
+# multimedia/libreplaygain
+# multimedia/speex
+# multimedia/twolame
+# multimedia/libshout
+# multimedia/musepack-tools
+# multimedia/faac
+# multimedia/ffmpeg
+# n/icecast
+# n/mpd
+# n/ncmpc
 
 # Networking
 # n/dovecot
