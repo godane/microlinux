@@ -79,7 +79,7 @@ d/cffi
 d/matplotlib
 d/psutil
 d/pysnmp
-# d/cryptography
+d/cryptography
 # d/urlgrabber
 # d/yajl
 # d/pyOpenSSL
