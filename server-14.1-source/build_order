@@ -70,6 +70,7 @@ d/python2-pythondialog
 d/pytz
 d/pyxdg
 d/six
+d/tornado
 # d/cffi
 # d/cryptography
 # d/urlgrabber
@@ -124,7 +125,6 @@ d/six
 # n/owncloud-server
 
 # More Python modules
-# d/tornado
 # d/matplotlib
 # d/python3
 # d/pysnmp
