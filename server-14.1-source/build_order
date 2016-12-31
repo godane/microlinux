@@ -67,6 +67,7 @@ d/python-dateutil
 d/python-parsedatetime
 d/python-requests
 d/python2-pythondialog
+d/pytz
 # d/cffi
 # d/six
 # d/cryptography
@@ -75,7 +76,6 @@ d/python2-pythondialog
 # d/pyOpenSSL
 # d/ndg_httpsclient
 # d/psutil
-# d/pytz
 # d/pyxdg
 # d/werkzeug
 # d/zope.event
