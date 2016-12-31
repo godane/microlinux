@@ -45,10 +45,10 @@ d/pysetuptools
 d/backports-ssl-match-hostname
 d/bottle
 d/configobj
+d/enum34
 # d/pycparser
 # d/cffi
 # d/ipaddress
-# d/enum34
 # d/pyasn1
 # d/six
 # d/idna
