@@ -57,6 +57,7 @@ d/py3sensors
 d/pyasn1
 d/pycparser
 d/pycrypto
+d/pymdstat
 # d/cffi
 # d/six
 # d/cryptography
@@ -125,7 +126,6 @@ d/pycrypto
 # d/python-dateutil
 # d/matplotlib
 # d/python3
-# d/pymdstat
 # d/pystatsd
 # d/pysnmp
 
