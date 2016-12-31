@@ -73,6 +73,7 @@ d/six
 d/tornado
 d/urlgrabber
 d/werkzeug
+d/yajl
 d/zope.event
 d/zope.interface
 d/zope.component
@@ -83,7 +84,6 @@ d/pysnmp
 d/cryptography
 d/pyOpenSSL
 d/ndg_httpsclient
-# d/yajl
 
 # Multimedia
 # multimedia/celt051
