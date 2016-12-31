@@ -78,6 +78,7 @@ d/zope.component
 d/cffi
 d/matplotlib
 d/psutil
+d/pysnmp
 # d/cryptography
 # d/urlgrabber
 # d/yajl
@@ -120,13 +121,6 @@ d/psutil
 # n/spice
 # ap/qemu
 # ap/libvirt
-
-# Web applications
-# n/cmsmadesimple
-# n/owncloud-server
-
-# More Python modules
-# d/pysnmp
 
 # System monitor
 # ap/glances
