@@ -75,7 +75,7 @@ d/werkzeug
 d/zope.event
 d/zope.interface
 d/zope.component
-# d/cffi
+d/cffi
 # d/cryptography
 # d/urlgrabber
 # d/yajl
