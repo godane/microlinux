@@ -58,6 +58,7 @@ d/pyasn1
 d/pycparser
 d/pycrypto
 d/pymdstat
+d/pyparsing
 # d/cffi
 # d/six
 # d/cryptography
@@ -66,7 +67,6 @@ d/pymdstat
 # d/pyOpenSSL
 # d/ndg_httpsclient
 # d/psutil
-# d/pyparsing
 # d/pyrfc3339
 # d/python2-pythondialog
 # d/python-augeas
