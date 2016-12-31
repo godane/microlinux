@@ -61,6 +61,7 @@ d/pymdstat
 d/pyparsing
 d/pyrfc3339
 d/pystatsd
+d/python-augeas
 # d/cffi
 # d/six
 # d/cryptography
@@ -70,7 +71,6 @@ d/pystatsd
 # d/ndg_httpsclient
 # d/psutil
 # d/python2-pythondialog
-# d/python-augeas
 # d/python-configargparse
 # d/python-parsedatetime
 # d/python-requests
