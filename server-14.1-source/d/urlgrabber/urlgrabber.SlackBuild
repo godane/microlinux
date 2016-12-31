@@ -28,7 +28,7 @@
 
 PRGNAM=urlgrabber
 VERSION=3.10
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then

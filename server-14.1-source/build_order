@@ -71,6 +71,7 @@ d/pytz
 d/pyxdg
 d/six
 d/tornado
+d/urlgrabber
 d/werkzeug
 d/zope.event
 d/zope.interface
@@ -82,7 +83,6 @@ d/pysnmp
 d/cryptography
 d/pyOpenSSL
 d/ndg_httpsclient
-# d/urlgrabber
 # d/yajl
 
 # Multimedia
