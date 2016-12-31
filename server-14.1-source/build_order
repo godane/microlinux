@@ -104,7 +104,7 @@ multimedia/faad2
 multimedia/id3lib
 multimedia/lame
 multimedia/libcuefile
-# multimedia/libmms
+multimedia/libmms
 # multimedia/libmp4v2
 # multimedia/libreplaygain
 # multimedia/speex
