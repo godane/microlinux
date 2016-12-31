@@ -31,6 +31,17 @@ l/luasec
 l/luasocket
 l/usbredir
 
+# Perl 
+d/perl-BerkeleyDB
+# d/perl-digest-sha1
+# d/perl-digest-hmac
+# d/perl-net-ip
+# d/perl-net-dns
+# d/perl-IO-Multiplex
+# d/perl-Net-Server
+
+
+
 # Multimedia
 # multimedia/celt051
 # multimedia/faad2
@@ -49,15 +60,6 @@ l/usbredir
 # n/icecast
 # n/mpd
 # n/ncmpc
-
-# Perl 
-# d/perl-BerkeleyDB
-# d/perl-digest-sha1
-# d/perl-digest-hmac
-# d/perl-net-ip
-# d/perl-net-dns
-# d/perl-IO-Multiplex
-# d/perl-Net-Server
 
 # Python
 # d/pysetuptools
