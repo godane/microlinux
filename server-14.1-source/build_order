@@ -69,8 +69,8 @@ d/python-requests
 d/python2-pythondialog
 d/pytz
 d/pyxdg
+d/six
 # d/cffi
-# d/six
 # d/cryptography
 # d/urlgrabber
 # d/yajl
