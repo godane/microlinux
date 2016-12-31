@@ -112,7 +112,7 @@ multimedia/twolame
 multimedia/libshout
 multimedia/musepack-tools
 multimedia/faac
-# multimedia/ffmpeg
+multimedia/ffmpeg
 # n/icecast
 # n/mpd
 # n/ncmpc
