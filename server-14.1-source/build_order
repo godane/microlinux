@@ -74,6 +74,7 @@ d/tornado
 d/werkzeug
 d/zope.event
 d/zope.interface
+d/zope.component
 # d/cffi
 # d/cryptography
 # d/urlgrabber
@@ -81,7 +82,6 @@ d/zope.interface
 # d/pyOpenSSL
 # d/ndg_httpsclient
 # d/psutil
-# d/zope.component
 
 # Multimedia
 # multimedia/celt051
