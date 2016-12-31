@@ -76,6 +76,7 @@ d/zope.event
 d/zope.interface
 d/zope.component
 d/cffi
+d/matplotlib
 # d/cryptography
 # d/urlgrabber
 # d/yajl
@@ -125,7 +126,6 @@ d/cffi
 # n/owncloud-server
 
 # More Python modules
-# d/matplotlib
 # d/python3
 # d/pysnmp
 
