@@ -71,6 +71,7 @@ d/pytz
 d/pyxdg
 d/six
 d/tornado
+d/werkzeug
 # d/cffi
 # d/cryptography
 # d/urlgrabber
@@ -78,7 +79,6 @@ d/tornado
 # d/pyOpenSSL
 # d/ndg_httpsclient
 # d/psutil
-# d/werkzeug
 # d/zope.event
 # d/zope.interface
 # d/zope.component
