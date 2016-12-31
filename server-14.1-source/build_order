@@ -54,9 +54,9 @@ d/mock
 d/netifaces
 d/numpy
 d/py3sensors
+d/pyasn1
 # d/pycparser
 # d/cffi
-# d/pyasn1
 # d/six
 # d/cryptography
 # d/urlgrabber
