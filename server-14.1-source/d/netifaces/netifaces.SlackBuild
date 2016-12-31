@@ -25,7 +25,7 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=netifaces
-VERSION=${VERSION:-0.10.4}
+VERSION=${VERSION:-0.10.5}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
@@ -44,7 +44,7 @@ OUTPUT=${OUTPUT:-/tmp}
 
 set -e
 
-DOWNLOAD="http://pypi.python.org/packages/source/n/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="https://pypi.io/packages/source/n/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
@@ -62,10 +62,6 @@ find -L . \
  -exec chmod 644 {} \;
 
 python setup.py install --root=$PKG
-
-if $(python3 -c 'import setuptools' 2>/dev/null); then
-  python3 setup.py install --root=$PKG
-fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true

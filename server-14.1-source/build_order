@@ -50,6 +50,7 @@ d/hddtemp
 d/idna
 d/ipaddress
 d/mock
+d/netifaces
 # d/pycparser
 # d/cffi
 # d/pyasn1
@@ -121,7 +122,6 @@ d/mock
 # d/python-dateutil
 # d/matplotlib
 # d/python3
-# d/netifaces
 # d/py3sensors
 # d/pymdstat
 # d/pystatsd
