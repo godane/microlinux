@@ -87,7 +87,7 @@ d/ndg_httpsclient
 
 # Networking
 n/dovecot
-# n/iperf
+n/iperf
 # n/letsencrypt
 # n/netcat-openbsd
 # n/postfix
