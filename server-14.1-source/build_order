@@ -55,7 +55,7 @@ d/netifaces
 d/numpy
 d/py3sensors
 d/pyasn1
-# d/pycparser
+d/pycparser
 # d/cffi
 # d/six
 # d/cryptography
