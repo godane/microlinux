@@ -63,6 +63,7 @@ d/pyrfc3339
 d/pystatsd
 d/python-augeas
 d/python-configargparse
+d/python-dateutil
 # d/cffi
 # d/six
 # d/cryptography
@@ -124,7 +125,6 @@ d/python-configargparse
 
 # More Python modules
 # d/tornado
-# d/python-dateutil
 # d/matplotlib
 # d/python3
 # d/pysnmp
