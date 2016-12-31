@@ -28,7 +28,7 @@ l/libtorrent
 l/lua-filesystem
 l/luaexpat
 l/luasec
-# l/luasocket
+l/luasocket
 # l/usbredir
 
 # Multimedia
