@@ -29,7 +29,7 @@ l/lua-filesystem
 l/luaexpat
 l/luasec
 l/luasocket
-# l/usbredir
+l/usbredir
 
 # Multimedia
 # multimedia/celt051
