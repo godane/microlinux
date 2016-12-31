@@ -56,6 +56,7 @@ d/numpy
 d/py3sensors
 d/pyasn1
 d/pycparser
+d/pycrypto
 # d/cffi
 # d/six
 # d/cryptography
@@ -126,7 +127,6 @@ d/pycparser
 # d/python3
 # d/pymdstat
 # d/pystatsd
-# d/pycrypto
 # d/pysnmp
 
 # System monitor
