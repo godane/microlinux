@@ -89,7 +89,7 @@ d/ndg_httpsclient
 n/dovecot
 n/iperf
 n/letsencrypt
-# n/netcat-openbsd
+n/netcat-openbsd
 # n/postfix
 # n/postgrey
 # n/prosody

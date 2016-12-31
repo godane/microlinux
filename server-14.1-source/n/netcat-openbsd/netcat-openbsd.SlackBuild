@@ -26,10 +26,11 @@
 
 PRGNAM=netcat-openbsd
 VERSION=${VERSION:-1.105}
-BUILD=${BUILD:-2}
+DEBVER=7
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-DEBVER=7
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -87,7 +88,7 @@ find -L . \
 # Apply Debian patches
 for i in $CWD/patches/* ; do patch -p1 < $i ; done
 
-make CFLAGS="$SLKCFLAGS -DDEBIAN_VERSION=\"\\\"$DEBVER\\\"\""
+make $NUMJOBS CFLAGS="$SLKCFLAGS -DDEBIAN_VERSION=\"\\\"$DEBVER\\\"\""
 
 mkdir -p $PKG/usr/bin/ $PKG/usr/man/man1/
 install -s -m 0755 nc $PKG/usr/bin/nc.openbsd
