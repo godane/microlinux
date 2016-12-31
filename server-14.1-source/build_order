@@ -53,6 +53,7 @@ d/ipaddress
 d/mock
 d/netifaces
 d/numpy
+d/py3sensors
 # d/pycparser
 # d/cffi
 # d/pyasn1
@@ -123,7 +124,6 @@ d/numpy
 # d/python-dateutil
 # d/matplotlib
 # d/python3
-# d/py3sensors
 # d/pymdstat
 # d/pystatsd
 # d/pycrypto
