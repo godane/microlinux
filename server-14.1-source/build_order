@@ -27,7 +27,7 @@ l/libsigc++
 l/libtorrent
 l/lua-filesystem
 l/luaexpat
-# l/luasec
+l/luasec
 # l/luasocket
 # l/usbredir
 
