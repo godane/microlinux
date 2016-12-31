@@ -92,7 +92,7 @@ n/letsencrypt
 n/netcat-openbsd
 n/postfix
 n/postgrey
-# n/prosody
+n/prosody
 # n/rtorrent
 # n/squid
 # n/squidanalyzer
