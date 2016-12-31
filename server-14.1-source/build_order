@@ -81,9 +81,9 @@ d/psutil
 d/pysnmp
 d/cryptography
 d/pyOpenSSL
+d/ndg_httpsclient
 # d/urlgrabber
 # d/yajl
-# d/ndg_httpsclient
 
 # Multimedia
 # multimedia/celt051
