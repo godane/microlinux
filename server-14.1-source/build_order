@@ -29,6 +29,7 @@ l/lua-filesystem
 l/luaexpat
 l/luasec
 l/luasocket
+l/OpenBLAS
 l/usbredir
 
 # Perl 
