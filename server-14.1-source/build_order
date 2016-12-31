@@ -123,5 +123,5 @@ d/ndg_httpsclient
 # ap/libvirt
 
 # System monitor
-# ap/glances
+ap/glances
 
