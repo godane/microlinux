@@ -52,6 +52,7 @@ d/idna
 d/ipaddress
 d/mock
 d/netifaces
+d/numpy
 # d/pycparser
 # d/cffi
 # d/pyasn1
@@ -119,7 +120,6 @@ d/netifaces
 
 # More Python modules
 # d/tornado
-# d/numpy
 # d/python-dateutil
 # d/matplotlib
 # d/python3
