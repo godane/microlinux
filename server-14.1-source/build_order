@@ -44,9 +44,9 @@ d/perl-Net-Server
 d/pysetuptools
 d/backports-ssl-match-hostname
 d/bottle
+d/configobj
 # d/pycparser
 # d/cffi
-# d/configobj
 # d/ipaddress
 # d/enum34
 # d/pyasn1
