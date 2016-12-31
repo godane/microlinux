@@ -48,9 +48,9 @@ d/configobj
 d/enum34
 d/hddtemp
 d/idna
+d/ipaddress
 # d/pycparser
 # d/cffi
-# d/ipaddress
 # d/pyasn1
 # d/six
 # d/cryptography
