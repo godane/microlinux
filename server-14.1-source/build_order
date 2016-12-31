@@ -46,6 +46,7 @@ d/backports-ssl-match-hostname
 d/bottle
 d/configobj
 d/enum34
+d/hddtemp
 # d/pycparser
 # d/cffi
 # d/ipaddress
@@ -115,7 +116,6 @@ d/enum34
 # n/owncloud-server
 
 # More Python modules
-# d/hddtemp
 # d/tornado
 # d/numpy
 # d/python-dateutil
