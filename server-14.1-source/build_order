@@ -34,7 +34,7 @@ l/usbredir
 # Perl 
 d/perl-BerkeleyDB
 d/perl-digest-sha1
-# d/perl-digest-hmac
+d/perl-digest-hmac
 # d/perl-net-ip
 # d/perl-net-dns
 # d/perl-IO-Multiplex
