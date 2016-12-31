@@ -91,7 +91,7 @@ n/iperf
 n/letsencrypt
 n/netcat-openbsd
 n/postfix
-# n/postgrey
+n/postgrey
 # n/prosody
 # n/rtorrent
 # n/squid
