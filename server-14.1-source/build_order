@@ -77,12 +77,12 @@ d/zope.interface
 d/zope.component
 d/cffi
 d/matplotlib
+d/psutil
 # d/cryptography
 # d/urlgrabber
 # d/yajl
 # d/pyOpenSSL
 # d/ndg_httpsclient
-# d/psutil
 
 # Multimedia
 # multimedia/celt051
