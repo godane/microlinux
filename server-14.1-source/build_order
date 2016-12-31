@@ -85,6 +85,19 @@ d/cryptography
 d/pyOpenSSL
 d/ndg_httpsclient
 
+# Networking
+n/dovecot
+# n/iperf
+# n/letsencrypt
+# n/netcat-openbsd
+# n/postfix
+# n/postgrey
+# n/prosody
+# n/rtorrent
+# n/squid
+# n/squidanalyzer
+# n/squidGuard
+
 # Multimedia
 # multimedia/celt051
 # multimedia/faad2
@@ -103,19 +116,6 @@ d/ndg_httpsclient
 # n/icecast
 # n/mpd
 # n/ncmpc
-
-# Networking
-# n/dovecot
-# n/iperf
-# n/letsencrypt
-# n/netcat-openbsd
-# n/postfix
-# n/postgrey
-# n/prosody
-# n/rtorrent
-# n/squid
-# n/squidanalyzer
-# n/squidGuard
 
 # KVM
 # n/spice
