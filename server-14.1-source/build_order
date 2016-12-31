@@ -24,7 +24,7 @@ d/spice-protocol
 l/libbsd
 l/libmpdclient
 l/libsigc++
-# l/libtorrent
+l/libtorrent
 # l/lua-filesystem
 # l/luaexpat
 # l/luasec
