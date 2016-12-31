@@ -29,8 +29,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=pyOpenSSL
-VERSION=${VERSION:-0.15.1}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-16.1.0}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
@@ -50,7 +50,7 @@ DOCS="PKG-INFO README.rst LICENSE"
 
 set -e
 
-DOWNLOAD="http://pypi.python.org/packages/source/p/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
+DOWNLOAD="https://pypi.python.org/packages/15/1e/79c75db50e57350a7cefb70b110255757e9abd380a50ebdc0cfd853b7450/$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 

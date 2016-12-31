@@ -80,9 +80,9 @@ d/matplotlib
 d/psutil
 d/pysnmp
 d/cryptography
+d/pyOpenSSL
 # d/urlgrabber
 # d/yajl
-# d/pyOpenSSL
 # d/ndg_httpsclient
 
 # Multimedia
