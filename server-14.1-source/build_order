@@ -119,7 +119,7 @@ n/ncmpc
 
 # KVM
 n/spice
-# ap/qemu
+ap/qemu
 # ap/libvirt
 
 # System monitor
