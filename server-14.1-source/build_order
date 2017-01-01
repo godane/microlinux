@@ -115,7 +115,7 @@ multimedia/faac
 multimedia/ffmpeg
 n/icecast
 n/mpd
-# n/ncmpc
+n/ncmpc
 
 # KVM
 # n/spice
