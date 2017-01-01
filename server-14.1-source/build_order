@@ -118,7 +118,7 @@ n/mpd
 n/ncmpc
 
 # KVM
-# n/spice
+n/spice
 # ap/qemu
 # ap/libvirt
 
