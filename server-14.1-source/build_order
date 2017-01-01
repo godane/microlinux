@@ -96,7 +96,7 @@ n/prosody
 n/rtorrent
 n/squid
 n/squidanalyzer
-# n/squidGuard
+n/squidGuard
 
 # Multimedia
 multimedia/celt051
