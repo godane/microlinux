@@ -120,7 +120,7 @@ n/ncmpc
 # KVM
 n/spice
 ap/qemu
-# ap/libvirt
+ap/libvirt
 
 # System monitor
 ap/glances
