@@ -9,9 +9,33 @@ ap/slackpkg+
 
 # Basic tools
 ap/augeas
+ap/p7zip
+ap/pwgen
+ap/recode
+ap/unrar
+
+# Development
+d/cppunit
+d/lua
 
 # General libraries
+l/libmpdclient
+l/libsigc++
+l/libtorrent
+l/lua-filesystem
+l/luaexpat
+l/luasec
+l/luasocket
 l/OpenBLAS
+
+# Perl
+d/perl-BerkeleyDB
+d/perl-digest-sha1
+d/perl-digest-hmac
+d/perl-net-ip
+d/perl-net-dns
+d/perl-IO-Multiplex
+d/perl-Net-Server
 
 # Python
 d/pysetuptools
@@ -56,9 +80,30 @@ d/ndg_httpsclient
 
 # Networking
 n/dovecot
+n/iperf
 n/letsencrypt
 n/postfix
+n/postgrey
+n/prosody
+n/rtorrent
 
 # System monitor
 ap/glances
 
+# Multimedia
+multimedia/faad2
+multimedia/id3lib
+multimedia/lame
+multimedia/libcuefile
+multimedia/libmms
+multimedia/libmp4v2
+multimedia/libreplaygain
+multimedia/speex
+multimedia/twolame
+multimedia/libshout
+multimedia/musepack-tools
+multimedia/faac
+multimedia/ffmpeg
+n/icecast
+n/mpd
+n/ncmpc

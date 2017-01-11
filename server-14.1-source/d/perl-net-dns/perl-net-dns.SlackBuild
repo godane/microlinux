@@ -25,8 +25,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=perl-net-dns
-VERSION=${VERSION:-0.72}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-1.06}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 if [ -z "$ARCH" ]; then
@@ -43,7 +43,7 @@ PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
 SRCNAM=Net-DNS
-DOCFILES="TODO Changes README"
+DOCFILES="Changes README"
 
 # LIBDIRSUFFIX not used
 if [ "$ARCH" = "i486" ]; then

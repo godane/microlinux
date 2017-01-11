@@ -32,11 +32,11 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=pwgen
-VERSION=2.06
-BUILD=${BUILD:-2}
+VERSION=2.07
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 # Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then
@@ -95,6 +95,10 @@ make install DESTDIR=$PKG
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+# Move manpage to correct location
+mv $PKG/usr/share/man $PKG/usr
+rmdir $PKG/usr/share
+
 ( cd $PKG/usr/man || exit 1
   find . -type f -exec gzip -9 {} \;
   for i in $( find . -type l ); do
@@ -104,7 +108,6 @@ find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
 )
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -t $PKG/usr/doc/$PRGNAM-$VERSION ChangeLog
 cp $CWD/$PRGNAM.SlackBuild $PKG/usr/doc/$PRGNAM-$VERSION/
 find $PKG/usr/doc/$PRGNAM-$VERSION -type f -exec chmod 644 {} \;
 

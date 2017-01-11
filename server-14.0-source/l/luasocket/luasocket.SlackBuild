@@ -27,8 +27,10 @@
 PRGNAM=luasocket
 HASH=${HASH:-6d5e40c324c84d9c1453ae88e0ad5bdd0a631448}
 VERSION=20130909_$(echo $HASH |cut -c -7)
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
+
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -76,7 +78,7 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-make PLAT=linux LUAV=5.1 prefix=/usr MYCFLAGS="$SLKCFLAGS"
+make $NUMJOBS PLAT=linux LUAV=5.1 prefix=/usr MYCFLAGS="$SLKCFLAGS"
 
 # Installing:
 make install CDIR_linux="lib${LIBDIRSUFFIX}/lua/5.1" DESTDIR=$PKG prefix=/usr

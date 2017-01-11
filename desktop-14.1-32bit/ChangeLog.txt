@@ -1,3 +1,11 @@
+Mon Jan  9 09:57:51 CET 2017
+l/OpenBLAS-0.2.11-i486-1_microlinux.txz: Added.
+d/numpy-1.9.1-i486-4_microlinux.txz. Rebuilt.
+  Recompiled against OpenBLAS.
+locale/mozilla-thunderbird-langpack-45.6.0-i486-1_microlinux.txz: Upgraded.
+x/webcore-fonts-3.0-noarch-4_microlinux.txz: Rebuilt.
+  Fixed Symbol font.
++--------------------------+
 Tue Dec 27 09:05:10 CET 2016
 profile/user-settings-console-14.1-noarch-5_microlinux.txz: Rebuilt.
   Avoid clobbering existing configuration files.

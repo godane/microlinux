@@ -26,14 +26,14 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=squid
-VERSION=${VERSION:-3.5.19}
+VERSION=${VERSION:-3.5.23}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 SQUIDUSER=${SQUIDUSER:-nobody}
 SQUIDGROUP=${SQUIDGROUP:-nobody}
 
-NUMJOBS=${NUMJOBS:--j9}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in

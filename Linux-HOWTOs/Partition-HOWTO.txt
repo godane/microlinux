@@ -38,7 +38,7 @@ Les disques munis d'un MBR distinguent trois types de partitions :
 
 Un disque peut être muni d'un maximum de quatre partitions primaires, ce qui
 constitue une limitation considérable. C'est pourquoi on a la possibilité de
-définir une partition étendue à la place d'une des partitions primaire. À
+définir une partition étendue à la place d'une des partitions primaires. À
 l'intérieur de cette partition primaire, on pourra ensuite créer une série de
 partitions logiques.
 

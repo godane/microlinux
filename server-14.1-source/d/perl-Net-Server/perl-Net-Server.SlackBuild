@@ -30,8 +30,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM="perl-Net-Server"
-VERSION=${VERSION:-2.007}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-2.008}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 SRCNAM="$(printf $PRGNAM | cut -f2- -d-)"

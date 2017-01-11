@@ -7,6 +7,6 @@ speex: barrier of entry for voice applications by providing a free
 speex: alternative to expensive proprietary speech codecs. Moreover, Speex
 speex: is well-adapted to Internet applications and provides useful features
 speex: that are not present in most other codecs. Finally, Speex is part of
-speex: the GNU Project and is available under the revised BSD license.
+speex: the GNU  Project and is available under the revised BSD license.
 speex:
 speex: Package created by Niki Kovacs <info@microlinux.fr>

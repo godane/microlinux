@@ -25,11 +25,11 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=prosody
-VERSION=${VERSION:-0.9.8}
-BUILD=${BUILD:-3}
+VERSION=${VERSION:-0.9.11}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 PROSODY_UID=${PROSODY_UID:-274}
 PROSODY_GID=${PROSODY_GID:-274}

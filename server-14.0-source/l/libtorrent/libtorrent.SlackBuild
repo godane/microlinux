@@ -14,10 +14,10 @@
 
 PRGNAM=libtorrent
 VERSION=${VERSION:-0.13.6}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
-NUMJOBS=${NUMJOBS:--j3}
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -48,7 +48,6 @@ fi
 
 set -e
 
-#DOWNLOAD="http://pkgs.fedoraproject.org/repo/pkgs/$PRGNAM/$PRGNAM-$VERSION.tar.gz/e82f380a9d4b55b379e0e73339c73895/$PRGNAM-$VERSION.tar.gz"
 DOWNLOAD="https://github.com/rakshasa/$PRGNAM/archive/$VERSION.tar.gz"
 
 wget -c $DOWNLOAD

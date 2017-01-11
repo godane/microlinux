@@ -5,6 +5,8 @@
 # Copyright 2013-2014, Andrew Tkalia <anddt@yandex.ua>, Ukraine, Kyiv
 # All rights reserved.
 #
+# Maintained by Gerardo Zamudio <gerardo.zamudio@linux.com> Mexico City
+#
 # Redistribution and use of this script, with or without modification, is
 # permitted provided that the following conditions are met:
 #
@@ -25,10 +27,11 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=luasec
-HASH=${HASH:-903efaf3b1f090a992963480fa2924dac02f9174}
-VERSION=20140421_$(echo $HASH |cut -c -7)
-BUILD=${BUILD:-3}
+VERSION=0.6
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
+
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -59,28 +62,28 @@ fi
 
 set -e
 
-DOWNLOAD="https://github.com/brunoos/$PRGNAM/archive/$HASH.tar.gz"
+DOWNLOAD="https://github.com/brunoos/$PRGNAM/archive/$PRGNAM-$VERSION/$PRGNAM-$PRGNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$HASH
-tar xvf $CWD/$HASH.tar.gz
-cd $PRGNAM-$HASH
+rm -rf $PRGNAM-$PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$PRGNAM-$VERSION.tar.gz
+cd $PRGNAM-$PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
   -o -perm 511 \) -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
- -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 cd src
   patch < $CWD/makefile.patch
 cd -
 
-make linux \
+make $NUMJOBS linux \
   LUACPATH="/usr/lib${LIBDIRSUFFIX}/lua/5.1" \
   LIB_PATH=" -L/usr/lib${LIBDIRSUFFIX}" \
   SLKCFLAGS="${SLKCFLAGS}"

@@ -26,7 +26,7 @@
 
 PRGNAM=perl-digest-hmac
 VERSION=${VERSION:-1.03}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_microlinux}
 
 # Automatically determine the architecture we're building on:
@@ -49,7 +49,8 @@ DOCFILES="Changes README"
 
 set -e # Exit on most errors
 
-DOWNLOAD="http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/$SRCNAM-$VERSION.tar.gz"
+DOWNLOAD="http://fossies.org/linux/privat/$SRCNAM-$VERSION.tar.gz"
+#DOWNLOAD="http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/$SRCNAM-$VERSION.tar.gz"
 
 wget -c $DOWNLOAD
 

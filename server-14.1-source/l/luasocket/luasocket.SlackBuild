@@ -25,10 +25,12 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=luasocket
-HASH=${HASH:-6d5e40c324c84d9c1453ae88e0ad5bdd0a631448}
-VERSION=20130909_$(echo $HASH |cut -c -7)
-BUILD=${BUILD:-2}
+VERSION=3.0_rc1
+SRCVER=3.0-rc1
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
+
+NUMJOBS="-j$(expr $(grep -c '^processor' /proc/cpuinfo) + 1)"
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -59,24 +61,24 @@ fi
 
 set -e
 
-DOWNLOAD="https://github.com/diegonehab/$PRGNAM/archive/$HASH.tar.gz"
+DOWNLOAD="https://github.com/diegonehab/$PRGNAM/archive/v$SRCVER/$PRGNAM-$SRCVER.tar.gz"
 
 wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$HASH
-tar xvf $CWD/$HASH.tar.gz
-cd $PRGNAM-$HASH
+rm -rf $PRGNAM-$SRCVER
+tar xvf $CWD/$PRGNAM-$SRCVER.tar.gz
+cd $PRGNAM-$SRCVER
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
   -o -perm 511 \) -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
- -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-make PLAT=linux LUAV=5.1 prefix=/usr MYCFLAGS="$SLKCFLAGS"
+make $NUMJOBS PLAT=linux LUAV=5.1 prefix=/usr MYCFLAGS="$SLKCFLAGS"
 
 # Installing:
 make install CDIR_linux="lib${LIBDIRSUFFIX}/lua/5.1" DESTDIR=$PKG prefix=/usr

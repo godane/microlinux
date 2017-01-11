@@ -30,8 +30,8 @@
 # Modified by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM="perl-BerkeleyDB"
-VERSION=${VERSION:-0.53}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-0.55}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 SRCNAM="$(printf $PRGNAM | cut -f2- -d-)"
