@@ -55,7 +55,7 @@ fi
 DOWNLOAD="http://www.mplayerhq.hu/MPlayer/releases/codecs/mplayer-codecs-$VERSION-1.x86_64.rpm \
           http://www.mplayerhq.hu/MPlayer/releases/codecs/mplayer-codecs-extra-$VERSION-1.x86_64.rpm"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

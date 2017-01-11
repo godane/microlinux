@@ -46,7 +46,7 @@ set -e
 
 DOWNLOAD="https://github.com/giampaolo/psutil/archive/release-$VERSION/$PRGNAM-release-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

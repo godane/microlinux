@@ -64,7 +64,7 @@ set -e
 
 DOWNLOAD="http://mirror.yandex.ru/mirrors/ftp.videolan.org/$PRGNAM/snapshots/$PRGNAM-snapshot-$VERSION-2245-stable.tar.bz2"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

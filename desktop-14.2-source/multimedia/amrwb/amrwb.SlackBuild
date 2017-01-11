@@ -63,7 +63,7 @@ set -e
 DOWNLOAD="ftp://ftp.penguin.cz/pub/users/utx/amr/$PRGNAM-$VERSION.tar.bz2 \
           http://www.3gpp.org/ftp/Specs/archive/26_series/26.204/26204-b00.zip"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

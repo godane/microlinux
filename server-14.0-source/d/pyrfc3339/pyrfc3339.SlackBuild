@@ -61,7 +61,7 @@ set -e
 
 DOWNLOAD="https://pypi.python.org/packages/source/p/$SRCNAM/$SRCNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

@@ -40,7 +40,7 @@ set -e
 
 DOWNLOAD="http://www.microlinux.fr/download/$PRGNAM/$PRGNAM-$VERSION-2.fc15.src.rpm"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

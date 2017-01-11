@@ -63,7 +63,7 @@ set -e
 
 DOWNLOAD="https://github.com/$PRGNAM/$PRGNAM/releases/download/$VERSION/$PRGNAM-$VERSION.tar.xz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

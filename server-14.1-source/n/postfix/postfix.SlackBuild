@@ -106,7 +106,7 @@ set -e
 
 DOWNLOAD="http://postfix.cs.utah.edu/source/official/$PRGNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 CFLAGS=${CFLAGS:-$SLKCFLAGS}
 

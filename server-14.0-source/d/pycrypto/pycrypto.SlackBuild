@@ -46,7 +46,7 @@ set -e
 
 DOWNLOAD="http://ftp.dlitz.net/pub/dlitz/crypto/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

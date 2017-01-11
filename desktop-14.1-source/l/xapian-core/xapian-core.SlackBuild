@@ -62,7 +62,7 @@ set -e
 
 DOWNLOAD="http://oligarchy.co.uk/xapian/$VERSION/$PRGNAM-$VERSION.tar.xz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

@@ -69,7 +69,7 @@ set -e
 DOWNLOAD="https://github.com/FreeRDP/Remmina/archive/v1.2.0-rcgit.1.tar.gz \
           http://pkgs.fedoraproject.org/repo/pkgs/libssh/libssh-0.6.4.tar.gz/5d092f911492e3ee4cd7b473f09a0196/libssh-0.6.4.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

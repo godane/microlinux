@@ -60,7 +60,7 @@ set -e
 
 DOWNLOAD="http://www.microlinux.fr/download/$SRCNAM-Linux-Portable-$VERSION.tar.bz2"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

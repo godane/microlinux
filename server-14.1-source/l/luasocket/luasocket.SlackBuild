@@ -63,7 +63,7 @@ set -e
 
 DOWNLOAD="https://github.com/diegonehab/$PRGNAM/archive/v$SRCVER/$PRGNAM-$SRCVER.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

@@ -60,7 +60,7 @@ set -eu
 
 DOWNLOAD="http://ftp.gnome.org/pub/GNOME/sources/$PRGNAM/2.28/$PRGNAM-$VERSION.tar.bz2"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

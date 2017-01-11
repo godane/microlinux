@@ -64,7 +64,7 @@ set -e
 
 DOWNLOAD="https://launchpad.net/$PRGNAM/2.32/$VERSION/+download/$PRGNAM-$VERSION.tar.bz2"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -fr $TMP/$PRGNAM-$VERSION $PKG
 mkdir -p $TMP $PKG $OUTPUT

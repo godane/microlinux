@@ -49,7 +49,7 @@ set -e # Exit on most errors
 
 DOWNLOAD="http://search.cpan.org/CPAN/authors/id/M/MA/MANU/$SRCNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

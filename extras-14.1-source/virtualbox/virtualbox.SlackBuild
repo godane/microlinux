@@ -128,7 +128,7 @@ DOWNLOAD="http://download.virtualbox.org/$PRGNAM/$VERSION/$SRCNAM-$VERSION.tar.b
           http://download.virtualbox.org/$PRGNAM/$VERSION/UserManual.pdf \
           http://download.virtualbox.org/$PRGNAM/$VERSION/SDKRef.pdf"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

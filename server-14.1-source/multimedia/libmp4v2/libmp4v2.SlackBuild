@@ -76,7 +76,7 @@ set -e
 
 DOWNLOAD="http://pkgs.fedoraproject.org/repo/pkgs/$PRGNAM/$SRCNAM-$VERSION.tar.bz2/c91f06711225b34b4c192c9114887b14/$SRCNAM-$VERSION.tar.bz2"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $TMP/$SRCNAM-$VERSION $PKG
 mkdir -p $TMP $PKG $OUTPUT

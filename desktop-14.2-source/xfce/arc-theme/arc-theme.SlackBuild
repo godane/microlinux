@@ -39,7 +39,7 @@ set -e
 
 DOWNLOAD="https://github.com/horst3180/$PRGNAM/archive/$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

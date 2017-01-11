@@ -52,7 +52,7 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/nextpe/${SRCPRGNAM}_${SRCVERSION}.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $TMP/${SRCPRGNAM} $PKG
 mkdir -p $TMP $PKG $OUTPUT

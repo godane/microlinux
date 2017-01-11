@@ -64,7 +64,7 @@ set -e
 DOWNLOAD="https://github.com/Itseez/$PRGNAM/archive/$VERSION.tar.gz \
           https://github.com/Itseez/$PRGNAM2/archive/$VERSION.zip"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

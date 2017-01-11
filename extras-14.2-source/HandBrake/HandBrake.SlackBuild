@@ -61,7 +61,7 @@ DOWNLOAD="http://download.handbrake.fr/handbrake/releases/$VERSION/$PRGNAM-$VERS
           http://download.handbrake.fr/contrib/x265_1.9.tar.gz \
           http://download.handbrake.fr/handbrake/contrib/libbluray-0.5.0.tar.bz2"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

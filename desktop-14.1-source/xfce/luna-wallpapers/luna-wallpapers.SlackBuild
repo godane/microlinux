@@ -42,7 +42,7 @@ set -e
 DOWNLOAD="http://www.microlinux.fr/download/$PRGNAM/$PRGNAM.tar.gz \
           http://www.microlinux.fr/download/$PRGNAM/elementary-wallpapers_0.1.4-0%7E42%7Eubuntu0.3.1.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

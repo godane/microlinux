@@ -59,7 +59,7 @@ set -e
 DOWNLOAD="http://fossies.org/linux/misc/dns/$SRCNAM-$VERSION.tar.gz"
 #DOWNLOAD="http://search.cpan.org/CPAN/authors/id/N/NL/NLNETLABS/$SRCNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

@@ -64,7 +64,7 @@ set -e
 
 DOWNLOAD="http://ftp.acc.umu.se/pub/gnome/sources/$PRGNAM/2.10/$PRGNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

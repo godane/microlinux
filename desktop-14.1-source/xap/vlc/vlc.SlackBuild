@@ -81,7 +81,7 @@ set -e
 DOWNLOAD="http://download.videolan.org/$PRGNAM/$VERSION/$PRGNAM-$VERSION.tar.xz \
           http://slackware.uk/sbosrcarch/by-name/development/decklink-sdk/$DECKLINKSDK"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

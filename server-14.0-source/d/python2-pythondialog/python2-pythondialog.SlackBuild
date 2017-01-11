@@ -60,7 +60,7 @@ set -e
 
 DOWNLOAD="https://pypi.python.org/packages/26/34/b4cf8018dbc51e8a0fae2c51a0dd2c1f34419caa9e3eb83646c73d1beb9d/$PRGNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

@@ -46,7 +46,7 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/quvi/$PRGNAM-$VERSION.tar.xz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 DOCS="AUTHORS COPYING ChangeLog INSTALL NEWS README"
 

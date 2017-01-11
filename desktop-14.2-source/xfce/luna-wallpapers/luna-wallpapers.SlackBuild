@@ -43,7 +43,7 @@ set -e
 DOWNLOAD="https://launchpad.net/elementaryos/$VERSION-luna/$PRGNAM/+download/$PRGNAM.tar.gz \
   http://www.microlinux.fr/download/luna-wallpapers/elementary-wallpapers_0.1.4-0~42~ubuntu0.3.1.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

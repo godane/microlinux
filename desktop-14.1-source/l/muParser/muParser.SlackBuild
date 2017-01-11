@@ -65,7 +65,7 @@ fi
 
 DOWNLOAD="https://www.dropbox.com/s/pzncytguzrsfq6x/${SRCNAM}_${SRCVER}.zip"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

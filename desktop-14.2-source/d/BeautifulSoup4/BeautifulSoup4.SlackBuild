@@ -61,7 +61,7 @@ set -e
 
 DOWNLOAD="https://www.crummy.com/software/BeautifulSoup/bs4/download/4.5/$SRCNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

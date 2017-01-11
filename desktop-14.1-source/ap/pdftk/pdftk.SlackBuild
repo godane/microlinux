@@ -63,7 +63,7 @@ set -e
 
 DOWNLOAD="http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/$PRGNAM-$VERSION-src.zip"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

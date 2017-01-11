@@ -23,7 +23,7 @@ set -e
 DOWNLOAD="http://avi.alkalay.net/software/$PRGNAM/$PRGNAM-$VERSION.tar.gz \
           http://ponce.cc/slackware/sources/repo/symbol.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

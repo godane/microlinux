@@ -61,7 +61,7 @@ set -e
 
 DOWNLOAD="http://pkgs.fedoraproject.org/repo/pkgs/python-ipaddr/$SRCNAM-$VERSION.tar.gz/f315ac829218e9735c5d772d59a3e0e7/$SRCNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

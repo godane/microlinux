@@ -46,7 +46,7 @@ set -e
 
 DOWNLOAD="http://github.com/rogerbinns/$PRGNAM/archive/${VERSION/_/-}.zip"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

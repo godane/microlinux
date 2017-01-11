@@ -65,7 +65,7 @@ set -e
 
 DOWNLOAD="http://pkgs.fedoraproject.org/repo/pkgs/ladspa/${PRGNAM}_${VERSION}.tgz/671be3e1021d0722cadc7fb27054628e/${PRGNAM}_${VERSION}.tgz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

@@ -78,7 +78,7 @@ MIRROR=download.documentfoundation.org/libreoffice/stable/$VERSION/rpm/$URLARCH
 
 DOWNLOAD="http://$MIRROR/$TARNAME"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 # Get "base" directory of tarball
 SOURCEDIR=$(tar tzf $CWD/$TARNAME 2>/dev/null | head -n 1 | tr -d \/)

@@ -82,7 +82,7 @@ set -e
 
 DOWNLOAD="https://github.com/FreeRDP/FreeRDP/archive/1.2.0-beta1+android9.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

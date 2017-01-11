@@ -62,7 +62,7 @@ set -e
 
 DOWNLOAD="http://archive.xfce.org/src/panel-plugins/$PRGNAM/0.7/$PRGNAM-$VERSION.tar.bz2"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

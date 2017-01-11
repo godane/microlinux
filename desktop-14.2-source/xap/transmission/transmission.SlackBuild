@@ -67,7 +67,7 @@ set -e
 
 DOWNLOAD="https://transmission.cachefly.net/$PRGNAM-$VERSION.tar.xz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

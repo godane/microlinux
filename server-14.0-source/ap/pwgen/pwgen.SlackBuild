@@ -71,7 +71,7 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG $TMP/$PRGNAM-$VERSION
 mkdir -p $TMP $PKG $OUTPUT

@@ -56,7 +56,7 @@ set -e
 DOWNLOAD="http://pkgs.fedoraproject.org/repo/pkgs/$PRGNAM/$SRCNAM-$VERSION.tar.gz/85d488bc800f582839dd924ffa3f0d26/$SRCNAM-$VERSION.tar.gz"
 #DOWNLOAD="http://search.cpan.org/CPAN/authors/id/R/RH/RHANDOM/$SRCNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 DOCS="Changes README"
 

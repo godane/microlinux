@@ -63,7 +63,7 @@ set -e
 
 DOWNLOAD="http://www.gnu.org/software/$PRGNAM/$PRGNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

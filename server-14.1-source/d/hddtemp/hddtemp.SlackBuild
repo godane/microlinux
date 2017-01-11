@@ -47,7 +47,7 @@ set -e
 
 DOWNLOAD="http://download.savannah.gnu.org/releases/$PRGNAM/$PRGNAM-$SRCVERSION.tar.bz2"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

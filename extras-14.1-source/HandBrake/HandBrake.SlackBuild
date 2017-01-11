@@ -79,7 +79,7 @@ DOWNLOAD="http://download.handbrake.fr/releases/$VERSION/$PRGNAM-$VERSION.tar.bz
           http://download.handbrake.fr/handbrake/contrib/x264-r2273-b3065e6.tar.gz \
           http://download.m0k.org/handbrake/contrib/zlib-1.2.3.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

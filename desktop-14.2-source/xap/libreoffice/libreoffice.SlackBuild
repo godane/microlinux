@@ -84,7 +84,7 @@ MIRROR=download.documentfoundation.org/$PRGNAM/stable/$VERSION/rpm/$URLARCH
 
 DOWNLOAD="http://$MIRROR/$TARNAME"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 # Ignore this - it's just to get the toplevel directory name of the
 # extracted tarball archive

@@ -21,7 +21,7 @@ set -e
 
 DOWNLOAD="http://ankisrs.net/download/mirror/$PRGNAM-$VERSION.tgz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

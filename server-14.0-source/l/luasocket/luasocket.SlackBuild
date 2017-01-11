@@ -63,7 +63,7 @@ set -e
 
 DOWNLOAD="https://github.com/diegonehab/$PRGNAM/archive/$HASH.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

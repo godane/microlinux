@@ -63,7 +63,7 @@ set -e
 
 DOWNLOAD="http://www.musicpd.org/download/$PRGNAM/0.19/$PRGNAM-$VERSION.tar.xz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 # flac support
 if [ "${FLAC:-no}" != "yes" ]; then

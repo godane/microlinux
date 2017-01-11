@@ -62,7 +62,7 @@ set -e
 
 DOWNLOAD="https://launchpadlibrarian.net/220768016/$PRGNAM-$VERSION.tar.xz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

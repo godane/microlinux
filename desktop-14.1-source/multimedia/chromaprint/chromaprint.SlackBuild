@@ -61,7 +61,7 @@ set -e
 
 DOWNLOAD="https://bitbucket.org/acoustid/$PRGNAM/downloads/$PRGNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 # Check for ffmpeg: use it for calculations and build some tools
 if pkg-config --exists libavcodec libavformat libavutil ; then

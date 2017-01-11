@@ -62,7 +62,7 @@ set -e
 
 DOWNLOAD="http://downloads.sourceforge.net/squid-report/$PRGNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

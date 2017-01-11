@@ -65,7 +65,7 @@ set -e
 
 DOWNLOAD="https://cpan.metacpan.org/authors/id/X/XA/XAOC/$SRCNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

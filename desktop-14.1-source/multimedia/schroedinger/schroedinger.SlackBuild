@@ -65,7 +65,7 @@ set -e
 
 DOWNLOAD="http://pkgs.fedoraproject.org/repo/pkgs/$PRGNAM/$PRGNAM-$VERSION.tar.gz/da6af08e564ca1157348fb8d92efc891/$PRGNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -fr $TMP/$PRGNAM-$VERSION $PKG
 mkdir -p $TMP $PKG $OUTPUT

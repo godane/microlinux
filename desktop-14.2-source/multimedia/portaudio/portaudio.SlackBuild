@@ -65,7 +65,7 @@ set -e
 
 DOWNLOAD="http://www.portaudio.com/archives/${SRCNAM}_stable_v19_${VERSION}.tgz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

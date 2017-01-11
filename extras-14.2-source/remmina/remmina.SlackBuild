@@ -69,7 +69,7 @@ set -e
 
 DOWNLOAD="https://sourceforge.net/projects/slackbuildsdirectlinks/files/$PRGNAM/$PRGNAM-next$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

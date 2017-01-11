@@ -55,7 +55,7 @@ set -e
 
 DOWNLOAD="http://search.cpan.org/CPAN/authors/id/R/RH/RHANDOM/$SRCNAM-$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 DOCS="Changes README"
 

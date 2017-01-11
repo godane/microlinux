@@ -63,7 +63,7 @@ set -e
 
 DOWNLOAD="http://ftp.nluug.nl/pub/graphics/$PRGNAM/release/Blender2.76/$PRGNAM-$SRCVERSION-$ARCH.tar.bz2"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

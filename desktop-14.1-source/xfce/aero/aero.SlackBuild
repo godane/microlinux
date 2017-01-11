@@ -54,7 +54,7 @@ THEMES="aero \
 
 for THEME in $THEMES; do
   DOWNLOAD="http://www.microlinux.fr/download/$PRGNAM/$THEME.tar.gz" 
-  wget -c $DOWNLOAD
+  [ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 done
 
 rm -rf $PKG

@@ -56,7 +56,7 @@ for THEME in $THEMES; do
   # Project seems to have vanished...
   # DOWNLOAD="http://www.infinality.net/files/$THEME.tar.gz" 
   DOWNLOAD="http://www.microlinux.fr/download/$PRGNAM/$THEME.tar.gz" 
-  wget -c $DOWNLOAD
+  [ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 done
 
 rm -rf $PKG

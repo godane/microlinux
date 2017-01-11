@@ -64,7 +64,7 @@ EXTPACK="Oracle_VM_VirtualBox_Extension_Pack"
 
 DOWNLOAD="http://download.virtualbox.org/virtualbox/$VERSION/$EXTPACK-$VERSION.vbox-extpack"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $PKG/usr/lib$LIBDIRSUFFIX/virtualbox/ExtensionPacks/$EXTPACK $OUTPUT

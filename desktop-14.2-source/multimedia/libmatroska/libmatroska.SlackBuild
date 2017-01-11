@@ -64,7 +64,7 @@ set -e
 
 DOWNLOAD="http://dl.matroska.org/downloads/$PRGNAM/$PRGNAM-$VERSION.tar.bz2"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

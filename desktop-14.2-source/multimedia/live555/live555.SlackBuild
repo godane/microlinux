@@ -54,7 +54,7 @@ set -eu
 
 DOWNLOAD="http://sourceforge.net/projects/slackbuildsdirectlinks/files/$PRGNAM/$SRCNAM.$VERSION.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

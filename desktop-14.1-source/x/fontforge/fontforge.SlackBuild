@@ -68,7 +68,7 @@ DOWNLOAD="http://unrealize.co.uk/source/$PRGNAM-$VERSION.tar.gz \
           http://fontforge.sf.net/cidmaps.tgz \
           https://download.savannah.gnu.org/releases/freetype/freetype-$FREETYPE.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

@@ -98,7 +98,7 @@ set -e
 DOWNLOAD="http://wiki.qemu.org/download/$PRGNAM-$VERSION.tar.bz2 \
           http://harrier.slackbuilds.org/misc/libusb-1.0.19.tar.xz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

@@ -69,7 +69,7 @@ set -e
 
 DOWNLOAD="http://ponce.cc/slackware/sources/repo/${PRGNAM}_${VERSION}.orig.tar.gz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 

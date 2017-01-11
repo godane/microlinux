@@ -67,7 +67,7 @@ set -e
 DOWNLOAD="http://mirrors.slackware.com/slackware/slackware-14.2/source/xap/$PRGNAM/$PRGNAM-$VERSION.tar.xz \
           http://mirrors.slackware.com/slackware/slackware-14.2/source/xap/$PRGNAM/ffmpeg-$FFMPEG.tar.xz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

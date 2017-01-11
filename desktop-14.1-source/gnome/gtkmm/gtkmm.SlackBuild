@@ -66,7 +66,7 @@ set -e
 
 DOWNLOAD="ftp://ftp.gnome.org/pub/gnome/sources/$PRGNAM/2.24/$PRGNAM-$VERSION.tar.xz"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

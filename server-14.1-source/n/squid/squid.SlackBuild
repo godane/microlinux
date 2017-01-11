@@ -66,7 +66,7 @@ set -e
 
 DOWNLOAD="http://www.squid-cache.org/Versions/v3/3.5/$PRGNAM-$VERSION.tar.bz2"
 
-wget -c $DOWNLOAD
+[ -f $(basename $DOWNLOAD) ] || wget -c $DOWNLOAD
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
